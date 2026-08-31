@@ -337,7 +337,10 @@ export const MegaMenu = ({ type, onClose }) => {
   const selectedCategory = servicesCategories.find((c) => c.id === activeServiceId) || servicesCategories[0];
   const selectedHireCategory = hireDeveloperCategories.find((c) => c.id === activeHireId) || hireDeveloperCategories[0];
 
-  // Our Work Mega Menu View (Matching Our Work Screenshot)
+  // Reusable SubMenu Link Style (Solid Blue Pill on Hover)
+  const subMenuLinkStyle = "text-xs sm:text-[13px] font-medium text-slate-700 hover:text-white hover:bg-[#005F96] px-2.5 py-1 rounded-lg inline-block transition-all duration-200 ease-in-out hover:shadow-md";
+
+  // Our Work View
   if (type === 'our-work') {
     return (
       <>
@@ -369,19 +372,17 @@ export const MegaMenu = ({ type, onClose }) => {
                 </Link>
               </div>
 
-              {/* Background Decorative Graphic Curve */}
               <div className="absolute -bottom-12 -right-12 w-56 h-56 rounded-full border-4 border-white/10 pointer-events-none" />
             </div>
 
             {/* Right Content Grid Section (~78% width) */}
             <div className="lg:col-span-9 p-8 lg:px-10 lg:py-8 bg-white flex flex-col justify-between">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-                {/* SOLUTIONS Column (Spans 4 cols) */}
                 <div className="lg:col-span-4 space-y-3">
                   <h4 className="text-[13px] font-extrabold text-[#005F96] uppercase tracking-wider border-b border-slate-100 pb-2">
                     SOLUTIONS
                   </h4>
-                  <ul className="space-y-2 text-xs sm:text-[13px]">
+                  <ul className="space-y-1 text-xs sm:text-[13px]">
                     {[
                       'Health Care App Development',
                       'Education App Development',
@@ -397,7 +398,7 @@ export const MegaMenu = ({ type, onClose }) => {
                         <Link
                           to="/portfolio"
                           onClick={onClose}
-                          className="text-slate-700 hover:text-[#005F96] font-medium block hover:translate-x-1 transition-all"
+                          className={subMenuLinkStyle}
                         >
                           {item}
                         </Link>
@@ -406,7 +407,6 @@ export const MegaMenu = ({ type, onClose }) => {
                   </ul>
                 </div>
 
-                {/* CASE STUDY Card Column (Spans 4 cols) */}
                 <div className="lg:col-span-4 space-y-3">
                   <h4 className="text-[13px] font-extrabold text-[#005F96] uppercase tracking-wider border-b border-slate-100 pb-2">
                     CASE STUDY
@@ -436,7 +436,6 @@ export const MegaMenu = ({ type, onClose }) => {
                   </Link>
                 </div>
 
-                {/* PORTFOLIO Showcase Card Column (Spans 4 cols) */}
                 <div className="lg:col-span-4 space-y-3">
                   <h4 className="text-[13px] font-extrabold text-[#005F96] uppercase tracking-wider border-b border-slate-100 pb-2">
                     PORTFOLIO
@@ -555,13 +554,13 @@ export const MegaMenu = ({ type, onClose }) => {
                 <h3 className="text-base font-extrabold text-[#005F96]">{selectedHireCategory.label}</h3>
               </div>
 
-              <ul className="space-y-2.5">
+              <ul className="space-y-1">
                 {selectedHireCategory.roles.map((role, idx) => (
                   <li key={idx}>
                     <Link
                       to="/services/dedicated-developers"
                       onClick={onClose}
-                      className="text-xs sm:text-[13px] font-medium text-slate-700 hover:text-[#005F96] hover:translate-x-1 inline-block transition-all"
+                      className={subMenuLinkStyle}
                     >
                       {role}
                     </Link>
@@ -636,14 +635,14 @@ export const MegaMenu = ({ type, onClose }) => {
             <div className="lg:col-span-6 p-6 lg:p-8 bg-white flex flex-col justify-between">
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
                 <div className="space-y-6">
-                  <div className="space-y-2.5">
+                  <div className="space-y-2">
                     <h4 className="text-[13px] font-extrabold text-[#005F96] uppercase tracking-wider">
                       MOBILE
                     </h4>
-                    <ul className="space-y-2 text-xs sm:text-[13px]">
+                    <ul className="space-y-1 text-xs sm:text-[13px]">
                       {['Android', 'iOS', 'Flutter', 'React Native', 'Xamarin'].map((tech) => (
                         <li key={tech}>
-                          <Link to="/technologies" onClick={onClose} className="text-slate-700 hover:text-[#005F96] font-medium block">
+                          <Link to="/technologies" onClick={onClose} className={subMenuLinkStyle}>
                             {tech}
                           </Link>
                         </li>
@@ -651,14 +650,14 @@ export const MegaMenu = ({ type, onClose }) => {
                     </ul>
                   </div>
 
-                  <div className="space-y-2.5">
+                  <div className="space-y-2">
                     <h4 className="text-[13px] font-extrabold text-[#005F96] uppercase tracking-wider">
                       MICROSOFT
                     </h4>
-                    <ul className="space-y-2 text-xs sm:text-[13px]">
+                    <ul className="space-y-1 text-xs sm:text-[13px]">
                       {['SharePoint', 'PowerApps', 'Power Automate'].map((tech) => (
                         <li key={tech}>
-                          <Link to="/technologies" onClick={onClose} className="text-slate-700 hover:text-[#005F96] font-medium block">
+                          <Link to="/technologies" onClick={onClose} className={subMenuLinkStyle}>
                             {tech}
                           </Link>
                         </li>
@@ -668,14 +667,14 @@ export const MegaMenu = ({ type, onClose }) => {
                 </div>
 
                 <div className="space-y-6">
-                  <div className="space-y-2.5">
+                  <div className="space-y-2">
                     <h4 className="text-[13px] font-extrabold text-[#005F96] uppercase tracking-wider">
                       BACKEND
                     </h4>
-                    <ul className="space-y-2 text-xs sm:text-[13px]">
+                    <ul className="space-y-1 text-xs sm:text-[13px]">
                       {['.NET', 'PHP', 'Java', 'Nodejs'].map((tech) => (
                         <li key={tech}>
-                          <Link to="/technologies" onClick={onClose} className="text-slate-700 hover:text-[#005F96] font-medium block">
+                          <Link to="/technologies" onClick={onClose} className={subMenuLinkStyle}>
                             {tech}
                           </Link>
                         </li>
@@ -683,14 +682,14 @@ export const MegaMenu = ({ type, onClose }) => {
                     </ul>
                   </div>
 
-                  <div className="space-y-2.5">
+                  <div className="space-y-2">
                     <h4 className="text-[13px] font-extrabold text-[#005F96] uppercase tracking-wider">
                       FRONTEND
                     </h4>
-                    <ul className="space-y-2 text-xs sm:text-[13px]">
+                    <ul className="space-y-1 text-xs sm:text-[13px]">
                       {['Angular', 'React', 'Vuejs'].map((tech) => (
                         <li key={tech}>
-                          <Link to="/technologies" onClick={onClose} className="text-slate-700 hover:text-[#005F96] font-medium block">
+                          <Link to="/technologies" onClick={onClose} className={subMenuLinkStyle}>
                             {tech}
                           </Link>
                         </li>
@@ -699,14 +698,14 @@ export const MegaMenu = ({ type, onClose }) => {
                   </div>
                 </div>
 
-                <div className="space-y-2.5">
+                <div className="space-y-2">
                   <h4 className="text-[13px] font-extrabold text-[#005F96] uppercase tracking-wider">
                     TRENDING
                   </h4>
-                  <ul className="space-y-2 text-xs sm:text-[13px]">
+                  <ul className="space-y-1 text-xs sm:text-[13px]">
                     {['Generative AI', 'AI & ML', 'Blockchain', 'Full Stack', 'VR & AR', 'IoT', 'PWD', 'RPA'].map((tech) => (
                       <li key={tech}>
-                        <Link to="/technologies" onClick={onClose} className="text-slate-700 hover:text-[#005F96] font-medium block">
+                        <Link to="/technologies" onClick={onClose} className={subMenuLinkStyle}>
                           {tech}
                         </Link>
                       </li>
@@ -714,14 +713,14 @@ export const MegaMenu = ({ type, onClose }) => {
                   </ul>
                 </div>
 
-                <div className="space-y-2.5">
+                <div className="space-y-2">
                   <h4 className="text-[13px] font-extrabold text-[#005F96] uppercase tracking-wider">
                     OTHERS
                   </h4>
-                  <ul className="space-y-2 text-xs sm:text-[13px]">
+                  <ul className="space-y-1 text-xs sm:text-[13px]">
                     {['Wordpress', 'Drupal', 'Umbraco', 'Sitecore', 'Sitefinity', 'Magento', 'Shopify'].map((tech) => (
                       <li key={tech}>
-                        <Link to="/technologies" onClick={onClose} className="text-slate-700 hover:text-[#005F96] font-medium block">
+                        <Link to="/technologies" onClick={onClose} className={subMenuLinkStyle}>
                           {tech}
                         </Link>
                       </li>
@@ -820,14 +819,14 @@ export const MegaMenu = ({ type, onClose }) => {
                 <h3 className="text-base font-extrabold text-[#005F96]">{selectedCategory.label}</h3>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2">
-                <ul className="space-y-2">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-1">
+                <ul className="space-y-1">
                   {selectedCategory.col1.map((item, idx) => (
                     <li key={idx}>
                       <Link
                         to="/services"
                         onClick={onClose}
-                        className="text-xs sm:text-[13px] font-medium text-slate-700 hover:text-[#005F96] hover:translate-x-1 inline-block transition-all"
+                        className={subMenuLinkStyle}
                       >
                         {item}
                       </Link>
@@ -835,13 +834,13 @@ export const MegaMenu = ({ type, onClose }) => {
                   ))}
                 </ul>
 
-                <ul className="space-y-2">
+                <ul className="space-y-1">
                   {selectedCategory.col2.map((item, idx) => (
                     <li key={idx}>
                       <Link
                         to="/services"
                         onClick={onClose}
-                        className="text-xs sm:text-[13px] font-medium text-slate-700 hover:text-[#005F96] hover:translate-x-1 inline-block transition-all"
+                        className={subMenuLinkStyle}
                       >
                         {item}
                       </Link>
@@ -1068,32 +1067,32 @@ export const MegaMenu = ({ type, onClose }) => {
                 <h4 className="text-[13px] font-extrabold text-[#005F96] uppercase tracking-wider mb-2">
                   ABOUT US
                 </h4>
-                <div className="grid grid-cols-3 gap-3">
-                  <ul className="space-y-2 text-xs sm:text-[13px]">
-                    <li><Link to="/about" onClick={onClose} className="text-slate-600 hover:text-[#005F96] font-medium block">About firevy.co</Link></li>
-                    <li><Link to="/about" onClick={onClose} className="text-slate-600 hover:text-[#005F96] font-medium block">CEO Message</Link></li>
-                    <li><Link to="/about" onClick={onClose} className="text-slate-600 hover:text-[#005F96] font-medium block">Our Team</Link></li>
-                    <li><Link to="/about" onClick={onClose} className="text-slate-600 hover:text-[#005F96] font-medium block">Events & Activities</Link></li>
-                    <li><Link to="/about" onClick={onClose} className="text-slate-600 hover:text-[#005F96] font-medium block">Brochure</Link></li>
+                <div className="grid grid-cols-3 gap-2">
+                  <ul className="space-y-1">
+                    <li><Link to="/about" onClick={onClose} className={subMenuLinkStyle}>About firevy.co</Link></li>
+                    <li><Link to="/about" onClick={onClose} className={subMenuLinkStyle}>CEO Message</Link></li>
+                    <li><Link to="/about" onClick={onClose} className={subMenuLinkStyle}>Our Team</Link></li>
+                    <li><Link to="/about" onClick={onClose} className={subMenuLinkStyle}>Events & Activities</Link></li>
+                    <li><Link to="/about" onClick={onClose} className={subMenuLinkStyle}>Brochure</Link></li>
                   </ul>
 
-                  <ul className="space-y-2 text-xs sm:text-[13px]">
-                    <li><Link to="/about" onClick={onClose} className="text-slate-600 hover:text-[#005F96] font-medium block">Why Choose Us</Link></li>
-                    <li><Link to="/careers" onClick={onClose} className="text-slate-600 hover:text-[#005F96] font-medium block">Great Place To Work</Link></li>
-                    <li><Link to="/about" onClick={onClose} className="text-slate-600 hover:text-[#005F96] font-medium block">Women Empowerment</Link></li>
-                    <li><Link to="/about" onClick={onClose} className="text-slate-600 hover:text-[#005F96] font-medium block">Awards & Recognition</Link></li>
+                  <ul className="space-y-1">
+                    <li><Link to="/about" onClick={onClose} className={subMenuLinkStyle}>Why Choose Us</Link></li>
+                    <li><Link to="/careers" onClick={onClose} className={subMenuLinkStyle}>Great Place To Work</Link></li>
+                    <li><Link to="/about" onClick={onClose} className={subMenuLinkStyle}>Women Empowerment</Link></li>
+                    <li><Link to="/about" onClick={onClose} className={subMenuLinkStyle}>Awards & Recognition</Link></li>
                     <li>
-                      <button onClick={() => openVideo('/Best Software Development Company in USA - Sapphire Software Sol.mp4')} className="text-slate-600 hover:text-[#005F96] font-medium block text-left">
+                      <button onClick={() => openVideo('/Best Software Development Company in USA - Sapphire Software Sol.mp4')} className={`${subMenuLinkStyle} w-full text-left`}>
                         Insightful Videos
                       </button>
                     </li>
                   </ul>
 
-                  <ul className="space-y-2 text-xs sm:text-[13px]">
-                    <li><Link to="/about" onClick={onClose} className="text-slate-600 hover:text-[#005F96] font-medium block">Blog</Link></li>
-                    <li><Link to="/careers" onClick={onClose} className="text-slate-600 hover:text-[#005F96] font-medium block">Careers (Jobs)</Link></li>
-                    <li><Link to="/about" onClick={onClose} className="text-slate-600 hover:text-[#005F96] font-medium block">CSR</Link></li>
-                    <li><Link to="/about" onClick={onClose} className="text-slate-600 hover:text-[#005F96] font-medium block">Podcast</Link></li>
+                  <ul className="space-y-1">
+                    <li><Link to="/about" onClick={onClose} className={subMenuLinkStyle}>Blog</Link></li>
+                    <li><Link to="/careers" onClick={onClose} className={subMenuLinkStyle}>Careers (Jobs)</Link></li>
+                    <li><Link to="/about" onClick={onClose} className={subMenuLinkStyle}>CSR</Link></li>
+                    <li><Link to="/about" onClick={onClose} className={subMenuLinkStyle}>Podcast</Link></li>
                   </ul>
                 </div>
               </div>
@@ -1102,10 +1101,10 @@ export const MegaMenu = ({ type, onClose }) => {
                 <h4 className="text-[13px] font-extrabold text-[#005F96] uppercase tracking-wider mb-2">
                   MODELS
                 </h4>
-                <ul className="space-y-2 text-xs sm:text-[13px]">
-                  <li><Link to="/process" onClick={onClose} className="text-slate-600 hover:text-[#005F96] font-medium block">Delivery Models</Link></li>
-                  <li><Link to="/about" onClick={onClose} className="text-slate-600 hover:text-[#005F96] font-medium block">Engagement Models</Link></li>
-                  <li><Link to="/process" onClick={onClose} className="text-slate-600 hover:text-[#005F96] font-medium block">Development Methodology</Link></li>
+                <ul className="space-y-1">
+                  <li><Link to="/process" onClick={onClose} className={subMenuLinkStyle}>Delivery Models</Link></li>
+                  <li><Link to="/about" onClick={onClose} className={subMenuLinkStyle}>Engagement Models</Link></li>
+                  <li><Link to="/process" onClick={onClose} className={subMenuLinkStyle}>Development Methodology</Link></li>
                 </ul>
               </div>
 
@@ -1113,15 +1112,15 @@ export const MegaMenu = ({ type, onClose }) => {
                 <h4 className="text-[13px] font-extrabold text-[#005F96] uppercase tracking-wider mb-2">
                   TESTIMONIAL
                 </h4>
-                <ul className="space-y-2 text-xs sm:text-[13px]">
-                  <li><Link to="/portfolio" onClick={onClose} className="text-slate-600 hover:text-[#005F96] font-medium block">Client Testimonials</Link></li>
+                <ul className="space-y-1">
+                  <li><Link to="/portfolio" onClick={onClose} className={subMenuLinkStyle}>Client Testimonials</Link></li>
                   <li>
-                    <button onClick={() => openVideo('/Best Software Development Company in USA - Sapphire Software Sol.mp4')} className="text-slate-600 hover:text-[#005F96] font-medium flex items-center space-x-1.5 text-left">
+                    <button onClick={() => openVideo('/Best Software Development Company in USA - Sapphire Software Sol.mp4')} className={`${subMenuLinkStyle} w-full flex items-center justify-between text-left`}>
                       <span>Video Testimonial</span>
-                      <Play className="w-3 h-3 text-cyan-600 fill-current" />
+                      <Play className="w-3 h-3 text-cyan-600 fill-current ml-1 inline" />
                     </button>
                   </li>
-                  <li><Link to="/portfolio" onClick={onClose} className="text-slate-600 hover:text-[#005F96] font-medium block">Clutch Testimonial</Link></li>
+                  <li><Link to="/portfolio" onClick={onClose} className={subMenuLinkStyle}>Clutch Testimonial</Link></li>
                 </ul>
               </div>
             </div>
