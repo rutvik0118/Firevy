@@ -4,9 +4,9 @@ export const BRAND = {
   tagline: "Engineering Digital Experiences That Create Impact",
   subHeadline: "We design and develop scalable web, mobile, cloud, AI and enterprise software solutions that transform ambitious ideas into measurable business outcomes.",
   logo: "/firevy.logo.png",
-  
+
   contact: {
-    email: "contact@firevy.co",
+    email: "firevyco.xyz@gmail.com",
     salesEmail: "sales@firevy.co",
     careersEmail: "careers@firevy.co",
     phoneUS: "+1 (800) 592-7410",

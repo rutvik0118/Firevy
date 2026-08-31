@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Sparkles, Mail, Calendar, Briefcase, MessageSquare } from 'lucide-react';
@@ -10,6 +10,7 @@ export const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const location = useLocation();
+  const timeoutRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,6 +28,18 @@ export const Header = () => {
     setMobileMenuOpen(false);
     setActiveDropdown(null);
   }, [location]);
+
+  const handleMenuHover = (menuType) => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    setActiveDropdown(menuType);
+  };
+
+  const handleMenuLeave = () => {
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    timeoutRef.current = setTimeout(() => {
+      setActiveDropdown(null);
+    }, 250); // 250ms smooth grace period
+  };
 
   const navLinks = [
     { name: 'Company', hasMenu: 'company', path: '/about' },
@@ -109,7 +122,7 @@ export const Header = () => {
           {/* Desktop Nav & Action CTAs Grouped Right Beside Each Other */}
           <div className="hidden lg:flex items-center space-x-6 xl:space-x-7">
             {/* Desktop Navigation List */}
-            <nav className="flex items-center space-x-5 xl:space-x-6" onMouseLeave={() => setActiveDropdown(null)}>
+            <nav className="flex items-center space-x-5 xl:space-x-6" onMouseLeave={handleMenuLeave}>
               {navLinks.map((link) => {
                 const isActive = location.pathname === link.path || activeDropdown === link.hasMenu;
                 const hasMenu = Boolean(link.hasMenu);
@@ -118,7 +131,7 @@ export const Header = () => {
                   <div
                     key={link.name}
                     className="relative py-2"
-                    onMouseEnter={() => hasMenu && setActiveDropdown(link.hasMenu)}
+                    onMouseEnter={() => hasMenu && handleMenuHover(link.hasMenu)}
                   >
                     <Link
                       to={link.path}
@@ -151,9 +164,8 @@ export const Header = () => {
               })}
             </nav>
 
-            {/* Right Action CTAs (Right beside Our Work) */}
+            {/* Right Action CTAs */}
             <div className="flex items-center space-x-3 shrink-0 ml-2">
-              {/* Let's Talk AI Button */}
               <Link
                 to="/contact"
                 className="inline-flex items-center justify-center px-5 py-2.5 text-sm font-bold text-white rounded-[6px] bg-gradient-to-r from-[#D81B60] via-[#8E24AA] to-[#7B1FA2] hover:opacity-95 shadow-md transition-all duration-300 hover:scale-102"
@@ -162,7 +174,6 @@ export const Header = () => {
                 <span>Let's Talk AI</span>
               </Link>
 
-              {/* Contact Us Button */}
               <Link
                 to="/contact"
                 className={`inline-flex items-center justify-center px-5 py-2.5 text-sm font-bold rounded-[6px] transition-all duration-300 shadow-md ${
@@ -193,7 +204,12 @@ export const Header = () => {
         {/* Full-Width Mega Menu Dropdown */}
         <AnimatePresence>
           {activeDropdown && (
-            <div onMouseLeave={() => setActiveDropdown(null)}>
+            <div
+              onMouseEnter={() => {
+                if (timeoutRef.current) clearTimeout(timeoutRef.current);
+              }}
+              onMouseLeave={handleMenuLeave}
+            >
               <MegaMenu type={activeDropdown} onClose={() => setActiveDropdown(null)} />
             </div>
           )}
