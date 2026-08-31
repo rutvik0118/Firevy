@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Phone, MessageSquare, Check, Sparkles, ChevronRight, Play } from 'lucide-react';
+import { ArrowRight, Phone, MessageSquare } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Container from '../common/Container';
 import BRAND from '../../constants/brand';
@@ -58,6 +58,8 @@ export const Hero = () => {
   }, []);
 
   const slide = heroSlides[currentSlide];
+  const phoneUS = BRAND?.contact?.phoneUS || '+1 (800) 592-7410';
+  const phoneRaw = phoneUS.replace(/[^0-9]/g, '');
 
   return (
     <section className="relative min-h-[92vh] flex items-center justify-center pt-24 pb-20 overflow-hidden bg-slate-950 font-sans text-left">
@@ -81,14 +83,14 @@ export const Hero = () => {
       {/* 2. Floating Quick Contact Bar on Right Edge */}
       <div className="fixed right-0 top-1/2 -translate-y-1/2 z-40 flex flex-col space-y-2">
         <a
-          href={`tel:${BRAND.salesPhoneUSA}`}
+          href={`tel:${phoneUS}`}
           title="Call Us"
           className="bg-[#005F96] hover:bg-[#004A75] text-white p-3.5 rounded-l-xl shadow-2xl border-l border-y border-white/20 transition-all hover:pl-5 group flex items-center justify-center"
         >
           <Phone className="w-5 h-5 group-hover:scale-110 transition-transform" />
         </a>
         <a
-          href={`https://wa.me/${BRAND.salesPhoneUSA.replace(/[^0-9]/g, '')}`}
+          href={`https://wa.me/${phoneRaw}`}
           target="_blank"
           rel="noopener noreferrer"
           title="WhatsApp Us"
@@ -157,7 +159,7 @@ export const Hero = () => {
                 <div className="pt-4 flex items-center space-x-4">
                   <Link
                     to="/contact"
-                    className="inline-flex items-center justify-center px-8 py-3.5 rounded-lg bg-[#005F96] text-white font-black text-base hover:bg-[#004A75] transition-all shadow-xl hover:shadow-cyan-500/20 hover:scale-105 active:scale-95 group"
+                    className="inline-flex items-center justify-center px-8 py-3.5 rounded-lg bg-[#005F96] text-[#FFFFFF] font-black text-base hover:bg-[#004A75] transition-all shadow-xl hover:shadow-cyan-500/20 hover:scale-105 active:scale-95 group"
                   >
                     <span>Let's Talk</span>
                     <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
