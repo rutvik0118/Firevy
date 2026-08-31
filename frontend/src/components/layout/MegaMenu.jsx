@@ -1,18 +1,338 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Play, X, Star, BookOpen, GraduationCap, HeartPulse, Sparkles, Building2, Code2 } from 'lucide-react';
+import { ArrowRight, Play, X, ChevronRight, GraduationCap, BookOpen, HeartPulse, Sparkles } from 'lucide-react';
+
+export const servicesCategories = [
+  {
+    id: 'mobile',
+    label: 'Mobile App Development',
+    col1: [
+      'iWatch App Development',
+      'Mobile App Development',
+      'Cross Platform App Development',
+      'iPad App Development Services',
+      'Kotlin App Development',
+      'Hybrid App Development',
+      'Progressive Web App Development',
+      'Personal Fitness App',
+      'Used Car App Development',
+      'Enneagram Test App',
+      'Credit Card App Development'
+    ],
+    col2: [
+      'Swift App Development',
+      'IBeacon App Development',
+      'Wearable App Development',
+      'Native App Development',
+      'Windows App Development',
+      'Custom Mobile App Development',
+      'B2B Mobile App Development',
+      'Windows 11 App Development',
+      'Ride Sharing App Development',
+      'Visa Card App Development',
+      'Wellness App Development'
+    ]
+  },
+  {
+    id: 'backend',
+    label: 'Back End Development',
+    col1: [
+      'Node.js API Engineering',
+      'Express.js Microservices',
+      'Python & FastAPI Backend',
+      'Django Web Framework',
+      'RESTful API Architecture',
+      'GraphQL Service Layer'
+    ],
+    col2: [
+      'Serverless Backend (AWS Lambda)',
+      'Database Optimization & SQL',
+      'PostgreSQL & MongoDB Ops',
+      'Payment Gateway Integration',
+      'High-Throughput Microservices',
+      'Redis Caching & PubSub'
+    ]
+  },
+  {
+    id: 'ai',
+    label: 'AI & ML Development',
+    col1: [
+      'Custom Generative AI',
+      'RAG Knowledge Base Systems',
+      'Autonomous AI Agents',
+      'LLM Fine-Tuning & Prompt Ops',
+      'Computer Vision Systems',
+      'Predictive Analytics Engines'
+    ],
+    col2: [
+      'NLP Data Processing',
+      'PyTorch & TensorFlow Models',
+      'OpenAI & LangChain Integration',
+      'Vector Database Architecture',
+      'Voice AI & Chatbots',
+      'Enterprise AI Automation'
+    ]
+  },
+  {
+    id: 'frontend',
+    label: 'Front End Development',
+    col1: [
+      'React.js Web Applications',
+      'Next.js Fullstack Platforms',
+      'Vue.js & Nuxt Applications',
+      'Single Page Applications (SPA)',
+      'Progressive Web Apps (PWA)',
+      'Responsive UI/UX Engineering'
+    ],
+    col2: [
+      'TypeScript Architecture',
+      'Tailwind CSS Design Systems',
+      'WebAssembly High Performance',
+      'Redux & Zustand State Ops',
+      'Core Web Vitals Optimization',
+      'Headless Storefront Engineering'
+    ]
+  },
+  {
+    id: 'microsoft',
+    label: 'Microsoft Development',
+    col1: [
+      '.NET Core Engineering',
+      'ASP.NET Web Applications',
+      'Azure Cloud Native Apps',
+      'C# Enterprise Software',
+      'SharePoint Solutions'
+    ],
+    col2: [
+      'Power BI Data Analytics',
+      'Power Apps Automation',
+      'Office 365 API Integration',
+      'Microsoft SQL Server Ops',
+      'Dynamics 365 Solutions'
+    ]
+  },
+  {
+    id: 'blockchain',
+    label: 'Blockchain Development',
+    col1: [
+      'Smart Contract Auditing',
+      'Web3 DApp Development',
+      'Ethereum & EVM Chains',
+      'DeFi Protocol Engineering',
+      'NFT Marketplace Architecture'
+    ],
+    col2: [
+      'Tokenomics & ERC-20 Tokens',
+      'Hyperledger Enterprise',
+      'Solana Ecosystem Apps',
+      'Crypto Wallet Integration',
+      'Cross-Chain Bridge Systems'
+    ]
+  },
+  {
+    id: 'software',
+    label: 'Software Development Service',
+    col1: [
+      'Enterprise ERP Platforms',
+      'Custom CRM Software',
+      'Legacy System Modernization',
+      'SaaS Product Engineering',
+      'Dedicated Engineering Squads'
+    ],
+    col2: [
+      'High-Availability Systems',
+      'Distributed Architectures',
+      'Software Maintenance & Ops',
+      'Code Security Auditing',
+      'Agile Sprint Methodology'
+    ]
+  },
+  {
+    id: 'arvr',
+    label: 'AR/VR Development',
+    col1: [
+      'Unity 3D App Development',
+      'Unreal Engine 5 Applications',
+      'Spatial Computing Apps',
+      'Virtual Reality Training',
+      'AR Product Preview Systems'
+    ],
+    col2: [
+      'Apple Vision Pro VisionOS',
+      'WebXR Immersive Web',
+      '3D Asset & Mesh Modeling',
+      'Mixed Reality Enterprise',
+      'Interactive Simulations'
+    ]
+  },
+  {
+    id: 'cloud',
+    label: 'Cloud & DevOps',
+    col1: [
+      'AWS Cloud Infrastructure',
+      'Google Cloud Platform (GCP)',
+      'Docker & Containerization',
+      'Kubernetes Orchestration',
+      'CI/CD Pipeline Automation'
+    ],
+    col2: [
+      'Terraform Infrastructure Code',
+      'Zero-Downtime Cloud Move',
+      '24/7 Cloud Security Monitoring',
+      'Serverless Architectures',
+      'FinOps Cost Optimization'
+    ]
+  },
+  {
+    id: 'other',
+    label: 'Other Services',
+    col1: [
+      'QA & Automated E2E Testing',
+      'Cybersecurity & OWASP Audits',
+      'UI/UX Product Design',
+      'Data Engineering Pipelines'
+    ],
+    col2: [
+      'Technical SEO & Performance',
+      'IoT Firmware & Sensor Apps',
+      'Headless E-Commerce Storefronts',
+      'API Integration Gateways'
+    ]
+  },
+  {
+    id: 'consulting',
+    label: 'Tech Consulting Services',
+    col1: [
+      'CTO Advisory & Tech Audit',
+      'Architecture System Review',
+      'Security & Compliance Audit',
+      'Cloud Strategy & Roadmap'
+    ],
+    col2: [
+      'AI Adoption Consulting',
+      'Software Scalability Review',
+      'Cost Reduction Strategy',
+      'Team Scaling & Advisory'
+    ]
+  }
+];
 
 export const MegaMenu = ({ type, onClose }) => {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   const [activeVideoSrc, setActiveVideoSrc] = useState('/Best Software Development Company in USA - Sapphire Software Sol.mp4');
+  const [activeServiceId, setActiveServiceId] = useState('mobile');
 
   const openVideo = (src) => {
     if (src) setActiveVideoSrc(src);
     setIsVideoModalOpen(true);
   };
 
-  // Product / Solutions Mega Menu View
+  const selectedCategory = servicesCategories.find((c) => c.id === activeServiceId) || servicesCategories[0];
+
+  // Services Mega Menu View (Matching Service Screenshot)
+  if (type === 'services') {
+    return (
+      <>
+        <motion.div
+          initial={{ opacity: 0, y: -8 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -8 }}
+          transition={{ duration: 0.2 }}
+          className="fixed left-0 right-0 top-[108px] w-full bg-white shadow-2xl border-t border-slate-200 text-slate-900 z-50 font-sans text-left overflow-hidden"
+          onMouseEnter={(e) => e.stopPropagation()}
+        >
+          <div className="w-full grid grid-cols-1 lg:grid-cols-12 min-h-[460px]">
+            {/* Left Blue Sidebar Section (~22% width) */}
+            <div className="lg:col-span-3 bg-gradient-to-b from-[#005F96] via-[#004B77] to-[#003758] p-8 text-white flex flex-col justify-between relative overflow-hidden">
+              <div className="space-y-4 relative z-10">
+                <h2 className="text-3xl font-extrabold tracking-tight text-white">Service</h2>
+                <p className="text-[13.5px] text-blue-100 leading-relaxed font-normal">
+                  Our Portfolio Of Services Range From Designing Strategy To Delivering Impact.
+                </p>
+              </div>
+
+              <div className="pt-8 relative z-10">
+                <Link
+                  to="/contact"
+                  onClick={onClose}
+                  className="inline-flex items-center justify-center px-6 py-3 rounded-md bg-white text-[#004A75] font-bold text-sm hover:bg-slate-100 transition-colors shadow-lg group w-full"
+                >
+                  <span>Hire Now</span>
+                </Link>
+              </div>
+
+              {/* Background Decorative Graphic Curve */}
+              <div className="absolute -bottom-12 -right-12 w-56 h-56 rounded-full border-4 border-white/10 pointer-events-none" />
+            </div>
+
+            {/* Middle Vertical Category Menu (~25% width / 3 cols) */}
+            <div className="lg:col-span-3 bg-slate-50 border-r border-slate-200 py-3 overflow-y-auto max-h-[460px]">
+              {servicesCategories.map((cat) => {
+                const isCatActive = cat.id === activeServiceId;
+                return (
+                  <button
+                    key={cat.id}
+                    onMouseEnter={() => setActiveServiceId(cat.id)}
+                    onClick={() => setActiveServiceId(cat.id)}
+                    className={`w-full px-5 py-2.5 flex items-center justify-between text-left text-xs sm:text-[13px] font-bold transition-colors ${
+                      isCatActive
+                        ? 'bg-white text-[#005F96] shadow-sm border-l-4 border-[#005F96]'
+                        : 'text-slate-700 hover:text-[#005F96] hover:bg-slate-100/80'
+                    }`}
+                  >
+                    <span className="truncate pr-2">{cat.label}</span>
+                    <ChevronRight className={`w-3.5 h-3.5 shrink-0 ${isCatActive ? 'text-[#005F96]' : 'text-slate-400'}`} />
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Right Sub-Services Columns (~53% width / 6 cols) */}
+            <div className="lg:col-span-6 p-6 lg:p-8 bg-white overflow-y-auto max-h-[460px]">
+              <div className="border-b border-slate-100 pb-3 mb-4">
+                <h3 className="text-base font-extrabold text-[#005F96]">{selectedCategory.label}</h3>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2">
+                {/* Column 1 */}
+                <ul className="space-y-2">
+                  {selectedCategory.col1.map((item, idx) => (
+                    <li key={idx}>
+                      <Link
+                        to="/services"
+                        onClick={onClose}
+                        className="text-xs sm:text-[13px] font-medium text-slate-700 hover:text-[#005F96] hover:translate-x-1 inline-block transition-all"
+                      >
+                        {item}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+
+                {/* Column 2 */}
+                <ul className="space-y-2">
+                  {selectedCategory.col2.map((item, idx) => (
+                    <li key={idx}>
+                      <Link
+                        to="/services"
+                        onClick={onClose}
+                        className="text-xs sm:text-[13px] font-medium text-slate-700 hover:text-[#005F96] hover:translate-x-1 inline-block transition-all"
+                      >
+                        {item}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </>
+    );
+  }
+
+  // Product / Solutions View
   if (type === 'solutions') {
     return (
       <>
@@ -25,7 +345,7 @@ export const MegaMenu = ({ type, onClose }) => {
           onMouseEnter={(e) => e.stopPropagation()}
         >
           <div className="w-full grid grid-cols-1 lg:grid-cols-12 min-h-[440px]">
-            {/* Left Blue Sidebar Banner Section (~22% width) */}
+            {/* Left Blue Sidebar Section (~22% width) */}
             <div className="lg:col-span-3 bg-gradient-to-b from-[#005F96] via-[#004B77] to-[#003758] p-8 lg:p-10 text-white flex flex-col justify-between relative overflow-hidden">
               <div className="space-y-5 relative z-10">
                 <h2 className="text-3xl font-extrabold tracking-tight text-white">Product</h2>
@@ -51,9 +371,8 @@ export const MegaMenu = ({ type, onClose }) => {
             {/* Center & Right Section (~78% width) */}
             <div className="lg:col-span-9 p-8 lg:px-10 lg:py-8 bg-white flex flex-col justify-between">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-                {/* Center: 3 Product Cards (Spans 8 columns) */}
+                {/* Center: 3 Product Cards */}
                 <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-5">
-                  {/* Card 1: Vidyalaya School Management */}
                   <Link
                     to="/services/software-development"
                     onClick={onClose}
@@ -73,7 +392,6 @@ export const MegaMenu = ({ type, onClose }) => {
                     </span>
                   </Link>
 
-                  {/* Card 2: Vidyalaya LMS */}
                   <Link
                     to="/services/software-development"
                     onClick={onClose}
@@ -93,7 +411,6 @@ export const MegaMenu = ({ type, onClose }) => {
                     </span>
                   </Link>
 
-                  {/* Card 3: OccuCare Health & Safety */}
                   <Link
                     to="/services/software-development"
                     onClick={onClose}
@@ -114,7 +431,7 @@ export const MegaMenu = ({ type, onClose }) => {
                   </Link>
                 </div>
 
-                {/* Right: Partner With Us Banner (Spans 4 columns) */}
+                {/* Right: Partner Banner */}
                 <div className="lg:col-span-4 rounded-2xl bg-[#EDF6FC] border border-blue-100 p-6 flex flex-col items-center text-center justify-between relative overflow-hidden">
                   <div className="space-y-2 relative z-10 pt-2">
                     <span className="text-xs font-medium text-slate-600 block">Let's grow together</span>
@@ -146,7 +463,6 @@ export const MegaMenu = ({ type, onClose }) => {
                   REVIEWS AND RATING
                 </h4>
                 <div className="flex flex-wrap items-center gap-4">
-                  {/* Google */}
                   <div className="flex items-center space-x-2 bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-lg">
                     <img src="/images/google.webp" alt="Google" className="h-5 w-auto object-contain" />
                     <div>
@@ -155,7 +471,6 @@ export const MegaMenu = ({ type, onClose }) => {
                     </div>
                   </div>
 
-                  {/* Clutch */}
                   <div className="flex items-center space-x-2 bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-lg">
                     <img src="/images/clutch.webp" alt="Clutch" className="h-5 w-auto object-contain" />
                     <div>
@@ -164,7 +479,6 @@ export const MegaMenu = ({ type, onClose }) => {
                     </div>
                   </div>
 
-                  {/* GoodFirms */}
                   <div className="flex items-center space-x-2 bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-lg">
                     <img src="/images/goodfirms.webp" alt="GoodFirms" className="h-5 w-auto object-contain" />
                     <div>
@@ -173,7 +487,6 @@ export const MegaMenu = ({ type, onClose }) => {
                     </div>
                   </div>
 
-                  {/* DesignRush */}
                   <div className="flex items-center space-x-2 bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-lg">
                     <span className="font-extrabold text-xs text-blue-900">DESIGN<span className="text-cyan-500">RUSH</span></span>
                     <div>
@@ -182,7 +495,6 @@ export const MegaMenu = ({ type, onClose }) => {
                     </div>
                   </div>
 
-                  {/* TechReviewer */}
                   <div className="flex items-center space-x-2 bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-lg">
                     <span className="font-bold text-xs text-red-600">TechReviewer</span>
                     <div>
@@ -199,7 +511,7 @@ export const MegaMenu = ({ type, onClose }) => {
     );
   }
 
-  // Company / Default Mega Menu View
+  // Company View (Default)
   return (
     <>
       <motion.div
@@ -314,7 +626,6 @@ export const MegaMenu = ({ type, onClose }) => {
                   REVIEWS AND RATING
                 </h4>
                 <div className="flex flex-wrap items-center gap-4">
-                  {/* Google Review Badge */}
                   <div className="flex items-center space-x-2 bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-lg">
                     <img src="/images/google.webp" alt="Google" className="h-5 w-auto object-contain" />
                     <div>
@@ -323,7 +634,6 @@ export const MegaMenu = ({ type, onClose }) => {
                     </div>
                   </div>
 
-                  {/* Clutch Badge */}
                   <div className="flex items-center space-x-2 bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-lg">
                     <img src="/images/clutch.webp" alt="Clutch" className="h-5 w-auto object-contain" />
                     <div>
@@ -332,7 +642,6 @@ export const MegaMenu = ({ type, onClose }) => {
                     </div>
                   </div>
 
-                  {/* GoodFirms Badge */}
                   <div className="flex items-center space-x-2 bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-lg">
                     <img src="/images/goodfirms.webp" alt="GoodFirms" className="h-5 w-auto object-contain" />
                     <div>
@@ -341,7 +650,6 @@ export const MegaMenu = ({ type, onClose }) => {
                     </div>
                   </div>
 
-                  {/* DesignRush Badge */}
                   <div className="flex items-center space-x-2 bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-lg">
                     <span className="font-extrabold text-xs text-blue-900">DESIGN<span className="text-cyan-500">RUSH</span></span>
                     <div>
