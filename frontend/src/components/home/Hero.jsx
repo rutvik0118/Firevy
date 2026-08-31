@@ -1,176 +1,206 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { ArrowRight, Code2, Cpu, ShieldCheck, Sparkles, Zap, Layers } from 'lucide-react';
-import Button from '../common/Button';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowRight, Phone, MessageSquare, Check, Sparkles, ChevronRight, Play } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import Container from '../common/Container';
 import BRAND from '../../constants/brand';
 
-export const Hero = () => {
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+const heroSlides = [
+  {
+    tag: 'AI Innovation',
+    titleLine1: 'Your Vision,',
+    titleLine2: 'Our Technology',
+    subTag: '(Limitless Possibilities)',
+    bullets: [
+      'Recognized as #1 Web Development Company in India and USA.',
+      'Trusted by 20+ Fortune 500 Companies and a Clutch Leader.',
+      "We've been Redefining Excellence for over Two Decades."
+    ],
+    rightBoxTitle: 'Redefined Learning Experiences',
+    rightBoxSub: 'With Intelligent AI Innovation'
+  },
+  {
+    tag: 'Enterprise Engineering',
+    titleLine1: 'Scalable Systems,',
+    titleLine2: 'Global Performance',
+    subTag: '(Engineered for Growth)',
+    bullets: [
+      'Top 1% Senior React, Node & Cloud Architects.',
+      'ISO 9001:2015 & Enterprise SOC2 Ready Infrastructure.',
+      'Sub-50ms API Latency with 99.99% Guaranteed Uptime.'
+    ],
+    rightBoxTitle: 'Cloud & AI Microservices',
+    rightBoxSub: 'Driven by Next-Gen Innovation'
+  },
+  {
+    tag: 'Custom App Solutions',
+    titleLine1: 'Transforming Ideas,',
+    titleLine2: 'Empowering Brands',
+    subTag: '(Native & Cross-Platform)',
+    bullets: [
+      '500+ High-Impact Digital Products Delivered Worldwide.',
+      'Seamless Multi-Device Web & Mobile UX Engineering.',
+      'Agile 2-Week Sprint Delivery with Full Transparency.'
+    ],
+    rightBoxTitle: 'Immersive Product Design',
+    rightBoxSub: 'Crafted for Modern Enterprise'
+  }
+];
 
-  const handleMouseMove = (e) => {
-    const { clientX, clientY } = e;
-    const { innerWidth, innerHeight } = window;
-    const x = (clientX / innerWidth - 0.5) * 20;
-    const y = (clientY / innerHeight - 0.5) * 20;
-    setMousePos({ x, y });
-  };
+export const Hero = () => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+    }, 7000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const slide = heroSlides[currentSlide];
 
   return (
-    <section
-      onMouseMove={handleMouseMove}
-      className="relative min-h-[90vh] flex items-center justify-center pt-12 pb-24 overflow-hidden bg-tech-grid"
-    >
-      {/* Dynamic Background Glow Orbs */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-600/15 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute top-1/3 right-1/4 w-[400px] h-[400px] bg-purple-600/15 rounded-full blur-[120px] pointer-events-none" />
+    <section className="relative min-h-[92vh] flex items-center justify-center pt-24 pb-20 overflow-hidden bg-slate-950 font-sans text-left">
+      {/* 1. Background Video Layer */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <video
+          src="/Best Software Development Company in USA - Sapphire Software Sol.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover scale-105 filter brightness-[0.7]"
+        />
+        {/* Dark Blue / Purple Gradient Overlay matching reference image */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#031120]/90 via-[#071D35]/80 to-[#0A071E]/85 backdrop-blur-[2px]" />
+        
+        {/* 3D Wireframe Mesh Graphic Overlay */}
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1/2 h-full opacity-20 pointer-events-none bg-[radial-gradient(#005F96_1px,transparent_1px)] [background-size:24px_24px]" />
+      </div>
 
-      <Container className="relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-          {/* Left Hero Content */}
-          <div className="lg:col-span-7 flex flex-col items-start text-left space-y-6">
-            {/* Top Pill Badge */}
+      {/* 2. Floating Quick Contact Bar on Right Edge */}
+      <div className="fixed right-0 top-1/2 -translate-y-1/2 z-40 flex flex-col space-y-2">
+        <a
+          href={`tel:${BRAND.salesPhoneUSA}`}
+          title="Call Us"
+          className="bg-[#005F96] hover:bg-[#004A75] text-white p-3.5 rounded-l-xl shadow-2xl border-l border-y border-white/20 transition-all hover:pl-5 group flex items-center justify-center"
+        >
+          <Phone className="w-5 h-5 group-hover:scale-110 transition-transform" />
+        </a>
+        <a
+          href={`https://wa.me/${BRAND.salesPhoneUSA.replace(/[^0-9]/g, '')}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          title="WhatsApp Us"
+          className="bg-[#005F96] hover:bg-[#004A75] text-white p-3.5 rounded-l-xl shadow-2xl border-l border-y border-white/20 transition-all hover:pl-5 group flex items-center justify-center"
+        >
+          <MessageSquare className="w-5 h-5 group-hover:scale-110 transition-transform" />
+        </a>
+      </div>
+
+      {/* 3. Hero Main Content Container */}
+      <Container className="relative z-10 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          {/* Left Text Column */}
+          <div className="lg:col-span-8 space-y-6">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentSlide}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: 20 }}
+                transition={{ duration: 0.5 }}
+                className="space-y-5"
+              >
+                {/* Category Tag (AI Innovation) */}
+                <div className="inline-block">
+                  <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-wide">
+                    {slide.tag}
+                  </h3>
+                </div>
+
+                {/* Main Heading with Gradient Text */}
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.15]">
+                  <span className="text-[#005F96] text-white block">{slide.titleLine1}</span>
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-300 to-pink-500 font-black">
+                    {slide.titleLine2}
+                  </span>
+                </h1>
+
+                {/* Subtag (Limitless Possibilities) */}
+                <p className="text-lg sm:text-xl font-semibold text-slate-300 tracking-wide">
+                  {slide.subTag}
+                </p>
+
+                {/* Bullet Points List matching reference screenshot */}
+                <ul className="space-y-3 pt-2 max-w-2xl text-slate-200 text-sm sm:text-base font-medium">
+                  {slide.bullets.map((bullet, idx) => (
+                    <li key={idx} className="flex items-start space-x-3">
+                      <span className="text-cyan-400 font-bold text-lg leading-none mt-0.5">•</span>
+                      <span className="leading-snug">
+                        {bullet.includes('Recognized') ? (
+                          <>Recognized as <strong className="text-white font-extrabold">#1 Web Development</strong> Company in India and USA.</>
+                        ) : bullet.includes('Trusted') ? (
+                          <>Trusted by <strong className="text-white font-extrabold">20+ Fortune 500 Companies</strong> and a Clutch Leader.</>
+                        ) : bullet.includes('Redefining') ? (
+                          <>We've been Redefining Excellence for over <strong className="text-white font-extrabold">Two Decades.</strong></>
+                        ) : (
+                          bullet
+                        )}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+
+                {/* CTA Button */}
+                <div className="pt-4 flex items-center space-x-4">
+                  <Link
+                    to="/contact"
+                    className="inline-flex items-center justify-center px-8 py-3.5 rounded-lg bg-[#005F96] text-white font-black text-base hover:bg-[#004A75] transition-all shadow-xl hover:shadow-cyan-500/20 hover:scale-105 active:scale-95 group"
+                  >
+                    <span>Let's Talk</span>
+                    <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
+          {/* Right Bottom Highlight Box matching reference screenshot */}
+          <div className="lg:col-span-4 flex flex-col justify-end items-end relative">
+            {/* Slide Navigation Dots */}
+            <div className="flex items-center space-x-2 mb-8">
+              {heroSlides.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setCurrentSlide(idx)}
+                  className={`h-2.5 rounded-full transition-all duration-300 ${
+                    currentSlide === idx ? 'w-8 bg-[#005F96]' : 'w-2.5 bg-white/30 hover:bg-white/60'
+                  }`}
+                  aria-label={`Go to slide ${idx + 1}`}
+                />
+              ))}
+            </div>
+
+            {/* Floating Highlight Banner */}
             <motion.div
+              key={`right-${currentSlide}`}
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-blue-500/10 border border-blue-500/20 text-blue-400"
+              className="p-6 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-2xl text-right max-w-sm space-y-1 relative overflow-hidden"
             >
-              <Sparkles className="w-4 h-4 text-cyan-400 animate-pulse" />
-              <span>Next-Generation Software Engineering</span>
-            </motion.div>
-
-            {/* Main Headline */}
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.1]"
-            >
-              Building Digital Products That <span className="text-gradient">Move Businesses Forward</span>
-            </motion.h1>
-
-            {/* Subheadline */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-lg sm:text-xl text-slate-300 leading-relaxed font-normal max-w-2xl"
-            >
-              {BRAND.subHeadline}
-            </motion.p>
-
-            {/* Action Buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex flex-wrap items-center gap-4 pt-2"
-            >
-              <Button to="/contact" variant="primary" size="lg" icon={ArrowRight}>
-                Start a Project
-              </Button>
-              <Button to="/portfolio" variant="outline" size="lg">
-                Explore Our Work
-              </Button>
-            </motion.div>
-
-            {/* Highlights Bar */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              className="pt-6 grid grid-cols-3 gap-6 border-t border-gray-800/80 w-full max-w-xl text-left"
-            >
-              <div className="flex items-center space-x-2.5">
-                <ShieldCheck className="w-5 h-5 text-emerald-400 shrink-0" />
-                <span className="text-xs text-slate-300 font-medium">Enterprise SOC2 Ready</span>
-              </div>
-              <div className="flex items-center space-x-2.5">
-                <Zap className="w-5 h-5 text-amber-400 shrink-0" />
-                <span className="text-xs text-slate-300 font-medium">99.99% Cloud Uptime</span>
-              </div>
-              <div className="flex items-center space-x-2.5">
-                <Code2 className="w-5 h-5 text-blue-400 shrink-0" />
-                <span className="text-xs text-slate-300 font-medium">Top 1% Senior Engineers</span>
-              </div>
+              <div className="absolute top-0 right-0 w-32 h-32 bg-pink-500/10 rounded-full blur-2xl pointer-events-none" />
+              <h4 className="text-base font-extrabold text-white">
+                {slide.rightBoxTitle}
+              </h4>
+              <p className="text-base font-black text-pink-400">
+                {slide.rightBoxSub}
+              </p>
             </motion.div>
           </div>
 
-          {/* Right Floating 3D Technology Visual */}
-          <div className="lg:col-span-5 relative flex items-center justify-center">
-            <motion.div
-              animate={{ x: mousePos.x, y: mousePos.y }}
-              transition={{ type: 'spring', damping: 15, stiffness: 50 }}
-              className="relative w-full max-w-md aspect-square"
-            >
-              {/* Central Glowing Mesh Frame */}
-              <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-blue-600/30 via-purple-600/20 to-cyan-500/30 p-1 backdrop-blur-xl border border-white/10 shadow-2xl animate-float">
-                <div className="w-full h-full bg-brand-card/90 rounded-[22px] p-6 flex flex-col justify-between relative overflow-hidden">
-                  
-                  {/* Mock Code Block Header */}
-                  <div className="flex items-center justify-between border-b border-gray-800 pb-3">
-                    <div className="flex items-center space-x-2">
-                      <div className="w-3 h-3 rounded-full bg-red-500/80" />
-                      <div className="w-3 h-3 rounded-full bg-amber-500/80" />
-                      <div className="w-3 h-3 rounded-full bg-emerald-500/80" />
-                    </div>
-                    <span className="text-[11px] font-mono text-slate-400">firevy-architecture.ts</span>
-                  </div>
-
-                  {/* Code Fragment Visualization */}
-                  <div className="font-mono text-xs text-blue-300 space-y-2 py-4">
-                    <p className="text-purple-400">import <span className="text-cyan-300">{`{ AI, Cloud, Microservice }`}</span> from <span className="text-emerald-300">'@firevy/core'</span>;</p>
-                    <p className="text-slate-400">// Intelligent Enterprise Deployment</p>
-                    <p className="text-blue-400"><span className="text-purple-400">const</span> app = <span className="text-amber-300">new</span> DigitalProduct({`{`}</p>
-                    <p className="pl-4 text-emerald-400">performance: <span className="text-cyan-300">'99.99%'</span>,</p>
-                    <p className="pl-4 text-emerald-400">scale: <span className="text-cyan-300">'Infinite'</span>,</p>
-                    <p className="pl-4 text-emerald-400">security: <span className="text-cyan-300">'Zero-Trust'</span></p>
-                    <p className="text-blue-400">{`}`});</p>
-                    <p className="text-emerald-300">await app.deploy();</p>
-                  </div>
-
-                  {/* Status Footer */}
-                  <div className="pt-3 border-t border-gray-800 flex items-center justify-between text-xs text-slate-400">
-                    <span className="flex items-center text-emerald-400 font-semibold">
-                      <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping mr-2" />
-                      System Active
-                    </span>
-                    <span className="font-mono text-slate-500">v3.4.0</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Floating Interface Cards */}
-              <motion.div
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-                className="absolute -top-6 -left-6 bg-brand-card/90 border border-blue-500/30 p-3.5 rounded-xl shadow-glow-primary backdrop-blur-md flex items-center space-x-3 text-left"
-              >
-                <div className="p-2 rounded-lg bg-blue-500/20 text-blue-400">
-                  <Cpu className="w-5 h-5" />
-                </div>
-                <div>
-                  <div className="text-xs font-bold text-white">AI Engine</div>
-                  <div className="text-[10px] text-slate-400">LLM RAG Active</div>
-                </div>
-              </motion.div>
-
-              <motion.div
-                animate={{ y: [0, 10, 0] }}
-                transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
-                className="absolute -bottom-6 -right-6 bg-brand-card/90 border border-purple-500/30 p-3.5 rounded-xl shadow-glow-secondary backdrop-blur-md flex items-center space-x-3 text-left"
-              >
-                <div className="p-2 rounded-lg bg-purple-500/20 text-purple-400">
-                  <Layers className="w-5 h-5" />
-                </div>
-                <div>
-                  <div className="text-xs font-bold text-white">Microservices</div>
-                  <div className="text-[10px] text-slate-400">Sub-50ms Latency</div>
-                </div>
-              </motion.div>
-            </motion.div>
-          </div>
         </div>
       </Container>
     </section>
