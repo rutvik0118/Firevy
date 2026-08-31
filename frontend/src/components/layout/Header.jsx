@@ -33,7 +33,7 @@ export const Header = () => {
     { name: 'Product', hasMenu: 'solutions', path: '/services' },
     { name: 'Services', hasMenu: 'services', path: '/services' },
     { name: 'Technology', hasMenu: 'technologies', path: '/technologies' },
-    { name: 'Hire Developers', hasMenu: 'services', path: '/services/dedicated-developers' },
+    { name: 'Hire Developers', hasMenu: 'hire-developers', path: '/services/dedicated-developers' },
     { name: 'Our Work', hasMenu: 'company', path: '/portfolio' }
   ];
 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Play, X, ChevronRight, GraduationCap, BookOpen, HeartPulse, Sparkles } from 'lucide-react';
+import { ArrowRight, Play, X, ChevronRight, GraduationCap, BookOpen, HeartPulse, Sparkles, Calendar } from 'lucide-react';
 
 export const servicesCategories = [
   {
@@ -218,10 +218,116 @@ export const servicesCategories = [
   }
 ];
 
+export const hireDeveloperCategories = [
+  {
+    id: 'web',
+    label: 'Hire Web Developers',
+    roles: [
+      'Hire C Sharp Developers',
+      'Hire Bootstrap Developers',
+      'Hire Codeigniter Developers',
+      'Hire Angular JS Developers',
+      'Hire React Js Developers',
+      'Hire Vue Storefront Developers',
+      'Hire Ember JS Developers',
+      'Hire Laravel Developers',
+      'Hire Express JS Developers',
+      'Hire Vue JS Developers',
+      'Hire Next JS Developers'
+    ]
+  },
+  {
+    id: 'mobile',
+    label: 'Hire Mobile App Developers',
+    roles: [
+      'Hire iOS App Developers',
+      'Hire Android App Developers',
+      'Hire React Native Developers',
+      'Hire Flutter Developers',
+      'Hire Swift Developers',
+      'Hire Kotlin Developers',
+      'Hire Xamarin Developers',
+      'Hire PWA Developers'
+    ]
+  },
+  {
+    id: 'cms',
+    label: 'Hire CMS & E-Commerce Developers',
+    roles: [
+      'Hire WordPress Developers',
+      'Hire Drupal Developers',
+      'Hire Magento Developers',
+      'Hire Shopify Developers',
+      'Hire WooCommerce Developers',
+      'Hire Headless Commerce Developers'
+    ]
+  },
+  {
+    id: 'backend',
+    label: 'Hire Back End Developers',
+    roles: [
+      'Hire Node.js Developers',
+      'Hire Python Developers',
+      'Hire Java Developers',
+      'Hire PHP Developers',
+      'Hire Golang Developers',
+      'Hire C# .NET Developers',
+      'Hire Microservices Engineers'
+    ]
+  },
+  {
+    id: 'microsoft',
+    label: 'Hire Microsoft Developers',
+    roles: [
+      '.NET Core Developers',
+      'Hire SharePoint Developers',
+      'Hire PowerApps Developers',
+      'Hire C# Developers',
+      'Hire Azure Cloud Developers'
+    ]
+  },
+  {
+    id: 'javascript',
+    label: 'Hire Javascript Developers',
+    roles: [
+      'Hire Full Stack JS Developers',
+      'Hire React & Next.js Developers',
+      'Hire Node.js Developers',
+      'Hire TypeScript Developers',
+      'Hire Vue.js Developers',
+      'Hire Angular Developers'
+    ]
+  },
+  {
+    id: 'blockchain',
+    label: 'Hire Blockchain Development',
+    roles: [
+      'Hire Smart Contract Engineers',
+      'Hire Solidity Developers',
+      'Hire Web3 DApp Developers',
+      'Hire DeFi Developers',
+      'Hire Rust Blockchain Developers'
+    ]
+  },
+  {
+    id: 'trending',
+    label: 'Hire Trending',
+    roles: [
+      'Hire AI & LLM Engineers',
+      'Hire Generative AI Developers',
+      'Hire RAG Engineers',
+      'Hire Machine Learning Engineers',
+      'Hire Prompt Engineers',
+      'Hire DevOps & Kubernetes Engineers'
+    ]
+  }
+];
+
 export const MegaMenu = ({ type, onClose }) => {
   const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
   const [activeVideoSrc, setActiveVideoSrc] = useState('/Best Software Development Company in USA - Sapphire Software Sol.mp4');
   const [activeServiceId, setActiveServiceId] = useState('mobile');
+  const [activeHireId, setActiveHireId] = useState('web');
 
   const openVideo = (src) => {
     if (src) setActiveVideoSrc(src);
@@ -229,8 +335,137 @@ export const MegaMenu = ({ type, onClose }) => {
   };
 
   const selectedCategory = servicesCategories.find((c) => c.id === activeServiceId) || servicesCategories[0];
+  const selectedHireCategory = hireDeveloperCategories.find((c) => c.id === activeHireId) || hireDeveloperCategories[0];
 
-  // Technology Mega Menu View (Matching Technology Screenshot)
+  // Hire Developers Mega Menu View (Matching Screenshot)
+  if (type === 'hire-developers') {
+    return (
+      <>
+        <motion.div
+          initial={{ opacity: 0, y: -8 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -8 }}
+          transition={{ duration: 0.2 }}
+          className="fixed left-0 right-0 top-[108px] w-full bg-white shadow-2xl border-t border-slate-200 text-slate-900 z-50 font-sans text-left overflow-hidden"
+          onMouseEnter={(e) => e.stopPropagation()}
+        >
+          <div className="w-full grid grid-cols-1 lg:grid-cols-12 min-h-[460px]">
+            {/* Left Blue Sidebar Section (~22% width) */}
+            <div className="lg:col-span-3 bg-gradient-to-b from-[#005F96] via-[#004B77] to-[#003758] p-8 text-white flex flex-col justify-between relative overflow-hidden">
+              <div className="space-y-4 relative z-10">
+                <h2 className="text-3xl font-extrabold tracking-tight text-white">Hire Developers</h2>
+                <p className="text-[13.5px] text-blue-100 leading-relaxed font-normal">
+                  Extraordinary Expertise Leads To Remarkable Results.
+                </p>
+              </div>
+
+              <div className="pt-8 relative z-10">
+                <Link
+                  to="/contact"
+                  onClick={onClose}
+                  className="inline-flex items-center justify-center px-6 py-3 rounded-md bg-white text-[#004A75] font-bold text-sm hover:bg-slate-100 transition-colors shadow-lg group w-full"
+                >
+                  <span>Hire Now</span>
+                </Link>
+              </div>
+
+              {/* Background Decorative Graphic Curve */}
+              <div className="absolute -bottom-12 -right-12 w-56 h-56 rounded-full border-4 border-white/10 pointer-events-none" />
+            </div>
+
+            {/* Middle Vertical Talent Selection Menu (~25% width / 3 cols) */}
+            <div className="lg:col-span-3 bg-slate-50 border-r border-slate-200 py-3 flex flex-col justify-between max-h-[460px] overflow-y-auto">
+              <div className="space-y-0.5">
+                {hireDeveloperCategories.map((cat) => {
+                  const isCatActive = cat.id === activeHireId;
+                  return (
+                    <button
+                      key={cat.id}
+                      onMouseEnter={() => setActiveHireId(cat.id)}
+                      onClick={() => setActiveHireId(cat.id)}
+                      className={`w-full px-5 py-2.5 flex items-center justify-between text-left text-xs sm:text-[13px] font-bold transition-colors ${
+                        isCatActive
+                          ? 'bg-white text-[#005F96] shadow-sm border-l-4 border-[#005F96]'
+                          : 'text-slate-700 hover:text-[#005F96] hover:bg-slate-100/80'
+                      }`}
+                    >
+                      <span className="truncate pr-2">{cat.label}</span>
+                      <ChevronRight className={`w-3.5 h-3.5 shrink-0 ${isCatActive ? 'text-[#005F96]' : 'text-slate-400'}`} />
+                    </button>
+                  );
+                })}
+              </div>
+
+              {/* Bottom Schedule Meeting Callout Box */}
+              <div className="m-3 p-3 bg-white rounded-xl border border-blue-100 shadow-sm flex items-start space-x-3">
+                <div className="p-2 rounded-lg bg-blue-50 text-blue-600 shrink-0">
+                  <Calendar className="w-5 h-5" />
+                </div>
+                <div>
+                  <h5 className="text-xs font-bold text-slate-900">Tech Consulting Services</h5>
+                  <Link
+                    to="/contact"
+                    onClick={onClose}
+                    className="text-[11px] font-bold text-blue-600 hover:underline inline-block mt-0.5"
+                  >
+                    Schedule a Meeting
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Sub-Talent Roles List (~28% width / 3 cols) */}
+            <div className="lg:col-span-3 p-6 lg:p-8 bg-white overflow-y-auto max-h-[460px]">
+              <div className="border-b border-slate-100 pb-3 mb-4">
+                <h3 className="text-base font-extrabold text-[#005F96]">{selectedHireCategory.label}</h3>
+              </div>
+
+              <ul className="space-y-2.5">
+                {selectedHireCategory.roles.map((role, idx) => (
+                  <li key={idx}>
+                    <Link
+                      to="/services/dedicated-developers"
+                      onClick={onClose}
+                      className="text-xs sm:text-[13px] font-medium text-slate-700 hover:text-[#005F96] hover:translate-x-1 inline-block transition-all"
+                    >
+                      {role}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Right Partner Banner (~25% width / 3 cols) */}
+            <div className="lg:col-span-3 rounded-2xl bg-[#EDF6FC] border border-blue-100 p-6 flex flex-col items-center text-center justify-between relative overflow-hidden my-4 mr-6">
+              <div className="space-y-2 relative z-10 pt-2">
+                <span className="text-xs font-medium text-slate-600 block">Let's grow together</span>
+                <h3 className="text-2xl font-black text-slate-900 tracking-tight">Partner with us</h3>
+              </div>
+
+              <div className="my-4 relative z-10">
+                <Link
+                  to="/contact"
+                  onClick={onClose}
+                  className="inline-flex items-center justify-center px-6 py-2.5 rounded-lg bg-[#005F96] text-white font-bold text-sm hover:bg-[#004A75] transition-all shadow-md"
+                >
+                  Get A Quote
+                </Link>
+              </div>
+
+              <div className="w-full pt-2 flex justify-center opacity-90 relative z-10">
+                <div className="flex items-center space-x-2 text-xs font-bold text-[#005F96]">
+                  <Sparkles className="w-4 h-4" />
+                  <span>Custom Engineering Teams</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </>
+    );
+  }
+
+  // Technology View
   if (type === 'technologies') {
     return (
       <>
@@ -243,7 +478,6 @@ export const MegaMenu = ({ type, onClose }) => {
           onMouseEnter={(e) => e.stopPropagation()}
         >
           <div className="w-full grid grid-cols-1 lg:grid-cols-12 min-h-[440px]">
-            {/* Left Blue Sidebar Section (~22% width) */}
             <div className="lg:col-span-3 bg-gradient-to-b from-[#005F96] via-[#004B77] to-[#003758] p-8 lg:p-10 text-white flex flex-col justify-between relative overflow-hidden">
               <div className="space-y-5 relative z-10">
                 <h2 className="text-3xl font-extrabold tracking-tight text-white">Technology</h2>
@@ -262,16 +496,12 @@ export const MegaMenu = ({ type, onClose }) => {
                 </Link>
               </div>
 
-              {/* Background Decorative Graphic Curve */}
               <div className="absolute -bottom-12 -right-12 w-56 h-56 rounded-full border-4 border-white/10 pointer-events-none" />
             </div>
 
-            {/* Center Tech Stack Columns (~53% width / 6 cols) */}
             <div className="lg:col-span-6 p-6 lg:p-8 bg-white flex flex-col justify-between">
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
-                {/* Column 1: MOBILE & MICROSOFT */}
                 <div className="space-y-6">
-                  {/* MOBILE */}
                   <div className="space-y-2.5">
                     <h4 className="text-[13px] font-extrabold text-[#005F96] uppercase tracking-wider">
                       MOBILE
@@ -287,7 +517,6 @@ export const MegaMenu = ({ type, onClose }) => {
                     </ul>
                   </div>
 
-                  {/* MICROSOFT */}
                   <div className="space-y-2.5">
                     <h4 className="text-[13px] font-extrabold text-[#005F96] uppercase tracking-wider">
                       MICROSOFT
@@ -304,9 +533,7 @@ export const MegaMenu = ({ type, onClose }) => {
                   </div>
                 </div>
 
-                {/* Column 2: BACKEND & FRONTEND */}
                 <div className="space-y-6">
-                  {/* BACKEND */}
                   <div className="space-y-2.5">
                     <h4 className="text-[13px] font-extrabold text-[#005F96] uppercase tracking-wider">
                       BACKEND
@@ -322,7 +549,6 @@ export const MegaMenu = ({ type, onClose }) => {
                     </ul>
                   </div>
 
-                  {/* FRONTEND */}
                   <div className="space-y-2.5">
                     <h4 className="text-[13px] font-extrabold text-[#005F96] uppercase tracking-wider">
                       FRONTEND
@@ -339,7 +565,6 @@ export const MegaMenu = ({ type, onClose }) => {
                   </div>
                 </div>
 
-                {/* Column 3: TRENDING */}
                 <div className="space-y-2.5">
                   <h4 className="text-[13px] font-extrabold text-[#005F96] uppercase tracking-wider">
                     TRENDING
@@ -355,7 +580,6 @@ export const MegaMenu = ({ type, onClose }) => {
                   </ul>
                 </div>
 
-                {/* Column 4: OTHERS */}
                 <div className="space-y-2.5">
                   <h4 className="text-[13px] font-extrabold text-[#005F96] uppercase tracking-wider">
                     OTHERS
@@ -373,7 +597,6 @@ export const MegaMenu = ({ type, onClose }) => {
               </div>
             </div>
 
-            {/* Right: Partner Banner (~25% width / 3 cols) */}
             <div className="lg:col-span-3 rounded-2xl bg-[#EDF6FC] border border-blue-100 p-6 flex flex-col items-center text-center justify-between relative overflow-hidden my-4 mr-6">
               <div className="space-y-2 relative z-10 pt-2">
                 <span className="text-xs font-medium text-slate-600 block">Let's grow together</span>
@@ -416,7 +639,6 @@ export const MegaMenu = ({ type, onClose }) => {
           onMouseEnter={(e) => e.stopPropagation()}
         >
           <div className="w-full grid grid-cols-1 lg:grid-cols-12 min-h-[460px]">
-            {/* Left Blue Sidebar Section (~22% width) */}
             <div className="lg:col-span-3 bg-gradient-to-b from-[#005F96] via-[#004B77] to-[#003758] p-8 text-white flex flex-col justify-between relative overflow-hidden">
               <div className="space-y-4 relative z-10">
                 <h2 className="text-3xl font-extrabold tracking-tight text-white">Service</h2>
@@ -435,11 +657,9 @@ export const MegaMenu = ({ type, onClose }) => {
                 </Link>
               </div>
 
-              {/* Background Decorative Graphic Curve */}
               <div className="absolute -bottom-12 -right-12 w-56 h-56 rounded-full border-4 border-white/10 pointer-events-none" />
             </div>
 
-            {/* Middle Vertical Category Menu (~25% width / 3 cols) */}
             <div className="lg:col-span-3 bg-slate-50 border-r border-slate-200 py-3 overflow-y-auto max-h-[460px]">
               {servicesCategories.map((cat) => {
                 const isCatActive = cat.id === activeServiceId;
@@ -461,7 +681,6 @@ export const MegaMenu = ({ type, onClose }) => {
               })}
             </div>
 
-            {/* Right Sub-Services Columns (~53% width / 6 cols) */}
             <div className="lg:col-span-6 p-6 lg:p-8 bg-white overflow-y-auto max-h-[460px]">
               <div className="border-b border-slate-100 pb-3 mb-4">
                 <h3 className="text-base font-extrabold text-[#005F96]">{selectedCategory.label}</h3>
@@ -516,7 +735,6 @@ export const MegaMenu = ({ type, onClose }) => {
           onMouseEnter={(e) => e.stopPropagation()}
         >
           <div className="w-full grid grid-cols-1 lg:grid-cols-12 min-h-[440px]">
-            {/* Left Blue Sidebar Section (~22% width) */}
             <div className="lg:col-span-3 bg-gradient-to-b from-[#005F96] via-[#004B77] to-[#003758] p-8 lg:p-10 text-white flex flex-col justify-between relative overflow-hidden">
               <div className="space-y-5 relative z-10">
                 <h2 className="text-3xl font-extrabold tracking-tight text-white">Product</h2>
@@ -538,7 +756,6 @@ export const MegaMenu = ({ type, onClose }) => {
               <div className="absolute -bottom-12 -right-12 w-56 h-56 rounded-full border-4 border-white/10 pointer-events-none" />
             </div>
 
-            {/* Center & Right Section (~78% width) */}
             <div className="lg:col-span-9 p-8 lg:px-10 lg:py-8 bg-white flex flex-col justify-between">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
                 <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-5">
@@ -625,7 +842,6 @@ export const MegaMenu = ({ type, onClose }) => {
                 </div>
               </div>
 
-              {/* Bottom Reviews Bar */}
               <div className="mt-8 pt-5 border-t border-slate-100 flex flex-wrap items-center justify-between gap-4">
                 <h4 className="text-[12px] font-extrabold text-[#005F96] uppercase tracking-wider">
                   REVIEWS AND RATING
@@ -691,7 +907,6 @@ export const MegaMenu = ({ type, onClose }) => {
         onMouseEnter={(e) => e.stopPropagation()}
       >
         <div className="w-full grid grid-cols-1 lg:grid-cols-12 min-h-[440px]">
-          {/* Left Blue Sidebar Section (~22% width) */}
           <div className="lg:col-span-3 bg-gradient-to-b from-[#005F96] via-[#004B77] to-[#003758] p-8 lg:p-10 text-white flex flex-col justify-between relative overflow-hidden">
             <div className="space-y-5 relative z-10">
               <h2 className="text-3xl font-extrabold tracking-tight text-white">Company</h2>
@@ -713,7 +928,6 @@ export const MegaMenu = ({ type, onClose }) => {
             <div className="absolute -bottom-12 -right-12 w-56 h-56 rounded-full border-4 border-white/10 pointer-events-none" />
           </div>
 
-          {/* Right Content Section (~78% width) */}
           <div className="lg:col-span-9 p-8 lg:px-10 lg:py-8 bg-white flex flex-col justify-between">
             <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
               <div className="md:col-span-7 space-y-3">
