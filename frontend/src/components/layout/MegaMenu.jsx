@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Play, X, ChevronRight, GraduationCap, BookOpen, HeartPulse, Sparkles, Calendar } from 'lucide-react';
+import { ArrowRight, Play, X, ChevronRight, GraduationCap, BookOpen, HeartPulse, Sparkles, Calendar, Layers, ExternalLink } from 'lucide-react';
 
 export const servicesCategories = [
   {
@@ -337,7 +337,147 @@ export const MegaMenu = ({ type, onClose }) => {
   const selectedCategory = servicesCategories.find((c) => c.id === activeServiceId) || servicesCategories[0];
   const selectedHireCategory = hireDeveloperCategories.find((c) => c.id === activeHireId) || hireDeveloperCategories[0];
 
-  // Hire Developers Mega Menu View (Matching Screenshot)
+  // Our Work Mega Menu View (Matching Our Work Screenshot)
+  if (type === 'our-work') {
+    return (
+      <>
+        <motion.div
+          initial={{ opacity: 0, y: -8 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -8 }}
+          transition={{ duration: 0.2 }}
+          className="fixed left-0 right-0 top-[108px] w-full bg-white shadow-2xl border-t border-slate-200 text-slate-900 z-50 font-sans text-left overflow-hidden"
+          onMouseEnter={(e) => e.stopPropagation()}
+        >
+          <div className="w-full grid grid-cols-1 lg:grid-cols-12 min-h-[440px]">
+            {/* Left Blue Sidebar Section (~22% width) */}
+            <div className="lg:col-span-3 bg-gradient-to-b from-[#005F96] via-[#004B77] to-[#003758] p-8 lg:p-10 text-white flex flex-col justify-between relative overflow-hidden">
+              <div className="space-y-5 relative z-10">
+                <h2 className="text-3xl font-extrabold tracking-tight text-white">Our Work</h2>
+                <p className="text-[13.5px] text-blue-100 leading-relaxed font-normal">
+                  Insights From firevy.co Experts Who Help The World's Most Successful Fortune 500 Companies Solve Key Challenges. Lets Shape Happier Tomorrow.
+                </p>
+              </div>
+
+              <div className="pt-8 relative z-10">
+                <Link
+                  to="/contact"
+                  onClick={onClose}
+                  className="inline-flex items-center justify-center px-6 py-3 rounded-md bg-white text-[#004A75] font-bold text-sm hover:bg-slate-100 transition-colors shadow-lg group w-full"
+                >
+                  <span>Request A Quote</span>
+                </Link>
+              </div>
+
+              {/* Background Decorative Graphic Curve */}
+              <div className="absolute -bottom-12 -right-12 w-56 h-56 rounded-full border-4 border-white/10 pointer-events-none" />
+            </div>
+
+            {/* Right Content Grid Section (~78% width) */}
+            <div className="lg:col-span-9 p-8 lg:px-10 lg:py-8 bg-white flex flex-col justify-between">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                {/* SOLUTIONS Column (Spans 4 cols) */}
+                <div className="lg:col-span-4 space-y-3">
+                  <h4 className="text-[13px] font-extrabold text-[#005F96] uppercase tracking-wider border-b border-slate-100 pb-2">
+                    SOLUTIONS
+                  </h4>
+                  <ul className="space-y-2 text-xs sm:text-[13px]">
+                    {[
+                      'Health Care App Development',
+                      'Education App Development',
+                      'Uber Like App Development',
+                      'Spotify Like App Development',
+                      'Zomato Like App Development',
+                      'Amazon Like App Development',
+                      'Visitor Management System',
+                      'Warehouse Management System',
+                      'Clover App Development'
+                    ].map((item, idx) => (
+                      <li key={idx}>
+                        <Link
+                          to="/portfolio"
+                          onClick={onClose}
+                          className="text-slate-700 hover:text-[#005F96] font-medium block hover:translate-x-1 transition-all"
+                        >
+                          {item}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* CASE STUDY Card Column (Spans 4 cols) */}
+                <div className="lg:col-span-4 space-y-3">
+                  <h4 className="text-[13px] font-extrabold text-[#005F96] uppercase tracking-wider border-b border-slate-100 pb-2">
+                    CASE STUDY
+                  </h4>
+                  <Link
+                    to="/portfolio"
+                    onClick={onClose}
+                    className="group block p-6 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-[#005F96] hover:shadow-xl transition-all duration-300 h-[280px] flex flex-col justify-between"
+                  >
+                    <div className="w-full h-36 rounded-xl bg-blue-50/80 border border-blue-100 flex items-center justify-center p-4 overflow-hidden relative">
+                      <div className="flex flex-col items-center justify-center space-y-2 text-center">
+                        <div className="w-12 h-12 rounded-full bg-[#005F96] text-white flex items-center justify-center shadow-md">
+                          <Layers className="w-6 h-6" />
+                        </div>
+                        <span className="text-xs font-bold text-slate-800">Enterprise Case Studies & Metrics</span>
+                      </div>
+                    </div>
+
+                    <div>
+                      <h5 className="text-sm font-extrabold text-slate-900 group-hover:text-[#005F96]">
+                        Client ROI & Growth Breakdown
+                      </h5>
+                      <p className="text-xs text-slate-500 mt-1 line-clamp-2">
+                        How we helped Fortune 500 leaders achieve 4.8x performance scale.
+                      </p>
+                    </div>
+                  </Link>
+                </div>
+
+                {/* PORTFOLIO Showcase Card Column (Spans 4 cols) */}
+                <div className="lg:col-span-4 space-y-3">
+                  <h4 className="text-[13px] font-extrabold text-[#005F96] uppercase tracking-wider border-b border-slate-100 pb-2">
+                    PORTFOLIO
+                  </h4>
+                  <Link
+                    to="/portfolio"
+                    onClick={onClose}
+                    className="group block p-6 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-[#005F96] hover:shadow-xl transition-all duration-300 h-[280px] flex flex-col justify-between"
+                  >
+                    <div className="w-full h-36 rounded-xl overflow-hidden border border-slate-200 relative group-hover:scale-[1.02] transition-transform duration-300">
+                      <img
+                        src="/images/waymark_map_app.webp"
+                        alt="Portfolio Showcases"
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-3">
+                        <span className="text-[11px] font-bold text-white flex items-center">
+                          View Featured Projects <ExternalLink className="w-3 h-3 ml-1" />
+                        </span>
+                      </div>
+                    </div>
+
+                    <div>
+                      <h5 className="text-sm font-extrabold text-slate-900 group-hover:text-[#005F96]">
+                        Multi-Device Web & Mobile Portfolio
+                      </h5>
+                      <p className="text-xs text-slate-500 mt-1 line-clamp-2">
+                        Explore 150+ live Web, Mobile & Cloud applications deployed globally.
+                      </p>
+                    </div>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </>
+    );
+  }
+
+  // Hire Developers View
   if (type === 'hire-developers') {
     return (
       <>
@@ -350,7 +490,6 @@ export const MegaMenu = ({ type, onClose }) => {
           onMouseEnter={(e) => e.stopPropagation()}
         >
           <div className="w-full grid grid-cols-1 lg:grid-cols-12 min-h-[460px]">
-            {/* Left Blue Sidebar Section (~22% width) */}
             <div className="lg:col-span-3 bg-gradient-to-b from-[#005F96] via-[#004B77] to-[#003758] p-8 text-white flex flex-col justify-between relative overflow-hidden">
               <div className="space-y-4 relative z-10">
                 <h2 className="text-3xl font-extrabold tracking-tight text-white">Hire Developers</h2>
@@ -369,11 +508,9 @@ export const MegaMenu = ({ type, onClose }) => {
                 </Link>
               </div>
 
-              {/* Background Decorative Graphic Curve */}
               <div className="absolute -bottom-12 -right-12 w-56 h-56 rounded-full border-4 border-white/10 pointer-events-none" />
             </div>
 
-            {/* Middle Vertical Talent Selection Menu (~25% width / 3 cols) */}
             <div className="lg:col-span-3 bg-slate-50 border-r border-slate-200 py-3 flex flex-col justify-between max-h-[460px] overflow-y-auto">
               <div className="space-y-0.5">
                 {hireDeveloperCategories.map((cat) => {
@@ -396,7 +533,6 @@ export const MegaMenu = ({ type, onClose }) => {
                 })}
               </div>
 
-              {/* Bottom Schedule Meeting Callout Box */}
               <div className="m-3 p-3 bg-white rounded-xl border border-blue-100 shadow-sm flex items-start space-x-3">
                 <div className="p-2 rounded-lg bg-blue-50 text-blue-600 shrink-0">
                   <Calendar className="w-5 h-5" />
@@ -414,7 +550,6 @@ export const MegaMenu = ({ type, onClose }) => {
               </div>
             </div>
 
-            {/* Right Sub-Talent Roles List (~28% width / 3 cols) */}
             <div className="lg:col-span-3 p-6 lg:p-8 bg-white overflow-y-auto max-h-[460px]">
               <div className="border-b border-slate-100 pb-3 mb-4">
                 <h3 className="text-base font-extrabold text-[#005F96]">{selectedHireCategory.label}</h3>
@@ -435,7 +570,6 @@ export const MegaMenu = ({ type, onClose }) => {
               </ul>
             </div>
 
-            {/* Right Partner Banner (~25% width / 3 cols) */}
             <div className="lg:col-span-3 rounded-2xl bg-[#EDF6FC] border border-blue-100 p-6 flex flex-col items-center text-center justify-between relative overflow-hidden my-4 mr-6">
               <div className="space-y-2 relative z-10 pt-2">
                 <span className="text-xs font-medium text-slate-600 block">Let's grow together</span>
