@@ -230,7 +230,180 @@ export const MegaMenu = ({ type, onClose }) => {
 
   const selectedCategory = servicesCategories.find((c) => c.id === activeServiceId) || servicesCategories[0];
 
-  // Services Mega Menu View (Matching Service Screenshot)
+  // Technology Mega Menu View (Matching Technology Screenshot)
+  if (type === 'technologies') {
+    return (
+      <>
+        <motion.div
+          initial={{ opacity: 0, y: -8 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -8 }}
+          transition={{ duration: 0.2 }}
+          className="fixed left-0 right-0 top-[108px] w-full bg-white shadow-2xl border-t border-slate-200 text-slate-900 z-50 font-sans text-left overflow-hidden"
+          onMouseEnter={(e) => e.stopPropagation()}
+        >
+          <div className="w-full grid grid-cols-1 lg:grid-cols-12 min-h-[440px]">
+            {/* Left Blue Sidebar Section (~22% width) */}
+            <div className="lg:col-span-3 bg-gradient-to-b from-[#005F96] via-[#004B77] to-[#003758] p-8 lg:p-10 text-white flex flex-col justify-between relative overflow-hidden">
+              <div className="space-y-5 relative z-10">
+                <h2 className="text-3xl font-extrabold tracking-tight text-white">Technology</h2>
+                <p className="text-[13.5px] text-blue-100 leading-relaxed font-normal">
+                  Technology Is Best When It Brings People Together.
+                </p>
+              </div>
+
+              <div className="pt-8 relative z-10">
+                <Link
+                  to="/about"
+                  onClick={onClose}
+                  className="inline-flex items-center justify-center px-6 py-3 rounded-md bg-white text-[#004A75] font-bold text-sm hover:bg-slate-100 transition-colors shadow-lg group w-full"
+                >
+                  <span>About Company</span>
+                </Link>
+              </div>
+
+              {/* Background Decorative Graphic Curve */}
+              <div className="absolute -bottom-12 -right-12 w-56 h-56 rounded-full border-4 border-white/10 pointer-events-none" />
+            </div>
+
+            {/* Center Tech Stack Columns (~53% width / 6 cols) */}
+            <div className="lg:col-span-6 p-6 lg:p-8 bg-white flex flex-col justify-between">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
+                {/* Column 1: MOBILE & MICROSOFT */}
+                <div className="space-y-6">
+                  {/* MOBILE */}
+                  <div className="space-y-2.5">
+                    <h4 className="text-[13px] font-extrabold text-[#005F96] uppercase tracking-wider">
+                      MOBILE
+                    </h4>
+                    <ul className="space-y-2 text-xs sm:text-[13px]">
+                      {['Android', 'iOS', 'Flutter', 'React Native', 'Xamarin'].map((tech) => (
+                        <li key={tech}>
+                          <Link to="/technologies" onClick={onClose} className="text-slate-700 hover:text-[#005F96] font-medium block">
+                            {tech}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* MICROSOFT */}
+                  <div className="space-y-2.5">
+                    <h4 className="text-[13px] font-extrabold text-[#005F96] uppercase tracking-wider">
+                      MICROSOFT
+                    </h4>
+                    <ul className="space-y-2 text-xs sm:text-[13px]">
+                      {['SharePoint', 'PowerApps', 'Power Automate'].map((tech) => (
+                        <li key={tech}>
+                          <Link to="/technologies" onClick={onClose} className="text-slate-700 hover:text-[#005F96] font-medium block">
+                            {tech}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                {/* Column 2: BACKEND & FRONTEND */}
+                <div className="space-y-6">
+                  {/* BACKEND */}
+                  <div className="space-y-2.5">
+                    <h4 className="text-[13px] font-extrabold text-[#005F96] uppercase tracking-wider">
+                      BACKEND
+                    </h4>
+                    <ul className="space-y-2 text-xs sm:text-[13px]">
+                      {['.NET', 'PHP', 'Java', 'Nodejs'].map((tech) => (
+                        <li key={tech}>
+                          <Link to="/technologies" onClick={onClose} className="text-slate-700 hover:text-[#005F96] font-medium block">
+                            {tech}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* FRONTEND */}
+                  <div className="space-y-2.5">
+                    <h4 className="text-[13px] font-extrabold text-[#005F96] uppercase tracking-wider">
+                      FRONTEND
+                    </h4>
+                    <ul className="space-y-2 text-xs sm:text-[13px]">
+                      {['Angular', 'React', 'Vuejs'].map((tech) => (
+                        <li key={tech}>
+                          <Link to="/technologies" onClick={onClose} className="text-slate-700 hover:text-[#005F96] font-medium block">
+                            {tech}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+
+                {/* Column 3: TRENDING */}
+                <div className="space-y-2.5">
+                  <h4 className="text-[13px] font-extrabold text-[#005F96] uppercase tracking-wider">
+                    TRENDING
+                  </h4>
+                  <ul className="space-y-2 text-xs sm:text-[13px]">
+                    {['Generative AI', 'AI & ML', 'Blockchain', 'Full Stack', 'VR & AR', 'IoT', 'PWD', 'RPA'].map((tech) => (
+                      <li key={tech}>
+                        <Link to="/technologies" onClick={onClose} className="text-slate-700 hover:text-[#005F96] font-medium block">
+                          {tech}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Column 4: OTHERS */}
+                <div className="space-y-2.5">
+                  <h4 className="text-[13px] font-extrabold text-[#005F96] uppercase tracking-wider">
+                    OTHERS
+                  </h4>
+                  <ul className="space-y-2 text-xs sm:text-[13px]">
+                    {['Wordpress', 'Drupal', 'Umbraco', 'Sitecore', 'Sitefinity', 'Magento', 'Shopify'].map((tech) => (
+                      <li key={tech}>
+                        <Link to="/technologies" onClick={onClose} className="text-slate-700 hover:text-[#005F96] font-medium block">
+                          {tech}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            {/* Right: Partner Banner (~25% width / 3 cols) */}
+            <div className="lg:col-span-3 rounded-2xl bg-[#EDF6FC] border border-blue-100 p-6 flex flex-col items-center text-center justify-between relative overflow-hidden my-4 mr-6">
+              <div className="space-y-2 relative z-10 pt-2">
+                <span className="text-xs font-medium text-slate-600 block">Let's grow together</span>
+                <h3 className="text-2xl font-black text-slate-900 tracking-tight">Partner with us</h3>
+              </div>
+
+              <div className="my-4 relative z-10">
+                <Link
+                  to="/contact"
+                  onClick={onClose}
+                  className="inline-flex items-center justify-center px-6 py-2.5 rounded-lg bg-[#005F96] text-white font-bold text-sm hover:bg-[#004A75] transition-all shadow-md"
+                >
+                  Get A Quote
+                </Link>
+              </div>
+
+              <div className="w-full pt-2 flex justify-center opacity-90 relative z-10">
+                <div className="flex items-center space-x-2 text-xs font-bold text-[#005F96]">
+                  <Sparkles className="w-4 h-4" />
+                  <span>Custom Tech Solutions</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </>
+    );
+  }
+
+  // Services View
   if (type === 'services') {
     return (
       <>
@@ -295,7 +468,6 @@ export const MegaMenu = ({ type, onClose }) => {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2">
-                {/* Column 1 */}
                 <ul className="space-y-2">
                   {selectedCategory.col1.map((item, idx) => (
                     <li key={idx}>
@@ -310,7 +482,6 @@ export const MegaMenu = ({ type, onClose }) => {
                   ))}
                 </ul>
 
-                {/* Column 2 */}
                 <ul className="space-y-2">
                   {selectedCategory.col2.map((item, idx) => (
                     <li key={idx}>
@@ -364,14 +535,12 @@ export const MegaMenu = ({ type, onClose }) => {
                 </Link>
               </div>
 
-              {/* Background Decorative Graphic Curve */}
               <div className="absolute -bottom-12 -right-12 w-56 h-56 rounded-full border-4 border-white/10 pointer-events-none" />
             </div>
 
             {/* Center & Right Section (~78% width) */}
             <div className="lg:col-span-9 p-8 lg:px-10 lg:py-8 bg-white flex flex-col justify-between">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-                {/* Center: 3 Product Cards */}
                 <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-5">
                   <Link
                     to="/services/software-development"
@@ -431,7 +600,6 @@ export const MegaMenu = ({ type, onClose }) => {
                   </Link>
                 </div>
 
-                {/* Right: Partner Banner */}
                 <div className="lg:col-span-4 rounded-2xl bg-[#EDF6FC] border border-blue-100 p-6 flex flex-col items-center text-center justify-between relative overflow-hidden">
                   <div className="space-y-2 relative z-10 pt-2">
                     <span className="text-xs font-medium text-slate-600 block">Let's grow together</span>
@@ -457,7 +625,7 @@ export const MegaMenu = ({ type, onClose }) => {
                 </div>
               </div>
 
-              {/* Bottom Reviews & Rating Bar */}
+              {/* Bottom Reviews Bar */}
               <div className="mt-8 pt-5 border-t border-slate-100 flex flex-wrap items-center justify-between gap-4">
                 <h4 className="text-[12px] font-extrabold text-[#005F96] uppercase tracking-wider">
                   REVIEWS AND RATING
@@ -523,7 +691,7 @@ export const MegaMenu = ({ type, onClose }) => {
         onMouseEnter={(e) => e.stopPropagation()}
       >
         <div className="w-full grid grid-cols-1 lg:grid-cols-12 min-h-[440px]">
-          {/* Left Blue Sidebar Banner Section (~22% width) */}
+          {/* Left Blue Sidebar Section (~22% width) */}
           <div className="lg:col-span-3 bg-gradient-to-b from-[#005F96] via-[#004B77] to-[#003758] p-8 lg:p-10 text-white flex flex-col justify-between relative overflow-hidden">
             <div className="space-y-5 relative z-10">
               <h2 className="text-3xl font-extrabold tracking-tight text-white">Company</h2>
@@ -542,21 +710,17 @@ export const MegaMenu = ({ type, onClose }) => {
               </Link>
             </div>
 
-            {/* Background Decorative Graphic Curve */}
             <div className="absolute -bottom-12 -right-12 w-56 h-56 rounded-full border-4 border-white/10 pointer-events-none" />
           </div>
 
-          {/* Right Main Content Section (~78% width) */}
+          {/* Right Content Section (~78% width) */}
           <div className="lg:col-span-9 p-8 lg:px-10 lg:py-8 bg-white flex flex-col justify-between">
-            {/* Top Grid Columns matching Sapphire header structure */}
             <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-              {/* ABOUT US (Spans 7 columns, with 3 internal sub-columns) */}
               <div className="md:col-span-7 space-y-3">
                 <h4 className="text-[13px] font-extrabold text-[#005F96] uppercase tracking-wider mb-2">
                   ABOUT US
                 </h4>
                 <div className="grid grid-cols-3 gap-3">
-                  {/* Sub Column 1 */}
                   <ul className="space-y-2 text-xs sm:text-[13px]">
                     <li><Link to="/about" onClick={onClose} className="text-slate-600 hover:text-[#005F96] font-medium block">About firevy.co</Link></li>
                     <li><Link to="/about" onClick={onClose} className="text-slate-600 hover:text-[#005F96] font-medium block">CEO Message</Link></li>
@@ -565,7 +729,6 @@ export const MegaMenu = ({ type, onClose }) => {
                     <li><Link to="/about" onClick={onClose} className="text-slate-600 hover:text-[#005F96] font-medium block">Brochure</Link></li>
                   </ul>
 
-                  {/* Sub Column 2 */}
                   <ul className="space-y-2 text-xs sm:text-[13px]">
                     <li><Link to="/about" onClick={onClose} className="text-slate-600 hover:text-[#005F96] font-medium block">Why Choose Us</Link></li>
                     <li><Link to="/careers" onClick={onClose} className="text-slate-600 hover:text-[#005F96] font-medium block">Great Place To Work</Link></li>
@@ -578,7 +741,6 @@ export const MegaMenu = ({ type, onClose }) => {
                     </li>
                   </ul>
 
-                  {/* Sub Column 3 */}
                   <ul className="space-y-2 text-xs sm:text-[13px]">
                     <li><Link to="/about" onClick={onClose} className="text-slate-600 hover:text-[#005F96] font-medium block">Blog</Link></li>
                     <li><Link to="/careers" onClick={onClose} className="text-slate-600 hover:text-[#005F96] font-medium block">Careers (Jobs)</Link></li>
@@ -588,7 +750,6 @@ export const MegaMenu = ({ type, onClose }) => {
                 </div>
               </div>
 
-              {/* MODELS Column */}
               <div className="md:col-span-2 space-y-3">
                 <h4 className="text-[13px] font-extrabold text-[#005F96] uppercase tracking-wider mb-2">
                   MODELS
@@ -600,7 +761,6 @@ export const MegaMenu = ({ type, onClose }) => {
                 </ul>
               </div>
 
-              {/* TESTIMONIAL Column */}
               <div className="md:col-span-3 space-y-3">
                 <h4 className="text-[13px] font-extrabold text-[#005F96] uppercase tracking-wider mb-2">
                   TESTIMONIAL
@@ -618,9 +778,7 @@ export const MegaMenu = ({ type, onClose }) => {
               </div>
             </div>
 
-            {/* Bottom Footer Section: REVIEWS AND RATING & PRESS RELEASE */}
             <div className="mt-8 pt-6 border-t border-slate-100 grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
-              {/* REVIEWS AND RATING Badges */}
               <div className="md:col-span-7 space-y-2.5">
                 <h4 className="text-[12px] font-extrabold text-[#005F96] uppercase tracking-wider">
                   REVIEWS AND RATING
@@ -660,7 +818,6 @@ export const MegaMenu = ({ type, onClose }) => {
                 </div>
               </div>
 
-              {/* PRESS RELEASE Logos */}
               <div className="md:col-span-5 space-y-2.5">
                 <h4 className="text-[12px] font-extrabold text-[#005F96] uppercase tracking-wider">
                   PRESS RELEASE
