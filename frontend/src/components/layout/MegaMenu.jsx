@@ -1069,18 +1069,18 @@ export const MegaMenu = ({ type, onClose }) => {
                 </h4>
                 <div className="grid grid-cols-3 gap-2">
                   <ul className="space-y-1">
-                    <li><Link to="/about" onClick={onClose} className={subMenuLinkStyle}>About firevy.co</Link></li>
-                    <li><Link to="/about" onClick={onClose} className={subMenuLinkStyle}>CEO Message</Link></li>
-                    <li><Link to="/about" onClick={onClose} className={subMenuLinkStyle}>Our Team</Link></li>
-                    <li><Link to="/about" onClick={onClose} className={subMenuLinkStyle}>Events & Activities</Link></li>
-                    <li><Link to="/about" onClick={onClose} className={subMenuLinkStyle}>Brochure</Link></li>
+                    <li><Link to="/company/about-firevy" onClick={onClose} className={subMenuLinkStyle}>About firevy.co</Link></li>
+                    <li><Link to="/company/ceo-message" onClick={onClose} className={subMenuLinkStyle}>CEO Message</Link></li>
+                    <li><Link to="/company/our-team" onClick={onClose} className={subMenuLinkStyle}>Our Team</Link></li>
+                    <li><Link to="/company/events-activities" onClick={onClose} className={subMenuLinkStyle}>Events & Activities</Link></li>
+                    <li><Link to="/company/brochure" onClick={onClose} className={subMenuLinkStyle}>Brochure</Link></li>
                   </ul>
 
                   <ul className="space-y-1">
-                    <li><Link to="/about" onClick={onClose} className={subMenuLinkStyle}>Why Choose Us</Link></li>
-                    <li><Link to="/careers" onClick={onClose} className={subMenuLinkStyle}>Great Place To Work</Link></li>
-                    <li><Link to="/about" onClick={onClose} className={subMenuLinkStyle}>Women Empowerment</Link></li>
-                    <li><Link to="/about" onClick={onClose} className={subMenuLinkStyle}>Awards & Recognition</Link></li>
+                    <li><Link to="/company/why-choose-us" onClick={onClose} className={subMenuLinkStyle}>Why Choose Us</Link></li>
+                    <li><Link to="/company/great-place-to-work" onClick={onClose} className={subMenuLinkStyle}>Great Place To Work</Link></li>
+                    <li><Link to="/company/women-empowerment" onClick={onClose} className={subMenuLinkStyle}>Women Empowerment</Link></li>
+                    <li><Link to="/company/awards-recognition" onClick={onClose} className={subMenuLinkStyle}>Awards & Recognition</Link></li>
                     <li>
                       <button onClick={() => openVideo('/Best Software Development Company in USA - Sapphire Software Sol.mp4')} className={`${subMenuLinkStyle} w-full text-left`}>
                         Insightful Videos
@@ -1089,10 +1089,10 @@ export const MegaMenu = ({ type, onClose }) => {
                   </ul>
 
                   <ul className="space-y-1">
-                    <li><Link to="/about" onClick={onClose} className={subMenuLinkStyle}>Blog</Link></li>
+                    <li><Link to="/company/blog" onClick={onClose} className={subMenuLinkStyle}>Blog</Link></li>
                     <li><Link to="/careers" onClick={onClose} className={subMenuLinkStyle}>Careers (Jobs)</Link></li>
-                    <li><Link to="/about" onClick={onClose} className={subMenuLinkStyle}>CSR</Link></li>
-                    <li><Link to="/about" onClick={onClose} className={subMenuLinkStyle}>Podcast</Link></li>
+                    <li><Link to="/company/csr" onClick={onClose} className={subMenuLinkStyle}>CSR</Link></li>
+                    <li><Link to="/company/podcast" onClick={onClose} className={subMenuLinkStyle}>Podcast</Link></li>
                   </ul>
                 </div>
               </div>
@@ -1102,9 +1102,9 @@ export const MegaMenu = ({ type, onClose }) => {
                   MODELS
                 </h4>
                 <ul className="space-y-1">
-                  <li><Link to="/process" onClick={onClose} className={subMenuLinkStyle}>Delivery Models</Link></li>
-                  <li><Link to="/about" onClick={onClose} className={subMenuLinkStyle}>Engagement Models</Link></li>
-                  <li><Link to="/process" onClick={onClose} className={subMenuLinkStyle}>Development Methodology</Link></li>
+                  <li><Link to="/company/delivery-models" onClick={onClose} className={subMenuLinkStyle}>Delivery Models</Link></li>
+                  <li><Link to="/company/engagement-models" onClick={onClose} className={subMenuLinkStyle}>Engagement Models</Link></li>
+                  <li><Link to="/company/development-methodology" onClick={onClose} className={subMenuLinkStyle}>Development Methodology</Link></li>
                 </ul>
               </div>
 
@@ -1113,14 +1113,14 @@ export const MegaMenu = ({ type, onClose }) => {
                   TESTIMONIAL
                 </h4>
                 <ul className="space-y-1">
-                  <li><Link to="/portfolio" onClick={onClose} className={subMenuLinkStyle}>Client Testimonials</Link></li>
+                  <li><Link to="/company/client-testimonials" onClick={onClose} className={subMenuLinkStyle}>Client Testimonials</Link></li>
                   <li>
                     <button onClick={() => openVideo('/Best Software Development Company in USA - Sapphire Software Sol.mp4')} className={`${subMenuLinkStyle} w-full flex items-center justify-between text-left`}>
                       <span>Video Testimonial</span>
                       <Play className="w-3 h-3 text-cyan-600 fill-current ml-1 inline" />
                     </button>
                   </li>
-                  <li><Link to="/portfolio" onClick={onClose} className={subMenuLinkStyle}>Clutch Testimonial</Link></li>
+                  <li><Link to="/company/clutch-testimonial" onClick={onClose} className={subMenuLinkStyle}>Clutch Testimonial</Link></li>
                 </ul>
               </div>
             </div>

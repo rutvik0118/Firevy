@@ -9,6 +9,7 @@ const Home = lazy(() => import('./pages/Home'));
 const About = lazy(() => import('./pages/About'));
 const Services = lazy(() => import('./pages/Services'));
 const ServiceDetails = lazy(() => import('./pages/ServiceDetails'));
+const CompanySubDetails = lazy(() => import('./pages/CompanySubDetails'));
 const Technologies = lazy(() => import('./pages/Technologies'));
 const Portfolio = lazy(() => import('./pages/Portfolio'));
 const PortfolioDetails = lazy(() => import('./pages/PortfolioDetails'));
@@ -29,6 +30,7 @@ export function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
+              <Route path="/company/:slug" element={<CompanySubDetails />} />
               <Route path="/services" element={<Services />} />
               <Route path="/services/:slug" element={<ServiceDetails />} />
               <Route path="/technologies" element={<Technologies />} />
