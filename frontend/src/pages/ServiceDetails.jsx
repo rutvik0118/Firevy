@@ -10,7 +10,7 @@ import LoadingSpinner from '../components/common/LoadingSpinner';
 import ErrorState from '../components/common/ErrorState';
 import CTASection from '../components/home/CTASection';
 import serviceApi from '../services/serviceApi';
-import { ArrowRight, CheckCircle2, ChevronDown } from 'lucide-react';
+import { ArrowRight, CheckCircle2, ChevronDown, ShieldCheck, Zap, Sparkles, Star } from 'lucide-react';
 
 export const ServiceDetails = () => {
   const { slug } = useParams();
@@ -35,6 +35,7 @@ export const ServiceDetails = () => {
 
   useEffect(() => {
     fetchServiceDetails();
+    window.scrollTo(0, 0);
   }, [slug]);
 
   if (loading) return <LoadingSpinner fullPage message="Loading service architecture details..." />;
@@ -43,59 +44,82 @@ export const ServiceDetails = () => {
   return (
     <>
       <SEO
-        title={`${service.title} Services`}
+        title={`${service.title} | firevy.co`}
         description={service.shortDescription}
         canonical={`/services/${service.slug}`}
       />
 
-      {/* Service Detail Hero */}
-      <section className="py-20 bg-tech-grid relative overflow-hidden text-left">
+      {/* Blue & White Hero Header */}
+      <section className="pt-32 pb-20 bg-gradient-to-b from-[#005F96] via-[#004A75] to-[#003B60] text-white relative overflow-hidden text-left">
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
             <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-blue-500/10 border border-blue-500/20 text-blue-400">
-                <IconRenderer name={service.icon} className="w-4 h-4" />
-                <span>EXPERT SERVICE CAPABILITY</span>
+              <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full text-xs font-bold bg-white/10 border border-white/20 text-cyan-300">
+                <IconRenderer name={service.icon || 'Code2'} className="w-4 h-4 text-cyan-300" />
+                <span className="uppercase tracking-widest">EXPERT SERVICE CAPABILITY</span>
               </div>
               <h1 className="text-4xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
                 {service.title}
               </h1>
-              <p className="text-lg text-slate-300 leading-relaxed">
+              <p className="text-lg text-blue-100 leading-relaxed font-normal">
                 {service.description}
               </p>
-              <div className="pt-2 flex flex-wrap gap-4">
-                <Button to="/contact" variant="primary" size="lg" icon={ArrowRight}>
-                  Request Consultation
-                </Button>
-                <Button to="/portfolio" variant="outline" size="lg">
+              <div className="pt-4 flex flex-wrap gap-4">
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center justify-center px-8 py-4 rounded-lg bg-white text-[#004A75] font-extrabold text-base hover:bg-slate-100 transition-all shadow-xl group"
+                >
+                  <span>Request Consultation</span>
+                  <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                </Link>
+                <Link
+                  to="/portfolio"
+                  className="inline-flex items-center justify-center px-8 py-4 rounded-lg bg-cyan-500/20 border border-cyan-300/40 text-cyan-200 font-bold text-base hover:bg-cyan-500/30 transition-all"
+                >
                   View Relevant Work
-                </Button>
+                </Link>
               </div>
             </div>
 
             <div className="lg:col-span-5 relative">
-              <div className="rounded-3xl overflow-hidden border border-gray-800 shadow-2xl">
-                <img src={service.image} alt={service.title} className="w-full h-80 object-cover" />
+              <div className="rounded-2xl overflow-hidden border-4 border-white/20 shadow-2xl bg-white/10 backdrop-blur-md">
+                <img
+                  src={service.image || "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80"}
+                  alt={service.title}
+                  className="w-full h-80 object-cover"
+                />
               </div>
             </div>
           </div>
         </Container>
+
+        {/* Decorative Wave */}
+        <div className="absolute -bottom-10 -right-10 w-72 h-72 rounded-full border-8 border-white/10 pointer-events-none" />
       </section>
 
-      {/* Key Features & Capabilities */}
+      {/* Key Features & Capabilities (White & Blue Card Theme) */}
       {service.features && service.features.length > 0 && (
-        <section className="py-20 bg-brand-card/30">
-          <Container text-left>
-            <SectionHeading
-              badge="CORE CAPABILITIES"
-              title={`Key Features of Our ${service.title}`}
-              subtitle="Comprehensive engineering solutions designed to meet strict enterprise standards."
-            />
+        <section className="py-20 bg-slate-50 text-left">
+          <Container>
+            <div className="text-center max-w-3xl mx-auto mb-14">
+              <span className="text-xs font-extrabold uppercase tracking-widest text-[#005F96] bg-blue-50 px-3 py-1 rounded-full border border-blue-100">
+                CORE CAPABILITIES
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3">
+                Key Features of Our {service.title}
+              </h2>
+              <p className="text-slate-600 mt-2">
+                Comprehensive engineering solutions designed to meet strict enterprise standards.
+              </p>
+            </div>
+
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {service.features.map((feat, idx) => (
-                <div key={idx} className="p-6 rounded-2xl bg-brand-card/80 border border-gray-800 flex items-start space-x-3 text-left">
-                  <CheckCircle2 className="w-5 h-5 text-blue-400 shrink-0 mt-0.5" />
-                  <span className="text-sm font-semibold text-slate-200">{feat}</span>
+                <div key={idx} className="p-6 rounded-2xl bg-white border border-slate-200/80 shadow-sm hover:shadow-md hover:border-[#005F96] transition-all flex items-start space-x-3">
+                  <div className="w-8 h-8 rounded-lg bg-blue-50 border border-blue-100 text-[#005F96] flex items-center justify-center shrink-0 mt-0.5">
+                    <CheckCircle2 className="w-5 h-5" />
+                  </div>
+                  <span className="text-sm font-bold text-slate-800 leading-snug">{feat}</span>
                 </div>
               ))}
             </div>
@@ -105,14 +129,16 @@ export const ServiceDetails = () => {
 
       {/* Tech Stack */}
       {service.technologies && service.technologies.length > 0 && (
-        <section className="py-16 bg-brand-dark">
+        <section className="py-16 bg-white border-y border-slate-200">
           <Container>
-            <h3 className="text-xl font-bold text-white mb-6 text-center">Technologies We Utilize</h3>
+            <h3 className="text-xl font-extrabold text-slate-900 mb-6 text-center">
+              Technologies We Utilize
+            </h3>
             <div className="flex flex-wrap justify-center gap-3">
               {service.technologies.map((t, idx) => (
-                <Badge key={idx} variant="blue" className="px-4 py-2 text-sm font-semibold">
+                <span key={idx} className="px-5 py-2.5 rounded-lg bg-slate-100 border border-slate-200 text-[#005F96] text-sm font-extrabold shadow-sm">
                   {t}
-                </Badge>
+                </span>
               ))}
             </div>
           </Container>
@@ -121,19 +147,26 @@ export const ServiceDetails = () => {
 
       {/* Process Steps */}
       {service.process && service.process.length > 0 && (
-        <section className="py-20 bg-brand-card/20">
+        <section className="py-20 bg-slate-50 text-left">
           <Container>
-            <SectionHeading
-              badge="DEVELOPMENT PROCESS"
-              title="How We Execute & Deliver"
-              subtitle="Step-by-step sprint lifecycle tailored for predictability."
-            />
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
+            <div className="text-center max-w-3xl mx-auto mb-14">
+              <span className="text-xs font-extrabold uppercase tracking-widest text-[#005F96] bg-blue-50 px-3 py-1 rounded-full border border-blue-100">
+                DEVELOPMENT PROCESS
+              </span>
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3">
+                How We Execute & Deliver
+              </h2>
+              <p className="text-slate-600 mt-2">
+                Step-by-step sprint lifecycle tailored for predictability and speed.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {service.process.map((p, idx) => (
-                <div key={idx} className="p-6 rounded-2xl bg-brand-card/80 border border-gray-800">
-                  <div className="text-2xl font-extrabold text-blue-400 font-mono mb-2">0{p.step || idx + 1}</div>
-                  <h4 className="text-base font-bold text-white mb-2">{p.title}</h4>
-                  <p className="text-xs text-slate-400 leading-relaxed">{p.description}</p>
+                <div key={idx} className="p-6 rounded-2xl bg-white border border-slate-200/80 shadow-sm hover:border-[#005F96] transition-all">
+                  <div className="text-3xl font-black text-[#005F96] font-mono mb-3">0{p.step || idx + 1}</div>
+                  <h4 className="text-base font-extrabold text-slate-900 mb-2">{p.title}</h4>
+                  <p className="text-xs text-slate-600 leading-relaxed font-normal">{p.description}</p>
                 </div>
               ))}
             </div>
@@ -143,21 +176,23 @@ export const ServiceDetails = () => {
 
       {/* Service FAQ */}
       {service.faq && service.faq.length > 0 && (
-        <section className="py-20 bg-brand-dark">
+        <section className="py-20 bg-white text-left">
           <Container className="max-w-3xl">
-            <h3 className="text-2xl font-bold text-white text-center mb-8">Frequently Asked Questions</h3>
-            <div className="space-y-4 text-left">
+            <h3 className="text-2xl font-extrabold text-slate-900 text-center mb-8">
+              Frequently Asked Questions
+            </h3>
+            <div className="space-y-4">
               {service.faq.map((item, idx) => (
-                <div key={idx} className="rounded-2xl bg-brand-card/80 border border-gray-800 overflow-hidden">
+                <div key={idx} className="rounded-xl bg-slate-50 border border-slate-200 overflow-hidden">
                   <button
                     onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
-                    className="w-full px-6 py-4 flex items-center justify-between font-bold text-white focus:outline-none"
+                    className="w-full px-6 py-4 flex items-center justify-between font-extrabold text-slate-900 focus:outline-none text-left"
                   >
                     <span>{item.question}</span>
-                    <ChevronDown className={`w-5 h-5 text-blue-400 transition-transform ${openFaq === idx ? 'rotate-180' : ''}`} />
+                    <ChevronDown className={`w-5 h-5 text-[#005F96] transition-transform ${openFaq === idx ? 'rotate-180' : ''}`} />
                   </button>
                   {openFaq === idx && (
-                    <div className="px-6 pb-5 text-sm text-slate-300 leading-relaxed border-t border-gray-800/60 pt-3">
+                    <div className="px-6 pb-5 text-sm text-slate-600 leading-relaxed border-t border-slate-200/60 pt-3">
                       {item.answer}
                     </div>
                   )}

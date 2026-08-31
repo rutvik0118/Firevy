@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Play, X, ChevronRight, GraduationCap, BookOpen, HeartPulse, Sparkles, Calendar, Layers, ExternalLink } from 'lucide-react';
 
+const slugify = (text) => text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
+
 export const servicesCategories = [
   {
     id: 'mobile',
@@ -337,7 +339,7 @@ export const MegaMenu = ({ type, onClose }) => {
   const selectedCategory = servicesCategories.find((c) => c.id === activeServiceId) || servicesCategories[0];
   const selectedHireCategory = hireDeveloperCategories.find((c) => c.id === activeHireId) || hireDeveloperCategories[0];
 
-  // Reusable SubMenu Link Style (Solid Blue Pill on Hover)
+  // SubMenu Link Style with Solid Blue Pill on Hover
   const subMenuLinkStyle = "text-xs sm:text-[13px] font-medium text-slate-700 hover:text-white hover:bg-[#005F96] px-2.5 py-1 rounded-lg inline-block transition-all duration-200 ease-in-out hover:shadow-md";
 
   // Our Work View
@@ -353,7 +355,6 @@ export const MegaMenu = ({ type, onClose }) => {
           onMouseEnter={(e) => e.stopPropagation()}
         >
           <div className="w-full grid grid-cols-1 lg:grid-cols-12 min-h-[440px]">
-            {/* Left Blue Sidebar Section (~22% width) */}
             <div className="lg:col-span-3 bg-gradient-to-b from-[#005F96] via-[#004B77] to-[#003758] p-8 lg:p-10 text-white flex flex-col justify-between relative overflow-hidden">
               <div className="space-y-5 relative z-10">
                 <h2 className="text-3xl font-extrabold tracking-tight text-white">Our Work</h2>
@@ -375,7 +376,6 @@ export const MegaMenu = ({ type, onClose }) => {
               <div className="absolute -bottom-12 -right-12 w-56 h-56 rounded-full border-4 border-white/10 pointer-events-none" />
             </div>
 
-            {/* Right Content Grid Section (~78% width) */}
             <div className="lg:col-span-9 p-8 lg:px-10 lg:py-8 bg-white flex flex-col justify-between">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                 <div className="lg:col-span-4 space-y-3">
@@ -396,7 +396,7 @@ export const MegaMenu = ({ type, onClose }) => {
                     ].map((item, idx) => (
                       <li key={idx}>
                         <Link
-                          to="/portfolio"
+                          to={`/services/${slugify(item)}`}
                           onClick={onClose}
                           className={subMenuLinkStyle}
                         >
@@ -558,7 +558,7 @@ export const MegaMenu = ({ type, onClose }) => {
                 {selectedHireCategory.roles.map((role, idx) => (
                   <li key={idx}>
                     <Link
-                      to="/services/dedicated-developers"
+                      to={`/services/${slugify(role)}`}
                       onClick={onClose}
                       className={subMenuLinkStyle}
                     >
@@ -642,7 +642,7 @@ export const MegaMenu = ({ type, onClose }) => {
                     <ul className="space-y-1 text-xs sm:text-[13px]">
                       {['Android', 'iOS', 'Flutter', 'React Native', 'Xamarin'].map((tech) => (
                         <li key={tech}>
-                          <Link to="/technologies" onClick={onClose} className={subMenuLinkStyle}>
+                          <Link to={`/services/${slugify(tech)}`} onClick={onClose} className={subMenuLinkStyle}>
                             {tech}
                           </Link>
                         </li>
@@ -657,7 +657,7 @@ export const MegaMenu = ({ type, onClose }) => {
                     <ul className="space-y-1 text-xs sm:text-[13px]">
                       {['SharePoint', 'PowerApps', 'Power Automate'].map((tech) => (
                         <li key={tech}>
-                          <Link to="/technologies" onClick={onClose} className={subMenuLinkStyle}>
+                          <Link to={`/services/${slugify(tech)}`} onClick={onClose} className={subMenuLinkStyle}>
                             {tech}
                           </Link>
                         </li>
@@ -674,7 +674,7 @@ export const MegaMenu = ({ type, onClose }) => {
                     <ul className="space-y-1 text-xs sm:text-[13px]">
                       {['.NET', 'PHP', 'Java', 'Nodejs'].map((tech) => (
                         <li key={tech}>
-                          <Link to="/technologies" onClick={onClose} className={subMenuLinkStyle}>
+                          <Link to={`/services/${slugify(tech)}`} onClick={onClose} className={subMenuLinkStyle}>
                             {tech}
                           </Link>
                         </li>
@@ -689,7 +689,7 @@ export const MegaMenu = ({ type, onClose }) => {
                     <ul className="space-y-1 text-xs sm:text-[13px]">
                       {['Angular', 'React', 'Vuejs'].map((tech) => (
                         <li key={tech}>
-                          <Link to="/technologies" onClick={onClose} className={subMenuLinkStyle}>
+                          <Link to={`/services/${slugify(tech)}`} onClick={onClose} className={subMenuLinkStyle}>
                             {tech}
                           </Link>
                         </li>
@@ -705,7 +705,7 @@ export const MegaMenu = ({ type, onClose }) => {
                   <ul className="space-y-1 text-xs sm:text-[13px]">
                     {['Generative AI', 'AI & ML', 'Blockchain', 'Full Stack', 'VR & AR', 'IoT', 'PWD', 'RPA'].map((tech) => (
                       <li key={tech}>
-                        <Link to="/technologies" onClick={onClose} className={subMenuLinkStyle}>
+                        <Link to={`/services/${slugify(tech)}`} onClick={onClose} className={subMenuLinkStyle}>
                           {tech}
                         </Link>
                       </li>
@@ -720,7 +720,7 @@ export const MegaMenu = ({ type, onClose }) => {
                   <ul className="space-y-1 text-xs sm:text-[13px]">
                     {['Wordpress', 'Drupal', 'Umbraco', 'Sitecore', 'Sitefinity', 'Magento', 'Shopify'].map((tech) => (
                       <li key={tech}>
-                        <Link to="/technologies" onClick={onClose} className={subMenuLinkStyle}>
+                        <Link to={`/services/${slugify(tech)}`} onClick={onClose} className={subMenuLinkStyle}>
                           {tech}
                         </Link>
                       </li>
@@ -824,7 +824,7 @@ export const MegaMenu = ({ type, onClose }) => {
                   {selectedCategory.col1.map((item, idx) => (
                     <li key={idx}>
                       <Link
-                        to="/services"
+                        to={`/services/${slugify(item)}`}
                         onClick={onClose}
                         className={subMenuLinkStyle}
                       >
@@ -838,7 +838,7 @@ export const MegaMenu = ({ type, onClose }) => {
                   {selectedCategory.col2.map((item, idx) => (
                     <li key={idx}>
                       <Link
-                        to="/services"
+                        to={`/services/${slugify(item)}`}
                         onClick={onClose}
                         className={subMenuLinkStyle}
                       >
@@ -893,7 +893,7 @@ export const MegaMenu = ({ type, onClose }) => {
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
                 <div className="lg:col-span-8 grid grid-cols-1 md:grid-cols-3 gap-5">
                   <Link
-                    to="/services/software-development"
+                    to="/services/vidyalaya-school-management-software"
                     onClick={onClose}
                     className="group p-6 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-[#005F96] hover:shadow-xl transition-all duration-300 flex flex-col items-center text-center justify-between"
                   >
@@ -912,7 +912,7 @@ export const MegaMenu = ({ type, onClose }) => {
                   </Link>
 
                   <Link
-                    to="/services/software-development"
+                    to="/services/vidyalaya-learning-management-system"
                     onClick={onClose}
                     className="group p-6 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-[#005F96] hover:shadow-xl transition-all duration-300 flex flex-col items-center text-center justify-between"
                   >
@@ -931,7 +931,7 @@ export const MegaMenu = ({ type, onClose }) => {
                   </Link>
 
                   <Link
-                    to="/services/software-development"
+                    to="/services/occupational-health-safety-software"
                     onClick={onClose}
                     className="group p-6 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-[#005F96] hover:shadow-xl transition-all duration-300 flex flex-col items-center text-center justify-between"
                   >
