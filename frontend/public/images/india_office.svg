@@ -1,0 +1,9 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 56" width="56" height="56">
+	<title>INDIA-office</title>
+	<defs>
+		<image  width="56" height="38" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAAmCAMAAACmhKjHAAAAAXNSR0IB2cksfwAAAVlQTFRFAAAA/5kz+K5D+7NF/LRE/LVD+bNA25Ik/79A/LZE+rRF+rRF+7RG+rRF+rNG+rNF+rVF/6o5+7RD+bRF+rRG+rVG+LRF+7NF+7RE+rNF+rNE+rhQ9fX17e7x4OHq2Nnm3+Dq7e3x9fX18/P03d7oqq3Pgoe7dHm0dHi0gYW6p6rO9PT0iIy+i46/n6LJv8HZwcPanqHJjpLB2Nnm7e3xubvXt7nVtLbUt7jVubzXo6fM6uvv3+Dqmp3HdHizcnaymJvG19jmgoW6hIe8cHSxsrTTen63zs/hhom9bXKwzc7h39/plpnFtrjV7O3woaTK6erv6+zw2drnzc/izc7h2Nnn6uvwg7gec68Acq4Acq8Ac68Ac64Ac68Ac68Ac64Acq8AgL8AcrAAcq8Ac68Ac68Ac64Ac64Acq4Ac7AAcaoAVaoAcbAAc68AdLAAcq8Ac64AcK8AYJ8Abp3ujwAAAHN0Uk5TAAUmQ0tMKAcEXrzr+Pr5wGQJROD/4k6yt/Hy/vz8/Pz8/P///////////////////////////////////////////////////////////////Pz8/Pz8/v/z9Li9SeXnUwRevOv4+vnAZAkGLVBaXFswCBCFhQUAAAETSURBVHic7dLHWsJAFIbho2DF7tgLSkIgQLqQgEoREkBF7L2LXWz3v/AGnMU5z8OObzvzrs4P0NHp83eh8vu6ewB6+/oDA4OohgLDI6MwNs4ITUzCFMUxNg0zNDgLNMdYG7YEzhGDeV4Li8Hg0jL3GUL/J4hhKRKVY6LA+cCBcTGhqJpumAkrjoIrYSWZsm0nrWRWUXBNUlPr2VzeUSULBQsRzc5uFEuu5pVxMKrbuWKl6ureJgpuyYaTL1W3a4ZcQMGdmJl2XLeWNOu7KEg+R0iwMpLnyXWLOwDupvb2Dw6PjvmTOyEGp8TasCXwjObO4YIGL+HqmuJubuHu/qHx+ITqufHy+gbw/tH8/EL13fz5hT9InJfj4KkK3AAAAABJRU5ErkJggg=="/>
+	</defs>
+	<style>
+	</style>
+	<use id="Background" href="#img1" x="0" y="9"/>
+</svg>

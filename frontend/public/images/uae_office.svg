@@ -1,0 +1,9 @@
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 56" width="56" height="56">
+	<title>UAE-office</title>
+	<defs>
+		<image  width="56" height="38" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAAmCAMAAACmhKjHAAAAAXNSR0IB2cksfwAAAPZQTFRFAAAA/zMz/0pR/0hU/0tV/0pU+E1RroMicq4AdLEAcq8Ac6wAbZIA/0BA/0lU/0tU/0tV/0pU/0pV+k5Rr4Mkc64Ac64Ac68Acq4Ac7AAcaoA/0dS/0pU/0tV+U5Rr4Mkc68Ac68Acq0A/0lTcq4A/0pUcq4As4UterQP/1Jb+quv9fX1/lFa+quv9fX1+aqv+EtVolRgW1to90pUlkhVRkZV/0tURUVU/0lTRUVU/0lQ/0tVRkZVRERT+EpVlkhVRUVVRkZVRUVVRUVURUVUOTlV/ypV/0pV/0lT/0pV/0tT+UlUlUZURUVTQ0NURkZTRUVVQEBAHqXC0AAAAFJ0Uk5TAAUmQ0tMTExMS0MoBwRevOv4+vn5+vnrwGQJROD//v3/4k6yt/Hy/f79+/z+/f/8/v3+/v3/8/S4vUnl51P5+fr568BkCQYtUFpcW1tcW1AwCH1wiXUAAACnSURBVHic7dW1DgMxFETRF2ZmcHbD2TAzM8P//0xKa+XC1pOSyrc/3UgDYDCazBaa1Wbn5XC63AAer88fCNJC4QivaCyeSEIqTXRlFFWgbA7yBAPVAhRxsAQEB1UJ/wPLFaEYqFVrQjGw3mgKJaGE+rQWcnLtTlcoBvb6A6Ek/Akc4uAIxjg4gekMA+cL5sqXqzWvzXa3PwAcT+fLlXa7P3g9X+8PfAGc0EcjnJ0h8QAAAABJRU5ErkJggg=="/>
+	</defs>
+	<style>
+	</style>
+	<use id="Background" href="#img1" x="0" y="9"/>
+</svg>

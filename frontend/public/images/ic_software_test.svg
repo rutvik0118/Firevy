@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="52.8" height="56.514" viewBox="0 0 52.8 56.514">
+  <g id="exam" transform="translate(-31.6 -15.6)">
+    <path id="Path_19285" data-name="Path 19285" d="M72.857,16H32.929a.929.929,0,0,0-.929.929v9.286h1.857V17.857H71.929v52H33.857V28.071H32V70.786a.929.929,0,0,0,.929.929H72.857a.929.929,0,0,0,.929-.929V16.929A.929.929,0,0,0,72.857,16Z" fill="#fb4c9a" stroke="#fb4c9a" stroke-width="0.8"/>
+    <path id="Path_19286" data-name="Path 19286" d="M72,73.857h2.786v7.429h1.857V73.857h2.786V72H72Z" transform="translate(-35.357 -49.5)" fill="#fb4c9a" stroke="#fb4c9a" stroke-width="0.8"/>
+    <path id="Path_19287" data-name="Path 19287" d="M292.643,81.286V73.857h2.786V72H288v1.857h2.786v7.429Z" transform="translate(-226.286 -49.5)" fill="#fb4c9a" stroke="#fb4c9a" stroke-width="0.8"/>
+    <path id="Path_19288" data-name="Path 19288" d="M157.571,73.857V72h-4.643a.929.929,0,0,0-.929.929v7.429a.929.929,0,0,0,.929.929h4.643V79.429h-3.714V77.571h3.714V75.714h-3.714V73.857Z" transform="translate(-106.071 -49.5)" fill="#fb4c9a" stroke="#fb4c9a" stroke-width="0.8"/>
+    <path id="Path_19289" data-name="Path 19289" d="M216,79.429v1.857h5.571a.929.929,0,0,0,.929-.929V76.643a.929.929,0,0,0-.929-.929h-3.714V73.857H222.5V72h-5.571a.929.929,0,0,0-.929.929v3.714a.929.929,0,0,0,.929.929h3.714v1.857Z" transform="translate(-162.643 -49.5)" fill="#fb4c9a" stroke="#fb4c9a" stroke-width="0.8"/>
+    <path id="Path_19290" data-name="Path 19290" d="M115.656,206.456l-1.313,1.313,2.786,2.786a.929.929,0,0,0,.657.272h.036a.929.929,0,0,0,.669-.324l5.571-6.5-1.41-1.209-4.919,5.739Z" transform="translate(-72.785 -165.113)" fill="#fb4c9a" stroke="#fb4c9a" stroke-width="0.8"/>
+    <path id="Path_19291" data-name="Path 19291" d="M88,200.929v9.286a.929.929,0,0,0,.929.929h9.286a.929.929,0,0,0,.929-.929v-2.786H97.286v1.857H89.857v-7.429h5.571V200h-6.5A.929.929,0,0,0,88,200.929Z" transform="translate(-49.5 -162.643)" fill="#fb4c9a" stroke="#fb4c9a" stroke-width="0.8"/>
+    <path id="Path_19292" data-name="Path 19292" d="M122.652,346.794l-4.919,5.739-2.077-2.077-1.313,1.313,2.786,2.786a.929.929,0,0,0,.657.272h.036a.929.929,0,0,0,.669-.324l5.571-6.5Z" transform="translate(-72.785 -292.398)" fill="#fb4c9a" stroke="#fb4c9a" stroke-width="0.8"/>
+    <path id="Path_19293" data-name="Path 19293" d="M95.429,345.857V344h-6.5a.929.929,0,0,0-.929.929v9.286a.929.929,0,0,0,.929.929h9.286a.929.929,0,0,0,.929-.929v-2.786H97.286v1.857H89.857v-7.429Z" transform="translate(-49.5 -289.929)" fill="#fb4c9a" stroke="#fb4c9a" stroke-width="0.8"/>
+    <path id="Path_19294" data-name="Path 19294" d="M216,200h13.929v1.857H216Z" transform="translate(-162.643 -162.643)" fill="#fb4c9a" stroke="#fb4c9a" stroke-width="0.8"/>
+    <path id="Path_19295" data-name="Path 19295" d="M216,240h13.929v1.857H216Z" transform="translate(-162.643 -198)" fill="#fb4c9a" stroke="#fb4c9a" stroke-width="0.8"/>
+    <path id="Path_19296" data-name="Path 19296" d="M216,280h13.929v1.857H216Z" transform="translate(-162.643 -233.357)" fill="#fb4c9a" stroke="#fb4c9a" stroke-width="0.8"/>
+    <path id="Path_19297" data-name="Path 19297" d="M216,344h13.929v1.857H216Z" transform="translate(-162.643 -289.929)" fill="#fb4c9a" stroke="#fb4c9a" stroke-width="0.8"/>
+    <path id="Path_19298" data-name="Path 19298" d="M216,384h13.929v1.857H216Z" transform="translate(-162.643 -325.286)" fill="#fb4c9a" stroke="#fb4c9a" stroke-width="0.8"/>
+    <path id="Path_19299" data-name="Path 19299" d="M216,424h13.929v1.857H216Z" transform="translate(-162.643 -360.643)" fill="#fb4c9a" stroke="#fb4c9a" stroke-width="0.8"/>
+    <path id="Path_19300" data-name="Path 19300" d="M419.714,40A3.718,3.718,0,0,0,416,43.714V81.786a.926.926,0,0,0,.028.225l1.857,7.429a.929.929,0,0,0,.9.7h1.857a.929.929,0,0,0,.9-.7l1.857-7.429a.926.926,0,0,0,.028-.225V77.143h-1.857v2.786h-3.714V50.214h3.714V75.286h1.857V43.714A3.718,3.718,0,0,0,419.714,40Zm1.829,41.786-1.625,6.5h-.407l-1.625-6.5Zm-3.686-33.429V43.714a1.857,1.857,0,1,1,3.714,0v4.643Z" transform="translate(-339.429 -21.214)" fill="#fb4c9a" stroke="#fb4c9a" stroke-width="0.8"/>
+  </g>
+</svg>

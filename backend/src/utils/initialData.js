@@ -1,0 +1,599 @@
+export const initialServices = [
+  {
+    title: "Web Development",
+    slug: "web-development",
+    shortDescription: "Enterprise-grade web applications engineered for speed, security, and effortless scalability.",
+    description: "We architect and deliver modern web platforms, progressive web apps (PWAs), and microfrontend architectures built on React, Next.js, and Node.js. Our applications handle millions of queries with sub-second performance.",
+    icon: "Globe",
+    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
+    technologies: ["React", "Next.js", "TypeScript", "Node.js", "Tailwind CSS", "GraphQL"],
+    features: ["Component-Driven Architecture", "Server-Side Rendering & ISR", "API Gateway Integration", "CI/CD Pipeline Setup", "Sub-second Page Load Speed"],
+    benefits: ["Boost user engagement by 40%", "Reduce cloud hosting costs with optimized SSR", "Enterprise SOC2 ready security compliance"],
+    process: [
+      { step: 1, title: "Architecture Design", description: "Define system blueprints, data flows, and tech stack specification." },
+      { step: 2, title: "Frontend & API Build", description: "Develop clean modular UI components and resilient backend microservices." },
+      { step: 3, title: "QA & Performance Testing", description: "Automated end-to-end testing, load stress testing, and accessibility auditing." },
+      { step: 4, title: "Production Deployment", description: "Zero-downtime deployment with CDN caching and server monitoring." }
+    ],
+    faq: [
+      { question: "What technologies do you use for web development?", answer: "We leverage React, Next.js, Node.js, Express, TypeScript, and MongoDB or PostgreSQL depending on project requirements." },
+      { question: "How long does a typical web application project take?", answer: "Typical timelines range from 6 to 12 weeks for an enterprise MVP, following 2-week agile sprints." }
+    ],
+    isActive: true
+  },
+  {
+    title: "Mobile App Development",
+    slug: "mobile-app-development",
+    shortDescription: "High-performance native and cross-platform iOS & Android mobile applications.",
+    description: "Deliver flawless mobile experiences across iOS and Android with React Native and Flutter. We build offline-first, feature-rich apps integrated with real-time analytics and push messaging.",
+    icon: "Smartphone",
+    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1200&q=80",
+    technologies: ["React Native", "Flutter", "Swift", "Kotlin", "Firebase", "GraphQL"],
+    features: ["Cross-Platform Code Reusability", "Biometric Authentication", "Offline-First Synchronization", "Real-Time Push Notifications"],
+    benefits: ["Native 60fps UI performance", "Dual store deployment in 50% less time", "High app store rating standards"],
+    process: [
+      { step: 1, title: "UX Wireframing", description: "Design mobile-first user flows and interactive prototypes." },
+      { step: 2, title: "App Engineering", description: "Build native native bridges and reactive state management." },
+      { step: 3, title: "Device Matrix Testing", description: "Testing across 50+ real physical Android and iOS devices." },
+      { step: 4, title: "App Store Publishing", description: "Complete submission, metadata optimization, and app store compliance." }
+    ],
+    faq: [
+      { question: "Do you build native or cross-platform apps?", answer: "We build both. We recommend cross-platform (React Native / Flutter) for cost efficiency or native (Swift / Kotlin) for heavy hardware integrations." }
+    ],
+    isActive: true
+  },
+  {
+    title: "Software Development",
+    slug: "software-development",
+    shortDescription: "Custom enterprise software solutions tailored to solve complex operational challenges.",
+    description: "End-to-end bespoke software engineering services for enterprises and high-growth scale-ups. We modernize legacy monoliths into cloud-native microservices.",
+    icon: "Code2",
+    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1200&q=80",
+    technologies: ["Node.js", "Python", "Java", "Go", "Docker", "Kubernetes"],
+    features: ["Legacy Code Refactoring", "Microservices Migration", "Enterprise Security Architecture", "Custom CRM / ERP Building"],
+    benefits: ["Streamline operational bottlenecks", "Seamless third-party integration", "Future-proof cloud infrastructure"],
+    process: [
+      { step: 1, title: "Business Analysis", description: "Deep dive into existing infrastructure and workflow constraints." },
+      { step: 2, title: "System Architecture", description: "Define data models, API contracts, and domain-driven design." },
+      { step: 3, title: "Incremental Sprints", description: "Bi-weekly sprint deliveries with continuous integration." },
+      { step: 4, title: "Enterprise Rollout", description: "Phased deployment, team training, and SLAs." }
+    ],
+    faq: [
+      { question: "Can you modernize our legacy desktop software?", answer: "Yes, we specialize in converting legacy desktop applications into secure web-based cloud solutions." }
+    ],
+    isActive: true
+  },
+  {
+    title: "UI/UX Design",
+    slug: "ui-ux-design",
+    shortDescription: "Human-centric digital product design that drives conversion and brand preference.",
+    description: "Crafting intuitive visual systems, wireframes, interaction animations, and design tokens that elevate digital products from functional to extraordinary.",
+    icon: "Layout",
+    image: "https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=1200&q=80",
+    technologies: ["Figma", "Design Systems", "Prototyping", "Framer", "User Testing"],
+    features: ["Comprehensive Design Systems", "High-Fidelity Interactive Prototypes", "Usability Testing & Heatmaps", "Design Tokens for Developers"],
+    benefits: ["3x higher conversion rate", "Accelerated frontend development time", "Consistent multi-platform branding"],
+    process: [
+      { step: 1, title: "User Research", description: "Conduct interviews, competitor benchmarking, and user persona mapping." },
+      { step: 2, title: "Wireframing", description: "Map information architecture and low-fidelity interaction flows." },
+      { step: 3, title: "Visual Design", description: "Create high-fidelity screens, dark/light themes, and design tokens." },
+      { step: 4, title: "Design Handoff", description: "Provide interactive Figma components and clean asset specs." }
+    ],
+    faq: [
+      { question: "What deliverable do we receive?", answer: "Full Figma design system libraries, interactive prototypes, component guidelines, and ready-to-use SVG assets." }
+    ],
+    isActive: true
+  },
+  {
+    title: "AI & Machine Learning",
+    slug: "ai-machine-learning",
+    shortDescription: "Intelligent AI integrations, custom LLM solutions, and predictive analytics engines.",
+    description: "Transform your business operations with artificial intelligence. We build custom RAG pipelines, fine-tuned LLM agents, automated document analysis, and predictive models.",
+    icon: "Cpu",
+    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80",
+    technologies: ["Python", "TensorFlow", "PyTorch", "OpenAI API", "LangChain", "Vector DBs"],
+    features: ["Custom RAG Knowledge Bases", "Automated AI Workflow Agents", "Predictive Analytics Models", "Natural Language Processing (NLP)"],
+    benefits: ["Automate 70% of repetitive operational tasks", "Extract real-time insights from unstructured data", "Enterprise privacy data protection"],
+    process: [
+      { step: 1, title: "Data Feasibility Audit", description: "Analyze your data sources, volume, and AI use cases." },
+      { step: 2, title: "Model Selection & RAG Setup", description: "Implement vector databases, embeddings, and fine-tuned models." },
+      { step: 3, title: "API Integration", description: "Connect AI endpoints into your existing web/mobile workflows." },
+      { step: 4, title: "Continuous Monitoring", description: "Track accuracy metrics, hallucination rates, and latency." }
+    ],
+    faq: [
+      { question: "Is our business data secure when using your AI solutions?", answer: "Absolutely. We build private instance deployments with strict data boundary encryption so your proprietary data is never shared or trained publicly." }
+    ],
+    isActive: true
+  },
+  {
+    title: "Cloud Solutions",
+    slug: "cloud-solutions",
+    shortDescription: "Scalable cloud architecture, cloud migration, and automated infrastructure optimization.",
+    description: "Architecting resilient, elastic cloud infrastructures on AWS, Google Cloud, and Azure. We optimize compute costs and implement zero-trust cloud security.",
+    icon: "Cloud",
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80",
+    technologies: ["AWS", "Google Cloud", "Azure", "Terraform", "Docker", "Kubernetes"],
+    features: ["Infrastructure as Code (IaC)", "Serverless Architectures", "Cloud Cost Optimization", "Disaster Recovery Automation"],
+    benefits: ["99.99% infrastructure uptime", "Up to 35% reduction in cloud monthly spend", "Instant auto-scaling under peak traffic load"],
+    process: [
+      { step: 1, title: "Cloud Audit", description: "Evaluate existing cloud architecture, security risks, and billing." },
+      { step: 2, title: "Migration Planning", description: "Design cloud blueprints using Terraform IaC scripts." },
+      { step: 3, title: "Cloud Provisioning", description: "Deploy containerized Kubernetes clusters and database replicas." },
+      { step: 4, title: "24/7 Operations", description: "Continuous cloud health monitoring and incident response." }
+    ],
+    faq: [
+      { question: "Can you help us reduce our AWS monthly bill?", answer: "Yes, our cloud cost optimization audit typically saves clients 20% to 40% on their existing infrastructure spend." }
+    ],
+    isActive: true
+  },
+  {
+    title: "API Development",
+    slug: "api-development",
+    shortDescription: "Secure, high-throughput REST and GraphQL APIs for seamless system integration.",
+    description: "Engineered for extreme performance and reliability. We design RESTful APIs, GraphQL endpoints, and WebSockets with strict rate-limiting, JWT authentication, and Swagger OpenAPI documentation.",
+    icon: "Layers",
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80",
+    technologies: ["Node.js", "Express", "GraphQL", "Postman", "Swagger", "Redis"],
+    features: ["OpenAPI Specification", "OAuth2 & JWT Auth", "Redis Caching Layer", "Webhook Notification Pipelines"],
+    benefits: ["Sub-50ms API responses", "Seamless third-party integrations", "Comprehensive API documentation"],
+    process: [
+      { step: 1, title: "Contract Design", description: "Define endpoints, payloads, schema models, and status codes." },
+      { step: 2, title: "API Development", description: "Build scalable routes, data caching, and rate limiting." },
+      { step: 3, title: "Security Audit", description: "Penetration testing and payload sanitization check." },
+      { step: 4, title: "Developer Portal", description: "Generate interactive Swagger docs and SDK boilerplate." }
+    ],
+    faq: [
+      { question: "Do you provide API documentation?", answer: "Yes, all APIs include automated OpenAPI / Swagger documentation and Postman collections." }
+    ],
+    isActive: true
+  },
+  {
+    title: "DevOps",
+    slug: "devops",
+    shortDescription: "Automated CI/CD deployment pipelines, containerization, and 24/7 monitoring.",
+    description: "Accelerate software delivery cycles with robust DevOps practices. We build automated GitHub Actions pipelines, Kubernetes orchestration, and comprehensive Prometheus/Grafana monitoring.",
+    icon: "Terminal",
+    image: "https://images.unsplash.com/photo-1618401471353-b98aedd04e11?auto=format&fit=crop&w=1200&q=80",
+    technologies: ["Docker", "Kubernetes", "GitHub Actions", "Terraform", "Prometheus", "Grafana"],
+    features: ["Automated Deployment Pipelines", "Zero-Downtime Blue-Green Releases", "Centralized Log Aggregation", "Infrastructure Monitoring"],
+    benefits: ["Deploy code 10x faster", "99.9% build reliability", "Instant rollback capabilities"],
+    process: [
+      { step: 1, title: "Pipeline Audit", description: "Analyze deployment friction and build times." },
+      { step: 2, title: "CI/CD Implementation", description: "Configure automated testing and container build steps." },
+      { step: 3, title: "Monitoring Setup", description: "Set up telemetry dashboards and PagerDuty alerts." },
+      { step: 4, title: "Team Enablement", description: "Train internal dev teams on GitOps deployment workflows." }
+    ],
+    faq: [
+      { question: "What CI/CD platforms do you support?", answer: "We work with GitHub Actions, GitLab CI, Jenkins, CircleCI, and AWS CodePipeline." }
+    ],
+    isActive: true
+  },
+  {
+    title: "Software Testing",
+    slug: "software-testing",
+    shortDescription: "Rigorous automated, functional, security, and performance quality assurance.",
+    description: "Ensure flawless reliability before going live. Our QA engineers execute automated regression suites, load stress tests, security penetration audits, and cross-browser testing.",
+    icon: "ShieldCheck",
+    image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80",
+    technologies: ["Cypress", "Playwright", "Jest", "JMeter", "Postman", "Selenium"],
+    features: ["End-to-End Automated Testing", "Load Stress & Capacity Testing", "OWASP Security Vulnerability Scans", "Cross-Browser & Matrix Verification"],
+    benefits: ["Zero high-severity production bugs", "Reduced regression testing time from days to minutes", "Enhanced end-user trust"],
+    process: [
+      { step: 1, title: "Test Strategy", description: "Define test plans, acceptance criteria, and matrix coverage." },
+      { step: 2, title: "Automation Scripts", description: "Write Cypress/Playwright suites for critical user journeys." },
+      { step: 3, title: "Performance Stressing", description: "Simulate peak user load with Apache JMeter." },
+      { step: 4, title: "QA Sign-off", description: "Detailed test execution reports and bug verification." }
+    ],
+    faq: [
+      { question: "Do you offer automated QA testing?", answer: "Yes, we build comprehensive Cypress and Playwright suites integrated directly into your CI/CD pipeline." }
+    ],
+    isActive: true
+  },
+  {
+    title: "Dedicated Developers",
+    slug: "dedicated-developers",
+    shortDescription: "Scale your engineering capability with top 1% senior full-stack & DevOps engineers.",
+    description: "Hire pre-vetted senior software engineers, UI/UX designers, and cloud architects who integrate seamlessly into your internal sprint cycles.",
+    icon: "Users",
+    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80",
+    technologies: ["React", "Node.js", "Python", "Mobile Native", "DevOps", "AWS"],
+    features: ["Dedicated Full-Time Developers", "Direct Slack & Jira Integration", "Agile Sprint Management", "Flexible Scaling"],
+    benefits: ["Onboard engineers in under 48 hours", "Zero recruitment & HR overhead", "Same timezone alignment"],
+    process: [
+      { step: 1, title: "Requirements Matching", description: "Identify technical stack, seniority, and soft skill requirements." },
+      { step: 2, title: "Candidate Selection", description: "Interview pre-vetted engineers and assess live coding samples." },
+      { step: 3, title: "Seamless Onboarding", description: "Integrate developers into your Slack, GitHub, and daily standups." },
+      { step: 4, title: "Ongoing Support", description: "Dedicated Account Manager to ensure team satisfaction." }
+    ],
+    faq: [
+      { question: "How quickly can dedicated developers join our team?", answer: "Our pre-vetted senior engineers can start within 48 to 72 hours." }
+    ],
+    isActive: true
+  }
+];
+
+export const initialPortfolio = [
+  {
+    title: "AI Recruitment & Talent Matching Platform",
+    slug: "ai-recruitment-platform",
+    shortDescription: "An intelligent talent acquisition platform powered by LLM resume analysis and semantic skill matching.",
+    description: "Built for a global enterprise recruiting firm, this platform analyzes candidate profiles using natural language processing to rank applicants against complex job requirements with 94% accuracy.",
+    industry: "Human Resources",
+    category: "AI",
+    image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=80",
+    gallery: [
+      "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80"
+    ],
+    technologies: ["React", "Node.js", "Python", "OpenAI API", "MongoDB", "Pinecone Vector DB"],
+    challenge: "Traditional resume screeners relied on keyword matching that missed qualified non-standard candidates, resulting in 300+ manual hours spent per recruiter per month.",
+    solution: "Engineered a custom vector embedding system using OpenAI models to evaluate contextual candidate expertise, soft skills, and career progression automatically.",
+    results: [
+      "75% reduction in candidate screening time",
+      "3.2x increase in successful candidate placements",
+      "Processed over 1.2 million resumes in the first 6 months"
+    ],
+    features: [
+      "Automated Resume Parsing & Vectorization",
+      "Semantic Job Description Matching",
+      "Bias-free Anonymized Candidate Evaluation",
+      "Real-time Recruiter Dashboard"
+    ],
+    isFeatured: true,
+    isActive: true
+  },
+  {
+    title: "Telehealth & Remote Care Healthcare System",
+    slug: "healthcare-management-system",
+    shortDescription: "HIPAA-compliant telemedicine platform with HD video consultations and real-time EHR integration.",
+    description: "A secure healthcare portal connecting over 250,000 active patients with doctors, offering instant video consultations, digital prescription dispatch, and lab result tracking.",
+    industry: "Healthcare",
+    category: "Web",
+    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80",
+    gallery: [
+      "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80"
+    ],
+    technologies: ["React", "Node.js", "WebRTC", "Express", "MongoDB", "AWS MedTech"],
+    challenge: "The client needed a HIPAA-compliant solution to conduct virtual patient visits with sub-100ms video latency while synchronizing data with legacy EHR databases.",
+    solution: "Developed an end-to-end encrypted WebRTC video platform integrated with Node.js microservices and automated compliance audit logging.",
+    results: [
+      "99.99% video uptime across 50,000+ monthly visits",
+      "Sub-100ms video latency globally",
+      "100% HIPAA and SOC2 Type II compliance audit pass"
+    ],
+    features: [
+      "Encrypted WebRTC HD Video Consultations",
+      "Digital Prescription Generation",
+      "Automated Appointment Reminders via SMS/Email",
+      "Seamless EHR Integration"
+    ],
+    isFeatured: true,
+    isActive: true
+  },
+  {
+    title: "Global Multi-Vendor E-Commerce Platform",
+    slug: "ecommerce-platform",
+    shortDescription: "High-scale B2B/B2C marketplace handling over 100,000 daily transactions with dynamic multi-currency routing.",
+    description: "Architected a modular headless e-commerce store with real-time inventory synchronization across 400 global vendors.",
+    industry: "E-commerce",
+    category: "E-commerce",
+    image: "https://images.unsplash.com/photo-1556742049-0a67daf40955?auto=format&fit=crop&w=1200&q=80",
+    gallery: [
+      "https://images.unsplash.com/photo-1556742049-0a67daf40955?auto=format&fit=crop&w=1200&q=80"
+    ],
+    technologies: ["Next.js", "Node.js", "MongoDB", "Redis", "Stripe Connect", "Tailwind CSS"],
+    challenge: "High checkout abandonment caused by slow page rendering and complex multi-vendor checkout processes during peak seasonal sales events.",
+    solution: "Built a headless Next.js frontend coupled with Redis caching and Stripe Connect multi-party payment splitting.",
+    results: [
+      "48% increase in mobile checkout conversion rate",
+      "0.8s average page load speed worldwide",
+      "$45M in annual gross merchandise volume processed"
+    ],
+    features: [
+      "Multi-vendor Vendor Portal & Analytics",
+      "Dynamic Multi-Currency & Tax Engine",
+      "Headless Speed Optimization",
+      "AI Product Recommendation Engine"
+    ],
+    isFeatured: true,
+    isActive: true
+  },
+  {
+    title: "PropTech Commercial Real Estate Platform",
+    slug: "real-estate-platform",
+    shortDescription: "Virtual 3D property marketplace with interactive map search and automated mortgage calculator.",
+    description: "An intuitive property listing & investment portal enabling commercial buyers to explore immersive 3D virtual walkthroughs and perform financial yield modeling.",
+    industry: "Real Estate",
+    category: "Web",
+    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1200&q=80",
+    gallery: [
+      "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1200&q=80"
+    ],
+    technologies: ["React", "Express", "Mapbox GL", "Three.js", "MongoDB", "AWS S3"],
+    challenge: "Inability for international buyers to evaluate physical property layouts remotely led to extended 60+ day sales cycles.",
+    solution: "Created interactive WebGL property tours integrated with Mapbox spatial data layers and live mortgage comparison engines.",
+    results: [
+      "40% reduction in average property listing sales cycle",
+      "2.5M property views per month",
+      "Over $200M in transaction volume facilitated"
+    ],
+    features: [
+      "Interactive 3D Walkthrough Viewer",
+      "Geospatial Property Search Filters",
+      "Financial ROI & Yield Calculator",
+      "Instant Broker Messaging Portal"
+    ],
+    isFeatured: false,
+    isActive: true
+  },
+  {
+    title: "AI Itinerary & Travel Assistant App",
+    slug: "ai-travel-assistant",
+    shortDescription: "Personalized trip itinerary planner using real-time travel data and predictive flight delay alerts.",
+    description: "A cross-platform mobile application that generates customized multi-city travel itineraries within seconds based on user preferences and budget.",
+    industry: "Travel",
+    category: "Mobile",
+    image: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1200&q=80",
+    gallery: [
+      "https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1200&q=80"
+    ],
+    technologies: ["React Native", "Node.js", "Python AI Engine", "Google Places API", "MongoDB"],
+    challenge: "Travelers spent an average of 14 hours planning complex multi-city trips using multiple disjointed websites.",
+    solution: "Engineered a React Native mobile app with a lightweight AI engine that generates optimized daily itineraries including transport, dining, and activities.",
+    results: [
+      "4.9/5 star app store rating with 500k+ downloads",
+      "Itinerary generation time reduced from hours to 15 seconds",
+      "88% 30-day user retention rate"
+    ],
+    features: [
+      "Instant AI Itinerary Generation",
+      "Offline Map & Ticket Storage",
+      "Real-time Flight Delay & Gate Notifications",
+      "Collaborative Group Trip Planning"
+    ],
+    isFeatured: false,
+    isActive: true
+  },
+  {
+    title: "Smart Supply Chain Logistics Platform",
+    slug: "logistics-management-system",
+    shortDescription: "Real-time IoT fleet tracking, automated route optimization, and digital bill of lading.",
+    description: "An enterprise fleet management system tracking over 15,000 commercial vehicles in real time with telemetry, fuel efficiency insights, and predictive maintenance alerts.",
+    industry: "Logistics",
+    category: "Cloud",
+    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80",
+    gallery: [
+      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80"
+    ],
+    technologies: ["React", "Node.js", "MQTT / IoT", "MongoDB", "Docker", "AWS IoT Core"],
+    challenge: "High fuel consumption costs and lack of visibility into driver delivery routes led to frequent delivery SLA misses.",
+    solution: "Integrated IoT sensors transmitting location data via MQTT to a scalable Node.js event stream processing pipeline.",
+    results: [
+      "18% reduction in total fleet fuel expenditure",
+      "99.4% on-time delivery SLA compliance",
+      "Real-time tracking of 15,000+ active trucks"
+    ],
+    features: [
+      "Live GPS & Telemetry Tracking Dashboard",
+      "Automated AI Route Optimization",
+      "Digital Electronic Proof of Delivery",
+      "Predictive Maintenance Alerts"
+    ],
+    isFeatured: true,
+    isActive: true
+  }
+];
+
+export const initialTestimonials = [
+  {
+    name: "Marcus Vance",
+    designation: "Chief Technology Officer",
+    company: "Apex Global FinTech",
+    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80",
+    rating: 5,
+    review: "Nexora Digital delivered our high-throughput trading API weeks ahead of schedule. Their engineering standards, proactive communication, and deep cloud expertise are outstanding.",
+    isActive: true
+  },
+  {
+    name: "Elena Rostova",
+    designation: "VP of Product",
+    company: "CarePulse Health Solutions",
+    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&q=80",
+    rating: 5,
+    review: "The HIPAA-compliant telehealth app Nexora built for us has handled over 50,000 video visits flawlessly. Our user retention and satisfaction scores hit an all-time high.",
+    isActive: true
+  },
+  {
+    name: "David Chen",
+    designation: "Founder & CEO",
+    company: "LogiTrack Global",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80",
+    rating: 5,
+    review: "From concept design to cloud scaling, Nexora acted as an extension of our core team. Their dedicated engineers brought unparalleled technical rigor.",
+    isActive: true
+  },
+  {
+    name: "Sophia Martinez",
+    designation: "Director of Digital Transformation",
+    company: "Urban Real Estate Group",
+    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80",
+    rating: 5,
+    review: "Our new PropTech marketplace built by Nexora reduced our property sales cycle by 40%. The UI/UX animations and 3D walkthroughs blew our investors away.",
+    isActive: true
+  }
+];
+
+export const initialIndustries = [
+  {
+    name: "Healthcare",
+    slug: "healthcare",
+    description: "HIPAA-compliant telemedicine platforms, EHR integration, medical AI diagnostics, and patient portals.",
+    icon: "HeartPulse",
+    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80",
+    services: ["Web Development", "Mobile App Development", "AI & Machine Learning", "Software Testing"],
+    isActive: true
+  },
+  {
+    name: "Finance",
+    slug: "finance",
+    description: "Secure payment gateways, fraud detection algorithms, algorithmic trading portals, and mobile banking apps.",
+    icon: "Landmark",
+    image: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=800&q=80",
+    services: ["Software Development", "API Development", "Cloud Solutions", "DevOps"],
+    isActive: true
+  },
+  {
+    name: "Education",
+    slug: "education",
+    description: "Interactive LMS platforms, virtual classrooms, AI tutoring systems, and mobile learning applications.",
+    icon: "GraduationCap",
+    image: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&w=800&q=80",
+    services: ["Web Development", "Mobile App Development", "UI/UX Design"],
+    isActive: true
+  },
+  {
+    name: "Real Estate",
+    slug: "real-estate",
+    description: "3D virtual tour property portals, automated valuation models, broker CRMs, and tenant portals.",
+    icon: "Building2",
+    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=800&q=80",
+    services: ["Web Development", "UI/UX Design", "Cloud Solutions"],
+    isActive: true
+  },
+  {
+    name: "E-commerce",
+    slug: "e-commerce",
+    description: "High-throughput multi-vendor marketplaces, headless storefronts, and automated inventory management.",
+    icon: "ShoppingBag",
+    image: "https://images.unsplash.com/photo-1556742049-0a67daf40955?auto=format&fit=crop&w=800&q=80",
+    services: ["Web Development", "Mobile App Development", "API Development"],
+    isActive: true
+  },
+  {
+    name: "Logistics",
+    slug: "logistics",
+    description: "Real-time IoT fleet tracking, automated route optimization, and digital warehouse management.",
+    icon: "Truck",
+    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80",
+    services: ["Software Development", "Cloud Solutions", "DevOps"],
+    isActive: true
+  },
+  {
+    name: "Travel & Hospitality",
+    slug: "travel",
+    description: "AI trip planners, flight & hotel booking engines, and contactless guest experiences.",
+    icon: "Plane",
+    image: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=800&q=80",
+    services: ["Mobile App Development", "AI & Machine Learning"],
+    isActive: true
+  },
+  {
+    name: "Manufacturing",
+    slug: "manufacturing",
+    description: "Smart factory IoT monitoring, predictive machine maintenance, and supply chain ERP systems.",
+    icon: "Factory",
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80",
+    services: ["Software Development", "Cloud Solutions"],
+    isActive: true
+  }
+];
+
+export const initialTechnologies = [
+  { name: "React", category: "Frontend", icon: "Atom", description: "Modern component library for fast UI rendering.", isActive: true },
+  { name: "Next.js", category: "Frontend", icon: "Layers", description: "Fullstack React framework with SSR & ISR capabilities.", isActive: true },
+  { name: "TypeScript", category: "Frontend", icon: "Code", description: "Typed JavaScript for scalable codebase maintainability.", isActive: true },
+  { name: "Tailwind CSS", category: "Frontend", icon: "Palette", description: "Utility-first CSS framework for custom enterprise UI design.", isActive: true },
+  
+  { name: "Node.js", category: "Backend", icon: "Server", description: "Asynchronous event-driven runtime for high-concurrency APIs.", isActive: true },
+  { name: "Express.js", category: "Backend", icon: "Cpu", description: "Minimalist web framework for building robust REST APIs.", isActive: true },
+  { name: "Python", category: "Backend", icon: "FileCode", description: "Ideal language for AI, data processing, and backend automation.", isActive: true },
+  { name: "Java", category: "Backend", icon: "Coffee", description: "Enterprise grade runtime for robust microservices architecture.", isActive: true },
+  
+  { name: "React Native", category: "Mobile", icon: "Smartphone", description: "Cross-platform mobile framework using unified React code.", isActive: true },
+  { name: "Flutter", category: "Mobile", icon: "Tablet", description: "Google's UI toolkit for natively compiled mobile apps.", isActive: true },
+  
+  { name: "MongoDB", category: "Database", icon: "Database", description: "Document-oriented NoSQL database for modern flexible schemas.", isActive: true },
+  { name: "PostgreSQL", category: "Database", icon: "HardDrive", description: "Advanced open-source relational database with JSON support.", isActive: true },
+  { name: "Redis", category: "Database", icon: "Zap", description: "In-memory data store for ultra-fast caching and pub-sub.", isActive: true },
+  
+  { name: "AWS", category: "Cloud", icon: "Cloud", description: "Industry-leading cloud infrastructure and serverless solutions.", isActive: true },
+  { name: "Google Cloud", category: "Cloud", icon: "CloudRain", description: "High-performance compute and AI engine infrastructure.", isActive: true },
+  { name: "Azure", category: "Cloud", icon: "Box", description: "Microsoft enterprise cloud ecosystem.", isActive: true },
+  
+  { name: "Docker", category: "DevOps", icon: "Container", description: "Containerization platform for seamless dev-to-prod parity.", isActive: true },
+  { name: "Kubernetes", category: "DevOps", icon: "Compass", description: "Container orchestration for automated deployment scaling.", isActive: true },
+  { name: "GitHub Actions", category: "DevOps", icon: "GitBranch", description: "Automated CI/CD workflows integrated into source repositories.", isActive: true },
+  
+  { name: "PyTorch & TensorFlow", category: "AI", icon: "Brain", description: "Deep learning frameworks for building custom neural networks.", isActive: true },
+  { name: "OpenAI & LangChain", category: "AI", icon: "Sparkles", description: "Generative AI APIs and agent execution frameworks.", isActive: true }
+];
+
+export const initialJobs = [
+  {
+    _id: "job_1",
+    title: "Senior Full-Stack MERN Engineer",
+    slug: "senior-fullstack-mern-engineer",
+    department: "Engineering",
+    location: "San Francisco, CA / Remote",
+    type: "Full-time",
+    experience: "5+ Years",
+    description: "We are seeking a Senior Full-Stack Engineer with expert-level proficiency in React, Node.js, Express, and MongoDB. You will architect scalable enterprise microservices and lead key client product initiatives.",
+    requirements: [
+      "5+ years building commercial React and Node.js applications.",
+      "Deep understanding of MongoDB schema design, indexing, and aggregation pipelines.",
+      "Experience with state management, Framer Motion, and Tailwind CSS.",
+      "Familiarity with AWS, Docker, and CI/CD automated deployments."
+    ],
+    responsibilities: [
+      "Architect clean, scalable frontend UI and RESTful backend APIs.",
+      "Mentor mid-level engineers and enforce strict code review standards.",
+      "Collaborate directly with product design and client solution architects.",
+      "Optimize web application load performance and database query latency."
+    ],
+    isActive: true
+  },
+  {
+    _id: "job_2",
+    title: "AI & Machine Learning Solutions Architect",
+    slug: "ai-solutions-architect",
+    department: "AI & Innovation",
+    location: "Remote",
+    type: "Full-time",
+    experience: "4+ Years",
+    description: "Join our fast-growing AI team building custom RAG architectures, LLM fine-tuning pipelines, and predictive analytics engines for Fortune 500 clients.",
+    requirements: [
+      "4+ years experience with Python, PyTorch, TensorFlow, and OpenAI APIs.",
+      "Hands-on experience with Vector DBs (Pinecone, Weaviate, Qdrant).",
+      "Strong understanding of RAG architectures, prompt engineering, and agentic workflows.",
+      "BS/MS in Computer Science, AI, or equivalent field."
+    ],
+    responsibilities: [
+      "Design custom enterprise generative AI solutions for client workflows.",
+      "Implement vector search pipelines and fine-tune open-weight models.",
+      "Conduct technical feasibility evaluations for client AI projects."
+    ],
+    isActive: true
+  },
+  {
+    _id: "job_3",
+    title: "Lead UI/UX Product Designer",
+    slug: "lead-ui-ux-designer",
+    department: "Design",
+    location: "San Francisco, CA / Hybrid",
+    type: "Full-time",
+    experience: "5+ Years",
+    description: "Lead digital product design initiatives for modern SaaS and mobile platforms. Craft high-converting visual interfaces, Figma component systems, and fluid micro-interactions.",
+    requirements: [
+      "5+ years UI/UX design experience for web and mobile software products.",
+      "Mastery of Figma, interactive prototyping, and design tokens.",
+      "Strong portfolio demonstrating web application UI, typography, and motion design.",
+      "Ability to translate complex user journeys into simple intuitive screens."
+    ],
+    responsibilities: [
+      "Establish scalable design systems and visual standards.",
+      "Conduct user research, wireframing, and interactive usability testing.",
+      "Partner closely with React frontend developers for pixel-perfect implementation."
+    ],
+    isActive: true
+  }
+];
