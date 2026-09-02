@@ -11,12 +11,81 @@ import serviceApi from '../services/serviceApi';
 import BRAND from '../constants/brand';
 import { ArrowRight, CheckCircle2, ChevronDown, ChevronRight, ShieldCheck, Zap, Sparkles, Star } from 'lucide-react';
 
+import HealthcareAppDevelopmentService from '../components/services/HealthcareAppDevelopmentService';
+import EducationAppDevelopmentService from '../components/services/EducationAppDevelopmentService';
+import UberLikeAppDevelopmentService from '../components/services/UberLikeAppDevelopmentService';
+import SpotifyLikeAppDevelopmentService from '../components/services/SpotifyLikeAppDevelopmentService';
+import ZomatoLikeAppDevelopmentService from '../components/services/ZomatoLikeAppDevelopmentService';
+import AmazonLikeAppDevelopmentService from '../components/services/AmazonLikeAppDevelopmentService';
+import VisitorManagementSystemService from '../components/services/VisitorManagementSystemService';
+import WarehouseManagementSystemService from '../components/services/WarehouseManagementSystemService';
+import CloverAppDevelopmentService from '../components/services/CloverAppDevelopmentService';
+
 export const ServiceDetails = () => {
   const { slug } = useParams();
   const [service, setService] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [openFaq, setOpenFaq] = useState(0);
+
+  const isHealthcare = slug && (
+    slug.toLowerCase().includes('health-care-app') ||
+    slug.toLowerCase().includes('healthcare-app') ||
+    slug.toLowerCase() === 'healthcare'
+  );
+
+  const isEducation = slug && (
+    slug.toLowerCase().includes('education-app') ||
+    slug.toLowerCase().includes('elearning-app') ||
+    slug.toLowerCase() === 'education'
+  );
+
+  const isUber = slug && (
+    slug.toLowerCase().includes('uber-like') ||
+    slug.toLowerCase().includes('uber-clone') ||
+    slug.toLowerCase().includes('taxi-booking') ||
+    slug.toLowerCase() === 'uber'
+  );
+
+  const isSpotify = slug && (
+    slug.toLowerCase().includes('spotify-like') ||
+    slug.toLowerCase().includes('audio-streaming') ||
+    slug.toLowerCase().includes('music-streaming') ||
+    slug.toLowerCase() === 'spotify'
+  );
+
+  const isZomato = slug && (
+    slug.toLowerCase().includes('zomato-like') ||
+    slug.toLowerCase().includes('zomato-clone') ||
+    slug.toLowerCase().includes('food-delivery') ||
+    slug.toLowerCase() === 'zomato'
+  );
+
+  const isAmazon = slug && (
+    slug.toLowerCase().includes('amazon-like') ||
+    slug.toLowerCase().includes('amazon-clone') ||
+    slug.toLowerCase().includes('ecommerce') ||
+    slug.toLowerCase().includes('e-commerce') ||
+    slug.toLowerCase() === 'amazon'
+  );
+
+  const isVisitor = slug && (
+    slug.toLowerCase().includes('visitor-management') ||
+    slug.toLowerCase().includes('visitor-app') ||
+    slug.toLowerCase() === 'visitor'
+  );
+
+  const isWarehouse = slug && (
+    slug.toLowerCase().includes('warehouse-management') ||
+    slug.toLowerCase().includes('wms') ||
+    slug.toLowerCase() === 'warehouse'
+  );
+
+  const isClover = slug && (
+    slug.toLowerCase().includes('clover-app') ||
+    slug.toLowerCase().includes('clover-pos') ||
+    slug.toLowerCase() === 'clover'
+  );
 
   const fetchServiceDetails = async () => {
     setLoading(true);
@@ -33,9 +102,49 @@ export const ServiceDetails = () => {
   };
 
   useEffect(() => {
-    fetchServiceDetails();
+    if (!isHealthcare && !isEducation && !isUber && !isSpotify && !isZomato && !isAmazon && !isVisitor && !isWarehouse && !isClover) {
+      fetchServiceDetails();
+    } else {
+      setLoading(false);
+    }
     window.scrollTo(0, 0);
   }, [slug]);
+
+  if (isHealthcare) {
+    return <HealthcareAppDevelopmentService />;
+  }
+
+  if (isEducation) {
+    return <EducationAppDevelopmentService />;
+  }
+
+  if (isUber) {
+    return <UberLikeAppDevelopmentService />;
+  }
+
+  if (isSpotify) {
+    return <SpotifyLikeAppDevelopmentService />;
+  }
+
+  if (isZomato) {
+    return <ZomatoLikeAppDevelopmentService />;
+  }
+
+  if (isAmazon) {
+    return <AmazonLikeAppDevelopmentService />;
+  }
+
+  if (isVisitor) {
+    return <VisitorManagementSystemService />;
+  }
+
+  if (isWarehouse) {
+    return <WarehouseManagementSystemService />;
+  }
+
+  if (isClover) {
+    return <CloverAppDevelopmentService />;
+  }
 
   if (loading) return <LoadingSpinner fullPage message="Loading service details..." />;
   if (error || !service) return <Container className="py-20"><ErrorState message={error || 'Service not found.'} onRetry={fetchServiceDetails} /></Container>;
