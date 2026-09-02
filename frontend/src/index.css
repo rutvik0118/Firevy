@@ -4,6 +4,73 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+<<<<<<< HEAD
+@layer base {
+
+  html,
+  body,
+  #root {
+    font-family: 'Poppins', sans-serif !important;
+    @apply bg-brand-dark text-slate-100 antialiased overflow-x-hidden selection:bg-brand-primary selection:text-white;
+  }
+
+  *,
+  ::before,
+  ::after,
+  input,
+  button,
+  select,
+  textarea,
+  optgroup,
+  option {
+    font-family: 'Poppins', sans-serif !important;
+  }
+
+  /* 1. Main / Section Headings: Poppins 800, 34px */
+  h1,
+  h2,
+  .main-heading,
+  .section-heading {
+    font-family: 'Poppins', sans-serif !important;
+    font-weight: 800 !important;
+    font-size: 34px !important;
+    line-height: 1.25 !important;
+  }
+
+  /* 2. Paragraph under Main Heading: Poppins 400, 18px */
+  h1+p,
+  h2+p,
+  .heading-subtitle,
+  .sub-heading-paragraph {
+    font-family: 'Poppins', sans-serif !important;
+    font-weight: 400 !important;
+    font-size: 18px !important;
+    line-height: 1.5 !important;
+  }
+
+  /* 3. Component Headings: Poppins 600, 18px */
+  h3,
+  h4,
+  h5,
+  h6,
+  .component-heading,
+  .card-title {
+    font-family: 'Poppins', sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 18px !important;
+    line-height: 1.4 !important;
+  }
+
+  /* 4. Component Paragraphs: Poppins 400, 15px */
+  p,
+  .component-paragraph,
+  .card-desc {
+    font-family: 'Poppins', sans-serif !important;
+    font-weight: 400 !important;
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+  }
+=======
 html, body, #root {
   font-family: 'Poppins', sans-serif;
   background-color: #0B0F19;
@@ -20,6 +87,7 @@ html, body, #root {
 
 *, ::before, ::after, input, button, select, textarea, optgroup, option {
   font-family: 'Poppins', sans-serif;
+>>>>>>> 19ed40079bf88fa5815ae15d9692564cea0d50e4
 }
 
 /* Custom Scrollbar */
@@ -49,7 +117,7 @@ html, body, #root {
 }
 
 .glass-card {
-  background: rgba(17, 24, 39, 0.7);
+  /* background: rgba(17, 24, 39, 0.7); */
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -83,13 +151,16 @@ html, body, #root {
 /* Tech Background Grids */
 .bg-tech-grid {
   background-size: 40px 40px;
-  background-image: 
+  background-image:
     linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
 }
 
 .bg-glow-radial {
   background: radial-gradient(circle at 50% 20%, rgba(59, 130, 246, 0.15) 0%, rgba(139, 92, 246, 0.08) 45%, transparent 70%);
+<<<<<<< HEAD
+}
+=======
 }
 
 /* Marquee Infinite Animation */
@@ -105,3 +176,4 @@ html, body, #root {
 .animate-marquee {
   animation: marquee 30s linear infinite;
 }
+>>>>>>> 19ed40079bf88fa5815ae15d9692564cea0d50e4
