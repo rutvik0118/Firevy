@@ -45,9 +45,11 @@ export const Header = () => {
     { name: 'Company', hasMenu: 'company', path: '/about' },
     { name: 'Product', hasMenu: 'solutions', path: '/services' },
     { name: 'Services', hasMenu: 'services', path: '/services' },
-    { name: 'Technology', hasMenu: 'technologies', path: '/technologies' },
     { name: 'Hire Developers', hasMenu: 'hire-developers', path: '/services/dedicated-developers' },
-    { name: 'Our Work', hasMenu: 'our-work', path: '/portfolio' }
+    { name: 'Technology', hasMenu: 'technologies', path: '/technologies' },
+    { name: 'Our Work', hasMenu: 'our-work', path: '/portfolio' },
+    { name: 'Let\'s Talk AI', path: '/contact' },
+    { name: 'Contact Us', path: '/contact' }
   ];
 
   return (
@@ -60,19 +62,19 @@ export const Header = () => {
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="hidden lg:block bg-[#040A14]/95 border-b border-white/10 text-[12px] font-medium text-slate-300 backdrop-blur-md overflow-hidden"
+            className="hidden lg:block bg-[#030914]/95 border-b border-white/10 text-[12px] font-medium text-slate-300 backdrop-blur-md overflow-hidden"
           >
             <div className="w-full px-6 lg:px-10 py-2 flex items-center justify-between">
               {/* Sales Phone Numbers */}
               <div className="flex items-center space-x-6">
                 <a href={`tel:${BRAND.contact.phoneUS}`} className="flex items-center space-x-1.5 hover:text-white transition-colors">
                   <span className="text-sm">🇺🇸</span>
-                  <span className="text-slate-400">For Sales:</span>
+                  <span className="text-slate-400">Sales US:</span>
                   <span className="font-semibold text-white">{BRAND.contact.phoneUS}</span>
                 </a>
                 <a href={`tel:${BRAND.contact.phoneIN}`} className="flex items-center space-x-1.5 hover:text-white transition-colors">
                   <span className="text-sm">🇮🇳</span>
-                  <span className="text-slate-400">For Sales:</span>
+                  <span className="text-slate-400">Sales IN:</span>
                   <span className="font-semibold text-white">{BRAND.contact.phoneIN}</span>
                 </a>
               </div>
@@ -81,11 +83,11 @@ export const Header = () => {
               <div className="flex items-center space-x-6">
                 <span className="flex items-center space-x-1.5 text-slate-300">
                   <Briefcase className="w-3.5 h-3.5 text-cyan-400" />
-                  <span className="font-semibold text-white">firevy.co Software Solutions</span>
+                  <span className="font-semibold text-white">Firevy Enterprise IT & AI Solutions</span>
                 </span>
 
                 <a href={`mailto:${BRAND.contact.email}`} className="flex items-center space-x-1.5 hover:text-cyan-400 transition-colors">
-                  <Mail className="w-3.5 h-3.5 text-red-400" />
+                  <Mail className="w-3.5 h-3.5 text-blue-400" />
                   <span>{BRAND.contact.email}</span>
                 </a>
 
@@ -99,30 +101,29 @@ export const Header = () => {
         )}
       </AnimatePresence>
 
-      {/* Main Header Bar - Transparent initially, Solid White on Scroll */}
+      {/* Main Header Bar */}
       <div
         className={`transition-all duration-300 ${
           isScrolled
-            ? 'bg-white/95 backdrop-blur-xl py-3 shadow-xl border-b border-slate-200/80 text-slate-900'
-            : 'bg-transparent py-4 border-b border-white/10 text-white'
+            ? 'bg-white/95 backdrop-blur-xl py-3 shadow-md border-b border-slate-200 text-slate-900'
+            : 'bg-slate-950/85 backdrop-blur-md py-4 border-b border-white/10 text-white'
         }`}
       >
         <div className="w-full px-6 lg:px-10 flex items-center justify-between">
-          {/* Brand Name Text (firevy.co) */}
+          {/* Brand Logo */}
           <Link to="/" className="flex items-center group shrink-0 mr-4">
             <span
               className={`text-2xl sm:text-3xl font-black tracking-wider font-sans group-hover:opacity-90 transition-colors ${
                 isScrolled ? 'text-slate-900' : 'text-white'
               }`}
             >
-              firevy<span className={isScrolled ? 'text-blue-600' : 'text-cyan-400'}>.co</span>
+              firevy<span className={isScrolled ? 'text-[#006B8F]' : 'text-cyan-400'}>.co</span>
             </span>
           </Link>
 
-          {/* Desktop Nav & Action CTAs Grouped Right Beside Each Other */}
-          <div className="hidden lg:flex items-center space-x-6 xl:space-x-7">
-            {/* Desktop Navigation List */}
-            <nav className="flex items-center space-x-5 xl:space-x-6" onMouseLeave={handleMenuLeave}>
+          {/* Desktop Nav & Action CTAs */}
+          <div className="hidden lg:flex items-center space-x-5 xl:space-x-6">
+            <nav className="flex items-center space-x-4 xl:space-x-5" onMouseLeave={handleMenuLeave}>
               {navLinks.map((link) => {
                 const isActive = location.pathname === link.path || activeDropdown === link.hasMenu;
                 const hasMenu = Boolean(link.hasMenu);
@@ -135,26 +136,29 @@ export const Header = () => {
                   >
                     <Link
                       to={link.path}
-                      className={`text-[15px] font-bold transition-colors flex items-center space-x-1.5 ${
+                      className={`text-sm font-semibold transition-colors flex items-center space-x-1 ${
                         isScrolled
                           ? isActive
-                            ? 'text-blue-600'
-                            : 'text-slate-700 hover:text-blue-600'
+                            ? 'text-[#006B8F] font-bold'
+                            : 'text-slate-700 hover:text-[#006B8F]'
                           : isActive
-                          ? 'text-cyan-400'
-                          : 'text-white hover:text-cyan-400'
+                          ? 'text-cyan-400 font-bold'
+                          : 'text-slate-200 hover:text-cyan-400'
                       }`}
                     >
                       <span>{link.name}</span>
-                      <span className="text-[10px] text-current opacity-80 leading-none">▾</span>
+                      {hasMenu && (
+                        <span className={`text-[10px] leading-none ml-0.5 ${isScrolled ? 'text-slate-500' : 'text-slate-400'}`}>
+                          ▾
+                        </span>
+                      )}
                     </Link>
 
-                    {/* Active Bottom Underline Indicator */}
                     {isActive && (
                       <motion.div
                         layoutId="activeHeaderTab"
-                        className={`absolute -bottom-2 left-0 right-0 h-[3px] rounded-t-sm ${
-                          isScrolled ? 'bg-blue-600' : 'bg-cyan-400'
+                        className={`absolute -bottom-2 left-0 right-0 h-[2.5px] rounded-t-full ${
+                          isScrolled ? 'bg-[#006B8F]' : 'bg-cyan-400'
                         }`}
                         transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                       />
@@ -164,25 +168,25 @@ export const Header = () => {
               })}
             </nav>
 
-            {/* Right Action CTAs */}
+            {/* Right Actions: Gradient Purple Pill Button ("Let's Talk AI") + Teal Button ("Contact Us") */}
             <div className="flex items-center space-x-3 shrink-0 ml-2">
               <Link
                 to="/contact"
-                className="inline-flex items-center justify-center px-5 py-2.5 text-sm font-bold text-white rounded-[6px] bg-gradient-to-r from-[#D81B60] via-[#8E24AA] to-[#7B1FA2] hover:opacity-95 shadow-md transition-all duration-300 hover:scale-102"
+                className="inline-flex items-center justify-center px-4 py-2 text-xs xl:text-sm font-extrabold text-white rounded-full bg-gradient-to-r from-purple-600 via-purple-700 to-indigo-800 hover:opacity-95 shadow-md transition-all duration-300 hover:scale-105"
               >
-                <Sparkles className="w-4 h-4 mr-2 text-amber-300 animate-pulse" />
+                <Sparkles className="w-4 h-4 mr-1.5 text-amber-300 animate-pulse" />
                 <span>Let's Talk AI</span>
               </Link>
 
               <Link
                 to="/contact"
-                className={`inline-flex items-center justify-center px-5 py-2.5 text-sm font-bold rounded-[6px] transition-all duration-300 shadow-md ${
+                className={`inline-flex items-center justify-center px-4 py-2 text-xs xl:text-sm font-bold rounded-lg border-2 transition-all duration-300 shadow-md ${
                   isScrolled
-                    ? 'bg-blue-600 text-white hover:bg-blue-700 border-2 border-blue-600'
-                    : 'bg-[#004A75] border-2 border-[#00A3E0] text-white hover:bg-[#005F96]'
+                    ? 'border-[#006B8F] text-[#006B8F] hover:bg-[#006B8F] hover:text-white'
+                    : 'text-cyan-400 border-cyan-500/60 hover:bg-cyan-600/20'
                 }`}
               >
-                Contact Us
+                <span>Contact Us</span>
               </Link>
             </div>
           </div>

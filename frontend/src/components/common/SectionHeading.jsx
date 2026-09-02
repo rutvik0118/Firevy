@@ -35,8 +35,8 @@ export const SectionHeading = ({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className={`text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight leading-tight ${
-            light ? 'text-white' : 'text-gray-100'
+          className={`text-[34px] font-[800] tracking-tight leading-tight ${
+            light ? 'text-white' : 'text-slate-900'
           }`}
         >
           {title}
@@ -49,7 +49,7 @@ export const SectionHeading = ({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="mt-4 text-base sm:text-lg text-slate-400 leading-relaxed font-normal"
+          className="mt-4 text-[18px] text-slate-600 leading-relaxed font-[400]"
         >
           {subtitle}
         </motion.p>

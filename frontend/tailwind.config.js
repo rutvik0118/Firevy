@@ -19,7 +19,9 @@ export default {
         }
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
+        sans: ['Poppins', 'sans-serif'],
+        mono: ['Poppins', 'sans-serif'],
+        serif: ['Poppins', 'sans-serif'],
       },
       boxShadow: {
         'glow-primary': '0 0 25px -5px rgba(59, 130, 246, 0.4)',

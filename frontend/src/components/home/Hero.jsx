@@ -80,25 +80,6 @@ export const Hero = () => {
         <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1/2 h-full opacity-20 pointer-events-none bg-[radial-gradient(#005F96_1px,transparent_1px)] [background-size:24px_24px]" />
       </div>
 
-      {/* 2. Floating Quick Contact Bar on Right Edge */}
-      <div className="fixed right-0 top-1/2 -translate-y-1/2 z-40 flex flex-col space-y-2">
-        <a
-          href={`tel:${phoneUS}`}
-          title="Call Us"
-          className="bg-[#005F96] hover:bg-[#004A75] text-white p-3.5 rounded-l-xl shadow-2xl border-l border-y border-white/20 transition-all hover:pl-5 group flex items-center justify-center"
-        >
-          <Phone className="w-5 h-5 group-hover:scale-110 transition-transform" />
-        </a>
-        <a
-          href={`https://wa.me/${phoneRaw}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          title="WhatsApp Us"
-          className="bg-[#005F96] hover:bg-[#004A75] text-white p-3.5 rounded-l-xl shadow-2xl border-l border-y border-white/20 transition-all hover:pl-5 group flex items-center justify-center"
-        >
-          <MessageSquare className="w-5 h-5 group-hover:scale-110 transition-transform" />
-        </a>
-      </div>
 
       {/* 3. Hero Main Content Container */}
       <Container className="relative z-10 w-full">
@@ -123,15 +104,15 @@ export const Hero = () => {
                 </div>
 
                 {/* Main Heading with Gradient Text */}
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.15]">
+                <h1 className="text-[34px] font-[800] tracking-tight leading-[1.25]">
                   <span className="text-[#005F96] text-white block">{slide.titleLine1}</span>
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-300 to-pink-500 font-black">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-300 to-pink-500 font-[800]">
                     {slide.titleLine2}
                   </span>
                 </h1>
 
-                {/* Subtag (Limitless Possibilities) */}
-                <p className="text-lg sm:text-xl font-semibold text-slate-300 tracking-wide">
+                {/* Subtag Paragraph under Main Heading */}
+                <p className="text-[18px] font-[400] text-slate-300 tracking-wide">
                   {slide.subTag}
                 </p>
 
@@ -155,14 +136,21 @@ export const Hero = () => {
                   ))}
                 </ul>
 
-                {/* CTA Button */}
-                <div className="pt-4 flex items-center space-x-4">
+                {/* Primary CTA Buttons */}
+                <div className="pt-4 flex flex-wrap items-center gap-4">
                   <Link
                     to="/contact"
-                    className="inline-flex items-center justify-center px-8 py-3.5 rounded-lg bg-[#005F96] text-[#FFFFFF] font-black text-base hover:bg-[#004A75] transition-all shadow-xl hover:shadow-cyan-500/20 hover:scale-105 active:scale-95 group"
+                    className="inline-flex items-center justify-center px-8 py-3.5 rounded-xl bg-gradient-to-r from-blue-600 via-cyan-500 to-teal-400 text-white font-extrabold text-base hover:opacity-95 transition-all shadow-xl shadow-cyan-500/20 hover:scale-105 active:scale-95 group"
                   >
                     <span>Let's Talk</span>
                     <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </Link>
+
+                  <Link
+                    to="/contact"
+                    className="inline-flex items-center justify-center px-8 py-3.5 rounded-xl bg-slate-900/80 border-2 border-cyan-500/50 text-white font-extrabold text-base hover:bg-cyan-500/10 hover:border-cyan-400 transition-all shadow-lg hover:scale-105 active:scale-95"
+                  >
+                    <span>Get in Touch</span>
                   </Link>
                 </div>
               </motion.div>

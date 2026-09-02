@@ -16,6 +16,7 @@ import contactRoutes from './routes/contactRoutes.js';
 import applicationRoutes from './routes/applicationRoutes.js';
 import settingsRoutes from './routes/settingsRoutes.js';
 import adminRoutes from './routes/adminRoutes.js';
+
 const app = express();
 
 // Security and Logging Middleware

@@ -1,0 +1,18 @@
+{
+  "name": "firevy-co-platform",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Firevy.co Enterprise IT & Software Solutions Platform",
+  "scripts": {
+    "install:backend": "npm --prefix backend install",
+    "install:frontend": "npm --prefix frontend install",
+    "install:all": "npm --prefix backend install && npm --prefix frontend install",
+    "seed": "npm --prefix backend run seed",
+    "dev": "concurrently \"npm --prefix backend run dev\" \"npm --prefix frontend run dev\"",
+    "dev:backend": "npm --prefix backend run dev",
+    "dev:frontend": "npm --prefix frontend run dev"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

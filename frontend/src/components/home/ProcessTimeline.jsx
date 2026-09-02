@@ -5,23 +5,23 @@ import SectionHeading from '../common/SectionHeading';
 
 export const ProcessTimeline = () => {
   const steps = [
-    { number: '01', title: 'Discovery', desc: 'Requirements audit, technical stack definition, and goal alignment.' },
-    { number: '02', title: 'Strategy', desc: 'Architecture blueprint, DB schemas, and sprint roadmap planning.' },
-    { number: '03', title: 'UI/UX Design', desc: 'Human-centered wireframes, design systems, and visual mockups.' },
-    { number: '04', title: 'Prototype', desc: 'Interactive clickable prototypes and user flow validation.' },
-    { number: '05', title: 'Development', desc: 'Clean, modular frontend & backend microservice engineering.' },
-    { number: '06', title: 'Testing', desc: 'Automated E2E suites, security vulnerability scans, and QA signoff.' },
-    { number: '07', title: 'Deployment', desc: 'Zero-downtime CI/CD rollout to production cloud environments.' },
-    { number: '08', title: 'Support', desc: '24/7 proactive infrastructure telemetry, SLAs, and updates.' }
+    { number: '01', title: 'Requirement Gathering', desc: 'In-depth discovery, business goals audit, and technical specification definition.' },
+    { number: '02', title: 'Designs, Wireframes, & Mockups', desc: 'Crafting responsive UI layout wireframes, design systems, and visual mockups.' },
+    { number: '03', title: 'Prototype Demo', desc: 'Interactive clickable prototype demonstration for early stakeholder feedback.' },
+    { number: '04', title: 'Changes And Confirmation', desc: 'Incorporating feedback, refining architecture scope, and locking design signoff.' },
+    { number: '05', title: 'Development', desc: 'Agile frontend & backend code engineering with clean modular architecture.' },
+    { number: '06', title: 'Deployment', desc: 'Automated CI/CD pipeline deployment to production cloud infrastructure.' },
+    { number: '07', title: 'Support And Maintenance', desc: '24/7 proactive monitoring, security updates, and performance optimizations.' },
+    { number: '08', title: 'SEO', desc: 'Search engine optimization, schema structured tags, and performance tuning.' }
   ];
 
   return (
-    <section className="py-24 bg-brand-card/30 relative overflow-hidden">
+    <section className="py-24 bg-slate-950/70 border-b border-gray-800 relative overflow-hidden">
       <Container>
         <SectionHeading
-          badge="OUR METHODOLOGY"
-          title="Agile 8-Step Software Delivery Lifecycle"
-          subtitle="A structured, transparent engineering process designed to eliminate project friction and ensure predictable time-to-market."
+          badge="HOW WE WORK"
+          title="Process We Follow"
+          subtitle="A structured 8-step software engineering process designed to ensure transparent delivery and high quality outcomes."
         />
 
         {/* Desktop Grid Layout */}
