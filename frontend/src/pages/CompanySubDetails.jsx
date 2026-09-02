@@ -365,10 +365,19 @@ export const CompanySubDetails = () => {
       />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-gradient-to-b from-[#005F96] via-[#004A75] to-[#003B60] text-white relative overflow-hidden text-left">
+      <section className="pt-32 pb-16 bg-gradient-to-b from-[#005F96] via-[#004A75] to-[#003B60] text-white relative overflow-hidden text-left font-sans">
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
-            <div className="lg:col-span-7 space-y-6">
+          {/* Breadcrumb Navigation */}
+          <div className="flex items-center space-x-2 text-xs text-blue-200 mb-6 font-sans">
+            <Link to="/" className="hover:text-white transition-colors">Home</Link>
+            <ChevronRight className="w-3.5 h-3.5 text-blue-300" />
+            <Link to="/about" className="hover:text-white transition-colors">Company</Link>
+            <ChevronRight className="w-3.5 h-3.5 text-blue-300" />
+            <span className="text-white font-semibold">{pageData.title}</span>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative z-10">
+            <div className="lg:col-span-7 space-y-5">
               <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full text-xs font-bold bg-white/10 border border-white/20 text-cyan-300">
                 <IconComp className="w-4 h-4 text-cyan-300" />
                 <span className="uppercase tracking-widest">{pageData.badge}</span>

@@ -112,7 +112,7 @@ export const PremiumServicesGrid = () => {
             Our Premium Services
           </h2>
           <p className="text-[18px] font-[400] text-white/90 leading-relaxed font-sans max-w-4xl mx-auto">
-            As a certified IT company, Sapphire helps organizations thrive digitally by offering innovative solutions using cutting-edge tools and frameworks. Contact us to learn more!
+            As a certified IT company, firevy.co helps organizations thrive digitally by offering innovative solutions using cutting-edge tools and frameworks. Contact us to learn more!
           </p>
         </div>
 

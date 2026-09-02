@@ -27,7 +27,7 @@ export const DigitalTransformationCaseStudies = () => {
           </div>
         </div>
       ),
-      desc: 'If you provide car washing services and need to reach a wide range of customers, the car wash app development is your best bet. Sapphire Software Solutions has built a car wash application that allows people to book car wash services in few clicks',
+      desc: 'If you provide car washing services and need to reach a wide range of customers, the car wash app development is your best bet. firevy.co has built a car wash application that allows people to book car wash services in few clicks',
       points: [
         '96% customer retention rate',
         '92% increase in service bookings',
@@ -141,7 +141,7 @@ export const DigitalTransformationCaseStudies = () => {
           Digital Transformation Through Innovation and Collective Knowledge
         </h2>
         <p className="text-[18px] font-[400] text-slate-600 leading-relaxed font-sans">
-          At Sapphire, we have a dedicated development team to deliver IT services and create solutions that surpass expectations.
+          At firevy.co, we have a dedicated development team to deliver IT services and create solutions that surpass expectations.
         </p>
       </div>
 

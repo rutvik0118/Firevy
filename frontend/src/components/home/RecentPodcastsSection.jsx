@@ -16,7 +16,7 @@ export const RecentPodcastsSection = () => {
       desc: 'In today\'s fast-paced and digitally-driven world, businesses of all sizes and industries are recognizing the importance of integratin...'
     },
     {
-      title: 'A Chat with a Client: Why They Chose Sapphire',
+      title: 'A Chat with a Client: Why They Chose firevy.co',
       image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80',
       desc: 'There are several mobile app development companies worldwide. While searching for a reliable IT services provider, I came across...'
     }

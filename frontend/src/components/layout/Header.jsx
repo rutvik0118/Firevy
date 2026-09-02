@@ -47,9 +47,7 @@ export const Header = () => {
     { name: 'Services', hasMenu: 'services', path: '/services' },
     { name: 'Hire Developers', hasMenu: 'hire-developers', path: '/services/dedicated-developers' },
     { name: 'Technology', hasMenu: 'technologies', path: '/technologies' },
-    { name: 'Our Work', hasMenu: 'our-work', path: '/portfolio' },
-    { name: 'Let\'s Talk AI', path: '/contact' },
-    { name: 'Contact Us', path: '/contact' }
+    { name: 'Our Work', hasMenu: 'our-work', path: '/portfolio' }
   ];
 
   return (
@@ -168,23 +166,19 @@ export const Header = () => {
               })}
             </nav>
 
-            {/* Right Actions: Gradient Purple Pill Button ("Let's Talk AI") + Teal Button ("Contact Us") */}
-            <div className="flex items-center space-x-3 shrink-0 ml-2">
+            {/* Right Actions: Gradient Magenta-Purple Button ("Let's Talk AI") + Deep Blue Button ("Contact Us") */}
+            <div className="flex items-center space-x-3 shrink-0 ml-4">
               <Link
                 to="/contact"
-                className="inline-flex items-center justify-center px-4 py-2 text-xs xl:text-sm font-extrabold text-white rounded-full bg-gradient-to-r from-purple-600 via-purple-700 to-indigo-800 hover:opacity-95 shadow-md transition-all duration-300 hover:scale-105"
+                className="inline-flex items-center justify-center px-4 py-2.5 text-xs xl:text-[13px] font-[800] text-white rounded-[6px] bg-gradient-to-r from-[#D81B60] via-[#8E24AA] to-[#7B1FA2] hover:opacity-95 shadow-md transition-all duration-300 hover:scale-105"
               >
-                <Sparkles className="w-4 h-4 mr-1.5 text-amber-300 animate-pulse" />
+                <Sparkles className="w-3.5 h-3.5 mr-1.5 text-amber-300 animate-pulse" />
                 <span>Let's Talk AI</span>
               </Link>
 
               <Link
                 to="/contact"
-                className={`inline-flex items-center justify-center px-4 py-2 text-xs xl:text-sm font-bold rounded-lg border-2 transition-all duration-300 shadow-md ${
-                  isScrolled
-                    ? 'border-[#006B8F] text-[#006B8F] hover:bg-[#006B8F] hover:text-white'
-                    : 'text-cyan-400 border-cyan-500/60 hover:bg-cyan-600/20'
-                }`}
+                className="inline-flex items-center justify-center px-5 py-2.5 text-xs xl:text-[13px] font-[800] text-white rounded-[6px] bg-[#006B8F] hover:bg-[#005478] transition-all duration-300 shadow-md hover:scale-105"
               >
                 <span>Contact Us</span>
               </Link>
