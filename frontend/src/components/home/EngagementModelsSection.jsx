@@ -61,7 +61,7 @@ export const EngagementModelsSection = () => {
             Our Engagement Models
           </h2>
           <p className="text-[18px] font-[400] text-white/90 leading-relaxed font-sans">
-            At Sapphire, we provide full-cycle custom software development services to meet your financial requirements. Our software development team leverages their expertise in delivering process-oriented and high-performance software products for Cloud, Mobile, and Web.
+            At firevy.co, we provide full-cycle custom software development services to meet your financial requirements. Our software development team leverages their expertise in delivering process-oriented and high-performance software products for Cloud, Mobile, and Web.
           </p>
         </div>
 

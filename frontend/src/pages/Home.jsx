@@ -21,6 +21,7 @@ import VideoTestimonialsStory from '../components/home/VideoTestimonialsStory';
 import RecentBlogsSection from '../components/home/RecentBlogsSection';
 import ClientReviewsDarkSection from '../components/home/ClientReviewsDarkSection';
 import FeaturedInLogosGrid from '../components/home/FeaturedInLogosGrid';
+import WorkTogetherNewsletterSection from '../components/home/WorkTogetherNewsletterSection';
 import FloatingElements from '../components/common/FloatingElements';
 
 export const Home = () => {
@@ -95,6 +96,9 @@ export const Home = () => {
 
       {/* 9. We Have Been Featured In Logo Grid (Image 18) */}
       <FeaturedInLogosGrid />
+
+      {/* 10. Let's Work Together & Newsletter Subscription Banners (Image 19) */}
+      <WorkTogetherNewsletterSection />
 
       {/* Fixed Floating UI Elements */}
       <FloatingElements />
