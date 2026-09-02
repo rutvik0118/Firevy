@@ -1,93 +1,156 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import Container from '../common/Container';
-import BRAND from '../../constants/brand';
 
 export const AboutKeyMetrics = () => {
   const cards = [
+    // Row 1
     {
+      type: 'stat',
       metric: '23+',
-      label: 'Years of Experience',
-      image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=400&q=80'
+      label: 'Years Experience'
     },
     {
-      metric: '320+',
-      label: '5-Star Clutch Reviews',
-      image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=400&q=80'
-    },
-    {
-      metric: '20+',
-      label: 'Fortunes 500 Companies',
-      image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=400&q=80'
-    },
-    {
-      metric: '200+',
-      label: 'IT Professional',
-      image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=400&q=80'
-    },
-    {
-      metric: '95%',
-      label: 'Client Retention',
-      image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=400&q=80'
-    },
-    {
-      metric: '18+',
-      label: 'Industry Served',
-      image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=400&q=80'
-    },
-    {
+      type: 'stat',
       metric: '2800+',
-      label: 'Satisfied Clients',
-      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80'
+      label: 'Satisfied Clients'
     },
     {
+      type: 'stat',
       metric: '1500+',
-      label: 'Completed Projects',
-      image: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=400&q=80'
+      label: 'Projects Completed'
+    },
+    {
+      type: 'stat',
+      metric: '200+',
+      label: 'IT Professional'
+    },
+
+    // Row 2
+    {
+      type: 'stat',
+      metric: '95%',
+      label: 'Client Retention'
+    },
+    {
+      type: 'stat',
+      metric: '18+',
+      label: 'Industry Served'
+    },
+    {
+      type: 'stat',
+      metric: '30+',
+      label: 'Countries Active Customers'
+    },
+    {
+      type: 'stat',
+      metric: '6+',
+      label: 'Global Offices'
+    },
+
+    // Row 3 (4 Benefit Cards with Cyan/Blue Line Icons)
+    {
+      type: 'feature',
+      label: 'Work at your time zone',
+      icon: (
+        <svg viewBox="0 0 40 40" className="w-10 h-10 text-[#006B8F] mb-1.5" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+          {/* Globe with Clock */}
+          <circle cx="20" cy="20" r="16" />
+          <path d="M4 20h32" />
+          <path d="M20 4a24 24 0 0 1 0 32 24 24 0 0 1 0-32" />
+          <circle cx="27" cy="27" r="7" fill="#FFFFFF" stroke="#006B8F" strokeWidth="2" />
+          <polyline points="27,24 27,27 29,29" stroke="#006B8F" strokeWidth="2" />
+        </svg>
+      )
+    },
+    {
+      type: 'feature',
+      label: 'Easy communication',
+      icon: (
+        <svg viewBox="0 0 40 40" className="w-10 h-10 text-[#006B8F] mb-1.5" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+          {/* Two Chat Speech Bubbles */}
+          <path d="M26 18c0-5.5-5.4-10-12-10S2 12.5 2 18c0 2.8 1.4 5.3 3.6 7.1L4 30l5.4-1.8c1.4.5 3 .8 4.6.8 6.6 0 12-4.5 12-10z" />
+          <path d="M24 25.5c3.8-.5 6.5-2.8 6.5-5.5 0-1-.4-2-1.1-2.8" />
+          <path d="M30 32l-3.6-1.2c-.9.4-2 .6-3.1.6" />
+        </svg>
+      )
+    },
+    {
+      type: 'feature',
+      label: 'Hire in 48 Hours',
+      icon: (
+        <svg viewBox="0 0 40 40" className="w-10 h-10 text-[#006B8F] mb-1.5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          {/* HIRED Badge + Handshake */}
+          <rect x="11" y="4" width="18" height="8" rx="2" fill="#006B8F" />
+          <text x="20" y="10" textAnchor="middle" fontSize="5" fontWeight="900" fill="#FFFFFF" fontFamily="sans-serif">HIRED</text>
+          <path d="M6 24l7-7 6 6 8-8 7 7" />
+          <path d="M19 23l4 4" />
+          <path d="M16 26l4 4" />
+        </svg>
+      )
+    },
+    {
+      type: 'feature',
+      label: 'In Business since 2002',
+      icon: (
+        <svg viewBox="0 0 40 40" className="w-10 h-10 text-[#006B8F] mb-1.5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          {/* Handshake with Gear */}
+          <circle cx="20" cy="12" r="5" strokeDasharray="3 2" />
+          <path d="M8 26l6-6 6 6 6-6 6 6" />
+          <path d="M14 26l6 6 6-6" />
+          <path d="M6 32h28" strokeWidth="2.5" />
+        </svg>
+      )
     }
   ];
 
   return (
-    <section className="py-20 bg-[#006B8F] text-white relative font-sans overflow-hidden border-b border-cyan-900">
-      <Container>
-        {/* Section Header */}
-        <div className="text-center max-w-4xl mx-auto mb-12">
-          <h2 className="text-[34px] font-[800] text-white tracking-tight mb-3">
-            About Us
+    <section
+      className="py-20 text-white relative font-sans overflow-hidden border-b border-cyan-900 bg-cover bg-center"
+      style={{
+        backgroundImage: "linear-gradient(135deg, rgba(0, 107, 143, 0.94) 0%, rgba(0, 85, 120, 0.96) 100%), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80')"
+      }}
+    >
+      <div className="max-w-[1360px] mx-auto px-4 sm:px-8 relative z-10">
+        {/* Section Header - Exact Copy-to-Copy with Reference Image 1 */}
+        <div className="text-center max-w-4xl mx-auto mb-14">
+          <h2 className="text-[36px] sm:text-[44px] font-[900] text-white tracking-tight leading-tight mb-3 font-sans">
+            Glance through our creations and presence
           </h2>
-          <p className="text-[18px] font-[400] text-cyan-100 leading-relaxed max-w-3xl mx-auto">
-            firevy delivers cutting-edge digital solutions that drive our clients to achieve unparalleled success
+          <p className="text-[15px] sm:text-[16.5px] font-[400] text-blue-100 leading-relaxed max-w-3xl mx-auto font-sans">
+            We are a team of qualified Salesforce & Enterprise Development Professionals adept at expanding your current system's capabilities via the development and integration of Salesforce CRM and cloud architectures.
           </p>
         </div>
 
-        {/* 4x2 Grid of 8 White Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* 12-Card Grid (4 Columns x 3 Rows - Exact Reference Match) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {cards.map((card, idx) => (
-            <motion.div
+            <div
               key={idx}
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.3, delay: idx * 0.04 }}
-              className="bg-white rounded-[22px] p-5 shadow-2xl border border-white/20 hover:shadow-cyan-900/40 transition-all duration-300 flex items-center space-x-4 text-left group hover:-translate-y-1"
+              className="bg-white rounded-[16px] shadow-[0px_8px_30px_rgba(0,0,0,0.12)] p-6 flex flex-col items-center justify-center text-center h-[140px] hover:scale-105 transition-transform duration-300 group"
             >
-              <img
-                src={card.image}
-                alt={card.label}
-                className="w-20 h-20 sm:w-22 sm:h-22 rounded-2xl object-cover shrink-0 shadow-md group-hover:scale-105 transition-transform duration-300"
-              />
-              <div className="flex flex-col justify-center">
-                <div className="text-[34px] font-[800] text-[#006B8F] tracking-tight leading-none mb-1.5">
-                  {card.metric}
-                </div>
-                <div className="text-[15px] font-[600] text-slate-800 leading-tight">
-                  {card.label}
-                </div>
-              </div>
-            </motion.div>
+              {card.type === 'stat' ? (
+                <>
+                  <div className="text-[38px] font-[900] text-[#006B8F] tracking-tight leading-none mb-1.5 font-sans">
+                    {card.metric}
+                  </div>
+                  <div className="text-[14.5px] font-[700] text-slate-800 tracking-tight font-sans">
+                    {card.label}
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="flex items-center justify-center text-[#006B8F] group-hover:scale-110 transition-transform">
+                    {card.icon}
+                  </div>
+                  <div className="text-[14.5px] font-[700] text-slate-800 tracking-tight font-sans mt-0.5">
+                    {card.label}
+                  </div>
+                </>
+              )}
+            </div>
           ))}
         </div>
-      </Container>
+      </div>
     </section>
   );
 };
