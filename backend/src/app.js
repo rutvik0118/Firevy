@@ -15,7 +15,7 @@ import jobRoutes from './routes/jobRoutes.js';
 import contactRoutes from './routes/contactRoutes.js';
 import applicationRoutes from './routes/applicationRoutes.js';
 import settingsRoutes from './routes/settingsRoutes.js';
-
+import adminRoutes from './routes/adminRoutes.js';
 const app = express();
 
 // Security and Logging Middleware
@@ -49,6 +49,7 @@ app.use('/api/v1/jobs', jobRoutes);
 app.use('/api/v1/contact', contactRoutes);
 app.use('/api/v1/applications', applicationRoutes);
 app.use('/api/v1/settings', settingsRoutes);
+app.use('/api/v1/admin', adminRoutes);
 
 // 404 Route Handler
 app.use((req, res) => {
