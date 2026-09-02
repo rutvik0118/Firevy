@@ -16,8 +16,9 @@ export const BrandLogoMarquee = () => {
 
   return (
     <div className="w-full bg-white border-y border-slate-200 py-5 overflow-hidden select-none">
-      <div className="relative flex overflow-x-hidden">
-        <div className="py-1 flex space-x-12 sm:space-x-16 whitespace-nowrap animate-marquee items-center min-w-full shrink-0">
+      <div className="flex w-max animate-marquee hover:[animation-play-state:paused]">
+        {/* Track 1 */}
+        <div className="flex items-center space-x-12 sm:space-x-16 pr-12 sm:pr-16 shrink-0">
           {logos.map((item, idx) => (
             <div key={`logo-1-${idx}`} className="flex items-center space-x-2 shrink-0">
               <span className={`text-base sm:text-xl tracking-tight uppercase ${item.color}`}>
@@ -28,7 +29,8 @@ export const BrandLogoMarquee = () => {
           ))}
         </div>
 
-        <div className="py-1 flex space-x-12 sm:space-x-16 whitespace-nowrap animate-marquee items-center min-w-full shrink-0" aria-hidden="true">
+        {/* Track 2 (Duplicate for Seamless Loop) */}
+        <div className="flex items-center space-x-12 sm:space-x-16 pr-12 sm:pr-16 shrink-0" aria-hidden="true">
           {logos.map((item, idx) => (
             <div key={`logo-2-${idx}`} className="flex items-center space-x-2 shrink-0">
               <span className={`text-base sm:text-xl tracking-tight uppercase ${item.color}`}>
