@@ -209,6 +209,486 @@ export const initialServices = [
       { question: "How quickly can dedicated developers join our team?", answer: "Our pre-vetted senior engineers can start within 48 to 72 hours." }
     ],
     isActive: true
+  },
+  {
+    title: "Healthcare App Development",
+    slug: "health-care-app-development",
+    shortDescription: "HIPAA & HITECH compliant telemedicine platforms, doctor appointment apps, and EHR/EMR integrations.",
+    description: "Architecting secure, scalable healthcare mobile apps and web platforms. Engineered with WebRTC HD video consultation, HL7/FHIR interoperability, and 100% HIPAA regulatory compliance.",
+    icon: "HeartPulse",
+    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80",
+    technologies: ["React Native", "Flutter", "React.js", "Node.js", "Python", "WebRTC", "HL7/FHIR", "AWS MedTech"],
+    features: [
+      "100% HIPAA & HITECH Regulatory Compliance",
+      "WebRTC Encrypted HD Video Consultation",
+      "HL7 & FHIR Standard EHR Integration",
+      "IoT Wearable Sync & Remote Patient Monitoring",
+      "Digital e-Prescription & Pharmacy Dispatch"
+    ],
+    benefits: [
+      "Reduce patient waiting time by 60%",
+      "Eliminate clinical data silos with FHIR integration",
+      "Zero security breach guarantee with end-to-end encryption"
+    ],
+    process: [
+      { step: 1, title: "Discovery & HIPAA Blueprinting", description: "Map clinical workflows, patient journeys, and health security standards." },
+      { step: 2, title: "UI/UX & Accessibility Design", description: "Design responsive, WCAG-compliant medical mobile interfaces." },
+      { step: 3, title: "Agile Development & API Build", description: "Develop zero-trust backend microservices and mobile native apps." },
+      { step: 4, title: "QA, Pen-Testing & Launch", description: "Rigorous OWASP vulnerability scans, HIPAA audits, and app store release." }
+    ],
+    faq: [
+      { question: "How do you ensure HIPAA compliance?", answer: "We implement AES-256 data encryption at rest, TLS 1.3 in transit, role-based access control, and complete audit logging." },
+      { question: "Can you integrate with existing EHR systems?", answer: "Yes, we support HL7 and FHIR standards for seamless integration with Epic, Cerner, Allscripts, and AthenaHealth." }
+    ],
+    isActive: true
+  },
+  {
+    title: "Healthcare App Development",
+    slug: "healthcare-app-development",
+    shortDescription: "HIPAA & HITECH compliant telemedicine platforms, doctor appointment apps, and EHR/EMR integrations.",
+    description: "Architecting secure, scalable healthcare mobile apps and web platforms. Engineered with WebRTC HD video consultation, HL7/FHIR interoperability, and 100% HIPAA regulatory compliance.",
+    icon: "HeartPulse",
+    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80",
+    technologies: ["React Native", "Flutter", "React.js", "Node.js", "Python", "WebRTC", "HL7/FHIR", "AWS MedTech"],
+    features: [
+      "100% HIPAA & HITECH Regulatory Compliance",
+      "WebRTC Encrypted HD Video Consultation",
+      "HL7 & FHIR Standard EHR Integration",
+      "IoT Wearable Sync & Remote Patient Monitoring",
+      "Digital e-Prescription & Pharmacy Dispatch"
+    ],
+    benefits: [
+      "Reduce patient waiting time by 60%",
+      "Eliminate clinical data silos with FHIR integration",
+      "Zero security breach guarantee with end-to-end encryption"
+    ],
+    process: [
+      { step: 1, title: "Discovery & HIPAA Blueprinting", description: "Map clinical workflows, patient journeys, and health security standards." },
+      { step: 2, title: "UI/UX & Accessibility Design", description: "Design responsive, WCAG-compliant medical mobile interfaces." },
+      { step: 3, title: "Agile Development & API Build", description: "Develop zero-trust backend microservices and mobile native apps." },
+      { step: 4, title: "QA, Pen-Testing & Launch", description: "Rigorous OWASP vulnerability scans, HIPAA audits, and app store release." }
+    ],
+    faq: [
+      { question: "How do you ensure HIPAA compliance?", answer: "We implement AES-256 data encryption at rest, TLS 1.3 in transit, role-based access control, and complete audit logging." },
+      { question: "Can you integrate with existing EHR systems?", answer: "Yes, we support HL7 and FHIR standards for seamless integration with Epic, Cerner, Allscripts, and AthenaHealth." }
+    ],
+    isActive: true
+  },
+  {
+    title: "Education App Development",
+    slug: "education-app-development",
+    shortDescription: "Custom eLearning mobile apps, Learning Management Systems (LMS), virtual classrooms, and interactive eBooks.",
+    description: "Architecting white-label custom education mobile apps and Web platforms. Engineered with WebRTC live video classrooms, AR/VR gamified learning, automated online exam grading, and school ERP integration.",
+    icon: "GraduationCap",
+    image: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&w=1200&q=80",
+    technologies: ["React.js", "Next.js", "Node.js", "Python", "React Native", "Flutter", "PostgreSQL", "AWS EdTech"],
+    features: [
+      "100% White Label & Customizable eLearning Apps",
+      "WebRTC Real-time Virtual Classrooms & Whiteboards",
+      "Automated Exam & Assignment Grading System",
+      "Interactive eBooks & Gamified Brain Quizzes",
+      "Offline Study Material Storage & Download Engine"
+    ],
+    benefits: [
+      "Increase student course completion rates by 45%",
+      "Automate 90% of school administrative tasks & fee collections",
+      "Enable anywhere-anytime digital learning on iOS, Android & Web"
+    ],
+    process: [
+      { step: 1, title: "Requirement Gathering", description: "Define EdTech objectives, curriculum structures, and portal blueprints." },
+      { step: 2, title: "UI/UX & Wireframing", description: "Design responsive, intuitive student, teacher, and admin interfaces." },
+      { step: 3, title: "Agile Development", description: "Develop scalable backend microservices, mobile apps, and video streaming." },
+      { step: 4, title: "QA & Production Launch", description: "Automated load testing for concurrent exam users and app store publication." }
+    ],
+    faq: [
+      { question: "What characteristics should an education app possess?", answer: "Online live sessions, video recording repositories, automated exams, and instant chat." },
+      { question: "Can you build custom LMS software for universities?", answer: "Yes, we build 100% custom Learning Management Systems tailored to institutional requirements." }
+    ],
+    isActive: true
+  },
+  {
+    title: "Education App Development",
+    slug: "education-app-development-company",
+    shortDescription: "Custom eLearning mobile apps, Learning Management Systems (LMS), virtual classrooms, and interactive eBooks.",
+    description: "Architecting white-label custom education mobile apps and Web platforms. Engineered with WebRTC live video classrooms, AR/VR gamified learning, automated online exam grading, and school ERP integration.",
+    icon: "GraduationCap",
+    image: "https://images.unsplash.com/photo-1501504905252-473c47e087f8?auto=format&fit=crop&w=1200&q=80",
+    technologies: ["React.js", "Next.js", "Node.js", "Python", "React Native", "Flutter", "PostgreSQL", "AWS EdTech"],
+    features: [
+      "100% White Label & Customizable eLearning Apps",
+      "WebRTC Real-time Virtual Classrooms & Whiteboards",
+      "Automated Exam & Assignment Grading System",
+      "Interactive eBooks & Gamified Brain Quizzes",
+      "Offline Study Material Storage & Download Engine"
+    ],
+    benefits: [
+      "Increase student course completion rates by 45%",
+      "Automate 90% of school administrative tasks & fee collections",
+      "Enable anywhere-anytime digital learning on iOS, Android & Web"
+    ],
+    process: [
+      { step: 1, title: "Requirement Gathering", description: "Define EdTech objectives, curriculum structures, and portal blueprints." },
+      { step: 2, title: "UI/UX & Wireframing", description: "Design responsive, intuitive student, teacher, and admin interfaces." },
+      { step: 3, title: "Agile Development", description: "Develop scalable backend microservices, mobile apps, and video streaming." },
+      { step: 4, title: "QA & Production Launch", description: "Automated load testing for concurrent exam users and app store publication." }
+    ],
+    faq: [
+      { question: "What characteristics should an education app possess?", answer: "Online live sessions, video recording repositories, automated exams, and instant chat." },
+      { question: "Can you build custom LMS software for universities?", answer: "Yes, we build 100% custom Learning Management Systems tailored to institutional requirements." }
+    ],
+    isActive: true
+  },
+  {
+    title: "Uber Like App Development",
+    slug: "uber-like-app-development",
+    shortDescription: "Custom white-label Uber clone apps, ride hailing platforms, parcel delivery dispatch, and on-demand mobility software.",
+    description: "Architecting white-label custom Uber-like mobile apps for iOS & Android with sub-second WebSockets GPS tracking, automated driver dispatching, surge pricing heat maps, multi-payment gateways, and super admin portals.",
+    icon: "Car",
+    image: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=1200&q=80",
+    technologies: ["Node.js", "Kotlin", "Swift", "Flutter", "React Native", "PostGIS PostgreSQL", "Firebase", "AWS"],
+    features: [
+      "100% Custom White-Label & Source Code Ownership",
+      "Sub-Second Real-Time WebSockets GPS Tracking Engine",
+      "Dynamic Surge Pricing & Heat Map Analytics",
+      "Automated Driver Matching & Dispatch Algorithm",
+      "Multi-Payment Gateways & In-App Driver Earnings Payout"
+    ],
+    benefits: [
+      "Sub-30 second driver dispatch response times",
+      "Zero monthly royalty or platform revenue fees",
+      "Launch on-demand taxi, delivery, caregiver, or food apps in 10-12 weeks"
+    ],
+    process: [
+      { step: 1, title: "Requirement Gathering", description: "Map city locations, fleet sizes, pricing surge models, and payment gateways." },
+      { step: 2, title: "UI/UX & Interactive Prototype", description: "Craft intuitive rider, driver, and admin wireframe flows." },
+      { step: 3, title: "Agile Development", description: "Build spatial PostGIS databases, WebSockets engine, and mobile native apps." },
+      { step: 4, title: "QA & App Store Release", description: "Execute GPS stress testing, payment security audits, and store publication." }
+    ],
+    faq: [
+      { question: "How tailored will the app be to my business?", answer: "Every application we design is 100% customized to your brand image, color palette, logo, and business workflow." },
+      { question: "Do you provide complete source code and documentation?", answer: "Yes, we provide 100% source code ownership and technical documentation." }
+    ],
+    isActive: true
+  },
+  {
+    title: "Uber Like App Development Services",
+    slug: "uber-like-app-development-services",
+    shortDescription: "Custom white-label Uber clone apps, ride hailing platforms, parcel delivery dispatch, and on-demand mobility software.",
+    description: "Architecting white-label custom Uber-like mobile apps for iOS & Android with sub-second WebSockets GPS tracking, automated driver dispatching, surge pricing heat maps, multi-payment gateways, and super admin portals.",
+    icon: "Car",
+    image: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&w=1200&q=80",
+    technologies: ["Node.js", "Kotlin", "Swift", "Flutter", "React Native", "PostGIS PostgreSQL", "Firebase", "AWS"],
+    features: [
+      "100% Custom White-Label & Source Code Ownership",
+      "Sub-Second Real-Time WebSockets GPS Tracking Engine",
+      "Dynamic Surge Pricing & Heat Map Analytics",
+      "Automated Driver Matching & Dispatch Algorithm",
+      "Multi-Payment Gateways & In-App Driver Earnings Payout"
+    ],
+    benefits: [
+      "Sub-30 second driver dispatch response times",
+      "Zero monthly royalty or platform revenue fees",
+      "Launch on-demand taxi, delivery, caregiver, or food apps in 10-12 weeks"
+    ],
+    process: [
+      { step: 1, title: "Requirement Gathering", description: "Map city locations, fleet sizes, pricing surge models, and payment gateways." },
+      { step: 2, title: "UI/UX & Interactive Prototype", description: "Craft intuitive rider, driver, and admin wireframe flows." },
+      { step: 3, title: "Agile Development", description: "Build spatial PostGIS databases, WebSockets engine, and mobile native apps." },
+      { step: 4, title: "QA & App Store Release", description: "Execute GPS stress testing, payment security audits, and store publication." }
+    ],
+    faq: [
+      { question: "How tailored will the app be to my business?", answer: "Every application we design is 100% customized to your brand image, color palette, logo, and business workflow." },
+      { question: "Do you provide complete source code and documentation?", answer: "Yes, we provide 100% source code ownership and technical documentation." }
+    ],
+    isActive: true
+  },
+  {
+    title: "Spotify Like App Development",
+    slug: "spotify-like-app-development",
+    shortDescription: "Custom white-label Spotify clone apps, audio streaming platforms, podcast hosting, and artist monetization.",
+    description: "Architecting white-label custom Spotify-like audio streaming applications for iOS & Android with AI recommendation algorithms, encrypted offline music downloads, FLAC 320kbps audio streaming, and podcast hosting.",
+    icon: "Music",
+    image: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1200&q=80",
+    technologies: ["Python", "Node.js", "Kotlin", "Swift", "Flutter", "MongoDB", "AWS CloudFront", "Redis"],
+    features: [
+      "AI Personalization & Machine Learning Music Mixes",
+      "AES-256 Encrypted Offline Track Downloads",
+      "High-Fidelity 320 kbps & Lossless Audio Streaming",
+      "Freemium & Multi-Tier Subscription Payment Engine",
+      "Direct Artist Community & Playlist Sharing"
+    ],
+    benefits: [
+      "Sub-second audio buffering via AWS Edge CDN",
+      "100% white-label customization & full source code ownership",
+      "Monetize with subscriptions, audio ads, and artist tipping"
+    ],
+    process: [
+      { step: 1, title: "Requirement Gathering", description: "Map music catalogues, licensing models, and subscription tiers." },
+      { step: 2, title: "UI/UX & Audio Player Design", description: "Craft interactive audio player, equalizer, and playlist wireframes." },
+      { step: 3, title: "Agile Development", description: "Develop Python AI algorithms, Node.js WebSockets, and AWS CDN pipelines." },
+      { step: 4, title: "QA & App Store Publication", description: "Perform audio DRM security audits and store releases." }
+    ],
+    faq: [
+      { question: "What language is Spotify written in?", answer: "Python is the primary language for recommendation algorithms, along with C++, Java, and Node.js for audio streaming." },
+      { question: "Do you provide NDAs?", answer: "Yes, we sign strict NDAs to safeguard your business concept." }
+    ],
+    isActive: true
+  },
+  {
+    title: "Audio Streaming App Like Spotify",
+    slug: "audio-streaming-app-like-spotify",
+    shortDescription: "Custom white-label Spotify clone apps, audio streaming platforms, podcast hosting, and artist monetization.",
+    description: "Architecting white-label custom Spotify-like audio streaming applications for iOS & Android with AI recommendation algorithms, encrypted offline music downloads, FLAC 320kbps audio streaming, and podcast hosting.",
+    icon: "Music",
+    image: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1200&q=80",
+    technologies: ["Python", "Node.js", "Kotlin", "Swift", "Flutter", "MongoDB", "AWS CloudFront", "Redis"],
+    features: [
+      "AI Personalization & Machine Learning Music Mixes",
+      "AES-256 Encrypted Offline Track Downloads",
+      "High-Fidelity 320 kbps & Lossless Audio Streaming",
+      "Freemium & Multi-Tier Subscription Payment Engine",
+      "Direct Artist Community & Playlist Sharing"
+    ],
+    benefits: [
+      "Sub-second audio buffering via AWS Edge CDN",
+      "100% white-label customization & full source code ownership",
+      "Monetize with subscriptions, audio ads, and artist tipping"
+    ],
+    process: [
+      { step: 1, title: "Requirement Gathering", description: "Map music catalogues, licensing models, and subscription tiers." },
+      { step: 2, title: "UI/UX & Audio Player Design", description: "Craft interactive audio player, equalizer, and playlist wireframes." },
+      { step: 3, title: "Agile Development", description: "Develop Python AI algorithms, Node.js WebSockets, and AWS CDN pipelines." },
+      { step: 4, title: "QA & App Store Publication", description: "Perform audio DRM security audits and store releases." }
+    ],
+    faq: [
+      { question: "What language is Spotify written in?", answer: "Python is the primary language for recommendation algorithms, along with C++, Java, and Node.js for audio streaming." },
+      { question: "Do you provide NDAs?", answer: "Yes, we sign strict NDAs to safeguard your business concept." }
+    ],
+    isActive: true
+  },
+  {
+    title: "Zomato Like App Development",
+    slug: "zomato-like-app-development",
+    shortDescription: "Custom white-label food delivery app like Zomato & Swiggy, cloud kitchens, and real-time GPS dispatch engine.",
+    description: "Building custom on-demand food delivery applications for iOS & Android connecting customers, local restaurants, cloud kitchens, and delivery partners with sub-second GPS live order tracking and auto-dispatch engines.",
+    icon: "Utensils",
+    image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=1200&q=80",
+    technologies: ["Node.js", "React Native", "Flutter", "Kotlin", "Swift", "PostgreSQL", "PostGIS", "AWS Cloud"],
+    features: [
+      "Sub-Second Live GPS Order Tracking",
+      "Multi-Restaurant Menu & Cooking Customization Notes",
+      "Automated Driver Dispatch & Dispatch Engine",
+      "Multi-Gateway Secure Payments & Cash on Delivery",
+      "Restaurant Merchant Portal & Revenue Analytics"
+    ],
+    benefits: [
+      "100% white-label customization & full source code ownership",
+      "Monetize via restaurant commission fees and delivery charges",
+      "Support for multi-brand cloud kitchens and tiffin meal box subscriptions"
+    ],
+    process: [
+      { step: 1, title: "Requirement Blueprinting", description: "Map multi-restaurant aggregators, delivery zones, and commission ledgers." },
+      { step: 2, title: "UI/UX Ecosystem Design", description: "Design wireframe flows for Customer app, Driver app, and Merchant portal." },
+      { step: 3, title: "Agile Engineering", description: "Develop PostGIS spatial databases, WebSockets tracking, and mobile apps." },
+      { step: 4, title: "QA & App Store Release", description: "Execute GPS stress testing, payment security audits, and store publication." }
+    ],
+    faq: [
+      { question: "How does the revenue model work for a Zomato clone app?", answer: "The platform generates revenue through restaurant commission fees (15-25%), customer delivery charges, and sponsored ads." },
+      { question: "Do you provide complete source code?", answer: "Yes, we provide 100% source code ownership and technical documentation." }
+    ],
+    isActive: true
+  },
+  {
+    title: "Food Delivery App Development",
+    slug: "food-delivery-app-development",
+    shortDescription: "Custom white-label food delivery app like Zomato & Swiggy, cloud kitchens, and real-time GPS dispatch engine.",
+    description: "Building custom on-demand food delivery applications for iOS & Android connecting customers, local restaurants, cloud kitchens, and delivery partners with sub-second GPS live order tracking and auto-dispatch engines.",
+    icon: "Utensils",
+    image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=1200&q=80",
+    technologies: ["Node.js", "React Native", "Flutter", "Kotlin", "Swift", "PostgreSQL", "PostGIS", "AWS Cloud"],
+    features: [
+      "Sub-Second Live GPS Order Tracking",
+      "Multi-Restaurant Menu & Cooking Customization Notes",
+      "Automated Driver Dispatch & Dispatch Engine",
+      "Multi-Gateway Secure Payments & Cash on Delivery",
+      "Restaurant Merchant Portal & Revenue Analytics"
+    ],
+    benefits: [
+      "100% white-label customization & full source code ownership",
+      "Monetize via restaurant commission fees and delivery charges",
+      "Support for multi-brand cloud kitchens and tiffin meal box subscriptions"
+    ],
+    process: [
+      { step: 1, title: "Requirement Blueprinting", description: "Map multi-restaurant aggregators, delivery zones, and commission ledgers." },
+      { step: 2, title: "UI/UX Ecosystem Design", description: "Design wireframe flows for Customer app, Driver app, and Merchant portal." },
+      { step: 3, title: "Agile Engineering", description: "Develop PostGIS spatial databases, WebSockets tracking, and mobile apps." },
+      { step: 4, title: "QA & App Store Release", description: "Execute GPS stress testing, payment security audits, and store publication." }
+    ],
+    faq: [
+      { question: "How does the revenue model work for a Zomato clone app?", answer: "The platform generates revenue through restaurant commission fees (15-25%), customer delivery charges, and sponsored ads." },
+      { question: "Do you provide complete source code?", answer: "Yes, we provide 100% source code ownership and technical documentation." }
+    ],
+    isActive: true
+  },
+  {
+    title: "Amazon Like App Development",
+    slug: "amazon-like-app-development",
+    shortDescription: "Custom white-label multi-vendor e-commerce marketplace app like Amazon, seller portals, and 1-click checkout.",
+    description: "Building scalable white-label custom Amazon-like e-commerce mobile applications for iOS & Android with AI predictive recommendations, multi-vendor commission ledgers, Elasticsearch product catalog search, and 1-click order checkout.",
+    icon: "ShoppingBag",
+    image: "https://images.unsplash.com/photo-1556742049-0a674640c668?auto=format&fit=crop&w=1200&q=80",
+    technologies: ["Node.js", "React Native", "Flutter", "Kotlin", "Swift", "PostgreSQL", "Elasticsearch", "AWS CloudFront"],
+    features: [
+      "AI Predictive Product Recommendations & Elasticsearch Search",
+      "Multi-Vendor Seller Portals & Automated Payout Ledgers",
+      "1-Click Accelerated Checkout & Saved Payment Tokens",
+      "Real-Time Order Shipment Tracking & Return Workflows",
+      "Flash Sale Banners, Coupon Codes, & B2B Wholesale Pricing"
+    ],
+    benefits: [
+      "100% white-label customization & full source code ownership",
+      "Sub-second catalog loading powered by AWS Elastic CDN",
+      "Monetize via seller commission fees, advertising banners, and Prime passes"
+    ],
+    process: [
+      { step: 1, title: "Requirement Blueprinting", description: "Map product taxonomies, vendor payout ledgers, and shipping carriers." },
+      { step: 2, title: "UI/UX & Storefront Design", description: "Design wireframes for Buyer Shopping app, Vendor portal, and Super Admin console." },
+      { step: 3, title: "Agile Engineering", description: "Develop Elasticsearch search indices, Node.js payment gateways, and mobile apps." },
+      { step: 4, title: "QA & App Store Release", description: "Perform PCI-DSS security audits, stress testing, and store publication." }
+    ],
+    faq: [
+      { question: "How does the vendor commission model work in an Amazon clone app?", answer: "The platform administrator sets customized commission rates per product category. When an order completes, commissions are automatically deducted before vendor payouts." },
+      { question: "Do you provide complete source code?", answer: "Yes, we provide 100% source code ownership and technical documentation." }
+    ],
+    isActive: true
+  },
+  {
+    title: "E-Commerce Mobile App Development Company",
+    slug: "ecommerce-mobile-app-development-company",
+    shortDescription: "Custom white-label multi-vendor e-commerce marketplace app like Amazon, seller portals, and 1-click checkout.",
+    description: "Building scalable white-label custom Amazon-like e-commerce mobile applications for iOS & Android with AI predictive recommendations, multi-vendor commission ledgers, Elasticsearch product catalog search, and 1-click order checkout.",
+    icon: "ShoppingBag",
+    image: "https://images.unsplash.com/photo-1556742049-0a674640c668?auto=format&fit=crop&w=1200&q=80",
+    technologies: ["Node.js", "React Native", "Flutter", "Kotlin", "Swift", "PostgreSQL", "Elasticsearch", "AWS CloudFront"],
+    features: [
+      "AI Predictive Product Recommendations & Elasticsearch Search",
+      "Multi-Vendor Seller Portals & Automated Payout Ledgers",
+      "1-Click Accelerated Checkout & Saved Payment Tokens",
+      "Real-Time Order Shipment Tracking & Return Workflows",
+      "Flash Sale Banners, Coupon Codes, & B2B Wholesale Pricing"
+    ],
+    benefits: [
+      "100% white-label customization & full source code ownership",
+      "Sub-second catalog loading powered by AWS Elastic CDN",
+      "Monetize via seller commission fees, advertising banners, and Prime passes"
+    ],
+    process: [
+      { step: 1, title: "Requirement Blueprinting", description: "Map product taxonomies, vendor payout ledgers, and shipping carriers." },
+      { step: 2, title: "UI/UX & Storefront Design", description: "Design wireframes for Buyer Shopping app, Vendor portal, and Super Admin console." },
+      { step: 3, title: "Agile Engineering", description: "Develop Elasticsearch search indices, Node.js payment gateways, and mobile apps." },
+      { step: 4, title: "QA & App Store Release", description: "Perform PCI-DSS security audits, stress testing, and store publication." }
+    ],
+    faq: [
+      { question: "How does the vendor commission model work in an Amazon clone app?", answer: "The platform administrator sets customized commission rates per product category. When an order completes, commissions are automatically deducted before vendor payouts." },
+      { question: "Do you provide complete source code?", answer: "Yes, we provide 100% source code ownership and technical documentation." }
+    ],
+    isActive: true
+  },
+  {
+    title: "Visitor Management System",
+    slug: "visitor-management-system",
+    shortDescription: "Custom white-label visitor management system, QR gate passes, iPad check-in kiosks, and host alerts.",
+    description: "Architecting custom enterprise visitor management systems for offices, factories, and residential gates with self-service iPad kiosks, instant QR code gate passes, facial recognition, and automated host alert notifications.",
+    icon: "UserCheck",
+    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80",
+    technologies: [".NET Core", "C#", "Node.js", "Python", "Swift", "Kotlin", "PostgreSQL", "AWS"],
+    features: [
+      "1-Tap Contactless QR Code Check-In & Gate Pass",
+      "Real-Time Host Alerts via Slack, Teams, SMS, and WhatsApp",
+      "Wireless Thermal Badge Printing with Visitor Photos",
+      "Emergency Evacuation 1-Tap Real-Time Occupancy Roll Call",
+      "SOC2 & OSHA Audit-Ready Visitor Access Compliance Logs"
+    ],
+    benefits: [
+      "100% white-label customization & full source code ownership",
+      "Integrates with physical access control turnstiles and HID readers",
+      "Pre-registration calendar invites and instant security desk blacklist alerts"
+    ],
+    process: [
+      { step: 1, title: "Requirement Blueprinting", description: "Map facility entrance turnstiles, gate pass workflows, and host notifications." },
+      { step: 2, title: "Kiosk & App UI Design", description: "Design wireframe flows for iPad self-registration kiosks and security admin portal." },
+      { step: 3, title: "Agile Software Development", description: "Develop WebSockets host triggers, OCR document scanning, and database engines." },
+      { step: 4, title: "QA & On-Site Rollout", description: "Execute hardware printer integration testing and corporate site deployment." }
+    ],
+    faq: [
+      { question: "What is a Visitor Management System (VMS)?", answer: "A VMS automates guest registration, digital gate pass issuance, host notifications, and facility security compliance." },
+      { question: "Do you provide complete source code?", answer: "Yes, we provide 100% source code ownership and technical documentation." }
+    ],
+    isActive: true
+  },
+  {
+    title: "Warehouse Management System",
+    slug: "warehouse-management-system",
+    shortDescription: "AI-driven warehouse management system (WMS), barcode stock tracking, RFID, and SAP/Oracle ERP sync.",
+    description: "Building scalable AI-driven warehouse management software (WMS) for 3PL logistics, retail, and manufacturing with handheld barcode/RFID scanning, AI pick-list optimization, and SAP/Oracle ERP integrations.",
+    icon: "Boxes",
+    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80",
+    technologies: [".NET Core", "Java", "Python", "Android Native", "React Native", "PostgreSQL", "AWS"],
+    features: [
+      "Real-Time Barcode & RFID SKU Inventory Tracking",
+      "AI Demand Forecasting & Machine Learning Auto Re-Orders",
+      "Pick & Pack Route Optimization for Warehouse Workers",
+      "Inbound Receiving, Dock-to-Stock, & Putaway Location Assignment",
+      "Bi-Directional Real-Time Sync with SAP, Oracle, & NetSuite ERPs"
+    ],
+    benefits: [
+      "100% white-label customization & full source code ownership",
+      "Eliminate annual inventory shutdowns via continuous mobile cycle counting",
+      "Direct carrier shipping label integrations with FedEx, UPS, and DHL"
+    ],
+    process: [
+      { step: 1, title: "Requirement Blueprinting", description: "Map warehouse bin locations, SKU velocity, and barcode scanner workflows." },
+      { step: 2, title: "WMS Software Architecture", description: "Design Android handheld scanner apps and logistics web dashboards." },
+      { step: 3, title: "Agile Development & ERP Sync", description: "Develop real-time inventory databases, SAP/Oracle API connectors, and AI models." },
+      { step: 4, title: "QA & Warehouse Rollout", description: "Execute barcode scanner stress testing and live warehouse site deployment." }
+    ],
+    faq: [
+      { question: "Does the WMS support Zebra/Honeywell barcode scanners?", answer: "Yes, we build native applications optimized for industrial Android handheld laser scanners." },
+      { question: "Do you provide complete source code?", answer: "Yes, we provide 100% source code ownership and technical documentation." }
+    ],
+    isActive: true
+  },
+  {
+    title: "Clover App Development",
+    slug: "clover-app-development",
+    shortDescription: "Custom Clover POS app development for Clover Station, Mini, & Flex hardware devices.",
+    description: "Developing custom Clover App Market software solutions for Clover Station Duo, Solo, Mini, and Flex hardware POS devices with custom inventory sync, loyalty rewards, kitchen display systems, and REST API connectors.",
+    icon: "CreditCard",
+    image: "https://images.unsplash.com/photo-1556742044-3c52d6e88c62?auto=format&fit=crop&w=1200&q=80",
+    technologies: ["Clover REST API", "Clover Android SDK", "Node.js", "Java", "React", "PostgreSQL", "AWS"],
+    features: [
+      "Bespoke Clover POS Apps for Station, Mini, and Flex Hardware",
+      "Real-Time Inventory & Barcode Sync between POS & E-Commerce",
+      "Custom Customer Loyalty & Rewards Points Engine",
+      "Kitchen Display System (KDS) & Automated Ticket Printing",
+      "Offline Credit Transaction Mode with Encrypted Sync"
+    ],
+    benefits: [
+      "100% white-label customization & full source code ownership",
+      "Complete submission support for the official Clover App Market",
+      "Multi-store POS management with centralized pricing and employee roles"
+    ],
+    process: [
+      { step: 1, title: "Requirement Blueprinting", description: "Map POS transaction flows, inventory sync, and hardware devices." },
+      { step: 2, title: "Clover SDK App Design", description: "Design UI wireframes optimized for Clover Station Duo 14\" and Flex 6\" screens." },
+      { step: 3, title: "Agile Engineering", description: "Develop Clover Android SDK apps, REST API webhooks, and cloud databases." },
+      { step: 4, title: "Clover Sandbox Testing & Release", description: "Perform Clover hardware sandbox testing and official App Market submission." }
+    ],
+    faq: [
+      { question: "Can you submit our app to the official Clover App Market?", answer: "Yes, we manage the entire security compliance audit and App Market submission." },
+      { question: "Do you provide complete source code?", answer: "Yes, we provide 100% source code ownership and technical documentation." }
+    ],
+    isActive: true
   }
 ];
 

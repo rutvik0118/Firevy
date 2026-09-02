@@ -693,8 +693,8 @@ npm install
 # (Optional) Seed demo services, case studies, jobs, tech registry & testimonials into MongoDB
 npm run seed
 
-# (Optional) Provision default master admin account (admin@firevy.co / firevy_admin_master_2026)
-node src/utils/createAdmin.js
+# (Optional) Provision admin account via CLI or environment variables
+node src/utils/createAdmin.js <admin_email> <admin_password>
 
 # Launch development API server with hot-reload
 npm run dev
