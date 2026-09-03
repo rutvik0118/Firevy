@@ -20,6 +20,7 @@ import AmazonLikeAppDevelopmentService from '../components/services/AmazonLikeAp
 import VisitorManagementSystemService from '../components/services/VisitorManagementSystemService';
 import WarehouseManagementSystemService from '../components/services/WarehouseManagementSystemService';
 import CloverAppDevelopmentService from '../components/services/CloverAppDevelopmentService';
+import HireCSharpDevelopersService from '../components/services/HireCSharpDevelopersService';
 
 export const ServiceDetails = () => {
   const { slug } = useParams();
@@ -87,6 +88,13 @@ export const ServiceDetails = () => {
     slug.toLowerCase() === 'clover'
   );
 
+  const isCSharp = slug && (
+    slug.toLowerCase().includes('c-sharp') ||
+    slug.toLowerCase().includes('csharp') ||
+    slug.toLowerCase().includes('hire-c-sharp') ||
+    slug.toLowerCase() === 'hire-c-sharp-developers'
+  );
+
   const fetchServiceDetails = async () => {
     setLoading(true);
     setError(null);
@@ -102,7 +110,7 @@ export const ServiceDetails = () => {
   };
 
   useEffect(() => {
-    if (!isHealthcare && !isEducation && !isUber && !isSpotify && !isZomato && !isAmazon && !isVisitor && !isWarehouse && !isClover) {
+    if (!isHealthcare && !isEducation && !isUber && !isSpotify && !isZomato && !isAmazon && !isVisitor && !isWarehouse && !isClover && !isCSharp) {
       fetchServiceDetails();
     } else {
       setLoading(false);
@@ -144,6 +152,10 @@ export const ServiceDetails = () => {
 
   if (isClover) {
     return <CloverAppDevelopmentService />;
+  }
+
+  if (isCSharp) {
+    return <HireCSharpDevelopersService />;
   }
 
   if (loading) return <LoadingSpinner fullPage message="Loading service details..." />;
