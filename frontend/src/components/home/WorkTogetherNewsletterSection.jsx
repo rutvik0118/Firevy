@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom';
 import { CheckCircle2, ChevronDown } from 'lucide-react';
 import Container from '../common/Container';
 
-export const WorkTogetherNewsletterSection = () => {
+export const WorkTogetherNewsletterSection = ({ title, subtitle }) => {
+  const ctaTitle = title || "Let's Work Together On Your Next Digital Project";
+  const ctaSubtitle = subtitle || "Book a meeting with our specialists today to learn more about how firevy.co can help you unlock technology visions and drive your product strategy.";
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
@@ -22,11 +24,11 @@ export const WorkTogetherNewsletterSection = () => {
       {/* 1. Sapphire Blue Work Together CTA Banner */}
       <section className="py-16 bg-[#006B8F] text-white text-center relative overflow-hidden font-sans border-b border-cyan-800">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
-          <h2 className="text-[32px] sm:text-[38px] font-[800] text-white tracking-tight leading-tight font-sans mb-3">
-            Let's Work Together On Your Next Digital Project
+          <h2 className="text-[40px] font-[800] text-white tracking-tight leading-tight font-sans mb-3 section-content-title">
+            {ctaTitle}
           </h2>
-          <p className="text-[16px] font-[400] text-blue-100 leading-relaxed max-w-3xl mx-auto mb-8 font-sans">
-            Book a meeting with our specialists today to learn more about how firevy.co can help you unlock technology visions and drive your product strategy.
+          <p className="text-[15px] font-[400] text-blue-100 leading-relaxed max-w-3xl mx-auto mb-8 font-sans section-content-desc">
+            {ctaSubtitle}
           </p>
           <div>
             <Link
@@ -42,7 +44,7 @@ export const WorkTogetherNewsletterSection = () => {
       {/* 2. Subscribe and Get Latest Updates Banner */}
       <section className="py-16 bg-[#DFEEF7] text-slate-900 text-center relative font-sans border-b border-slate-200">
         <Container>
-          <h2 className="text-[28px] sm:text-[34px] font-[800] text-slate-900 tracking-tight font-sans mb-8">
+          <h2 className="text-[40px] font-[800] text-slate-900 tracking-tight font-sans mb-8 section-content-title">
             Subscribe us and Get the latest updates and news
           </h2>
 
