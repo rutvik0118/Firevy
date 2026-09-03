@@ -77,6 +77,7 @@ export function App() {
                 <Route path="/company/:slug" element={<CompanySubDetails />} />
                 <Route path="/services" element={<Services />} />
                 <Route path="/services/:slug" element={<ServiceDetails />} />
+                <Route path="/iwatch-app-development" element={<ServiceDetails />} />
                 <Route path="/technologies" element={<Technologies />} />
                 <Route path="/portfolio" element={<Portfolio />} />
                 <Route path="/portfolio/:slug" element={<PortfolioDetails />} />

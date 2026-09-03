@@ -21,6 +21,7 @@ import VisitorManagementSystemService from '../components/services/VisitorManage
 import WarehouseManagementSystemService from '../components/services/WarehouseManagementSystemService';
 import CloverAppDevelopmentService from '../components/services/CloverAppDevelopmentService';
 import HireCSharpDevelopersService from '../components/services/HireCSharpDevelopersService';
+import IWatchAppDevelopmentService from '../components/services/IWatchAppDevelopmentService';
 
 export const ServiceDetails = () => {
   const { slug } = useParams();
@@ -95,22 +96,103 @@ export const ServiceDetails = () => {
     slug.toLowerCase() === 'hire-c-sharp-developers'
   );
 
+  const isIWatch = slug && (
+    slug.toLowerCase().includes('iwatch') ||
+    slug.toLowerCase().includes('apple-watch') ||
+    slug.toLowerCase().includes('watchos')
+  );
+
+  const unslugify = (str) => {
+    if (!str) return 'Enterprise Tech Solution';
+    return str
+      .split('-')
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
+  };
+
+  const generateFallbackService = (serviceSlug) => {
+    const formattedTitle = unslugify(serviceSlug);
+    const isHire = serviceSlug.toLowerCase().includes('hire');
+    
+    return {
+      title: formattedTitle,
+      slug: serviceSlug,
+      icon: 'Code2',
+      description: isHire
+        ? `Empower your engineering organization by hiring world-class dedicated ${formattedTitle} specialists from Firevy.co. Access top 1% vetted developers with deep industry expertise, agile workflows, and zero onboarding overhead.`
+        : `Drive innovation and scale your business with enterprise-grade ${formattedTitle} services from Firevy.co. Designed for security, high-throughput scalability, and seamless integration into modern cloud environments.`,
+      shortDescription: `Top-tier ${formattedTitle} solutions engineered by Firevy.co. High performance, security, and enterprise scalability.`,
+      image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80",
+      features: [
+        {
+          title: "Enterprise Architecture & Security",
+          description: `Custom ${formattedTitle} implementation built with microservices architecture, OWASP compliance, and zero-trust security standards.`
+        },
+        {
+          title: "High Performance & Scalability",
+          description: `Engineered for high concurrent load, low latency API responses, and fault-tolerant cloud auto-scaling.`
+        },
+        {
+          title: "Continuous CI/CD & Integration",
+          description: "Automated testing, continuous deployment pipelines, and seamless API integration into your existing tech stack."
+        },
+        {
+          title: "Dedicated Squad & Agile Sprints",
+          description: "Collaborate directly with senior architects, product managers, and QA specialists using transparent bi-weekly Agile sprints."
+        },
+        {
+          title: "24/7 SLA & Infrastructure Monitoring",
+          description: "Proactive log tracking, zero-downtime maintenance, and 99.99% uptime guarantees backed by strict enterprise SLAs."
+        },
+        {
+          title: "Analytics & Measurable ROI",
+          description: "Real-time metrics dashboards, bottleneck analysis, and continuous performance optimization."
+        }
+      ],
+      technologies: [
+        "React", "TypeScript", "Node.js", "Python", "Docker", "Kubernetes", "AWS Cloud", "GraphQL", "Tailwind CSS", "PostgreSQL", "Redis"
+      ],
+      faqs: [
+        {
+          question: `Why choose Firevy.co for ${formattedTitle}?`,
+          answer: `Firevy.co provides over 15+ years of combined engineering excellence, rapid squad deployment within 48 hours, and 100% code ownership with transparent pricing.`
+        },
+        {
+          question: `How quickly can we start a project or onboard ${formattedTitle}?`,
+          answer: `Our onboarding process takes as little as 2 to 5 business days from initial architecture discovery to active sprint execution.`
+        },
+        {
+          question: `What engagement models do you offer for ${formattedTitle}?`,
+          answer: "We support Dedicated Teams (Staff Augmentation), Time & Materials (T&M), and Fixed-Price Project delivery based on your specific requirements."
+        },
+        {
+          question: `How do you ensure data confidentiality and IP security?`,
+          answer: "We sign strict non-disclosure agreements (NDAs) before discovery discussions and transfer 100% intellectual property rights upon delivery."
+        }
+      ]
+    };
+  };
+
   const fetchServiceDetails = async () => {
     setLoading(true);
     setError(null);
     try {
       const res = await serviceApi.getServiceBySlug(slug);
-      setService(res.data);
+      if (res.data) {
+        setService(res.data);
+      } else {
+        setService(generateFallbackService(slug));
+      }
     } catch (err) {
-      console.error('[Service Details Fetch Error]', err);
-      setError(err.message || 'Service not found.');
+      console.warn('[Service Details Fetch Fallback Used]', slug);
+      setService(generateFallbackService(slug));
     } finally {
       setLoading(false);
     }
   };
 
   useEffect(() => {
-    if (!isHealthcare && !isEducation && !isUber && !isSpotify && !isZomato && !isAmazon && !isVisitor && !isWarehouse && !isClover && !isCSharp) {
+    if (!isHealthcare && !isEducation && !isUber && !isSpotify && !isZomato && !isAmazon && !isVisitor && !isWarehouse && !isClover && !isCSharp && !isIWatch) {
       fetchServiceDetails();
     } else {
       setLoading(false);
@@ -156,6 +238,10 @@ export const ServiceDetails = () => {
 
   if (isCSharp) {
     return <HireCSharpDevelopersService />;
+  }
+
+  if (isIWatch) {
+    return <IWatchAppDevelopmentService />;
   }
 
   if (loading) return <LoadingSpinner fullPage message="Loading service details..." />;

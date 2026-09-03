@@ -5,10 +5,10 @@ import ScrollToTop from './ScrollToTop';
 
 export const Layout = ({ children }) => {
   return (
-    <div className="min-h-screen flex flex-col bg-brand-dark text-slate-100 font-sans relative selection:bg-blue-600 selection:text-white">
+    <div className="min-h-screen flex flex-col bg-white text-slate-900 font-sans relative selection:bg-[#005F96] selection:text-white">
       <ScrollToTop />
       <Header />
-      <main className="flex-grow pt-20 lg:pt-28">
+      <main className="flex-grow pt-[111px]">
         {children}
       </main>
       <Footer />

@@ -339,8 +339,8 @@ export const MegaMenu = ({ type, onClose }) => {
   const selectedCategory = servicesCategories.find((c) => c.id === activeServiceId) || servicesCategories[0];
   const selectedHireCategory = hireDeveloperCategories.find((c) => c.id === activeHireId) || hireDeveloperCategories[0];
 
-  // SubMenu Link Style with Solid Blue Pill on Hover
-  const subMenuLinkStyle = "text-xs sm:text-[13px] font-medium text-slate-700 hover:text-white hover:bg-[#005F96] px-2.5 py-1 rounded-lg inline-block transition-all duration-200 ease-in-out hover:shadow-md";
+  // SubMenu Link Style matching reference site typography
+  const subMenuLinkStyle = "text-xs sm:text-[13.5px] font-[400] text-[#333333] hover:text-[#005F96] hover:bg-blue-50/70 px-2 py-0.5 rounded transition-colors inline-block font-sans";
 
   // Our Work View
   if (type === 'our-work') {
@@ -351,7 +351,7 @@ export const MegaMenu = ({ type, onClose }) => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -8 }}
           transition={{ duration: 0.2 }}
-          className="fixed left-0 right-0 top-[108px] w-full bg-white shadow-2xl border-t border-slate-200 text-slate-900 z-50 font-sans text-left overflow-hidden"
+          className="absolute top-full left-0 right-0 w-full bg-white shadow-2xl border-t border-slate-200 text-slate-900 z-50 font-sans text-left overflow-hidden"
           onMouseEnter={(e) => e.stopPropagation()}
         >
           <div className="w-full grid grid-cols-1 lg:grid-cols-12 min-h-[440px]">
@@ -485,7 +485,7 @@ export const MegaMenu = ({ type, onClose }) => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -8 }}
           transition={{ duration: 0.2 }}
-          className="fixed left-0 right-0 top-[108px] w-full bg-white shadow-2xl border-t border-slate-200 text-slate-900 z-50 font-sans text-left overflow-hidden"
+          className="absolute top-full left-0 right-0 w-full bg-white shadow-2xl border-t border-slate-200 text-slate-900 z-50 font-sans text-left overflow-hidden"
           onMouseEnter={(e) => e.stopPropagation()}
         >
           <div className="w-full grid grid-cols-1 lg:grid-cols-12 min-h-[460px]">
@@ -607,7 +607,7 @@ export const MegaMenu = ({ type, onClose }) => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -8 }}
           transition={{ duration: 0.2 }}
-          className="fixed left-0 right-0 top-[108px] w-full bg-white shadow-2xl border-t border-slate-200 text-slate-900 z-50 font-sans text-left overflow-hidden"
+          className="absolute top-full left-0 right-0 w-full bg-white shadow-2xl border-t border-slate-200 text-slate-900 z-50 font-sans text-left overflow-hidden"
           onMouseEnter={(e) => e.stopPropagation()}
         >
           <div className="w-full grid grid-cols-1 lg:grid-cols-12 min-h-[440px]">
@@ -768,7 +768,7 @@ export const MegaMenu = ({ type, onClose }) => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -8 }}
           transition={{ duration: 0.2 }}
-          className="fixed left-0 right-0 top-[108px] w-full bg-white shadow-2xl border-t border-slate-200 text-slate-900 z-50 font-sans text-left overflow-hidden"
+          className="absolute top-full left-0 right-0 w-full bg-white shadow-2xl border-t border-slate-200 text-slate-900 z-50 font-sans text-left overflow-hidden"
           onMouseEnter={(e) => e.stopPropagation()}
         >
           <div className="w-full grid grid-cols-1 lg:grid-cols-12 min-h-[460px]">
@@ -864,7 +864,7 @@ export const MegaMenu = ({ type, onClose }) => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -8 }}
           transition={{ duration: 0.2 }}
-          className="fixed left-0 right-0 top-[108px] w-full bg-white shadow-2xl border-t border-slate-200 text-slate-900 z-50 font-sans text-left overflow-hidden"
+          className="absolute top-full left-0 right-0 w-full bg-white shadow-2xl border-t border-slate-200 text-slate-900 z-50 font-sans text-left overflow-hidden"
           onMouseEnter={(e) => e.stopPropagation()}
         >
           <div className="w-full grid grid-cols-1 lg:grid-cols-12 min-h-[440px]">
@@ -1036,7 +1036,7 @@ export const MegaMenu = ({ type, onClose }) => {
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -8 }}
         transition={{ duration: 0.2 }}
-        className="fixed left-0 right-0 top-[108px] w-full bg-white shadow-2xl border-t border-slate-200 text-slate-900 z-50 font-sans text-left overflow-hidden"
+        className="absolute top-full left-0 right-0 w-full bg-white shadow-2xl border-t border-slate-200 text-slate-900 z-50 font-sans text-left overflow-hidden"
         onMouseEnter={(e) => e.stopPropagation()}
       >
         <div className="w-full grid grid-cols-1 lg:grid-cols-12 min-h-[440px]">
