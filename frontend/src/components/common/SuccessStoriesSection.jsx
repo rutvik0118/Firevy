@@ -1,500 +1,326 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import Container from './Container';
 
-export const SuccessStoriesSection = ({ category = 'general' }) => {
-  const isAudio = category === 'audio' || category === 'spotify' || category === 'music';
-  const isFood = category === 'food' || category === 'zomato' || category === 'restaurant';
-  const isEcommerce = category === 'ecommerce' || category === 'amazon' || category === 'shopping';
+export const SuccessStoriesSection = ({ title, subtitle, companyName = "Sapphire" }) => {
+  const caseStudies = [
+    {
+      title: 'Healthcare Mobile App Development Company',
+      link: '/portfolio',
+      previewBg: 'bg-[#4C1D95]',
+      graphic: (
+        <div className="w-full h-full relative overflow-hidden bg-gradient-to-br from-[#2E1065] via-[#4C1D95] to-[#7E22CE] p-4 flex text-white font-sans">
+          {/* Case Study Tag */}
+          <div className="absolute top-3 right-3 z-10 px-3 py-1 rounded-md bg-[#7DD3FC] text-[#0369A1] font-[800] text-[11px] shadow-sm">
+            Case Study
+          </div>
+
+          {/* Left Column: Healthcare Graphic */}
+          <div className="w-1/2 pr-2 flex flex-col justify-between z-0">
+            <div>
+              {/* Adani logo mark */}
+              <div className="text-xl font-[900] tracking-wider text-white mb-2 font-sans">
+                adani
+              </div>
+              <div className="text-[11px] font-[700] leading-tight text-purple-100 max-w-[130px]">
+                Shift Your Employee Health and Safety To Online Mode With Your Own Health App
+              </div>
+            </div>
+
+            <div className="p-2 rounded-lg bg-white/10 backdrop-blur-md border border-white/20 text-[9px] space-y-1">
+              <div className="flex justify-between font-bold">
+                <span>India's #1</span>
+                <span>US$30</span>
+                <span>70+</span>
+              </div>
+              <div className="text-[7.5px] text-purple-200">23000+ Employees Onboarded</div>
+            </div>
+          </div>
+
+          {/* Right Column: Achievements White Card */}
+          <div className="w-1/2 pl-1 flex flex-col justify-center">
+            <div className="bg-white text-slate-900 rounded-xl p-3 shadow-xl border border-purple-100 space-y-2">
+              <div className="text-xs font-[900] text-purple-900 border-b border-purple-100 pb-1">
+                Achievements
+              </div>
+              <p className="text-[8px] leading-tight text-slate-600">
+                We have an award-winning team of 70+ dev leads, creating custom healthcare mobile apps for enterprise employees.
+              </p>
+
+              <div className="grid grid-cols-2 gap-1.5 pt-1 text-center">
+                <div className="p-1 rounded bg-purple-50 text-purple-900">
+                  <div className="text-[11px] font-[900]">70+</div>
+                  <div className="text-[7px] text-slate-500 font-bold">Leaders</div>
+                </div>
+                <div className="p-1 rounded bg-rose-50 text-rose-900">
+                  <div className="text-[11px] font-[900]">23000+</div>
+                  <div className="text-[7px] text-slate-500 font-bold">Features</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      title: 'Federal Forecasting App',
+      link: '/portfolio',
+      previewBg: 'bg-[#FFEBEA]',
+      graphic: (
+        <div className="w-full h-full relative overflow-hidden bg-gradient-to-br from-[#FEE2E2] via-[#FCE7F3] to-[#F3E8FF] p-4 flex items-center justify-between text-slate-900 font-sans">
+          {/* Left side: Federal Forecasting Branding & Avatar */}
+          <div className="w-1/2 space-y-2 z-10">
+            <div className="flex items-center space-x-1.5">
+              <div className="w-6 h-6 rounded-full bg-[#1E40AF] text-white font-[900] text-[10px] flex items-center justify-center border border-white">
+                F
+              </div>
+              <span className="text-xs font-[900] text-[#1E3A8A] tracking-tight">FORECASTING</span>
+            </div>
+
+            <h4 className="text-sm sm:text-base font-[900] text-slate-900 leading-tight">
+              Federal Forecasting Application
+            </h4>
+
+            {/* Flying Document Vector Accents */}
+            <div className="flex space-x-1 pt-1">
+              <div className="w-5 h-6 bg-white rounded border border-rose-200 shadow-sm -rotate-6 transform" />
+              <div className="w-5 h-6 bg-white rounded border border-rose-200 shadow-sm rotate-6 transform" />
+              <div className="w-5 h-6 bg-white rounded border border-rose-200 shadow-sm -rotate-3 transform" />
+            </div>
+          </div>
+
+          {/* Right side: Smartphone Frame Preview */}
+          <div className="w-1/2 flex justify-end z-10">
+            <div className="w-[115px] h-[195px] bg-slate-900 rounded-[18px] p-1.5 shadow-2xl border-2 border-slate-800 relative">
+              <div className="w-full h-full bg-white rounded-[14px] overflow-hidden p-2 space-y-2 flex flex-col justify-between text-left">
+                <div className="flex items-center justify-between border-b border-slate-100 pb-1">
+                  <span className="text-[8px] font-bold text-slate-800">Feed</span>
+                  <div className="w-3 h-3 rounded-full bg-purple-600 text-white text-[7px] flex items-center justify-center font-bold">+</div>
+                </div>
+
+                <div className="flex items-center space-x-1.5">
+                  <div className="w-5 h-5 rounded-full bg-rose-400 text-white text-[7px] font-bold flex items-center justify-center">A</div>
+                  <div>
+                    <div className="text-[8px] font-bold text-slate-900 leading-none">Alicia Reed</div>
+                    <div className="text-[6px] text-slate-400">2 hrs ago</div>
+                  </div>
+                </div>
+
+                <div className="h-14 bg-gradient-to-r from-purple-100 to-rose-100 rounded-lg p-1.5 flex items-center justify-center text-center">
+                  <span className="text-[7.5px] font-bold text-slate-700 leading-tight">Forecast Analysis Complete</span>
+                </div>
+
+                <div className="flex items-center justify-between text-[7px] text-slate-400 border-t border-slate-100 pt-1">
+                  <span>❤️ 423 Likes</span>
+                  <span>💬 37 Comments</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      title: 'Stress Management App',
+      link: '/portfolio',
+      previewBg: 'bg-[#FFF3E0]',
+      graphic: (
+        <div className="w-full h-full relative overflow-hidden bg-gradient-to-br from-[#FFEDD5] via-[#FED7AA] to-[#FDBA74] p-4 flex items-center justify-center font-sans">
+          {/* Vertical Branding Text Accent */}
+          <div className="absolute left-2 top-0 bottom-0 text-orange-600/15 font-[900] text-3xl uppercase tracking-widest flex items-center select-none pointer-events-none rotate-90">
+            Stress App
+          </div>
+
+          {/* Dual Smartphone Mockups */}
+          <div className="flex items-center space-x-2 z-10">
+            {/* Left Phone: Healing Crystals */}
+            <div className="w-[105px] h-[185px] bg-slate-900 rounded-[16px] p-1 shadow-xl border border-slate-800 -rotate-3 transform">
+              <div className="w-full h-full bg-white rounded-[12px] p-2 flex flex-col justify-between text-center">
+                <div className="mt-4 space-y-1">
+                  <div className="w-8 h-8 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center mx-auto text-[12px]">
+                    🧘
+                  </div>
+                  <div className="text-[8.5px] font-[900] text-orange-900 leading-tight">Healing Crystals</div>
+                </div>
+
+                <div className="p-1.5 rounded bg-orange-50 text-[7px] font-bold text-orange-800">
+                  Mindfulness & Calm
+                </div>
+              </div>
+            </div>
+
+            {/* Right Phone: Heart Rate & Stats */}
+            <div className="w-[115px] h-[195px] bg-slate-900 rounded-[18px] p-1 shadow-2xl border-2 border-slate-800 rotate-2 transform">
+              <div className="w-full h-full bg-white rounded-[14px] p-2 flex flex-col justify-between text-left space-y-1.5">
+                <div className="text-[7.5px] font-bold text-slate-400">Good Morning!</div>
+                <div className="text-[9px] font-[900] text-slate-900">Zenith</div>
+
+                {/* Heart Rate Box */}
+                <div className="p-1.5 rounded-lg bg-cyan-50 border border-cyan-100 space-y-1">
+                  <div className="text-[7px] font-bold text-slate-500">Weekly Stats</div>
+                  <div className="flex items-baseline space-x-1">
+                    <span className="text-sm font-[900] text-slate-900">96</span>
+                    <span className="text-[7px] font-bold text-cyan-600">bpm</span>
+                  </div>
+                  {/* Heartbeat pulse wave */}
+                  <path d="M0 5h5l2-4 3 8 2-4h5" stroke="#06B6D4" strokeWidth="1.5" fill="none" />
+                </div>
+
+                <div className="text-[7px] font-bold text-slate-800">Quick Links</div>
+                <div className="grid grid-cols-2 gap-1 text-[6.5px] text-center">
+                  <div className="p-1 rounded bg-slate-100 font-bold">Meditate</div>
+                  <div className="p-1 rounded bg-slate-100 font-bold">Sleep 7h</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    }
+  ];
+
+  const defaultSubtitle = `Know ${companyName} journey from concept to success. Explore how we've brought ideas to life and achieved remarkable results for our clients.`;
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.08,
+        delayChildren: 0.1
+      }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 30, scale: 0.96 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: {
+        duration: 0.45,
+        ease: [0.22, 1, 0.36, 1]
+      }
+    }
+  };
 
   return (
-    <section className="py-20 bg-[#EBF5FB] border-b border-slate-200 text-slate-900 font-sans text-left">
+    <section className="py-16 sm:py-20 bg-[#dcf2fd] text-slate-900 font-sans text-left overflow-hidden border-b border-blue-100">
       <Container>
-        {/* Section Heading */}
-        <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
-          <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
-            Success Stories
+        {/* Section Heading - 100% Copy-to-Copy with Reference Screenshot */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
+          className="text-center max-w-4xl mx-auto mb-12 sm:mb-14"
+        >
+          <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-[800] text-slate-950 tracking-tight mb-3 font-sans">
+            {title || "Success Stories"}
           </h2>
-          <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed">
-            Know Sapphire journey from concept to success. Explore how we’ve brought ideas to life and achieved remarkable results for our clients.
+          <p className="text-base sm:text-[17.5px] font-[400] text-slate-700 leading-relaxed font-sans max-w-4xl mx-auto">
+            {subtitle || defaultSubtitle}
           </p>
-        </div>
+        </motion.div>
 
-        {/* 3 Portfolio Cards */}
-        {isAudio ? (
-          /* Music & Audio Streaming Case Studies */
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-12">
-            {/* Card 1: Spotify Clone Music Streaming App */}
-            <div className="rounded-2xl bg-white border border-slate-200/90 overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group">
-              <div className="h-60 bg-gradient-to-br from-[#1DB954] via-[#0F2E1B] to-[#0A0A0A] p-5 relative overflow-hidden flex flex-col justify-between text-white">
-                <div className="text-white/10 font-black text-4xl uppercase tracking-tighter absolute top-2 left-3 select-none pointer-events-none">
-                  Spotify Music
+        {/* 3 Case Study Cards Grid */}
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-50px' }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-10 sm:mb-12"
+        >
+          {caseStudies.map((item, idx) => (
+            <motion.div key={idx} variants={cardVariants}>
+              <Link to={item.link} className="block group text-decoration-none text-left">
+                {/* Rounded Graphic Preview Box */}
+                <div className="h-60 sm:h-64 rounded-[20px] overflow-hidden shadow-md group-hover:shadow-2xl transition-all duration-300 relative mb-4 border border-white/60">
+                  {item.graphic}
                 </div>
 
-                <div className="flex justify-between items-center z-10">
-                  <span className="px-2.5 py-1 rounded-full text-[10px] font-black bg-[#1DB954] text-slate-950 shadow-sm flex items-center space-x-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-slate-950 animate-pulse" />
-                    <span>Spotify Engine</span>
-                  </span>
-                  <span className="px-3 py-1 rounded-md text-[10px] font-extrabold bg-[#005F96] text-white shadow-sm">
-                    Case Study
-                  </span>
-                </div>
-
-                <div className="relative z-10 my-auto p-4 rounded-xl bg-white/95 text-slate-900 shadow-xl border border-white/40 space-y-1 backdrop-blur-md">
-                  <span className="text-[9px] font-black uppercase tracking-wider text-[#005F96] block">
-                    MOBILE APP SOLUTION
-                  </span>
-                  <h4 className="text-sm font-black text-slate-900">Spotify Music Streaming App</h4>
-                  <div className="flex items-center justify-between pt-1 text-[10px] font-bold text-slate-500 border-t border-slate-100">
-                    <span className="text-[#1DB954] flex items-center">
-                      <span className="w-2 h-2 rounded-full bg-[#1DB954] mr-1" /> AI Daily Mix
-                    </span>
-                    <span>320 kbps Hi-Fi Audio</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="p-6">
-                <h3 className="text-base font-black text-slate-900 group-hover:text-[#005F96] transition-colors leading-snug">
-                  Spotify Clone Music Streaming App
+                {/* Case Study Title Text Below */}
+                <h3 className="text-lg sm:text-[19px] font-[800] text-slate-900 group-hover:text-[#0b5072] transition-colors leading-snug font-sans px-1">
+                  {item.title}
                 </h3>
-              </div>
-            </div>
+              </Link>
+            </motion.div>
+          ))}
+        </motion.div>
 
-            {/* Card 2: Podcast & Audiobook Platform Development */}
-            <div className="rounded-2xl bg-white border border-slate-200/90 overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group">
-              <div className="h-60 bg-gradient-to-br from-[#7C3AED] via-[#3B0764] to-[#0F172A] p-5 relative overflow-hidden flex flex-col justify-between text-white">
-                <div className="text-white/10 font-black text-4xl uppercase tracking-tighter absolute top-2 left-3 select-none pointer-events-none">
-                  Audiobook
-                </div>
-
-                <div className="flex justify-between items-center z-10">
-                  <span className="px-2.5 py-1 rounded-full text-[10px] font-extrabold bg-purple-400/20 text-purple-200 border border-purple-400/30">
-                    Podcast & Audio
-                  </span>
-                  <span className="px-3 py-1 rounded-md text-[10px] font-extrabold bg-purple-600 text-white shadow-sm">
-                    Featured
-                  </span>
-                </div>
-
-                <div className="relative z-10 my-auto p-4 rounded-xl bg-white/95 text-slate-900 shadow-xl border border-white/40 space-y-1 backdrop-blur-md">
-                  <span className="text-[9px] font-black uppercase tracking-wider text-purple-700 block">
-                    MOBILE APP SOLUTION
-                  </span>
-                  <h4 className="text-sm font-black text-slate-900">Audiobook & Podcast Portal</h4>
-                  <div className="flex items-center justify-between pt-1 text-[10px] font-bold text-slate-500 border-t border-slate-100">
-                    <span className="text-purple-700">🎙️ Tech Talk Ep 42</span>
-                    <span>1.5x Speed Sync</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="p-6">
-                <h3 className="text-base font-black text-slate-900 group-hover:text-[#005F96] transition-colors leading-snug">
-                  Podcast & Audiobook Platform Development
-                </h3>
-              </div>
-            </div>
-
-            {/* Card 3: Hi-Fi Live Radio & Artist Marketplace App */}
-            <div className="rounded-2xl bg-white border border-slate-200/90 overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group">
-              <div className="h-60 bg-gradient-to-br from-[#0284C7] via-[#0369A1] to-[#0F172A] p-5 relative overflow-hidden flex flex-col justify-between text-white">
-                <div className="text-white/10 font-black text-4xl uppercase tracking-tighter absolute top-2 left-3 select-none pointer-events-none">
-                  Live Radio
-                </div>
-
-                <div className="flex justify-between items-center z-10">
-                  <span className="px-2.5 py-1 rounded-full text-[10px] font-extrabold bg-cyan-400/20 text-cyan-200 border border-cyan-400/30">
-                    Hi-Fi Audio
-                  </span>
-                  <span className="px-3 py-1 rounded-md text-[10px] font-extrabold bg-[#005F96] text-white shadow-sm">
-                    Live Stream
-                  </span>
-                </div>
-
-                <div className="relative z-10 my-auto p-4 rounded-xl bg-white/95 text-slate-900 shadow-xl border border-white/40 space-y-1 backdrop-blur-md">
-                  <span className="text-[9px] font-black uppercase tracking-wider text-[#005F96] block">
-                    MOBILE APP SOLUTION
-                  </span>
-                  <h4 className="text-sm font-black text-slate-900">Hi-Fi Live Radio Platform</h4>
-                  <div className="flex items-center justify-between pt-1 text-[10px] font-bold text-slate-500 border-t border-slate-100">
-                    <span className="text-[#005F96]">📻 Live DJ 24/7</span>
-                    <span>Artist Tipping Hub</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="p-6">
-                <h3 className="text-base font-black text-slate-900 group-hover:text-[#005F96] transition-colors leading-snug">
-                  Hi-Fi Live Radio & Artist Marketplace App
-                </h3>
-              </div>
-            </div>
-          </div>
-        ) : isFood ? (
-          /* Food Delivery Case Studies */
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-12">
-            {/* Card 1: Tiffin Delivery App Development */}
-            <div className="rounded-2xl bg-white border border-slate-200/90 overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group">
-              <div className="h-60 bg-gradient-to-br from-[#CB202D] via-[#991B1B] to-[#450A0A] p-5 relative overflow-hidden flex flex-col justify-between text-white">
-                <div className="text-white/10 font-black text-4xl uppercase tracking-tighter absolute top-2 left-3 select-none pointer-events-none">
-                  Food Delivery
-                </div>
-
-                <div className="flex justify-between items-center z-10">
-                  <span className="px-2.5 py-1 rounded-full text-[10px] font-black bg-rose-500 text-white shadow-sm flex items-center space-x-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-                    <span>Zomato Engine</span>
-                  </span>
-                  <span className="px-3 py-1 rounded-md text-[10px] font-extrabold bg-[#005F96] text-white shadow-sm">
-                    Case Study
-                  </span>
-                </div>
-
-                <div className="relative z-10 my-auto p-4 rounded-xl bg-white/95 text-slate-900 shadow-xl border border-white/40 space-y-1 backdrop-blur-md">
-                  <span className="text-[9px] font-black uppercase tracking-wider text-[#CB202D] block">
-                    MOBILE APP SOLUTION
-                  </span>
-                  <h4 className="text-sm font-black text-slate-900">Tiffin & Meal Box Delivery App</h4>
-                  <div className="flex items-center justify-between pt-1 text-[10px] font-bold text-slate-500 border-t border-slate-100">
-                    <span className="text-[#CB202D]">🍱 Subscription Meals</span>
-                    <span>Live GPS Track</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="p-6">
-                <h3 className="text-base font-black text-slate-900 group-hover:text-[#005F96] transition-colors leading-snug">
-                  Tiffin Delivery App Development
-                </h3>
-              </div>
-            </div>
-
-            {/* Card 2: Nutrition Counter App Development */}
-            <div className="rounded-2xl bg-white border border-slate-200/90 overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group">
-              <div className="h-60 bg-gradient-to-br from-[#059669] via-[#047857] to-[#064E3B] p-5 relative overflow-hidden flex flex-col justify-between text-white">
-                <div className="text-white/10 font-black text-4xl uppercase tracking-tighter absolute top-2 left-3 select-none pointer-events-none">
-                  Nutrition App
-                </div>
-
-                <div className="flex justify-between items-center z-10">
-                  <span className="px-2.5 py-1 rounded-full text-[10px] font-extrabold bg-emerald-400/20 text-emerald-200 border border-emerald-400/30">
-                    Health & Food
-                  </span>
-                  <span className="px-3 py-1 rounded-md text-[10px] font-extrabold bg-emerald-600 text-white shadow-sm">
-                    Featured
-                  </span>
-                </div>
-
-                <div className="relative z-10 my-auto p-4 rounded-xl bg-white/95 text-slate-900 shadow-xl border border-white/40 space-y-1 backdrop-blur-md">
-                  <span className="text-[9px] font-black uppercase tracking-wider text-emerald-700 block">
-                    MOBILE APP SOLUTION
-                  </span>
-                  <h4 className="text-sm font-black text-slate-900">Nutrition Counter & Meal Planner</h4>
-                  <div className="flex items-center justify-between pt-1 text-[10px] font-bold text-slate-500 border-t border-slate-100">
-                    <span className="text-emerald-700">🥗 Macro Calorie Tracker</span>
-                    <span>AI Menu Scan</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="p-6">
-                <h3 className="text-base font-black text-slate-900 group-hover:text-[#005F96] transition-colors leading-snug">
-                  Nutrition Counter App Development
-                </h3>
-              </div>
-            </div>
-
-            {/* Card 3: Cloud Kitchen & Multi-Restaurant Ordering Platform */}
-            <div className="rounded-2xl bg-white border border-slate-200/90 overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group">
-              <div className="h-60 bg-gradient-to-br from-[#EA580C] via-[#9A3412] to-[#18181B] p-5 relative overflow-hidden flex flex-col justify-between text-white">
-                <div className="text-white/10 font-black text-4xl uppercase tracking-tighter absolute top-2 left-3 select-none pointer-events-none">
-                  Cloud Kitchen
-                </div>
-
-                <div className="flex justify-between items-center z-10">
-                  <span className="px-2.5 py-1 rounded-full text-[10px] font-extrabold bg-orange-400/20 text-orange-200 border border-orange-400/30">
-                    Aggregator
-                  </span>
-                  <span className="px-3 py-1 rounded-md text-[10px] font-extrabold bg-[#005F96] text-white shadow-sm">
-                    On-Demand
-                  </span>
-                </div>
-
-                <div className="relative z-10 my-auto p-4 rounded-xl bg-white/95 text-slate-900 shadow-xl border border-white/40 space-y-1 backdrop-blur-md">
-                  <span className="text-[9px] font-black uppercase tracking-wider text-orange-600 block">
-                    MOBILE APP SOLUTION
-                  </span>
-                  <h4 className="text-sm font-black text-slate-900">Cloud Kitchen Ordering Hub</h4>
-                  <div className="flex items-center justify-between pt-1 text-[10px] font-bold text-slate-500 border-t border-slate-100">
-                    <span className="text-orange-600">🍕 20-Min Auto Dispatch</span>
-                    <span>Multi-Restaurant</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="p-6">
-                <h3 className="text-base font-black text-slate-900 group-hover:text-[#005F96] transition-colors leading-snug">
-                  Cloud Kitchen & Restaurant Ordering Platform
-                </h3>
-              </div>
-            </div>
-          </div>
-        ) : isEcommerce ? (
-          /* E-Commerce & Amazon Case Studies - Sapphire Official Match */
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-12">
-            {/* Card 1: Fyndee Multi-Vendor Marketplace */}
-            <div className="rounded-2xl bg-white border border-slate-200/90 overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group">
-              <div className="h-60 bg-gradient-to-br from-[#4F46E5] via-[#312E81] to-[#0F172A] p-5 relative overflow-hidden flex flex-col justify-between text-white">
-                <div className="text-white/10 font-black text-4xl uppercase tracking-tighter absolute top-2 left-3 select-none pointer-events-none">
-                  Marketplace
-                </div>
-
-                <div className="flex justify-between items-center z-10">
-                  <span className="px-2.5 py-1 rounded-full text-[10px] font-black bg-indigo-500 text-white shadow-sm flex items-center space-x-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-                    <span>Amazon Engine</span>
-                  </span>
-                  <span className="px-3 py-1 rounded-md text-[10px] font-extrabold bg-[#005F96] text-white shadow-sm">
-                    Case Study
-                  </span>
-                </div>
-
-                <div className="relative z-10 my-auto p-4 rounded-xl bg-white/95 text-slate-900 shadow-xl border border-white/40 space-y-1 backdrop-blur-md">
-                  <span className="text-[9px] font-black uppercase tracking-wider text-indigo-600 block">
-                    MOBILE APP SOLUTION
-                  </span>
-                  <h4 className="text-sm font-black text-slate-900">Fyndee Multi-Vendor Marketplace</h4>
-                  <div className="flex items-center justify-between pt-1 text-[10px] font-bold text-slate-500 border-t border-slate-100">
-                    <span className="text-indigo-600">🛍️ 500+ Active Vendors</span>
-                    <span>Prime Shipping</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="p-6">
-                <h3 className="text-base font-black text-slate-900 group-hover:text-[#005F96] transition-colors leading-snug">
-                  Case Study Fyndee Marketplace
-                </h3>
-              </div>
-            </div>
-
-            {/* Card 2: Clothing & Apparel Website Development */}
-            <div className="rounded-2xl bg-white border border-slate-200/90 overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group">
-              <div className="h-60 bg-gradient-to-br from-[#E11D48] via-[#881337] to-[#18181B] p-5 relative overflow-hidden flex flex-col justify-between text-white">
-                <div className="text-white/10 font-black text-4xl uppercase tracking-tighter absolute top-2 left-3 select-none pointer-events-none">
-                  Fashion Store
-                </div>
-
-                <div className="flex justify-between items-center z-10">
-                  <span className="px-2.5 py-1 rounded-full text-[10px] font-extrabold bg-rose-400/20 text-rose-200 border border-rose-400/30">
-                    Fashion & Retail
-                  </span>
-                  <span className="px-3 py-1 rounded-md text-[10px] font-extrabold bg-rose-600 text-white shadow-sm">
-                    Featured
-                  </span>
-                </div>
-
-                <div className="relative z-10 my-auto p-4 rounded-xl bg-white/95 text-slate-900 shadow-xl border border-white/40 space-y-1 backdrop-blur-md">
-                  <span className="text-[9px] font-black uppercase tracking-wider text-rose-700 block">
-                    MOBILE APP SOLUTION
-                  </span>
-                  <h4 className="text-sm font-black text-slate-900">Clothing & Apparel E-Commerce</h4>
-                  <div className="flex items-center justify-between pt-1 text-[10px] font-bold text-slate-500 border-t border-slate-100">
-                    <span className="text-rose-700">👗 AR Outfit Try-On</span>
-                    <span>Flash Sales</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="p-6">
-                <h3 className="text-base font-black text-slate-900 group-hover:text-[#005F96] transition-colors leading-snug">
-                  Clothing Website & App Development
-                </h3>
-              </div>
-            </div>
-
-            {/* Card 3: B2B Wholesale Toy & Electronics Marketplace (Clown Polska) */}
-            <div className="rounded-2xl bg-white border border-slate-200/90 overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group">
-              <div className="h-60 bg-gradient-to-br from-[#D97706] via-[#78350F] to-[#0F172A] p-5 relative overflow-hidden flex flex-col justify-between text-white">
-                <div className="text-white/10 font-black text-4xl uppercase tracking-tighter absolute top-2 left-3 select-none pointer-events-none">
-                  Wholesale B2B
-                </div>
-
-                <div className="flex justify-between items-center z-10">
-                  <span className="px-2.5 py-1 rounded-full text-[10px] font-extrabold bg-amber-400/20 text-amber-200 border border-amber-400/30">
-                    B2B Marketplace
-                  </span>
-                  <span className="px-3 py-1 rounded-md text-[10px] font-extrabold bg-[#005F96] text-white shadow-sm">
-                    Wholesale
-                  </span>
-                </div>
-
-                <div className="relative z-10 my-auto p-4 rounded-xl bg-white/95 text-slate-900 shadow-xl border border-white/40 space-y-1 backdrop-blur-md">
-                  <span className="text-[9px] font-black uppercase tracking-wider text-amber-700 block">
-                    MOBILE APP SOLUTION
-                  </span>
-                  <h4 className="text-sm font-black text-slate-900">Clown Polska Toy Wholesale Portal</h4>
-                  <div className="flex items-center justify-between pt-1 text-[10px] font-bold text-slate-500 border-t border-slate-100">
-                    <span className="text-amber-700">🧸 Wholesale Bulk Rates</span>
-                    <span>Multi-Currency</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="p-6">
-                <h3 className="text-base font-black text-slate-900 group-hover:text-[#005F96] transition-colors leading-snug">
-                  Wholesale B2B E-Commerce Marketplace
-                </h3>
-              </div>
-            </div>
-          </div>
-        ) : (
-          /* General Enterprise / Mobility Case Studies */
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-12">
-            {/* Card 1: Cab Booking Application Development */}
-            <div className="rounded-2xl bg-white border border-slate-200/90 overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group">
-              <div className="h-60 bg-[#FEE996] p-5 relative overflow-hidden flex flex-col justify-between">
-                <div className="text-amber-600/20 font-black text-4xl uppercase tracking-tighter absolute top-2 left-3 select-none pointer-events-none">
-                  Taxi Booking App
-                </div>
-
-                <div className="flex justify-between items-center z-10">
-                  <div className="flex items-center space-x-1.5 bg-red-600 text-white px-2.5 py-1 rounded-full text-[10px] font-black shadow-sm">
-                    <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
-                    <span>NGcab</span>
-                  </div>
-                  <span className="px-3 py-1 rounded-md text-[10px] font-extrabold bg-[#00B4D8] text-white shadow-sm">
-                    Case Study
-                  </span>
-                </div>
-
-                <div className="relative z-10 my-auto p-4 rounded-xl bg-white/95 text-slate-900 shadow-xl border border-white/40 space-y-1 backdrop-blur-md">
-                  <span className="text-[9px] font-black uppercase tracking-wider text-[#005F96] block">
-                    MOBILE APP SOLUTION
-                  </span>
-                  <h4 className="text-sm font-black text-slate-900">NGcab Taxi Dispatch Engine</h4>
-                  <div className="flex items-center justify-between pt-1 text-[10px] font-bold text-slate-500 border-t border-slate-100">
-                    <span className="text-amber-600">🚖 Live GPS Routing</span>
-                    <span>Instant Booking</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="p-6">
-                <h3 className="text-base font-black text-slate-900 group-hover:text-[#005F96] transition-colors leading-snug">
-                  Cab Booking Application Development
-                </h3>
-              </div>
-            </div>
-
-            {/* Card 2: Taxi Booking App Development */}
-            <div className="rounded-2xl bg-white border border-slate-200/90 overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group">
-              <div className="h-60 bg-[#EAF2F9] p-5 relative overflow-hidden flex flex-col justify-between">
-                <div className="text-blue-600/10 font-black text-4xl uppercase tracking-tighter absolute top-2 left-3 select-none pointer-events-none">
-                  Quick Taxi
-                </div>
-
-                <div className="flex justify-end z-10">
-                  <span className="px-2.5 py-0.5 rounded text-[10px] font-extrabold bg-blue-100 text-blue-800 border border-blue-200">
-                    On-Demand
-                  </span>
-                </div>
-
-                <div className="relative z-10 my-auto p-4 rounded-xl bg-white/95 text-slate-900 shadow-xl border border-white/40 space-y-1 backdrop-blur-md">
-                  <span className="text-[9px] font-black uppercase tracking-wider text-[#005F96] block">
-                    MOBILE APP SOLUTION
-                  </span>
-                  <h4 className="text-sm font-black text-slate-900">Quick Taxi Ride Hailing App</h4>
-                  <div className="flex items-center justify-between pt-1 text-[10px] font-bold text-slate-500 border-t border-slate-100">
-                    <span className="text-[#005F96]">Standard & Comfort</span>
-                    <span>Multi-Gateway</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="p-6">
-                <h3 className="text-base font-black text-slate-900 group-hover:text-[#005F96] transition-colors leading-snug">
-                  Taxi Booking App Development
-                </h3>
-              </div>
-            </div>
-
-            {/* Card 3: Cruise Booking App Development */}
-            <div className="rounded-2xl bg-white border border-slate-200/90 overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group">
-              <div className="h-60 bg-gradient-to-br from-[#1E3A8A] to-[#0F172A] p-5 relative overflow-hidden flex flex-col justify-between text-white">
-                <div className="text-white/10 font-black text-4xl uppercase tracking-tighter absolute top-2 left-3 select-none pointer-events-none">
-                  Cruise Booking
-                </div>
-
-                <div className="flex justify-end z-10">
-                  <span className="px-2.5 py-0.5 rounded text-[10px] font-extrabold bg-cyan-500/20 text-cyan-300 border border-cyan-400/30">
-                    Travel & Cruise
-                  </span>
-                </div>
-
-                <div className="relative z-10 my-auto p-4 rounded-xl bg-white/95 text-slate-900 shadow-xl border border-white/40 space-y-1 backdrop-blur-md">
-                  <span className="text-[9px] font-black uppercase tracking-wider text-[#005F96] block">
-                    MOBILE APP SOLUTION
-                  </span>
-                  <h4 className="text-sm font-black text-slate-900">CruiseNation Travel Portal</h4>
-                  <div className="flex items-center justify-between pt-1 text-[10px] font-bold text-slate-500 border-t border-slate-100">
-                    <span className="text-blue-700">🚢 Cabin Reservations</span>
-                    <span>7-Night Tours</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="p-6">
-                <h3 className="text-base font-black text-slate-900 group-hover:text-[#005F96] transition-colors leading-snug">
-                  Cruise Booking App Development
-                </h3>
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* View All Portfolio Button */}
-        <div className="text-center mb-16">
+        {/* Centered 'View All Portfolio' Dark Blue Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4, delay: 0.2 }}
+          className="text-center mb-14 sm:mb-16"
+        >
           <Link
             to="/portfolio"
-            className="inline-block px-8 py-3.5 rounded-lg bg-[#005F96] hover:bg-[#004A75] text-white font-extrabold text-sm transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5"
+            className="inline-flex items-center justify-center px-8 py-3.5 rounded-[8px] bg-[#0b5072] hover:bg-[#084260] text-white font-[800] text-[15px] transition-all shadow-md hover:shadow-xl hover:-translate-y-0.5 font-sans"
           >
             View All Portfolio
           </Link>
-        </div>
+        </motion.div>
 
-        {/* Stat Cards Row (Purple, Green, Pink, Dark Blue) 1:1 Sapphire Match */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl mx-auto">
-          <div className="p-6 rounded-2xl bg-[#E2D9FF] border border-purple-200 text-slate-900 flex flex-col items-center justify-center text-center shadow-sm h-36 hover:shadow-md transition-shadow">
-            <div className="text-3xl font-black text-slate-900 tracking-tight">23+</div>
-            <div className="text-xs font-bold text-slate-700 mt-1.5">Years Experience</div>
+        {/* Bottom 4 Pastel Metric & Callout Cards (3 Pastel + 1 Dark Ocean Blue CTA) */}
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl mx-auto"
+        >
+          {/* Card 1: Soft Pastel Lavender Purple */}
+          <div className="p-6 rounded-[18px] bg-[#d9c7ff] text-slate-900 flex flex-col items-center justify-center text-center shadow-sm h-36 hover:shadow-md transition-all duration-200 border border-purple-200/50">
+            <div className="text-3xl sm:text-[34px] font-[900] text-slate-950 tracking-tight font-sans mb-1">
+              23+
+            </div>
+            <div className="text-xs sm:text-[14px] font-[700] text-slate-800 font-sans">
+              Years Experience
+            </div>
           </div>
 
-          <div className="p-6 rounded-2xl bg-[#BCE8D0] border border-emerald-200 text-slate-900 flex flex-col items-center justify-center text-center shadow-sm h-36 hover:shadow-md transition-shadow">
-            <div className="text-3xl font-black text-slate-900 tracking-tight">320+</div>
-            <div className="text-xs font-bold text-slate-700 mt-1.5">5-Star Clutch Reviews</div>
+          {/* Card 2: Soft Pastel Mint Green */}
+          <div className="p-6 rounded-[18px] bg-[#9ce8d4] text-slate-900 flex flex-col items-center justify-center text-center shadow-sm h-36 hover:shadow-md transition-all duration-200 border border-emerald-200/50">
+            <div className="text-3xl sm:text-[34px] font-[900] text-slate-950 tracking-tight font-sans mb-1">
+              320+
+            </div>
+            <div className="text-xs sm:text-[14px] font-[700] text-slate-800 font-sans">
+              5-Star Clutch Reviews
+            </div>
           </div>
 
-          <div className="p-6 rounded-2xl bg-[#FFC5D7] border border-rose-200 text-slate-900 flex flex-col items-center justify-center text-center shadow-sm h-36 hover:shadow-md transition-shadow">
-            <div className="text-3xl font-black text-slate-900 tracking-tight">2800+</div>
-            <div className="text-xs font-bold text-slate-700 mt-1.5">Satisfied Clients</div>
+          {/* Card 3: Soft Pastel Coral Pink */}
+          <div className="p-6 rounded-[18px] bg-[#fbbab2] text-slate-900 flex flex-col items-center justify-center text-center shadow-sm h-36 hover:shadow-md transition-all duration-200 border border-rose-200/50">
+            <div className="text-3xl sm:text-[34px] font-[900] text-slate-950 tracking-tight font-sans mb-1">
+              2800+
+            </div>
+            <div className="text-xs sm:text-[14px] font-[700] text-slate-800 font-sans">
+              Satisfied Clients
+            </div>
           </div>
 
-          <div className="p-6 rounded-2xl bg-[#005F96] text-white flex flex-col items-center justify-center text-center shadow-lg h-36 space-y-2.5">
-            <div className="text-sm font-extrabold text-white">Want to start Projects</div>
-            <a
-              href="#quote-form"
-              className="px-6 py-2 rounded-lg bg-white text-[#005F96] font-black text-xs hover:bg-slate-100 transition-colors shadow-md"
+          {/* Card 4: Dark Ocean Blue CTA Card */}
+          <div className="p-6 rounded-[18px] bg-[#0b5072] text-white flex flex-col items-center justify-center text-center shadow-lg h-36 space-y-2.5 font-sans border border-blue-900/30">
+            <div className="text-base sm:text-[17px] font-[800] text-white font-sans leading-tight">
+              Want to start Projects
+            </div>
+            <Link
+              to="/contact"
+              className="px-6 py-2.5 rounded-[8px] bg-white text-[#0b5072] font-[800] text-xs sm:text-sm hover:bg-slate-100 transition-all shadow-md font-sans inline-block"
             >
               Get Estimation
-            </a>
+            </Link>
           </div>
-        </div>
+        </motion.div>
       </Container>
     </section>
   );
 };
 
 export default SuccessStoriesSection;
+

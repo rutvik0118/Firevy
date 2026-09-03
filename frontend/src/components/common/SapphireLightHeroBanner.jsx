@@ -10,7 +10,7 @@ export const SapphireLightHeroBanner = ({
   serviceCategory = "healthcare"
 }) => {
   return (
-    <section className="pt-32 pb-16 bg-[#EFF5F9] text-slate-900 relative overflow-hidden text-left font-sans border-b border-slate-200/60">
+    <section className="py-12 lg:py-16 bg-[#EFF5F9] text-slate-900 relative overflow-hidden text-left font-sans border-b border-slate-200/60">
       <Container className="relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           {/* Left Text & CTA */}
