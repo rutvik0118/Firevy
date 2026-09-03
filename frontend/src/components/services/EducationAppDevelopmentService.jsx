@@ -9,6 +9,10 @@ import TrustedBrandsGrid from '../common/TrustedBrandsGrid';
 import SapphireTechStackGrid from '../common/SapphireTechStackGrid';
 import BrandLogoMarquee from '../common/BrandLogoMarquee';
 import SapphireLightHeroBanner from '../common/SapphireLightHeroBanner';
+import EducationQuoteOverview from '../common/EducationQuoteOverview';
+import PremiumServicesGrid from '../common/PremiumServicesGrid';
+import SuccessStoriesSection from '../common/SuccessStoriesSection';
+import WhyChooseEducationShowcase from '../common/WhyChooseEducationShowcase';
 import {
   GraduationCap,
   BookOpen,
@@ -60,37 +64,43 @@ export const EducationAppDevelopmentService = () => {
     setFormSubmitted(true);
   };
 
-  // Sapphire Solutions - Education Expertise Cards
+  // Sapphire Solutions - Education Expertise Cards (Exact 1:1 Reference Match)
   const expertiseList = [
     {
-      title: 'Interactive eBooks App',
-      icon: BookOpen,
-      desc: 'In the eBooks app, users view instructive videos, photos, read motivational tales, and explore subjects of interest by taking interactive quizzes or playing mental brain games.'
+      title: 'Interactive EBooks',
+      iconColor: 'bg-[#F3E8FF] text-purple-600',
+      isFirst: true,
+      desc: 'In the eBooks app, you may see many instructive videos and photos, read motivational tales or themes, and explore their area of interest by taking quizzes or playing mental games.'
     },
     {
-      title: 'Puzzle-Solving & Brain Apps',
-      icon: Gamepad2,
-      desc: 'Users may download and play gamified applications on their smartphones to enhance their memory, logic, grammar, and vocabulary skills through fun challenges.'
+      title: 'Puzzle-Solving Apps',
+      iconColor: 'bg-[#DCFCE7] text-emerald-600',
+      isFirst: false,
+      desc: 'Users may download and play games on their smartphones to enhance their memory, grammar, and vocabulary skills, among other vital abilities.'
     },
     {
-      title: 'Worksheet & Math Apps',
-      icon: FileText,
-      desc: 'Worksheet applications designed for students allow practicing formulas, macros, science problems, and automated assignment grading from the comfort of home.'
+      title: 'Worksheet Apps',
+      iconColor: 'bg-[#FFEDD5] text-orange-500',
+      isFirst: false,
+      desc: 'Worksheet applications designed specifically for children on the brink of adulthood allow students to practice formulae, macros, etc., in the comfort of their homes.'
     },
     {
-      title: 'Virtual Classroom Apps',
-      icon: Video,
-      desc: 'Classroom applications designed for all students and tutors, enabling live HD video lectures, session recordings, interactive whiteboards, and digital attendance.'
+      title: 'Classroom Apps',
+      iconColor: 'bg-[#FEF9C3] text-amber-600',
+      isFirst: false,
+      desc: 'Classroom applications are designed for all students, who may use them throughout the class to acquire new knowledge.'
     },
     {
-      title: 'Skill Boosting & AR/VR Apps',
-      icon: Brain,
-      desc: 'Powered by AR/VR and IoT, our skill enhancement applications focus on increasing learner abilities via immersive gamification and 3D simulations.'
+      title: 'Skill Boosting Applications',
+      iconColor: 'bg-[#FCE7F3] text-pink-600',
+      isFirst: false,
+      desc: 'Powered by AR/VR and IoT, our skill enhancement applications are focused on increasing learner\'s abilities via gamification.'
     },
     {
-      title: 'Educational & Tuition Apps',
-      icon: GraduationCap,
-      desc: 'Our tuition app development services make quality education accessible in real-time, matching students with certified private tutors regardless of geographic location.'
+      title: 'Educational Application',
+      iconColor: 'bg-[#E0F2FE] text-cyan-600',
+      isFirst: false,
+      desc: 'Our tuition app development services are intended to make education accessible in real-time and regardless of location.'
     }
   ];
 
@@ -325,7 +335,7 @@ export const EducationAppDevelopmentService = () => {
       {/* Sapphire Light Hero Banner */}
       <SapphireLightHeroBanner
         title="Education App Development Services in USA"
-        subtitle="Rapidly becoming an important component of modern learning, Custom education mobile app development services is now a vital industry element. Interactive online learning platforms, LMS portals, and virtual classroom solutions increase student engagement and institutional growth."
+        subtitle="As a best educational app development company, we deliver affordable education app development services. We are an experienced educational app development agency with a team of professional mobile app developers."
         ctaText="Discuss Your Project"
         ctaLink="#quote-form"
         serviceCategory="education"
@@ -334,134 +344,102 @@ export const EducationAppDevelopmentService = () => {
       {/* Brand Logo Marquee Right Below Hero Banner */}
       <BrandLogoMarquee />
 
-      {/* Review & Ratings Bar */}
-      <section className="py-6 bg-[#F8FAFC] border-b border-slate-200 text-slate-900 font-sans">
+      {/* White Label Custom Education App Development Services Quote Section (Exact 1:1 Reference Match) */}
+      <EducationQuoteOverview />
+
+      {/* Our Premium Services - 10 White Pill Cards Grid Section (Exact 1:1 Reference Match) */}
+      <PremiumServicesGrid />
+
+      {/* Success Stories - 3 Education Showcase Cards Section (Exact 1:1 Reference Match) */}
+      <SuccessStoriesSection category="education" />
+
+      {/* The Expertise Of Our Education App Developers (6 Cards 1:1 Reference Match) */}
+      <section id="expertise-section" className="py-14 sm:py-16 bg-[#EEF5FB] border-b border-slate-200 text-left font-sans">
         <Container>
-          <div className="flex flex-wrap items-center justify-around gap-6 text-center">
-            <div className="space-y-0.5">
-              <div className="text-base sm:text-lg font-extrabold text-[#005F96] flex items-center justify-center space-x-1">
-                <span>900+ GOOGLE REVIEWS</span>
-                <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
-              </div>
-              <p className="text-xs text-slate-500 font-medium">4.9 / 5.0 Star Rating</p>
-            </div>
-
-            <div className="space-y-0.5">
-              <div className="text-base sm:text-lg font-extrabold text-[#005F96] flex items-center justify-center space-x-1">
-                <span>320+ CLUTCH REVIEWS</span>
-                <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
-              </div>
-              <p className="text-xs text-slate-500 font-medium">Top EdTech App Developer</p>
-            </div>
-
-            <div className="space-y-0.5">
-              <div className="text-base sm:text-lg font-extrabold text-[#005F96] flex items-center justify-center space-x-1">
-                <span>200+ GOODFIRMS REVIEWS</span>
-                <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
-              </div>
-              <p className="text-xs text-slate-500 font-medium">Verified IT Service Leader</p>
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      {/* Overview Section */}
-      <section className="py-20 bg-white border-b border-slate-200 text-left">
-        <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-6 space-y-5">
-              <span className="px-3.5 py-1 rounded-full text-xs font-extrabold bg-[#005F96]/10 text-[#005F96] uppercase tracking-wider">
-                EDTECH DIGITAL TRANSFORMATION
-              </span>
-              <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight leading-tight">
-                White Label Custom Education App Development
-              </h2>
-              <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-                Use our educational app development services to take your educational institution or EdTech business online. Teachers are transforming lectures into mobile-app-based online courses, while schools enable students to see, interact, and learn practically instead of relying solely on textbooks.
-              </p>
-              <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-                The increasing demand for education app development services is a major driver in the application development sector. Create enormous prospects for your educational business by delivering structured learning activities, video lectures, and live assessments directly through custom iOS & Android mobile apps.
-              </p>
-            </div>
-
-            <div className="lg:col-span-6 space-y-5 bg-[#F8FAFC] p-8 rounded-2xl border border-slate-200">
-              <h3 className="text-2xl font-black text-slate-900 tracking-tight">
-                Empowering Institutions, Tutors & Students
-              </h3>
-              <p className="text-sm text-slate-600 leading-relaxed">
-                Our educational app development services in USA, UK, Canada, Australia, and UAE are trustworthy and 100% customized. From K-12 schools and universities to private tutoring networks and corporate learning platforms, we build intuitive apps that streamline academic administration and boost learner performance.
-              </p>
-              <div className="pt-2 grid grid-cols-2 gap-3">
-                <div className="p-3 rounded-lg bg-white border border-slate-200 text-xs font-bold text-slate-800">
-                  ✓ One-Step Mobile Login
-                </div>
-                <div className="p-3 rounded-lg bg-white border border-slate-200 text-xs font-bold text-slate-800">
-                  ✓ Personalized Experience
-                </div>
-                <div className="p-3 rounded-lg bg-white border border-slate-200 text-xs font-bold text-slate-800">
-                  ✓ Automated Progress Tests
-                </div>
-                <div className="p-3 rounded-lg bg-white border border-slate-200 text-xs font-bold text-slate-800">
-                  ✓ Offline Study Downloads
-                </div>
-              </div>
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      {/* Expertise Of Our Education App Developers (6 Cards) */}
-      <section id="expertise-section" className="py-20 bg-[#F4F8FA] border-b border-slate-200 text-left">
-        <Container>
-          <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-            <span className="px-3.5 py-1 rounded-full text-xs font-extrabold bg-[#005F96]/10 text-[#005F96] uppercase tracking-wider">
-              OUR EDTECH SOLUTIONS
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
+          <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-12 space-y-2.5">
+            <h2 className="text-3xl sm:text-4xl lg:text-[38px] font-extrabold text-slate-900 tracking-tight font-sans">
               The Expertise Of Our Education App Developers
             </h2>
-            <p className="text-base sm:text-lg text-slate-600 font-normal">
+            <p className="text-xs sm:text-sm lg:text-base text-slate-600 font-normal leading-relaxed font-sans">
               Our comprehensive set of products makes us one of the world's top education app development firms.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {expertiseList.map((item, idx) => {
-              const IconComp = item.icon;
-              return (
-                <div
-                  key={idx}
-                  className="p-6 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-[#005F96]/40 transition-all duration-300 flex flex-col justify-between group"
-                >
-                  <div>
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#005F96] to-[#003452] text-white flex items-center justify-center mb-4 shadow-md group-hover:scale-110 transition-transform">
-                      <IconComp className="w-6 h-6" />
-                    </div>
-
-                    <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-[#005F96] transition-colors">
-                      {item.title}
-                    </h3>
-
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-                      {item.desc}
-                    </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
+            {expertiseList.map((item, idx) => (
+              <div
+                key={idx}
+                className="p-7 sm:p-8 rounded-2xl bg-white border border-slate-200/90 shadow-md hover:bg-gradient-to-b hover:from-[#E0F2FE] hover:via-[#EAF7FF] hover:to-[#D4F1F7] hover:border-[#38BDF8] hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between cursor-pointer font-sans group"
+              >
+                <div className="space-y-3">
+                  {/* Pastel Icon Container */}
+                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${item.iconColor} shadow-sm`}>
+                    {idx === 0 && (
+                      <svg className="w-6 h-6 stroke-current" fill="none" viewBox="0 0 24 24" strokeWidth="2">
+                        <rect x="5" y="3" width="14" height="18" rx="2" />
+                        <path d="M9 7h6M9 11h6M9 15h4" />
+                      </svg>
+                    )}
+                    {idx === 1 && (
+                      <svg className="w-6 h-6 stroke-current" fill="none" viewBox="0 0 24 24" strokeWidth="2">
+                        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+                      </svg>
+                    )}
+                    {idx === 2 && (
+                      <svg className="w-6 h-6 stroke-current" fill="none" viewBox="0 0 24 24" strokeWidth="2">
+                        <rect x="5" y="2" width="14" height="20" rx="2" />
+                        <line x1="12" y1="18" x2="12.01" y2="18" />
+                      </svg>
+                    )}
+                    {idx === 3 && (
+                      <svg className="w-6 h-6 stroke-current" fill="none" viewBox="0 0 24 24" strokeWidth="2">
+                        <rect x="5" y="2" width="14" height="20" rx="2" />
+                        <path d="M9 6h6M9 10h6" />
+                      </svg>
+                    )}
+                    {idx === 4 && (
+                      <svg className="w-6 h-6 stroke-current" fill="none" viewBox="0 0 24 24" strokeWidth="2">
+                        <circle cx="12" cy="12" r="8" />
+                        <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83" />
+                      </svg>
+                    )}
+                    {idx === 5 && (
+                      <svg className="w-6 h-6 stroke-current" fill="none" viewBox="0 0 24 24" strokeWidth="2">
+                        <rect x="5" y="2" width="14" height="20" rx="2" />
+                        <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                      </svg>
+                    )}
                   </div>
 
-                  <div className="pt-4 border-t border-slate-100 mt-4">
-                    <a
-                      href="#quote-form"
-                      className="text-xs font-bold text-[#005F96] hover:underline inline-flex items-center"
-                    >
-                      <span>Explore Capability</span>
-                      <ChevronRight className="w-3.5 h-3.5 ml-1" />
-                    </a>
-                  </div>
+                  {/* Title */}
+                  <h3 className="text-lg font-black text-slate-900 font-sans tracking-tight pt-1">
+                    {item.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed font-sans">
+                    {item.desc}
+                  </p>
                 </div>
-              );
-            })}
+              </div>
+            ))}
+          </div>
+
+          {/* Bottom CTA Button */}
+          <div className="text-center mt-10 sm:mt-12">
+            <a
+              href="#quote-form"
+              className="inline-block px-9 py-3.5 rounded-lg bg-[#005D95] hover:bg-[#004A75] text-white font-extrabold text-sm transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 font-sans"
+            >
+              Get A Free Quote For Your Project
+            </a>
           </div>
         </Container>
       </section>
+
+      {/* Why Choose Sapphire for? Education App Development Service (18 Circular Feature Orbit Ring 1:1 Match) */}
+      <WhyChooseEducationShowcase />
 
       {/* Advantages of Hiring Education App Developers */}
       <section className="py-20 bg-white border-b border-slate-200 text-left">

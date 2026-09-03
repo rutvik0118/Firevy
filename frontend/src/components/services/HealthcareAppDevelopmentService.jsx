@@ -10,6 +10,17 @@ import SapphireTechStackGrid from '../common/SapphireTechStackGrid';
 import BRAND from '../../constants/brand';
 import BrandLogoMarquee from '../common/BrandLogoMarquee';
 import SapphireLightHeroBanner from '../common/SapphireLightHeroBanner';
+import ClutchTopRatedBanner from '../common/ClutchTopRatedBanner';
+import PremiumServicesGrid from '../common/PremiumServicesGrid';
+import InnovativeVideoSlider from '../common/InnovativeVideoSlider';
+import ClientStoryVideoSlider from '../common/ClientStoryVideoSlider';
+import FeaturedInMedia from '../common/FeaturedInMedia';
+import DigitalTransformationSlider from '../common/DigitalTransformationSlider';
+import SapphireFaqSection from '../common/SapphireFaqSection';
+import RecentBlogsSection from '../common/RecentBlogsSection';
+import WhatSetsUsApartSection from '../common/WhatSetsUsApartSection';
+import HealthcareChallengeCtaBanner from '../common/HealthcareChallengeCtaBanner';
+import NewsletterSubscribeBanner from '../common/NewsletterSubscribeBanner';
 import {
   ShieldCheck,
   HeartPulse,
@@ -55,8 +66,159 @@ import {
   TrendingUp,
   Layers,
   Search,
-  ExternalLink
+  ExternalLink,
+  Quote
 } from 'lucide-react';
+
+// Exact Reference 1:1 SVG Icon Vector Components
+const FitnessAppIcon = ({ className = "w-6 h-6" }) => (
+  <svg viewBox="0 0 36 36" fill="none" className={className} xmlns="http://www.w3.org/2000/svg">
+    <rect x="8" y="4" width="20" height="28" rx="4" stroke="currentColor" strokeWidth="2" fill="none" />
+    <path d="M 14 8 H 22" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    <rect x="12" y="12" width="12" height="14" rx="2" stroke="currentColor" strokeWidth="1.5" fill="none" />
+    <path d="M 18 16 C 16.5 14.5, 14 16, 15.5 18 L 18 21.5 L 20.5 18 C 22 16, 19.5 14.5, 18 16 Z" fill="currentColor" />
+  </svg>
+);
+
+const MeditationAppIcon = ({ className = "w-6 h-6" }) => (
+  <svg viewBox="0 0 36 36" fill="none" className={className} xmlns="http://www.w3.org/2000/svg">
+    <rect x="8" y="4" width="20" height="28" rx="4" stroke="currentColor" strokeWidth="2" fill="none" />
+    <circle cx="18" cy="14" r="2.5" fill="currentColor" />
+    <path d="M 14 22 C 14 18 22 18 22 22" stroke="currentColor" strokeWidth="2" strokeLinecap="round" fill="none" />
+    <path d="M 12 24 C 15 22 21 22 24 24" stroke="currentColor" strokeWidth="2" strokeLinecap="round" fill="none" />
+  </svg>
+);
+
+const ExerciseAppIcon = ({ className = "w-6 h-6" }) => (
+  <svg viewBox="0 0 36 36" fill="none" className={className} xmlns="http://www.w3.org/2000/svg">
+    <rect x="8" y="4" width="20" height="28" rx="4" stroke="currentColor" strokeWidth="2" fill="none" />
+    <rect x="12" y="16" width="3" height="6" rx="1" fill="currentColor" />
+    <rect x="21" y="16" width="3" height="6" rx="1" fill="currentColor" />
+    <line x1="14" y1="19" x2="22" y2="19" stroke="currentColor" strokeWidth="2" />
+  </svg>
+);
+
+const QuickCareAppIcon = ({ className = "w-6 h-6" }) => (
+  <svg viewBox="0 0 36 36" fill="none" className={className} xmlns="http://www.w3.org/2000/svg">
+    <rect x="6" y="4" width="18" height="26" rx="3.5" stroke="currentColor" strokeWidth="2" fill="none" />
+    <circle cx="15" cy="12" r="3" stroke="currentColor" strokeWidth="1.5" />
+    <path d="M 10 22 C 10 18 20 18 20 22" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" fill="none" />
+    <circle cx="25" cy="23" r="6" fill="currentColor" />
+    <path d="M 25 20 V 26 M 22 23 H 28" stroke="white" strokeWidth="1.5" strokeLinecap="round" />
+  </svg>
+);
+
+const MonitoringPatientsIcon = ({ className = "w-6 h-6" }) => (
+  <svg viewBox="0 0 36 36" fill="none" className={className} xmlns="http://www.w3.org/2000/svg">
+    <rect x="6" y="8" width="24" height="22" rx="3" stroke="currentColor" strokeWidth="2" fill="none" />
+    <rect x="10" y="12" width="6" height="7" rx="1" fill="currentColor" opacity="0.8" />
+    <line x1="18" y1="14" x2="26" y2="14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    <line x1="18" y1="18" x2="24" y2="18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    <path d="M 13 24 V 27 M 11.5 25.5 H 14.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+  </svg>
+);
+
+const DiagnosticTestIcon = ({ className = "w-6 h-6" }) => (
+  <svg viewBox="0 0 36 36" fill="none" className={className} xmlns="http://www.w3.org/2000/svg">
+    <rect x="8" y="4" width="20" height="28" rx="4" stroke="currentColor" strokeWidth="2" fill="none" />
+    <rect x="12" y="11" width="5" height="5" rx="1" fill="currentColor" />
+    <rect x="19" y="11" width="5" height="5" rx="1" fill="currentColor" />
+    <rect x="12" y="18" width="5" height="5" rx="1" fill="currentColor" />
+    <rect x="19" y="18" width="5" height="5" rx="1" fill="currentColor" />
+  </svg>
+);
+
+// Exact Reference 1:1 Benefits Section Blue Outline SVG Icon Components
+const CareEngagementIcon = ({ className = "w-7 h-7" }) => (
+  <svg viewBox="0 0 48 48" fill="none" className={className} xmlns="http://www.w3.org/2000/svg">
+    <path d="M 14 26 C 14 20, 20 16, 24 16 C 28 16, 34 20, 34 26" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+    <circle cx="24" cy="11" r="4" stroke="currentColor" strokeWidth="2.5" />
+    <path d="M 10 32 L 18 28 L 24 34 L 30 28 L 38 32" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M 16 38 C 20 42, 28 42, 32 38" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+  </svg>
+);
+
+const OptimizedOperationsIcon = ({ className = "w-7 h-7" }) => (
+  <svg viewBox="0 0 48 48" fill="none" className={className} xmlns="http://www.w3.org/2000/svg">
+    <circle cx="24" cy="24" r="10" stroke="currentColor" strokeWidth="2.5" strokeDasharray="3 3" />
+    <path d="M 24 8 V 12 M 24 36 V 40 M 8 24 H 12 M 36 24 H 40" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+    <path d="M 18 18 L 30 30 M 30 18 L 18 30" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    <circle cx="24" cy="24" r="4" fill="currentColor" />
+  </svg>
+);
+
+const SecureDataIcon = ({ className = "w-7 h-7" }) => (
+  <svg viewBox="0 0 48 48" fill="none" className={className} xmlns="http://www.w3.org/2000/svg">
+    <path d="M 24 6 L 38 12 V 24 C 38 33 24 40 24 40 C 24 40 10 33 10 24 V 12 L 24 6 Z" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" fill="none" />
+    <rect x="18" y="20" width="12" height="10" rx="2" stroke="currentColor" strokeWidth="2.5" fill="none" />
+    <path d="M 21 20 V 16 C 21 14 27 14 27 16 V 20" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+  </svg>
+);
+
+const CustomizedCareIcon = ({ className = "w-7 h-7" }) => (
+  <svg viewBox="0 0 48 48" fill="none" className={className} xmlns="http://www.w3.org/2000/svg">
+    <path d="M 10 34 C 14 28, 24 28, 28 34" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+    <circle cx="19" cy="21" r="3.5" stroke="currentColor" strokeWidth="2.5" />
+    <path d="M 32 12 V 20 M 28 16 H 36" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+    <path d="M 8 38 C 16 42, 32 42, 40 38" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+  </svg>
+);
+
+const HighTechResourcesIcon = ({ className = "w-7 h-7" }) => (
+  <svg viewBox="0 0 48 48" fill="none" className={className} xmlns="http://www.w3.org/2000/svg">
+    <path d="M 18 16 C 18 12, 30 12, 30 16 C 30 20, 26 21, 26 24 H 22 C 22 21, 18 20, 18 16 Z" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" fill="none" />
+    <path d="M 21 28 H 27" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+    <circle cx="24" cy="16" r="3" stroke="currentColor" strokeWidth="2" />
+    <path d="M 10 34 C 18 30, 30 30, 38 34" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+  </svg>
+);
+
+const UpdatesSupportIcon = ({ className = "w-7 h-7" }) => (
+  <svg viewBox="0 0 48 48" fill="none" className={className} xmlns="http://www.w3.org/2000/svg">
+    <circle cx="24" cy="24" r="12" stroke="currentColor" strokeWidth="2.5" strokeDasharray="6 4" fill="none" />
+    <path d="M 24 16 V 24 L 29 27" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+    <path d="M 36 14 L 40 18 L 36 22" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M 12 34 L 8 30 L 12 26" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
+// 1:1 Reference Match Hiring Models SVG Icon Components
+const FixedPriceIcon = ({ className = "w-7 h-7" }) => (
+  <svg viewBox="0 0 48 48" fill="none" className={className} xmlns="http://www.w3.org/2000/svg">
+    <path d="M 20 8 H 28 L 30 14 H 18 L 20 8 Z" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" fill="none" />
+    <path d="M 12 18 C 12 14, 36 14, 36 18 C 36 28, 38 38, 32 42 C 24 44, 16 42, 16 42 C 10 38, 12 28, 12 18 Z" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" fill="none" />
+    <path d="M 24 24 V 34 M 20 27 C 20 24 28 24 28 27 C 28 31 20 31 20 34" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" opacity="0.9" />
+  </svg>
+);
+
+const TimeMaterialIcon = ({ className = "w-7 h-7" }) => (
+  <svg viewBox="0 0 48 48" fill="none" className={className} xmlns="http://www.w3.org/2000/svg">
+    <circle cx="25" cy="26" r="13" stroke="currentColor" strokeWidth="2.5" fill="none" />
+    <path d="M 25 19 V 26 L 30 29" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+    <path d="M 22 7 H 28 M 25 7 V 11" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+    <path d="M 8 18 H 14 M 6 26 H 10 M 8 34 H 14" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+  </svg>
+);
+
+const DedicatedTeamIcon = ({ className = "w-7 h-7" }) => (
+  <svg viewBox="0 0 48 48" fill="none" className={className} xmlns="http://www.w3.org/2000/svg">
+    <circle cx="24" cy="14" r="5" stroke="currentColor" strokeWidth="2.5" />
+    <path d="M 14 34 C 14 26, 34 26, 34 34" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" fill="none" />
+    <circle cx="12" cy="18" r="3.5" stroke="currentColor" strokeWidth="2" />
+    <path d="M 6 34 C 6 29, 16 28, 16 34" stroke="currentColor" strokeWidth="2" strokeLinecap="round" fill="none" />
+    <circle cx="36" cy="18" r="3.5" stroke="currentColor" strokeWidth="2" />
+    <path d="M 32 34 C 32 28, 42 29, 42 34" stroke="currentColor" strokeWidth="2" strokeLinecap="round" fill="none" />
+  </svg>
+);
+
+const BucketsApproachIcon = ({ className = "w-7 h-7" }) => (
+  <svg viewBox="0 0 48 48" fill="none" className={className} xmlns="http://www.w3.org/2000/svg">
+    <circle cx="18" cy="20" r="7" stroke="currentColor" strokeWidth="2.5" strokeDasharray="3 3" fill="none" />
+    <circle cx="32" cy="28" r="6" stroke="currentColor" strokeWidth="2.5" strokeDasharray="3 3" fill="none" />
+    <circle cx="18" cy="20" r="3" fill="currentColor" />
+    <circle cx="32" cy="28" r="2.5" fill="currentColor" />
+  </svg>
+);
 
 export const HealthcareAppDevelopmentService = () => {
   const [activeTechTab, setActiveTechTab] = useState('backend');
@@ -82,108 +244,128 @@ export const HealthcareAppDevelopmentService = () => {
     setFormSubmitted(true);
   };
 
-  // Sapphire Solutions - Healthcare Expertise Cards
+  // Sapphire Solutions - Healthcare Expertise Cards (1:1 Reference Match)
   const expertiseList = [
     {
       title: 'Fitness App',
-      icon: Activity,
-      desc: 'By developing fitness healthcare apps, you can do away with expensive equipment-based training and give your users the ease of remote access to a fitness trainer.'
+      icon: FitnessAppIcon,
+      bgColor: 'bg-[#F3E8FF] text-[#9333EA]',
+      desc: 'Fitness Apps By developing fitness healthcare apps, you can do away with expensive equipment-based training and give your users the ease of remote access to a fitness trainer.'
     },
     {
       title: 'Meditation Healthcare App',
-      icon: HeartPulse,
+      icon: MeditationAppIcon,
+      bgColor: 'bg-[#DCFCE7] text-[#16A34A]',
       desc: 'By enabling customers to contact qualified professionals from the comfort of their own homes with our mobile app development services for meditation healthcare, you may promote spiritual well-being.'
     },
     {
-      title: 'Exercise & Nutrition App',
-      icon: Flame,
+      title: 'Exercise App',
+      icon: ExerciseAppIcon,
+      bgColor: 'bg-[#FFEDD5] text-[#EA580C]',
       desc: 'With our personal nutrition custom healthcare app development services, you may get guidance from health professionals wherever you are.'
     },
     {
-      title: 'Quick Care Urgent App',
-      icon: Stethoscope,
+      title: 'Quick Care App',
+      icon: QuickCareAppIcon,
+      bgColor: 'bg-[#FEF9C3] text-[#CA8A04]',
       desc: 'With the help of our urgent healthcare app development services, we can direct people in the event of a medical emergency and provide real-time updates on ER occupancy and journey time.'
     },
     {
-      title: 'Remote Patient Monitoring (RPM)',
-      icon: Video,
+      title: 'Monitoring Patients',
+      icon: MonitoringPatientsIcon,
+      bgColor: 'bg-[#FCE7F3] text-[#DB2777]',
       desc: 'Our remote patient monitoring healthcare app developers will let patients and doctors make appointments, communicate digitally, and exchange care from a distance.'
     },
     {
       title: 'Diagnostic Test Apps',
-      icon: FileText,
+      icon: DiagnosticTestIcon,
+      bgColor: 'bg-[#E0F2FE] text-[#0284C7]',
       desc: 'The app allows for remote sample collection, report generation, communication with doctors, and real-time lab test updates.'
     }
   ];
 
-  // Advantages of Hiring a Healthcare App Developer
+  // Benefits of Healthcare App Development Services (Verbatim Reference Match)
   const advantagesList = [
     {
       title: 'Improved Care and Engagement',
-      desc: 'Professional healthcare app development produces user-friendly apps that improve patient engagement and care. Appointment scheduling, telemedicine consultations, and medical record access allow people to manage their health effortlessly.'
+      icon: CareEngagementIcon,
+      desc: 'Professional healthcare app development produces user-friendly apps that improve patient engagement and care. Appointment scheduling, telemedicine consultations, and medical record access allow people to manage their health using these applications.'
     },
     {
       title: 'Optimized Operations',
-      desc: 'Apps can automate patient registration, invoicing, and appointment administration in healthcare. Operational effectiveness frees up healthcare workers to concentrate on patient care while lowering costs.'
+      icon: OptimizedOperationsIcon,
+      desc: 'Apps can automate patient registration, invoicing, and appointment administration in healthcare. Effectiveness frees up healthcare workers to concentrate on patient care. Operating efficiency reduces costs and improves service.'
     },
     {
       title: 'Secure Data Management',
-      desc: 'Due to HIPAA compliance and superior encryption, these applications manage sensitive patient data with zero leakage risks, promoting confidence and dependability.'
+      icon: SecureDataIcon,
+      desc: 'Due to HIPAA compliance and superior encryption, these applications manage sensitive patient data. Patient confidentiality and data breach prevention promote confidence and dependability in your healthcare services.'
     },
     {
       title: 'Customized Patient Care',
-      desc: 'Health applications let clinicians tailor patient treatment. Customized health suggestions, treatment plans, and continuous communication improve patient recovery rates.'
+      icon: CustomizedCareIcon,
+      desc: 'Health applications let clinicians tailor patient treatment. Customized health suggestions, treatment plans, and communication improve patient experiences. Personalized care enhances treatment adherence and patient-provider relationships.'
     },
     {
-      title: 'High-Tech AI & ML Resources',
-      desc: 'AI, ML, and data analytics are integrated into healthcare applications for precise medical diagnostics, predictive analytics, and automated clinical insights.'
+      title: 'High-Tech Resources',
+      icon: HighTechResourcesIcon,
+      desc: 'AI, ML, and data analytics are available in healthcare app development. It increases diagnostics, predictive analytics, and customized health insights in healthcare applications. This modern technology may transform clinical decision-making and patient care.'
     },
     {
-      title: '24/7 Updates and Support',
-      desc: 'Professional healthcare app development includes regular bug patches, security vulnerability updates, feature additions, and full regulatory SLA maintenance.'
+      title: 'Updates and Support',
+      icon: UpdatesSupportIcon,
+      desc: 'Professional healthcare app development includes bug patches, feature additions, and compliance updates. The app stays dependable, secure, and up-to-date with healthcare standards and technology with this regular maintenance.'
     }
   ];
 
-  // Engagement Models (Sapphire Signature 4 Models)
+  // Business Friendly Hiring Models (1:1 Reference Match)
   const hiringModels = [
     {
       title: 'Fixed Price',
-      tagline: 'Ideal for well-defined scope & predictable budget',
+      icon: FixedPriceIcon,
+      bgColor: 'bg-[#F3E8FF] text-[#9333EA]',
+      desc: 'If you represent a company with a project that needs dedicated attention, ask about dedicated teams. It\'s a pay-as-you-go monthly rolling contract.',
       features: [
-        'Optimal flexibility & set milestones',
-        'Dedicated Agile squad',
-        'Small to medium scope projects',
-        'Complete control over budget & timeline'
+        'Optimal flexibility',
+        'Agile team',
+        'Small projects',
+        'Complete control over budget'
       ]
     },
     {
-      title: 'Time & Material',
-      tagline: 'For dynamic projects requiring flexible ongoing work',
+      title: 'Time Material',
+      icon: TimeMaterialIcon,
+      bgColor: 'bg-[#DCFCE7] text-[#16A34A]',
+      desc: 'If you are represent a company with undefined projects and need ongoing work, ask about hourly. It\'s a pay-as-you-go hour-wise rolling contract.',
       features: [
-        'No hidden costs – pay per hour worked',
-        'Pay-as-you-go hourly rolling contract',
-        'Monthly transparent billing',
-        'Pay only for measurable delivered work'
+        'No hidden costs',
+        'Working based hours',
+        'Monthly billing',
+        'Pay only for measurable work'
       ]
     },
     {
       title: 'Dedicated Team',
-      tagline: 'Full-time senior engineers focused solely on your app',
+      icon: DedicatedTeamIcon,
+      bgColor: 'bg-[#FFEDD5] text-[#EA580C]',
+      desc: 'If you represent a company with a project that needs dedicated attention, ask about dedicated teams. It\'s a pay-as-you-go monthly rolling contract.',
       features: [
-        'Direct resource control & daily standups',
-        '160 hours of assured monthly work per dev',
-        'Agile sprint management via Slack/Jira',
-        'Seamless long-term scaling capability'
+        'No hidden costs',
+        '160 hours of assured work',
+        'Monthly billing',
+        'Pay only for measurable work'
       ]
     },
     {
       title: 'Buckets Approach',
-      tagline: 'Flexible bucket of hours used as needed for updates',
+      icon: BucketsApproachIcon,
+      bgColor: 'bg-[#E0F2FE] text-[#0284C7]',
+      desc: 'A lot of businesses typically select our bucket approach which allow them for payment convenience once the project is finished and things are in place.',
       features: [
-        'Direct resource monitoring',
-        'Reduced risk & lower entry budget',
-        'Use hours for maintenance, features or QA',
-        'Pay only for used engineering hours'
+        'Direct Resource Monitoring',
+        'Less Risk',
+        'Less budget',
+        'Pay only for measurable work'
       ]
     }
   ];
@@ -358,115 +540,385 @@ export const HealthcareAppDevelopmentService = () => {
       {/* Brand Logo Marquee Right Below Hero Banner */}
       <BrandLogoMarquee />
 
-      {/* Review & Ratings Bar (Google, Clutch, GoodFirms) */}
-      <section className="py-6 bg-[#F8FAFC] border-b border-slate-200 text-slate-900 font-sans">
-        <Container>
-          <div className="flex flex-wrap items-center justify-around gap-6 text-center">
-            <div className="space-y-0.5">
-              <div className="text-base sm:text-lg font-extrabold text-[#005F96] flex items-center justify-center space-x-1">
-                <span>900+ GOOGLE REVIEWS</span>
-                <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
-              </div>
-              <p className="text-xs text-slate-500 font-medium">4.9 / 5.0 Star Rating</p>
-            </div>
-
-            <div className="space-y-0.5">
-              <div className="text-base sm:text-lg font-extrabold text-[#005F96] flex items-center justify-center space-x-1">
-                <span>320+ CLUTCH REVIEWS</span>
-                <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
-              </div>
-              <p className="text-xs text-slate-500 font-medium">Top Healthcare App Developer</p>
-            </div>
-
-            <div className="space-y-0.5">
-              <div className="text-base sm:text-lg font-extrabold text-[#005F96] flex items-center justify-center space-x-1">
-                <span>200+ GOODFIRMS REVIEWS</span>
-                <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
-              </div>
-              <p className="text-xs text-slate-500 font-medium">Verified MedTech Leader</p>
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      {/* Brief About & What Exactly Is Healthcare App Development */}
-      <section className="py-20 bg-white border-b border-slate-200 text-left">
+      {/* On-Demand Healthcare App Development Services Showcase (Exact Sapphire 1:1 Reference Match) */}
+      <section className="py-20 bg-white border-b border-slate-200 text-left overflow-hidden">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            {/* Left Visual Vector Graphic (Exact Reference Image Asset Match) */}
+            <div className="lg:col-span-6 flex justify-center">
+              <div className="relative w-full max-w-[540px] flex items-center justify-center">
+                <img
+                  src="/images/services/healthcare-ondemand-illustration.jpg"
+                  alt="On-Demand Healthcare App Development Services Illustration"
+                  className="w-full h-auto object-contain rounded-2xl drop-shadow-md hover:scale-[1.01] transition-transform duration-300"
+                />
+              </div>
+            </div>
+
+            {/* Right Text Content (Exact Sapphire Reference Font Styling & Text) */}
             <div className="lg:col-span-6 space-y-5">
-              <span className="px-3.5 py-1 rounded-full text-xs font-extrabold bg-[#005F96]/10 text-[#005F96] uppercase tracking-wider">
-                INDUSTRY INSIGHTS
-              </span>
-              <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight leading-tight">
+              <h2 className="text-2xl sm:text-[32px] lg:text-[36px] font-[700] text-slate-900 tracking-tight leading-[1.25]">
+                On-Demand Healthcare App Development Services
+              </h2>
+
+              <div className="space-y-4 text-slate-600 text-[15px] leading-[1.7] font-[400]">
+                <p>
+                  Our AI-powered healthcare mobile application development streamlines clinical, administrative, and financial processes. As a Best healthcare app development company, we provide healthcare application development services that assist startups, hospitals, medtech companies, private clinics, and pharmacies in designing, developing, and marketing mobile and online Health solutions.
+                </p>
+
+                <p>
+                  Our bespoke healthcare app solutions enable customers to provide safer, more efficient, and effective care while also adhering to stringent industry regulations like HIPAA.
+                </p>
+              </div>
+
+              {/* Quick Trust Pillars */}
+              <div className="grid grid-cols-2 gap-3 pt-2">
+                <div className="p-3.5 rounded-xl bg-[#F4F8FA] border border-slate-200/90 flex items-center space-x-3">
+                  <div className="w-8 h-8 rounded-lg bg-blue-50 text-[#005F96] flex items-center justify-center font-bold text-sm shrink-0">
+                    🔒
+                  </div>
+                  <div>
+                    <span className="text-xs font-bold text-slate-900 block">100% HIPAA Compliant</span>
+                    <span className="text-[10px] text-slate-500">Bank-Grade Encryption</span>
+                  </div>
+                </div>
+
+                <div className="p-3.5 rounded-xl bg-[#F4F8FA] border border-slate-200/90 flex items-center space-x-3">
+                  <div className="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-sm shrink-0">
+                    ⚡
+                  </div>
+                  <div>
+                    <span className="text-xs font-bold text-slate-900 block">AI Triage & Diagnostics</span>
+                    <span className="text-[10px] text-slate-500">Real-Time Patient Alerts</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* Brief About Healthcare App Development Section (Exact 1:1 Match with Reference Screenshot) */}
+      <section className="py-16 md:py-20 bg-white border-b border-slate-200 text-left overflow-hidden">
+        <Container>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+            {/* Left Column: Title & Text */}
+            <div className="lg:col-span-6 space-y-6">
+              <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-extrabold text-slate-900 tracking-tight leading-[1.25] font-sans">
                 Brief About Healthcare App Development
               </h2>
-              <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-                As a top medical app development company, we include the best features while developing a healthcare app. Patients and physicians will be able to quickly access and modify their medical records, with user profiles acting as the most effective approach to managing this critical information.
+
+              <p className="text-slate-600 text-[15px] sm:text-[16px] leading-[1.75] font-normal font-sans">
+                As a Top medical app development company, we include the best features while developing a healthcare app. Patients and physicians will be able to quickly access and modify their medical records and the user profiles are the most effective approach to managing this information. A patient application that allows patients to provide feedback on any part of medical treatment or other procedures inspires confidence.
               </p>
-              <p className="text-sm sm:text-base text-slate-600 leading-relaxed">
-                A patient application that allows individuals to provide feedback on medical treatments inspires immense confidence. Encrypted chat becomes an integral component of the app development process due to the ability to send medical images, lab results, and documents securely to physicians. Push notifications further promote seamless doctor-patient connection.
+
+              <p className="text-slate-600 text-[15px] sm:text-[16px] leading-[1.75] font-normal font-sans">
+                Chat becomes an integral component of the app development process for healthcare due to the ability to send photographs and documents that aid the physician in better understanding the patient. A push notification function in mobile healthcare applications for patients is greatly sought after and significantly promotes doctor-patient connection.
               </p>
             </div>
 
-            <div className="lg:col-span-6 space-y-5 bg-[#F8FAFC] p-8 rounded-2xl border border-slate-200">
-              <h3 className="text-2xl font-black text-slate-900 tracking-tight">
-                What Exactly Is Healthcare App Development?
-              </h3>
-              <p className="text-sm text-slate-600 leading-relaxed">
-                Healthcare App Development Services include features like telemedicine, medical coding, and billing to improve operational management for healthcare professionals. These solutions assist patients in managing chronic conditions while guiding wellness enthusiasts toward health goals.
+            {/* Right Column: Exact Vector Graphic Illustration */}
+            <div className="lg:col-span-6 flex justify-center items-center">
+              <div className="relative w-full max-w-[580px]">
+                <img
+                  src="/images/services/brief-healthcare-app-development.png"
+                  alt="Brief About Healthcare App Development Illustration"
+                  className="w-full h-auto object-contain drop-shadow-sm hover:scale-[1.02] transition-transform duration-300"
+                />
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* World Wide Top Rated IT Company on Clutch Banner (Exact Reference Match) */}
+      <ClutchTopRatedBanner />
+
+      {/* What Exactly Is Healthcare App Development Section (Exact 1:1 Compact Reference Match) */}
+      <section className="py-10 md:py-14 bg-white border-b border-slate-200 text-left">
+        <Container>
+          {/* Centered Heading */}
+          <div className="text-center mb-8 sm:mb-10">
+            <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-extrabold text-slate-900 tracking-tight font-sans">
+              What Exactly Is Healthcare App Development?
+            </h2>
+          </div>
+
+          {/* 2-Column Content Layout */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center max-w-6xl mx-auto">
+            {/* Left Quote Card (100% Exact 1:1 Match with Sapphire Solutions Reference Graphic) */}
+            <div className="lg:col-span-5 relative flex items-center">
+              <div className="w-full bg-[#ECF5FC] border border-[#D0E5F8] rounded-2xl p-7 sm:p-9 shadow-sm relative space-y-4">
+                {/* Wavy S-Curves & Concentric Oval Background SVG Pattern */}
+                <div className="absolute inset-0 rounded-2xl overflow-hidden pointer-events-none">
+                  <svg
+                    className="absolute inset-0 w-full h-full opacity-60"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 400 240"
+                    preserveAspectRatio="none"
+                  >
+                    <path d="M -20 40 C 100 10, 200 60, 420 30" fill="none" stroke="#CBE3F8" strokeWidth="1.5" />
+                    <path d="M -20 80 C 100 50, 200 100, 420 70" fill="none" stroke="#CBE3F8" strokeWidth="1.5" />
+                    <path d="M -20 120 C 100 90, 200 140, 420 110" fill="none" stroke="#CBE3F8" strokeWidth="1.5" />
+                    <path d="M -20 160 C 100 130, 200 180, 420 150" fill="none" stroke="#CBE3F8" strokeWidth="1.5" />
+                    <path d="M -20 200 C 100 170, 200 220, 420 190" fill="none" stroke="#CBE3F8" strokeWidth="1.5" />
+                    
+                    <ellipse cx="290" cy="140" rx="100" ry="70" fill="none" stroke="#D8EBFC" strokeWidth="1.5" />
+                    <ellipse cx="290" cy="140" rx="75" ry="50" fill="none" stroke="#D8EBFC" strokeWidth="1.5" />
+                    <ellipse cx="290" cy="140" rx="50" ry="30" fill="none" stroke="#D8EBFC" strokeWidth="1.5" />
+                    <ellipse cx="290" cy="140" rx="25" ry="15" fill="none" stroke="#D8EBFC" strokeWidth="1.5" />
+                  </svg>
+                </div>
+
+                {/* Double Slanted Quote Parallelograms (Exact Match with Reference Image Quote) */}
+                <div className="relative z-10 text-[#005F96]">
+                  <svg viewBox="0 0 32 22" fill="none" className="w-8 h-6 shrink-0 drop-shadow-sm">
+                    <path d="M 0 22 L 7 0 H 14 L 7 22 H 0 Z M 17 22 L 24 0 H 31 L 24 22 H 17 Z" fill="#005F96" />
+                  </svg>
+                </div>
+
+                {/* Card Title */}
+                <h3 className="relative z-10 text-2xl sm:text-[28px] lg:text-[30px] font-black text-[#005F96] leading-[1.2] font-sans tracking-tight">
+                  Healthcare App Development Services
+                </h3>
+
+                {/* Speech Bubble Arrow Pointer Notch on Right Edge */}
+                <div className="hidden lg:block absolute -right-[11px] top-1/2 -translate-y-1/2 w-0 h-0 border-t-[10px] border-t-transparent border-b-[10px] border-b-transparent border-l-[11px] border-l-[#ECF5FC] z-30" />
+              </div>
+            </div>
+
+            {/* Right Detailed Text Paragraphs */}
+            <div className="lg:col-span-7 space-y-4 text-[#555555] text-[14px] sm:text-[15px] leading-[1.75] font-[400] font-sans">
+              <p>
+                Healthcare App Development Services include features like telemedicine, medical coding, and billing to improve the operational management of healthcare professionals. These might assist a person in better managing their illness or guide health enthusiasts toward their wellness objectives. Moreover, these apps may also be designed for healthcare professionals in addition to patients. A nice interface is a key criterion that substantially influences an app's popularity. It is not sufficient for mobile apps to be helpful; they must also be simple.
               </p>
-              <p className="text-sm text-slate-600 leading-relaxed">
-                As a leading Healthcare Development Company, we know what it takes to create a healthcare app using modern technologies. Healthcare mobile apps streamline clinical procedures, improve data accessibility, expand remote health care, decrease medical errors, lower operational costs, and elevate the patient experience.
+
+              <p>
+                As a Healthcare Development Company in the USA, we know what it take to create a healthcare app using the latest technologies. Health Care Mobile App streamlines medical procedures and has the potential to enhance the patient experience dramatically. With, Healthcare App Development, the data accessibility is better, remote health care is expanded, medical mistakes are decreased, costs are lowered, and communication is enhanced, to name a few benefits.
               </p>
             </div>
           </div>
         </Container>
       </section>
 
-      {/* The Expertise Of Our Healthcare App Development (6 Cards) */}
-      <section id="expertise-section" className="py-20 bg-[#F4F8FA] border-b border-slate-200 text-left">
+      {/* Our Premium Services Section (Placed Right Below What Exactly Is Healthcare App Development) */}
+      <PremiumServicesGrid />
+
+      {/* The Expertise Of Our Healthcare App Development (Exact 1:1 Reference Match & Reduced Bottom Space) */}
+      <section id="expertise-section" className="pt-14 pb-8 sm:pb-10 bg-[#F4F8FA] border-b border-slate-200 text-left">
         <Container>
-          <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-            <span className="px-3.5 py-1 rounded-full text-xs font-extrabold bg-[#005F96]/10 text-[#005F96] uppercase tracking-wider">
-              OUR HEALTHCARE SOLUTIONS
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
+          {/* Centered Title & Subtitle */}
+          <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-12 space-y-3">
+            <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-extrabold text-slate-900 tracking-tight font-sans">
               The Expertise Of Our Healthcare App Development
             </h2>
-            <p className="text-base sm:text-lg text-slate-600 font-normal">
-              We use the latest technology and agile methods to develop custom health apps for businesses of all types and sizes.
+            <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed max-w-3xl mx-auto font-sans">
+              We use the latest technology and methods to develop healthcare app for business of different types and sizes.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* 6 White Cards Grid (3 Columns x 2 Rows) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
             {expertiseList.map((item, idx) => {
               const IconComp = item.icon;
               return (
                 <div
                   key={idx}
-                  className="p-6 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-[#005F96]/40 transition-all duration-300 flex flex-col justify-between group"
+                  className="p-7 sm:p-8 rounded-2xl bg-white border border-slate-100 shadow-[0_4px_25px_rgba(0,0,0,0.04)] hover:shadow-[0_12px_35px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col justify-start group"
                 >
-                  <div>
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#005F96] to-[#003452] text-white flex items-center justify-center mb-4 shadow-md group-hover:scale-110 transition-transform">
-                      <IconComp className="w-6 h-6" />
+                  {/* Pastel Rounded Icon Box */}
+                  <div className={`w-12 h-12 rounded-xl ${item.bgColor} flex items-center justify-center mb-5 shrink-0 group-hover:scale-105 transition-transform duration-300`}>
+                    <IconComp className="w-6 h-6" />
+                  </div>
+
+                  {/* Card Title */}
+                  <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-3 font-sans group-hover:text-[#005F96] transition-colors">
+                    {item.title}
+                  </h3>
+
+                  {/* Verbatim Description */}
+                  <p className="text-xs sm:text-[14px] text-slate-600 leading-[1.7] font-normal font-sans">
+                    {item.desc}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Centered CTA Button (Get A Free Quote For Your Project) */}
+          <div className="mt-8 sm:mt-10 text-center">
+            <a
+              href="#quote-form"
+              className="px-7 sm:px-9 py-3 sm:py-3.5 bg-[#005F96] hover:bg-[#004b78] text-white font-extrabold text-sm sm:text-base rounded-md shadow-md hover:shadow-lg transition-all duration-300 inline-block font-sans cursor-pointer transform hover:-translate-y-0.5"
+            >
+              Get A Free Quote For Your Project
+            </a>
+          </div>
+        </Container>
+      </section>
+
+      {/* Proud To Have Picked These Up Along The Way Banner (Exact Original Badge Images) */}
+      <section className="py-8 sm:py-10 lg:py-12 bg-[#005F96] text-white overflow-hidden relative border-t border-b border-blue-900/30">
+        {/* Background Wavy Contour Lines Accent */}
+        <svg className="absolute -left-24 -top-24 w-96 h-96 opacity-15 pointer-events-none" viewBox="0 0 200 200" fill="none">
+          <path d="M 10 80 Q 90 20 180 120 T 250 200" stroke="white" strokeWidth="2" fill="none" />
+          <path d="M 20 120 Q 100 60 190 160 T 260 240" stroke="white" strokeWidth="2" fill="none" />
+        </svg>
+        <svg className="absolute -right-24 -bottom-24 w-96 h-96 opacity-15 pointer-events-none" viewBox="0 0 200 200" fill="none">
+          <path d="M 10 80 Q 90 20 180 120 T 250 200" stroke="white" strokeWidth="2" fill="none" />
+          <path d="M 20 120 Q 100 60 190 160 T 260 240" stroke="white" strokeWidth="2" fill="none" />
+        </svg>
+
+        <Container>
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-10 max-w-6xl mx-auto text-left relative z-10">
+            {/* Left Section Heading */}
+            <div className="lg:w-4/12 text-center lg:text-left">
+              <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-extrabold text-white leading-[1.2] font-sans tracking-tight">
+                Proud To Have Picked These Up Along The Way
+              </h2>
+            </div>
+
+            {/* Right 4 White Square Award Badge Cards (Exact Original Badge Images) */}
+            <div className="lg:w-8/12 grid grid-cols-2 sm:grid-cols-4 gap-3.5 sm:gap-5 justify-center items-center w-full">
+              {/* Clutch Badge Image */}
+              <div className="bg-white rounded-2xl p-3 shadow-md flex items-center justify-center h-28 sm:h-32 lg:h-[130px] hover:scale-105 transition-transform duration-300 border border-white/20">
+                <img
+                  src="/images/clutch.png"
+                  alt="Clutch Award Badge"
+                  className="max-h-20 sm:max-h-24 w-auto object-contain"
+                />
+              </div>
+
+              {/* Upwork Badge Image */}
+              <div className="bg-white rounded-2xl p-3 shadow-md flex items-center justify-center h-28 sm:h-32 lg:h-[130px] hover:scale-105 transition-transform duration-300 border border-white/20">
+                <img
+                  src="/images/9_upwork.png"
+                  alt="Upwork Top Rated Badge"
+                  className="max-h-20 sm:max-h-24 w-auto object-contain"
+                />
+              </div>
+
+              {/* Freelancer Badge Image */}
+              <div className="bg-white rounded-2xl p-3 shadow-md flex items-center justify-center h-28 sm:h-32 lg:h-[130px] hover:scale-105 transition-transform duration-300 border border-white/20">
+                <img
+                  src="/images/10_freelancer.png"
+                  alt="Freelancer Preferred Badge"
+                  className="max-h-20 sm:max-h-24 w-auto object-contain"
+                />
+              </div>
+
+              {/* GoodFirms Badge Image */}
+              <div className="bg-white rounded-2xl p-3 shadow-md flex items-center justify-center h-28 sm:h-32 lg:h-[130px] hover:scale-105 transition-transform duration-300 border border-white/20">
+                <img
+                  src="/images/goodfirms.png"
+                  alt="GoodFirms Award Badge"
+                  className="max-h-20 sm:max-h-24 w-auto object-contain"
+                />
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* Benefits of Healthcare App Development Services (Exact 1:1 Reference Match) */}
+      <section className="py-16 md:py-20 bg-white border-b border-slate-200 text-left">
+        <Container>
+          {/* Centered Title & Subtitle */}
+          <div className="text-center max-w-4xl mx-auto mb-12 sm:mb-14 space-y-3">
+            <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-extrabold text-slate-900 tracking-tight font-sans">
+              Benefits of Healthcare App Development Services
+            </h2>
+            <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed max-w-3xl mx-auto font-sans">
+              Use Healthcare App Development Services to transform medical treatment and operations. Here are the advantages of hiring a healthcare app developer:
+            </p>
+          </div>
+
+          {/* 6 White Cards Grid (3 Columns x 2 Rows) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
+            {advantagesList.map((item, idx) => {
+              const IconComp = item.icon;
+              return (
+                <div
+                  key={idx}
+                  className="p-7 sm:p-8 rounded-2xl bg-white border border-slate-100/90 shadow-[0_6px_25px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_35px_rgba(0,0,0,0.07)] transition-all duration-300 flex flex-col justify-start group"
+                >
+                  {/* Blue Outline SVG Icon Box */}
+                  <div className="w-12 h-12 rounded-xl bg-[#EFF7FE] border border-blue-100/80 flex items-center justify-center mb-5 text-[#005F96] shrink-0 group-hover:scale-105 group-hover:bg-[#005F96] group-hover:text-white transition-all duration-300">
+                    <IconComp className="w-7 h-7 text-[#005F96] group-hover:text-white transition-colors" />
+                  </div>
+
+                  {/* Card Title */}
+                  <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-3 font-sans group-hover:text-[#005F96] transition-colors">
+                    {item.title}
+                  </h3>
+
+                  {/* Verbatim Description */}
+                  <p className="text-xs sm:text-[14px] text-slate-600 leading-[1.75] font-normal font-sans">
+                    {item.desc}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
+        </Container>
+      </section>
+
+      {/* Business Friendly Hiring Models Section (Exact 1:1 Reference Match) */}
+      <section className="py-16 md:py-20 bg-[#F4F8FA] border-b border-slate-200 text-left">
+        <Container>
+          {/* Centered Heading & Subtitle */}
+          <div className="text-center max-w-4xl mx-auto mb-12 sm:mb-14 space-y-3">
+            <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-extrabold text-slate-900 tracking-tight font-sans">
+              Business Friendly Hiring Models : Building Greater Futures Through Innovation
+            </h2>
+            <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed max-w-3xl mx-auto font-sans">
+              We offer three different types of hiring models that are designed to suit your diverse needs and budget. Take a look at our hiring models:
+            </p>
+          </div>
+
+          {/* 4 White Cards Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            {hiringModels.map((item, idx) => {
+              const IconComp = item.icon;
+              return (
+                <div
+                  key={idx}
+                  className="p-6 sm:p-7 rounded-2xl bg-white border border-slate-100 shadow-[0_6px_25px_rgba(0,0,0,0.04)] hover:shadow-[0_12px_35px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col justify-between group"
+                >
+                  <div className="space-y-4">
+                    {/* Pastel Icon Box */}
+                    <div className={`w-12 h-12 rounded-xl ${item.bgColor} flex items-center justify-center mx-auto sm:mx-0 shrink-0 group-hover:scale-105 transition-transform duration-300`}>
+                      <IconComp className="w-7 h-7" />
                     </div>
 
-                    <h3 className="text-lg font-bold text-slate-900 mb-2 group-hover:text-[#005F96] transition-colors">
+                    {/* Title */}
+                    <h3 className="text-lg sm:text-xl font-bold text-slate-900 font-sans group-hover:text-[#005F96] transition-colors">
                       {item.title}
                     </h3>
 
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                    {/* Verbatim Description */}
+                    <p className="text-xs sm:text-[13.5px] text-slate-600 leading-[1.65] font-normal font-sans">
                       {item.desc}
                     </p>
+
+                    {/* Features List with Blue Checkmarks */}
+                    <ul className="space-y-2 pt-2 border-t border-slate-100 text-xs sm:text-[13px] text-slate-700 font-normal font-sans">
+                      {item.features.map((feat, fIdx) => (
+                        <li key={fIdx} className="flex items-start space-x-2">
+                          <span className="text-[#005F96] font-extrabold text-sm shrink-0">✓</span>
+                          <span>{feat}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
 
-                  <div className="pt-4 border-t border-slate-100 mt-4">
+                  {/* Hire Now Button */}
+                  <div className="pt-6 text-center sm:text-left">
                     <a
                       href="#quote-form"
-                      className="text-xs font-bold text-[#005F96] hover:underline inline-flex items-center"
+                      className="px-6 py-2.5 bg-[#005F96] hover:bg-[#004b78] text-white font-extrabold text-xs sm:text-sm rounded-lg shadow-sm hover:shadow-md transition-all duration-300 inline-block w-full text-center font-sans cursor-pointer"
                     >
-                      <span>Explore Capability</span>
-                      <ChevronRight className="w-3.5 h-3.5 ml-1" />
+                      Hire Now
                     </a>
                   </div>
                 </div>
@@ -476,393 +928,45 @@ export const HealthcareAppDevelopmentService = () => {
         </Container>
       </section>
 
-      {/* Advantages of Hiring a Healthcare App Developer */}
-      <section className="py-20 bg-white border-b border-slate-200 text-left">
-        <Container>
-          <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-            <span className="px-3.5 py-1 rounded-full text-xs font-extrabold bg-[#005F96]/10 text-[#005F96] uppercase tracking-wider">
-              BUSINESS ADVANTAGES
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
-              Advantages of Hiring Our Healthcare App Developers
-            </h2>
-            <p className="text-base sm:text-lg text-slate-600 font-normal">
-              Transform medical treatment and hospital operations with our specialized engineering capabilities.
-            </p>
-          </div>
+      {/* Unveiling Our Innovative Solution - Auto Moving Video Slider Section (Exact 1:1 Reference Match) */}
+      <InnovativeVideoSlider />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {advantagesList.map((adv, idx) => (
-              <div
-                key={idx}
-                className="p-6 rounded-2xl bg-[#F8FAFC] border border-slate-200/90 hover:border-[#005F96]/40 hover:bg-white transition-all space-y-3"
-              >
-                <div className="w-8 h-8 rounded-lg bg-blue-50 text-[#005F96] flex items-center justify-center font-bold text-xs">
-                  0{idx + 1}
-                </div>
-                <h3 className="text-lg font-bold text-slate-900">{adv.title}</h3>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">{adv.desc}</p>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
+      {/* Process We Follow - 8-Step Timeline Flow Section (Exact 1:1 Reference Match) */}
+      <ProcessWeFollow />
 
-      {/* Real Enterprise Case Studies (Adani EmCare, MG Motor, L&T) */}
-      <section className="py-20 bg-[#F4F8FA] border-b border-slate-200 text-left">
-        <Container>
-          <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-            <span className="px-3.5 py-1 rounded-full text-xs font-extrabold bg-[#005F96]/10 text-[#005F96] uppercase tracking-wider">
-              PROVEN ENTERPRISE SUCCESS
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
-              Featured Healthcare Enterprise Case Studies
-            </h2>
-            <p className="text-base sm:text-lg text-slate-600 font-normal">
-              Explore how we delivered large-scale digital health platforms to leading global organizations.
-            </p>
-          </div>
+      {/* Our Story, Their Words - Client Video Testimonials Slider Section (Exact 1:1 Reference Match) */}
+      <ClientStoryVideoSlider />
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {caseStudies.map((cs, idx) => (
-              <div
-                key={idx}
-                className="p-8 rounded-2xl bg-white border border-slate-200 shadow-sm flex flex-col justify-between hover:shadow-xl transition-all"
-              >
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-[#005F96] uppercase tracking-wider">{cs.client}</span>
-                    <span className="px-2.5 py-0.5 rounded text-[10px] font-extrabold bg-blue-50 text-blue-700 border border-blue-100">
-                      {cs.badge}
-                    </span>
-                  </div>
-
-                  <h3 className="text-xl font-black text-slate-900">{cs.title}</h3>
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">{cs.desc}</p>
-
-                  <div className="border-t border-slate-100 pt-4">
-                    <h4 className="text-xs font-extrabold text-slate-800 uppercase tracking-wider mb-2">Key Metrics Achieved:</h4>
-                    <ul className="space-y-2">
-                      {cs.stats.map((stat, sIdx) => (
-                        <li key={sIdx} className="flex items-center text-xs font-semibold text-slate-700">
-                          <CheckCircle2 className="w-4 h-4 text-emerald-500 mr-2 shrink-0" />
-                          <span>{stat}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-
-                <div className="pt-6 border-t border-slate-100 mt-6">
-                  <Link
-                    to="/portfolio"
-                    className="inline-flex items-center text-xs font-extrabold text-[#005F96] hover:underline"
-                  >
-                    <span>View Detailed Case Study</span>
-                    <ArrowRight className="w-3.5 h-3.5 ml-1" />
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      {/* Engagement Models (Sapphire Signature 4 Models) */}
-      <section className="py-20 bg-white border-b border-slate-200 text-left">
-        <Container>
-          <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-            <span className="px-3.5 py-1 rounded-full text-xs font-extrabold bg-[#005F96]/10 text-[#005F96] uppercase tracking-wider">
-              FLEXIBLE HIRING MODELS
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
-              Our Healthcare Engagement Models
-            </h2>
-            <p className="text-base sm:text-lg text-slate-600 font-normal">
-              Select the hiring model that best suits your project scope, budget, and delivery timeline.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {hiringModels.map((model, idx) => (
-              <div
-                key={idx}
-                className="p-6 rounded-2xl bg-[#F8FAFC] border border-slate-200 hover:border-[#005F96] hover:shadow-lg transition-all flex flex-col justify-between"
-              >
-                <div>
-                  <div className="w-10 h-10 rounded-xl bg-[#005F96] text-white flex items-center justify-center font-bold text-sm mb-4">
-                    0{idx + 1}
-                  </div>
-                  <h3 className="text-xl font-black text-slate-900 mb-1">{model.title}</h3>
-                  <p className="text-xs text-slate-500 font-medium mb-4">{model.tagline}</p>
-
-                  <ul className="space-y-2 border-t border-slate-200/80 pt-4">
-                    {model.features.map((feat, fIdx) => (
-                      <li key={fIdx} className="flex items-start text-xs text-slate-700">
-                        <Check className="w-3.5 h-3.5 text-[#005F96] mr-2 shrink-0 mt-0.5" />
-                        <span>{feat}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="pt-6 border-t border-slate-200 mt-6">
-                  <a
-                    href="#quote-form"
-                    className="w-full py-2.5 rounded-lg bg-[#005F96] hover:bg-[#004A75] text-white text-xs font-bold transition-colors inline-block text-center"
-                  >
-                    Hire Now
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      {/* Sapphire 6-Card Technology Stack Grid (Exact Screenshot Match) */}
-      <SapphireTechStackGrid domainName="healthcare" richTechCategories={techCategories} />
-
-      {/* Process We Follow - Sapphire 8-Step Timeline */}
-      <ProcessWeFollow
-        title="Process We Follow"
-        subtitle="Process-oriented execution from initial blueprinting to UAT, deployment, and ongoing SLA maintenance."
-      />
-
-      {/* Success Matrix - Sapphire 12 Guarantees */}
-      <SuccessMatrix />
-
-      {/* Trusted By World's Leading Brands & Featured In Media */}
+      {/* Trusted By The World's Leading Brands - 24 White Cards Logo Grid Section (Exact 1:1 Reference Match) */}
       <TrustedBrandsGrid />
 
-      {/* Why Choose Us Pillars */}
-      <section className="py-20 bg-[#F4F8FA] border-b border-slate-200 text-left">
-        <Container>
-          <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-            <span className="px-3.5 py-1 rounded-full text-xs font-extrabold bg-[#005F96]/10 text-[#005F96] uppercase tracking-wider">
-              THE SAPPHIRE DIFFERENCE
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
-              Why Choose Us for Healthcare App Development?
-            </h2>
-            <p className="text-base sm:text-lg text-slate-600 font-normal">
-              Being unique is our quality! We stand one level up with end-to-end support and deep healthcare expertise.
-            </p>
-          </div>
+      {/* Success Matrix - 12 White Cards Grid Section (Exact 1:1 Reference Match) */}
+      <SuccessMatrix />
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {whyChooseUs.map((pillar, idx) => (
-              <div key={idx} className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
-                <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#005F96] flex items-center justify-center font-bold text-sm">
-                  0{idx + 1}
-                </div>
-                <h3 className="text-lg font-bold text-slate-900">{pillar.title}</h3>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">{pillar.desc}</p>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
+      {/* Technology Stack We Use For Healthcare App Development Section (Exact 1:1 Reference Match) */}
+      <SapphireTechStackGrid domainName="healthcare" richTechCategories={techCategories} />
 
-      {/* Official Sapphire Healthcare FAQs */}
-      <section className="py-20 bg-white border-b border-slate-200 text-left">
-        <Container className="max-w-4xl">
-          <div className="text-center mb-12 space-y-3">
-            <span className="px-3.5 py-1 rounded-full text-xs font-extrabold bg-[#005F96]/10 text-[#005F96] uppercase tracking-wider">
-              FREQUENTLY ASKED QUESTIONS
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
-              Healthcare App Development FAQs
-            </h2>
-            <p className="text-base text-slate-600">
-              Clear answers to common questions regarding iOS/Android platforms, cost, regulations, and AI features.
-            </p>
-          </div>
+      {/* We Have Been Featured In - 18 Media Recognition Logo Cards Section (Exact 1:1 Reference Match) */}
+      <FeaturedInMedia />
 
-          <div className="space-y-4">
-            {sapphireFaqs.map((faq, idx) => (
-              <div
-                key={idx}
-                className="rounded-xl border border-slate-200 overflow-hidden bg-white shadow-sm transition-all"
-              >
-                <button
-                  onClick={() => setOpenFaq(openFaq === idx ? -1 : idx)}
-                  className="w-full p-5 flex items-center justify-between text-left font-bold text-base text-slate-900 hover:text-[#005F96] transition-colors"
-                >
-                  <span className="pr-4">{faq.q}</span>
-                  <ChevronDown
-                    className={`w-5 h-5 text-slate-400 shrink-0 transition-transform ${
-                      openFaq === idx ? 'rotate-180 text-[#005F96]' : ''
-                    }`}
-                  />
-                </button>
-                {openFaq === idx && (
-                  <div className="px-5 pb-5 pt-1 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100">
-                    {faq.a}
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
+      {/* Digital Transformation Through Innovation - Case Study Banner Slider Section (Exact 1:1 Reference Match) */}
+      <DigitalTransformationSlider />
 
-      {/* Contact & Free Proposal Form Section */}
-      <section id="quote-form" className="py-20 bg-gradient-to-b from-[#005F96] via-[#004B77] to-[#003452] text-white text-left">
-        <Container className="max-w-5xl">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Left Content */}
-            <div className="lg:col-span-5 space-y-6">
-              <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full text-xs font-bold bg-white/10 text-cyan-300 border border-white/20">
-                <Sparkles className="w-3.5 h-3.5 text-cyan-300" />
-                <span>LET'S START SOMETHING NEW</span>
-              </div>
+      {/* Frequently Asked Questions - Sapphire Signature 2-Column FAQ Section (Exact 1:1 Reference Match) */}
+      <SapphireFaqSection />
 
-              <h2 className="text-3xl sm:text-4xl font-black text-white leading-tight">
-                Get Access to Top Healthcare App Developers
-              </h2>
+      {/* Our Recent Blogs - 3 Card Grid Section (Exact 1:1 Reference Match) */}
+      <RecentBlogsSection />
 
-              <p className="text-base text-blue-100 leading-relaxed font-normal">
-                Book a meeting with our technical specialists today to learn how we can transform your healthcare vision into a secure, HIPAA-compliant digital application.
-              </p>
+      {/* What Sets Us Apart As Healthcare App Development Company - 5 Pillars & Contact Form Section (Exact 1:1 Reference Match) */}
+      <WhatSetsUsApartSection />
 
-              <div className="space-y-3 pt-2">
-                <div className="flex items-center space-x-3 text-sm text-cyan-200 font-semibold">
-                  <CheckCircle2 className="w-5 h-5 text-cyan-400 shrink-0" />
-                  <span>Free Non-Disclosure Agreement (NDA)</span>
-                </div>
-                <div className="flex items-center space-x-3 text-sm text-cyan-200 font-semibold">
-                  <CheckCircle2 className="w-5 h-5 text-cyan-400 shrink-0" />
-                  <span>Comprehensive Feature & Cost Estimate</span>
-                </div>
-                <div className="flex items-center space-x-3 text-sm text-cyan-200 font-semibold">
-                  <CheckCircle2 className="w-5 h-5 text-cyan-400 shrink-0" />
-                  <span>Same Timezone Dedicated Senior Developers</span>
-                </div>
-              </div>
-            </div>
+      {/* Have Healthcare App Development Challenge To Address CTA Banner Section (Exact 1:1 Reference Match) */}
+      <HealthcareChallengeCtaBanner />
 
-            {/* Right Contact Form Card */}
-            <div className="lg:col-span-7">
-              <div className="bg-white text-slate-900 rounded-2xl p-8 shadow-2xl">
-                {formSubmitted ? (
-                  <div className="py-12 text-center space-y-4">
-                    <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto">
-                      <Check className="w-8 h-8" />
-                    </div>
-                    <h3 className="text-2xl font-black text-slate-900">Inquiry Received!</h3>
-                    <p className="text-sm text-slate-600 max-w-md mx-auto">
-                      Thank you for contacting Sapphire Software Solutions. Our healthcare technology architects will review your project brief and respond within 2 business hours.
-                    </p>
-                    <button
-                      onClick={() => setFormSubmitted(false)}
-                      className="px-6 py-2.5 rounded-lg bg-[#005F96] text-white font-bold text-xs"
-                    >
-                      Submit Another Inquiry
-                    </button>
-                  </div>
-                ) : (
-                  <form onSubmit={handleSubmit} className="space-y-4">
-                    <h3 className="text-xl font-black text-slate-900 mb-2">Get A Free Project Quote</h3>
+      {/* Subscribe us and Get the latest updates and news - 5 Element Horizontal Inline Form Section (Exact 1:1 Reference Match) */}
+      <NewsletterSubscribeBanner />
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-xs font-bold text-slate-700 mb-1">Your Name *</label>
-                        <input
-                          type="text"
-                          name="name"
-                          required
-                          value={formData.name}
-                          onChange={handleInputChange}
-                          placeholder="e.g. Alex Morgan"
-                          className="w-full px-4 py-3 rounded-lg border border-slate-300 text-sm focus:ring-2 focus:ring-[#005F96] outline-none"
-                        />
-                      </div>
-
-                      <div>
-                        <label className="block text-xs font-bold text-slate-700 mb-1">Business Email *</label>
-                        <input
-                          type="email"
-                          name="email"
-                          required
-                          value={formData.email}
-                          onChange={handleInputChange}
-                          placeholder="alex@health.com"
-                          className="w-full px-4 py-3 rounded-lg border border-slate-300 text-sm focus:ring-2 focus:ring-[#005F96] outline-none"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-xs font-bold text-slate-700 mb-1">Phone Number</label>
-                        <input
-                          type="tel"
-                          name="phone"
-                          value={formData.phone}
-                          onChange={handleInputChange}
-                          placeholder="+1 (555) 000-0000"
-                          className="w-full px-4 py-3 rounded-lg border border-slate-300 text-sm focus:ring-2 focus:ring-[#005F96] outline-none"
-                        />
-                      </div>
-
-                      <div>
-                        <label className="block text-xs font-bold text-slate-700 mb-1">Preferred Hiring Model</label>
-                        <select
-                          name="model"
-                          value={formData.model}
-                          onChange={handleInputChange}
-                          className="w-full px-4 py-3 rounded-lg border border-slate-300 text-sm focus:ring-2 focus:ring-[#005F96] outline-none bg-white"
-                        >
-                          <option value="Dedicated Team">Dedicated Team</option>
-                          <option value="Fixed Price">Fixed Price Contract</option>
-                          <option value="Time & Material">Time & Material</option>
-                          <option value="Buckets Approach">Buckets Approach</option>
-                        </select>
-                      </div>
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-bold text-slate-700 mb-1">Estimated Budget</label>
-                      <select
-                        name="budget"
-                        value={formData.budget}
-                        onChange={handleInputChange}
-                        className="w-full px-4 py-3 rounded-lg border border-slate-300 text-sm focus:ring-2 focus:ring-[#005F96] outline-none bg-white"
-                      >
-                        <option value="$10,000 - $25,000">$10,000 - $25,000</option>
-                        <option value="$25,000 - $50,000">$25,000 - $50,000</option>
-                        <option value="$50,000 - $100,000">$50,000 - $100,000</option>
-                        <option value="$100,000+">$100,000+</option>
-                      </select>
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-bold text-slate-700 mb-1">Project Brief / Requirements</label>
-                      <textarea
-                        name="message"
-                        rows="3"
-                        value={formData.message}
-                        onChange={handleInputChange}
-                        placeholder="Tell us about your target features, timeline, or EHR systems..."
-                        className="w-full px-4 py-3 rounded-lg border border-slate-300 text-sm focus:ring-2 focus:ring-[#005F96] outline-none resize-none"
-                      />
-                    </div>
-
-                    <button
-                      type="submit"
-                      className="w-full py-4 rounded-lg bg-[#005F96] hover:bg-[#004A75] text-white font-black text-sm tracking-wide transition-all shadow-lg hover:shadow-xl flex items-center justify-center space-x-2"
-                    >
-                      <span>Submit Project Brief & Get Proposal</span>
-                      <ArrowRight className="w-4 h-4" />
-                    </button>
-                  </form>
-                )}
-              </div>
-            </div>
-          </div>
-        </Container>
-      </section>
     </div>
   );
 };
