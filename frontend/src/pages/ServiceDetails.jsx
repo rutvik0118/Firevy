@@ -20,6 +20,7 @@ import AmazonLikeAppDevelopmentService from '../components/services/AmazonLikeAp
 import VisitorManagementSystemService from '../components/services/VisitorManagementSystemService';
 import WarehouseManagementSystemService from '../components/services/WarehouseManagementSystemService';
 import CloverAppDevelopmentService from '../components/services/CloverAppDevelopmentService';
+import AndroidAppDevelopmentService from '../components/services/AndroidAppDevelopmentService';
 
 export const ServiceDetails = () => {
   const { slug } = useParams();
@@ -27,6 +28,12 @@ export const ServiceDetails = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [openFaq, setOpenFaq] = useState(0);
+
+  const isAndroid = slug && (
+    slug.toLowerCase().includes('android-app') ||
+    slug.toLowerCase().includes('android-development') ||
+    slug.toLowerCase() === 'android'
+  );
 
   const isHealthcare = slug && (
     slug.toLowerCase().includes('health-care-app') ||
@@ -102,13 +109,17 @@ export const ServiceDetails = () => {
   };
 
   useEffect(() => {
-    if (!isHealthcare && !isEducation && !isUber && !isSpotify && !isZomato && !isAmazon && !isVisitor && !isWarehouse && !isClover) {
+    if (!isAndroid && !isHealthcare && !isEducation && !isUber && !isSpotify && !isZomato && !isAmazon && !isVisitor && !isWarehouse && !isClover) {
       fetchServiceDetails();
     } else {
       setLoading(false);
     }
     window.scrollTo(0, 0);
   }, [slug]);
+
+  if (isAndroid) {
+    return <AndroidAppDevelopmentService />;
+  }
 
   if (isHealthcare) {
     return <HealthcareAppDevelopmentService />;
