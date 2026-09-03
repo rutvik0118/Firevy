@@ -11,7 +11,66 @@ export const adminService = {
     return apiClient.get('/admin/me');
   },
 
-  // Services API
+  // ============================================================
+  // HOME PAGE CMS MANAGEMENT APIS (All 22 Sections)
+  // ============================================================
+  getHomePageAdmin: async () => {
+    return apiClient.get('/home-page/admin');
+  },
+
+  getHomePageSection: async (key) => {
+    return apiClient.get(`/home-page/section/${key}`);
+  },
+
+  updateHomePageSection: async (key, sectionData) => {
+    return apiClient.put(`/home-page/section/${key}`, sectionData);
+  },
+
+  toggleHomePageSection: async (key) => {
+    return apiClient.patch(`/home-page/section/${key}/toggle`);
+  },
+
+  reorderHomePageSections: async (sectionsOrder) => {
+    return apiClient.patch('/home-page/reorder', { sectionsOrder });
+  },
+
+  resetHomePageSection: async (key) => {
+    return apiClient.post(`/home-page/reset/${key}`);
+  },
+
+  resetHomePage: async () => {
+    return apiClient.post('/home-page/reset');
+  },
+
+  // ============================================================
+  // FILE / MEDIA UPLOAD APIS
+  // ============================================================
+  uploadMedia: async (file, type = 'image') => {
+    const formData = new FormData();
+    formData.append('file', file);
+    if (type) {
+      formData.append('type', type);
+    }
+    return apiClient.post('/upload', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
+  },
+
+  uploadFile: async (file) => {
+    const formData = new FormData();
+    formData.append('file', file);
+    return apiClient.post('/upload', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
+  },
+
+  // ============================================================
+  // OTHER DOMAIN APIS
+  // ============================================================
   getServices: async () => {
     return apiClient.get('/services');
   },
@@ -19,7 +78,6 @@ export const adminService = {
     return apiClient.get(`/services/${slug}`);
   },
 
-  // Portfolio API
   getPortfolio: async (params = {}) => {
     return apiClient.get('/portfolio', { params });
   },
@@ -27,7 +85,6 @@ export const adminService = {
     return apiClient.get(`/portfolio/${slug}`);
   },
 
-  // Careers / Jobs API
   getJobs: async () => {
     return apiClient.get('/jobs');
   },
@@ -38,27 +95,22 @@ export const adminService = {
     return apiClient.post('/applications', data);
   },
 
-  // Contact Inquiries API
   submitContactInquiry: async (data) => {
     return apiClient.post('/contact', data);
   },
 
-  // Industries & Sectors API
   getIndustries: async () => {
     return apiClient.get('/industries');
   },
 
-  // Technologies API
   getTechnologies: async () => {
     return apiClient.get('/technologies');
   },
 
-  // Testimonials API
   getTestimonials: async () => {
     return apiClient.get('/testimonials');
   },
 
-  // Settings API
   getSettings: async () => {
     return apiClient.get('/settings');
   },

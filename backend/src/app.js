@@ -2,6 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
+import path from 'path';
+import { fileURLToPath } from 'url';
 import config from './config/env.js';
 import errorHandler from './middleware/errorHandler.js';
 
@@ -16,6 +18,11 @@ import contactRoutes from './routes/contactRoutes.js';
 import applicationRoutes from './routes/applicationRoutes.js';
 import settingsRoutes from './routes/settingsRoutes.js';
 import adminRoutes from './routes/adminRoutes.js';
+import homePageRoutes from './routes/homePageRoutes.js';
+import uploadRoutes from './routes/uploadRoutes.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 
@@ -60,6 +67,9 @@ app.use(morgan(config.nodeEnv === 'development' ? 'dev' : 'combined'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Serve static uploads directory
+app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
+
 // Root API Health Check
 app.get('/api/v1/health', (req, res) => {
   res.status(200).json({
@@ -72,6 +82,8 @@ app.get('/api/v1/health', (req, res) => {
 });
 
 // API v1 Mounting
+app.use('/api/v1/home-page', homePageRoutes);
+app.use('/api/v1/upload', uploadRoutes);
 app.use('/api/v1/services', serviceRoutes);
 app.use('/api/v1/portfolio', portfolioRoutes);
 app.use('/api/v1/industries', industryRoutes);

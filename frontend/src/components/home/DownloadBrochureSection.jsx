@@ -2,7 +2,11 @@ import React, { useState } from 'react';
 import { CheckCircle, Shield } from 'lucide-react';
 import Container from '../common/Container';
 
-export const DownloadBrochureSection = () => {
+export const DownloadBrochureSection = ({ data }) => {
+  const title = data?.title || 'Download Our Brochure To Take A Glimpse Of Our Offerings';
+  const buttonText = data?.buttonText || 'Download';
+  const brochureUrl = data?.brochureUrl || '';
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -13,15 +17,18 @@ export const DownloadBrochureSection = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setSubmitted(true);
+    if (brochureUrl) {
+      window.open(brochureUrl, '_blank');
+    }
   };
 
   return (
     <section className="py-14 bg-[#EDF5F9] border-b border-slate-200 text-slate-900 relative font-sans">
       <Container>
-        {/* Section Heading - Dark, centered, no card box */}
+        {/* Section Heading */}
         <div className="text-center max-w-4xl mx-auto mb-8">
           <h2 className="text-[28px] sm:text-[34px] font-[800] tracking-tight text-slate-900 leading-tight font-sans">
-            Download Our Brochure To Take A Glimpse Of Our Offerings
+            {title}
           </h2>
         </div>
 
@@ -82,7 +89,7 @@ export const DownloadBrochureSection = () => {
               type="submit"
               className="px-12 py-3 bg-[#006B8F] hover:bg-[#005478] text-white font-[700] text-[15px] rounded-[6px] transition-all font-sans"
             >
-              {submitted ? 'Brochure Sent!' : 'Download'}
+              {submitted ? 'Brochure Sent!' : buttonText}
             </button>
           </div>
         </form>

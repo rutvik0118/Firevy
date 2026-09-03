@@ -16,6 +16,7 @@ import AdminLayout from './admin/routes/AdminLayout';
 // Admin Pages
 import LoginPage from './admin/pages/LoginPage';
 import Dashboard from './admin/pages/Dashboard';
+import HomePageManager from './admin/pages/HomePageAdmin/HomePageManager';
 import ServicesPage from './admin/pages/ServicesPage';
 import PortfolioPage from './admin/pages/PortfolioPage';
 import JobsPage from './admin/pages/JobsPage';
@@ -75,8 +76,10 @@ export function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/company/:slug" element={<CompanySubDetails />} />
+                <Route path="/blog" element={<CompanySubDetails />} />
                 <Route path="/services" element={<Services />} />
                 <Route path="/services/:slug" element={<ServiceDetails />} />
+                <Route path="/iwatch-app-development" element={<ServiceDetails />} />
                 <Route path="/technologies" element={<Technologies />} />
                 <Route path="/portfolio" element={<Portfolio />} />
                 <Route path="/portfolio/:slug" element={<PortfolioDetails />} />
@@ -94,13 +97,21 @@ export function App() {
               <Route path="/admin" element={<LoginPage />} />
 
               {/* ============================================================
-                  PROTECTED ADMIN ROUTES (Isolated Dark Management Control Center)
+                  PROTECTED ADMIN ROUTES (Teal / White Management Control Center)
                   ============================================================ */}
               <Route
                 path="/admin/dashboard"
                 element={
                   <AdminRouteWrapper>
                     <Dashboard />
+                  </AdminRouteWrapper>
+                }
+              />
+              <Route
+                path="/admin/home-page"
+                element={
+                  <AdminRouteWrapper>
+                    <HomePageManager />
                   </AdminRouteWrapper>
                 }
               />

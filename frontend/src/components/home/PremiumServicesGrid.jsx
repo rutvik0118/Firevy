@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Container from '../common/Container';
 
-export const PremiumServicesGrid = () => {
+export const PremiumServicesGrid = ({ title, subtitle, companyName = "Firevy" }) => {
   const services = [
     {
       name: 'Mobile App Development',
@@ -145,21 +145,23 @@ export const PremiumServicesGrid = () => {
   return (
     <section className="py-8 sm:py-10 lg:py-11 bg-[#005F96] text-white font-sans text-left relative">
       <Container>
+        {/* Section Heading & Subtitle */}
         <div className="text-center max-w-4xl mx-auto mb-6 sm:mb-8 space-y-2">
           <h2 
             className="font-[800] text-white tracking-tight leading-tight"
             style={{ fontSize: '30px' }}
           >
-            Our Premium Services
+            {title || "Our Premium Services"}
           </h2>
           <p 
             className="text-white/90 font-normal max-w-3xl mx-auto"
             style={{ fontSize: '13.5px', lineHeight: '1.55' }}
           >
-            As a certified IT company, Sapphire helps organizations thrive digitally by offering innovative solutions using cutting-edge tools and frameworks. Contact us to learn more!
+            {subtitle || `As a certified IT company, ${companyName} helps organizations thrive digitally by offering innovative solutions using cutting-edge tools and frameworks. Contact us to learn more!`}
           </p>
         </div>
 
+        {/* 10 White Rounded Service Cards (5 columns x 2 rows on desktop) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-3.5 max-w-[1360px] mx-auto">
           {services.map((item, idx) => (
             <Link

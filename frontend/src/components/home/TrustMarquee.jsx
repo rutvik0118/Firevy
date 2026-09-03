@@ -1,18 +1,22 @@
 import React from 'react';
 
-export const TrustMarquee = () => {
-  const brandLogos = [
-    { name: 'TOYOTA', color: 'text-red-600', symbol: '🚗' },
-    { name: 'Almarai', color: 'text-blue-700', symbol: '🌾' },
-    { name: 'ORIENT CEMENT', color: 'text-slate-800', symbol: '🏗️' },
-    { name: 'AMERICAN EXPRESS', color: 'text-blue-600', symbol: '💳' },
-    { name: 'Alembic', color: 'text-cyan-700', symbol: '🧪' },
-    { name: 'HONDA', color: 'text-red-600', symbol: '🏎️' },
-    { name: 'LafargeHolcim', color: 'text-slate-700', symbol: '🏢' },
-    { name: 'Cummins', color: 'text-[#006B8F]', symbol: '⚙️' },
-    { name: 'L\'ORÉAL', color: 'text-slate-900', symbol: '✨' },
-    { name: 'TDSG', color: 'text-red-700', symbol: '🛡️' }
-  ];
+const defaultBrandLogos = [
+  { name: 'TOYOTA', color: 'text-red-600', symbol: '🚗' },
+  { name: 'Almarai', color: 'text-blue-700', symbol: '🌾' },
+  { name: 'ORIENT CEMENT', color: 'text-slate-800', symbol: '🏗️' },
+  { name: 'AMERICAN EXPRESS', color: 'text-blue-600', symbol: '💳' },
+  { name: 'Alembic', color: 'text-cyan-700', symbol: '🧪' },
+  { name: 'HONDA', color: 'text-red-600', symbol: '🏎️' },
+  { name: 'LafargeHolcim', color: 'text-slate-700', symbol: '🏢' },
+  { name: 'Cummins', color: 'text-[#006B8F]', symbol: '⚙️' },
+  { name: "L'ORÉAL", color: 'text-slate-900', symbol: '✨' },
+  { name: 'TDSG', color: 'text-red-700', symbol: '🛡️' }
+];
+
+export const TrustMarquee = ({ data }) => {
+  const brandLogos = (data?.logos && Array.isArray(data.logos) && data.logos.filter(l => l.isActive !== false).length > 0)
+    ? data.logos.filter(l => l.isActive !== false)
+    : defaultBrandLogos;
 
   return (
     <section className="py-6 bg-white border-y border-slate-200 text-slate-900 overflow-hidden relative font-sans shadow-sm">
@@ -28,8 +32,12 @@ export const TrustMarquee = () => {
               key={idx}
               className="flex items-center space-x-3 mx-8 py-2 px-4 opacity-85 hover:opacity-100 transition-opacity duration-200 cursor-pointer shrink-0"
             >
-              <span className="text-xl">{logo.symbol}</span>
-              <span className={`text-base sm:text-lg font-black tracking-wider ${logo.color} font-sans uppercase`}>
+              {logo.image ? (
+                <img src={logo.image} alt={logo.name} className="h-6 w-auto object-contain max-w-[100px]" />
+              ) : logo.symbol ? (
+                <span className="text-xl">{logo.symbol}</span>
+              ) : null}
+              <span className={`text-base sm:text-lg font-black tracking-wider ${logo.color || 'text-slate-900'} font-sans uppercase`}>
                 {logo.name}
               </span>
             </div>

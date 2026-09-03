@@ -2,18 +2,16 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Container from './Container';
 
-export const PremiumServicesGrid = () => {
+export const PremiumServicesGrid = ({ title, subtitle, companyName = "Firevy" }) => {
   const services = [
     {
       name: 'Mobile App Development',
       link: '/services/mobile-app-development',
       icon: (
         <svg viewBox="0 0 44 44" className="w-10 h-10 shrink-0">
-          {/* Smartphone device */}
           <rect x="10" y="4" width="24" height="36" rx="4" fill="#3B82F6" />
           <rect x="12" y="7" width="20" height="27" rx="2" fill="#818CF8" />
           <circle cx="22" cy="37" r="1.5" fill="#FFFFFF" />
-          {/* UI cards on screen */}
           <rect x="14" y="10" width="16" height="4" rx="1" fill="#FFFFFF" />
           <line x1="16" y1="12" x2="22" y2="12" stroke="#3B82F6" strokeWidth="1.2" strokeLinecap="round" />
           <rect x="14" y="16" width="16" height="4" rx="1" fill="#FFFFFF" />
@@ -30,11 +28,9 @@ export const PremiumServicesGrid = () => {
       link: '/services/software-development',
       icon: (
         <svg viewBox="0 0 44 44" className="w-10 h-10 shrink-0">
-          {/* Laptop Base & Screen */}
           <rect x="6" y="8" width="30" height="20" rx="2" fill="#334155" />
           <rect x="8" y="10" width="26" height="16" rx="1" fill="#F8FAFC" />
           <path d="M3 30 L39 30 C40 30, 41 31, 39 32 L3 32 C1 31, 2 30, 3 30 Z" fill="#64748B" />
-          {/* Red and Green Gears */}
           <circle cx="18" cy="18" r="5" fill="#EF4444" />
           <circle cx="18" cy="18" r="2" fill="#F8FAFC" />
           <circle cx="26" cy="16" r="4.5" fill="#10B981" />
@@ -47,13 +43,11 @@ export const PremiumServicesGrid = () => {
       link: '/services/web-development',
       icon: (
         <svg viewBox="0 0 44 44" className="w-10 h-10 shrink-0">
-          {/* Browser Window */}
           <rect x="5" y="7" width="34" height="28" rx="3" fill="#BFDBFE" />
           <path d="M5 7 L39 7 L39 14 L5 14 Z" fill="#3B82F6" />
           <circle cx="9" cy="10.5" r="1.2" fill="#FFFFFF" />
           <circle cx="13" cy="10.5" r="1.2" fill="#FFFFFF" />
           <circle cx="17" cy="10.5" r="1.2" fill="#FFFFFF" />
-          {/* WWW text on page */}
           <text x="22" y="27" textAnchor="middle" fontSize="10" fontWeight="900" fill="#1D4ED8" fontFamily="sans-serif">
             www
           </text>
@@ -65,7 +59,6 @@ export const PremiumServicesGrid = () => {
       link: '/services/dot-net-development',
       icon: (
         <svg viewBox="0 0 44 44" className="w-10 h-10 shrink-0">
-          {/* .NET Wave / Symbol */}
           <path d="M6 24 C10 12, 14 12, 18 24 C22 36, 26 36, 30 24" fill="none" stroke="#0284C7" strokeWidth="4.5" strokeLinecap="round" strokeLinejoin="round" />
           <circle cx="34" cy="20" r="2" fill="#0284C7" />
         </svg>
@@ -76,7 +69,6 @@ export const PremiumServicesGrid = () => {
       link: '/services/flutter-app-development',
       icon: (
         <svg viewBox="0 0 44 44" className="w-10 h-10 shrink-0" fill="none">
-          {/* Flutter Origami Wings */}
           <path d="M26 6 L10 22 L15 27 L36 6 Z" fill="#38BDF8" />
           <path d="M26 22 L15 33 L20 38 L36 22 Z" fill="#0284C7" />
           <path d="M21 27 L26 22 L36 32 L31 37 Z" fill="#0369A1" />
@@ -88,7 +80,6 @@ export const PremiumServicesGrid = () => {
       link: '/services/php-development',
       icon: (
         <svg viewBox="0 0 44 44" className="w-10 h-10 shrink-0">
-          {/* PHP Oval Badge */}
           <ellipse cx="22" cy="22" rx="18" ry="12" fill="#6B7280" />
           <text x="22" y="26.5" textAnchor="middle" fontSize="13" fontWeight="900" fill="#FFFFFF" fontFamily="sans-serif" letterSpacing="0.5">
             php
@@ -101,12 +92,10 @@ export const PremiumServicesGrid = () => {
       link: '/hire-developers',
       icon: (
         <svg viewBox="0 0 44 44" className="w-10 h-10 shrink-0">
-          {/* Developer with headset and screen */}
           <circle cx="16" cy="14" r="5" fill="#FCA5A5" />
           <path d="M9 28 C9 23, 13 21, 16 21 C19 21, 23 23, 23 28" fill="#38BDF8" />
           <rect x="20" y="16" width="16" height="12" rx="1.5" fill="#38BDF8" />
           <path d="M26 28 L30 28 M28 28 L28 32" stroke="#0284C7" strokeWidth="1.5" />
-          {/* Red tie badge */}
           <polygon points="16,21 17.5,25 16,27 14.5,25" fill="#EF4444" />
         </svg>
       )
@@ -116,10 +105,8 @@ export const PremiumServicesGrid = () => {
       link: '/services/mern-stack-development',
       icon: (
         <svg viewBox="0 0 44 44" className="w-10 h-10 shrink-0">
-          {/* Connected Tech Gears & Nodes */}
           <circle cx="16" cy="26" r="8" fill="none" stroke="#6366F1" strokeWidth="3" strokeDasharray="3 1.5" />
           <circle cx="16" cy="26" r="3.5" fill="#6366F1" />
-          {/* Top-Right Connected Nodes */}
           <circle cx="28" cy="14" r="2.5" fill="#06B6D4" />
           <circle cx="34" cy="18" r="2.5" fill="#06B6D4" />
           <circle cx="26" cy="20" r="2" fill="#06B6D4" />
@@ -132,7 +119,6 @@ export const PremiumServicesGrid = () => {
       link: '/services/full-stack-development',
       icon: (
         <svg viewBox="0 0 44 44" className="w-10 h-10 shrink-0">
-          {/* Code IDE Window with syntax lines */}
           <rect x="7" y="9" width="30" height="22" rx="3" fill="#1E293B" />
           <line x1="12" y1="15" x2="19" y2="15" stroke="#38BDF8" strokeWidth="2" strokeLinecap="round" />
           <line x1="12" y1="20" x2="26" y2="20" stroke="#F59E0B" strokeWidth="2" strokeLinecap="round" />
@@ -146,7 +132,6 @@ export const PremiumServicesGrid = () => {
       link: '/services/laravel-development',
       icon: (
         <svg viewBox="0 0 44 44" className="w-10 h-10 shrink-0" fill="none" stroke="#EF4444" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          {/* Laravel 3D Origami Geometry */}
           <path d="M22 6 L34 13 L34 27 L22 34 L10 27 L10 13 Z" />
           <path d="M22 6 L22 34" />
           <path d="M22 20 L34 13" />
@@ -166,13 +151,13 @@ export const PremiumServicesGrid = () => {
             className="font-[800] text-white tracking-tight leading-tight"
             style={{ fontSize: '30px' }}
           >
-            Our Premium Services
+            {title || "Our Premium Services"}
           </h2>
           <p 
             className="text-white/90 font-normal max-w-3xl mx-auto"
             style={{ fontSize: '13.5px', lineHeight: '1.55' }}
           >
-            As a certified IT company, Sapphire helps organizations thrive digitally by offering innovative solutions using cutting-edge tools and frameworks. Contact us to learn more!
+            {subtitle || `As a certified IT company, ${companyName} helps organizations thrive digitally by offering innovative solutions using cutting-edge tools and frameworks. Contact us to learn more!`}
           </p>
         </div>
 
