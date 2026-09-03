@@ -11,6 +11,7 @@ import DataTable from '../components/UI/DataTable';
 import Drawer from '../components/UI/Drawer';
 import Modal from '../components/UI/Modal';
 import Badge from '../components/UI/Badge';
+import { AdminEditModal, AdminFormSection, AdminFormGrid, AdminFormField } from '../components/UI/AdminEditLayout';
 import adminService from '../services/adminService';
 import { useToast } from '../context/ToastContext';
 
@@ -331,115 +332,178 @@ export const PortfolioPage = () => {
         )}
       </Drawer>
 
-      {/* Create Modal */}
-      <Modal
+      {/* Create Case Study Professional Modal */}
+      <AdminEditModal
         isOpen={isCreateModalOpen}
         onClose={() => setIsCreateModalOpen(false)}
         title="Add New Case Study"
-        footer={
-          <>
-            <button onClick={() => setIsCreateModalOpen(false)} className="btn btn-secondary">
-              Cancel
-            </button>
-            <button onClick={handleCreate} className="btn btn-primary">
-              Publish Case Study
-            </button>
-          </>
-        }
+        subtitle="Register an enterprise digital product case study and client solution"
+        isActive={form.isFeatured !== false}
+        onToggleStatus={() => setForm({ ...form, isFeatured: !form.isFeatured })}
+        onSave={handleCreate}
+        saveLabel="Publish Case Study"
+        cancelLabel="Cancel"
+        maxWidth="860px"
       >
-        <form onSubmit={handleCreate}>
-          <div className="form-group">
-            <label className="form-label">Project Title</label>
-            <input
-              type="text"
-              className="form-input"
-              placeholder="e.g. Next-Gen Autonomous Drone Fleet Platform"
-              value={form.title}
-              onChange={(e) => {
-                const title = e.target.value;
-                const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
-                setForm({ ...form, title, slug });
-              }}
-              required
-            />
-          </div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
+          <AdminFormSection title="Case Study Core Information">
+            <AdminFormGrid columns={2}>
+              <AdminFormField label="Project Title" required fullWidth>
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="e.g. Next-Gen Autonomous Drone Fleet Platform"
+                  value={form.title}
+                  onChange={(e) => {
+                    const title = e.target.value;
+                    const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+                    setForm({ ...form, title, slug });
+                  }}
+                  style={{
+                    width: '100%',
+                    padding: '8px 12px',
+                    borderRadius: '6px',
+                    border: '1px solid #CBD5E1',
+                    fontSize: '13px',
+                    color: '#0F172A',
+                    backgroundColor: '#FFFFFF'
+                  }}
+                  required
+                />
+              </AdminFormField>
 
-          <div className="form-group">
-            <label className="form-label">Slug</label>
-            <input
-              type="text"
-              className="form-input"
-              value={form.slug}
-              onChange={(e) => setForm({ ...form, slug: e.target.value })}
-              required
-            />
-          </div>
+              <AdminFormField label="URL Slug" required>
+                <input
+                  type="text"
+                  className="form-control"
+                  value={form.slug}
+                  onChange={(e) => setForm({ ...form, slug: e.target.value })}
+                  style={{
+                    width: '100%',
+                    padding: '8px 12px',
+                    borderRadius: '6px',
+                    border: '1px solid #CBD5E1',
+                    fontSize: '13px',
+                    color: '#0F172A',
+                    backgroundColor: '#FFFFFF'
+                  }}
+                  required
+                />
+              </AdminFormField>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
-            <div className="form-group">
-              <label className="form-label">Industry</label>
-              <select
-                className="form-select"
-                value={form.industry}
-                onChange={(e) => setForm({ ...form, industry: e.target.value })}
-              >
-                <option value="Healthcare">Healthcare</option>
-                <option value="Finance">Finance</option>
-                <option value="Education">Education</option>
-                <option value="Logistics">Logistics</option>
-                <option value="Real Estate">Real Estate</option>
-                <option value="E-commerce">E-commerce</option>
-              </select>
-            </div>
+              <AdminFormField label="Industry">
+                <select
+                  className="form-control"
+                  value={form.industry}
+                  onChange={(e) => setForm({ ...form, industry: e.target.value })}
+                  style={{
+                    width: '100%',
+                    padding: '8px 12px',
+                    borderRadius: '6px',
+                    border: '1px solid #CBD5E1',
+                    fontSize: '13px',
+                    color: '#0F172A',
+                    backgroundColor: '#FFFFFF'
+                  }}
+                >
+                  <option value="Healthcare">Healthcare</option>
+                  <option value="Finance">Finance</option>
+                  <option value="Education">Education</option>
+                  <option value="Logistics">Logistics</option>
+                  <option value="Real Estate">Real Estate</option>
+                  <option value="E-commerce">E-commerce</option>
+                </select>
+              </AdminFormField>
 
-            <div className="form-group">
-              <label className="form-label">Category</label>
-              <select
-                className="form-select"
-                value={form.category}
-                onChange={(e) => setForm({ ...form, category: e.target.value })}
-              >
-                <option value="AI">AI</option>
-                <option value="Web">Web</option>
-                <option value="Mobile">Mobile</option>
-                <option value="Cloud">Cloud</option>
-                <option value="E-commerce">E-commerce</option>
-              </select>
-            </div>
-          </div>
+              <AdminFormField label="Technology Category">
+                <select
+                  className="form-control"
+                  value={form.category}
+                  onChange={(e) => setForm({ ...form, category: e.target.value })}
+                  style={{
+                    width: '100%',
+                    padding: '8px 12px',
+                    borderRadius: '6px',
+                    border: '1px solid #CBD5E1',
+                    fontSize: '13px',
+                    color: '#0F172A',
+                    backgroundColor: '#FFFFFF'
+                  }}
+                >
+                  <option value="AI">AI & Machine Learning</option>
+                  <option value="Web">Web Engineering</option>
+                  <option value="Mobile">Mobile Application</option>
+                  <option value="Cloud">Cloud & DevOps</option>
+                  <option value="E-commerce">Enterprise E-commerce</option>
+                </select>
+              </AdminFormField>
 
-          <div className="form-group">
-            <label className="form-label">Client Challenge</label>
-            <textarea
-              className="form-textarea"
-              placeholder="What obstacle did the client face?"
-              value={form.challenge}
-              onChange={(e) => setForm({ ...form, challenge: e.target.value })}
-            />
-          </div>
+              <AdminFormField label="Technologies Used (comma separated)" fullWidth>
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="React, Python, AWS, Docker"
+                  value={form.technologies}
+                  onChange={(e) => setForm({ ...form, technologies: e.target.value })}
+                  style={{
+                    width: '100%',
+                    padding: '8px 12px',
+                    borderRadius: '6px',
+                    border: '1px solid #CBD5E1',
+                    fontSize: '13px',
+                    color: '#0F172A',
+                    backgroundColor: '#FFFFFF'
+                  }}
+                />
+              </AdminFormField>
+            </AdminFormGrid>
+          </AdminFormSection>
 
-          <div className="form-group">
-            <label className="form-label">Delivered Solution</label>
-            <textarea
-              className="form-textarea"
-              placeholder="How did the engineering team solve it?"
-              value={form.solution}
-              onChange={(e) => setForm({ ...form, solution: e.target.value })}
-            />
-          </div>
+          <AdminFormSection title="Narrative & Solution Details">
+            <AdminFormGrid columns={2}>
+              <AdminFormField label="Client Challenge" fullWidth>
+                <textarea
+                  className="form-control"
+                  rows={3}
+                  placeholder="What operational bottleneck or business obstacle did the client face?"
+                  value={form.challenge}
+                  onChange={(e) => setForm({ ...form, challenge: e.target.value })}
+                  style={{
+                    width: '100%',
+                    padding: '8px 12px',
+                    borderRadius: '6px',
+                    border: '1px solid #CBD5E1',
+                    fontSize: '13px',
+                    color: '#0F172A',
+                    backgroundColor: '#FFFFFF',
+                    fontFamily: 'inherit'
+                  }}
+                />
+              </AdminFormField>
 
-          <div className="form-group">
-            <label className="form-label">Technologies (comma separated)</label>
-            <input
-              type="text"
-              className="form-input"
-              placeholder="React, Python, AWS, Docker"
-              value={form.technologies}
-              onChange={(e) => setForm({ ...form, technologies: e.target.value })}
-            />
-          </div>
-        </form>
-      </Modal>
+              <AdminFormField label="Delivered Engineering Solution" fullWidth>
+                <textarea
+                  className="form-control"
+                  rows={3}
+                  placeholder="How did our engineering pod architect and deploy the solution?"
+                  value={form.solution}
+                  onChange={(e) => setForm({ ...form, solution: e.target.value })}
+                  style={{
+                    width: '100%',
+                    padding: '8px 12px',
+                    borderRadius: '6px',
+                    border: '1px solid #CBD5E1',
+                    fontSize: '13px',
+                    color: '#0F172A',
+                    backgroundColor: '#FFFFFF',
+                    fontFamily: 'inherit'
+                  }}
+                />
+              </AdminFormField>
+            </AdminFormGrid>
+          </AdminFormSection>
+        </div>
+      </AdminEditModal>
     </div>
   );
 };

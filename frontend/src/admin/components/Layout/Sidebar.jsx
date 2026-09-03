@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import {
   LayoutDashboard,
+  Home,
   Layers,
   Briefcase,
   Users2,
@@ -13,7 +14,6 @@ import {
   Terminal,
   ChevronLeft,
   ChevronRight,
-  Shield,
   LogOut,
   UserCheck
 } from 'lucide-react';
@@ -25,6 +25,7 @@ const NAV_ITEMS = [
     section: 'Core Management',
     items: [
       { path: '/admin/dashboard', label: 'Dashboard', icon: LayoutDashboard },
+      { path: '/admin/home-page', label: 'Home Page', icon: Home, badge: '22' },
       { path: '/admin/services', label: 'Services', icon: Layers, badge: '10' },
       { path: '/admin/portfolio', label: 'Portfolio', icon: Briefcase, badge: '6' },
       { path: '/admin/jobs', label: 'Jobs', icon: Users2, badge: '3' },
@@ -68,23 +69,31 @@ export const Sidebar = ({ isCollapsed, onToggleCollapse, isMobileOpen, onCloseMo
     >
       {/* Brand Header */}
       <div className="sidebar-header">
-        <NavLink to="/admin/dashboard" className="brand-logo-wrap" onClick={onCloseMobile}>
-          <div className="brand-icon-box">
-            <Shield size={20} />
-          </div>
-          {!isCollapsed && (
-            <div className="brand-text-col">
-              <span className="brand-name">FIREVY</span>
-              <span className="brand-badge">Admin Panel</span>
+        <NavLink
+          to="/admin/dashboard"
+          className="brand-logo-wrap"
+          onClick={onCloseMobile}
+          title="firevy.co Admin Panel"
+        >
+          {!isCollapsed ? (
+            <div className="brand-logo-text">
+              <span className="brand-logo-name">firevy</span>
+              <span className="brand-logo-domain">.co</span>
+            </div>
+          ) : (
+            <div className="brand-logo-collapsed">
+              <span className="brand-logo-name">f</span>
+              <span className="brand-logo-domain">.co</span>
             </div>
           )}
         </NavLink>
 
         <button
           onClick={onToggleCollapse}
-          className="btn btn-ghost btn-icon-sm"
+          className="btn btn-ghost btn-icon-sm sidebar-collapse-btn"
           style={{ display: isMobileOpen ? 'none' : 'flex' }}
           title={isCollapsed ? 'Expand Sidebar' : 'Collapse Sidebar'}
+          aria-label={isCollapsed ? 'Expand Sidebar' : 'Collapse Sidebar'}
         >
           {isCollapsed ? <ChevronRight size={18} /> : <ChevronLeft size={18} />}
         </button>

@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import Container from '../common/Container';
 import BRAND from '../../constants/brand';
 
-const heroSlides = [
+const defaultHeroSlides = [
   {
     tag: 'AI Innovation',
     titleLine1: 'Your Vision,',
@@ -17,7 +17,12 @@ const heroSlides = [
       "We've been Redefining Excellence for over Two Decades."
     ],
     rightBoxTitle: 'Redefined Learning Experiences',
-    rightBoxSub: 'With Intelligent AI Innovation'
+    rightBoxSub: 'With Intelligent AI Innovation',
+    primaryCtaText: "Let's Talk",
+    primaryCtaLink: '/contact',
+    secondaryCtaText: 'Get in Touch',
+    secondaryCtaLink: '/contact',
+    backgroundVideoUrl: '/Best Software Development Company in USA - Sapphire Software Sol.mp4'
   },
   {
     tag: 'Enterprise Engineering',
@@ -30,7 +35,12 @@ const heroSlides = [
       'Sub-50ms API Latency with 99.99% Guaranteed Uptime.'
     ],
     rightBoxTitle: 'Cloud & AI Microservices',
-    rightBoxSub: 'Driven by Next-Gen Innovation'
+    rightBoxSub: 'Driven by Next-Gen Innovation',
+    primaryCtaText: "Let's Talk",
+    primaryCtaLink: '/contact',
+    secondaryCtaText: 'Get in Touch',
+    secondaryCtaLink: '/contact',
+    backgroundVideoUrl: '/Best Software Development Company in USA - Sapphire Software Sol.mp4'
   },
   {
     tag: 'Custom App Solutions',
@@ -43,30 +53,40 @@ const heroSlides = [
       'Agile 2-Week Sprint Delivery with Full Transparency.'
     ],
     rightBoxTitle: 'Immersive Product Design',
-    rightBoxSub: 'Crafted for Modern Enterprise'
+    rightBoxSub: 'Crafted for Modern Enterprise',
+    primaryCtaText: "Let's Talk",
+    primaryCtaLink: '/contact',
+    secondaryCtaText: 'Get in Touch',
+    secondaryCtaLink: '/contact',
+    backgroundVideoUrl: '/Best Software Development Company in USA - Sapphire Software Sol.mp4'
   }
 ];
 
-export const Hero = () => {
+export const Hero = ({ data }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
+  const activeSlides = (data?.slides && Array.isArray(data.slides) && data.slides.filter(s => s.isActive !== false).length > 0)
+    ? data.slides.filter(s => s.isActive !== false)
+    : defaultHeroSlides;
+
   useEffect(() => {
+    if (activeSlides.length <= 1) return;
     const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+      setCurrentSlide((prev) => (prev + 1) % activeSlides.length);
     }, 7000);
     return () => clearInterval(interval);
-  }, []);
+  }, [activeSlides.length]);
 
-  const slide = heroSlides[currentSlide];
-  const phoneUS = BRAND?.contact?.phoneUS || '+1 (800) 592-7410';
-  const phoneRaw = phoneUS.replace(/[^0-9]/g, '');
+  const slide = activeSlides[currentSlide] || activeSlides[0] || defaultHeroSlides[0];
+  const videoUrl = slide.backgroundVideoUrl || '/Best Software Development Company in USA - Sapphire Software Sol.mp4';
 
   return (
     <section className="relative min-h-[92vh] flex items-center justify-center pt-24 pb-20 overflow-hidden bg-slate-950 font-sans text-left">
       {/* 1. Background Video Layer */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <video
-          src="/Best Software Development Company in USA - Sapphire Software Sol.mp4"
+          key={videoUrl}
+          src={videoUrl}
           autoPlay
           loop
           muted
@@ -79,7 +99,6 @@ export const Hero = () => {
         {/* 3D Wireframe Mesh Graphic Overlay */}
         <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1/2 h-full opacity-20 pointer-events-none bg-[radial-gradient(#005F96_1px,transparent_1px)] [background-size:24px_24px]" />
       </div>
-
 
       {/* 3. Hero Main Content Container */}
       <Container className="relative z-10 w-full">
@@ -112,83 +131,95 @@ export const Hero = () => {
                 </h1>
 
                 {/* Subtag Paragraph under Main Heading */}
-                <p className="text-[18px] font-[400] text-slate-300 tracking-wide">
-                  {slide.subTag}
-                </p>
+                {slide.subTag && (
+                  <p className="text-[18px] font-[400] text-slate-300 tracking-wide">
+                    {slide.subTag}
+                  </p>
+                )}
 
                 {/* Bullet Points List matching reference screenshot */}
-                <ul className="space-y-3 pt-2 max-w-2xl text-slate-200 text-sm sm:text-base font-medium">
-                  {slide.bullets.map((bullet, idx) => (
-                    <li key={idx} className="flex items-start space-x-3">
-                      <span className="text-cyan-400 font-bold text-lg leading-none mt-0.5">•</span>
-                      <span className="leading-snug">
-                        {bullet.includes('Recognized') ? (
-                          <>Recognized as <strong className="text-white font-extrabold">#1 Web Development</strong> Company in India and USA.</>
-                        ) : bullet.includes('Trusted') ? (
-                          <>Trusted by <strong className="text-white font-extrabold">20+ Fortune 500 Companies</strong> and a Clutch Leader.</>
-                        ) : bullet.includes('Redefining') ? (
-                          <>We've been Redefining Excellence for over <strong className="text-white font-extrabold">Two Decades.</strong></>
-                        ) : (
-                          bullet
-                        )}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
+                {slide.bullets && slide.bullets.length > 0 && (
+                  <ul className="space-y-3 pt-2 max-w-2xl text-slate-200 text-sm sm:text-base font-medium">
+                    {slide.bullets.map((bullet, idx) => (
+                      <li key={idx} className="flex items-start space-x-3">
+                        <span className="text-cyan-400 font-bold text-lg leading-none mt-0.5">•</span>
+                        <span className="leading-snug">
+                          {typeof bullet === 'string' && bullet.includes('Recognized') ? (
+                            <>Recognized as <strong className="text-white font-extrabold">#1 Web Development</strong> Company in India and USA.</>
+                          ) : typeof bullet === 'string' && bullet.includes('Trusted') ? (
+                            <>Trusted by <strong className="text-white font-extrabold">20+ Fortune 500 Companies</strong> and a Clutch Leader.</>
+                          ) : typeof bullet === 'string' && bullet.includes('Redefining') ? (
+                            <>We've been Redefining Excellence for over <strong className="text-white font-extrabold">Two Decades.</strong></>
+                          ) : (
+                            bullet
+                          )}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
 
                 {/* Primary CTA Buttons */}
                 <div className="pt-4 flex flex-wrap items-center gap-4">
                   <Link
-                    to="/contact"
+                    to={slide.primaryCtaLink || "/contact"}
                     className="inline-flex items-center justify-center px-8 py-3.5 rounded-xl bg-gradient-to-r from-blue-600 via-cyan-500 to-teal-400 text-white font-extrabold text-base hover:opacity-95 transition-all shadow-xl shadow-cyan-500/20 hover:scale-105 active:scale-95 group"
                   >
-                    <span>Let's Talk</span>
+                    <span>{slide.primaryCtaText || "Let's Talk"}</span>
                     <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                   </Link>
 
                   <Link
-                    to="/contact"
+                    to={slide.secondaryCtaLink || "/contact"}
                     className="inline-flex items-center justify-center px-8 py-3.5 rounded-xl bg-slate-900/80 border-2 border-cyan-500/50 text-white font-extrabold text-base hover:bg-cyan-500/10 hover:border-cyan-400 transition-all shadow-lg hover:scale-105 active:scale-95"
                   >
-                    <span>Get in Touch</span>
+                    <span>{slide.secondaryCtaText || "Get in Touch"}</span>
                   </Link>
                 </div>
               </motion.div>
             </AnimatePresence>
           </div>
 
-          {/* Right Bottom Highlight Box matching reference screenshot */}
+          {/* Right Bottom Highlight Box */}
           <div className="lg:col-span-4 flex flex-col justify-end items-end relative">
             {/* Slide Navigation Dots */}
-            <div className="flex items-center space-x-2 mb-8">
-              {heroSlides.map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setCurrentSlide(idx)}
-                  className={`h-2.5 rounded-full transition-all duration-300 ${
-                    currentSlide === idx ? 'w-8 bg-[#005F96]' : 'w-2.5 bg-white/30 hover:bg-white/60'
-                  }`}
-                  aria-label={`Go to slide ${idx + 1}`}
-                />
-              ))}
-            </div>
+            {activeSlides.length > 1 && (
+              <div className="flex items-center space-x-2 mb-8">
+                {activeSlides.map((_, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setCurrentSlide(idx)}
+                    className={`h-2.5 rounded-full transition-all duration-300 ${
+                      currentSlide === idx ? 'w-8 bg-[#005F96]' : 'w-2.5 bg-white/30 hover:bg-white/60'
+                    }`}
+                    aria-label={`Go to slide ${idx + 1}`}
+                  />
+                ))}
+              </div>
+            )}
 
             {/* Floating Highlight Banner */}
-            <motion.div
-              key={`right-${currentSlide}`}
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="p-6 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-2xl text-right max-w-sm space-y-1 relative overflow-hidden"
-            >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-pink-500/10 rounded-full blur-2xl pointer-events-none" />
-              <h4 className="text-base font-extrabold text-white">
-                {slide.rightBoxTitle}
-              </h4>
-              <p className="text-base font-black text-pink-400">
-                {slide.rightBoxSub}
-              </p>
-            </motion.div>
+            {(slide.rightBoxTitle || slide.rightBoxSub) && (
+              <motion.div
+                key={`right-${currentSlide}`}
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="p-6 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-2xl text-right max-w-sm space-y-1 relative overflow-hidden"
+              >
+                <div className="absolute top-0 right-0 w-32 h-32 bg-pink-500/10 rounded-full blur-2xl pointer-events-none" />
+                {slide.rightBoxTitle && (
+                  <h4 className="text-base font-extrabold text-white">
+                    {slide.rightBoxTitle}
+                  </h4>
+                )}
+                {slide.rightBoxSub && (
+                  <p className="text-base font-black text-pink-400">
+                    {slide.rightBoxSub}
+                  </p>
+                )}
+              </motion.div>
+            )}
           </div>
 
         </div>

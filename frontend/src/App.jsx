@@ -16,6 +16,7 @@ import AdminLayout from './admin/routes/AdminLayout';
 // Admin Pages
 import LoginPage from './admin/pages/LoginPage';
 import Dashboard from './admin/pages/Dashboard';
+import HomePageManager from './admin/pages/HomePageAdmin/HomePageManager';
 import ServicesPage from './admin/pages/ServicesPage';
 import PortfolioPage from './admin/pages/PortfolioPage';
 import JobsPage from './admin/pages/JobsPage';
@@ -94,13 +95,21 @@ export function App() {
               <Route path="/admin" element={<LoginPage />} />
 
               {/* ============================================================
-                  PROTECTED ADMIN ROUTES (Isolated Dark Management Control Center)
+                  PROTECTED ADMIN ROUTES (Teal / White Management Control Center)
                   ============================================================ */}
               <Route
                 path="/admin/dashboard"
                 element={
                   <AdminRouteWrapper>
                     <Dashboard />
+                  </AdminRouteWrapper>
+                }
+              />
+              <Route
+                path="/admin/home-page"
+                element={
+                  <AdminRouteWrapper>
+                    <HomePageManager />
                   </AdminRouteWrapper>
                 }
               />

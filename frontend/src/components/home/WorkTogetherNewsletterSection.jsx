@@ -3,11 +3,18 @@ import { Link } from 'react-router-dom';
 import { CheckCircle2, ChevronDown } from 'lucide-react';
 import Container from '../common/Container';
 
-export const WorkTogetherNewsletterSection = () => {
+export const WorkTogetherNewsletterSection = ({ data }) => {
+  const bannerTitle = data?.bannerTitle || "Let's Work Together On Your Next Digital Project";
+  const bannerDescription = data?.bannerDescription || "Book a meeting with our specialists today to learn more about how firevy.co can help you unlock technology visions and drive your product strategy.";
+  const bannerButtonText = data?.bannerButtonText || "Request A Free Quote";
+  const bannerButtonLink = data?.bannerButtonLink || "/contact";
+  const newsletterTitle = data?.newsletterTitle || "Subscribe us and Get the latest updates and news";
+  const newsletterButtonText = data?.newsletterButtonText || "Subscribe";
+
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
-  const [countryCode, setCountryCode] = useState('+91');
+  const [countryCode, setCountryCode] = useState('+1');
   const [subscribed, setSubscribed] = useState(false);
 
   const handleSubmit = (e) => {
@@ -23,17 +30,17 @@ export const WorkTogetherNewsletterSection = () => {
       <section className="py-16 bg-[#006B8F] text-white text-center relative overflow-hidden font-sans border-b border-cyan-800">
         <div className="max-w-5xl mx-auto px-4 sm:px-6">
           <h2 className="text-[32px] sm:text-[38px] font-[800] text-white tracking-tight leading-tight font-sans mb-3">
-            Let's Work Together On Your Next Digital Project
+            {bannerTitle}
           </h2>
           <p className="text-[16px] font-[400] text-blue-100 leading-relaxed max-w-3xl mx-auto mb-8 font-sans">
-            Book a meeting with our specialists today to learn more about how firevy.co can help you unlock technology visions and drive your product strategy.
+            {bannerDescription}
           </p>
           <div>
             <Link
-              to="/contact"
+              to={bannerButtonLink}
               className="inline-flex items-center justify-center px-8 py-3.5 rounded-[6px] bg-white hover:bg-slate-100 text-[#004A75] font-[700] text-[14px] transition-all shadow-md font-sans"
             >
-              Request A Free Quote
+              {bannerButtonText}
             </Link>
           </div>
         </div>
@@ -43,7 +50,7 @@ export const WorkTogetherNewsletterSection = () => {
       <section className="py-16 bg-[#DFEEF7] text-slate-900 text-center relative font-sans border-b border-slate-200">
         <Container>
           <h2 className="text-[28px] sm:text-[34px] font-[800] text-slate-900 tracking-tight font-sans mb-8">
-            Subscribe us and Get the latest updates and news
+            {newsletterTitle}
           </h2>
 
           {subscribed ? (
@@ -107,7 +114,7 @@ export const WorkTogetherNewsletterSection = () => {
                   type="submit"
                   className="w-full lg:w-auto px-9 py-3 rounded-[6px] bg-[#006B8F] hover:bg-[#005478] text-white font-[700] text-[14px] transition-all shadow-md shrink-0 font-sans"
                 >
-                  Subscribe
+                  {newsletterButtonText}
                 </button>
               </div>
             </form>

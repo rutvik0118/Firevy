@@ -3,35 +3,42 @@ import { Play, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Container from '../common/Container';
 
-export const RecentPodcastsSection = () => {
-  const podcasts = [
-    {
-      title: 'Mobile App Testing and Quality Assurance: Ensuring a Seamless Use...',
-      image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80',
-      desc: 'In today\'s fast-paced digital world, mobile applications have become an integral part of our daily lives. From communication to...'
-    },
-    {
-      title: 'Why Does Your Business Needs Software Applications?',
-      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80',
-      desc: 'In today\'s fast-paced and digitally-driven world, businesses of all sizes and industries are recognizing the importance of integratin...'
-    },
-    {
-      title: 'A Chat with a Client: Why They Chose firevy.co',
-      image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80',
-      desc: 'There are several mobile app development companies worldwide. While searching for a reliable IT services provider, I came across...'
-    }
-  ];
+const defaultPodcasts = [
+  {
+    title: 'Mobile App Testing and Quality Assurance: Ensuring a Seamless Use...',
+    image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80',
+    desc: "In today's fast-paced digital world, mobile applications have become an integral part of our daily lives. From communication to..."
+  },
+  {
+    title: 'Why Does Your Business Needs Software Applications?',
+    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80',
+    desc: "In today's fast-paced and digitally-driven world, businesses of all sizes and industries are recognizing the importance of integratin..."
+  },
+  {
+    title: 'A Chat with a Client: Why They Chose firevy.co',
+    image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80',
+    desc: 'There are several mobile app development companies worldwide. While searching for a reliable IT services provider, I came across...'
+  }
+];
+
+export const RecentPodcastsSection = ({ data }) => {
+  const title = data?.title || 'Our Recent Podcasts';
+  const description = data?.description || "Listen to our series of podcasts that expose you to a broad array of concepts. Whether you're looking for the latest trends or want to hear customer experience, our podcasts will be a treat for your ears.";
+
+  const podcasts = (data?.podcasts && Array.isArray(data.podcasts) && data.podcasts.filter(p => p.isActive !== false).length > 0)
+    ? data.podcasts.filter(p => p.isActive !== false)
+    : defaultPodcasts;
 
   return (
     <section className="py-16 bg-white border-b border-slate-100 text-slate-900 relative font-sans">
       <Container>
-        {/* Section Header - 100% Copy-to-Copy with Image 1 */}
+        {/* Section Header */}
         <div className="text-center max-w-4xl mx-auto mb-10">
           <h2 className="text-[34px] font-[800] tracking-tight text-slate-900 mb-3 font-sans">
-            Our Recent Podcasts
+            {title}
           </h2>
           <p className="text-[18px] font-[400] text-slate-600 leading-relaxed font-sans max-w-4xl mx-auto">
-            Listen to our series of podcasts that expose you to a broad array of concepts. Whether you're looking for the latest trends or want to hear customer experience, our podcasts will be a treat for your ears.
+            {description}
           </p>
         </div>
 
@@ -58,24 +65,23 @@ export const RecentPodcastsSection = () => {
               </div>
 
               {/* Card Text Content */}
-              <div className="p-5 flex-grow flex flex-col justify-between">
-                <div>
-                  <h3 className="text-[15px] font-[700] text-slate-900 mb-3 leading-snug font-sans">
+              <div className="p-5 flex-1 flex flex-col justify-between space-y-3">
+                <div className="space-y-2">
+                  <h3 className="text-[16px] font-[800] text-slate-900 leading-snug line-clamp-2 group-hover:text-[#006B8F] transition-colors font-sans">
                     {pod.title}
                   </h3>
-                  <p className="text-[14px] font-[400] text-slate-600 leading-relaxed font-sans">
-                    {pod.desc}
+                  <p className="text-[13px] text-slate-500 line-clamp-2 leading-relaxed font-sans">
+                    {pod.desc || pod.description}
                   </p>
                 </div>
 
-                {/* Explore Link */}
-                <div className="mt-4">
+                <div className="pt-2">
                   <Link
-                    to="/about"
-                    className="inline-flex items-center text-[14px] font-[600] text-[#006B8F] hover:text-[#005F80] font-sans"
+                    to={pod.exploreLink || "/about"}
+                    className="inline-flex items-center text-[13px] font-[800] text-[#006B8F] hover:text-[#005578] space-x-1 group/btn font-sans"
                   >
                     <span>Explore</span>
-                    <ArrowRight className="w-4 h-4 ml-1" />
+                    <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
                   </Link>
                 </div>
               </div>
