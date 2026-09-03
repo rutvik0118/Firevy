@@ -1,166 +1,169 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Container from './Container';
-import {
-  Boxes,
-  Layout,
-  Database,
-  Package,
-  Award,
-  Settings,
-  CheckCircle2
-} from 'lucide-react';
 
-export const SapphireTechStackGrid = ({
-  domainName = "healthcare",
-  richTechCategories = null
-}) => {
-  const [selectedCategory, setSelectedCategory] = useState(null);
+// Exact 1:1 Vector Outline Icons matching Sapphire Solutions reference screenshot 1:1
+const BackendIcon = () => (
+  <svg className="w-10 h-10 text-[#0073B5]" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    {/* Top Cube */}
+    <path d="M 24 6 L 31 10 L 24 14 L 17 10 Z" />
+    <path d="M 17 10 V 17 L 24 21 V 14" />
+    <path d="M 31 10 V 17 L 24 21" />
+    {/* Bottom Left Cube */}
+    <path d="M 16 20 L 23 24 L 16 28 L 9 24 Z" />
+    <path d="M 9 24 V 31 L 16 35 V 28" />
+    <path d="M 23 24 V 31 L 16 35" />
+    {/* Bottom Right Cube */}
+    <path d="M 32 20 L 39 24 L 32 28 L 25 24 Z" />
+    <path d="M 25 24 V 31 L 32 35 V 28" />
+    <path d="M 39 24 V 31 L 32 35" />
+  </svg>
+);
 
-  // Exact 6 Categories matching Sapphire Solutions screenshot
+const FrontendIcon = () => (
+  <svg className="w-10 h-10 text-[#0073B5]" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="6" y="8" width="36" height="28" rx="4" />
+    <line x1="6" y1="16" x2="42" y2="16" />
+    <circle cx="11" cy="12" r="1.2" fill="currentColor" />
+    <circle cx="15" cy="12" r="1.2" fill="currentColor" />
+    <circle cx="19" cy="12" r="1.2" fill="currentColor" />
+    <rect x="11" y="21" width="10" height="10" rx="2" />
+    <line x1="25" y1="22" x2="37" y2="22" />
+    <line x1="25" y1="26" x2="37" y2="26" />
+    <line x1="25" y1="30" x2="33" y2="30" />
+  </svg>
+);
+
+const DatabaseIcon = () => (
+  <svg className="w-10 h-10 text-[#0073B5]" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <ellipse cx="24" cy="12" rx="15" ry="6" />
+    <path d="M 9 12 V 22 C 9 25.3 15.7 28 24 28 C 32.3 28 39 25.3 39 22 V 12" />
+    <path d="M 9 22 V 32 C 9 35.3 15.7 38 24 38 C 32.3 38 39 35.3 39 32 V 22" />
+  </svg>
+);
+
+const DevopsIcon = () => (
+  <svg className="w-10 h-10 text-[#0073B5]" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M 12 18 L 24 12 L 36 18 L 24 24 Z" />
+    <path d="M 12 18 V 34 L 24 40 V 24" />
+    <path d="M 36 18 V 34 L 24 40" />
+    <path d="M 12 18 L 6 12 L 18 6 L 24 12" />
+    <path d="M 36 18 L 42 12 L 30 6 L 24 12" />
+  </svg>
+);
+
+const TestingIcon = () => (
+  <svg className="w-10 h-10 text-[#0073B5]" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="24" cy="18" r="11" />
+    <path d="M 18 18 L 22 22 L 30 14" strokeWidth="2.5" />
+    <path d="M 17 28 L 14 42 L 24 37 L 34 42 L 31 28" />
+  </svg>
+);
+
+const SettingsIcon = () => (
+  <svg className="w-10 h-10 text-[#0073B5]" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="24" cy="24" r="7" />
+    <path d="M 24 6 V 11 M 24 37 V 42 M 6 24 H 11 M 37 24 H 42 M 11.3 11.3 L 14.8 14.8 M 33.2 33.2 L 36.7 36.7 M 11.3 36.7 L 14.8 33.2 M 33.2 14.8 L 36.7 11.3" strokeWidth="2.5" />
+  </svg>
+);
+
+export const SapphireTechStackGrid = ({ domainName = "healthcare" }) => {
+  // 6 Overview Cards matching Sapphire Solutions screenshot 1:1
   const overviewCards = [
     {
-      id: 'backend',
       title: 'Backend',
-      icon: Boxes,
+      icon: BackendIcon,
       col1: ['.NET', 'Node', 'JAVA'],
       col2: ['Ruby on Rails', 'PHP']
     },
     {
-      id: 'frontend',
       title: 'Frontend',
-      icon: Layout,
+      icon: FrontendIcon,
       col1: ['Java', 'RxJava', 'Coroutines Kotlin'],
       col2: ['Kotlin', 'RxKotlin']
     },
     {
-      id: 'database',
       title: 'Database',
-      icon: Database,
+      icon: DatabaseIcon,
       col1: ['SQLite', 'CoreData'],
       col2: ['Realm', 'Firebase']
     },
     {
-      id: 'devops',
       title: 'Devops',
-      icon: Package,
+      icon: DevopsIcon,
       col1: ['CI/CD'],
       col2: ['GitHub Actions']
     },
     {
-      id: 'testing',
       title: 'Testing',
-      icon: Award,
+      icon: TestingIcon,
       col1: ['Appium', 'BrowserStack', 'Katalon Test Studio'],
       col2: []
     },
     {
-      id: 'pm',
       title: 'Project Management Tools',
-      icon: Settings,
+      icon: SettingsIcon,
       col1: ['Jira', 'Slack'],
       col2: ['Microsoft Teams', 'Trello']
     }
   ];
 
   return (
-    <section className="py-20 bg-[#F4F8FA] border-b border-slate-200 text-slate-900 font-sans text-left">
+    <section className="pt-12 pb-4 sm:pb-6 bg-white text-slate-900 font-sans text-left">
       <Container>
-        {/* Section Heading */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
+        {/* Centered Heading & Subtitle */}
+        <div className="text-center max-w-4xl mx-auto mb-12 sm:mb-14 space-y-3">
+          <h2 className="text-3xl sm:text-4xl lg:text-[38px] font-extrabold text-slate-900 tracking-tight font-sans">
             Technology Stack
           </h2>
-          <p className="text-base sm:text-lg text-slate-600 font-normal">
+          <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed max-w-3xl mx-auto font-sans">
             We use the latest {domainName} app development technology and process to make sure we deliver the best. Have a look at our technology stack:
           </p>
         </div>
 
-        {/* 6 Light-Blue Overview Cards (Exact Sapphire Screenshot Layout) */}
+        {/* 6 Soft Blue Cards Grid (3 Columns x 2 Rows on Desktop) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          {overviewCards.map((card) => {
+          {overviewCards.map((card, idx) => {
             const IconComp = card.icon;
-            const isSelected = selectedCategory === card.id;
 
             return (
               <div
-                key={card.id}
-                onClick={() => setSelectedCategory(isSelected ? null : card.id)}
-                className={`p-7 rounded-2xl bg-[#EDF6FC] border border-blue-100/80 shadow-sm hover:shadow-md hover:border-[#005F96] transition-all cursor-pointer flex flex-col justify-between min-h-[220px] ${
-                  isSelected ? 'ring-2 ring-[#005F96] bg-white' : ''
-                }`}
+                key={idx}
+                className="p-6 sm:p-7 rounded-2xl bg-[#EFF7FE] border border-blue-100/60 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-start h-full space-y-5"
               >
-                <div>
-                  {/* Header: Cyan/Blue Icon + Title */}
-                  <div className="flex items-center space-x-3 mb-6">
-                    <div className="p-2.5 rounded-xl bg-white text-[#005F96] shadow-sm border border-blue-100">
-                      <IconComp className="w-6 h-6 stroke-[2.2]" />
-                    </div>
-                    <h3 className="text-xl font-extrabold text-slate-900 font-sans tracking-tight">
-                      {card.title}
-                    </h3>
+                {/* Header: Icon + Title */}
+                <div className="flex items-center space-x-3.5">
+                  <div className="shrink-0">
+                    <IconComp />
                   </div>
-
-                  {/* 2-Column Bullet List */}
-                  <div className="grid grid-cols-2 gap-x-4 gap-y-2.5 text-sm font-semibold text-slate-700">
-                    <div className="space-y-2.5">
-                      {card.col1.map((item, i) => (
-                        <div key={i} className="flex items-center space-x-2">
-                          <span className="text-[#005F96] font-bold text-base">-</span>
-                          <span>{item}</span>
-                        </div>
-                      ))}
-                    </div>
-
-                    <div className="space-y-2.5">
-                      {card.col2.map((item, i) => (
-                        <div key={i} className="flex items-center space-x-2">
-                          <span className="text-[#005F96] font-bold text-base">-</span>
-                          <span>{item}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
+                  <h3 className="text-xl font-bold text-slate-900 font-sans tracking-tight">
+                    {card.title}
+                  </h3>
                 </div>
 
-                {richTechCategories && (
-                  <div className="pt-4 mt-4 border-t border-blue-200/60 text-xs font-bold text-[#005F96] flex items-center justify-between">
-                    <span>{isSelected ? 'Hide Details' : 'Click to view descriptions'}</span>
-                    <span>→</span>
+                {/* 2-Column Bullet List */}
+                <div className="grid grid-cols-2 gap-x-4 text-sm sm:text-[14.5px] text-[#475569] font-normal leading-relaxed font-sans">
+                  <div className="space-y-2">
+                    {card.col1.map((item, i) => (
+                      <div key={i} className="flex items-baseline space-x-1.5">
+                        <span className="text-[#0073B5] font-semibold">-</span>
+                        <span>{item}</span>
+                      </div>
+                    ))}
                   </div>
-                )}
+
+                  <div className="space-y-2">
+                    {card.col2.map((item, i) => (
+                      <div key={i} className="flex items-baseline space-x-1.5">
+                        <span className="text-[#0073B5] font-semibold">-</span>
+                        <span>{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
             );
           })}
         </div>
-
-        {/* Detailed Descriptions Expandable Section (If richTechCategories passed) */}
-        {richTechCategories && selectedCategory && richTechCategories[selectedCategory] && (
-          <div className="mt-12 p-8 rounded-2xl bg-white border border-slate-200 shadow-xl max-w-6xl mx-auto space-y-6">
-            <div className="flex items-center justify-between border-b border-slate-100 pb-4">
-              <h4 className="text-xl font-black text-slate-900 uppercase tracking-wider">
-                Detailed {overviewCards.find(c => c.id === selectedCategory)?.title} Stack
-              </h4>
-              <button
-                onClick={() => setSelectedCategory(null)}
-                className="text-xs font-bold text-slate-500 hover:text-slate-900 px-3 py-1 bg-slate-100 rounded-lg"
-              >
-                Close Details
-              </button>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {richTechCategories[selectedCategory].map((tech, idx) => (
-                <div key={idx} className="p-5 rounded-xl bg-[#F8FAFC] border border-slate-200 space-y-2">
-                  <div className="flex items-center space-x-2 text-[#005F96]">
-                    <CheckCircle2 className="w-4 h-4 shrink-0" />
-                    <h5 className="text-base font-extrabold text-slate-900">{tech.name}</h5>
-                  </div>
-                  <p className="text-xs text-slate-600 leading-relaxed font-normal">{tech.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
       </Container>
     </section>
   );
