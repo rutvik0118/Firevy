@@ -28,7 +28,12 @@ export const BrandLogoMarquee = () => {
                 src={item.src}
                 alt={item.name}
                 className="max-h-8 sm:max-h-10 max-w-full object-contain transition-transform hover:scale-105"
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                  if (e.target.nextSibling) e.target.nextSibling.style.display = 'block';
+                }}
               />
+              <span className="hidden font-bold text-slate-700 text-sm">{item.name}</span>
             </div>
           ))}
         </div>
@@ -41,7 +46,12 @@ export const BrandLogoMarquee = () => {
                 src={item.src}
                 alt={item.name}
                 className="max-h-8 sm:max-h-10 max-w-full object-contain transition-transform hover:scale-105"
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                  if (e.target.nextSibling) e.target.nextSibling.style.display = 'block';
+                }}
               />
+              <span className="hidden font-bold text-slate-700 text-sm">{item.name}</span>
             </div>
           ))}
         </div>

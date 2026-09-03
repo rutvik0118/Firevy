@@ -4,6 +4,7 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+<<<<<<< HEAD
 html, body, #root {
   font-family: 'Poppins', sans-serif;
   background-color: #ffffff;
@@ -15,6 +16,72 @@ html, body, #root {
 
 *, ::before, ::after, input, button, select, textarea, optgroup, option {
   font-family: 'Poppins', sans-serif;
+=======
+@layer base {
+  html,
+  body,
+  #root {
+    font-family: 'Poppins', sans-serif !important;
+    @apply bg-white text-slate-900 antialiased overflow-x-hidden;
+  }
+
+  *,
+  ::before,
+  ::after,
+  input,
+  button,
+  select,
+  textarea,
+  optgroup,
+  option {
+    font-family: 'Poppins', sans-serif !important;
+  }
+
+  /* 1. Main / Section Headings: Poppins 800, 34px */
+  h1,
+  h2,
+  .main-heading,
+  .section-heading {
+    font-family: 'Poppins', sans-serif !important;
+    font-weight: 800 !important;
+    font-size: 34px !important;
+    line-height: 1.25 !important;
+  }
+
+  /* 2. Paragraph under Main Heading: Poppins 400, 18px */
+  h1+p,
+  h2+p,
+  .heading-subtitle,
+  .sub-heading-paragraph {
+    font-family: 'Poppins', sans-serif !important;
+    font-weight: 400 !important;
+    font-size: 18px !important;
+    line-height: 1.5 !important;
+  }
+
+  /* 3. Component Headings: Poppins 600, 18px */
+  h3,
+  h4,
+  h5,
+  h6,
+  .component-heading,
+  .card-title {
+    font-family: 'Poppins', sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 18px !important;
+    line-height: 1.4 !important;
+  }
+
+  /* 4. Component Paragraphs: Poppins 400, 15px */
+  p,
+  .component-paragraph,
+  .card-desc {
+    font-family: 'Poppins', sans-serif !important;
+    font-weight: 400 !important;
+    font-size: 15px !important;
+    line-height: 1.6 !important;
+  }
+>>>>>>> 6f390dc0cf8bb2573d9a8f08d1ad350fe7f2a163
 }
 
 ::selection {
@@ -106,7 +173,7 @@ html, body, #root {
   animation: marquee 30s linear infinite;
 }
 
-/* Smooth Gentle Wiggle / Vibration (Matching Sapphire Solutions Reference) */
+/* Smooth Gentle Wiggle / Vibration */
 @keyframes gentleWiggle {
   0%, 100% {
     transform: rotate(0deg) translateY(0px);

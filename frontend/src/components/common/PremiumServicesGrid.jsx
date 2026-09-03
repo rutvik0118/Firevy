@@ -1,184 +1,200 @@
-import React, { useState, useRef, useCallback } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import Container from './Container';
 
-const defaultDescription = "Deliver IT services and create solutions that surpass expectations. We provide standard software engineering and digital transformation services.";
-
-const Enterprise3DCard = ({ item, idx, cardVariants }) => {
-  const [transformState, setTransformState] = useState({ rotateX: 0, rotateY: 0, glareX: 50, glareY: 50 });
-  const [isHovered, setIsHovered] = useState(false);
-  const cardRef = useRef(null);
-
-  const handleMouseMove = useCallback((e) => {
-    if (!cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-    
-    const rotateX = ((y - centerY) / centerY) * -12;
-    const rotateY = ((x - centerX) / centerX) * 12;
-    
-    const glareX = (x / rect.width) * 100;
-    const glareY = (y / rect.height) * 100;
-
-    setTransformState({ rotateX, rotateY, glareX, glareY });
-  }, []);
-
-  const handleMouseEnter = () => setIsHovered(true);
-
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-    setTransformState({ rotateX: 0, rotateY: 0, glareX: 50, glareY: 50 });
-  };
-
-  return (
-    <motion.div variants={cardVariants} className="perspective-1000">
-      <Link
-        to={item.link}
-        ref={cardRef}
-        onMouseMove={handleMouseMove}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        style={{
-          transform: isHovered
-            ? `rotateX(${transformState.rotateX}deg) rotateY(${transformState.rotateY}deg) scale3d(1.04, 1.04, 1.04)`
-            : 'rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)',
-          transformStyle: 'preserve-3d',
-          transition: isHovered ? 'transform 0.1s ease-out' : 'transform 0.5s cubic-bezier(0.22, 1, 0.36, 1)'
-        }}
-        className="relative flex items-center space-x-3 bg-white p-3.5 sm:p-4 rounded-[20px] shadow-md hover:shadow-2xl border border-white/80 transition-all duration-300 group cursor-pointer overflow-hidden h-[88px] sm:h-[96px]"
-      >
-        {/* Animated Inner Border Glow */}
-        <div 
-          className="absolute inset-0 rounded-[20px] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none border-2 border-cyan-400/40" 
-          style={{
-            boxShadow: isHovered ? 'inset 0 0 15px rgba(6,182,212,0.25)' : 'none'
-          }}
-        />
-
-        {/* Glossy Light Reflection Overlay Following Cursor */}
-        <div
-          className="absolute inset-0 rounded-[20px] pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-          style={{
-            background: `radial-gradient(220px circle at ${transformState.glareX}% ${transformState.glareY}%, rgba(255,255,255,0.65) 0%, transparent 70%)`
-          }}
-        />
-
-        {/* Left Technology Icon - Layered 3D Depth */}
-        <div
-          style={{
-            transform: isHovered ? 'translateZ(30px)' : 'translateZ(0px)',
-            transition: 'transform 0.4s cubic-bezier(0.22,1,0.36,1)'
-          }}
-          className="w-11 h-11 rounded-xl bg-blue-50/90 flex items-center justify-center shrink-0 shadow-sm border border-blue-100/60 group-hover:bg-[#005D95] transition-colors duration-400 relative z-10"
-        >
-          {typeof item.icon === 'string' ? (
-            <img
-              src={item.icon}
-              alt={item.name}
-              className="w-7 h-7 object-contain animate-[sideSway_3s_ease-in-out_infinite] group-hover:brightness-0 group-hover:invert transition-all"
-              style={{ animationDelay: `${(idx % 5) * 0.35}s` }}
-            />
-          ) : (
-            item.icon
-          )}
-        </div>
-
-        {/* Right Service Title - Layered 3D Depth */}
-        <span
-          style={{
-            transform: isHovered ? 'translateZ(20px)' : 'translateZ(0px)',
-            transition: 'transform 0.4s cubic-bezier(0.22,1,0.36,1)'
-          }}
-          className="text-xs sm:text-sm font-extrabold text-slate-900 leading-snug group-hover:text-[#005D95] transition-colors relative z-10 font-sans"
-        >
-          {item.name}
-        </span>
-      </Link>
-    </motion.div>
-  );
-};
-
-export const PremiumServicesGrid = ({ title, subtitle }) => {
+export const PremiumServicesGrid = ({ title, subtitle, companyName = "Firevy" }) => {
   const services = [
-    { name: 'Mobile App Development', icon: '/images/ic_mobile_app.svg', link: '/services/mobile-app-development' },
-    { name: 'Software Development', icon: '/images/ic_software_development.svg', link: '/services/software-development' },
-    { name: 'Web Development', icon: '/images/ic_web_development.svg', link: '/services/web-development' },
-    { name: '.NET Development', icon: '/images/ic_net.svg', link: '/services/dot-net-development' },
-    { name: 'Flutter App Development', icon: '/images/ic_flutter.svg', link: '/services/flutter-app-development' },
-    { name: 'PHP Development', icon: '/images/ic_php.svg', link: '/services/php-development' },
-    { name: 'Hire Dedicated Developers', icon: '/images/ic_hirededicated.svg', link: '/hire-developers' },
-    { name: 'Mern Stack Development', icon: '/images/ic_mern.svg', link: '/services/mern-stack-development' },
-    { name: 'Full Stack Development', icon: '/images/ic_fullstack.svg', link: '/services/full-stack-development' },
-    { name: 'Laravel Development', icon: '/images/ic_laravel.svg', link: '/services/laravel-development' }
+    {
+      name: 'Mobile App Development',
+      link: '/services/mobile-app-development',
+      icon: (
+        <svg viewBox="0 0 44 44" className="w-10 h-10 shrink-0">
+          <rect x="10" y="4" width="24" height="36" rx="4" fill="#3B82F6" />
+          <rect x="12" y="7" width="20" height="27" rx="2" fill="#818CF8" />
+          <circle cx="22" cy="37" r="1.5" fill="#FFFFFF" />
+          <rect x="14" y="10" width="16" height="4" rx="1" fill="#FFFFFF" />
+          <line x1="16" y1="12" x2="22" y2="12" stroke="#3B82F6" strokeWidth="1.2" strokeLinecap="round" />
+          <rect x="14" y="16" width="16" height="4" rx="1" fill="#FFFFFF" />
+          <line x1="16" y1="18" x2="24" y2="18" stroke="#EC4899" strokeWidth="1.2" strokeLinecap="round" />
+          <rect x="14" y="22" width="16" height="4" rx="1" fill="#FFFFFF" />
+          <line x1="16" y1="24" x2="20" y2="24" stroke="#10B981" strokeWidth="1.2" strokeLinecap="round" />
+          <rect x="14" y="28" width="16" height="4" rx="1" fill="#FFFFFF" />
+          <line x1="16" y1="30" x2="26" y2="30" stroke="#F59E0B" strokeWidth="1.2" strokeLinecap="round" />
+        </svg>
+      )
+    },
+    {
+      name: 'Software Development',
+      link: '/services/software-development',
+      icon: (
+        <svg viewBox="0 0 44 44" className="w-10 h-10 shrink-0">
+          <rect x="6" y="8" width="30" height="20" rx="2" fill="#334155" />
+          <rect x="8" y="10" width="26" height="16" rx="1" fill="#F8FAFC" />
+          <path d="M3 30 L39 30 C40 30, 41 31, 39 32 L3 32 C1 31, 2 30, 3 30 Z" fill="#64748B" />
+          <circle cx="18" cy="18" r="5" fill="#EF4444" />
+          <circle cx="18" cy="18" r="2" fill="#F8FAFC" />
+          <circle cx="26" cy="16" r="4.5" fill="#10B981" />
+          <circle cx="26" cy="16" r="1.8" fill="#F8FAFC" />
+        </svg>
+      )
+    },
+    {
+      name: 'Web Development',
+      link: '/services/web-development',
+      icon: (
+        <svg viewBox="0 0 44 44" className="w-10 h-10 shrink-0">
+          <rect x="5" y="7" width="34" height="28" rx="3" fill="#BFDBFE" />
+          <path d="M5 7 L39 7 L39 14 L5 14 Z" fill="#3B82F6" />
+          <circle cx="9" cy="10.5" r="1.2" fill="#FFFFFF" />
+          <circle cx="13" cy="10.5" r="1.2" fill="#FFFFFF" />
+          <circle cx="17" cy="10.5" r="1.2" fill="#FFFFFF" />
+          <text x="22" y="27" textAnchor="middle" fontSize="10" fontWeight="900" fill="#1D4ED8" fontFamily="sans-serif">
+            www
+          </text>
+        </svg>
+      )
+    },
+    {
+      name: '.NET Development',
+      link: '/services/dot-net-development',
+      icon: (
+        <svg viewBox="0 0 44 44" className="w-10 h-10 shrink-0">
+          <path d="M6 24 C10 12, 14 12, 18 24 C22 36, 26 36, 30 24" fill="none" stroke="#0284C7" strokeWidth="4.5" strokeLinecap="round" strokeLinejoin="round" />
+          <circle cx="34" cy="20" r="2" fill="#0284C7" />
+        </svg>
+      )
+    },
+    {
+      name: 'Flutter App Development',
+      link: '/services/flutter-app-development',
+      icon: (
+        <svg viewBox="0 0 44 44" className="w-10 h-10 shrink-0" fill="none">
+          <path d="M26 6 L10 22 L15 27 L36 6 Z" fill="#38BDF8" />
+          <path d="M26 22 L15 33 L20 38 L36 22 Z" fill="#0284C7" />
+          <path d="M21 27 L26 22 L36 32 L31 37 Z" fill="#0369A1" />
+        </svg>
+      )
+    },
+    {
+      name: 'PHP Development',
+      link: '/services/php-development',
+      icon: (
+        <svg viewBox="0 0 44 44" className="w-10 h-10 shrink-0">
+          <ellipse cx="22" cy="22" rx="18" ry="12" fill="#6B7280" />
+          <text x="22" y="26.5" textAnchor="middle" fontSize="13" fontWeight="900" fill="#FFFFFF" fontFamily="sans-serif" letterSpacing="0.5">
+            php
+          </text>
+        </svg>
+      )
+    },
+    {
+      name: 'Hire Dedicated Developers',
+      link: '/hire-developers',
+      icon: (
+        <svg viewBox="0 0 44 44" className="w-10 h-10 shrink-0">
+          <circle cx="16" cy="14" r="5" fill="#FCA5A5" />
+          <path d="M9 28 C9 23, 13 21, 16 21 C19 21, 23 23, 23 28" fill="#38BDF8" />
+          <rect x="20" y="16" width="16" height="12" rx="1.5" fill="#38BDF8" />
+          <path d="M26 28 L30 28 M28 28 L28 32" stroke="#0284C7" strokeWidth="1.5" />
+          <polygon points="16,21 17.5,25 16,27 14.5,25" fill="#EF4444" />
+        </svg>
+      )
+    },
+    {
+      name: 'Mern Stack Development',
+      link: '/services/mern-stack-development',
+      icon: (
+        <svg viewBox="0 0 44 44" className="w-10 h-10 shrink-0">
+          <circle cx="16" cy="26" r="8" fill="none" stroke="#6366F1" strokeWidth="3" strokeDasharray="3 1.5" />
+          <circle cx="16" cy="26" r="3.5" fill="#6366F1" />
+          <circle cx="28" cy="14" r="2.5" fill="#06B6D4" />
+          <circle cx="34" cy="18" r="2.5" fill="#06B6D4" />
+          <circle cx="26" cy="20" r="2" fill="#06B6D4" />
+          <circle cx="32" cy="24" r="2" fill="#06B6D4" />
+        </svg>
+      )
+    },
+    {
+      name: 'Full Stack Development',
+      link: '/services/full-stack-development',
+      icon: (
+        <svg viewBox="0 0 44 44" className="w-10 h-10 shrink-0">
+          <rect x="7" y="9" width="30" height="22" rx="3" fill="#1E293B" />
+          <line x1="12" y1="15" x2="19" y2="15" stroke="#38BDF8" strokeWidth="2" strokeLinecap="round" />
+          <line x1="12" y1="20" x2="26" y2="20" stroke="#F59E0B" strokeWidth="2" strokeLinecap="round" />
+          <line x1="12" y1="25" x2="22" y2="25" stroke="#EC4899" strokeWidth="2" strokeLinecap="round" />
+          <path d="M12 34 L32 34" stroke="#64748B" strokeWidth="2" strokeLinecap="round" />
+        </svg>
+      )
+    },
+    {
+      name: 'Laravel Development',
+      link: '/services/laravel-development',
+      icon: (
+        <svg viewBox="0 0 44 44" className="w-10 h-10 shrink-0" fill="none" stroke="#EF4444" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M22 6 L34 13 L34 27 L22 34 L10 27 L10 13 Z" />
+          <path d="M22 6 L22 34" />
+          <path d="M22 20 L34 13" />
+          <path d="M22 20 L10 13" />
+          <path d="M28 16.5 L28 30.5" />
+        </svg>
+      )
+    }
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
-
-  const cardVariants = {
-    hidden: { opacity: 0, y: 60 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
-    }
-  };
-
   return (
-    <section className="py-16 sm:py-20 bg-[#005D95] text-white font-sans text-left overflow-hidden relative">
-      {/* Subtle Animated Radial Ambient Gradients Background */}
-      <div className="absolute inset-0 bg-glow-radial opacity-35 pointer-events-none" />
-      <div className="absolute -top-32 -left-32 w-96 h-96 rounded-full bg-blue-400/10 blur-3xl pointer-events-none" />
-      <div className="absolute -bottom-32 -right-32 w-96 h-96 rounded-full bg-cyan-400/10 blur-3xl pointer-events-none" />
-
+    <section className="py-8 sm:py-10 lg:py-11 bg-[#005F96] text-white font-sans text-left relative">
       <Container>
-        {/* Center Aligned Section Heading */}
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-14 space-y-3 relative z-10">
-          <motion.h2 
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-            className="text-3xl sm:text-4xl lg:text-[40px] font-black text-white tracking-tight font-sans"
+        {/* Section Heading & Subtitle */}
+        <div className="text-center max-w-4xl mx-auto mb-6 sm:mb-8 space-y-2">
+          <h2 
+            className="font-[800] text-white tracking-tight leading-tight"
+            style={{ fontSize: '30px' }}
           >
             {title || "Our Premium Services"}
-          </motion.h2>
-
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="text-sm sm:text-base text-blue-100 font-normal leading-relaxed font-sans"
+          </h2>
+          <p 
+            className="text-white/90 font-normal max-w-3xl mx-auto"
+            style={{ fontSize: '13.5px', lineHeight: '1.55' }}
           >
-            {subtitle || defaultDescription}
-          </motion.p>
+            {subtitle || `As a certified IT company, ${companyName} helps organizations thrive digitally by offering innovative solutions using cutting-edge tools and frameworks. Contact us to learn more!`}
+          </p>
         </div>
 
-        {/* 10 White Service Cards Grid (5-column Desktop, 2-column Mobile) */}
-        <motion.div 
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3.5 sm:gap-4 max-w-6xl mx-auto relative z-10"
-        >
+        {/* 10 White Rounded Service Cards (5 columns x 2 rows on desktop) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-3.5 max-w-[1360px] mx-auto">
           {services.map((item, idx) => (
-            <Enterprise3DCard key={idx} item={item} idx={idx} cardVariants={cardVariants} />
+            <Link
+              key={idx}
+              to={item.link}
+              className="bg-white rounded-[12px] px-3.5 py-2.5 sm:py-3 sm:px-3 text-slate-900 shadow-sm hover:shadow-md hover:scale-[1.02] transition-all duration-200 flex items-center space-x-3 min-h-[58px] sm:min-h-[62px] text-left group"
+            >
+              <div 
+                className="shrink-0 flex items-center justify-center will-change-transform w-8 h-8 sm:w-8.5 sm:h-8.5"
+                style={{
+                  animation: `premiumIconFloat 2.8s ease-in-out infinite`,
+                  animationDelay: `${(idx % 5) * 0.35}s`
+                }}
+              >
+                {item.icon}
+              </div>
+              <span className="font-[800] text-[#0B0F19] text-[12px] sm:text-[12.5px] leading-[1.2] group-hover:text-[#005F96] transition-colors">
+                {item.name}
+              </span>
+            </Link>
           ))}
-        </motion.div>
+        </div>
+
+        <style>{`
+          @keyframes premiumIconFloat {
+            0%, 100% {
+              transform: translateY(0px);
+            }
+            50% {
+              transform: translateY(-5px);
+            }
+          }
+        `}</style>
       </Container>
     </section>
   );
