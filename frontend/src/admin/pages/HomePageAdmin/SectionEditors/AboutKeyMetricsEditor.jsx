@@ -121,22 +121,38 @@ export const AboutKeyMetricsEditor = ({ data, onChange }) => {
       </AdminFormSection>
 
       {/* 2. Metric Cards */}
-      <AdminFormSection title="Metric Statistics & Feature Cards">
+      <AdminFormSection title="Metric Statistics & Feature Cards (12 Milestone & Feature Cards)">
         <ItemListEditor
           items={cards}
           onChange={handleCardsChange}
           itemTitle="Metric Card"
           fields={cardFields}
-          renderItemSummary={(item) => (
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <span style={{ fontSize: '13px', fontWeight: 800, color: '#006B8F' }}>
-                {item.metric || item.title || item.label}
-              </span>
-              <span style={{ fontSize: '12px', color: '#64748B' }}>
-                {item.label || item.sub || item.description}
-              </span>
-            </div>
-          )}
+          renderItemSummary={(item) => {
+            const isStat = item.type === 'stat' || (item.metric && !item.icon);
+            return (
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', minWidth: 0 }}>
+                {isStat ? (
+                  <>
+                    <div style={{ fontSize: '15px', fontWeight: 800, color: '#006B8F', lineHeight: 1.2 }}>
+                      {item.metric || '0+'}
+                    </div>
+                    <div style={{ fontSize: '12px', fontWeight: 600, color: '#334155', lineHeight: 1.35, wordBreak: 'break-word' }}>
+                      {item.label || item.title || 'Metric Description'}
+                    </div>
+                  </>
+                ) : (
+                  <>
+                    <div style={{ fontSize: '13px', fontWeight: 700, color: '#0F172A', lineHeight: 1.3, wordBreak: 'break-word' }}>
+                      {item.label || item.title || 'Feature Highlight'}
+                    </div>
+                    <div style={{ fontSize: '11px', color: '#64748B', lineHeight: 1.3 }}>
+                      {item.description || (item.icon ? `Feature Highlight (${item.icon})` : 'Feature Highlight')}
+                    </div>
+                  </>
+                )}
+              </div>
+            );
+          }}
         />
       </AdminFormSection>
     </div>
