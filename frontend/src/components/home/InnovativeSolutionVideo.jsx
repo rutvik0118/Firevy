@@ -44,7 +44,7 @@ export const InnovativeSolutionVideo = ({ data }) => {
   const title = data?.title || 'Unveiling Our Innovative Solution';
   const description = data?.description || 'From cutting-edge technology to revolutionary concepts, get ready to be inspired and intrigued. This is more than just a video - it’s a glimpse into the future of innovation.';
   const buttonText = data?.buttonText || 'View Insightful Videos';
-  const buttonLink = data?.buttonLink || '/portfolio';
+  const buttonLink = data?.buttonLink || '/company/insightful-videos';
 
   const videos = (data?.videos && Array.isArray(data.videos) && data.videos.filter(v => v.isActive !== false).length > 0)
     ? data.videos.filter(v => v.isActive !== false)

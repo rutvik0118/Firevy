@@ -871,7 +871,7 @@ export const initialTestimonials = [
     company: "Apex Global FinTech",
     image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80",
     rating: 5,
-    review: "Nexora Digital delivered our high-throughput trading API weeks ahead of schedule. Their engineering standards, proactive communication, and deep cloud expertise are outstanding.",
+    review: "Firevy.co delivered our high-throughput trading API weeks ahead of schedule. Their engineering standards, proactive communication, and deep cloud expertise are outstanding.",
     isActive: true
   },
   {
@@ -983,27 +983,27 @@ export const initialTechnologies = [
   { name: "Next.js", category: "Frontend", icon: "Layers", description: "Fullstack React framework with SSR & ISR capabilities.", isActive: true },
   { name: "TypeScript", category: "Frontend", icon: "Code", description: "Typed JavaScript for scalable codebase maintainability.", isActive: true },
   { name: "Tailwind CSS", category: "Frontend", icon: "Palette", description: "Utility-first CSS framework for custom enterprise UI design.", isActive: true },
-  
+
   { name: "Node.js", category: "Backend", icon: "Server", description: "Asynchronous event-driven runtime for high-concurrency APIs.", isActive: true },
   { name: "Express.js", category: "Backend", icon: "Cpu", description: "Minimalist web framework for building robust REST APIs.", isActive: true },
   { name: "Python", category: "Backend", icon: "FileCode", description: "Ideal language for AI, data processing, and backend automation.", isActive: true },
   { name: "Java", category: "Backend", icon: "Coffee", description: "Enterprise grade runtime for robust microservices architecture.", isActive: true },
-  
+
   { name: "React Native", category: "Mobile", icon: "Smartphone", description: "Cross-platform mobile framework using unified React code.", isActive: true },
   { name: "Flutter", category: "Mobile", icon: "Tablet", description: "Google's UI toolkit for natively compiled mobile apps.", isActive: true },
-  
+
   { name: "MongoDB", category: "Database", icon: "Database", description: "Document-oriented NoSQL database for modern flexible schemas.", isActive: true },
   { name: "PostgreSQL", category: "Database", icon: "HardDrive", description: "Advanced open-source relational database with JSON support.", isActive: true },
   { name: "Redis", category: "Database", icon: "Zap", description: "In-memory data store for ultra-fast caching and pub-sub.", isActive: true },
-  
+
   { name: "AWS", category: "Cloud", icon: "Cloud", description: "Industry-leading cloud infrastructure and serverless solutions.", isActive: true },
   { name: "Google Cloud", category: "Cloud", icon: "CloudRain", description: "High-performance compute and AI engine infrastructure.", isActive: true },
   { name: "Azure", category: "Cloud", icon: "Box", description: "Microsoft enterprise cloud ecosystem.", isActive: true },
-  
+
   { name: "Docker", category: "DevOps", icon: "Container", description: "Containerization platform for seamless dev-to-prod parity.", isActive: true },
   { name: "Kubernetes", category: "DevOps", icon: "Compass", description: "Container orchestration for automated deployment scaling.", isActive: true },
   { name: "GitHub Actions", category: "DevOps", icon: "GitBranch", description: "Automated CI/CD workflows integrated into source repositories.", isActive: true },
-  
+
   { name: "PyTorch & TensorFlow", category: "AI", icon: "Brain", description: "Deep learning frameworks for building custom neural networks.", isActive: true },
   { name: "OpenAI & LangChain", category: "AI", icon: "Sparkles", description: "Generative AI APIs and agent execution frameworks.", isActive: true }
 ];
@@ -1011,12 +1011,97 @@ export const initialTechnologies = [
 export const initialJobs = [
   {
     _id: "job_1",
+    title: "Business Development Executive",
+    slug: "business-development-executive",
+    department: "Sales & Marketing",
+    location: "Ahmedabad, India / Hybrid",
+    type: "Full-time",
+    experience: "1 - 4 Years",
+    openings: 4,
+    urgent: false,
+    order: 0,
+    status: "published",
+    description: "Identify and generate new business leads, cultivate client relationships across international markets, and drive revenue growth for enterprise tech solutions.",
+    requirements: [
+      "1-4 years of experience in IT business development / B2B software sales.",
+      "Proven track record of generating qualified leads from international markets (USA, UK, Europe).",
+      "Excellent written, verbal, and presentation communication skills.",
+      "Experience with CRM tools like HubSpot or Salesforce."
+    ],
+    responsibilities: [
+      "Prospect and engage C-level decision-makers and enterprise prospects.",
+      "Conduct introductory discovery calls and align client requirements with technical solutions.",
+      "Collaborate with solution architects to draft proposals and RFP responses.",
+      "Achieve monthly and quarterly business development quotas."
+    ],
+    isActive: true
+  },
+  {
+    _id: "job_2",
+    title: "MERN Stack Developer",
+    slug: "mern-stack-developer",
+    department: "Engineering",
+    location: "Ahmedabad, India / Remote",
+    type: "Full-time",
+    experience: "4 - 5 Years",
+    openings: 1,
+    urgent: true,
+    order: 1,
+    status: "published",
+    description: "We are seeking a seasoned MERN Stack Developer with deep expertise in React.js, Node.js, Express, and MongoDB to build resilient web applications.",
+    requirements: [
+      "4+ years building commercial applications with React, Node.js, Express, and MongoDB.",
+      "Hands-on experience with TypeScript, Next.js, and modern state management (Zustand/Redux).",
+      "Strong understanding of RESTful API architecture, JWT authentication, and WebSockets.",
+      "Experience optimizing database queries and MongoDB aggregations."
+    ],
+    responsibilities: [
+      "Architect modular, high-performance UI components and resilient backend microservices.",
+      "Implement secure authentication, role-based permissions, and third-party integrations.",
+      "Participate in code reviews and enforce best practices in unit and integration testing.",
+      "Collaborate closely with UI/UX designers and product managers in agile sprints."
+    ],
+    isActive: true
+  },
+  {
+    _id: "job_3",
+    title: "Accounts Executive",
+    slug: "accounts-executive",
+    department: "Finance & Accounts",
+    location: "Ahmedabad, India / On-site",
+    type: "Full-time",
+    experience: "1 - 3 Years",
+    openings: 1,
+    urgent: false,
+    order: 2,
+    status: "published",
+    description: "Manage day-to-day corporate financial accounts, vendor invoicing, tax compliance (GST, TDS), and financial reporting.",
+    requirements: [
+      "1-3 years of experience in corporate accounting / financial record keeping.",
+      "Proficiency in Tally Prime, QuickBooks, or equivalent ERP software.",
+      "Solid understanding of GST filings, TDS, balance sheets, and bank reconciliations.",
+      "Bachelor's / Master's degree in Commerce or Accounting."
+    ],
+    responsibilities: [
+      "Prepare and maintain accurate financial ledgers, vouchers, and reconciliations.",
+      "Handle accounts receivable/payable and coordinate client billing cycles.",
+      "Ensure timely statutory tax filings and compliance reporting.",
+      "Assist senior management with monthly cash flow statements."
+    ],
+    isActive: true
+  },
+  {
+    _id: "job_4",
     title: "Senior Full-Stack MERN Engineer",
     slug: "senior-fullstack-mern-engineer",
     department: "Engineering",
     location: "San Francisco, CA / Remote",
     type: "Full-time",
     experience: "5+ Years",
+    openings: 2,
+    urgent: false,
+    order: 3,
+    status: "published",
     description: "We are seeking a Senior Full-Stack Engineer with expert-level proficiency in React, Node.js, Express, and MongoDB. You will architect scalable enterprise microservices and lead key client product initiatives.",
     requirements: [
       "5+ years building commercial React and Node.js applications.",
@@ -1033,13 +1118,17 @@ export const initialJobs = [
     isActive: true
   },
   {
-    _id: "job_2",
+    _id: "job_5",
     title: "AI & Machine Learning Solutions Architect",
     slug: "ai-solutions-architect",
     department: "AI & Innovation",
     location: "Remote",
     type: "Full-time",
     experience: "4+ Years",
+    openings: 1,
+    urgent: true,
+    order: 4,
+    status: "published",
     description: "Join our fast-growing AI team building custom RAG architectures, LLM fine-tuning pipelines, and predictive analytics engines for Fortune 500 clients.",
     requirements: [
       "4+ years experience with Python, PyTorch, TensorFlow, and OpenAI APIs.",
@@ -1055,13 +1144,17 @@ export const initialJobs = [
     isActive: true
   },
   {
-    _id: "job_3",
+    _id: "job_6",
     title: "Lead UI/UX Product Designer",
     slug: "lead-ui-ux-designer",
     department: "Design",
     location: "San Francisco, CA / Hybrid",
     type: "Full-time",
     experience: "5+ Years",
+    openings: 1,
+    urgent: false,
+    order: 5,
+    status: "published",
     description: "Lead digital product design initiatives for modern SaaS and mobile platforms. Craft high-converting visual interfaces, Figma component systems, and fluid micro-interactions.",
     requirements: [
       "5+ years UI/UX design experience for web and mobile software products.",
@@ -1077,3 +1170,320 @@ export const initialJobs = [
     isActive: true
   }
 ];
+
+export const initialCareerPageData = {
+  pageKey: "careers_main",
+  meta: {
+    title: "Build your Future with us | Careers at firevy.co",
+    description: "Explore open software engineering, mobile development, and UI/UX design positions at firevy.co. Build impactful global products.",
+    canonical: "/careers"
+  },
+  hero: {
+    title: "Build your Future with us",
+    description: "Our team is the heart of everything we do. We are dedicated to empowering them to drive meaningful change and shape a brighter future for all. We believe in fostering fulfilling careers by offering inspiring opportunities, continuous development, and the encouragement to unlock their full potential and thrive both personally and professionally.",
+    image: "",
+    badge: "",
+    isActive: true
+  },
+  tabs: [
+    { id: "who-we-are", label: "Who we are", order: 0, isActive: true },
+    { id: "why-firevy", label: "Why firevy.co", order: 1, isActive: true },
+    { id: "benefits", label: "Benefits / What we offer", order: 2, isActive: true },
+    { id: "life-at-firevy", label: "Life at firevy.co", order: 3, isActive: true },
+    { id: "hiring-process", label: "Hiring Process", order: 4, isActive: true },
+    { id: "current-openings", label: "Current Openings", order: 5, isActive: true }
+  ],
+  whoWeAre: [
+    {
+      id: "who_1",
+      title: "Our Heritage & Vision",
+      paragraphs: [
+        "firevy.co, an ISO 27001:2013 certified Web and Mobile App Development Company, has been delivering cutting-edge IT solutions since 2002. We provide a comprehensive suite of IT services and domain-specific solutions tailored for enterprises, ISVs, digital agencies, and startups.",
+        "Driven by innovation and excellence, our highly skilled team combines industry best practices, deep technological expertise, and extensive business domain knowledge to accelerate digital transformation. With over 23+ years of experience, our diverse team engages closely with clients, offering high-end technology solutions and pioneering innovations that drive business success."
+      ],
+      image: "",
+      order: 0,
+      isActive: true
+    },
+    {
+      id: "who_2",
+      title: "Excellence in Delivery",
+      paragraphs: [
+        "We are an award-winning, end-to-end software solutions provider and IT consulting firm with a proven track record of excellence. We have built strong, long-term partnerships with a diverse clientele, serving 2,500+ satisfied customers, from start-ups to large enterprises.",
+        "Our team comprises highly skilled professionals, including web designers, developers, mobile app specialists, network engineers, and QA testers, all dedicated to delivering cutting-edge solutions. With an average experience of 4+ years, our experts bring deep technical expertise and industry best practices to every project, ensuring innovation, efficiency, and success."
+      ],
+      image: "",
+      order: 1,
+      isActive: true
+    }
+  ],
+  whyFirevy: [
+    {
+      id: "why_1",
+      title: "Impact:",
+      subtitle: "Driving success through innovation",
+      quote: "By harnessing creativity and strategic insight, we enable our teams to develop transformative solutions that foster meaningful progress and prove that with the right support, limitless possibilities can be realized.",
+      image: "",
+      order: 0,
+      isActive: true
+    },
+    {
+      id: "why_2",
+      title: "Development:",
+      subtitle: "Lifelong growth",
+      quote: "We equip our associates with extensive knowledge and learning opportunities, fostering innovation and adaptability. This empowers them to stay at the forefront of industry trends and drive impactful transformation.",
+      image: "",
+      order: 1,
+      isActive: true
+    },
+    {
+      id: "why_3",
+      title: "Support:",
+      subtitle: "Empowering our people",
+      quote: "By fostering a culture of continuous upskilling and reskilling, along with diverse career opportunities across the organization, we enable our people—at every stage of their journey—to unlock their potential and evolve into the professionals they strive to become.",
+      image: "",
+      order: 2,
+      isActive: true
+    },
+    {
+      id: "why_4",
+      title: "Progress:",
+      subtitle: "Partners in success",
+      quote: "We see our people as lifelong partners in success, fostering relationships that grow and evolve. By continuously investing in their development, we cultivate a culture of continuous growth, empowering them to strive for new achievements at every stage of their careers.",
+      image: "",
+      order: 3,
+      isActive: true
+    }
+  ],
+  benefits: [
+    { id: "b_1", title: "Collaborative Culture", icon: "Users", description: "Inclusive team environment that values every voice and idea.", order: 0, isActive: true },
+    { id: "b_2", title: "Opportunities for Growth", icon: "TrendingUp", description: "Clear progression paths and leadership development.", order: 1, isActive: true },
+    { id: "b_3", title: "Innovative Projects", icon: "Sparkles", description: "Work with modern AI, cloud, and enterprise technology stacks.", order: 2, isActive: true },
+    { id: "b_4", title: "Work Life Balance", icon: "Heart", description: "Flexible hours and mental wellness support initiatives.", order: 3, isActive: true },
+    { id: "b_5", title: "Celebrations & Outing", icon: "PartyPopper", description: "Quarterly team outings, festival celebrations, and sports events.", order: 4, isActive: true },
+    { id: "b_6", title: "Rewards & Recognition", icon: "Award", description: "Performance bonuses, spotlight awards, and peer appreciation.", order: 5, isActive: true },
+    { id: "b_7", title: "5 Days work week", icon: "Calendar", description: "Balanced Monday to Friday schedule with weekends off.", order: 6, isActive: true },
+    { id: "b_8", title: "Continuous learning", icon: "BookOpen", description: "Funded certifications, hackathons, and technical workshops.", order: 7, isActive: true },
+    { id: "b_9", title: "CSR Activities", icon: "Globe", description: "Opportunities to give back to the community and environment.", order: 8, isActive: true },
+    { id: "b_10", title: "Professional Development", icon: "Briefcase", description: "Executive coaching, soft skills training, and mentorship.", order: 9, isActive: true },
+    { id: "b_11", title: "Competency Building", icon: "ShieldCheck", description: "Domain mastery programs tailored for technical excellence.", order: 10, isActive: true },
+    { id: "b_12", title: "Health Insurance", icon: "HeartPulse", description: "Comprehensive medical and family health coverage.", order: 11, isActive: true }
+  ],
+  lifeAtFirevy: [
+    {
+      id: "life_1",
+      title: "Team Trophy Celebration",
+      image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80",
+      isFeatured: false,
+      order: 0,
+      isActive: true
+    },
+    {
+      id: "life_2",
+      title: "Team Outing Arch",
+      image: "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80",
+      isFeatured: false,
+      order: 1,
+      isActive: true
+    },
+    {
+      id: "life_3",
+      title: "Holi Festival Color Celebration",
+      image: "https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=800&q=80",
+      isFeatured: true,
+      order: 2,
+      isActive: true
+    },
+    {
+      id: "life_4",
+      title: "Office Cake Celebration",
+      image: "https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=800&q=80",
+      isFeatured: false,
+      order: 3,
+      isActive: true
+    },
+    {
+      id: "life_5",
+      title: "Office Reception Gathering",
+      image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80",
+      isFeatured: false,
+      order: 4,
+      isActive: true
+    },
+    {
+      id: "life_6",
+      title: "Office Corridor Team",
+      image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80",
+      isFeatured: false,
+      order: 5,
+      isActive: true
+    },
+    {
+      id: "life_7",
+      title: "Diwali Festival Group Photo",
+      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80",
+      isFeatured: false,
+      order: 6,
+      isActive: true
+    }
+  ],
+  hiringProcess: [
+    {
+      id: "step_1",
+      stepNumber: 1,
+      title: "1. Application",
+      description: "Our intuitive career portal provides a seamless application experience, allowing you to explore and apply for opportunities that align with your expertise. Submit your updated resume and provide detailed insights into your professional experience to enhance your candidacy for the desired role.",
+      order: 0,
+      isActive: true
+    },
+    {
+      id: "step_2",
+      stepNumber: 2,
+      title: "2. Screening & Shortlisting:",
+      description: "Our recruitment team, including our technical panel, will carefully review your application. If your qualifications and skills align with our requirements, we will reach out to you for further discussion.",
+      order: 1,
+      isActive: true
+    },
+    {
+      id: "step_3",
+      stepNumber: 3,
+      title: "3. Technical Interview",
+      description: "The technical interview presents a valuable opportunity to showcase your expertise and problem-solving abilities. The questions will cover a range of disciplines and may include critical situation, analytical challenges, and unconventional problem-solving scenarios to assess your technical proficiency and critical thinking skills.",
+      order: 2,
+      isActive: true
+    },
+    {
+      id: "step_4",
+      stepNumber: 4,
+      title: "4. HR Interview",
+      description: "This is a great opportunity for us to get to know each other better. We aim to understand your career aspirations, skills, strengths, and passions. Likewise, we encourage you to engage with our recruiter and ask any questions you may have about the role or firevy.co as an organization.",
+      order: 3,
+      isActive: true
+    },
+    {
+      id: "step_5",
+      stepNumber: 5,
+      title: "5. Decision & Onboarding",
+      description: "Upon successfully completing the selection process, If you are successful then we will call you for joining formalities, including details of the compensation structure and employment terms at firevy.co.",
+      order: 4,
+      isActive: true
+    }
+  ],
+  visionSection: {
+    title: "Crafting a Vision, Shaping the Future",
+    slides: [
+      {
+        id: "vis_1",
+        title: "Health & Wellbeing",
+        quote: "We place the health and mental well-being of our associates at the core of our values. Through initiatives that promote a culture of fitness and wellness, such as yoga sessions and marathons, we encourage holistic growth and a balanced lifestyle. These programs foster a sense of community, resilience, and overall well-being, empowering our associates to lead healthier, more fulfilling lives.",
+        image: "",
+        order: 0,
+        isActive: true
+      },
+      {
+        id: "vis_2",
+        title: "Continuous Learning & Upskilling",
+        quote: "We invest heavily in the professional expansion of our team members. Through funded tech certifications, quarterly hackathons, hands-on workshops, and dedicated mentorship programs, we ensure our associates stay at the forefront of emerging AI and enterprise technologies.",
+        image: "",
+        order: 1,
+        isActive: true
+      },
+      {
+        id: "vis_3",
+        title: "Diversity & Inclusive Workplace",
+        quote: "We thrive on diverse perspectives and inclusive collaboration. By creating an environment of equal opportunity and psychological safety, every team member is empowered to share ideas, innovate boldly, and lead transformative client outcomes.",
+        image: "",
+        order: 2,
+        isActive: true
+      }
+    ],
+    isActive: true
+  },
+  stats: [
+    { id: "stat_1", value: "200+", label: "IT Professionals", order: 0, isActive: true },
+    { id: "stat_2", value: "20+", label: "Fortune 500 Companies", order: 1, isActive: true },
+    { id: "stat_3", value: "95%", label: "Client Retention", order: 2, isActive: true },
+    { id: "stat_4", value: "2800+", label: "Satisfied Clients", order: 3, isActive: true },
+    { id: "stat_5", value: "23+", label: "Years of Experience", order: 4, isActive: true }
+  ],
+  peopleTestimonials: [
+    {
+      id: "p_1",
+      name: "Ankit Morasiya",
+      role: "Business Analyst",
+      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80",
+      videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      order: 0,
+      isActive: true
+    },
+    {
+      id: "p_2",
+      name: "Umang Barot",
+      role: "Technical Support Lead",
+      avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80",
+      videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      order: 1,
+      isActive: true
+    },
+    {
+      id: "p_3",
+      name: "Galav Shukla",
+      role: "Business Development Executive",
+      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=600&q=80",
+      videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      order: 2,
+      isActive: true
+    },
+    {
+      id: "p_4",
+      name: "Parthiv Trivedi",
+      role: "Business Development Manager",
+      avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=600&q=80",
+      videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      order: 3,
+      isActive: true
+    },
+    {
+      id: "p_5",
+      name: "Daxesh Prajapati",
+      role: "Team Lead",
+      avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80",
+      videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      order: 4,
+      isActive: true
+    },
+    {
+      id: "p_6",
+      name: "Mehul Gajjar",
+      role: "Team Lead",
+      avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80",
+      videoUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+      order: 5,
+      isActive: true
+    }
+  ],
+  socialMedia: {
+    title: "Social Media",
+    subtitle: "We follow a very simple, straight forward, and transparent process",
+    links: [
+      { platform: "Facebook", url: "https://facebook.com", icon: "Facebook", isActive: true },
+      { platform: "X", url: "https://twitter.com", icon: "Twitter", isActive: true },
+      { platform: "LinkedIn", url: "https://linkedin.com", icon: "Linkedin", isActive: true },
+      { platform: "Instagram", url: "https://instagram.com", icon: "Instagram", isActive: true },
+      { platform: "YouTube", url: "https://youtube.com", icon: "Youtube", isActive: true }
+    ],
+    isActive: true
+  },
+  ctaBanner: {
+    title: "Ready To Take Challenge?",
+    description: "If you have a passion for planning & want to work for a rapidly growing entrepreneurial company, please send your resume to careers@firevy.co",
+    email: "careers@firevy.co",
+    buttonText: "Apply Here",
+    isActive: true
+  },
+  generalSettings: {
+    notFindingJobTitle: "Not finding the right opening as per your profile & skillset?",
+    notFindingJobDesc: "If you are interested to work with us but are unable to find a suitable opportunity, submit your profile & we will reach out to you!!!",
+    notFindingJobButtonText: "Apply here"
+  }
+};

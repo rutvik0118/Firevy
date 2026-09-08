@@ -6,7 +6,7 @@ import Container from '../common/Container';
 export const WorkTogetherNewsletterSection = ({ data, title, subtitle, buttonText }) => {
   const bannerTitle = title || data?.bannerTitle || "Need to know more about our offerings? Contact us today!";
   const bannerDescription = subtitle || data?.bannerDescription || "Our podcasts are specific, as guests discuss their experience, giving listeners ideas to harness their full potential.";
-  const bannerButtonText = buttonText || data?.bannerButtonText || "Contact-Us";
+  const bannerButtonText = buttonText || data?.bannerButtonText || "Request A Free Quote";
   const bannerButtonLink = data?.bannerButtonLink || "/contact";
   const newsletterTitle = data?.newsletterTitle || "Subscribe us and Get the latest updates and news";
 
@@ -27,7 +27,7 @@ export const WorkTogetherNewsletterSection = ({ data, title, subtitle, buttonTex
     <>
       {/* 1. Sapphire Blue Work Together CTA Banner with Translucent Tile Shapes */}
       <section className="py-16 sm:py-20 bg-[#006B8F] text-white text-center relative overflow-hidden font-sans border-b border-cyan-800">
-        {/* Background Decorative Translucent Tile Shapes (1:1 Reference Match) */}
+        {/* Background Decorative Translucent Tile Shapes */}
         <div className="absolute inset-0 pointer-events-none opacity-20">
           <div className="absolute top-4 left-6 w-32 h-32 rounded-2xl bg-white/15" />
           <div className="absolute top-12 left-1/4 w-48 h-48 rounded-3xl bg-white/15" />
@@ -37,11 +37,11 @@ export const WorkTogetherNewsletterSection = ({ data, title, subtitle, buttonTex
           <div className="absolute top-1/2 right-1/3 -translate-y-1/2 w-60 h-28 rounded-3xl bg-white/15" />
         </div>
 
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
-          <h2 className="text-[32px] sm:text-[40px] font-[800] text-white tracking-tight leading-tight font-sans mb-3">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
+          <h2 className="text-[32px] sm:text-[40px] font-[800] text-white tracking-tight leading-tight font-sans mb-3 section-content-title">
             {bannerTitle}
           </h2>
-          <p className="text-[15px] sm:text-[17px] font-[400] text-blue-100 leading-relaxed max-w-3xl mx-auto mb-8 font-sans">
+          <p className="text-[15px] sm:text-[17px] font-[400] text-blue-100 leading-relaxed max-w-3xl mx-auto mb-8 font-sans section-content-desc">
             {bannerDescription}
           </p>
           <div>
@@ -58,7 +58,7 @@ export const WorkTogetherNewsletterSection = ({ data, title, subtitle, buttonTex
       {/* 2. Subscribe and Get Latest Updates Banner */}
       <section className="py-16 bg-[#DFEEF7] text-slate-900 text-center relative font-sans border-b border-slate-200">
         <Container>
-          <h2 className="text-[28px] sm:text-[34px] font-[800] text-slate-900 tracking-tight font-sans mb-8">
+          <h2 className="text-[28px] sm:text-[34px] font-[800] text-slate-900 tracking-tight font-sans mb-8 section-content-title">
             {newsletterTitle}
           </h2>
 

@@ -334,3 +334,51 @@ export const resetHomeSections = asyncHandler(async (req, res) => {
     return successResponse(res, 'All 22 home page sections restored to factory defaults', memoryHomeData);
   }
 });
+
+/**
+ * Helper to recursively clear target URL from object or array
+ */
+export const removeFileUrlRecursively = (obj, targetUrl) => {
+  if (!obj || typeof obj !== 'object') return obj;
+  if (Array.isArray(obj)) {
+    return obj.map((item) => removeFileUrlRecursively(item, targetUrl));
+  }
+  const result = { ...obj };
+  for (const key of Object.keys(result)) {
+    const val = result[key];
+    if (typeof val === 'string' && (val === targetUrl || (targetUrl.startsWith('/uploads/') && val.endsWith(targetUrl)))) {
+      result[key] = '';
+    } else if (typeof val === 'object' && val !== null) {
+      result[key] = removeFileUrlRecursively(val, targetUrl);
+    }
+  }
+  return result;
+};
+
+/**
+ * Clean up deleted media URL from in-memory cache and MongoDB HomePageConfig
+ */
+export const removeMediaUrlFromHomeData = async (targetUrl) => {
+  if (!targetUrl) return;
+
+  // 1. Update in-memory cache
+  if (memoryHomeData && memoryHomeData.sections) {
+    memoryHomeData.sections = removeFileUrlRecursively(memoryHomeData.sections, targetUrl);
+    memoryHomeData.sectionsList = buildSectionsList(memoryHomeData.sectionsOrder, memoryHomeData.sections);
+  }
+
+  // 2. Update MongoDB HomePageConfig
+  try {
+    const config = await getOrCreateConfig();
+    if (config && config.sections) {
+      config.sections = removeFileUrlRecursively(config.sections, targetUrl);
+      config.sectionsList = buildSectionsList(config.sectionsOrder, config.sections);
+      config.markModified('sections');
+      config.markModified('sectionsList');
+      await config.save();
+    }
+  } catch (err) {
+    console.error('Error clearing media reference from MongoDB:', err);
+  }
+};
+

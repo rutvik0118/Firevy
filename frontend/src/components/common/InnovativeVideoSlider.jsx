@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import Container from './Container';
 
 const videoList = [
@@ -186,12 +187,12 @@ export const InnovativeVideoSlider = () => {
 
       {/* Centered White Button (View Insightful Videos) */}
       <div className="mt-6 text-center">
-        <button
-          onClick={() => setActiveVideo(videoList[0])}
+        <Link
+          to="/company/insightful-videos"
           className="px-8 py-3.5 bg-white hover:bg-slate-100 text-[#005D95] font-extrabold text-sm sm:text-base rounded-md shadow-md hover:shadow-xl transition-all duration-300 inline-block font-sans transform hover:-translate-y-0.5 cursor-pointer"
         >
           View Insightful Videos
-        </button>
+        </Link>
       </div>
 
       {/* Video Modal Popup */}

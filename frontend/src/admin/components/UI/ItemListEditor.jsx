@@ -1,15 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import {
   Plus,
   Trash2,
   GripVertical,
   ChevronRight,
-  ChevronDown,
-  ChevronUp,
+  Globe,
+  MessageSquare,
+  Award,
+  Users,
+  Smartphone,
+  Code,
+  Cloud,
+  Shield,
+  Zap,
+  TrendingUp,
+  Layers,
   Image as ImageIcon,
-  Sliders,
-  AlignLeft,
-  Check,
+  Search,
   X
 } from 'lucide-react';
 import MediaUploadInput from './MediaUploadInput';
@@ -24,6 +31,7 @@ export const ItemListEditor = ({
 }) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [draggedIndex, setDraggedIndex] = useState(null);
+  const [searchTerm, setSearchTerm] = useState('');
 
   // Sync selected index if items list changes
   useEffect(() => {
@@ -46,7 +54,7 @@ export const ItemListEditor = ({
     initial.isActive = true;
 
     // Set a default title if field exists
-    const titleField = fields.find((f) => ['title', 'name', 'heading', 'company', 'author'].includes(f.name));
+    const titleField = fields.find((f) => ['title', 'name', 'heading', 'company', 'author', 'label', 'metric'].includes(f.name));
     if (titleField && !initial[titleField.name]) {
       initial[titleField.name] = `New ${itemTitle} 0${items.length + 1}`;
     }
@@ -81,7 +89,7 @@ export const ItemListEditor = ({
     onChange(newItems);
   };
 
-  // Toggle active status of current item
+  // Toggle active status of item
   const handleToggleActive = (indexToToggle, e) => {
     if (e) e.stopPropagation();
     const newItems = [...items];
@@ -118,6 +126,66 @@ export const ItemListEditor = ({
     setSelectedIndex(targetIndex);
     onChange(newItems);
   };
+
+  // Safe Item Icon/Media Renderer
+  const renderItemMediaIcon = (item) => {
+    const media = item.image || item.icon || item.avatar || item.mockup || item.symbol || item.logo;
+    const isStat = item.type === 'stat' || (item.metric && !item.icon);
+
+    if (typeof media === 'string' && (media.startsWith('http://') || media.startsWith('https://') || media.startsWith('data:') || media.startsWith('/'))) {
+      return (
+        <img
+          src={media}
+          alt=""
+          style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+          onError={(e) => {
+            e.target.style.display = 'none';
+          }}
+        />
+      );
+    }
+
+    if (typeof media === 'string' && media.trim() !== '') {
+      const key = media.toLowerCase().trim();
+      if (key === 'globe' || key === 'world') return <Globe size={13} />;
+      if (key === 'chat' || key === 'message' || key === 'comments') return <MessageSquare size={13} />;
+      if (key === 'badge' || key === 'hired' || key === 'award') return <Award size={13} />;
+      if (key === 'handshake' || key === 'partner' || key === 'users') return <Users size={13} />;
+      if (key === 'web' || key === 'browser') return <Globe size={13} />;
+      if (key === 'mobile' || key === 'phone' || key === 'app') return <Smartphone size={13} />;
+      if (key === 'code' || key === 'dev') return <Code size={13} />;
+      if (key === 'cloud') return <Cloud size={13} />;
+      if (key === 'shield' || key === 'security') return <Shield size={13} />;
+      if (key === 'zap' || key === 'fast') return <Zap size={13} />;
+
+      if (media.length <= 3) {
+        return <span style={{ fontSize: '11px', fontWeight: 800 }}>{media}</span>;
+      }
+    }
+
+    if (isStat) {
+      return <TrendingUp size={13} />;
+    }
+
+    return <Layers size={13} />;
+  };
+
+  // Filter items by search query if applicable
+  const filteredItemsWithIndex = useMemo(() => {
+    if (!searchTerm.trim()) {
+      return items.map((item, idx) => ({ item, originalIndex: idx }));
+    }
+    const q = searchTerm.toLowerCase().trim();
+    return items
+      .map((item, idx) => ({ item, originalIndex: idx }))
+      .filter(({ item, originalIndex }) => {
+        const str = Object.values(item)
+          .filter((v) => typeof v === 'string' || typeof v === 'number')
+          .join(' ')
+          .toLowerCase();
+        return str.includes(q) || `0${originalIndex + 1}`.includes(q);
+      });
+  }, [items, searchTerm]);
 
   // Separate fields by category
   const isMediaField = (f) => ['image', 'video', 'pdf', 'media'].includes(f.type) || f.section === 'media';
@@ -166,30 +234,12 @@ export const ItemListEditor = ({
   }
 
   return (
-    <div
-      style={{
-        display: 'grid',
-        gridTemplateColumns: 'minmax(260px, 320px) 1fr',
-        gap: '16px',
-        alignItems: 'start',
-        fontFamily: "'Poppins', sans-serif"
-      }}
-    >
+    <div className="item-list-editor-grid">
       {/* ========================================================
-          LEFT COLUMN: ITEMS LIST
+          LEFT COLUMN: COMPACT SCROLLABLE ITEMS LIST (33% width)
           ======================================================== */}
-      <div
-        style={{
-          backgroundColor: '#FFFFFF',
-          border: '1px solid #E2E8F0',
-          borderRadius: '8px',
-          padding: '14px',
-          boxShadow: '0 1px 2px rgba(0,0,0,0.03)',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '10px'
-        }}
-      >
+      <div className="item-list-left-panel">
+        {/* Header */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingBottom: '8px', borderBottom: '1px solid #F1F5F9' }}>
           <div>
             <h3 style={{ margin: 0, fontSize: '13px', fontWeight: 800, color: '#0F172A' }}>
@@ -206,164 +256,245 @@ export const ItemListEditor = ({
               display: 'inline-flex',
               alignItems: 'center',
               gap: '4px',
-              padding: '4px 8px',
-              borderRadius: '5px',
+              padding: '5px 10px',
+              borderRadius: '6px',
               backgroundColor: '#006B8F',
               color: '#FFFFFF',
               fontSize: '11px',
               fontWeight: 700,
               border: 'none',
-              cursor: 'pointer'
+              cursor: 'pointer',
+              boxShadow: '0 1px 3px rgba(0, 107, 143, 0.2)'
             }}
           >
             <Plus size={13} /> Add {itemTitle}
           </button>
         </div>
 
-        {/* List of Item Cards */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-          {items.map((item, idx) => {
-            const isSelected = idx === selectedIndex;
-            const isActive = item.isActive !== false;
-            const itemNumber = idx < 9 ? `0${idx + 1}` : `${idx + 1}`;
-            const itemDisplayName = item.title || item.name || item.heading || item.label || item.company || item.tabName || `${itemTitle} ${itemNumber}`;
-            const itemSub = item.tag || item.category || item.sub || item.desc || item.slug || item.role || item.metric;
-            const itemMedia = item.image || item.icon || item.avatar || item.mockup;
-
-            return (
-              <div
-                key={idx}
-                draggable={true}
-                onDragStart={(e) => handleDragStart(e, idx)}
-                onDragOver={(e) => handleDragOver(e, idx)}
-                onDrop={(e) => handleDrop(e, idx)}
-                onClick={() => setSelectedIndex(idx)}
+        {/* Search Filter when 4+ items */}
+        {items.length >= 4 && (
+          <div style={{ position: 'relative', width: '100%' }}>
+            <Search size={13} style={{ position: 'absolute', left: '8px', top: '50%', transform: 'translateY(-50%)', color: '#94A3B8' }} />
+            <input
+              type="text"
+              placeholder={`Filter ${items.length} ${itemTitle.toLowerCase()}s...`}
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              style={{
+                width: '100%',
+                padding: '5px 24px 5px 26px',
+                fontSize: '11px',
+                borderRadius: '5px',
+                border: '1px solid #CBD5E1',
+                backgroundColor: '#F8FAFC',
+                color: '#0F172A',
+                boxSizing: 'border-box'
+              }}
+            />
+            {searchTerm && (
+              <button
+                type="button"
+                onClick={() => setSearchTerm('')}
                 style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                  padding: '8px 10px',
-                  borderRadius: '6px',
-                  backgroundColor: isSelected ? '#F0F9FF' : '#F8FAFC',
-                  border: isSelected ? '1.5px solid #006B8F' : '1px solid #E2E8F0',
+                  position: 'absolute',
+                  right: '6px',
+                  top: '50%',
+                  transform: 'translateY(-50%)',
+                  background: 'none',
+                  border: 'none',
+                  padding: 0,
                   cursor: 'pointer',
-                  transition: 'all 0.15s ease'
+                  color: '#94A3B8'
                 }}
               >
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flex: 1, minWidth: 0, paddingRight: '6px' }}>
-                  <div style={{ color: '#94A3B8', cursor: 'grab', display: 'flex', alignItems: 'center' }}>
+                <X size={12} />
+              </button>
+            )}
+          </div>
+        )}
+
+        {/* Scrollable Compact Cards List */}
+        <div className="item-list-scroll-area">
+          {filteredItemsWithIndex.length === 0 ? (
+            <div style={{ padding: '20px 10px', textAlign: 'center', color: '#94A3B8', fontSize: '11px' }}>
+              No matches found for "{searchTerm}"
+            </div>
+          ) : (
+            filteredItemsWithIndex.map(({ item, originalIndex }) => {
+              const isSelected = originalIndex === selectedIndex;
+              const isActive = item.isActive !== false;
+              const itemNumber = originalIndex < 9 ? `0${originalIndex + 1}` : `${originalIndex + 1}`;
+              const itemDisplayName = item.title || item.name || item.heading || item.label || item.company || item.tabName || `${itemTitle} ${itemNumber}`;
+              const itemSub = item.tag || item.category || item.sub || item.desc || item.slug || item.role || item.metric;
+
+              return (
+                <div
+                  key={originalIndex}
+                  draggable={true}
+                  onDragStart={(e) => handleDragStart(e, originalIndex)}
+                  onDragOver={(e) => handleDragOver(e, originalIndex)}
+                  onDrop={(e) => handleDrop(e, originalIndex)}
+                  onClick={() => setSelectedIndex(originalIndex)}
+                  className={`item-list-compact-card ${isSelected ? 'selected' : ''}`}
+                >
+                  {/* Left: Drag Handle */}
+                  <div
+                    style={{
+                      color: isSelected ? '#006B8F' : '#94A3B8',
+                      cursor: 'grab',
+                      display: 'flex',
+                      alignItems: 'center',
+                      flexShrink: 0
+                    }}
+                    title="Drag to reorder"
+                  >
                     <GripVertical size={14} />
                   </div>
 
-                  <div
-                    style={{
-                      width: '22px',
-                      height: '22px',
-                      borderRadius: '4px',
-                      backgroundColor: isSelected ? '#006B8F' : '#E2E8F0',
-                      color: isSelected ? '#FFFFFF' : '#475569',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      fontSize: '10px',
-                      fontWeight: 800,
-                      flexShrink: 0
-                    }}
-                  >
-                    {itemNumber}
-                  </div>
-
-                  {/* Thumbnail if present */}
-                  {typeof itemMedia === 'string' && itemMedia.trim() !== '' && (
+                  {/* Badge & Media Icon */}
+                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '3px', flexShrink: 0 }}>
+                    <div
+                      style={{
+                        padding: '1px 5px',
+                        borderRadius: '3px',
+                        backgroundColor: isSelected ? '#006B8F' : '#E2E8F0',
+                        color: isSelected ? '#FFFFFF' : '#334155',
+                        fontSize: '10px',
+                        fontWeight: 800,
+                        letterSpacing: '0.02em',
+                        lineHeight: 1.2
+                      }}
+                    >
+                      {itemNumber}
+                    </div>
                     <div
                       style={{
                         width: '24px',
                         height: '24px',
-                        borderRadius: '4px',
-                        overflow: 'hidden',
-                        backgroundColor: '#FFFFFF',
-                        border: '1px solid #E2E8F0',
-                        flexShrink: 0,
+                        borderRadius: '5px',
+                        backgroundColor: isSelected ? '#E0F2FE' : '#F1F5F9',
+                        border: '1px solid',
+                        borderColor: isSelected ? '#BAE6FD' : '#E2E8F0',
                         display: 'flex',
                         alignItems: 'center',
-                        justifyContent: 'center'
+                        justifyContent: 'center',
+                        overflow: 'hidden',
+                        color: '#006B8F'
                       }}
                     >
-                      <img src={itemMedia} alt="" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+                      {renderItemMediaIcon(item)}
                     </div>
-                  )}
+                  </div>
 
-                  <div style={{ flex: 1, minWidth: 0 }}>
+                  {/* Center: Title / Metric & Active Pill */}
+                  <div style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column', gap: '2px', overflow: 'hidden' }}>
                     {renderItemSummary ? (
-                      renderItemSummary(item, idx)
+                      renderItemSummary(item, originalIndex)
                     ) : (
-                      <div>
-                        <div style={{ fontSize: '11px', fontWeight: 700, color: '#0F172A', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                      <>
+                        <div
+                          style={{
+                            fontSize: '12px',
+                            fontWeight: 700,
+                            color: isSelected ? '#006B8F' : '#0F172A',
+                            lineHeight: 1.25,
+                            whiteSpace: 'nowrap',
+                            overflow: 'hidden',
+                            textOverflow: 'ellipsis'
+                          }}
+                        >
                           {itemDisplayName}
                         </div>
                         {itemSub && (
-                          <div style={{ fontSize: '10px', color: '#64748B', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                          <div
+                            style={{
+                              fontSize: '11px',
+                              color: '#64748B',
+                              lineHeight: 1.2,
+                              whiteSpace: 'nowrap',
+                              overflow: 'hidden',
+                              textOverflow: 'ellipsis'
+                            }}
+                          >
                             {itemSub}
                           </div>
                         )}
-                      </div>
+                      </>
                     )}
+
+                    {/* Active Status Pill */}
+                    <div style={{ marginTop: '2px' }}>
+                      <span
+                        onClick={(e) => handleToggleActive(originalIndex, e)}
+                        style={{
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '3px',
+                          fontSize: '9px',
+                          fontWeight: 700,
+                          padding: '1px 5px',
+                          borderRadius: '8px',
+                          backgroundColor: isActive ? '#DCFCE7' : '#F1F5F9',
+                          color: isActive ? '#15803D' : '#64748B',
+                          border: '1px solid',
+                          borderColor: isActive ? '#BBF7D0' : '#E2E8F0',
+                          cursor: 'pointer',
+                          userSelect: 'none'
+                        }}
+                        title={isActive ? 'Click to hide' : 'Click to activate'}
+                      >
+                        <span
+                          style={{
+                            width: '4px',
+                            height: '4px',
+                            borderRadius: '50%',
+                            backgroundColor: isActive ? '#16A34A' : '#94A3B8'
+                          }}
+                        />
+                        {isActive ? 'Active' : 'Hidden'}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Right: Chevron */}
+                  <div
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      color: isSelected ? '#006B8F' : '#CBD5E1',
+                      flexShrink: 0
+                    }}
+                  >
+                    <ChevronRight size={15} />
                   </div>
                 </div>
-
-                <div style={{ display: 'flex', alignItems: 'center', gap: '4px', flexShrink: 0 }}>
-                  <span
-                    onClick={(e) => handleToggleActive(idx, e)}
-                    style={{
-                      fontSize: '9px',
-                      fontWeight: 700,
-                      padding: '1px 5px',
-                      borderRadius: '10px',
-                      backgroundColor: isActive ? '#DCFCE7' : '#F1F5F9',
-                      color: isActive ? '#15803D' : '#64748B',
-                      cursor: 'pointer'
-                    }}
-                    title={isActive ? 'Click to hide' : 'Click to activate'}
-                  >
-                    {isActive ? 'Active' : 'Hidden'}
-                  </span>
-                  <ChevronRight size={14} style={{ color: isSelected ? '#006B8F' : '#94A3B8' }} />
-                </div>
-              </div>
-            );
-          })}
+              );
+            })
+          )}
         </div>
       </div>
 
       {/* ========================================================
-          RIGHT COLUMN: INLINE EDIT FORM (Matches Reference)
+          RIGHT COLUMN: INLINE STICKY EDIT FORM (67% width)
           ======================================================== */}
       {currentItem && (
-        <div
-          style={{
-            backgroundColor: '#FFFFFF',
-            border: '1px solid #E2E8F0',
-            borderRadius: '8px',
-            padding: '16px',
-            boxShadow: '0 1px 2px rgba(0,0,0,0.03)',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '14px'
-          }}
-        >
-          {/* Header with Status & Delete */}
+        <div className="item-list-right-panel">
+          {/* Header with Title, Status & Delete */}
           <div
             style={{
               display: 'flex',
               justifyContent: 'space-between',
               alignItems: 'center',
               paddingBottom: '10px',
-              borderBottom: '1px solid #E2E8F0'
+              borderBottom: '1px solid #E2E8F0',
+              gap: '10px',
+              flexWrap: 'wrap'
             }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
               <h3 style={{ margin: 0, fontSize: '14px', fontWeight: 800, color: '#0F172A' }}>
-                Edit {itemTitle} ({itemTitle} 0{selectedIndex + 1})
+                Edit {itemTitle} ({itemTitle} {selectedIndex < 9 ? `0${selectedIndex + 1}` : `${selectedIndex + 1}`})
               </h3>
               <button
                 type="button"
@@ -372,13 +503,13 @@ export const ItemListEditor = ({
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '4px',
-                  padding: '2px 8px',
+                  padding: '3px 8px',
                   borderRadius: '12px',
                   backgroundColor: currentItem.isActive !== false ? '#DCFCE7' : '#F1F5F9',
                   color: currentItem.isActive !== false ? '#15803D' : '#64748B',
                   border: '1px solid',
                   borderColor: currentItem.isActive !== false ? '#BBF7D0' : '#E2E8F0',
-                  fontSize: '10px',
+                  fontSize: '11px',
                   fontWeight: 700,
                   cursor: 'pointer'
                 }}
@@ -391,7 +522,7 @@ export const ItemListEditor = ({
                     backgroundColor: currentItem.isActive !== false ? '#16A34A' : '#94A3B8'
                   }}
                 />
-                {currentItem.isActive !== false ? 'Active' : 'Inactive'}
+                {currentItem.isActive !== false ? 'Active' : 'Hidden'}
               </button>
             </div>
 
@@ -402,27 +533,40 @@ export const ItemListEditor = ({
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
-                gap: '4px',
-                padding: '4px 8px',
-                borderRadius: '5px',
+                gap: '5px',
+                padding: '5px 10px',
+                borderRadius: '6px',
                 backgroundColor: '#FEF2F2',
                 border: '1px solid #FEE2E2',
                 color: '#DC2626',
                 fontSize: '11px',
                 fontWeight: 600,
                 cursor: items.length <= 1 ? 'not-allowed' : 'pointer',
-                opacity: items.length <= 1 ? 0.5 : 1
+                opacity: items.length <= 1 ? 0.5 : 1,
+                transition: 'all 0.15s ease'
               }}
             >
-              <Trash2 size={12} /> Delete {itemTitle}
+              <Trash2 size={13} /> Delete {itemTitle}
             </button>
           </div>
 
-          {/* Regular Inputs Grid */}
+          {/* Regular Inputs Grid - Responsive 3-Column on Desktop */}
           {regularFields.length > 0 && (
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '10px 14px' }}>
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
+                gap: '12px 14px',
+                width: '100%'
+              }}
+            >
               {regularFields.map((field) => (
-                <div key={field.name} style={{ gridColumn: field.fullWidth ? '1 / -1' : 'auto' }}>
+                <div
+                  key={field.name}
+                  style={{
+                    gridColumn: field.fullWidth ? '1 / -1' : 'auto'
+                  }}
+                >
                   <label style={{ display: 'block', fontSize: '11px', fontWeight: 700, color: '#0F172A', marginBottom: '4px' }}>
                     {field.label} {field.required && <span style={{ color: '#DC2626' }}>*</span>}
                   </label>
@@ -431,7 +575,15 @@ export const ItemListEditor = ({
                       className="form-control"
                       value={currentItem[field.name] || ''}
                       onChange={(e) => handleFieldChange(field.name, e.target.value)}
-                      style={{ width: '100%', padding: '7px 10px', borderRadius: '5px', border: '1px solid #CBD5E1', fontSize: '12px', color: '#0F172A', backgroundColor: '#FFFFFF' }}
+                      style={{
+                        width: '100%',
+                        padding: '7px 10px',
+                        borderRadius: '6px',
+                        border: '1px solid #CBD5E1',
+                        fontSize: '12px',
+                        color: '#0F172A',
+                        backgroundColor: '#FFFFFF'
+                      }}
                     >
                       {field.options?.map((opt) => (
                         <option key={typeof opt === 'string' ? opt : opt.value} value={typeof opt === 'string' ? opt : opt.value}>
@@ -446,7 +598,15 @@ export const ItemListEditor = ({
                       value={currentItem[field.name] !== undefined ? currentItem[field.name] : 0}
                       onChange={(e) => handleFieldChange(field.name, Number(e.target.value))}
                       placeholder={field.placeholder || '0'}
-                      style={{ width: '100%', padding: '7px 10px', borderRadius: '5px', border: '1px solid #CBD5E1', fontSize: '12px', color: '#0F172A', backgroundColor: '#FFFFFF' }}
+                      style={{
+                        width: '100%',
+                        padding: '7px 10px',
+                        borderRadius: '6px',
+                        border: '1px solid #CBD5E1',
+                        fontSize: '12px',
+                        color: '#0F172A',
+                        backgroundColor: '#FFFFFF'
+                      }}
                     />
                   ) : (
                     <input
@@ -455,11 +615,19 @@ export const ItemListEditor = ({
                       value={currentItem[field.name] || ''}
                       onChange={(e) => handleFieldChange(field.name, e.target.value)}
                       placeholder={field.placeholder || `Enter ${field.label.toLowerCase()}...`}
-                      style={{ width: '100%', padding: '7px 10px', borderRadius: '5px', border: '1px solid #CBD5E1', fontSize: '12px', color: '#0F172A', backgroundColor: '#FFFFFF' }}
+                      style={{
+                        width: '100%',
+                        padding: '7px 10px',
+                        borderRadius: '6px',
+                        border: '1px solid #CBD5E1',
+                        fontSize: '12px',
+                        color: '#0F172A',
+                        backgroundColor: '#FFFFFF'
+                      }}
                     />
                   )}
                   {field.helperText && (
-                    <p style={{ margin: '2px 0 0 0', fontSize: '10px', color: '#64748B' }}>{field.helperText}</p>
+                    <p style={{ margin: '3px 0 0 0', fontSize: '10px', color: '#64748B' }}>{field.helperText}</p>
                   )}
                 </div>
               ))}
@@ -468,9 +636,9 @@ export const ItemListEditor = ({
 
           {/* Description Textareas (Full Width) */}
           {descFields.length > 0 && (
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', width: '100%' }}>
               {descFields.map((field) => (
-                <div key={field.name}>
+                <div key={field.name} style={{ width: '100%' }}>
                   <label style={{ display: 'block', fontSize: '11px', fontWeight: 700, color: '#0F172A', marginBottom: '4px' }}>
                     {field.label} {field.required && <span style={{ color: '#DC2626' }}>*</span>}
                   </label>
@@ -480,23 +648,32 @@ export const ItemListEditor = ({
                     value={currentItem[field.name] || ''}
                     onChange={(e) => handleFieldChange(field.name, e.target.value)}
                     placeholder={field.placeholder || `Enter ${field.label.toLowerCase()}...`}
-                    style={{ width: '100%', padding: '7px 10px', borderRadius: '5px', border: '1px solid #CBD5E1', fontSize: '12px', color: '#0F172A', backgroundColor: '#FFFFFF', fontFamily: 'inherit' }}
+                    style={{
+                      width: '100%',
+                      padding: '7px 10px',
+                      borderRadius: '6px',
+                      border: '1px solid #CBD5E1',
+                      fontSize: '12px',
+                      color: '#0F172A',
+                      backgroundColor: '#FFFFFF',
+                      fontFamily: 'inherit'
+                    }}
                   />
                   {field.helperText && (
-                    <p style={{ margin: '2px 0 0 0', fontSize: '10px', color: '#64748B' }}>{field.helperText}</p>
+                    <p style={{ margin: '3px 0 0 0', fontSize: '10px', color: '#64748B' }}>{field.helperText}</p>
                   )}
                 </div>
               ))}
             </div>
           )}
 
-          {/* Media Assets */}
+          {/* Media Assets (Full Width) */}
           {mediaFields.length > 0 && (
-            <div style={{ borderTop: '1px solid #E2E8F0', paddingTop: '10px' }}>
-              <h4 style={{ margin: '0 0 8px 0', fontSize: '11px', fontWeight: 800, color: '#475569', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+            <div style={{ borderTop: '1px solid #E2E8F0', paddingTop: '12px', width: '100%' }}>
+              <h4 style={{ margin: '0 0 10px 0', fontSize: '11px', fontWeight: 800, color: '#475569', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
                 Media & Visual Assets
               </h4>
-              <div style={{ display: 'grid', gridTemplateColumns: mediaFields.length > 1 ? '1fr 1fr' : '1fr', gap: '12px' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', width: '100%' }}>
                 {mediaFields.map((field) => (
                   <MediaUploadInput
                     key={field.name}
@@ -513,7 +690,7 @@ export const ItemListEditor = ({
 
           {/* Setting Checkboxes */}
           {settingFields.length > 0 && (
-            <div style={{ borderTop: '1px solid #E2E8F0', paddingTop: '8px', display: 'flex', flexDirection: 'column', gap: '6px' }}>
+            <div style={{ borderTop: '1px solid #E2E8F0', paddingTop: '10px', display: 'flex', flexDirection: 'column', gap: '8px', width: '100%' }}>
               {settingFields.map((field) => (
                 <label key={field.name} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12px', cursor: 'pointer', color: '#0F172A', fontWeight: 600 }}>
                   <input
@@ -534,3 +711,4 @@ export const ItemListEditor = ({
 };
 
 export default ItemListEditor;
+

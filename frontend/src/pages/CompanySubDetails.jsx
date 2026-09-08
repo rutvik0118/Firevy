@@ -15,6 +15,8 @@ import Container from '../components/common/Container';
 import AboutKeyMetrics from '../components/home/AboutKeyMetrics';
 import WorkTogetherNewsletterSection from '../components/home/WorkTogetherNewsletterSection';
 import FeaturedInLogosGrid from '../components/home/FeaturedInLogosGrid';
+import AwardsRecognitionPage from '../components/company/AwardsRecognitionPage';
+import InsightfulVideosPage from '../components/company/InsightfulVideosPage';
 import {
   Users, Award, Calendar, BookOpen, Heart, ShieldCheck, CheckCircle2,
   ArrowRight, FileText, Mic, Globe, Sparkles, MessageSquare, Star, Quote, ChevronRight, ChevronLeft, ChevronDown, Briefcase, Target, Linkedin, ThumbsUp, Camera
@@ -449,7 +451,12 @@ export const CompanySubDetails = () => {
     return <VideoTestimonial />;
   }
 
-  if (pageKey === 'insightful-videos' || pageKey === 'insightful-video') {
+  // If this is the "Awards & Recognition" page
+  if (pageKey === 'awards-recognition' || pageKey === 'awards-and-recognition' || pageKey === 'awards') {
+    return <AwardsRecognitionPage />;
+  }
+
+  if (pageKey === 'insightful-videos' || pageKey === 'videos' || pageKey === 'insightful-video') {
     return <InsightfulVideos />;
   }
 

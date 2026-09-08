@@ -121,22 +121,17 @@ export const initialHomePageData = {
     aboutKeyMetrics: {
       isVisible: true,
       order: 3,
-      title: 'Glance through our creations and presence',
-      description: "We are a team of qualified Salesforce & Enterprise Development Professionals adept at expanding your current system's capabilities via the development and integration of Salesforce CRM and cloud architectures.",
-      backgroundImage: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80',
+      title: 'About Us',
+      description: 'Sapphire delivers cutting-edge digital solutions that drive our clients to achieve unparalleled success',
       cards: [
-        { type: 'stat', metric: '23+', label: 'Years Experience', isActive: true },
-        { type: 'stat', metric: '2800+', label: 'Satisfied Clients', isActive: true },
-        { type: 'stat', metric: '1500+', label: 'Projects Completed', isActive: true },
-        { type: 'stat', metric: '200+', label: 'IT Professional', isActive: true },
-        { type: 'stat', metric: '95%', label: 'Client Retention', isActive: true },
-        { type: 'stat', metric: '18+', label: 'Industry Served', isActive: true },
-        { type: 'stat', metric: '30+', label: 'Countries Active Customers', isActive: true },
-        { type: 'stat', metric: '6+', label: 'Global Offices', isActive: true },
-        { type: 'feature', label: 'Work at your time zone', icon: 'globe', isActive: true },
-        { type: 'feature', label: 'Easy communication', icon: 'chat', isActive: true },
-        { type: 'feature', label: 'Hire in 48 Hours', icon: 'badge', isActive: true },
-        { type: 'feature', label: 'In Business since 2002', icon: 'handshake', isActive: true }
+        { metric: '23+', label: 'Years of Experience', image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=300&q=80', isActive: true },
+        { metric: '320+', label: '5-Star Clutch Reviews', image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=300&q=80', isActive: true },
+        { metric: '20+', label: 'Fortunes 500 Companies', image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=300&q=80', isActive: true },
+        { metric: '200+', label: 'IT Professional', image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=300&q=80', isActive: true },
+        { metric: '95%', label: 'Client Retention', image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=300&q=80', isActive: true },
+        { metric: '18+', label: 'Industry Served', image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=300&q=80', isActive: true },
+        { metric: '2800+', label: 'Satisfied Clients', image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=300&q=80', isActive: true },
+        { metric: '1500+', label: 'Completed Projects', image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=300&q=80', isActive: true }
       ]
     },
 
@@ -260,10 +255,10 @@ export const initialHomePageData = {
     conversionCalloutBanner: {
       isVisible: true,
       order: 6,
-      title: 'Let’s Start Something Together',
+      title: "Let's Start Something Great Together",
       description: 'Book a meeting with our specialists today to learn more about how Firevy can help you unlock technology visions and drive your product strategy.',
-      leftImage: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80',
-      rightImage: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80',
+      leftImage: '/images/together_left.e9ba331b.webp',
+      rightImage: '/images/together_right.5ad10a97.webp',
       buttonText: 'Get In Touch',
       buttonLink: '/contact'
     },
@@ -338,12 +333,12 @@ export const initialHomePageData = {
     trustRecognitionBanner: {
       isVisible: true,
       order: 8,
-      title: 'Trust & Recognition In Global Software Engineering',
+      title: 'Proud To Have Picked These Up Along The Way',
       badges: [
-        { title: 'Clutch - We Deliver On', sub: 'Verified 5.0 Rating', isActive: true },
-        { title: 'Upwork Top Rated', sub: 'Top-Rated Freelancer', isActive: true },
-        { title: 'Freelancer Preferred', sub: 'Top 1% Engineering', isActive: true },
-        { title: 'Top Profile Badge', sub: '5-Star Quality', isActive: true }
+        { id: 1, title: 'Clutch - We Deliver On', image: '/images/clutch.png', isActive: true },
+        { id: 2, title: 'Upwork Top Rated', image: '/images/9_upwork.png', isActive: true },
+        { id: 3, title: 'Freelancer Preferred', image: '/images/10_freelancer.png', isActive: true },
+        { id: 4, title: 'GoodFirms Top Developer', image: '/images/goodfirms.png', isActive: true }
       ]
     },
 
@@ -351,71 +346,63 @@ export const initialHomePageData = {
     workProcessGrid: {
       isVisible: true,
       order: 9,
-      title: 'Work Process',
+      title: 'Process We Follow',
       description: 'A systematic, milestone-driven development process engineered to maximize delivery speed, quality, and business value.',
       steps: [
         {
           step: '01',
-          titleLine1: 'Requirement',
-          titleLine2: 'Gathering',
+          title: 'Requirement Gathering',
           desc: 'Focus would be on documentation first for clarity and better understanding from both sides and come to the same page.',
-          bg: 'bg-[#EEECFE] border-[#DDD8FE]',
+          bg: 'bg-[#ECE7FE] border-[#DDD8FE]',
           isActive: true
         },
         {
           step: '02',
-          titleLine1: 'Designs, Wireframes, &',
-          titleLine2: 'Mockups',
+          title: 'Designs, Wireframes, & Mockups',
           desc: 'We help our clients to create an interactive and wonder to watch UI designs that describes user-friendly flow of web/app/platform.',
-          bg: 'bg-[#E3F6E7] border-[#C8EED0]',
+          bg: 'bg-[#E5F7E8] border-[#C8EED0]',
           isActive: true
         },
         {
           step: '03',
-          titleLine1: 'Prototype Demo',
-          titleLine2: '',
+          title: 'Prototype Demo',
           desc: 'After finalizing and designs approval, we freeze the scope and help our client with demo or prototype to have a look and feel of the app/web/platform.',
-          bg: 'bg-[#FDF0E8] border-[#FADCD0]',
+          bg: 'bg-[#FDF0E7] border-[#FADCD0]',
           isActive: true
         },
         {
           step: '04',
-          titleLine1: 'Changes And',
-          titleLine2: 'Confirmation',
+          title: 'Changes And Confirmation',
           desc: "Clients can feel free to add and mention the required changes as per expectations they need in the existing platform. We'll proceed with client's confirmation on the same.",
           bg: 'bg-[#FEF8DB] border-[#F7EDB3]',
           isActive: true
         },
         {
           step: '05',
-          titleLine1: 'Development',
-          titleLine2: '',
-          desc: 'With client approval, we start the development with the technologies best suited for you, and deliver you results in the timeframe as...',
-          bg: 'bg-[#FBE4EC] border-[#F8BBD0]',
+          title: 'Development',
+          desc: 'With client approval, we start the development with the technologies best suited for you, and deliver you results in the timeframe as committed by our technical team.',
+          bg: 'bg-[#FDE7EE] border-[#FBCFE8]',
           isActive: true
         },
         {
           step: '06',
-          titleLine1: 'Deployment',
-          titleLine2: '',
-          desc: 'We are open to help our clients with final testing, UAT, training, and final deployment of the source code, and launching in...',
-          bg: 'bg-[#E1F7F9] border-[#BBEFF3]',
+          title: 'Deployment',
+          desc: "We are open to help our clients with final testing, UAT, training, and final deployment of the source code, and launching in client's platform.",
+          bg: 'bg-[#E2F7F8] border-[#BAE6FD]',
           isActive: true
         },
         {
           step: '07',
-          titleLine1: 'Support And',
-          titleLine2: 'Maintenance',
-          desc: 'We provide free service and support as per decided terms in our agreement. We also provide packages for maintenance...',
-          bg: 'bg-[#F2E4F9] border-[#E6CDFA]',
+          title: 'Support And Maintenance',
+          desc: 'We provide free service and support as per decided terms in our agreement. We also provide packages further monthly or yearly based on your requirement',
+          bg: 'bg-[#F6E8FD] border-[#E9D5FF]',
           isActive: true
         },
         {
           step: '08',
-          titleLine1: 'SEO',
-          titleLine2: '',
-          desc: 'We are open to help our clients for promoting their businesses/products with providing complimentary SEO services, providing keyword strategy...',
-          bg: 'bg-[#EFF6CD] border-[#E2EEA5]',
+          title: 'SEO',
+          desc: 'We are open to help our clients for promoting their businesses/products with providing complimentary SEO services, providing them a help hand to market their product/business.',
+          bg: 'bg-[#F6FBDD] border-[#E5F2A8]',
           isActive: true
         }
       ]
@@ -426,26 +413,30 @@ export const initialHomePageData = {
       isVisible: true,
       order: 10,
       title: 'Our Engagement Models',
-      description: 'At firevy.co, we provide full-cycle custom software development services to meet your financial requirements. We have designed engagement models that give you the freedom to choose your team size according to your need.',
+      description: 'At Sapphire, we provide full-cycle custom software development services to meet your financial requirements. Our software development team leverages their expertise in delivering process-oriented and high-performance software products for Cloud, Mobile, and Web.',
       buttonText: 'Get In Touch',
       buttonLink: '/contact',
       models: [
         {
+          id: 1,
           title: 'Fixed Price',
           description: 'This model is for projects with well-defined scope and requirements. When Clients know what they want and have fixed requirements, it works the best for small businesses and medium projects with limited or fixed budgets.',
           isActive: true
         },
         {
+          id: 2,
           title: 'Dedicated Hiring',
           description: 'For projects when clients want to have a full-time, dedicated team working on their projects. Works best for projects which require fast scaling or require expert developers to work on a long-term basis.',
           isActive: true
         },
         {
+          id: 3,
           title: 'Time Material',
           description: 'For projects where requirements are dynamic and constantly changing, and scope is not clearly defined. Works the best for When clients need short-term consulting or want to build a proof of concepts.',
           isActive: true
         },
         {
+          id: 4,
           title: 'Buckets Approach',
           description: 'A lot of businesses typically select our bucket approach which allow them for payment convenience once the project is finished and things are in place.',
           isActive: true
