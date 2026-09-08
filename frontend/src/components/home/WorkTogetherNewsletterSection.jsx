@@ -4,8 +4,8 @@ import { CheckCircle2, ChevronDown } from 'lucide-react';
 import Container from '../common/Container';
 
 export const WorkTogetherNewsletterSection = ({ data, title, subtitle }) => {
-  const bannerTitle = data?.bannerTitle || title || "Let's Work Together On Your Next Digital Project";
-  const bannerDescription = data?.bannerDescription || subtitle || "Book a meeting with our specialists today to learn more about how firevy.co can help you unlock technology visions and drive your product strategy.";
+  const bannerTitle = title || data?.bannerTitle || "Let's Work Together On Your Next Digital Project";
+  const bannerDescription = subtitle || data?.bannerDescription || "Book a meeting with our specialists today to learn more about how firevy.co can help you unlock technology visions and drive your product strategy.";
   const bannerButtonText = data?.bannerButtonText || "Request A Free Quote";
   const bannerButtonLink = data?.bannerButtonLink || "/contact";
   const newsletterTitle = data?.newsletterTitle || "Subscribe us and Get the latest updates and news";

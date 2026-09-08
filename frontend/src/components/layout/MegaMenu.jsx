@@ -1082,9 +1082,9 @@ export const MegaMenu = ({ type, onClose }) => {
                     <li><Link to="/company/women-empowerment" onClick={onClose} className={subMenuLinkStyle}>Women Empowerment</Link></li>
                     <li><Link to="/company/awards-recognition" onClick={onClose} className={subMenuLinkStyle}>Awards & Recognition</Link></li>
                     <li>
-                      <button onClick={() => openVideo('/Best Software Development Company in USA - Sapphire Software Sol.mp4')} className={`${subMenuLinkStyle} w-full text-left`}>
+                      <Link to="/company/insightful-videos" onClick={onClose} className={subMenuLinkStyle}>
                         Insightful Videos
-                      </button>
+                      </Link>
                     </li>
                   </ul>
 
