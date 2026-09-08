@@ -17,7 +17,7 @@
     "it-solutions",
     "api"
   ],
-  "author": "Nexora Digital",
+  "author": "Firevy co",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",

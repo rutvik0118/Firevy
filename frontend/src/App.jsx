@@ -21,6 +21,7 @@ import SectionEditorPage from './admin/pages/HomePageAdmin/SectionEditorPage';
 import ServicesPage from './admin/pages/ServicesPage';
 import PortfolioPage from './admin/pages/PortfolioPage';
 import JobsPage from './admin/pages/JobsPage';
+import CareersAdminPage from './admin/pages/CareersAdminPage';
 import ApplicationsPage from './admin/pages/ApplicationsPage';
 import InquiriesPage from './admin/pages/InquiriesPage';
 import IndustriesPage from './admin/pages/IndustriesPage';
@@ -125,10 +126,66 @@ export function App() {
                 }
               />
               <Route
+                path="/admin/company"
+                element={
+                  <AdminRouteWrapper>
+                    <SectionEditorPage />
+                  </AdminRouteWrapper>
+                }
+              />
+              <Route
+                path="/admin/company/:sectionKey"
+                element={
+                  <AdminRouteWrapper>
+                    <SectionEditorPage />
+                  </AdminRouteWrapper>
+                }
+              />
+              <Route
+                path="/admin/product"
+                element={
+                  <AdminRouteWrapper>
+                    <ServicesPage />
+                  </AdminRouteWrapper>
+                }
+              />
+              <Route
+                path="/admin/product/:sectionKey"
+                element={
+                  <AdminRouteWrapper>
+                    <SectionEditorPage />
+                  </AdminRouteWrapper>
+                }
+              />
+              <Route
                 path="/admin/services"
                 element={
                   <AdminRouteWrapper>
                     <ServicesPage />
+                  </AdminRouteWrapper>
+                }
+              />
+              <Route
+                path="/admin/services/:sectionKey"
+                element={
+                  <AdminRouteWrapper>
+                    <SectionEditorPage />
+                  </AdminRouteWrapper>
+                }
+              />
+              <Route
+                path="/admin/hire"
+                element={
+                  <AdminRouteWrapper>
+                    <SectionEditorPage />
+                  </AdminRouteWrapper>
+                }
+              />
+              <Route
+                path="/admin/hire/:sectionKey"
+                element={
+                  <AdminRouteWrapper>
+                    <SectionEditorPage />
                   </AdminRouteWrapper>
                 }
               />
@@ -141,10 +198,42 @@ export function App() {
                 }
               />
               <Route
+                path="/admin/portfolio/:sectionKey"
+                element={
+                  <AdminRouteWrapper>
+                    <SectionEditorPage />
+                  </AdminRouteWrapper>
+                }
+              />
+              <Route
+                path="/admin/technologies/:sectionKey"
+                element={
+                  <AdminRouteWrapper>
+                    <SectionEditorPage />
+                  </AdminRouteWrapper>
+                }
+              />
+              <Route
                 path="/admin/jobs"
                 element={
                   <AdminRouteWrapper>
-                    <JobsPage />
+                    <CareersAdminPage />
+                  </AdminRouteWrapper>
+                }
+              />
+              <Route
+                path="/admin/company/careers"
+                element={
+                  <AdminRouteWrapper>
+                    <CareersAdminPage />
+                  </AdminRouteWrapper>
+                }
+              />
+              <Route
+                path="/admin/company/careers-jobs"
+                element={
+                  <AdminRouteWrapper>
+                    <CareersAdminPage />
                   </AdminRouteWrapper>
                 }
               />

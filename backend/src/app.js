@@ -19,6 +19,7 @@ import applicationRoutes from './routes/applicationRoutes.js';
 import settingsRoutes from './routes/settingsRoutes.js';
 import adminRoutes from './routes/adminRoutes.js';
 import homePageRoutes from './routes/homePageRoutes.js';
+import careerRoutes from './routes/careerRoutes.js';
 import uploadRoutes from './routes/uploadRoutes.js';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -90,6 +91,7 @@ app.use('/api/v1/industries', industryRoutes);
 app.use('/api/v1/technologies', technologyRoutes);
 app.use('/api/v1/testimonials', testimonialRoutes);
 app.use('/api/v1/jobs', jobRoutes);
+app.use('/api/v1/careers', careerRoutes);
 app.use('/api/v1/contact', contactRoutes);
 app.use('/api/v1/applications', applicationRoutes);
 app.use('/api/v1/settings', settingsRoutes);

@@ -22,12 +22,14 @@ export const SectionEditorPage = () => {
   const navigate = useNavigate();
   const { addToast } = useToast();
 
-  const meta = SECTION_METADATA[sectionKey] || {
-    title: sectionKey || 'Section Editor',
+  const activeKey = sectionKey || 'aboutKeyMetrics';
+  const meta = SECTION_METADATA[activeKey] || {
+    title: activeKey || 'Section Editor',
     category: 'Home Section',
     description: 'Manage content, media assets, and settings for this section.'
   };
 
+  const canonicalKey = meta.key || activeKey;
   const ActiveEditor = meta.editor;
 
   const [loading, setLoading] = useState(true);
@@ -46,7 +48,7 @@ export const SectionEditorPage = () => {
         const res = await adminService.getHomePageAdmin();
         if (isMounted) {
           const fetchedSections = res?.data?.sections || {};
-          const existing = fetchedSections[sectionKey] || INITIAL_HOME_PAGE_DATA.sections[sectionKey] || {};
+          const existing = fetchedSections[canonicalKey] || fetchedSections[activeKey] || INITIAL_HOME_PAGE_DATA.sections[canonicalKey] || INITIAL_HOME_PAGE_DATA.sections[activeKey] || {};
           const cloned = JSON.parse(JSON.stringify(existing));
           setSectionData(cloned);
           setOriginalSectionData(JSON.parse(JSON.stringify(existing)));
@@ -54,7 +56,7 @@ export const SectionEditorPage = () => {
         }
       } catch {
         if (isMounted) {
-          const fallback = INITIAL_HOME_PAGE_DATA.sections[sectionKey] || {};
+          const fallback = INITIAL_HOME_PAGE_DATA.sections[canonicalKey] || INITIAL_HOME_PAGE_DATA.sections[activeKey] || {};
           setSectionData(JSON.parse(JSON.stringify(fallback)));
           setOriginalSectionData(JSON.parse(JSON.stringify(fallback)));
           addToast(`Loaded local default template for "${meta.title}".`, 'info');
@@ -70,15 +72,15 @@ export const SectionEditorPage = () => {
     return () => {
       isMounted = false;
     };
-  }, [sectionKey]);
+  }, [activeKey, canonicalKey]);
 
   // Save Handler
   const handleSave = async () => {
-    if (!sectionKey || !sectionData) return;
+    if (!canonicalKey || !sectionData) return;
     setSaving(true);
     try {
-      const res = await adminService.updateHomePageSection(sectionKey, sectionData);
-      const savedData = res?.data?.sections?.[sectionKey] || sectionData;
+      const res = await adminService.updateHomePageSection(canonicalKey, sectionData);
+      const savedData = res?.data?.sections?.[canonicalKey] || sectionData;
       setSectionData(JSON.parse(JSON.stringify(savedData)));
       setOriginalSectionData(JSON.parse(JSON.stringify(savedData)));
       addToast(`"${meta.title}" saved successfully!`, 'success');
@@ -93,9 +95,9 @@ export const SectionEditorPage = () => {
   const handleReset = (toFactoryDefaults = false) => {
     let sourceData = null;
     if (toFactoryDefaults) {
-      sourceData = INITIAL_HOME_PAGE_DATA.sections[sectionKey] || {};
+      sourceData = INITIAL_HOME_PAGE_DATA.sections[canonicalKey] || INITIAL_HOME_PAGE_DATA.sections[activeKey] || {};
     } else {
-      sourceData = originalSectionData || INITIAL_HOME_PAGE_DATA.sections[sectionKey] || {};
+      sourceData = originalSectionData || INITIAL_HOME_PAGE_DATA.sections[canonicalKey] || INITIAL_HOME_PAGE_DATA.sections[activeKey] || {};
     }
 
     const resetSnapshot = JSON.parse(JSON.stringify(sourceData));
@@ -113,7 +115,7 @@ export const SectionEditorPage = () => {
   const isVisible = sectionData?.isVisible !== false && sectionData?.isEnabled !== false;
 
   return (
-    <div className="page-container animate-fade-in" style={{ paddingBottom: '90px' }}>
+    <div className="page-container animate-fade-in">
       {/* Top Header */}
       <div className="page-top-bar" style={{ marginBottom: '20px' }}>
         <div>
@@ -183,12 +185,12 @@ export const SectionEditorPage = () => {
       ) : ActiveEditor && sectionData ? (
         <div className="card" style={{ padding: '24px', backgroundColor: '#FFFFFF', borderRadius: '12px', border: '1px solid #E2E8F0', boxShadow: '0 1px 3px rgba(0,0,0,0.04)' }}>
           <ErrorBoundary
-            key={`${sectionKey}-${resetVersion}`}
+            key={`${canonicalKey}-${resetVersion}`}
             title={`${meta.title} Editor`}
             onReset={() => handleReset(false)}
           >
             <ActiveEditor
-              key={`${sectionKey}-${resetVersion}`}
+              key={`${canonicalKey}-${resetVersion}`}
               data={sectionData}
               onChange={(updated) => setSectionData(updated)}
             />
@@ -196,7 +198,7 @@ export const SectionEditorPage = () => {
         </div>
       ) : (
         <div className="card" style={{ padding: '40px', textAlign: 'center', color: '#64748B', backgroundColor: '#FFFFFF', borderRadius: '12px' }}>
-          No editor component found for section key "{sectionKey}".
+          No editor component found for section key "{activeKey}".
         </div>
       )}
 

@@ -91,11 +91,42 @@ export const adminService = {
     return apiClient.get(`/portfolio/${slug}`);
   },
 
+  // ============================================================
+  // CAREERS CMS & JOBS MANAGEMENT APIS
+  // ============================================================
+  getCareerPageAdmin: async () => {
+    return apiClient.get('/careers/admin');
+  },
+  updateCareerPage: async (data) => {
+    return apiClient.put('/careers', data);
+  },
+  resetCareerPage: async () => {
+    return apiClient.post('/careers/reset');
+  },
+
   getJobs: async () => {
     return apiClient.get('/jobs');
   },
+  getAdminJobs: async () => {
+    return apiClient.get('/jobs/admin/all');
+  },
   getJobById: async (id) => {
     return apiClient.get(`/jobs/${id}`);
+  },
+  createJob: async (data) => {
+    return apiClient.post('/jobs', data);
+  },
+  updateJob: async (id, data) => {
+    return apiClient.put(`/jobs/${id}`, data);
+  },
+  deleteJob: async (id) => {
+    return apiClient.delete(`/jobs/${id}`);
+  },
+  toggleJobStatus: async (id) => {
+    return apiClient.patch(`/jobs/${id}/toggle`);
+  },
+  reorderJobs: async (jobsOrder) => {
+    return apiClient.patch('/jobs/reorder', { jobsOrder });
   },
   submitApplication: async (data) => {
     return apiClient.post('/applications', data);
