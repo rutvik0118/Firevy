@@ -1264,12 +1264,12 @@ export const IWatchAppDevelopmentService = () => {
 
           {/* Centered 'View Insightful Videos' Button */}
           <div className="text-center">
-            <a
-              href="#quote-form"
+            <Link
+              to="/company/insightful-videos"
               className="inline-flex items-center justify-center px-8 py-3.5 rounded-[8px] bg-white hover:bg-slate-100 text-[#0b5072] font-[800] text-[15px] transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 font-sans"
             >
               View Insightful Videos
-            </a>
+            </Link>
           </div>
         </Container>
 

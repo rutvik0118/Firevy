@@ -51,10 +51,10 @@ export const Header = () => {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white transition-all duration-200 shadow-sm">
-      {/* Top Announcement / Utility Bar - Hides instantly on scroll */}
+    <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-200">
+      {/* Top Announcement / Utility Bar - Hides on homepage top or on scroll */}
       <AnimatePresence>
-        {!isScrolled && (
+        {!isScrolled && location.pathname !== '/' && (
           <motion.div
             initial={{ height: 'auto', opacity: 1 }}
             animate={{ height: 'auto', opacity: 1 }}
@@ -100,13 +100,25 @@ export const Header = () => {
       </AnimatePresence>
 
       {/* Main Header Bar - Spacious 82px Height Matching Reference Site */}
-      <div className="relative bg-white border-b border-slate-200 text-slate-900 shadow-sm h-[82px] flex items-center">
+      <div className={`relative transition-all duration-300 h-[82px] flex items-center ${
+        location.pathname === '/' && !isScrolled
+          ? 'bg-[#031120]/80 backdrop-blur-md border-b border-white/10 text-white shadow-lg'
+          : 'bg-white border-b border-slate-200 text-slate-900 shadow-sm'
+      }`}>
         <div className="w-full px-6 lg:px-10 flex items-center justify-between h-full">
           {/* Brand Logo */}
           <Link to="/" className="flex items-center group shrink-0 mr-6">
-            <span className="text-2xl sm:text-3xl lg:text-[32px] font-extrabold tracking-wider font-sans text-slate-900 group-hover:opacity-90 transition-colors">
-              firevy<span className="text-[#005F96]">.co</span>
-            </span>
+            {location.pathname === '/' && !isScrolled ? (
+              <img
+                src="/images/sapphire_logo_white.svg"
+                alt="Sapphire Software Solutions"
+                className="h-9 w-auto object-contain"
+              />
+            ) : (
+              <span className="text-2xl sm:text-3xl lg:text-[32px] font-extrabold tracking-wider font-sans text-slate-900 group-hover:opacity-90 transition-colors">
+                firevy<span className="text-[#005F96]">.co</span>
+              </span>
+            )}
           </Link>
 
           {/* Desktop Nav & Action CTAs */}
@@ -115,6 +127,7 @@ export const Header = () => {
               {navLinks.map((link) => {
                 const isActive = location.pathname === link.path || activeDropdown === link.hasMenu;
                 const hasMenu = Boolean(link.hasMenu);
+                const isDarkHeader = location.pathname === '/' && !isScrolled;
 
                 return (
                   <div
@@ -125,12 +138,14 @@ export const Header = () => {
                     <Link
                       to={link.path}
                       className={`text-sm xl:text-[15.5px] font-semibold transition-colors flex items-center space-x-1 ${
-                        isActive ? 'text-[#005F96] font-bold' : 'text-[#2D3748] hover:text-[#005F96]'
+                        isDarkHeader
+                          ? (isActive ? 'text-cyan-300 font-bold' : 'text-white/90 hover:text-cyan-300')
+                          : (isActive ? 'text-[#005F96] font-bold' : 'text-[#2D3748] hover:text-[#005F96]')
                       }`}
                     >
                       <span>{link.name}</span>
                       {hasMenu && (
-                        <span className="text-[11px] leading-none ml-0.5 text-slate-400 group-hover:text-[#005F96]">
+                        <span className={`text-[11px] leading-none ml-0.5 ${isDarkHeader ? 'text-white/60' : 'text-slate-400'}`}>
                           ▾
                         </span>
                       )}
@@ -139,7 +154,7 @@ export const Header = () => {
                     {isActive && (
                       <motion.div
                         layoutId="activeHeaderTab"
-                        className="absolute bottom-0 left-0 right-0 h-[3px] bg-[#005F96]"
+                        className={`absolute bottom-0 left-0 right-0 h-[3px] ${isDarkHeader ? 'bg-cyan-400' : 'bg-[#005F96]'}`}
                         transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                       />
                     )}
@@ -160,7 +175,7 @@ export const Header = () => {
 
               <Link
                 to="/contact"
-                className="inline-flex items-center justify-center px-6 py-3 text-xs xl:text-sm font-bold text-white rounded-[6px] bg-[#005F96] hover:bg-[#004A75] transition-all duration-300 shadow-md hover:scale-105"
+                className="inline-flex items-center justify-center px-6 py-3 text-xs xl:text-sm font-bold text-white rounded-[6px] bg-[#006B8F] hover:bg-[#005478] transition-all duration-300 shadow-md hover:scale-105"
               >
                 <span>Contact Us</span>
               </Link>
