@@ -1081,11 +1081,7 @@ export const MegaMenu = ({ type, onClose }) => {
                     <li><Link to="/company/great-place-to-work" onClick={onClose} className={subMenuLinkStyle}>Great Place To Work</Link></li>
                     <li><Link to="/company/women-empowerment" onClick={onClose} className={subMenuLinkStyle}>Women Empowerment</Link></li>
                     <li><Link to="/company/awards-recognition" onClick={onClose} className={subMenuLinkStyle}>Awards & Recognition</Link></li>
-                    <li>
-                      <button onClick={() => openVideo('/Best Software Development Company in USA - Sapphire Software Sol.mp4')} className={`${subMenuLinkStyle} w-full text-left`}>
-                        Insightful Videos
-                      </button>
-                    </li>
+                    <li><Link to="/company/insightful-videos" onClick={onClose} className={subMenuLinkStyle}>Insightful Videos</Link></li>
                   </ul>
 
                   <ul className="space-y-1">
@@ -1114,12 +1110,7 @@ export const MegaMenu = ({ type, onClose }) => {
                 </h4>
                 <ul className="space-y-1">
                   <li><Link to="/company/client-testimonials" onClick={onClose} className={subMenuLinkStyle}>Client Testimonials</Link></li>
-                  <li>
-                    <button onClick={() => openVideo('/Best Software Development Company in USA - Sapphire Software Sol.mp4')} className={`${subMenuLinkStyle} w-full flex items-center justify-between text-left`}>
-                      <span>Video Testimonial</span>
-                      <Play className="w-3 h-3 text-cyan-600 fill-current ml-1 inline" />
-                    </button>
-                  </li>
+                  <li><Link to="/company/video-testimonial" onClick={onClose} className={subMenuLinkStyle}>Video Testimonial</Link></li>
                   <li><Link to="/company/clutch-testimonial" onClick={onClose} className={subMenuLinkStyle}>Clutch Testimonial</Link></li>
                 </ul>
               </div>

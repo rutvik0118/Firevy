@@ -3,24 +3,17 @@ import { Link } from 'react-router-dom';
 import { CheckCircle2, ChevronDown } from 'lucide-react';
 import Container from '../common/Container';
 
-<<<<<<< HEAD
-export const WorkTogetherNewsletterSection = ({ data }) => {
-  const bannerTitle = data?.bannerTitle || "Let's Work Together On Your Next Digital Project";
-  const bannerDescription = data?.bannerDescription || "Book a meeting with our specialists today to learn more about how firevy.co can help you unlock technology visions and drive your product strategy.";
-  const bannerButtonText = data?.bannerButtonText || "Request A Free Quote";
+export const WorkTogetherNewsletterSection = ({ data, title, subtitle, buttonText }) => {
+  const bannerTitle = title || data?.bannerTitle || "Need to know more about our offerings? Contact us today!";
+  const bannerDescription = subtitle || data?.bannerDescription || "Our podcasts are specific, as guests discuss their experience, giving listeners ideas to harness their full potential.";
+  const bannerButtonText = buttonText || data?.bannerButtonText || "Contact-Us";
   const bannerButtonLink = data?.bannerButtonLink || "/contact";
   const newsletterTitle = data?.newsletterTitle || "Subscribe us and Get the latest updates and news";
-  const newsletterButtonText = data?.newsletterButtonText || "Subscribe";
 
-=======
-export const WorkTogetherNewsletterSection = ({ title, subtitle }) => {
-  const ctaTitle = title || "Let's Work Together On Your Next Digital Project";
-  const ctaSubtitle = subtitle || "Book a meeting with our specialists today to learn more about how firevy.co can help you unlock technology visions and drive your product strategy.";
->>>>>>> 8cb21c9e90c25913bdf378ceb0ee75f4d31189db
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
-  const [countryCode, setCountryCode] = useState('+1');
+  const [countryCode, setCountryCode] = useState('+91');
   const [subscribed, setSubscribed] = useState(false);
 
   const handleSubmit = (e) => {
@@ -32,27 +25,29 @@ export const WorkTogetherNewsletterSection = ({ title, subtitle }) => {
 
   return (
     <>
-      {/* 1. Sapphire Blue Work Together CTA Banner */}
-      <section className="py-16 bg-[#006B8F] text-white text-center relative overflow-hidden font-sans border-b border-cyan-800">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6">
-<<<<<<< HEAD
-          <h2 className="text-[32px] sm:text-[38px] font-[800] text-white tracking-tight leading-tight font-sans mb-3">
+      {/* 1. Sapphire Blue Work Together CTA Banner with Translucent Tile Shapes */}
+      <section className="py-16 sm:py-20 bg-[#006B8F] text-white text-center relative overflow-hidden font-sans border-b border-cyan-800">
+        {/* Background Decorative Translucent Tile Shapes (1:1 Reference Match) */}
+        <div className="absolute inset-0 pointer-events-none opacity-20">
+          <div className="absolute top-4 left-6 w-32 h-32 rounded-2xl bg-white/15" />
+          <div className="absolute top-12 left-1/4 w-48 h-48 rounded-3xl bg-white/15" />
+          <div className="absolute bottom-4 left-1/3 w-36 h-36 rounded-2xl bg-white/15" />
+          <div className="absolute top-6 right-1/4 w-40 h-40 rounded-2xl bg-white/15" />
+          <div className="absolute bottom-6 right-10 w-52 h-52 rounded-3xl bg-white/15" />
+          <div className="absolute top-1/2 right-1/3 -translate-y-1/2 w-60 h-28 rounded-3xl bg-white/15" />
+        </div>
+
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
+          <h2 className="text-[32px] sm:text-[40px] font-[800] text-white tracking-tight leading-tight font-sans mb-3">
             {bannerTitle}
           </h2>
-          <p className="text-[16px] font-[400] text-blue-100 leading-relaxed max-w-3xl mx-auto mb-8 font-sans">
+          <p className="text-[15px] sm:text-[17px] font-[400] text-blue-100 leading-relaxed max-w-3xl mx-auto mb-8 font-sans">
             {bannerDescription}
-=======
-          <h2 className="text-[40px] font-[800] text-white tracking-tight leading-tight font-sans mb-3 section-content-title">
-            {ctaTitle}
-          </h2>
-          <p className="text-[15px] font-[400] text-blue-100 leading-relaxed max-w-3xl mx-auto mb-8 font-sans section-content-desc">
-            {ctaSubtitle}
->>>>>>> 8cb21c9e90c25913bdf378ceb0ee75f4d31189db
           </p>
           <div>
             <Link
               to={bannerButtonLink}
-              className="inline-flex items-center justify-center px-8 py-3.5 rounded-[6px] bg-white hover:bg-slate-100 text-[#004A75] font-[700] text-[14px] transition-all shadow-md font-sans"
+              className="inline-flex items-center justify-center px-8 py-3.5 rounded-[6px] bg-white hover:bg-slate-100 text-[#004A75] font-[800] text-[15px] transition-all shadow-lg hover:shadow-xl font-sans"
             >
               {bannerButtonText}
             </Link>
@@ -63,13 +58,8 @@ export const WorkTogetherNewsletterSection = ({ title, subtitle }) => {
       {/* 2. Subscribe and Get Latest Updates Banner */}
       <section className="py-16 bg-[#DFEEF7] text-slate-900 text-center relative font-sans border-b border-slate-200">
         <Container>
-<<<<<<< HEAD
           <h2 className="text-[28px] sm:text-[34px] font-[800] text-slate-900 tracking-tight font-sans mb-8">
             {newsletterTitle}
-=======
-          <h2 className="text-[40px] font-[800] text-slate-900 tracking-tight font-sans mb-8 section-content-title">
-            Subscribe us and Get the latest updates and news
->>>>>>> 8cb21c9e90c25913bdf378ceb0ee75f4d31189db
           </h2>
 
           {subscribed ? (
@@ -131,9 +121,9 @@ export const WorkTogetherNewsletterSection = ({ title, subtitle }) => {
                 {/* Submit Button */}
                 <button
                   type="submit"
-                  className="w-full lg:w-auto px-9 py-3 rounded-[6px] bg-[#006B8F] hover:bg-[#005478] text-white font-[700] text-[14px] transition-all shadow-md shrink-0 font-sans"
+                  className="w-full lg:w-auto px-8 py-3 rounded-[6px] bg-[#006B8F] hover:bg-[#005478] text-white font-[700] text-[14px] transition-all shadow-md font-sans"
                 >
-                  {newsletterButtonText}
+                  Subscribe
                 </button>
               </div>
             </form>

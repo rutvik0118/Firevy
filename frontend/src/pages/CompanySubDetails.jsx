@@ -2,6 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Careers from './Careers';
 import CSR from './CSR';
+import Podcast from './Podcast';
+import DeliveryModels from './DeliveryModels';
+import EngagementModels from './EngagementModels';
+import DevelopmentMethodology from './DevelopmentMethodology';
+import Testimonials from './Testimonials';
+import ClutchTestimonial from './ClutchTestimonial';
+import VideoTestimonial from './VideoTestimonial';
+import InsightfulVideos from './InsightfulVideos';
 import SEO from '../components/common/SEO';
 import Container from '../components/common/Container';
 import AboutKeyMetrics from '../components/home/AboutKeyMetrics';
@@ -412,6 +420,38 @@ export const CompanySubDetails = () => {
   const prevReview = () => {
     setActiveReviewIdx((prev) => (prev === 0 ? clientReviews.length - 1 : prev - 1));
   };
+
+  if (pageKey === 'podcast') {
+    return <Podcast />;
+  }
+
+  if (pageKey === 'delivery-models' || pageKey === 'delivery-model') {
+    return <DeliveryModels />;
+  }
+
+  if (pageKey === 'engagement-models' || pageKey === 'engagement-model') {
+    return <EngagementModels />;
+  }
+
+  if (pageKey === 'development-methodology' || pageKey === 'development-methodologies') {
+    return <DevelopmentMethodology />;
+  }
+
+  if (pageKey === 'client-testimonials' || pageKey === 'testimonials') {
+    return <Testimonials />;
+  }
+
+  if (pageKey === 'clutch-testimonial' || pageKey === 'clutch-testimonials') {
+    return <ClutchTestimonial />;
+  }
+
+  if (pageKey === 'video-testimonial' || pageKey === 'video-testimonials') {
+    return <VideoTestimonial />;
+  }
+
+  if (pageKey === 'insightful-videos' || pageKey === 'insightful-video') {
+    return <InsightfulVideos />;
+  }
 
   // If this is the "About firevy.co" / "about-firevy" page, render the exact Sapphire About Layout
   if (pageKey === 'about-firevy') {
@@ -4174,7 +4214,7 @@ export const CompanySubDetails = () => {
     ];
 
     const filteredPosts = allBlogPosts.filter(post => {
-      const matchesSearch = blogSearchQuery === '' || 
+      const matchesSearch = blogSearchQuery === '' ||
         post.title.toLowerCase().includes(blogSearchQuery.toLowerCase()) ||
         post.excerpt.toLowerCase().includes(blogSearchQuery.toLowerCase()) ||
         post.category.toLowerCase().includes(blogSearchQuery.toLowerCase());
@@ -4194,7 +4234,7 @@ export const CompanySubDetails = () => {
         <section className="pt-32 pb-16 bg-white font-sans text-left border-b border-slate-100">
           <div className="max-w-[1360px] mx-auto px-4 sm:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-              
+
               {/* Left Main Featured Blog Card (7 Cols) */}
               <div className="lg:col-span-7 space-y-4 group cursor-pointer">
                 {/* Banner Graphic Box (Purple AI in Mobile App Theme) */}
@@ -4305,7 +4345,7 @@ export const CompanySubDetails = () => {
             </h2>
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-              
+
               {/* Left Main Posts Feed Grid (8 Cols) */}
               <div className="lg:col-span-8 space-y-12">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -4403,7 +4443,7 @@ export const CompanySubDetails = () => {
 
               {/* Right Sticky Sidebar (4 Cols) */}
               <div className="lg:col-span-4 space-y-8 sticky top-28">
-                
+
                 {/* 1. "Get in Touch" Contact Box (Exact Reference Screenshots 1 - 4 Match) */}
                 <div className="bg-[#EAF6FA] border border-[#C5E7F4] rounded-[20px] p-6 sm:p-7 shadow-sm text-left font-sans">
                   <h3 className="text-[22px] font-[800] text-slate-900 text-center mb-5 font-sans">
@@ -4512,11 +4552,10 @@ export const CompanySubDetails = () => {
                         <div
                           key={idx}
                           onClick={() => setSelectedBlogCategory(isSelected ? 'All' : cat.name)}
-                          className={`flex items-center justify-between p-3.5 rounded-[12px] border transition-all cursor-pointer ${
-                            isSelected
+                          className={`flex items-center justify-between p-3.5 rounded-[12px] border transition-all cursor-pointer ${isSelected
                               ? 'bg-[#0099CC]/10 border-[#0099CC] text-[#0099CC]'
                               : 'bg-slate-50/70 border-slate-100 hover:bg-slate-100 text-slate-800'
-                          }`}
+                            }`}
                         >
                           <div className="flex items-center space-x-3">
                             <div className={`w-8 h-8 rounded-[8px] flex items-center justify-center ${isSelected ? 'bg-[#0099CC] text-white' : 'bg-white text-[#0099CC] shadow-xs'}`}>
