@@ -271,24 +271,50 @@ export const InsightfulVideos = () => {
                 <ChevronLeft className="w-7 h-7 stroke-[3]" />
               </button>
 
-              <div className="bg-[#EBF5FB] rounded-[24px] p-5 border border-slate-200/60 shadow-xs flex-1 max-w-4xl">
-                <div className="flex flex-wrap items-center justify-center gap-2.5">
-                  {categories.map((cat) => (
-                    <button
-                      key={cat}
-                      onClick={() => {
-                        setActiveCategory(cat);
-                        setVisibleCount(6);
-                      }}
-                      className={`px-4 py-2 rounded-[8px] text-[13px] font-[700] whitespace-nowrap transition-all font-sans ${
-                        activeCategory === cat
-                          ? 'bg-[#006B8F] text-white shadow-sm'
-                          : 'bg-white text-slate-700 hover:bg-slate-50 border border-slate-200/80'
-                      }`}
-                    >
-                      {cat}
-                    </button>
-                  ))}
+              <div className="bg-[#EBF5FB] rounded-[24px] p-4 sm:p-5 border border-slate-200/60 shadow-xs flex-1 max-w-5xl overflow-hidden">
+                <div
+                  ref={filterScrollRef}
+                  className="overflow-x-auto no-scrollbar scroll-smooth space-y-2.5 py-1 px-1"
+                >
+                  {/* Row 1 */}
+                  <div className="flex items-center space-x-2.5 min-w-max">
+                    {['All', 'Utilities', 'Ecommerce', 'Technology', 'Real Estate', 'HR', 'Logistics', 'Human Resource'].map((cat) => (
+                      <button
+                        key={cat}
+                        onClick={() => {
+                          setActiveCategory(cat);
+                          setVisibleCount(6);
+                        }}
+                        className={`px-4 py-2 rounded-[8px] text-[13px] font-[700] whitespace-nowrap transition-all font-sans ${
+                          activeCategory === cat
+                            ? 'bg-[#006B8F] text-white shadow-sm'
+                            : 'bg-white text-slate-700 hover:bg-slate-50 border border-slate-200/80'
+                        }`}
+                      >
+                        {cat}
+                      </button>
+                    ))}
+                  </div>
+
+                  {/* Row 2 */}
+                  <div className="flex items-center space-x-2.5 min-w-max">
+                    {['HealthCare', 'Social', 'Entertainment', 'Personal Care & Cosmetic', 'Agriculture', 'Education', 'Marketplace', 'Food & Beverages'].map((cat) => (
+                      <button
+                        key={cat}
+                        onClick={() => {
+                          setActiveCategory(cat);
+                          setVisibleCount(6);
+                        }}
+                        className={`px-4 py-2 rounded-[8px] text-[13px] font-[700] whitespace-nowrap transition-all font-sans ${
+                          activeCategory === cat
+                            ? 'bg-[#006B8F] text-white shadow-sm'
+                            : 'bg-white text-slate-700 hover:bg-slate-50 border border-slate-200/80'
+                        }`}
+                      >
+                        {cat}
+                      </button>
+                    ))}
+                  </div>
                 </div>
               </div>
 
