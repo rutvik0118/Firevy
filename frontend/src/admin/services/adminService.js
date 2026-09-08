@@ -68,6 +68,12 @@ export const adminService = {
     });
   },
 
+  deleteMedia: async (fileUrl) => {
+    return apiClient.delete('/upload', {
+      data: { fileUrl }
+    });
+  },
+
   // ============================================================
   // OTHER DOMAIN APIS
   // ============================================================

@@ -1,7 +1,6 @@
 import React, { useState, useRef } from 'react';
 import {
   Upload,
-  X,
   Image as ImageIcon,
   Video,
   FileText,
@@ -24,6 +23,7 @@ export const MediaUploadInput = ({
   const { addToast } = useToast();
   const fileInputRef = useRef(null);
   const [uploading, setUploading] = useState(false);
+  const [deleting, setDeleting] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
   const handleFileChange = async (e) => {
@@ -65,10 +65,24 @@ export const MediaUploadInput = ({
     }
   };
 
-  const handleRemove = (e) => {
-    e.stopPropagation();
-    onChange('');
-    addToast('Media removed', 'info');
+  // Direct 1-click Delete Handler without confirmation modal
+  const handleDelete = async (e) => {
+    if (e) {
+      e.stopPropagation();
+      e.preventDefault();
+    }
+    if (!value || deleting) return;
+
+    setDeleting(true);
+    try {
+      await adminService.deleteMedia(value);
+      onChange('');
+      addToast('Media deleted successfully.', 'success');
+    } catch (err) {
+      addToast(`Failed to delete media: ${err.message || 'Server error'}`, 'error');
+    } finally {
+      setDeleting(false);
+    }
   };
 
   const getAcceptTypes = () => {
@@ -148,24 +162,26 @@ export const MediaUploadInput = ({
           )}
         </div>
       ) : (
-        /* Rich Preview Card with Replace / Remove / Preview */
         <div
           style={{
             border: '1px solid var(--border-color, #E2E8F0)',
             borderRadius: '8px',
             backgroundColor: '#FFFFFF',
-            padding: '12px',
+            padding: '12px 14px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
-            gap: '12px',
-            boxShadow: '0 1px 3px rgba(0,0,0,0.05)'
+            gap: '14px',
+            width: '100%',
+            boxSizing: 'border-box',
+            boxShadow: '0 1px 3px rgba(0,0,0,0.05)',
+            overflow: 'hidden'
           }}
         >
-          {/* Visual Thumbnail */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flex: 1, minWidth: 0 }}>
+          {/* Visual Thumbnail & Filename Info */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flex: 1, minWidth: 0, overflow: 'hidden' }}>
             {type === 'image' && (
-              <div style={{ width: '54px', height: '54px', borderRadius: '6px', overflow: 'hidden', backgroundColor: '#F1F5F9', border: '1px solid #E2E8F0', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <div style={{ width: '48px', height: '48px', borderRadius: '6px', overflow: 'hidden', backgroundColor: '#F1F5F9', border: '1px solid #E2E8F0', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <img
                   src={value}
                   alt="Asset Preview"
@@ -177,37 +193,65 @@ export const MediaUploadInput = ({
               </div>
             )}
             {type === 'video' && (
-              <div style={{ width: '54px', height: '54px', borderRadius: '6px', backgroundColor: '#0F172A', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: '#38BDF8' }}>
-                <Video size={24} />
+              <div style={{ width: '48px', height: '48px', borderRadius: '6px', backgroundColor: '#0F172A', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: '#38BDF8' }}>
+                <Video size={22} />
               </div>
             )}
             {type === 'pdf' && (
-              <div style={{ width: '54px', height: '54px', borderRadius: '6px', backgroundColor: '#FEF2F2', border: '1px solid #FCA5A5', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: '#EF4444' }}>
-                <FileText size={24} />
+              <div style={{ width: '48px', height: '48px', borderRadius: '6px', backgroundColor: '#FEF2F2', border: '1px solid #FCA5A5', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: '#EF4444' }}>
+                <FileText size={22} />
               </div>
             )}
 
-            <div style={{ flex: 1, minWidth: 0 }}>
-              <div style={{ fontSize: '13px', fontWeight: 600, color: '#0F172A', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+            <div style={{ flex: 1, minWidth: 0, overflow: 'hidden' }}>
+              <div
+                style={{
+                  fontSize: '13px',
+                  fontWeight: 600,
+                  color: '#0F172A',
+                  overflow: 'hidden',
+                  textOverflow: 'ellipsis',
+                  whiteSpace: 'nowrap',
+                  display: 'block',
+                  maxWidth: '100%'
+                }}
+                title={value.split('/').pop() || 'Media Asset'}
+              >
                 {value.split('/').pop() || 'Media Asset'}
               </div>
-              <div style={{ fontSize: '11px', color: '#16A34A', display: 'flex', alignItems: 'center', gap: '4px', marginTop: '2px' }}>
+              <div style={{ fontSize: '11px', color: '#16A34A', display: 'flex', alignItems: 'center', gap: '4px', marginTop: '2px', fontWeight: 600 }}>
                 <Check size={12} /> Active Media Asset
               </div>
             </div>
           </div>
 
-          {/* Action Buttons: Replace, View, Remove */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '6px', flexShrink: 0 }}>
-            {uploading ? (
-              <Loader2 className="animate-spin" size={16} style={{ color: '#006B8F', margin: '0 8px' }} />
+          {/* Action Buttons on Right: [ Replace ] [ 👁 ] [ 🗑 ] */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '6px', flexShrink: 0, marginLeft: '8px' }}>
+            {uploading || deleting ? (
+              <div style={{ display: 'flex', alignItems: 'center', gap: '6px', padding: '4px 8px' }}>
+                <Loader2 className="animate-spin" size={16} style={{ color: deleting ? '#DC2626' : '#006B8F' }} />
+                <span style={{ fontSize: '11px', fontWeight: 600, color: deleting ? '#DC2626' : '#006B8F' }}>
+                  {deleting ? 'Deleting...' : 'Uploading...'}
+                </span>
+              </div>
             ) : (
               <>
                 <button
                   type="button"
                   onClick={() => fileInputRef.current?.click()}
                   className="btn btn-xs btn-secondary"
-                  style={{ display: 'flex', alignItems: 'center', gap: '4px', padding: '6px 10px', fontSize: '11px', fontWeight: 600 }}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '4px',
+                    padding: '6px 10px',
+                    fontSize: '11px',
+                    fontWeight: 600,
+                    backgroundColor: '#F8FAFC',
+                    border: '1px solid #CBD5E1',
+                    color: '#334155',
+                    borderRadius: '6px'
+                  }}
                   title="Replace with another file"
                 >
                   <RefreshCw size={12} /> Replace
@@ -218,18 +262,40 @@ export const MediaUploadInput = ({
                   target="_blank"
                   rel="noopener noreferrer"
                   className="btn btn-xs btn-ghost"
-                  style={{ padding: '6px', color: '#64748B' }}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    padding: '6px 8px',
+                    color: '#64748B',
+                    borderRadius: '6px'
+                  }}
                   title="Preview in new tab"
                 >
                   <Eye size={14} />
                 </a>
 
+                {/* 1-Click Square Red Danger Trash Icon Button */}
                 <button
                   type="button"
-                  onClick={handleRemove}
-                  className="btn btn-xs btn-ghost"
-                  style={{ padding: '6px', color: '#DC2626' }}
-                  title="Remove media"
+                  onClick={handleDelete}
+                  className="btn btn-xs btn-danger"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    width: '30px',
+                    height: '30px',
+                    padding: 0,
+                    backgroundColor: '#FEF2F2',
+                    border: '1px solid #FECACA',
+                    color: '#DC2626',
+                    borderRadius: '6px',
+                    cursor: 'pointer',
+                    transition: 'all 0.15s ease'
+                  }}
+                  title="Delete Media"
+                  aria-label="Delete Media"
                 >
                   <Trash2 size={14} />
                 </button>

@@ -10,6 +10,7 @@ export const WorkTogetherNewsletterSection = ({ data, title, subtitle }) => {
   const bannerButtonLink = data?.bannerButtonLink || "/contact";
   const newsletterTitle = data?.newsletterTitle || "Subscribe us and Get the latest updates and news";
   const newsletterButtonText = data?.newsletterButtonText || "Subscribe";
+
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
@@ -31,7 +32,7 @@ export const WorkTogetherNewsletterSection = ({ data, title, subtitle }) => {
           <h2 className="text-[32px] sm:text-[38px] font-[800] text-white tracking-tight leading-tight font-sans mb-3 section-content-title">
             {bannerTitle}
           </h2>
-          <p className="text-[16px] font-[400] text-blue-100 leading-relaxed max-w-3xl mx-auto mb-8 font-sans section-content-desc">
+          <p className="text-[15px] sm:text-[16px] font-[400] text-blue-100 leading-relaxed max-w-3xl mx-auto mb-8 font-sans section-content-desc">
             {bannerDescription}
           </p>
           <div>

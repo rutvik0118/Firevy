@@ -1,5 +1,5 @@
 import express from 'express';
-import { uploadMiddleware, handleFileUpload } from '../controllers/uploadController.js';
+import { uploadMiddleware, handleFileUpload, handleDeleteFile } from '../controllers/uploadController.js';
 
 const router = express.Router();
 
@@ -14,5 +14,8 @@ router.post('/', (req, res, next) => {
     next();
   });
 }, handleFileUpload);
+
+router.delete('/', handleDeleteFile);
+router.delete('/:filename', handleDeleteFile);
 
 export default router;

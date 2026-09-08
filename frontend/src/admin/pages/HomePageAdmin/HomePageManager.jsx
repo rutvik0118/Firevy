@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   Layout,
   Home,
@@ -298,11 +299,14 @@ const SECTION_METADATA = {
 };
 
 export const HomePageManager = () => {
+  const navigate = useNavigate();
   const { addToast } = useToast();
   const [homeData, setHomeData] = useState(INITIAL_HOME_PAGE_DATA);
   const [loading, setLoading] = useState(true);
   const [activeSectionKey, setActiveSectionKey] = useState(null);
   const [activeSectionData, setActiveSectionData] = useState(null);
+  const [originalSectionData, setOriginalSectionData] = useState(null);
+  const [resetVersion, setResetVersion] = useState(0);
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [saving, setSaving] = useState(false);
   const [resettingSection, setResettingSection] = useState(false);
@@ -410,11 +414,14 @@ export const HomePageManager = () => {
     }
   };
 
-  // Open Section Editor Drawer
+  // Open Section Editor Drawer with saved snapshot
   const handleOpenEdit = (sectionKey) => {
     setActiveSectionKey(sectionKey);
     const existing = sections[sectionKey] || INITIAL_HOME_PAGE_DATA.sections[sectionKey] || {};
-    setActiveSectionData(JSON.parse(JSON.stringify(existing)));
+    const cloned = JSON.parse(JSON.stringify(existing));
+    setActiveSectionData(cloned);
+    setOriginalSectionData(JSON.parse(JSON.stringify(existing)));
+    setResetVersion(0);
     setIsDrawerOpen(true);
   };
 
@@ -435,6 +442,7 @@ export const HomePageManager = () => {
           }
         }));
       }
+      setOriginalSectionData(JSON.parse(JSON.stringify(activeSectionData)));
       addToast(`Section "${SECTION_METADATA[activeSectionKey]?.title || activeSectionKey}" saved successfully!`, 'success');
       setIsDrawerOpen(false);
     } catch (err) {
@@ -444,30 +452,27 @@ export const HomePageManager = () => {
     }
   };
 
-  // Reset Section Confirmation Handlers
-  const handleConfirmResetSection = async () => {
+  // Reset Current Section Handler (Restores clean saved state or factory default immediately)
+  const handleResetCurrentSection = (toFactoryDefaults = false) => {
     if (!activeSectionKey) return;
     const title = SECTION_METADATA[activeSectionKey]?.title || activeSectionKey;
-    setResettingSection(true);
-    try {
-      const res = await adminService.resetHomePageSection(activeSectionKey);
-      const defaultData = res?.data || INITIAL_HOME_PAGE_DATA.sections[activeSectionKey];
-      if (defaultData) {
-        setActiveSectionData(JSON.parse(JSON.stringify(defaultData)));
-        setHomeData((prev) => ({
-          ...prev,
-          sections: {
-            ...prev.sections,
-            [activeSectionKey]: defaultData
-          }
-        }));
-      }
-      addToast(`Section "${title}" restored to original defaults!`, 'success');
-      setIsResetSectionModalOpen(false);
-    } catch (err) {
-      addToast(`Reset error: ${err.message}`, 'error');
-    } finally {
-      setResettingSection(false);
+    
+    let sourceData = null;
+    if (toFactoryDefaults) {
+      sourceData = INITIAL_HOME_PAGE_DATA.sections[activeSectionKey] || {};
+    } else {
+      sourceData = originalSectionData || sections[activeSectionKey] || INITIAL_HOME_PAGE_DATA.sections[activeSectionKey] || {};
+    }
+
+    const resetSnapshot = JSON.parse(JSON.stringify(sourceData));
+    setActiveSectionData(resetSnapshot);
+    setResetVersion((v) => v + 1);
+    setIsResetSectionModalOpen(false);
+
+    if (toFactoryDefaults) {
+      addToast(`Section "${title}" restored to factory defaults! Click 'Save Changes' to apply.`, 'info');
+    } else {
+      addToast(`Section "${title}" reset to original saved values!`, 'info');
     }
   };
 
@@ -657,10 +662,32 @@ export const HomePageManager = () => {
                         {isVisible ? <EyeOff size={15} style={{ color: '#DC2626' }} /> : <Eye size={15} style={{ color: '#16A34A' }} />}
                       </button>
 
-                      {/* Edit / Manage Button */}
+                      {/* Quick Edit in Drawer */}
                       <button
                         type="button"
                         onClick={() => handleOpenEdit(sectionKey)}
+                        className="btn btn-xs btn-secondary"
+                        style={{
+                          padding: '6px 12px',
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '5px',
+                          fontSize: '12px',
+                          fontWeight: 600,
+                          backgroundColor: '#F8FAFC',
+                          borderColor: '#CBD5E1',
+                          color: '#334155',
+                          borderRadius: '6px'
+                        }}
+                        title="Quick edit section in slide-out drawer"
+                      >
+                        <Sliders size={13} /> Quick Edit
+                      </button>
+
+                      {/* Full Page Section Editor */}
+                      <button
+                        type="button"
+                        onClick={() => navigate(`/admin/home-page/${sectionKey}`)}
                         className="btn btn-xs btn-primary"
                         style={{
                           padding: '6px 14px',
@@ -675,7 +702,7 @@ export const HomePageManager = () => {
                           borderRadius: '6px'
                         }}
                       >
-                        <Edit2 size={13} /> {meta.actionLabel || 'Edit'}
+                        <Edit2 size={13} /> Edit Section
                       </button>
                     </div>
                   </div>
@@ -691,82 +718,50 @@ export const HomePageManager = () => {
         onClose={() => setIsDrawerOpen(false)}
         title={activeSectionKey ? SECTION_METADATA[activeSectionKey]?.title || 'Edit Section' : 'Edit Section'}
         subtitle={activeSectionKey ? SECTION_METADATA[activeSectionKey]?.description || 'Update texts, cards, and media assets.' : ''}
-        width="1120px"
+        width="960px"
         footer={
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%', flexWrap: 'wrap', gap: '10px' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%', flexWrap: 'wrap', gap: '12px' }}>
+            {/* LEFT: Visible on Public Home + Reset Section */}
+            <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flexWrap: 'wrap' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                 <input
                   type="checkbox"
                   id="drawerSectionVisible"
                   checked={activeSectionData?.isVisible !== false && activeSectionData?.isEnabled !== false}
                   onChange={(e) => setActiveSectionData({ ...activeSectionData, isVisible: e.target.checked, isEnabled: e.target.checked })}
-                  style={{ width: '16px', height: '16px', cursor: 'pointer' }}
+                  style={{ width: '16px', height: '16px', cursor: 'pointer', accentColor: '#006B8F' }}
                 />
-                <label htmlFor="drawerSectionVisible" style={{ fontSize: '13px', fontWeight: 600, color: '#0F172A', cursor: 'pointer' }}>
+                <label htmlFor="drawerSectionVisible" style={{ fontSize: '13px', fontWeight: 600, color: '#0F172A', cursor: 'pointer', userSelect: 'none' }}>
                   Visible on Public Home
                 </label>
               </div>
 
               <button
                 type="button"
-                onClick={() => setIsResetSectionModalOpen(true)}
-                className="btn btn-ghost btn-xs"
-                style={{
-                  color: '#DC2626',
-                  backgroundColor: '#FEF2F2',
-                  border: '1px solid #FCA5A5',
-                  padding: '5px 12px',
-                  borderRadius: '6px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '5px',
-                  fontSize: '12px',
-                  fontWeight: 600
-                }}
-                title="Reset this section to original production defaults"
-                disabled={resettingSection || saving}
+                onClick={() => handleResetCurrentSection(false)}
+                className="btn btn-danger btn-sm"
+                title="Reset this section to original saved values"
+                disabled={saving}
               >
                 <RotateCcw size={13} /> Reset Section
               </button>
             </div>
 
-            <div style={{ display: 'flex', gap: '10px' }}>
+            {/* RIGHT: Cancel + Save Changes */}
+            <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
               <button
                 type="button"
                 onClick={() => setIsDrawerOpen(false)}
-                className="btn btn-secondary"
+                className="btn btn-secondary btn-sm"
                 disabled={saving}
-                style={{
-                  fontSize: '13px',
-                  fontWeight: 600,
-                  padding: '8px 16px',
-                  backgroundColor: '#FFFFFF',
-                  border: '1px solid #CBD5E1',
-                  color: '#0F172A',
-                  borderRadius: '8px'
-                }}
               >
                 Cancel
               </button>
               <button
                 type="button"
                 onClick={handleSaveSection}
-                className="btn btn-primary"
+                className="btn btn-primary btn-sm"
                 disabled={saving}
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '6px',
-                  fontSize: '13px',
-                  fontWeight: 700,
-                  padding: '8px 20px',
-                  backgroundColor: '#006B8F',
-                  color: '#FFFFFF',
-                  borderRadius: '8px',
-                  border: 'none',
-                  boxShadow: '0 2px 6px rgba(0, 107, 143, 0.25)'
-                }}
               >
                 {saving ? (
                   <>
@@ -783,8 +778,13 @@ export const HomePageManager = () => {
         }
       >
         {ActiveEditor && activeSectionData ? (
-          <ErrorBoundary key={activeSectionKey} title={`${SECTION_METADATA[activeSectionKey]?.title || activeSectionKey} Editor`} onReset={() => setIsResetSectionModalOpen(true)}>
+          <ErrorBoundary
+            key={`${activeSectionKey}-${resetVersion}`}
+            title={`${SECTION_METADATA[activeSectionKey]?.title || activeSectionKey} Editor`}
+            onReset={() => handleResetCurrentSection(false)}
+          >
             <ActiveEditor
+              key={`${activeSectionKey}-${resetVersion}`}
               data={activeSectionData}
               onChange={(updated) => setActiveSectionData(updated)}
             />
@@ -800,25 +800,31 @@ export const HomePageManager = () => {
       <Modal
         isOpen={isResetSectionModalOpen}
         onClose={() => setIsResetSectionModalOpen(false)}
-        title="Confirm Reset Section"
+        title="Reset Section"
         footer={
-          <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px' }}>
+          <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px', flexWrap: 'wrap' }}>
             <button
               type="button"
               onClick={() => setIsResetSectionModalOpen(false)}
               className="btn btn-secondary"
-              disabled={resettingSection}
             >
               Cancel
             </button>
             <button
               type="button"
-              onClick={handleConfirmResetSection}
+              onClick={() => handleResetCurrentSection(false)}
               className="btn btn-primary"
-              style={{ backgroundColor: '#DC2626', borderColor: '#DC2626', color: '#FFFFFF' }}
-              disabled={resettingSection}
+              style={{ backgroundColor: '#006B8F', borderColor: '#006B8F', color: '#FFFFFF' }}
             >
-              {resettingSection ? 'Resetting...' : 'Yes, Reset Section'}
+              Reset Unsaved Edits
+            </button>
+            <button
+              type="button"
+              onClick={() => handleResetCurrentSection(true)}
+              className="btn btn-danger"
+              style={{ backgroundColor: '#DC2626', borderColor: '#DC2626', color: '#FFFFFF' }}
+            >
+              Restore Factory Defaults
             </button>
           </div>
         }
@@ -829,10 +835,10 @@ export const HomePageManager = () => {
           </div>
           <div>
             <h4 style={{ margin: '0 0 6px 0', fontSize: '15px', fontWeight: 700, color: '#0F172A' }}>
-              Reset "{activeSectionKey ? SECTION_METADATA[activeSectionKey]?.title || activeSectionKey : 'Section'}" to Defaults?
+              Reset "{activeSectionKey ? SECTION_METADATA[activeSectionKey]?.title || activeSectionKey : 'Section'}"?
             </h4>
             <p style={{ margin: 0, fontSize: '13px', color: '#64748B', lineHeight: '1.5' }}>
-              This will restore this section's content, headings, and media to the original production defaults. Any custom edits you made to this section will be replaced.
+              Choose <strong>Reset Unsaved Edits</strong> to revert this form back to its last saved values, or <strong>Restore Factory Defaults</strong> to reload original template values.
             </p>
           </div>
         </div>

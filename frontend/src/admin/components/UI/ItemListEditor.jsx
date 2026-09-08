@@ -4,8 +4,17 @@ import {
   Trash2,
   GripVertical,
   ChevronRight,
-  ChevronDown,
-  ChevronUp,
+  Globe,
+  MessageSquare,
+  Award,
+  Users,
+  Smartphone,
+  Code,
+  Cloud,
+  Shield,
+  Zap,
+  TrendingUp,
+  Layers,
   Image as ImageIcon,
   Sliders,
   AlignLeft,
@@ -46,7 +55,7 @@ export const ItemListEditor = ({
     initial.isActive = true;
 
     // Set a default title if field exists
-    const titleField = fields.find((f) => ['title', 'name', 'heading', 'company', 'author'].includes(f.name));
+    const titleField = fields.find((f) => ['title', 'name', 'heading', 'company', 'author', 'label'].includes(f.name));
     if (titleField && !initial[titleField.name]) {
       initial[titleField.name] = `New ${itemTitle} 0${items.length + 1}`;
     }
@@ -81,7 +90,7 @@ export const ItemListEditor = ({
     onChange(newItems);
   };
 
-  // Toggle active status of current item
+  // Toggle active status of item
   const handleToggleActive = (indexToToggle, e) => {
     if (e) e.stopPropagation();
     const newItems = [...items];
@@ -117,6 +126,49 @@ export const ItemListEditor = ({
     setDraggedIndex(null);
     setSelectedIndex(targetIndex);
     onChange(newItems);
+  };
+
+  // Safe Item Icon/Media Renderer (Prevents broken image tags)
+  const renderItemMediaIcon = (item) => {
+    const media = item.image || item.icon || item.avatar || item.mockup || item.symbol || item.logo;
+    const isStat = item.type === 'stat' || (item.metric && !item.icon);
+
+    if (typeof media === 'string' && (media.startsWith('http://') || media.startsWith('https://') || media.startsWith('data:') || media.startsWith('/'))) {
+      return (
+        <img
+          src={media}
+          alt=""
+          style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+          onError={(e) => {
+            e.target.style.display = 'none';
+          }}
+        />
+      );
+    }
+
+    if (typeof media === 'string' && media.trim() !== '') {
+      const key = media.toLowerCase().trim();
+      if (key === 'globe' || key === 'world') return <Globe size={15} />;
+      if (key === 'chat' || key === 'message' || key === 'comments') return <MessageSquare size={15} />;
+      if (key === 'badge' || key === 'hired' || key === 'award') return <Award size={15} />;
+      if (key === 'handshake' || key === 'partner' || key === 'users') return <Users size={15} />;
+      if (key === 'web' || key === 'browser') return <Globe size={15} />;
+      if (key === 'mobile' || key === 'phone' || key === 'app') return <Smartphone size={15} />;
+      if (key === 'code' || key === 'dev') return <Code size={15} />;
+      if (key === 'cloud') return <Cloud size={15} />;
+      if (key === 'shield' || key === 'security') return <Shield size={15} />;
+      if (key === 'zap' || key === 'fast') return <Zap size={15} />;
+
+      if (media.length <= 3) {
+        return <span style={{ fontSize: '13px', fontWeight: 800 }}>{media}</span>;
+      }
+    }
+
+    if (isStat) {
+      return <TrendingUp size={15} />;
+    }
+
+    return <Layers size={15} />;
   };
 
   // Separate fields by category
@@ -169,10 +221,12 @@ export const ItemListEditor = ({
     <div
       style={{
         display: 'grid',
-        gridTemplateColumns: 'minmax(260px, 320px) 1fr',
+        gridTemplateColumns: 'minmax(320px, 360px) minmax(0, 1fr)',
         gap: '16px',
         alignItems: 'start',
-        fontFamily: "'Poppins', sans-serif"
+        fontFamily: "'Poppins', sans-serif",
+        width: '100%',
+        boxSizing: 'border-box'
       }}
     >
       {/* ========================================================
@@ -187,7 +241,10 @@ export const ItemListEditor = ({
           boxShadow: '0 1px 2px rgba(0,0,0,0.03)',
           display: 'flex',
           flexDirection: 'column',
-          gap: '10px'
+          gap: '12px',
+          width: '100%',
+          boxSizing: 'border-box',
+          minWidth: 0
         }}
       >
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingBottom: '8px', borderBottom: '1px solid #F1F5F9' }}>
@@ -221,14 +278,21 @@ export const ItemListEditor = ({
         </div>
 
         {/* List of Item Cards */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: '10px',
+            width: '100%',
+            boxSizing: 'border-box'
+          }}
+        >
           {items.map((item, idx) => {
             const isSelected = idx === selectedIndex;
             const isActive = item.isActive !== false;
             const itemNumber = idx < 9 ? `0${idx + 1}` : `${idx + 1}`;
             const itemDisplayName = item.title || item.name || item.heading || item.label || item.company || item.tabName || `${itemTitle} ${itemNumber}`;
             const itemSub = item.tag || item.category || item.sub || item.desc || item.slug || item.role || item.metric;
-            const itemMedia = item.image || item.icon || item.avatar || item.mockup;
 
             return (
               <div
@@ -240,94 +304,163 @@ export const ItemListEditor = ({
                 onClick={() => setSelectedIndex(idx)}
                 style={{
                   display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                  padding: '8px 10px',
-                  borderRadius: '6px',
-                  backgroundColor: isSelected ? '#F0F9FF' : '#F8FAFC',
+                  flexDirection: 'column',
+                  gap: '8px',
+                  padding: '12px 14px',
+                  borderRadius: '8px',
+                  backgroundColor: isSelected ? '#F0F9FF' : '#FFFFFF',
                   border: isSelected ? '1.5px solid #006B8F' : '1px solid #E2E8F0',
+                  boxShadow: isSelected ? '0 2px 6px rgba(0, 107, 143, 0.12)' : '0 1px 2px rgba(0,0,0,0.02)',
                   cursor: 'pointer',
-                  transition: 'all 0.15s ease'
+                  transition: 'all 0.15s ease',
+                  minWidth: 0,
+                  width: '100%',
+                  boxSizing: 'border-box'
                 }}
               >
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flex: 1, minWidth: 0, paddingRight: '6px' }}>
-                  <div style={{ color: '#94A3B8', cursor: 'grab', display: 'flex', alignItems: 'center' }}>
-                    <GripVertical size={14} />
-                  </div>
-
+                {/* TOP ROW: [Drag] [Image/Icon] [Number] */}
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', minWidth: 0 }}>
                   <div
                     style={{
-                      width: '22px',
-                      height: '22px',
-                      borderRadius: '4px',
-                      backgroundColor: isSelected ? '#006B8F' : '#E2E8F0',
-                      color: isSelected ? '#FFFFFF' : '#475569',
+                      color: isSelected ? '#006B8F' : '#94A3B8',
+                      cursor: 'grab',
+                      display: 'flex',
+                      alignItems: 'center',
+                      flexShrink: 0
+                    }}
+                    title="Drag to reorder"
+                  >
+                    <GripVertical size={15} />
+                  </div>
+
+                  {/* Image / Icon container (Fixed consistent size, clean fallback) */}
+                  <div
+                    style={{
+                      width: '28px',
+                      height: '28px',
+                      borderRadius: '6px',
+                      backgroundColor: isSelected ? '#E0F2FE' : '#F1F5F9',
+                      border: '1px solid',
+                      borderColor: isSelected ? '#BAE6FD' : '#E2E8F0',
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      fontSize: '10px',
+                      flexShrink: 0,
+                      overflow: 'hidden',
+                      color: '#006B8F'
+                    }}
+                  >
+                    {renderItemMediaIcon(item)}
+                  </div>
+
+                  {/* Number Badge */}
+                  <div
+                    style={{
+                      padding: '2px 8px',
+                      height: '22px',
+                      borderRadius: '4px',
+                      backgroundColor: isSelected ? '#006B8F' : '#E2E8F0',
+                      color: isSelected ? '#FFFFFF' : '#334155',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      fontSize: '11px',
                       fontWeight: 800,
+                      letterSpacing: '0.02em',
                       flexShrink: 0
                     }}
                   >
                     {itemNumber}
                   </div>
-
-                  {/* Thumbnail if present */}
-                  {typeof itemMedia === 'string' && itemMedia.trim() !== '' && (
-                    <div
-                      style={{
-                        width: '24px',
-                        height: '24px',
-                        borderRadius: '4px',
-                        overflow: 'hidden',
-                        backgroundColor: '#FFFFFF',
-                        border: '1px solid #E2E8F0',
-                        flexShrink: 0,
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center'
-                      }}
-                    >
-                      <img src={itemMedia} alt="" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
-                    </div>
-                  )}
-
-                  <div style={{ flex: 1, minWidth: 0 }}>
-                    {renderItemSummary ? (
-                      renderItemSummary(item, idx)
-                    ) : (
-                      <div>
-                        <div style={{ fontSize: '11px', fontWeight: 700, color: '#0F172A', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                          {itemDisplayName}
-                        </div>
-                        {itemSub && (
-                          <div style={{ fontSize: '10px', color: '#64748B', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                            {itemSub}
-                          </div>
-                        )}
-                      </div>
-                    )}
-                  </div>
                 </div>
 
-                <div style={{ display: 'flex', alignItems: 'center', gap: '4px', flexShrink: 0 }}>
-                  <span
+                {/* MIDDLE: Title & Description */}
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', minWidth: 0, paddingLeft: '2px' }}>
+                  {renderItemSummary ? (
+                    renderItemSummary(item, idx)
+                  ) : (
+                    <>
+                      <div
+                        style={{
+                          fontSize: '13px',
+                          fontWeight: 700,
+                          color: '#0F172A',
+                          lineHeight: 1.35,
+                          wordBreak: 'break-word',
+                          overflowWrap: 'break-word'
+                        }}
+                      >
+                        {itemDisplayName}
+                      </div>
+                      {itemSub && (
+                        <div
+                          style={{
+                            fontSize: '11px',
+                            color: '#64748B',
+                            lineHeight: 1.4,
+                            wordBreak: 'break-word',
+                            overflowWrap: 'break-word'
+                          }}
+                        >
+                          {itemSub}
+                        </div>
+                      )}
+                    </>
+                  )}
+                </div>
+
+                {/* BOTTOM ROW: [Active] badge on left, [>] Chevron on right */}
+                <div
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-between',
+                    paddingTop: '6px',
+                    borderTop: '1px solid',
+                    borderColor: isSelected ? '#E0F2FE' : '#F1F5F9',
+                    marginTop: '2px'
+                  }}
+                >
+                  <button
+                    type="button"
                     onClick={(e) => handleToggleActive(idx, e)}
                     style={{
-                      fontSize: '9px',
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '4px',
+                      fontSize: '10px',
                       fontWeight: 700,
-                      padding: '1px 5px',
+                      padding: '2px 7px',
                       borderRadius: '10px',
                       backgroundColor: isActive ? '#DCFCE7' : '#F1F5F9',
                       color: isActive ? '#15803D' : '#64748B',
+                      border: '1px solid',
+                      borderColor: isActive ? '#BBF7D0' : '#E2E8F0',
                       cursor: 'pointer'
                     }}
-                    title={isActive ? 'Click to hide' : 'Click to activate'}
+                    title={isActive ? 'Click to deactivate' : 'Click to activate'}
                   >
+                    <span
+                      style={{
+                        width: '5px',
+                        height: '5px',
+                        borderRadius: '50%',
+                        backgroundColor: isActive ? '#16A34A' : '#94A3B8'
+                      }}
+                    />
                     {isActive ? 'Active' : 'Hidden'}
-                  </span>
-                  <ChevronRight size={14} style={{ color: isSelected ? '#006B8F' : '#94A3B8' }} />
+                  </button>
+
+                  <div
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      color: isSelected ? '#006B8F' : '#94A3B8'
+                    }}
+                  >
+                    <ChevronRight size={15} />
+                  </div>
                 </div>
               </div>
             );
@@ -336,7 +469,7 @@ export const ItemListEditor = ({
       </div>
 
       {/* ========================================================
-          RIGHT COLUMN: INLINE EDIT FORM (Matches Reference)
+          RIGHT COLUMN: INLINE EDIT FORM
           ======================================================== */}
       {currentItem && (
         <div
@@ -348,7 +481,10 @@ export const ItemListEditor = ({
             boxShadow: '0 1px 2px rgba(0,0,0,0.03)',
             display: 'flex',
             flexDirection: 'column',
-            gap: '14px'
+            gap: '14px',
+            width: '100%',
+            boxSizing: 'border-box',
+            minWidth: 0
           }}
         >
           {/* Header with Status & Delete */}
@@ -496,7 +632,7 @@ export const ItemListEditor = ({
               <h4 style={{ margin: '0 0 8px 0', fontSize: '11px', fontWeight: 800, color: '#475569', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
                 Media & Visual Assets
               </h4>
-              <div style={{ display: 'grid', gridTemplateColumns: mediaFields.length > 1 ? '1fr 1fr' : '1fr', gap: '12px' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', width: '100%' }}>
                 {mediaFields.map((field) => (
                   <MediaUploadInput
                     key={field.name}
@@ -534,3 +670,4 @@ export const ItemListEditor = ({
 };
 
 export default ItemListEditor;
+

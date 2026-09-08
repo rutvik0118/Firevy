@@ -6,14 +6,9 @@ import {
   ChevronRight,
   ChevronDown,
   ChevronUp,
-  ExternalLink,
-  Save,
-  RotateCcw,
   Video,
   Image as ImageIcon,
   CheckCircle2,
-  ArrowUp,
-  ArrowDown,
   Sliders,
   Sparkles,
   Layers,
@@ -27,57 +22,54 @@ export const HeroEditor = ({ data, onChange }) => {
   const { addToast } = useToast();
 
   // Ensure slides array exists with fallback
-  const rawSlides = data?.slides && Array.isArray(data.slides) && data.slides.length > 0
-    ? data.slides
-    : [
-        {
-          tag: 'AI Innovation',
-          titleLine1: 'Your Vision,',
-          titleLine2: 'Our Technology',
-          subTag: '(Limitless Possibilities)',
-          bullets: [
-            'Enterprise-grade AI engineering & custom model fine-tuning',
-            'Full-stack digital transformation with scalable cloud architecture',
-            'Dedicated engineering pods deployed within 48 hours'
-          ],
-          primaryCtaText: "Let's Talk",
-          primaryCtaLink: '/contact',
-          secondaryCtaText: 'Get in Touch',
-          secondaryCtaLink: '/contact',
-          rightBoxTitle: 'Redefined Learning Experiences',
-          rightBoxSub: 'With Intelligent AI Innovation',
-          bgType: 'video',
-          backgroundVideoUrl: '/Best Software Development Company in USA - Sapphire Software Sol.mp4',
-          backgroundImageUrl: '',
-          isActive: true,
-          autoRotate: true
-        }
-      ];
+  const rawSlides = [
+    {
+      tag: 'AI Innovation',
+      titleLine1: 'Your Vision,',
+      titleLine2: 'Our Technology',
+      subTag: '(Limitless Possibilities)',
+      bullets: [
+        'Recognized as #1 Web Development Company in India and USA.',
+        'Trusted by 20+ Fortune 500 Companies and a Clutch Leader.',
+        "We've been Redefining Excellence for over Two Decades."
+      ],
+      primaryCtaText: "Let's Talk",
+      primaryCtaLink: '/contact',
+      secondaryCtaText: 'Get in Touch',
+      secondaryCtaLink: '/contact',
+      rightBoxTitle: 'Redefined Learning Experiences',
+      rightBoxSub: 'With Intelligent AI Innovation',
+      bgType: 'video',
+      backgroundVideoUrl: '/Best Software Development Company in USA - Sapphire Software Sol.mp4',
+      backgroundImageUrl: '',
+      isActive: true,
+      autoRotate: true
+    }
+  ];
 
-  const [slides, setSlides] = useState(rawSlides);
+  const slides = (data?.slides && Array.isArray(data.slides) && data.slides.length > 0)
+    ? data.slides
+    : rawSlides;
+
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [draggedIndex, setDraggedIndex] = useState(null);
 
-  // Collapsible Accordion States
-  const [isMediaOpen, setIsMediaOpen] = useState(true);
-  const [isBulletsOpen, setIsBulletsOpen] = useState(true);
-  const [isSettingsOpen, setIsSettingsOpen] = useState(true);
+  // Collapsible Accordion States (collapsed initially to fit viewport naturally)
+  const [isMediaOpen, setIsMediaOpen] = useState(false);
+  const [isBulletsOpen, setIsBulletsOpen] = useState(false);
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 
-  // Sync internal state when external data prop changes
+  // Sync selected index if slides count shrinks
   useEffect(() => {
-    if (data?.slides && Array.isArray(data.slides) && data.slides.length > 0) {
-      setSlides(data.slides);
-      if (selectedIndex >= data.slides.length) {
-        setSelectedIndex(0);
-      }
+    if (slides.length > 0 && selectedIndex >= slides.length) {
+      setSelectedIndex(0);
     }
-  }, [data]);
+  }, [slides.length, selectedIndex]);
 
   const currentSlide = slides[selectedIndex] || slides[0] || {};
 
   // Propagate changes up to parent Home Page state
   const notifyParent = (newSlides, extraFields = {}) => {
-    setSlides(newSlides);
     onChange({
       ...data,
       slides: newSlides,
@@ -200,11 +192,11 @@ export const HeroEditor = ({ data, onChange }) => {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '14px', fontFamily: "'Poppins', sans-serif" }}>
-      {/* 2-Column Side-by-Side Professional Layout (Matches Reference) */}
+      {/* 2-Column Side-by-Side Professional Layout */}
       <div
         style={{
           display: 'grid',
-          gridTemplateColumns: 'minmax(280px, 340px) 1fr',
+          gridTemplateColumns: '280px 1fr',
           gap: '16px',
           alignItems: 'start'
         }}
@@ -217,11 +209,11 @@ export const HeroEditor = ({ data, onChange }) => {
             backgroundColor: '#FFFFFF',
             border: '1px solid #E2E8F0',
             borderRadius: '8px',
-            padding: '14px',
+            padding: '12px',
             boxShadow: '0 1px 2px rgba(0,0,0,0.03)',
             display: 'flex',
             flexDirection: 'column',
-            gap: '10px'
+            gap: '8px'
           }}
         >
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingBottom: '8px', borderBottom: '1px solid #F1F5F9' }}>
@@ -416,8 +408,8 @@ export const HeroEditor = ({ data, onChange }) => {
             </button>
           </div>
 
-          {/* Form Fields: 2-Column Grid */}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '10px 14px' }}>
+          {/* Form Fields: Structured 2-Column Grid */}
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px 14px' }}>
             <div>
               <label style={{ display: 'block', fontSize: '11px', fontWeight: 700, color: '#0F172A', marginBottom: '4px' }}>
                 Top Badge / Tag <span style={{ color: '#DC2626' }}>*</span>

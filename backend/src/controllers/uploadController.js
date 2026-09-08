@@ -4,6 +4,7 @@ import multer from 'multer';
 import { fileURLToPath } from 'url';
 import asyncHandler from '../middleware/asyncHandler.js';
 import { successResponse, errorResponse } from '../utils/apiResponse.js';
+import { removeMediaUrlFromHomeData } from './homePageController.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -111,4 +112,64 @@ export const handleFileUpload = asyncHandler(async (req, res) => {
     mimetype: req.file.mimetype,
     size: req.file.size
   }, 201);
+});
+
+/**
+ * @desc Delete uploaded file from storage and database
+ * @route DELETE /api/v1/upload or DELETE /api/v1/upload/:filename
+ */
+export const handleDeleteFile = asyncHandler(async (req, res) => {
+  const fileUrl = req.body?.fileUrl || req.body?.url || req.query?.fileUrl || req.query?.url || req.params?.filename;
+
+  if (!fileUrl) {
+    return errorResponse(res, 'File URL or filename is required for deletion', 400);
+  }
+
+  // Sanitize path to prevent directory traversal
+  let relativePath = fileUrl;
+  if (relativePath.startsWith('http://') || relativePath.startsWith('https://')) {
+    try {
+      const parsedUrl = new URL(relativePath);
+      relativePath = parsedUrl.pathname;
+    } catch {
+      // keep relativePath as is
+    }
+  }
+
+  // Strip leading '/uploads/' or 'uploads/'
+  let cleanedPath = relativePath.replace(/^[\/\\]?uploads[\/\\]?/, '');
+  // Prevent directory traversal
+  cleanedPath = path.normalize(cleanedPath).replace(/^(\.\.[\/\\])+/, '');
+
+  let fileDeletedFromDisk = false;
+
+  // Check direct path or in subfolders
+  const potentialPaths = [
+    path.join(uploadsDir, cleanedPath),
+    path.join(uploadsDir, 'images', path.basename(cleanedPath)),
+    path.join(uploadsDir, 'videos', path.basename(cleanedPath)),
+    path.join(uploadsDir, 'brochures', path.basename(cleanedPath)),
+    path.join(uploadsDir, 'misc', path.basename(cleanedPath))
+  ];
+
+  for (const candidate of potentialPaths) {
+    if (candidate.startsWith(uploadsDir) && fs.existsSync(candidate) && fs.lstatSync(candidate).isFile()) {
+      try {
+        fs.unlinkSync(candidate);
+        fileDeletedFromDisk = true;
+        break;
+      } catch (err) {
+        console.error('Error unlinking file:', candidate, err);
+      }
+    }
+  }
+
+  // Clean up references across Home Page database & memory cache
+  await removeMediaUrlFromHomeData(fileUrl);
+
+  return successResponse(res, 'Media asset deleted successfully.', {
+    fileUrl,
+    deleted: true,
+    fileDeletedFromDisk
+  });
 });

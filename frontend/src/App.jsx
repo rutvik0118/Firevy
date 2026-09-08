@@ -17,6 +17,7 @@ import AdminLayout from './admin/routes/AdminLayout';
 import LoginPage from './admin/pages/LoginPage';
 import Dashboard from './admin/pages/Dashboard';
 import HomePageManager from './admin/pages/HomePageAdmin/HomePageManager';
+import SectionEditorPage from './admin/pages/HomePageAdmin/SectionEditorPage';
 import ServicesPage from './admin/pages/ServicesPage';
 import PortfolioPage from './admin/pages/PortfolioPage';
 import JobsPage from './admin/pages/JobsPage';
@@ -115,6 +116,14 @@ export function App() {
                 element={
                   <AdminRouteWrapper>
                     <HomePageManager />
+                  </AdminRouteWrapper>
+                }
+              />
+              <Route
+                path="/admin/home-page/:sectionKey"
+                element={
+                  <AdminRouteWrapper>
+                    <SectionEditorPage />
                   </AdminRouteWrapper>
                 }
               />
