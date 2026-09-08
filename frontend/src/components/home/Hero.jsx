@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import Container from '../common/Container';
 
 export const Hero = ({ data }) => {
   return (
-    <section className="relative min-h-[92vh] flex items-center pt-28 pb-20 overflow-hidden bg-slate-950 font-sans text-left">
+    <section className="relative min-h-[90vh] sm:min-h-[95vh] flex items-end pt-40 sm:pt-48 pb-12 sm:pb-16 overflow-hidden bg-[#011120] font-sans text-left">
       {/* 1. Background Video Layer */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <video
@@ -15,17 +14,17 @@ export const Hero = ({ data }) => {
           muted
           playsInline
           preload="auto"
-          className="w-full h-full object-cover filter brightness-[0.85] contrast-[1.05]"
+          className="w-full h-full object-cover filter brightness-[0.75] contrast-[1.1]"
         />
-        {/* Subtle Dark Blue Gradient Overlay for High Contrast Legibility */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#031120]/85 via-[#071D35]/60 to-transparent pointer-events-none" />
+        {/* Dark Blue Gradient Overlay for High Contrast Legibility */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#011120] via-[#011627]/80 to-transparent pointer-events-none" />
       </div>
 
       {/* 2. Floating Quick Contact Side Bar (Phone & WhatsApp on Right Edge) */}
-      <div className="fixed right-0 top-1/2 -translate-y-1/2 z-40 flex flex-col space-y-2 pr-2 sm:pr-4 pointer-events-auto">
+      <div className="fixed right-0 top-1/2 -translate-y-1/2 z-40 flex flex-col space-y-2 pr-2 sm:pr-3 pointer-events-auto">
         <a
-          href="tel:+18005927410"
-          className="w-10 h-10 rounded-[6px] bg-[#006B8F] hover:bg-[#005478] text-white flex items-center justify-center shadow-lg transition-all hover:scale-105"
+          href="tel:+17542587670"
+          className="w-10 h-10 rounded-[6px] bg-[#006B8F] hover:bg-[#005478] text-white flex items-center justify-center shadow-xl transition-all hover:scale-105"
           aria-label="Call Us"
         >
           <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
@@ -33,10 +32,10 @@ export const Hero = ({ data }) => {
           </svg>
         </a>
         <a
-          href="https://wa.me/18005927410"
+          href="https://wa.me/919429709662"
           target="_blank"
           rel="noopener noreferrer"
-          className="w-10 h-10 rounded-[6px] bg-[#006B8F] hover:bg-[#005478] text-white flex items-center justify-center shadow-lg transition-all hover:scale-105"
+          className="w-10 h-10 rounded-[6px] bg-[#006B8F] hover:bg-[#005478] text-white flex items-center justify-center shadow-xl transition-all hover:scale-105"
           aria-label="WhatsApp Chat"
         >
           <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
@@ -45,82 +44,51 @@ export const Hero = ({ data }) => {
         </a>
       </div>
 
-      {/* 3. Hero Main Content Container */}
-      <Container className="relative z-10 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+      {/* 3. Hero Main Content Container - Aligns directly to left matching Header padding */}
+      <div className="relative z-10 w-full px-6 lg:px-10">
+        <div className="max-w-3xl space-y-4">
           
-          {/* Left Text Column (Exact match with Image 1) */}
-          <div className="lg:col-span-8 space-y-4">
-            
-            {/* Tag */}
-            <h2 className="text-[26px] sm:text-[30px] lg:text-[32px] font-[800] text-white tracking-wide font-sans">
-              AI Innovation
-            </h2>
+          {/* Tag: AI Innovation */}
+          <h2 className="text-[28px] sm:text-[34px] font-[800] text-white tracking-wide font-sans">
+            AI Innovation
+          </h2>
 
-            {/* Main Title: "Your Vision, Our Technology" */}
-            <h1 className="text-[34px] sm:text-[42px] lg:text-[46px] font-[900] tracking-tight leading-[1.15] font-sans">
-              <span className="text-[#0088CC]">Your Vision, </span>
-              <span className="text-[#FF2A8D]">Our Technology</span>
-            </h1>
+          {/* Main Title: "Your Vision, Our Technology" */}
+          <h1 className="text-[36px] sm:text-[46px] lg:text-[50px] font-[900] tracking-tight leading-[1.12] font-sans">
+            <span className="text-[#0088CC]">Your Vision, </span>
+            <span className="text-[#E83D98]">Our Technology</span>
+          </h1>
 
-            {/* Subtitle */}
-            <p className="text-[17px] sm:text-[19px] font-[500] text-slate-200 tracking-wide font-sans mb-3">
-              (Limitless Possibilities)
-            </p>
+          {/* Subtitle: (Limitless Possibilities) */}
+          <p className="text-[17px] sm:text-[19px] font-[400] text-white/95 tracking-normal font-sans mb-4">
+            (Limitless Possibilities)
+          </p>
 
-            {/* Bullet Points List (Exact matching text & formatting) */}
-            <ul className="space-y-3 pt-1 max-w-2xl text-slate-200 text-[14.5px] sm:text-[15.5px] font-[500] font-sans leading-relaxed">
-              <li className="flex items-start space-x-2.5">
-                <span className="text-white text-lg font-bold leading-none mt-0.5">•</span>
-                <span>
-                  Named by <strong className="text-white font-[800]">Clutch</strong> as the <strong className="text-white font-[800]">Top AI (Artificial Intelligence)</strong> Company in India and USA.
-                </span>
-              </li>
-              <li className="flex items-start space-x-2.5">
-                <span className="text-white text-lg font-bold leading-none mt-0.5">•</span>
-                <span>
-                  Trusted by <strong className="text-white font-[800]">20+ Fortune 500 Companies and a Clutch Leader.</strong>
-                </span>
-              </li>
-              <li className="flex items-start space-x-2.5">
-                <span className="text-white text-lg font-bold leading-none mt-0.5">•</span>
-                <span>
-                  We’ve been Redefining Excellence for over <strong className="text-white font-[800]">Two Decades.</strong>
-                </span>
-              </li>
-            </ul>
+          {/* Bullet Points List matching reference screenshot */}
+          <ul className="space-y-3 pt-2 max-w-2xl text-slate-100 text-[15px] sm:text-[16px] font-[400] font-sans leading-relaxed">
+            <li className="flex items-start space-x-2.5">
+              <span className="text-white text-lg font-bold leading-none mt-1">•</span>
+              <span>
+                Trusted by <strong className="text-white font-[800]">20+ Fortune 500 Companies</strong> and a Clutch Leader.
+              </span>
+            </li>
+            <li className="flex items-start space-x-2.5">
+              <span className="text-white text-lg font-bold leading-none mt-1">•</span>
+              <span>
+                We’ve been Redefining Excellence for over <strong className="text-white font-[800]">Two Decades.</strong>
+              </span>
+            </li>
+          </ul>
 
-            {/* Primary CTA Button: "Let's Talk" */}
-            <div className="pt-4">
-              <Link
-                to="/contact"
-                className="inline-flex items-center justify-center px-8 py-3.5 rounded-[5px] bg-[#006B8F] hover:bg-[#005478] text-white font-[700] text-[15px] transition-all shadow-md font-sans"
-              >
-                <span>Let's Talk</span>
-              </Link>
-            </div>
+          {/* Primary CTA Button: "Let's Talk" */}
+          <div className="pt-4">
+            <Link
+              to="/contact"
+              className="inline-flex items-center justify-center px-7 py-3 rounded-[4px] bg-[#006B8F] hover:bg-[#005478] text-white font-[700] text-[15px] transition-all shadow-md font-sans"
+            >
+              <span>Let's Talk</span>
+            </Link>
           </div>
-        </div>
-      </Container>
-
-      {/* 4. Bottom Right Floating Text & Logo Badge (Exact match with Image 1) */}
-      <div className="absolute bottom-6 right-6 sm:bottom-10 sm:right-12 z-20 flex items-center space-x-4 pointer-events-none">
-        <div className="text-right font-sans">
-          <p className="text-[17px] sm:text-[21px] font-[800] text-white leading-tight">
-            Streamlining Success With
-          </p>
-          <p className="text-[18px] sm:text-[22px] font-[900] text-[#FF2A8D] leading-tight mt-0.5">
-            Intelligent AI Solutions
-          </p>
-        </div>
-
-        {/* Sapphire Brand Icon Badge */}
-        <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-[6px] bg-white flex items-center justify-center shadow-2xl p-1.5 shrink-0">
-          <img
-            src="/images/sapphire_logo_dark.svg"
-            alt="Sapphire Software Solutions"
-            className="w-full h-full object-contain"
-          />
         </div>
       </div>
     </section>
