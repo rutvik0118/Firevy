@@ -18,7 +18,7 @@ const brandLogos = [
 
 export const BrandLogoMarquee = () => {
   return (
-    <div className="w-full bg-[#F4F8FC] border-y border-slate-200/70 py-5 overflow-hidden select-none">
+    <div className="w-full bg-white py-5 overflow-hidden select-none">
       <div className="flex w-max animate-marquee hover:[animation-play-state:paused] items-center">
         {/* Track 1 */}
         <div className="flex items-center space-x-12 sm:space-x-16 pr-12 sm:pr-16 shrink-0">

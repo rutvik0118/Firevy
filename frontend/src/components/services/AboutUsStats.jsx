@@ -54,7 +54,7 @@ export const AboutUsStats = () => {
   ];
 
   return (
-    <section className="py-10 sm:py-12 lg:py-13 bg-[#005F96] text-white font-sans text-left relative overflow-hidden">
+    <section className="py-6 sm:py-8 lg:py-9 bg-[#005F96] text-white font-sans text-left relative overflow-hidden">
       <Container>
         {/* Section Heading & Subtitle */}
         <div className="text-center max-w-4xl mx-auto mb-6 sm:mb-8 space-y-1.5">

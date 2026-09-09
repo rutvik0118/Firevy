@@ -4,51 +4,51 @@ import Container from '../common/Container';
 const defaultCards = [
   {
     title: 'SEO and Digital Marketing',
-    image: '/images/what_clientsay_icon/ic_seo.svg'
+    image: '/images/ic_seo.svg'
   },
   {
     title: '4 months + Free Post Launch Support',
-    image: '/images/what_clientsay_icon/ic_support.svg'
+    image: '/images/ic_support.svg'
   },
   {
     title: 'Non-Disclosure',
-    image: '/images/what_clientsay_icon/ic_non_disclosure.svg'
+    image: '/images/ic_non_disclosure.svg'
   },
   {
     title: '100% value for the money',
-    image: '/images/what_clientsay_icon/ic_money.svg'
+    image: '/images/ic_money.svg'
   },
   {
     title: 'Professional coding and version controls',
-    image: '/images/what_clientsay_icon/ic_coding_version.svg'
+    image: '/images/ic_coding_version.svg'
   },
   {
     title: 'Flexible payment plans',
-    image: '/images/what_clientsay_icon/ic_flexible_payment.svg'
+    image: '/images/ic_flexible_payment.svg'
   },
   {
     title: 'Real-time project tracking tools',
-    image: '/images/what_clientsay_icon/ic_real_time.svg'
+    image: '/images/ic_real_time.svg'
   },
   {
     title: 'Custom Tailored support | AMC Plans',
-    image: '/images/what_clientsay_icon/ic_amc.svg'
+    image: '/images/ic_amc.svg'
   },
   {
-    title: 'Quality Assurance and Unit Test Cases',
-    image: '/images/what_clientsay_icon/ic_quality.svg'
+    title: 'Quality Assurance and Unit Test Case',
+    image: '/images/ic_quality.svg'
   },
   {
     title: 'Penalty enforce-ment in case of Delivery Delay',
-    image: '/images/what_clientsay_icon/ic_penalty.svg'
+    image: '/images/ic_penalty.svg'
   },
   {
-    title: 'In-dept analysis of revenue business Models',
-    image: '/images/what_clientsay_icon/ic_in_dept_analysis.svg'
+    title: 'In-depth analysis of revenue business Models',
+    image: '/images/ic_in_dept_analysis.svg'
   },
   {
     title: 'Mind Maps and video demos',
-    image: '/images/what_clientsay_icon/ic_mind_maps.svg'
+    image: '/images/ic_mind_maps.svg'
   }
 ];
 

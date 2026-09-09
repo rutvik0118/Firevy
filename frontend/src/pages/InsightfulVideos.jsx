@@ -6,6 +6,11 @@ import BRAND from '../constants/brand';
 import TrustMarquee from '../components/home/TrustMarquee';
 import PremiumServicesGrid from '../components/home/PremiumServicesGrid';
 import WorkProcessGrid from '../components/home/WorkProcessGrid';
+import AboutKeyMetrics from '../components/home/AboutKeyMetrics';
+import SuccessMatrixGrid from '../components/home/SuccessMatrixGrid';
+import BrandLogoGrid from '../components/home/BrandLogoGrid';
+import ClientReviewsDarkSection from '../components/home/ClientReviewsDarkSection';
+import FeaturedInLogosGrid from '../components/home/FeaturedInLogosGrid';
 import WorkTogetherNewsletterSection from '../components/home/WorkTogetherNewsletterSection';
 import companyPublicService from '../services/companyPublicService';
 import { ArrowRight, Play, X, ChevronLeft, ChevronRight } from 'lucide-react';
@@ -259,93 +264,112 @@ export const InsightfulVideos = () => {
       <section className="py-16 md:py-24 bg-white text-slate-900 font-sans border-b border-slate-100">
         <Container>
           
+<<<<<<< HEAD
           <div className="text-center max-w-4xl mx-auto mb-10">
             <h2 className="text-[32px] sm:text-[42px] font-[800] text-slate-900 tracking-tight leading-tight mb-3 font-sans">
               {sectionData?.contentSections?.[0]?.title || 'Unveiling Our Innovative Solution'}
             </h2>
             <p className="text-[15px] sm:text-[16px] text-slate-600 leading-relaxed font-sans font-[400] max-w-3xl mx-auto mb-8">
               {sectionData?.contentSections?.[0]?.content || "From cutting-edge technology to revolutionary concepts, get ready to be inspired and intrigued. This is more than just a video - it's a glimpse into the future of innovation."}
+=======
+          <div className="text-center max-w-4xl mx-auto mb-3">
+            <h2 className="text-[32px] sm:text-[40px] font-[800] text-slate-900 tracking-tight leading-tight mb-3 font-sans">
+              Unveiling Our Innovative Solution
+            </h2>
+            <p className="text-[14.5px] sm:text-[15.5px] text-slate-600 leading-relaxed font-sans font-[400] max-w-3xl mx-auto mb-6">
+              From cutting-edge technology to revolutionary concepts, get ready to be inspired and intrigued. This is more than just a video - it's a glimpse into the future of innovation.
+>>>>>>> bb37771cb477c9f866579ae567ca998f22679827
             </p>
 
-            <h3 className="text-[22px] font-[800] text-[#006B8F] font-sans tracking-tight mb-1">
+            <h3 className="text-[22px] font-[800] text-[#006B8F] font-sans tracking-tight mb-2">
               Industry
             </h3>
 
-            {/* Triangle Pointer */}
-            <div className="flex justify-center mb-2">
-              <div className="w-0 h-0 border-l-[8px] border-l-transparent border-r-[8px] border-r-transparent border-b-[8px] border-b-[#EBF5FB]" />
+            {/* Triangle Pointer connecting Industry heading to the filter container */}
+            <div className="flex justify-center -mb-[1px] relative z-10">
+              <div className="w-0 h-0 border-l-[8px] border-l-transparent border-r-[8px] border-r-transparent border-b-[8px] border-b-[#EEF4F8]" />
             </div>
-
-            {/* Filter Container with Outer Arrows */}
-            <div className="relative max-w-5xl mx-auto flex items-center justify-center space-x-3">
-              <button
-                type="button"
-                onClick={() => scrollFilter('left')}
-                className="text-slate-800 hover:text-[#006B8F] transition-colors p-1"
-              >
-                <ChevronLeft className="w-7 h-7 stroke-[3]" />
-              </button>
-
-              <div className="bg-[#EBF5FB] rounded-[24px] p-4 sm:p-5 border border-slate-200/60 shadow-xs flex-1 max-w-5xl overflow-hidden">
-                <div
-                  ref={filterScrollRef}
-                  className="overflow-x-auto no-scrollbar scroll-smooth space-y-2.5 py-1 px-1"
-                >
-                  {/* Row 1 */}
-                  <div className="flex items-center space-x-2.5 min-w-max">
-                    {['All', 'Utilities', 'Ecommerce', 'Technology', 'Real Estate', 'HR', 'Logistics', 'Human Resource'].map((cat) => (
-                      <button
-                        key={cat}
-                        onClick={() => {
-                          setActiveCategory(cat);
-                          setVisibleCount(6);
-                        }}
-                        className={`px-4 py-2 rounded-[8px] text-[13px] font-[700] whitespace-nowrap transition-all font-sans ${
-                          activeCategory === cat
-                            ? 'bg-[#006B8F] text-white shadow-sm'
-                            : 'bg-white text-slate-700 hover:bg-slate-50 border border-slate-200/80'
-                        }`}
-                      >
-                        {cat}
-                      </button>
-                    ))}
-                  </div>
-
-                  {/* Row 2 */}
-                  <div className="flex items-center space-x-2.5 min-w-max">
-                    {['HealthCare', 'Social', 'Entertainment', 'Personal Care & Cosmetic', 'Agriculture', 'Education', 'Marketplace', 'Food & Beverages'].map((cat) => (
-                      <button
-                        key={cat}
-                        onClick={() => {
-                          setActiveCategory(cat);
-                          setVisibleCount(6);
-                        }}
-                        className={`px-4 py-2 rounded-[8px] text-[13px] font-[700] whitespace-nowrap transition-all font-sans ${
-                          activeCategory === cat
-                            ? 'bg-[#006B8F] text-white shadow-sm'
-                            : 'bg-white text-slate-700 hover:bg-slate-50 border border-slate-200/80'
-                        }`}
-                      >
-                        {cat}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              <button
-                type="button"
-                onClick={() => scrollFilter('right')}
-                className="text-slate-800 hover:text-[#006B8F] transition-colors p-1"
-              >
-                <ChevronRight className="w-7 h-7 stroke-[3]" />
-              </button>
-            </div>
-
           </div>
 
+          {/* Filter Container with Outer Arrows */}
+          <div className="relative max-w-[1140px] mx-auto flex items-center justify-center space-x-2 sm:space-x-3 px-2">
+            <button
+              type="button"
+              onClick={() => scrollFilter('left')}
+              className="text-slate-700 hover:text-[#006B8F] transition-colors p-1 shrink-0"
+              aria-label="Scroll left"
+            >
+              <ChevronLeft className="w-6 h-6 sm:w-7 sm:h-7 stroke-[2.5]" />
+            </button>
+
+            <div className="bg-[#EEF4F8] rounded-[14px] sm:rounded-[16px] p-3 sm:p-3.5 border border-slate-200/60 shadow-xs flex-1 max-w-[1080px] overflow-hidden">
+              <div
+                ref={filterScrollRef}
+                className="overflow-x-auto no-scrollbar scroll-smooth py-0.5 px-0.5"
+              >
+                <div className="flex items-center space-x-2 sm:space-x-2.5 min-w-max">
+                  {[
+                    { top: 'All', bottom: 'HealthCare' },
+                    { top: 'Utilities', bottom: 'Social' },
+                    { top: 'Ecommerce', bottom: 'Entertainment' },
+                    { top: 'Technology', bottom: 'Personal Care & Cosmetic' },
+                    { top: 'Real Estate', bottom: 'Agriculture' },
+                    { top: 'HR', bottom: 'Education' },
+                    { top: 'Logistics', bottom: 'Marketplace' },
+                    { top: 'Human Resource', bottom: 'Food & Beverages' }
+                  ].map((col, idx) => (
+                    <div key={idx} className="flex flex-col space-y-2">
+                      {/* Top Pill */}
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setActiveCategory(col.top);
+                          setVisibleCount(6);
+                        }}
+                        className={`w-full px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-[6px] text-[13px] sm:text-[13.5px] font-[500] whitespace-nowrap transition-all font-sans text-center ${
+                          activeCategory === col.top
+                            ? 'bg-[#005B82] text-white shadow-xs font-[600]'
+                            : 'bg-white text-slate-800 hover:bg-slate-50 border border-slate-200/80 shadow-[0_1px_2px_rgba(0,0,0,0.04)]'
+                        }`}
+                      >
+                        {col.top}
+                      </button>
+
+                      {/* Bottom Pill */}
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setActiveCategory(col.bottom);
+                          setVisibleCount(6);
+                        }}
+                        className={`w-full px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-[6px] text-[13px] sm:text-[13.5px] font-[500] whitespace-nowrap transition-all font-sans text-center ${
+                          activeCategory === col.bottom
+                            ? 'bg-[#005B82] text-white shadow-xs font-[600]'
+                            : 'bg-white text-slate-800 hover:bg-slate-50 border border-slate-200/80 shadow-[0_1px_2px_rgba(0,0,0,0.04)]'
+                        }`}
+                      >
+                        {col.bottom}
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <button
+              type="button"
+              onClick={() => scrollFilter('right')}
+              className="text-slate-700 hover:text-[#006B8F] transition-colors p-1 shrink-0"
+              aria-label="Scroll right"
+            >
+              <ChevronRight className="w-6 h-6 sm:w-7 sm:h-7 stroke-[2.5]" />
+            </button>
+          </div>
+
+
+
           {/* Video Cards Grid (3 Columns) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto mt-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 max-w-6xl mx-auto mt-10">
             {filteredVideos.slice(0, visibleCount).map((video) => (
               <div
                 key={video.id}
@@ -354,72 +378,108 @@ export const InsightfulVideos = () => {
               >
                 {/* 1:1 Sapphire Banner Thumbnail Graphic */}
                 {video.id === 1 ? (
-                  <div className="relative h-48 sm:h-52 overflow-hidden bg-[#F2FAF4] p-4 flex items-center justify-between border-b border-slate-200">
-                    <div className="flex-1 pr-2 text-left space-y-1 z-10">
-                      <div className="flex items-center space-x-1 mb-2">
-                        <span className="text-[14px] font-[900] text-[#006B8F]">{BRAND.name}</span>
-                      </div>
-                      <span className="text-[10px] font-[800] text-emerald-600 tracking-wider block uppercase">#NUTRITION</span>
-                      <h5 className="text-[12.5px] font-[900] text-slate-800 leading-tight">YOUR GO-TO MEAL PLANNING AND NUTRITION APP</h5>
+                  <div className="relative h-48 sm:h-52 overflow-hidden bg-[#F4F9F6] p-4 flex items-center justify-between border-b border-slate-200 select-none">
+                    {/* Top Right Brand Badge */}
+                    <div className="absolute top-3 right-3 flex items-center space-x-1 opacity-90">
+                      <span className="text-[12px] font-[900] text-[#006B8F]">{BRAND.name}</span>
                     </div>
+
+                    <div className="flex-1 pr-2 text-left space-y-1.5 z-10">
+                      <div className="inline-block px-2 py-0.5 rounded bg-emerald-100 text-[9.5px] font-[800] text-emerald-800 tracking-wider uppercase">
+                        #NUTRITION
+                      </div>
+                      <h5 className="text-[12px] font-[900] text-slate-800 leading-tight uppercase max-w-[150px]">
+                        YOUR GO-TO MEAL PLANNING AND NUTRITION APP
+                      </h5>
+                    </div>
+
                     <div className="w-32 h-36 bg-white rounded-[12px] shadow-md border border-emerald-100 p-2 shrink-0 flex flex-col justify-between">
-                      <div className="w-full h-12 bg-emerald-50 rounded-[6px] flex items-center justify-center text-emerald-600 font-bold text-xs">
-                        NutriPlan
+                      <div className="w-full h-11 bg-emerald-50 rounded-[6px] flex items-center justify-center text-emerald-700 font-bold text-xs">
+                        🥗 NutriPlan
                       </div>
-                      <div className="space-y-1">
-                        <div className="w-full h-2 bg-slate-200 rounded" />
-                        <div className="w-3/4 h-2 bg-slate-200 rounded" />
+                      <div className="space-y-1.5">
+                        <div className="flex justify-between items-center text-[8px] text-slate-500 font-bold">
+                          <span>Calories</span>
+                          <span className="text-emerald-600">1,760 kcal</span>
+                        </div>
+                        <div className="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                          <div className="w-3/4 h-full bg-emerald-500 rounded-full" />
+                        </div>
+                        <div className="w-full h-1.5 bg-slate-100 rounded-full" />
                       </div>
                     </div>
-                    <div className="absolute bottom-3 right-3 w-11 h-11 rounded-full bg-[#D0E7F7] hover:bg-[#BDE0F5] text-[#005B82] flex items-center justify-center shadow-md transition-transform group-hover:scale-110">
+
+                    {/* Floating Cyan Play Button */}
+                    <div className="absolute bottom-3 right-3 w-11 h-11 rounded-full bg-[#82D4E8] hover:bg-[#68C5DD] text-[#065A7C] flex items-center justify-center shadow-md transition-transform group-hover:scale-110">
                       <Play className="w-5 h-5 fill-current ml-0.5" />
                     </div>
                   </div>
                 ) : video.id === 2 ? (
-                  <div className="relative h-48 sm:h-52 overflow-hidden bg-[#EBF7FD] p-4 flex items-center justify-between border-b border-slate-200">
-                    <div className="flex-1 pr-2 text-left space-y-1.5 z-10">
-                      <div className="flex items-center space-x-1 mb-2">
-                        <span className="text-[14px] font-[900] text-[#006B8F]">{BRAND.name}</span>
-                      </div>
-                      <h5 className="text-[12.5px] font-[900] text-[#005B82] leading-tight">National Water Supply Corporation (NWSC)</h5>
-                      <p className="text-[10.5px] font-[600] text-slate-600 leading-tight">Streamlining Water Management, Introducing Innovative App</p>
+                  <div className="relative h-48 sm:h-52 overflow-hidden bg-gradient-to-br from-[#78CFE5] to-[#A8E6F2] p-4 flex items-center justify-between border-b border-slate-200 select-none">
+                    {/* Top Right Brand Badge */}
+                    <div className="absolute top-3 right-3 flex items-center space-x-1 opacity-90">
+                      <span className="text-[12px] font-[900] text-[#065A7C]">{BRAND.name}</span>
                     </div>
-                    <div className="w-24 h-36 bg-white rounded-[14px] shadow-md border border-cyan-200 p-1.5 shrink-0 flex flex-col items-center justify-center">
-                      <div className="w-16 h-28 bg-[#E0F2FE] rounded-[10px] flex flex-col items-center justify-center p-1 text-center">
-                        <div className="w-6 h-6 rounded-full bg-[#0284C7] text-white flex items-center justify-center text-[10px] font-bold">💧</div>
-                        <span className="text-[7.5px] font-[900] text-cyan-900 mt-1 leading-tight">NWSC Water App</span>
+
+                    <div className="w-24 h-36 bg-white rounded-[14px] shadow-lg border-2 border-cyan-100 p-1.5 shrink-0 flex flex-col items-center justify-between">
+                      <div className="w-6 h-1 bg-slate-200 rounded-full mb-1" />
+                      <div className="w-full flex-1 bg-[#E0F2FE] rounded-[8px] p-1 flex flex-col items-center justify-center text-center">
+                        <div className="w-7 h-7 rounded-full bg-[#0284C7] text-white flex items-center justify-center text-xs shadow-xs">💧</div>
+                        <span className="text-[7.5px] font-[900] text-[#0369A1] mt-1 leading-tight">NWSC Water App</span>
                       </div>
+                      <div className="w-4 h-1 bg-slate-300 rounded-full mt-1" />
                     </div>
-                    <div className="absolute bottom-3 right-3 w-11 h-11 rounded-full bg-[#D0E7F7] hover:bg-[#BDE0F5] text-[#005B82] flex items-center justify-center shadow-md transition-transform group-hover:scale-110">
+
+                    <div className="flex-1 pl-3 text-left space-y-1.5 z-10">
+                      <h5 className="text-[13px] font-[900] text-[#04405E] leading-tight">
+                        National Water Supply Corporation (NWSC)
+                      </h5>
+                      <p className="text-[10.5px] font-[600] text-[#034D70] leading-tight">
+                        Streamlining Water Management, Introducing Innovative App
+                      </p>
+                    </div>
+
+                    {/* Floating Cyan Play Button */}
+                    <div className="absolute bottom-3 right-3 w-11 h-11 rounded-full bg-[#82D4E8] hover:bg-[#68C5DD] text-[#065A7C] flex items-center justify-center shadow-md transition-transform group-hover:scale-110">
                       <Play className="w-5 h-5 fill-current ml-0.5" />
                     </div>
                   </div>
                 ) : video.id === 3 ? (
-                  <div className="relative h-48 sm:h-52 overflow-hidden bg-[#FFF7ED] p-4 flex items-center justify-between border-b border-slate-200">
-                    <div className="flex-1 pr-2 text-left space-y-1.5 z-10">
-                      <div className="flex items-center space-x-1 mb-1">
-                        <span className="text-[14px] font-[900] text-[#006B8F]">{BRAND.name}</span>
-                      </div>
-                      <span className="text-[9.5px] font-[800] text-amber-600 uppercase block tracking-wider">#WISHLIST</span>
-                      <h5 className="text-[13px] font-[900] text-amber-900 leading-tight">WishQuake: More than just a Wishlist App</h5>
-                      <p className="text-[10px] font-[600] text-amber-800/80 leading-tight">Craft your wishlist collection on-the-go with our intuitive Wishlist App</p>
+                  <div className="relative h-48 sm:h-52 overflow-hidden bg-gradient-to-br from-[#FFE3D4] to-[#FDD1BC] p-4 flex items-center justify-between border-b border-slate-200 select-none">
+                    {/* Top Right Brand Badge */}
+                    <div className="absolute top-3 right-3 flex items-center space-x-1 opacity-90">
+                      <span className="text-[12px] font-[900] text-amber-900">{BRAND.name}</span>
                     </div>
-                    <div className="w-28 h-36 bg-white rounded-[14px] shadow-md border border-amber-200 p-1.5 shrink-0 flex items-center justify-center">
-                      <div className="w-20 h-28 bg-[#FFEDD5] rounded-[10px] p-1 flex flex-col items-center justify-center text-center">
-                        <span className="text-xl">🎁</span>
-                        <span className="text-[8px] font-[900] text-amber-900 mt-1">WishQuake</span>
+
+                    <div className="flex-1 pr-2 text-left space-y-1 z-10">
+                      <span className="text-[9.5px] font-[800] text-amber-700 uppercase block tracking-wider">#WISHLIST</span>
+                      <h5 className="text-[12.5px] font-[900] text-amber-950 leading-tight">
+                        WishQuake: More than just a Wishlist App
+                      </h5>
+                      <p className="text-[10px] font-[600] text-amber-900/80 leading-tight">
+                        Craft your wishlist collection on the go with our Intuitive Wishlist app
+                      </p>
+                    </div>
+
+                    <div className="w-28 h-36 bg-white rounded-[14px] shadow-lg border-2 border-amber-100 p-1.5 shrink-0 flex items-center justify-center">
+                      <div className="w-22 h-30 bg-[#FFF7ED] rounded-[10px] p-1.5 flex flex-col items-center justify-center text-center">
+                        <span className="text-2xl">🎁</span>
+                        <span className="text-[8.5px] font-[900] text-amber-900 mt-1">WishQuake</span>
+                        <div className="w-12 h-1 bg-amber-200 rounded mt-1" />
                       </div>
                     </div>
-                    <div className="absolute bottom-3 right-3 w-11 h-11 rounded-full bg-[#D0E7F7] hover:bg-[#BDE0F5] text-[#005B82] flex items-center justify-center shadow-md transition-transform group-hover:scale-110">
+
+                    {/* Floating Cyan Play Button */}
+                    <div className="absolute bottom-3 right-3 w-11 h-11 rounded-full bg-[#82D4E8] hover:bg-[#68C5DD] text-[#065A7C] flex items-center justify-center shadow-md transition-transform group-hover:scale-110">
                       <Play className="w-5 h-5 fill-current ml-0.5" />
                     </div>
                   </div>
                 ) : video.id === 4 ? (
-                  <div className="relative h-48 sm:h-52 overflow-hidden bg-[#F8FAFC] p-4 flex items-center justify-between border-b border-slate-200">
+                  <div className="relative h-48 sm:h-52 overflow-hidden bg-[#F8FAFC] p-4 flex items-center justify-between border-b border-slate-200 select-none">
+                    <div className="absolute top-3 right-3 flex items-center space-x-1 opacity-90">
+                      <span className="text-[12px] font-[900] text-[#006B8F]">{BRAND.name}</span>
+                    </div>
                     <div className="flex-1 pr-2 text-left space-y-1.5 z-10">
-                      <div className="flex items-center space-x-1 mb-1">
-                        <span className="text-[14px] font-[900] text-[#006B8F]">{BRAND.name}</span>
-                      </div>
                       <h5 className="text-[13px] font-[900] text-slate-900 leading-tight">BREATHCRAFT : Unleash Your Potential through Mindful Breathing</h5>
                       <p className="text-[10px] font-[500] text-slate-600 leading-tight">Breathwork empowers you to take control of your wellness journey.</p>
                     </div>
@@ -429,16 +489,16 @@ export const InsightfulVideos = () => {
                         <span className="text-[7.5px] font-[900] text-slate-800 mt-1">BREATHCRAFT</span>
                       </div>
                     </div>
-                    <div className="absolute bottom-3 right-3 w-11 h-11 rounded-full bg-[#D0E7F7] hover:bg-[#BDE0F5] text-[#005B82] flex items-center justify-center shadow-md transition-transform group-hover:scale-110">
+                    <div className="absolute bottom-3 right-3 w-11 h-11 rounded-full bg-[#82D4E8] hover:bg-[#68C5DD] text-[#065A7C] flex items-center justify-center shadow-md transition-transform group-hover:scale-110">
                       <Play className="w-5 h-5 fill-current ml-0.5" />
                     </div>
                   </div>
                 ) : video.id === 5 ? (
-                  <div className="relative h-48 sm:h-52 overflow-hidden bg-[#1E1715] p-4 flex items-center justify-between border-b border-slate-800 text-amber-100">
+                  <div className="relative h-48 sm:h-52 overflow-hidden bg-[#1E1715] p-4 flex items-center justify-between border-b border-slate-800 text-amber-100 select-none">
+                    <div className="absolute top-3 right-3 flex items-center space-x-1 opacity-90">
+                      <span className="text-[12px] font-[900] text-amber-400">{BRAND.name}</span>
+                    </div>
                     <div className="flex-1 pr-2 text-left space-y-1.5 z-10">
-                      <div className="flex items-center space-x-1 mb-1">
-                        <span className="text-[14px] font-[900] text-amber-400">{BRAND.name}</span>
-                      </div>
                       <h5 className="text-[13px] font-[900] text-amber-200 leading-tight">BEAUTYBEE - Discover Your Beauty Essentials</h5>
                       <p className="text-[10px] font-[500] text-amber-100/70 leading-tight">Where beauty meets convenience. Explore cosmetics and skincare products.</p>
                     </div>
@@ -448,16 +508,16 @@ export const InsightfulVideos = () => {
                         <span className="text-[7.5px] font-[900] text-amber-300 mt-1">BEAUTYBEE</span>
                       </div>
                     </div>
-                    <div className="absolute bottom-3 right-3 w-11 h-11 rounded-full bg-[#D0E7F7] hover:bg-[#BDE0F5] text-[#005B82] flex items-center justify-center shadow-md transition-transform group-hover:scale-110">
+                    <div className="absolute bottom-3 right-3 w-11 h-11 rounded-full bg-[#82D4E8] hover:bg-[#68C5DD] text-[#065A7C] flex items-center justify-center shadow-md transition-transform group-hover:scale-110">
                       <Play className="w-5 h-5 fill-current ml-0.5" />
                     </div>
                   </div>
                 ) : (
-                  <div className="relative h-48 sm:h-52 overflow-hidden bg-[#0A0E1A] p-4 flex items-center justify-between border-b border-slate-800 text-purple-100">
+                  <div className="relative h-48 sm:h-52 overflow-hidden bg-[#0A0E1A] p-4 flex items-center justify-between border-b border-slate-800 text-purple-100 select-none">
+                    <div className="absolute top-3 right-3 flex items-center space-x-1 opacity-90">
+                      <span className="text-[12px] font-[900] text-purple-400">{BRAND.name}</span>
+                    </div>
                     <div className="flex-1 pr-2 text-left space-y-1.5 z-10">
-                      <div className="flex items-center space-x-1 mb-1">
-                        <span className="text-[14px] font-[900] text-purple-400">{BRAND.name}</span>
-                      </div>
                       <h5 className="text-[13px] font-[900] text-pink-400 tracking-wider leading-tight">CINESTREAM: STREAM. ENJOY</h5>
                       <p className="text-[10px] font-[500] text-slate-300 leading-tight">Find where your favorite movies are streaming with ease!</p>
                     </div>
@@ -467,7 +527,7 @@ export const InsightfulVideos = () => {
                         <span className="text-[7.5px] font-[900] text-pink-400 mt-1">CINESTREAM</span>
                       </div>
                     </div>
-                    <div className="absolute bottom-3 right-3 w-11 h-11 rounded-full bg-[#D0E7F7] hover:bg-[#BDE0F5] text-[#005B82] flex items-center justify-center shadow-md transition-transform group-hover:scale-110">
+                    <div className="absolute bottom-3 right-3 w-11 h-11 rounded-full bg-[#82D4E8] hover:bg-[#68C5DD] text-[#065A7C] flex items-center justify-center shadow-md transition-transform group-hover:scale-110">
                       <Play className="w-5 h-5 fill-current ml-0.5" />
                     </div>
                   </div>
@@ -578,17 +638,43 @@ export const InsightfulVideos = () => {
       <PremiumServicesGrid />
 
       {/* ============================================================
-          6. PROCESS WE FOLLOW (Screenshot 4)
+          6. PROCESS WE FOLLOW
           ============================================================ */}
       <WorkProcessGrid />
 
       {/* ============================================================
-          7. CTA & NEWSLETTER SECTION
+          7. ABOUT US (KEY METRICS - Screenshot 1)
+          ============================================================ */}
+      <AboutKeyMetrics />
+
+      {/* ============================================================
+          8. SUCCESS MATRIX (Screenshot 2)
+          ============================================================ */}
+      <SuccessMatrixGrid />
+
+      {/* ============================================================
+          9. TRUSTED BY THE WORLD'S LEADING BRANDS (Screenshot 3)
+          ============================================================ */}
+      <BrandLogoGrid />
+
+      {/* ============================================================
+          10. WHAT OUR CLIENTS SAY (CLUTCH REVIEWS SLIDER - Screenshot 4)
+          ============================================================ */}
+      <ClientReviewsDarkSection />
+
+      {/* ============================================================
+          11. WE HAVE BEEN FEATURED IN (Screenshot 4 Bottom)
+          ============================================================ */}
+      <FeaturedInLogosGrid />
+
+      {/* ============================================================
+          12. CTA & NEWSLETTER SECTION (Matching Image 1)
           ============================================================ */}
       <WorkTogetherNewsletterSection
-        title="Ready To Get Started?"
-        subtitle={`Learn how ${BRAND.name} can help you build better relationships with your customers. Start a conversation today.`}
-        buttonText="Request A Free Quote"
+        title={`Have ${BRAND.name === 'Firevy' ? 'Sapphire' : BRAND.name} Mobile App Development Challenge To Address\n?`}
+        subtitle={`Get access to top ${BRAND.name === 'Firevy' ? 'Sapphire' : BRAND.name} Mobile App Development to transform your ideas into a robust application.`}
+        buttonText="Hire Now"
+        buttonLink="/contact"
       />
 
       {/* ============================================================

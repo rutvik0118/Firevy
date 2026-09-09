@@ -104,7 +104,9 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="bg-[#edf5f9] text-slate-900 pt-8 pb-0 relative overflow-hidden font-sans border-t border-slate-200/80 w-full">
+    <footer className="bg-white text-slate-900 pt-8 pb-0 relative overflow-hidden font-sans border-t border-slate-200/80 w-full">
+      
+      {/* TOP SECTION: 6-COLUMN LINKS & AWARDS (WHITE BACKGROUND) */}
       <div className="w-full px-3 sm:px-6 lg:px-8 xl:px-10 mx-auto space-y-6">
         
         {/* 1. TOP 6-COLUMN FOOTER LINKS IN CLEAN WHITE BOX - FULL WIDTH */}
@@ -220,27 +222,24 @@ export const Footer = () => {
             ))}
           </div>
         </div>
+      </div>
 
-        {/* 3. MAIN LOWER SECTION: LEFT GROUP + RIGHT GROUP */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 pb-6 items-start text-left">
+      {/* 3. MAIN LOWER SECTION WITH BACKGROUND COLOR (#edf5f9) - FULL WIDTH */}
+      <div className="w-full bg-[#edf5f9] mt-8 pt-8 pb-4 border-t border-slate-200/80">
+        <div className="w-full px-3 sm:px-6 lg:px-8 xl:px-10 mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 pb-4 items-start text-left">
           
           {/* LEFT GROUP (Col 5 / 12) */}
           <div className="lg:col-span-5 space-y-5">
             
             {/* firevy.co Brand Logo */}
-            <div className="flex items-center space-x-3">
-              <div className="w-13 h-13 rounded-[12px] bg-[#006B8F] flex items-center justify-center text-white font-[900] text-3xl font-sans shadow-sm">
-                F
-              </div>
-              <div className="leading-none">
-                <span className="text-[32px] font-[900] text-[#006B8F] tracking-tight font-sans block">
-                  firevy<span className="text-[#00A3C4]">.co</span>
-                </span>
-                <span className="text-[11px] font-[700] text-slate-500 font-sans tracking-widest uppercase">
-                  Software Solutions
-                </span>
-              </div>
-            </div>
+            <Link to="/" className="inline-block">
+              <img
+                src="/firevy_logo_dark.png"
+                alt="firevy.co"
+                className="h-10 sm:h-12 w-auto max-w-[220px] object-contain"
+              />
+            </Link>
 
             {/* Two Contact Cards Side-by-Side */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -487,11 +486,11 @@ export const Footer = () => {
           </div>
 
         </div>
-
+      </div>
       </div>
 
       {/* 4. SOLID BLUE COPYRIGHT BAR ACROSS FULL WIDTH */}
-      <div className="bg-[#006B8F] text-white py-3.5 px-4 sm:px-8 xl:px-10 mt-6 w-full">
+      <div className="bg-[#006B8F] text-white py-3.5 px-4 sm:px-8 xl:px-10 mt-0 w-full">
         <div className="w-full flex flex-col sm:flex-row items-center justify-between text-[13px] font-sans">
           <div>
             © {currentYear} firevy.co. All rights reserved.

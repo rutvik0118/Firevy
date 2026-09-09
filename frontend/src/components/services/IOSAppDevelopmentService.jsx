@@ -51,7 +51,7 @@ import {
   Boxes
 } from 'lucide-react';
 
-export const AndroidAppDevelopmentService = () => {
+export const IOSAppDevelopmentService = () => {
   const [openFaq, setOpenFaq] = useState(0);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [techCarouselIndex, setTechCarouselIndex] = useState(0);
@@ -73,8 +73,8 @@ export const AndroidAppDevelopmentService = () => {
     name: '',
     email: '',
     phone: '',
-    model: 'Dedicated Team',
-    appType: 'Custom Android Application',
+    model: 'Dedicated iOS Team',
+    appType: 'Custom iOS Application',
     budget: '$25,000 - $50,000',
     message: ''
   });
@@ -89,112 +89,40 @@ export const AndroidAppDevelopmentService = () => {
     setFormSubmitted(true);
   };
 
-  // 6 Core Android App Development Capabilities
-  const androidFeatures = [
-    {
-      title: 'Custom Android App Development',
-      desc: 'Bespoke Android apps designed from the ground up for high performance, smooth 60fps animations, and enterprise scalability.',
-      icon: Smartphone
-    },
-    {
-      title: 'Native Kotlin & Java Architecture',
-      desc: 'Engineered using modern Android Jetpack libraries, Clean Architecture (MVVM/MVI), Coroutines, and Room database.',
-      icon: Code2
-    },
-    {
-      title: 'AI-Powered Smart Android Apps',
-      desc: 'Integration of Google ML Kit, on-device AI inference, voice assistants, and computer vision models for smart user experiences.',
-      icon: Bot
-    },
-    {
-      title: 'Tablet, TV & Wearable Integration',
-      desc: 'Multi-screen responsive apps optimized for Android Tablets, Android TV, Wear OS smartwatches, and foldable hardware.',
-      icon: Tv
-    },
-    {
-      title: 'Enterprise Mobility & Security',
-      desc: 'End-to-end data encryption, biometric authentication, secure OAuth token storage, and Android Enterprise (MDM/EMM) integration.',
-      icon: ShieldCheck
-    },
-    {
-      title: 'Google Play Store Optimization & SLA',
-      desc: 'Complete deployment assistance, compliance with Google Play Store policies, ASO, and 24/7 SLA maintenance support.',
-      icon: Layers
-    }
-  ];
-
-  // Android Tech Stack Grid
-  const techCategories = {
-    backend: [
-      { name: 'Kotlin', desc: 'Google-preferred modern language for expressive, null-safe, and high-speed Android development.' },
-      { name: 'Java', desc: 'Robust enterprise-grade language for legacy and large-scale Android SDK integrations.' },
-      { name: 'Android Jetpack', desc: 'Suite of modern libraries including Navigation, ViewModel, LiveData, and Compose.' },
-      { name: 'Jetpack Compose', desc: 'Modern declarative UI toolkit accelerating UI development with reactive state management.' },
-      { name: 'Coroutines & Flow', desc: 'Asynchronous reactive programming managing smooth background threads and data streams.' }
-    ],
-    frontend: [
-      { name: 'Retrofit & OkHttp', desc: 'Type-safe HTTP client with connection pooling, caching, and interceptors for API calls.' },
-      { name: 'Dagger-Hilt', desc: 'Standard dependency injection framework for decoupled and highly testable Android architecture.' },
-      { name: 'Room Database', desc: 'Robust SQLite abstraction layer providing offline data persistence and reactive Flow queries.' },
-      { name: 'Google ML Kit', desc: 'On-device machine learning APIs for text recognition, barcode scanning, and face detection.' }
-    ],
-    database: [
-      { name: 'Firebase', desc: 'Real-time database, Cloud Firestore, Cloud Messaging (FCM), and Crashlytics analytics.' },
-      { name: 'Room DB (SQLite)', desc: 'Compile-time verified local database with fast caching and encrypted SQLCipher support.' },
-      { name: 'Realm', desc: 'Ultra-fast reactive mobile database providing real-time data sync across devices.' },
-      { name: 'DataStore', desc: 'Modern data storage solution replacing SharedPreferences with transactional safety.' }
-    ],
-    devops: [
-      { name: 'Fastlane', desc: 'Automated build pipeline toolchain handling automated screenshots, signing, and beta distribution.' },
-      { name: 'GitHub Actions', desc: 'Continuous integration running unit tests, lint checks, and automated APK/AAB builds.' },
-      { name: 'Google Play Console', desc: 'Production deployment, staged rollouts, in-app updates, and crash diagnostics.' }
-    ],
-    testing: [
-      { name: 'Espresso', desc: 'Native Android UI test framework verifying user flows, clicks, and transitions.' },
-      { name: 'JUnit & Mockito', desc: 'Unit testing suite mocking dependencies and verifying ViewModel business logic.' },
-      { name: 'Firebase Test Lab', desc: 'Cloud-based device matrix executing tests on hundreds of real physical Android devices.' }
-    ],
-    pm: [
-      { name: 'Jira', desc: 'Agile sprint management and user story tracking for sprint delivery.' },
-      { name: 'Slack', desc: 'Direct real-time collaboration with dedicated Android engineers and project managers.' },
-      { name: 'Figma', desc: 'Interactive Material You 3 UI/UX wireframes and prototype collaboration.' }
-    ]
-  };
-
-  // Android FAQs
+  // iOS FAQs
   const sapphireFaqs = [
     {
-      q: '1. What technologies do you use for Android app development?',
-      a: 'We leverage Kotlin, Java, Jetpack Compose, Android Jetpack components, Coroutines, Flow, Dagger-Hilt, Room, Retrofit, and Firebase. We adhere strictly to Clean Architecture and Google Material Design 3 guidelines.'
+      q: '1. What technologies do you use for iOS app development?',
+      a: 'We leverage Swift, SwiftUI, Objective-C, UIKit, Combine, CoreData, Realm, Core ML, ARKit, and Metal to build cutting-edge iOS applications that run seamlessly on iPhone, iPad, Apple Watch, and macOS.'
     },
     {
-      q: '2. Will you help publish our app to the Google Play Store?',
-      a: 'Yes! We handle the complete Google Play Store submission process, including metadata optimization, app signing, store listing assets, privacy policy compliance, and resolution of any review feedback.'
+      q: '2. Will you help publish our app to the Apple App Store?',
+      a: 'Yes! We handle the complete Apple App Store submission process, including provisioning profiles, certificates, TestFlight beta distribution, Human Interface Guidelines compliance, and metadata optimization.'
     },
     {
       q: '3. Do we get 100% source code ownership and intellectual property?',
-      a: 'Absolutely. Upon project completion and milestone handover, you receive full, unencumbered ownership of the complete source code, repositories, assets, and intellectual property.'
+      a: 'Absolutely. Upon project completion and milestone handover, you receive full, unencumbered ownership of the complete source code repository, design assets, and intellectual property rights.'
     },
     {
-      q: '4. Do you build apps compatible with all Android device versions and screen sizes?',
-      a: 'Yes, our applications are engineered with responsive layouts using Jetpack Compose and ConstraintLayout, ensuring seamless experiences across various Android OS versions, screen densities, tablets, and foldables.'
+      q: '4. Do you build apps compatible with all iOS versions and devices?',
+      a: 'Yes, our iOS applications are engineered using responsive Auto Layout and SwiftUI declarative UI frameworks, ensuring pixel-perfect experiences across all iPhone and iPad models.'
     },
     {
-      q: '5. Can you integrate AI and machine learning features into our Android app?',
-      a: 'Yes! We integrate Google ML Kit, Gemini Nano on-device models, OpenAI APIs, voice recognition, custom vision models, and predictive analytics tailored to your business needs.'
+      q: '5. Can you integrate Apple Intelligence & Core ML into our app?',
+      a: 'Yes! We integrate on-device Core ML models, Apple Intelligence APIs, Vision framework, Siri Shortcuts, and NLP capabilities tailored to your specific business requirements.'
     },
     {
-      q: '6. What post-launch support and SLA maintenance do you provide?',
-      a: 'We offer comprehensive SLA support packages including OS upgrade compatibility (Android 14/15+), security patches, bug fixes, third-party API updates, and performance monitoring.'
+      q: '6. What post-launch maintenance and SLA support do you provide?',
+      a: 'We offer comprehensive SLA support packages including new iOS version compatibility updates (iOS 18+), security patches, bug fixes, third-party SDK upgrades, and real-time crash monitoring.'
     }
   ];
 
   return (
     <div className="bg-white text-slate-900 font-sans min-h-screen">
       <SEO
-        title="Best Android App Development Company | AI-Powered Android Solutions"
-        description="Top AI-Powered Android App Development Company. We design and build high-quality, user-friendly Android mobile apps to help businesses scale across devices and markets."
-        canonical="/services/android"
+        title="Top iOS App Development Company | Custom iPhone App Solutions"
+        description="Top iOS App Development Company. We specialize in custom iPhone & iPad app development, bringing your ideas to life on the lively iOS platform."
+        canonical="/services/ios"
       />
 
       {/* =========================================================================
@@ -208,12 +136,12 @@ export const AndroidAppDevelopmentService = () => {
             <div className="lg:col-span-7 space-y-4 sm:space-y-4">
               {/* Heading */}
               <h1 className="text-[30px] sm:text-[36px] lg:text-[40px] font-[800] text-[#0B0F19] leading-[1.18] tracking-tight">
-                Best Android App<br />Development Company
+                Top iOS App Development<br />Company
               </h1>
 
               {/* Subtitle / Paragraph */}
               <p className="text-[13px] sm:text-[14px] text-[#475569] leading-[1.65] font-normal max-w-[520px]">
-                As a top AI-Powered Android App Development Company, we design Android apps by implementing your original ideas! We build high-quality, user-friendly Android apps to match your demands as a leading bespoke app developer. We specialize in Android mobile app development to help businesses scale efficiently across devices and markets. Contact us for a quote!
+                We specialize in iOS app development services, bringing your app ideas to life on the lively iOS platform. As a highly experienced ios app development company, we have the skills and ability to assist startups and existing businesses in making an impact or extending their digital services with custom iOS app development. If you are looking for a reliable iOS app development company USA that delivers top-notch solutions, you're in the right place!
               </p>
 
               {/* 4 Statistics Blocks */}
@@ -254,7 +182,7 @@ export const AndroidAppDevelopmentService = () => {
                     320+
                   </div>
                   <div className="text-[11.5px] sm:text-[12px] font-[600] text-[#1E293B] leading-tight">
-                    5-Star Clutch Reviews
+                    5 Star Clutch Reviews
                   </div>
                 </div>
               </div>
@@ -273,135 +201,199 @@ export const AndroidAppDevelopmentService = () => {
                   href="#quote-form"
                   className="inline-flex items-center justify-center px-5 py-2.5 sm:px-6 sm:py-3 rounded-[4px] bg-[#005F96] hover:bg-[#004A75] text-white font-[700] text-[13px] sm:text-[14px] transition-all shadow-sm group"
                 >
-                  <span>Hire Android App Developers</span>
+                  <span>Hire IOS Developers</span>
                   <span className="ml-2 text-base transition-transform group-hover:translate-x-1">→</span>
                 </a>
               </div>
             </div>
 
-            {/* Right Column: Android Dual Mobile Device Mockup */}
+            {/* Right Column: Dual iPhone Mobile Device Mockup */}
             <div className="lg:col-span-5 flex flex-col items-center justify-center relative pt-2 pb-2">
-              <div className="relative w-full max-w-[360px] sm:max-w-[390px] flex items-center justify-center">
+              <div className="relative w-full max-w-[400px] flex items-center justify-center">
 
-                {/* Back Smartphone (Left, Food Product Listing App Screen) */}
+                {/* Left iPhone: PetDirect Pet Store Home Screen */}
                 <div
-                  className="w-[150px] sm:w-[165px] lg:w-[175px] h-[295px] sm:h-[325px] lg:h-[345px] rounded-[24px] bg-slate-900 border-[3px] border-slate-700 p-1.5 shadow-lg relative overflow-hidden -rotate-6 translate-y-3 -mr-12 z-0 shrink-0"
+                  className="w-[170px] sm:w-[185px] lg:w-[195px] h-[340px] sm:h-[370px] lg:h-[390px] rounded-[28px] bg-[#0F172A] border-[3.5px] border-[#334155] p-1.5 shadow-2xl relative overflow-hidden z-10 shrink-0"
                   style={{
-                    boxShadow: '0 15px 30px -10px rgba(0,0,0,0.25)'
+                    boxShadow: '0 20px 40px -10px rgba(0, 0, 0, 0.4)'
                   }}
                 >
-                  {/* Screen Content */}
-                  <div className="bg-[#FAFAFC] w-full h-full rounded-[18px] p-2 flex flex-col justify-between text-slate-800 text-[8.5px] overflow-hidden select-none">
+                  {/* Top Notch Dynamic Island */}
+                  <div className="absolute top-2 left-1/2 -translate-x-1/2 w-14 h-3.5 rounded-full bg-black z-30 flex items-center justify-end px-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-[#1E293B]" />
+                  </div>
+
+                  {/* Screen Interior */}
+                  <div className="bg-[#FAFAFC] w-full h-full rounded-[22px] p-2 flex flex-col justify-between text-slate-800 text-[8.5px] overflow-hidden select-none relative pt-5">
+
                     {/* Status Bar */}
-                    <div className="flex justify-between items-center text-[7.5px] font-bold text-slate-400 border-b border-slate-100 pb-0.5">
+                    <div className="flex justify-between items-center text-[7.5px] font-bold text-slate-500 pb-1">
                       <span>9:41</span>
                       <div className="flex space-x-1 items-center">
-                        <span className="w-1.5 h-1.5 rounded-full bg-slate-300" />
-                        <span className="w-1.5 h-1.5 rounded-full bg-slate-300" />
+                        <span className="text-[7px]">5G</span>
+                        <span className="w-2.5 h-1.5 rounded-xs border border-slate-500 flex items-center p-0.2"><span className="w-full h-full bg-slate-700 rounded-2xs" /></span>
                       </div>
                     </div>
 
-                    {/* App Header */}
+                    {/* Location & User Profile */}
+                    <div className="flex justify-between items-center py-0.5">
+                      <div>
+                        <div className="text-[6.5px] text-slate-400 font-semibold flex items-center">
+                          <span className="text-red-500 mr-0.5">📍</span> Colorado (USA)
+                        </div>
+                        <div className="text-[9.5px] font-extrabold text-slate-900 leading-tight">Hi, Jason Roy</div>
+                      </div>
+                      <div className="w-6 h-6 rounded-full bg-amber-200 border border-amber-300 overflow-hidden flex items-center justify-center text-[9px] font-bold text-amber-800">
+                        👨
+                      </div>
+                    </div>
+
+                    {/* Search Bar */}
+                    <div className="my-1 py-1 px-2 rounded-lg bg-slate-100 border border-slate-200/80 flex items-center space-x-1 text-[7px] text-slate-400">
+                      <span>🔍</span>
+                      <span>What're you looking for?</span>
+                    </div>
+
+                    {/* Promo Banner: "Want Wet Food Now Available" */}
+                    <div className="rounded-lg bg-[#FDE047] p-1.5 flex items-center justify-between shadow-xs relative overflow-hidden">
+                      <div className="space-y-0.5 z-10">
+                        <div className="text-[8px] font-extrabold text-slate-900 leading-tight">Want Wet Food</div>
+                        <div className="text-[7px] font-bold text-amber-900">Now Available</div>
+                      </div>
+                      <div className="w-10 h-10 rounded-full bg-amber-300/80 flex items-center justify-center text-[16px]">
+                        🐶
+                      </div>
+                    </div>
+
+                    {/* Deal of the day section */}
                     <div className="py-0.5">
-                      <div className="text-[9.5px] font-extrabold text-slate-900 leading-tight">Products</div>
-                      <div className="text-[7px] text-slate-400">Popular dishes around you</div>
+                      <div className="flex justify-between items-center text-[7.5px] font-bold text-slate-900 mb-1">
+                        <span>Deal of the day</span>
+                        <span className="text-[6.5px] text-[#005F96] cursor-pointer">See All</span>
+                      </div>
+                      <div className="grid grid-cols-3 gap-1">
+                        {/* Card 1 */}
+                        <div className="p-1 rounded-md bg-white border border-slate-100 shadow-xs flex flex-col items-center text-center">
+                          <div className="w-6 h-6 rounded bg-orange-50 flex items-center justify-center text-[10px] mb-0.5">🥫</div>
+                          <div className="text-[5.5px] font-semibold text-slate-700 truncate w-full">Grandorf Can</div>
+                          <div className="text-[6px] font-bold text-[#005F96]">$75</div>
+                        </div>
+                        {/* Card 2 */}
+                        <div className="p-1 rounded-md bg-white border border-slate-100 shadow-xs flex flex-col items-center text-center">
+                          <div className="w-6 h-6 rounded bg-amber-50 flex items-center justify-center text-[10px] mb-0.5">🥩</div>
+                          <div className="text-[5.5px] font-semibold text-slate-700 truncate w-full">Pedigree Pouch</div>
+                          <div className="text-[6px] font-bold text-[#005F96]">$65</div>
+                        </div>
+                        {/* Card 3 */}
+                        <div className="p-1 rounded-md bg-white border border-slate-100 shadow-xs flex flex-col items-center text-center">
+                          <div className="w-6 h-6 rounded bg-emerald-50 flex items-center justify-center text-[10px] mb-0.5">🍖</div>
+                          <div className="text-[5.5px] font-semibold text-slate-700 truncate w-full">Fresh Treats</div>
+                          <div className="text-[6px] font-bold text-[#005F96]">$120</div>
+                        </div>
+                      </div>
                     </div>
 
-                    {/* Food Items List */}
-                    <div className="space-y-1 flex-1 overflow-hidden py-0.5">
-                      <div className="p-1 rounded-md bg-white border border-slate-100 shadow-sm flex items-center space-x-1.5">
-                        <div className="w-6 h-6 rounded bg-amber-100 flex items-center justify-center text-[10px] shrink-0">
-                          🍕
+                    {/* Explore more on PetDirect */}
+                    <div className="py-0.5">
+                      <div className="text-[7.5px] font-bold text-slate-900 mb-0.5">Explore more on PetDirect</div>
+                      <div className="flex space-x-1 overflow-hidden">
+                        <div className="flex-1 p-1 rounded-md bg-white border border-slate-100 text-[6px] flex items-center space-x-1">
+                          <span className="text-[8px]">🥣</span>
+                          <span className="truncate text-slate-700">Stainless Dog Bowl</span>
                         </div>
-                        <div className="min-w-0 flex-1">
-                          <div className="font-bold text-[7.5px] text-slate-800 truncate">Margherita Pizza</div>
-                          <div className="text-[6.5px] text-amber-500 font-semibold">★ 4.9 • $14.99</div>
-                        </div>
-                      </div>
-
-                      <div className="p-1 rounded-md bg-white border border-slate-100 shadow-sm flex items-center space-x-1.5">
-                        <div className="w-6 h-6 rounded bg-orange-100 flex items-center justify-center text-[10px] shrink-0">
-                          🍔
-                        </div>
-                        <div className="min-w-0 flex-1">
-                          <div className="font-bold text-[7.5px] text-slate-800 truncate">Smash Burger</div>
-                          <div className="text-[6.5px] text-amber-500 font-semibold">★ 4.8 • $11.50</div>
-                        </div>
-                      </div>
-
-                      <div className="p-1 rounded-md bg-white border border-slate-100 shadow-sm flex items-center space-x-1.5">
-                        <div className="w-6 h-6 rounded bg-emerald-100 flex items-center justify-center text-[10px] shrink-0">
-                          🥗
-                        </div>
-                        <div className="min-w-0 flex-1">
-                          <div className="font-bold text-[7.5px] text-slate-800 truncate">Healthy Salad</div>
-                          <div className="text-[6.5px] text-amber-500 font-semibold">★ 4.7 • $9.99</div>
+                        <div className="flex-1 p-1 rounded-md bg-white border border-slate-100 text-[6px] flex items-center space-x-1">
+                          <span className="text-[8px]">🦴</span>
+                          <span className="truncate text-slate-700">Flamingo Chewing</span>
                         </div>
                       </div>
                     </div>
 
                     {/* Bottom Nav Bar */}
-                    <div className="pt-0.5 border-t border-slate-100 flex justify-around text-[8px] text-slate-400">
-                      <span className="text-[#005F96] font-bold">🏠</span>
-                      <span>🔍</span>
-                      <span>🛒</span>
-                      <span>👤</span>
+                    <div className="pt-1 border-t border-slate-100 flex justify-around text-[7.5px] text-slate-400">
+                      <span className="text-[#F97316] font-bold flex flex-col items-center"><span>🏠</span><span className="text-[5.5px]">Home</span></span>
+                      <span className="flex flex-col items-center"><span>📑</span><span className="text-[5.5px]">Category</span></span>
+                      <span className="flex flex-col items-center"><span>🛒</span><span className="text-[5.5px]">Cart</span></span>
+                      <span className="flex flex-col items-center"><span>👤</span><span className="text-[5.5px]">Profile</span></span>
                     </div>
+
+                    {/* Home Indicator */}
+                    <div className="w-12 h-0.5 rounded-full bg-slate-400 mx-auto -mb-0.5" />
                   </div>
                 </div>
 
-                {/* Front Smartphone (Right, Foreground Android Device with "Easy Eat" Logo over Food Wallpaper) */}
+                {/* Right iPhone: Product Details Screen */}
                 <div
-                  className="w-[170px] sm:w-[185px] lg:w-[195px] h-[330px] sm:h-[355px] lg:h-[375px] rounded-[26px] bg-[#1E293B] border-[3.5px] border-[#334155] p-1.5 shadow-2xl relative overflow-hidden z-10 shrink-0"
+                  className="w-[155px] sm:w-[170px] lg:w-[180px] h-[320px] sm:h-[350px] lg:h-[370px] rounded-[26px] bg-[#0F172A] border-[3px] border-[#334155] p-1.5 shadow-xl relative overflow-hidden z-0 -ml-8 sm:-ml-10 shrink-0"
                   style={{
-                    boxShadow: '0 20px 40px -10px rgba(0, 0, 0, 0.4)'
+                    boxShadow: '0 15px 30px -10px rgba(0,0,0,0.3)'
                   }}
                 >
-                  {/* Top Android Speaker Ear Piece & Camera */}
-                  <div className="absolute top-2 left-1/2 -translate-x-1/2 w-10 h-0.5 rounded-full bg-slate-600/80 z-20" />
-                  <div className="absolute top-2 right-5 w-1 h-1 rounded-full bg-slate-600/80 z-20" />
+                  {/* Top Dynamic Island */}
+                  <div className="absolute top-2 left-1/2 -translate-x-1/2 w-12 h-3 rounded-full bg-black z-30" />
 
-                  {/* Android Screen Container */}
-                  <div className="relative w-full h-full rounded-[18px] overflow-hidden flex flex-col items-center justify-center select-none">
+                  {/* Screen Content */}
+                  <div className="bg-white w-full h-full rounded-[20px] p-2 flex flex-col justify-between text-slate-800 text-[8px] overflow-hidden select-none pt-4">
 
-                    {/* High-Resolution Food Table Wallpaper */}
-                    <img
-                      src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=80"
-                      alt="Easy Eat Android App Mockup"
-                      className="absolute inset-0 w-full h-full object-cover"
-                    />
+                    {/* Top Bar (Back & Favorite) */}
+                    <div className="flex justify-between items-center text-[8px] text-slate-600 pb-0.5">
+                      <span>←</span>
+                      <span className="text-red-500 font-bold">♥</span>
+                    </div>
 
-                    {/* Dark/Warm Tint Overlay matching reference */}
-                    <div className="absolute inset-0 bg-slate-950/40 backdrop-brightness-90" />
-
-                    {/* Centered App Logo Card: Orange Icon + "Easy Eat" */}
-                    <div className="relative z-10 flex flex-col items-center justify-center space-y-2">
-                      {/* Orange Rounded Square App Icon with Pizza SVG */}
-                      <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-[12px] bg-[#F97316] shadow-lg flex items-center justify-center border border-white/20">
-                        {/* Crisp White Pizza Slice Icon */}
-                        <svg viewBox="0 0 24 24" className="w-7 h-7 sm:w-8 sm:h-8 text-white fill-none stroke-white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <path d="M15 11h.01" />
-                          <path d="M11 15h.01" />
-                          <path d="M16 16h.01" />
-                          <path d="m2 16 20 6-6-20A20 20 0 0 0 2 16Z" fill="currentColor" fillOpacity="0.2" />
-                          <path d="M5.71 17.11a17.04 17.04 0 0 1 11.4-11.4" />
-                        </svg>
-                      </div>
-
-                      {/* App Name Text: Easy Eat */}
-                      <div className="text-white font-[800] text-[14px] sm:text-[15px] tracking-wide drop-shadow-md">
-                        Easy Eat
+                    {/* Product Image Mockup (ND Food Bag) */}
+                    <div className="h-24 rounded-lg bg-gradient-to-b from-amber-50 to-orange-50/50 flex flex-col items-center justify-center p-1 relative border border-slate-100">
+                      <div className="w-12 h-16 rounded-md bg-white border-2 border-amber-400 shadow-sm flex flex-col items-center justify-center p-1 text-center">
+                        <span className="text-[8px] font-black text-red-600 leading-none">N&D</span>
+                        <span className="text-[5px] font-bold text-slate-800 leading-tight">Grain-Free</span>
+                        <span className="text-[10px] my-0.5">🍗</span>
+                        <span className="text-[4.5px] text-slate-500">Chicken & Pomegranate</span>
                       </div>
                     </div>
 
-                    {/* Subtle Android Bottom Navigation Bar */}
-                    <div className="absolute bottom-1.5 left-1/2 -translate-x-1/2 w-16 h-0.5 rounded-full bg-white/60 z-20" />
+                    {/* Title */}
+                    <div className="py-0.5">
+                      <div className="text-[7.5px] font-extrabold text-slate-900 leading-tight line-clamp-2">
+                        Genuine dry food - Real seasoned grain free chicken & Pomegranate Senior Adult
+                      </div>
+                    </div>
+
+                    {/* Price & Quantity Selector */}
+                    <div className="flex justify-between items-center py-0.5">
+                      <div className="text-[10px] font-black text-[#005F96]">$75</div>
+                      <div className="flex items-center space-x-1.5 bg-slate-100 px-1.5 py-0.5 rounded-full text-[7px] font-bold">
+                        <span className="text-slate-500 cursor-pointer">-</span>
+                        <span>01</span>
+                        <span className="text-slate-900 cursor-pointer">+</span>
+                      </div>
+                    </div>
+
+                    {/* Size Selector */}
+                    <div className="flex space-x-1 py-0.5">
+                      <span className="px-1.5 py-0.5 rounded bg-[#F97316] text-white text-[6px] font-bold">400gm</span>
+                      <span className="px-1.5 py-0.5 rounded bg-slate-100 text-slate-600 text-[6px] font-medium">2kg</span>
+                      <span className="px-1.5 py-0.5 rounded bg-slate-100 text-slate-600 text-[6px] font-medium">6kg</span>
+                    </div>
+
+                    {/* Description Snippet */}
+                    <p className="text-[5.5px] text-slate-400 leading-[1.3] line-clamp-2">
+                      Delicious Chicken Recipe is The First Ingredient That's Fuel For All-day Running And Playing. High-Protein Kibble.
+                    </p>
+
+                    {/* Add to Cart Button */}
+                    <div className="pt-1">
+                      <div className="w-full py-1.5 rounded-md bg-[#F97316] text-white font-bold text-[7.5px] text-center shadow-xs">
+                        Add to cart
+                      </div>
+                    </div>
+
+                    {/* Home Indicator */}
+                    <div className="w-10 h-0.5 rounded-full bg-slate-300 mx-auto" />
                   </div>
                 </div>
 
               </div>
 
-              {/* Realistic Floor Contact Shadow */}
+              {/* Floor Contact Shadow */}
               <div className="w-48 sm:w-56 h-3 bg-slate-900/15 rounded-full blur-sm mx-auto -mt-1" />
             </div>
 
@@ -413,7 +405,7 @@ export const AndroidAppDevelopmentService = () => {
       <BrandLogoMarquee />
 
       {/* =========================================================================
-          MOBILE APP MARKET STATS & MARKET SIZE SECTION (COMPACT 1-SCREEN VIEWPORT)
+          MOBILE APP MARKET STATS & MARKET SIZE SECTION
           ========================================================================= */}
       <section className="py-8 sm:py-10 bg-white text-slate-900 font-sans text-left">
         <Container>
@@ -430,7 +422,7 @@ export const AndroidAppDevelopmentService = () => {
                   </h4>
 
                   {/* SVG Bar Chart Visualization */}
-                  <div className="w-full h-32 sm:h-36 relative flex items-end justify-between px-1 pt-2 pb-4 border-b border-slate-200 transition-transform duration-300 ease-out group-hover:scale-[1.02]">
+                  <div className="w-full h-32 sm:h-36 relative flex items-end justify-between px-1 pt-2 pb-4 border-b border-slate-200 transition-transform duration-300 ease-out group-hover:scale-[1.03]">
                     {/* Y-Axis Grid Lines & Labels */}
                     <div className="absolute inset-0 flex flex-col justify-between pointer-events-none text-[7px] text-slate-400 select-none pb-4">
                       <div className="flex items-center space-x-1.5 w-full"><span className="w-5 text-right">700</span><div className="w-full border-b border-slate-200/60" /></div>
@@ -453,14 +445,14 @@ export const AndroidAppDevelopmentService = () => {
                         { year: '2024', val: '563.13', h: '90%' },
                         { year: '2025', val: '610.40', h: '98%' },
                       ].map((item, idx) => (
-                        <div key={idx} className="flex-1 flex flex-col items-center group/bar relative transition-transform duration-200 hover:-translate-y-1">
+                        <div key={idx} className="flex-1 flex flex-col items-center group/bar relative transition-all duration-200 hover:scale-110 hover:-translate-y-1.5 cursor-pointer">
                           {/* Value above bar */}
                           <span className="text-[6px] sm:text-[6.5px] font-semibold text-slate-700 leading-none mb-0.5 group-hover/bar:text-[#005F96] group-hover/bar:font-bold">
                             {item.val}
                           </span>
                           {/* Stacked Bar */}
                           <div
-                            className="w-full max-w-[22px] rounded-t-xs overflow-hidden flex flex-col justify-end shadow-xs transition-all duration-200 group-hover/bar:brightness-110 group-hover/bar:shadow-md"
+                            className="w-full max-w-[22px] rounded-t-xs overflow-hidden flex flex-col justify-end shadow-xs transition-all duration-200 group-hover/bar:brightness-110 group-hover/bar:shadow-lg"
                             style={{ height: item.h }}
                           >
                             <div className="w-full h-[12%] bg-[#F59E0B]" />
@@ -592,13 +584,13 @@ export const AndroidAppDevelopmentService = () => {
       </section>
 
       {/* =========================================================================
-          BRIEF ABOUT ANDROID APP DEVELOPERS SECTION (EXACT 1:1 MATCH)
+          BRIEF ABOUT IOS APP DEVELOPERS SECTION (EXACT 1:1 MATCH)
           ========================================================================= */}
       <section className="py-8 sm:py-10 bg-white text-slate-900 font-sans text-left">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
 
-            {/* Left Column: Android App Development & Programmer Illustration */}
+            {/* Left Column: iOS App Development & Programmer Illustration */}
             <div className="lg:col-span-5 flex justify-center items-center">
               <div className="relative w-full max-w-[420px] aspect-[4/3.2] flex items-center justify-center select-none">
 
@@ -714,38 +706,28 @@ export const AndroidAppDevelopmentService = () => {
                     />
 
                     {/* Developer Legs (Navy Blue Pants) */}
-                    {/* Right Leg */}
                     <path d="M 85 105 L 115 110 L 140 165 L 155 165 L 155 172 L 132 172 L 105 118 Z" fill="#1E3A8A" />
-                    {/* Right Shoe */}
                     <ellipse cx="145" cy="172" rx="12" ry="4.5" fill="#0F172A" />
 
-                    {/* Left Leg */}
                     <path d="M 68 100 L 95 105 L 108 170 L 125 170 L 125 176 L 100 176 L 85 112 Z" fill="#2563EB" />
-                    {/* Left Shoe */}
                     <ellipse cx="115" cy="176" rx="12" ry="4.5" fill="#0F172A" />
 
-                    {/* Developer Body / Torso (Bright Orange T-Shirt) */}
+                    {/* Developer Body / Torso */}
                     <path d="M 62 42 C 60 35, 78 30, 92 35 C 100 38, 105 50, 98 75 L 85 102 L 60 98 L 62 42 Z" fill="#F97316" />
 
                     {/* Developer Head & Hair */}
-                    {/* Neck */}
                     <rect x="80" y="28" width="8" height="9" fill="#FBCFE8" />
-                    {/* Face / Head */}
                     <circle cx="84" cy="22" r="10" fill="#FBCFE8" />
-                    {/* Dark Hair */}
                     <path d="M 74 20 C 74 12, 85 8, 92 12 C 95 14, 96 18, 94 22 C 90 20, 85 20, 82 23 C 78 22, 74 23, 74 20 Z" fill="#1E293B" />
 
                     {/* Developer Arms & Laptop */}
-                    {/* Left Arm holding laptop */}
                     <path d="M 68 45 L 85 75 L 115 72 L 110 80 L 80 82 L 62 50 Z" fill="#F97316" />
                     <circle cx="112" cy="74" r="4" fill="#FBCFE8" />
 
                     {/* White Modern Slim Laptop */}
                     <g transform="translate(98, 62) rotate(-10)">
-                      {/* Laptop Screen */}
                       <rect x="0" y="0" width="3" height="24" rx="1" fill="#CBD5E1" />
                       <rect x="2" y="1" width="22" height="22" rx="2" fill="#F8FAFC" stroke="#E2E8F0" />
-                      {/* Laptop Base */}
                       <rect x="-4" y="21" width="30" height="3" rx="1.5" fill="#E2E8F0" />
                     </g>
                   </g>
@@ -755,28 +737,25 @@ export const AndroidAppDevelopmentService = () => {
 
             {/* Right Column: Heading & 2 Detailed Paragraphs */}
             <div className="lg:col-span-7 space-y-4 text-left">
-              {/* Heading */}
               <h2
                 className="font-[800] text-[#0B0F19] tracking-tight leading-[1.2]"
                 style={{ fontSize: '32px' }}
               >
-                Brief About Android App<br className="hidden sm:inline" /> Developers
+                Brief About iOS App<br className="hidden sm:inline" /> Developers
               </h2>
 
-              {/* Paragraph 1 */}
               <p
                 className="font-normal text-[#475569]"
                 style={{ fontSize: '14px', lineHeight: '1.68' }}
               >
-                Our app development company for industry are passionate specialists who produce perfection every time. Their expertise and enthusiasm for innovation allow them to solve any problem and implement your ideas when delivering custom android app development services. Our AI Android App Development Services ensures that your app is not only functional but also highly scalable and user-friendly, offering the best user experience across all Secure Real-Time Android Device Management Platform. Whether you're a startup, Top Android developers for custom business apps or an enterprise Mobile App Development Agency for Android is the key to unlocking digital success.
+                Our app development company for industry are passionate specialists who produce perfection every time. Their expertise and enthusiasm for innovation allow them to solve any problem and implement your ideas when delivering custom iOS app development services. Our AI iOS App Development Services ensures that your app is not only functional but also highly scalable and user-friendly, offering the best user experience across all Apple devices. Whether you're a startup, Top iOS developers for custom business apps or an enterprise Mobile App Development Agency for iOS is the key to unlocking digital success.
               </p>
 
-              {/* Paragraph 2 */}
               <p
                 className="font-normal text-[#475569]"
                 style={{ fontSize: '14px', lineHeight: '1.68' }}
               >
-                Our designers and developers collaborate to build beautiful, intuitive user interfaces. They focus on user experience, making your software simple to use and seamless. Our programmers strive to write well-tested, error-free code. As the Best Android app development company for startups, we follow strict quality assurance standards to ensure your software works across devices and platforms. We provide a wide range of Android application development services, from custom app development to ongoing support and maintenance. If you're concerned about AI-Integrated Android App Development cost, we offer flexible engagement models that suit your budget and business goals.
+                Our designers and developers collaborate to build beautiful, intuitive user interfaces adhering strictly to Apple's Human Interface Guidelines. They focus on user experience, making your software simple to use and seamless. Our programmers strive to write well-tested, error-free code in Swift and SwiftUI. As the Best iOS app development company for startups, we follow strict quality assurance standards to ensure your software works seamlessly across iPhones and iPads. If you're concerned about iOS app development cost, we offer flexible engagement models that suit your budget and business goals.
               </p>
             </div>
 
@@ -787,278 +766,25 @@ export const AndroidAppDevelopmentService = () => {
       {/* =========================================================================
           WORLD WIDE TOP RATED CLUTCH AWARDS & RECOGNITIONS BAR (ANIMATED MARQUEE)
           ========================================================================= */}
-      <section className="bg-[#005F96] text-white py-8 sm:py-9 lg:py-10 overflow-hidden select-none text-left">
-        <div className="w-full max-w-[1360px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-4 lg:gap-8 overflow-hidden">
-
-            {/* Left Fixed Heading */}
-            <div className="shrink-0 z-10 bg-[#005F96] lg:pr-6 text-center lg:text-left w-full lg:w-auto">
-              <h3 className="text-white font-[800] text-[18px] sm:text-[21px] lg:text-[23px] leading-[1.22] tracking-tight max-w-[340px] mx-auto lg:mx-0">
-                World Wide Top Rated Android App Development Company on Clutch
-              </h3>
-            </div>
-
-            {/* Right Infinite Scrolling Badges Track */}
-            <div className="flex-1 w-full overflow-hidden relative flex items-center">
-              <div className="flex w-max animate-marquee hover:[animation-play-state:paused] items-center">
-
-                {/* Track 1 */}
-                <div className="flex items-center space-x-6 sm:space-x-8 pr-6 sm:pr-8 shrink-0">
-                  {/* 1. Golden Trophy with Laurel Wreath */}
-                  <div className="shrink-0 flex items-center justify-center">
-                    <svg viewBox="0 0 90 90" className="w-14 h-14 sm:w-16 sm:h-16 drop-shadow-md">
-                      <path d="M28 22 C22 30, 20 48, 30 65 C26 55, 26 38, 32 26 Z" fill="#FBBF24" />
-                      <circle cx="23" cy="32" r="3.5" fill="#F59E0B" />
-                      <circle cx="20" cy="44" r="3.5" fill="#F59E0B" />
-                      <circle cx="23" cy="56" r="3.5" fill="#F59E0B" />
-                      <circle cx="30" cy="65" r="3.5" fill="#F59E0B" />
-                      <path d="M62 22 C68 30, 70 48, 60 65 C64 55, 64 38, 58 26 Z" fill="#FBBF24" />
-                      <circle cx="67" cy="32" r="3.5" fill="#F59E0B" />
-                      <circle cx="70" cy="44" r="3.5" fill="#F59E0B" />
-                      <circle cx="67" cy="56" r="3.5" fill="#F59E0B" />
-                      <circle cx="60" cy="65" r="3.5" fill="#F59E0B" />
-                      <path d="M32 30 C24 30, 24 46, 35 48" fill="none" stroke="#FDE68A" strokeWidth="2.5" />
-                      <path d="M58 30 C66 30, 66 46, 55 48" fill="none" stroke="#FDE68A" strokeWidth="2.5" />
-                      <path d="M33 26 L57 26 L54 50 C54 56, 36 56, 36 50 Z" fill="url(#goldGrad)" stroke="#D97706" strokeWidth="1" />
-                      <rect x="42" y="52" width="6" height="10" fill="#F59E0B" />
-                      <rect x="36" y="62" width="18" height="4" rx="1.5" fill="#D97706" />
-                      <rect x="33" y="66" width="24" height="4.5" rx="1.5" fill="#FBBF24" />
-                      <polygon points="45,33 46.8,38.5 52.5,38.5 48,42 49.5,47.5 45,44 40.5,47.5 42,42 37.5,38.5 43.2,38.5" fill="#FFFFFF" />
-                      <defs>
-                        <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="1">
-                          <stop offset="0%" stopColor="#FEF08A" />
-                          <stop offset="50%" stopColor="#F59E0B" />
-                          <stop offset="100%" stopColor="#B45309" />
-                        </linearGradient>
-                      </defs>
-                    </svg>
-                  </div>
-
-                  {/* 2. The Manifest - Most Reviewed Mobile App Dev Companies */}
-                  <div className="shrink-0 flex items-center justify-center">
-                    <svg viewBox="0 0 65 85" className="w-12 h-16 sm:w-14 sm:h-[72px] drop-shadow-sm">
-                      <path d="M2 2 L63 2 L63 68 L32.5 83 L2 68 Z" fill="#FFFFFF" stroke="#881337" strokeWidth="1.5" />
-                      <path d="M2 2 L63 2 L63 20 L2 20 Z" fill="#881337" />
-                      <text x="32.5" y="10" fill="#FFFFFF" fontSize="4.5" fontWeight="800" textAnchor="middle" letterSpacing="0.5">MOST REVIEWED</text>
-                      <text x="32.5" y="16.5" fill="#FFFFFF" fontSize="4.2" fontWeight="700" textAnchor="middle">2026</text>
-                      <text x="32.5" y="29" fill="#881337" fontSize="5" fontWeight="900" textAnchor="middle">MOBILE APP</text>
-                      <text x="32.5" y="36" fill="#881337" fontSize="4.5" fontWeight="800" textAnchor="middle">DEVELOPMENT</text>
-                      <text x="32.5" y="42" fill="#881337" fontSize="4.5" fontWeight="800" textAnchor="middle">COMPANIES</text>
-                      <line x1="8" y1="48" x2="57" y2="48" stroke="#881337" strokeWidth="0.8" />
-                      <circle cx="32.5" cy="54" r="6" fill="#881337" />
-                      <polygon points="32.5,50.5 34,53 36.5,53.5 34.5,55.5 35,58 32.5,56.5 30,58 30.5,55.5 28.5,53.5 31,53" fill="#FFFFFF" />
-                      <text x="32.5" y="66" fill="#6B7280" fontSize="3.5" fontWeight="700" textAnchor="middle">THE MANIFEST</text>
-                    </svg>
-                  </div>
-
-                  {/* 3. The Manifest - Most Reviewed App Development Company */}
-                  <div className="shrink-0 flex items-center justify-center">
-                    <svg viewBox="0 0 65 85" className="w-12 h-16 sm:w-14 sm:h-[72px] drop-shadow-sm">
-                      <path d="M2 2 L63 2 L63 68 L32.5 83 L2 68 Z" fill="#FFFFFF" stroke="#881337" strokeWidth="1.5" />
-                      <path d="M2 2 L63 2 L63 20 L2 20 Z" fill="#881337" />
-                      <text x="32.5" y="10" fill="#FFFFFF" fontSize="4.5" fontWeight="800" textAnchor="middle" letterSpacing="0.5">MOST REVIEWED</text>
-                      <text x="32.5" y="16.5" fill="#FFFFFF" fontSize="4.2" fontWeight="700" textAnchor="middle">2026</text>
-                      <text x="32.5" y="32" fill="#881337" fontSize="5.2" fontWeight="900" textAnchor="middle">APP DEVELOPMENT</text>
-                      <text x="32.5" y="39" fill="#881337" fontSize="5" fontWeight="800" textAnchor="middle">COMPANY</text>
-                      <line x1="8" y1="48" x2="57" y2="48" stroke="#881337" strokeWidth="0.8" />
-                      <circle cx="32.5" cy="54" r="6" fill="#881337" />
-                      <polygon points="32.5,50.5 34,53 36.5,53.5 34.5,55.5 35,58 32.5,56.5 30,58 30.5,55.5 28.5,53.5 31,53" fill="#FFFFFF" />
-                      <text x="32.5" y="66" fill="#6B7280" fontSize="3.5" fontWeight="700" textAnchor="middle">THE MANIFEST</text>
-                    </svg>
-                  </div>
-
-                  {/* 4. The Manifest - Most Reviewed Android App Development Company */}
-                  <div className="shrink-0 flex items-center justify-center">
-                    <svg viewBox="0 0 65 85" className="w-12 h-16 sm:w-14 sm:h-[72px] drop-shadow-sm">
-                      <path d="M2 2 L63 2 L63 68 L32.5 83 L2 68 Z" fill="#FFFFFF" stroke="#881337" strokeWidth="1.5" />
-                      <path d="M2 2 L63 2 L63 20 L2 20 Z" fill="#881337" />
-                      <text x="32.5" y="10" fill="#FFFFFF" fontSize="4.5" fontWeight="800" textAnchor="middle" letterSpacing="0.5">MOST REVIEWED</text>
-                      <text x="32.5" y="16.5" fill="#FFFFFF" fontSize="4.2" fontWeight="700" textAnchor="middle">2026</text>
-                      <text x="32.5" y="29" fill="#881337" fontSize="5" fontWeight="900" textAnchor="middle">ANDROID APP</text>
-                      <text x="32.5" y="36" fill="#881337" fontSize="4.2" fontWeight="800" textAnchor="middle">DEVELOPMENT COMPANY</text>
-                      <line x1="8" y1="48" x2="57" y2="48" stroke="#881337" strokeWidth="0.8" />
-                      <circle cx="32.5" cy="54" r="6" fill="#881337" />
-                      <polygon points="32.5,50.5 34,53 36.5,53.5 34.5,55.5 35,58 32.5,56.5 30,58 30.5,55.5 28.5,53.5 31,53" fill="#FFFFFF" />
-                      <text x="32.5" y="66" fill="#6B7280" fontSize="3.5" fontWeight="700" textAnchor="middle">THE MANIFEST</text>
-                    </svg>
-                  </div>
-
-                  {/* 5. GoodFirms Circular Laurel Badge */}
-                  <div className="shrink-0 flex items-center justify-center">
-                    <svg viewBox="0 0 85 85" className="w-14 h-14 sm:w-16 sm:h-16 drop-shadow-md">
-                      <circle cx="42.5" cy="42.5" r="39" fill="#FFFFFF" stroke="#0072CE" strokeWidth="2.5" />
-                      <circle cx="42.5" cy="42.5" r="35" fill="none" stroke="#60A5FA" strokeWidth="1" strokeDasharray="3 2" />
-                      <polygon points="26,17 27.2,19.5 30,19.8 28,21.5 28.5,24 26,22.6 23.5,24 24,21.5 22,19.8 24.8,19.5" fill="#F59E0B" />
-                      <polygon points="34,13 35.2,15.5 38,15.8 36,17.5 36.5,20 34,18.6 31.5,20 32,17.5 30,15.8 32.8,15.5" fill="#F59E0B" />
-                      <polygon points="42.5,11 43.8,13.8 47,14.2 44.5,16.2 45.2,19.2 42.5,17.6 39.8,19.2 40.5,16.2 38,14.2 41.2,13.8" fill="#F59E0B" />
-                      <polygon points="51,13 52.2,15.5 55,15.8 53,17.5 53.5,20 51,18.6 48.5,20 49,17.5 47,15.8 49.8,15.5" fill="#F59E0B" />
-                      <polygon points="59,17 60.2,19.5 63,19.8 61,21.5 61.5,24 59,22.6 56.5,24 57,21.5 55,19.8 57.8,19.5" fill="#F59E0B" />
-                      <rect x="36" y="27" width="13" height="13" rx="2" fill="#F59E0B" />
-                      <text x="42.5" y="36.5" fill="#FFFFFF" fontSize="9" fontWeight="900" textAnchor="middle">G</text>
-                      <path d="M12 48 L73 48 L69 62 L16 62 Z" fill="#0072CE" />
-                      <text x="42.5" y="54" fill="#FFFFFF" fontSize="3.8" fontWeight="900" textAnchor="middle">TOP ANDROID APP</text>
-                      <text x="42.5" y="59" fill="#FFFFFF" fontSize="3.4" fontWeight="800" textAnchor="middle">DEVELOPMENT COMPANY</text>
-                      <text x="42.5" y="72" fill="#0072CE" fontSize="5" fontWeight="700" textAnchor="middle">goodfirms.co</text>
-                    </svg>
-                  </div>
-
-                  {/* 6. Clutch Hexagonal Badge */}
-                  <div className="shrink-0 flex items-center justify-center">
-                    <svg viewBox="0 0 80 85" className="w-14 h-14 sm:w-16 sm:h-16 drop-shadow-md">
-                      <polygon points="40,3 77,22 77,63 40,82 3,63 3,22" fill="#FFFFFF" stroke="#94A3B8" strokeWidth="2.5" />
-                      <polygon points="40,7 73,24 73,61 40,78 7,61 7,24" fill="#FFFFFF" stroke="#E2E8F0" strokeWidth="1" />
-                      <text x="40" y="17" fill="#64748B" fontSize="4.2" fontWeight="800" textAnchor="middle">TOP</text>
-                      <text x="40" y="23" fill="#334155" fontSize="4.5" fontWeight="900" textAnchor="middle">ANDROID APP</text>
-                      <rect x="10" y="28" width="60" height="26" fill="#1E293B" />
-                      <text x="40" y="46" fill="#FFFFFF" fontSize="13" fontWeight="900" textAnchor="middle" fontFamily="sans-serif">
-                        Clutch
-                      </text>
-                      <circle cx="58" cy="37" r="2.2" fill="#EF4444" />
-                      <text x="40" y="66" fill="#334155" fontSize="4.5" fontWeight="900" textAnchor="middle">DEVELOPERS</text>
-                      <text x="40" y="73" fill="#64748B" fontSize="4" fontWeight="700" textAnchor="middle">2026</text>
-                    </svg>
-                  </div>
-                </div>
-
-                {/* Track 2 (Seamless Infinite Duplicate) */}
-                <div className="flex items-center space-x-6 sm:space-x-8 pr-6 sm:pr-8 shrink-0" aria-hidden="true">
-                  {/* 1. Golden Trophy with Laurel Wreath */}
-                  <div className="shrink-0 flex items-center justify-center">
-                    <svg viewBox="0 0 90 90" className="w-14 h-14 sm:w-16 sm:h-16 drop-shadow-md">
-                      <path d="M28 22 C22 30, 20 48, 30 65 C26 55, 26 38, 32 26 Z" fill="#FBBF24" />
-                      <circle cx="23" cy="32" r="3.5" fill="#F59E0B" />
-                      <circle cx="20" cy="44" r="3.5" fill="#F59E0B" />
-                      <circle cx="23" cy="56" r="3.5" fill="#F59E0B" />
-                      <circle cx="30" cy="65" r="3.5" fill="#F59E0B" />
-                      <path d="M62 22 C68 30, 70 48, 60 65 C64 55, 64 38, 58 26 Z" fill="#FBBF24" />
-                      <circle cx="67" cy="32" r="3.5" fill="#F59E0B" />
-                      <circle cx="70" cy="44" r="3.5" fill="#F59E0B" />
-                      <circle cx="67" cy="56" r="3.5" fill="#F59E0B" />
-                      <circle cx="60" cy="65" r="3.5" fill="#F59E0B" />
-                      <path d="M32 30 C24 30, 24 46, 35 48" fill="none" stroke="#FDE68A" strokeWidth="2.5" />
-                      <path d="M58 30 C66 30, 66 46, 55 48" fill="none" stroke="#FDE68A" strokeWidth="2.5" />
-                      <path d="M33 26 L57 26 L54 50 C54 56, 36 56, 36 50 Z" fill="url(#goldGrad)" stroke="#D97706" strokeWidth="1" />
-                      <rect x="42" y="52" width="6" height="10" fill="#F59E0B" />
-                      <rect x="36" y="62" width="18" height="4" rx="1.5" fill="#D97706" />
-                      <rect x="33" y="66" width="24" height="4.5" rx="1.5" fill="#FBBF24" />
-                      <polygon points="45,33 46.8,38.5 52.5,38.5 48,42 49.5,47.5 45,44 40.5,47.5 42,42 37.5,38.5 43.2,38.5" fill="#FFFFFF" />
-                    </svg>
-                  </div>
-
-                  {/* 2. The Manifest - Most Reviewed Mobile App Dev Companies */}
-                  <div className="shrink-0 flex items-center justify-center">
-                    <svg viewBox="0 0 65 85" className="w-12 h-16 sm:w-14 sm:h-[72px] drop-shadow-sm">
-                      <path d="M2 2 L63 2 L63 68 L32.5 83 L2 68 Z" fill="#FFFFFF" stroke="#881337" strokeWidth="1.5" />
-                      <path d="M2 2 L63 2 L63 20 L2 20 Z" fill="#881337" />
-                      <text x="32.5" y="10" fill="#FFFFFF" fontSize="4.5" fontWeight="800" textAnchor="middle" letterSpacing="0.5">MOST REVIEWED</text>
-                      <text x="32.5" y="16.5" fill="#FFFFFF" fontSize="4.2" fontWeight="700" textAnchor="middle">2026</text>
-                      <text x="32.5" y="29" fill="#881337" fontSize="5" fontWeight="900" textAnchor="middle">MOBILE APP</text>
-                      <text x="32.5" y="36" fill="#881337" fontSize="4.5" fontWeight="800" textAnchor="middle">DEVELOPMENT</text>
-                      <text x="32.5" y="42" fill="#881337" fontSize="4.5" fontWeight="800" textAnchor="middle">COMPANIES</text>
-                      <line x1="8" y1="48" x2="57" y2="48" stroke="#881337" strokeWidth="0.8" />
-                      <circle cx="32.5" cy="54" r="6" fill="#881337" />
-                      <polygon points="32.5,50.5 34,53 36.5,53.5 34.5,55.5 35,58 32.5,56.5 30,58 30.5,55.5 28.5,53.5 31,53" fill="#FFFFFF" />
-                      <text x="32.5" y="66" fill="#6B7280" fontSize="3.5" fontWeight="700" textAnchor="middle">THE MANIFEST</text>
-                    </svg>
-                  </div>
-
-                  {/* 3. The Manifest - Most Reviewed App Development Company */}
-                  <div className="shrink-0 flex items-center justify-center">
-                    <svg viewBox="0 0 65 85" className="w-12 h-16 sm:w-14 sm:h-[72px] drop-shadow-sm">
-                      <path d="M2 2 L63 2 L63 68 L32.5 83 L2 68 Z" fill="#FFFFFF" stroke="#881337" strokeWidth="1.5" />
-                      <path d="M2 2 L63 2 L63 20 L2 20 Z" fill="#881337" />
-                      <text x="32.5" y="10" fill="#FFFFFF" fontSize="4.5" fontWeight="800" textAnchor="middle" letterSpacing="0.5">MOST REVIEWED</text>
-                      <text x="32.5" y="16.5" fill="#FFFFFF" fontSize="4.2" fontWeight="700" textAnchor="middle">2026</text>
-                      <text x="32.5" y="32" fill="#881337" fontSize="5.2" fontWeight="900" textAnchor="middle">APP DEVELOPMENT</text>
-                      <text x="32.5" y="39" fill="#881337" fontSize="5" fontWeight="800" textAnchor="middle">COMPANY</text>
-                      <line x1="8" y1="48" x2="57" y2="48" stroke="#881337" strokeWidth="0.8" />
-                      <circle cx="32.5" cy="54" r="6" fill="#881337" />
-                      <polygon points="32.5,50.5 34,53 36.5,53.5 34.5,55.5 35,58 32.5,56.5 30,58 30.5,55.5 28.5,53.5 31,53" fill="#FFFFFF" />
-                      <text x="32.5" y="66" fill="#6B7280" fontSize="3.5" fontWeight="700" textAnchor="middle">THE MANIFEST</text>
-                    </svg>
-                  </div>
-
-                  {/* 4. The Manifest - Most Reviewed Android App Development Company */}
-                  <div className="shrink-0 flex items-center justify-center">
-                    <svg viewBox="0 0 65 85" className="w-12 h-16 sm:w-14 sm:h-[72px] drop-shadow-sm">
-                      <path d="M2 2 L63 2 L63 68 L32.5 83 L2 68 Z" fill="#FFFFFF" stroke="#881337" strokeWidth="1.5" />
-                      <path d="M2 2 L63 2 L63 20 L2 20 Z" fill="#881337" />
-                      <text x="32.5" y="10" fill="#FFFFFF" fontSize="4.5" fontWeight="800" textAnchor="middle" letterSpacing="0.5">MOST REVIEWED</text>
-                      <text x="32.5" y="16.5" fill="#FFFFFF" fontSize="4.2" fontWeight="700" textAnchor="middle">2026</text>
-                      <text x="32.5" y="29" fill="#881337" fontSize="5" fontWeight="900" textAnchor="middle">ANDROID APP</text>
-                      <text x="32.5" y="36" fill="#881337" fontSize="4.2" fontWeight="800" textAnchor="middle">DEVELOPMENT COMPANY</text>
-                      <line x1="8" y1="48" x2="57" y2="48" stroke="#881337" strokeWidth="0.8" />
-                      <circle cx="32.5" cy="54" r="6" fill="#881337" />
-                      <polygon points="32.5,50.5 34,53 36.5,53.5 34.5,55.5 35,58 32.5,56.5 30,58 30.5,55.5 28.5,53.5 31,53" fill="#FFFFFF" />
-                      <text x="32.5" y="66" fill="#6B7280" fontSize="3.5" fontWeight="700" textAnchor="middle">THE MANIFEST</text>
-                    </svg>
-                  </div>
-
-                  {/* 5. GoodFirms Circular Laurel Badge */}
-                  <div className="shrink-0 flex items-center justify-center">
-                    <svg viewBox="0 0 85 85" className="w-14 h-14 sm:w-16 sm:h-16 drop-shadow-md">
-                      <circle cx="42.5" cy="42.5" r="39" fill="#FFFFFF" stroke="#0072CE" strokeWidth="2.5" />
-                      <circle cx="42.5" cy="42.5" r="35" fill="none" stroke="#60A5FA" strokeWidth="1" strokeDasharray="3 2" />
-                      <polygon points="26,17 27.2,19.5 30,19.8 28,21.5 28.5,24 26,22.6 23.5,24 24,21.5 22,19.8 24.8,19.5" fill="#F59E0B" />
-                      <polygon points="34,13 35.2,15.5 38,15.8 36,17.5 36.5,20 34,18.6 31.5,20 32,17.5 30,15.8 32.8,15.5" fill="#F59E0B" />
-                      <polygon points="42.5,11 43.8,13.8 47,14.2 44.5,16.2 45.2,19.2 42.5,17.6 39.8,19.2 40.5,16.2 38,14.2 41.2,13.8" fill="#F59E0B" />
-                      <polygon points="51,13 52.2,15.5 55,15.8 53,17.5 53.5,20 51,18.6 48.5,20 49,17.5 47,15.8 49.8,15.5" fill="#F59E0B" />
-                      <polygon points="59,17 60.2,19.5 63,19.8 61,21.5 61.5,24 59,22.6 56.5,24 57,21.5 55,19.8 57.8,19.5" fill="#F59E0B" />
-                      <rect x="36" y="27" width="13" height="13" rx="2" fill="#F59E0B" />
-                      <text x="42.5" y="36.5" fill="#FFFFFF" fontSize="9" fontWeight="900" textAnchor="middle">G</text>
-                      <path d="M12 48 L73 48 L69 62 L16 62 Z" fill="#0072CE" />
-                      <text x="42.5" y="54" fill="#FFFFFF" fontSize="3.8" fontWeight="900" textAnchor="middle">TOP ANDROID APP</text>
-                      <text x="42.5" y="59" fill="#FFFFFF" fontSize="3.4" fontWeight="800" textAnchor="middle">DEVELOPMENT COMPANY</text>
-                      <text x="42.5" y="72" fill="#0072CE" fontSize="5" fontWeight="700" textAnchor="middle">goodfirms.co</text>
-                    </svg>
-                  </div>
-
-                  {/* 6. Clutch Hexagonal Badge */}
-                  <div className="shrink-0 flex items-center justify-center">
-                    <svg viewBox="0 0 80 85" className="w-14 h-14 sm:w-16 sm:h-16 drop-shadow-md">
-                      <polygon points="40,3 77,22 77,63 40,82 3,63 3,22" fill="#FFFFFF" stroke="#94A3B8" strokeWidth="2.5" />
-                      <polygon points="40,7 73,24 73,61 40,78 7,61 7,24" fill="#FFFFFF" stroke="#E2E8F0" strokeWidth="1" />
-                      <text x="40" y="17" fill="#64748B" fontSize="4.2" fontWeight="800" textAnchor="middle">TOP</text>
-                      <text x="40" y="23" fill="#334155" fontSize="4.5" fontWeight="900" textAnchor="middle">ANDROID APP</text>
-                      <rect x="10" y="28" width="60" height="26" fill="#1E293B" />
-                      <text x="40" y="46" fill="#FFFFFF" fontSize="13" fontWeight="900" textAnchor="middle" fontFamily="sans-serif">
-                        Clutch
-                      </text>
-                      <circle cx="58" cy="37" r="2.2" fill="#EF4444" />
-                      <text x="40" y="66" fill="#334155" fontSize="4.5" fontWeight="900" textAnchor="middle">DEVELOPERS</text>
-                      <text x="40" y="73" fill="#64748B" fontSize="4" fontWeight="700" textAnchor="middle">2026</text>
-                    </svg>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
+      <ProudAwardsBanner />
 
       {/* =========================================================================
-          LEADING ANDROID APP DEVELOPMENT AGENCY SECTION (EXACT 1:1 MATCH)
+          LEADING IOS APP DEVELOPMENT AGENCY SECTION (EXACT 1:1 MATCH)
           ========================================================================= */}
       <section className="py-8 sm:py-10 bg-white text-slate-900 font-sans text-left">
         <Container>
-          {/* Centered Top Heading */}
           <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-12">
             <h2
               className="font-[800] text-[#0B0F19] tracking-tight leading-tight"
               style={{ fontSize: '32px' }}
             >
-              Leading Android App Development Agency
+              Leading iOS App Development Agency
             </h2>
           </div>
 
-          {/* Two-Column Layout */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
-
             {/* Left Column: Light-Blue Patterned Quote Panel */}
             <div className="lg:col-span-4 bg-[#EBF5FA] rounded-[3px] p-8 sm:p-10 flex flex-col justify-start relative overflow-hidden shadow-xs min-h-[340px]">
-              {/* Authentic Topographical Contour Curves Background */}
               <svg className="absolute inset-0 w-full h-full opacity-60 pointer-events-none" viewBox="0 0 400 400" fill="none" stroke="#CBE4F3" strokeWidth="1.2">
                 <path d="M-40 60 C 50 20, 140 130, 220 70 C 300 10, 370 110, 440 80" />
                 <path d="M-40 120 C 60 70, 160 180, 250 120 C 330 60, 390 170, 440 140" />
@@ -1069,19 +795,17 @@ export const AndroidAppDevelopmentService = () => {
                 <ellipse cx="280" cy="240" rx="80" ry="60" stroke="#CBE4F3" strokeWidth="1" />
               </svg>
 
-              {/* Solid Large Blue Double Quotation Mark */}
               <div className="text-[#00669E] mb-5 relative z-10">
                 <svg viewBox="0 0 44 34" className="w-11 h-8.5 fill-current">
                   <path d="M0 19.428C0 8.7 6.857 0 17.143 0v6.857c-5.714 0-8.571 4-8.571 9.143h8.571V34H0V19.428zm25.714 0C25.714 8.7 32.571 0 42.857 0v6.857c-5.714 0-8.571 4-8.571 9.143h8.571V34H25.714V19.428z" />
                 </svg>
               </div>
 
-              {/* Quote Heading in Deep Sapphire Blue */}
               <h3
                 className="font-[800] text-[#00669E] tracking-tight leading-[1.2] relative z-10"
                 style={{ fontSize: '28px' }}
               >
-                Not Just Another<br />Android App<br />Development<br />Company
+                Not Just Another<br />iOS App<br />Development<br />Company
               </h3>
             </div>
 
@@ -1091,17 +815,16 @@ export const AndroidAppDevelopmentService = () => {
                 className="font-normal text-[#475569]"
                 style={{ fontSize: '14px', lineHeight: '1.68' }}
               >
-                As one of the leading Award-winning Generative AI Android App Development Firms, we thrive on creating high-quality Android applications that stand out in the market with our skilled developers, designers, and project managers. Android application development company help startups and established businesses make a strong entry or develop their digital presence with Affordable Android App Development Company. We also offer Enterprise Android app development services to empower large-scale organizations with robust and secure mobile solutions. From idea to implementation, we collaborate with customers to ensure the app meets their goals.
+                As one of the leading Award-winning Generative AI iOS App Development Firms, we thrive on creating high-quality iOS applications that stand out in the App Store with our skilled developers, designers, and project managers. iOS application development company help startups and established businesses make a strong entry or develop their digital presence with Affordable iOS App Development Company. We also offer Enterprise iOS app development services to empower large-scale organizations with robust and secure mobile solutions.
               </p>
 
               <p
                 className="font-normal text-[#475569]"
                 style={{ fontSize: '14px', lineHeight: '1.68' }}
               >
-                You can Hire Android App Developer for Startup who provides unmatched support and maintenance. Our talented engineers and designers help you build a mobile app that matches your brand, works effortlessly, and provides a great user experience. As the Experienced Android App Development Company, we have the skills to create your Android business app, e-commerce solution, social networking platform, or other software. Our top Android app development services maximize its potential. With Android app development outsourcing capabilities, global clients rely on us for cost-effective and scalable solutions. Contact us now to design a unique, compelling mobile solution that sets you apart from the competition. Explore our Android app development solutions to turn your ideas into a real, functional application with measurable results.
+                You can Hire iOS App Developer for Startup who provides unmatched support and maintenance. Our talented engineers and designers help you build a mobile app that matches your brand, works effortlessly, and provides a great user experience. As the Experienced iOS App Development Company, we have the skills to create your iOS business app, e-commerce solution, social networking platform, or other software. Contact us now to design a unique, compelling mobile solution that sets you apart from the competition.
               </p>
             </div>
-
           </div>
         </Container>
       </section>
@@ -1111,18 +834,15 @@ export const AndroidAppDevelopmentService = () => {
           ========================================================================= */}
       <section className="py-9 sm:py-12 bg-white text-slate-900 font-sans overflow-hidden text-left">
         <div className="w-full max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
-
-          {/* Centered Heading */}
           <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-14">
             <h2
               className="font-[800] text-[#0B0F19] tracking-tight leading-[1.25]"
               style={{ fontSize: '32px' }}
             >
-              Cutting Edge Technology Sapphire Use For Android App Development
+              Cutting Edge Technology Firevy Use For iOS App Development
             </h2>
           </div>
 
-          {/* Carousel Track Container with Auto-Scroll & Hover Pause */}
           <div
             className="relative overflow-hidden w-full py-2"
             onMouseEnter={() => setIsTechHovered(true)}
@@ -1136,102 +856,23 @@ export const AndroidAppDevelopmentService = () => {
             >
               {[
                 {
-                  title: 'Android Studio',
-                  desc: "Android Studio's sophisticated debugging, testing, and code-refactoring features speed development. We use Android Studio to create high-quality, responsive, and optimized apps for numerous Android devices.",
+                  title: 'Xcode & Instruments',
+                  desc: "Apple's flagship IDE and diagnostic suite for high-performance profiling, memory leak detection, CPU optimization, and rapid Swift compilation.",
                   icon: (
                     <svg viewBox="0 0 44 44" className="w-11 h-11 text-[#0084D1] fill-none stroke-current stroke-[1.8]">
-                      {/* Phone frame */}
                       <rect x="8" y="4" width="22" height="34" rx="3.5" />
                       <circle cx="19" cy="8" r="1" fill="currentColor" />
                       <line x1="14" y1="34" x2="24" y2="34" />
-                      {/* Developer badge on right */}
                       <circle cx="28" cy="22" r="8" fill="#DDF1FC" stroke="currentColor" strokeWidth="1.8" />
                       <circle cx="28" cy="20" r="2.8" />
                       <path d="M23 27 C23 24.5, 25.5 24, 28 24 C30.5 24, 33 24.5, 33 27" />
-                      {/* Gear notches on badge */}
                       <path d="M28 12.5 L28 14 M28 30 L28 31.5 M18.5 22 L20 22 M36 22 L37.5 22" />
                     </svg>
                   )
                 },
                 {
-                  title: 'Firebase',
-                  desc: "Firebase is a robust Backend-as-a-Service (BaaS) platform that provides real-time databases, authentication, analytics, and cloud messaging for app development. Our Firebase integration adds push alerts, user engagement tracking, and data storage to your app.",
-                  icon: (
-                    <svg viewBox="0 0 44 44" className="w-11 h-11 text-[#0084D1] fill-none stroke-current stroke-[1.8]">
-                      {/* Server box left */}
-                      <rect x="4" y="8" width="16" height="12" rx="2" />
-                      <circle cx="8" cy="12" r="1" fill="currentColor" />
-                      <circle cx="12" cy="12" r="1" fill="currentColor" />
-                      <line x1="8" y1="16" x2="16" y2="16" />
-                      {/* Stacked database disks right */}
-                      <ellipse cx="28" cy="12" rx="10" ry="4.5" />
-                      <path d="M18 12 L18 19 C18 22.5, 38 22.5, 38 19 L38 12" />
-                      <path d="M18 19 L18 26 C18 29.5, 38 29.5, 38 26 L38 19" />
-                      <path d="M18 26 L18 33 C18 36.5, 38 36.5, 38 33 L38 26" />
-                    </svg>
-                  )
-                },
-                {
-                  title: 'XML',
-                  desc: "XML is needed to develop Android app layouts and UI components. Our team creates attractive, intuitive layouts that work across screen sizes and resolutions. We optimize XML files to make your app's UI lightweight, quick, and user-friendly.",
-                  icon: (
-                    <svg viewBox="0 0 44 44" className="w-11 h-11 text-[#0084D1] fill-none stroke-current stroke-[1.8]">
-                      {/* Document outline */}
-                      <path d="M10 6 L26 6 L34 14 L34 38 L10 38 Z" />
-                      <path d="M26 6 L26 14 L34 14" />
-                      <line x1="15" y1="12" x2="21" y2="12" />
-                      {/* XML Badge */}
-                      <rect x="14" y="21" width="16" height="11" rx="2" />
-                      <text x="22" y="29.2" fill="#0084D1" fontSize="6.5" fontWeight="900" textAnchor="middle" stroke="none" fontFamily="sans-serif">XML</text>
-                    </svg>
-                  )
-                },
-                {
-                  title: 'Retrofit',
-                  desc: "Our team optimizes Retrofit for data processing, error handling, and API call management to keep your app responsive under pressure. Optimizing network performance gives apps smooth data synchronization and real-time updates.",
-                  icon: (
-                    <svg viewBox="0 0 44 44" className="w-11 h-11 text-[#0084D1] fill-none stroke-current stroke-[1.8]">
-                      {/* Crossed Wrench and Screwdriver */}
-                      <path d="M11 31 L23 19 M20 16 L24 12 C26 10, 29 10, 31 12 C33 14, 33 17, 31 19 L27 23 L24 20" />
-                      <path d="M11 31 L8 34 C7 35, 6 36, 7 37 C8 38, 9 37, 10 36 L13 33" />
-                      {/* Screwdriver */}
-                      <path d="M31 31 L19 19 M16 16 L12 12 C10 10, 10 7, 12 5 C14 3, 17 3, 19 5 L23 9 L20 12" />
-                      <path d="M31 31 L34 34 C35 35, 36 36, 37 35 C38 34, 37 33, 36 32 L33 29" />
-                    </svg>
-                  )
-                },
-                {
-                  title: 'Kotlin',
-                  desc: "Modern features, concise syntax, and seamless Java interoperability make Kotlin our team's preferred language for Android development. We build Kotlin-based solutions to improve code quality, developer productivity, and app performance.",
-                  icon: (
-                    <svg viewBox="0 0 44 44" className="w-11 h-11 text-[#0084D1] fill-none stroke-current stroke-[1.8]">
-                      {/* Document outline */}
-                      <path d="M10 6 L26 6 L34 14 L34 38 L10 38 Z" />
-                      <path d="M26 6 L26 14 L34 14" />
-                      <line x1="15" y1="12" x2="21" y2="12" />
-                      {/* KT Badge */}
-                      <rect x="15" y="21" width="14" height="11" rx="2" />
-                      <text x="22" y="29.2" fill="#0084D1" fontSize="7" fontWeight="900" textAnchor="middle" stroke="none" fontFamily="sans-serif">KT</text>
-                    </svg>
-                  )
-                },
-                {
-                  title: 'Java',
-                  desc: "Android app development has relied on Java's reliability and community support for years. Java's numerous libraries and tools let us build apps with smooth functionality and broad device compatibility.",
-                  icon: (
-                    <svg viewBox="0 0 44 44" className="w-11 h-11 text-[#0084D1] fill-none stroke-current stroke-[1.8]">
-                      <rect x="6" y="7" width="32" height="23" rx="3" />
-                      <path d="M15 30 L29 30" />
-                      <path d="M22 30 L22 37" />
-                      <path d="M14 37 L30 37" />
-                      <rect x="11" y="12" width="22" height="12" rx="1.5" />
-                      <text x="22" y="21" fill="#0084D1" fontSize="6.5" fontWeight="900" textAnchor="middle" stroke="none" fontFamily="sans-serif">&lt;JAVA&gt;</text>
-                    </svg>
-                  )
-                },
-                {
-                  title: 'Jetpack Compose',
-                  desc: "Jetpack Compose simplifies and accelerates UI development on Android. Our developers use its declarative approach and intuitive Kotlin APIs to build reactive, robust, and visually stunning Android apps.",
+                  title: 'Swift & SwiftUI',
+                  desc: "Modern declarative UI framework and type-safe language built by Apple for high performance, smooth 120Hz animations, and reactive state management.",
                   icon: (
                     <svg viewBox="0 0 44 44" className="w-11 h-11 text-[#0084D1] fill-none stroke-current stroke-[1.8]">
                       <polygon points="22,5 36,13 36,29 22,37 8,29 8,13" />
@@ -1241,13 +882,54 @@ export const AndroidAppDevelopmentService = () => {
                   )
                 },
                 {
-                  title: 'Room & SQLite',
-                  desc: "Room provides an abstraction layer over SQLite to allow fluent database access while harnessing the full power of SQLite. We build robust offline-first Android apps with persistent caching.",
+                  title: 'Core ML & Vision',
+                  desc: "On-device hardware-accelerated machine learning running models seamlessly with zero latency and complete privacy on the Apple Neural Engine.",
+                  icon: (
+                    <svg viewBox="0 0 44 44" className="w-11 h-11 text-[#0084D1] fill-none stroke-current stroke-[1.8]">
+                      <rect x="4" y="8" width="16" height="12" rx="2" />
+                      <circle cx="8" cy="12" r="1" fill="currentColor" />
+                      <circle cx="12" cy="12" r="1" fill="currentColor" />
+                      <line x1="8" y1="16" x2="16" y2="16" />
+                      <ellipse cx="28" cy="12" rx="10" ry="4.5" />
+                      <path d="M18 12 L18 19 C18 22.5, 38 22.5, 38 19 L38 12" />
+                      <path d="M18 19 L18 26 C18 29.5, 38 29.5, 38 26 L38 19" />
+                      <path d="M18 26 L18 33 C18 36.5, 38 36.5, 38 33 L38 26" />
+                    </svg>
+                  )
+                },
+                {
+                  title: 'Combine & Concurrency',
+                  desc: "Reactive asynchronous programming and Swift async/await concurrency delivering robust real-time data streams and fluid responsiveness.",
+                  icon: (
+                    <svg viewBox="0 0 44 44" className="w-11 h-11 text-[#0084D1] fill-none stroke-current stroke-[1.8]">
+                      <path d="M11 31 L23 19 M20 16 L24 12 C26 10, 29 10, 31 12 C33 14, 33 17, 31 19 L27 23 L24 20" />
+                      <path d="M11 31 L8 34 C7 35, 6 36, 7 37 C8 38, 9 37, 10 36 L13 33" />
+                      <path d="M31 31 L19 19 M16 16 L12 12 C10 10, 10 7, 12 5 C14 3, 17 3, 19 5 L23 9 L20 12" />
+                      <path d="M31 31 L34 34 C35 35, 36 36, 37 35 C38 34, 37 33, 36 32 L33 29" />
+                    </svg>
+                  )
+                },
+                {
+                  title: 'Core Data & Realm',
+                  desc: "High-performance object persistence engines providing encrypted local database storage, transactional safety, and rapid offline sync.",
                   icon: (
                     <svg viewBox="0 0 44 44" className="w-11 h-11 text-[#0084D1] fill-none stroke-current stroke-[1.8]">
                       <ellipse cx="22" cy="11" rx="15" ry="5.5" />
                       <path d="M7 11 L7 21 C7 26.5, 37 26.5, 37 21 L37 11" />
                       <path d="M7 21 L7 31 C7 36.5, 37 36.5, 37 31 L37 21" />
+                    </svg>
+                  )
+                },
+                {
+                  title: 'CocoaPods & SPM',
+                  desc: "Seamless Swift Package Manager and CocoaPods integration for automated dependency versioning, modular build targets, and CI/CD pipelines.",
+                  icon: (
+                    <svg viewBox="0 0 44 44" className="w-11 h-11 text-[#0084D1] fill-none stroke-current stroke-[1.8]">
+                      <path d="M10 6 L26 6 L34 14 L34 38 L10 38 Z" />
+                      <path d="M26 6 L26 14 L34 14" />
+                      <line x1="15" y1="12" x2="21" y2="12" />
+                      <rect x="15" y="21" width="14" height="11" rx="2" />
+                      <text x="22" y="29.2" fill="#0084D1" fontSize="7" fontWeight="900" textAnchor="middle" stroke="none" fontFamily="sans-serif">SPM</text>
                     </svg>
                   )
                 }
@@ -1256,17 +938,12 @@ export const AndroidAppDevelopmentService = () => {
                   key={idx}
                   className="w-[330px] sm:w-[370px] lg:w-[390px] shrink-0 rounded-[8px] bg-[#DDF1FC] p-8 sm:p-9 min-h-[300px] flex flex-col justify-start text-left select-none transition-all hover:shadow-sm"
                 >
-                  {/* Top Icon */}
                   <div className="mb-6">
                     {tech.icon}
                   </div>
-
-                  {/* Tech Title */}
                   <h3 className="font-[800] text-[19px] sm:text-[20px] text-[#0B0F19] mb-3">
                     {tech.title}
                   </h3>
-
-                  {/* Tech Description */}
                   <p
                     className="font-normal text-[#2D3748]"
                     style={{ fontSize: '13.5px', lineHeight: '1.68' }}
@@ -1278,7 +955,6 @@ export const AndroidAppDevelopmentService = () => {
             </div>
           </div>
 
-          {/* Bottom Center Arrow Controls */}
           <div className="flex items-center justify-center space-x-6 mt-8 sm:mt-10">
             <button
               onClick={() => setTechCarouselIndex((prev) => Math.max(0, prev - 1))}
@@ -1297,19 +973,17 @@ export const AndroidAppDevelopmentService = () => {
               →
             </button>
           </div>
-
         </div>
       </section>
 
-      {/* Premium Services Grid Section (Placed immediately after Cutting Edge Technology) */}
+      {/* Premium Services Grid Section */}
       <PremiumServicesGrid />
 
       {/* =========================================================================
-          MEET SAPPHIRE'S EXCEPTIONAL TEAM OF SEASONED EXPERTS (EXACT 1:1 MATCH)
+          MEET FIREVY'S EXCEPTIONAL TEAM OF SEASONED EXPERTS (EXACT 1:1 MATCH)
           ========================================================================= */}
       <section className="py-8 sm:py-10 bg-white text-slate-900 font-sans text-left">
         <Container>
-          {/* Centered Heading */}
           <div className="text-center max-w-4xl mx-auto mb-6 sm:mb-8">
             <h2
               className="font-[800] text-[#0B0F19] tracking-tight leading-tight"
@@ -1319,7 +993,6 @@ export const AndroidAppDevelopmentService = () => {
             </h2>
           </div>
 
-          {/* Top Category Filter Pills Bar */}
           <div className="flex justify-center mb-8 sm:mb-10">
             <div className="bg-[#D9EFF9] rounded-full p-1 sm:p-1.5 inline-flex flex-wrap items-center justify-center gap-1 sm:gap-1.5 shadow-xs">
               {[
@@ -1347,15 +1020,14 @@ export const AndroidAppDevelopmentService = () => {
             </div>
           </div>
 
-          {/* Team Cards Grid (3 Cards on Desktop) */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 max-w-[1340px] mx-auto">
             {[
               {
                 id: 0,
                 title: 'Mobile Application Team',
                 image: '/assets/team/mobile_app_team.jpg',
-                techs: ['Android', 'iOS', 'Flutter', 'React Native', 'Swift'],
-                team: ['Tech Lead (1)', 'Sr. Android Dev (2)', 'Sr. iOS Dev (2)', 'Flutter Dev (2)', 'QA Engineer (1)']
+                techs: ['iOS', 'Swift', 'SwiftUI', 'Android', 'Flutter', 'React Native'],
+                team: ['Tech Lead (1)', 'Sr. iOS Dev (2)', 'Sr. Android Dev (2)', 'Flutter Dev (2)', 'QA Engineer (1)']
               },
               {
                 id: 1,
@@ -1381,7 +1053,6 @@ export const AndroidAppDevelopmentService = () => {
                   className="bg-[#DDF1FC] rounded-[18px] p-5 sm:p-6 border border-[#CCE8F7] flex flex-col justify-between shadow-xs hover:shadow-md transition-all duration-200"
                 >
                   <div>
-                    {/* Top Image Box */}
                     <div className="w-full h-[180px] sm:h-[190px] rounded-[14px] overflow-hidden shadow-xs mb-4.5 bg-slate-900">
                       <img
                         src={card.image}
@@ -1390,12 +1061,10 @@ export const AndroidAppDevelopmentService = () => {
                       />
                     </div>
 
-                    {/* Team Title */}
                     <h3 className="font-[800] text-[18px] sm:text-[19px] text-[#0B0F19] mb-3.5 text-left">
                       {card.title}
                     </h3>
 
-                    {/* Sub-Tabs Switch (Technologies / Team Composition) */}
                     <div className="flex items-center space-x-2 mb-3.5 text-left">
                       <button
                         onClick={() => setExpertTabs((prev) => ({ ...prev, [idx]: 'tech' }))}
@@ -1417,7 +1086,6 @@ export const AndroidAppDevelopmentService = () => {
                       </button>
                     </div>
 
-                    {/* Tag Pills Grid */}
                     <div className="flex flex-wrap gap-2 min-h-[66px] text-left items-start">
                       {activePills.map((pill, pillIdx) => (
                         <span
@@ -1430,7 +1098,6 @@ export const AndroidAppDevelopmentService = () => {
                     </div>
                   </div>
 
-                  {/* Bottom CTA Button */}
                   <div className="pt-3.5 text-left">
                     <Link
                       to="/contact"
@@ -1445,7 +1112,6 @@ export const AndroidAppDevelopmentService = () => {
             })}
           </div>
 
-          {/* Bottom Center Arrow Controls */}
           <div className="flex items-center justify-center space-x-6 mt-8 sm:mt-10">
             <button
               onClick={() => setExpertCarouselIndex((prev) => Math.max(0, prev - 1))}
@@ -1464,11 +1130,10 @@ export const AndroidAppDevelopmentService = () => {
               →
             </button>
           </div>
-
         </Container>
       </section>
 
-      {/* Success Stories, Sectors, Key Reasons & Showcase Sections */}
+      {/* Reused Existing Components in Identical Order */}
       <SuccessStories />
       <AboutUsStats />
       <SectorsThrivingSection />
@@ -1482,7 +1147,7 @@ export const AndroidAppDevelopmentService = () => {
       <AndroidHiringModels />
       <AndroidComparativeAnalysis />
       <InnovativeSolutionsVideoSection />
-      <ProcessWeFollow title="Process We Follow" subtitle="Agile Android development sprints from Figma wireframes to CI/CD automated builds and Play Store release." />
+      <ProcessWeFollow title="Process We Follow" subtitle="Agile iOS development sprints from Figma wireframes to CI/CD automated builds and App Store release." />
       <OurStoryTheirWordsSection />
       <TrustedBrandsGrid />
       <SuccessMatrix />
@@ -1490,19 +1155,19 @@ export const AndroidAppDevelopmentService = () => {
       <FeaturedInBrandsSection />
       <DigitalTransformationSlider />
 
-      {/* Signature 2-Column FAQ Section (1:1 Reference Match) */}
-      <SapphireFaqSection />
+      {/* Signature 2-Column FAQ Section */}
+      <SapphireFaqSection faqs={sapphireFaqs} />
 
-      {/* Our Recent Blogs Section (1:1 Reference Match) */}
+      {/* Our Recent Blogs Section */}
       <AndroidRecentBlogsSection />
 
-      {/* What Sets Us Apart As Android App Development Company Section (1:1 Reference Match) */}
+      {/* What Sets Us Apart As App Development Company Section */}
       <AndroidWhatSetsUsApartSection />
 
-      {/* Have Android App Development Challenge To Address CTA Banner (1:1 Reference Match) */}
+      {/* Have App Development Challenge To Address CTA Banner */}
       <AndroidChallengeCtaBanner />
     </div>
   );
 };
 
-export default AndroidAppDevelopmentService;
+export default IOSAppDevelopmentService;
