@@ -104,20 +104,20 @@ export const Footer = () => {
   };
 
   return (
-    <footer className="bg-[#DFEEF7] text-slate-900 pt-8 pb-0 relative overflow-hidden font-sans border-t border-slate-200">
-      <div className="w-full max-w-[1560px] mx-auto px-4 sm:px-8 space-y-6">
+    <footer className="bg-[#edf5f9] text-slate-900 pt-8 pb-0 relative overflow-hidden font-sans border-t border-slate-200/80 w-full">
+      <div className="w-full px-3 sm:px-6 lg:px-8 xl:px-10 mx-auto space-y-6">
         
-        {/* 1. TOP 6-COLUMN FOOTER LINKS IN CLEAN WHITE BOX */}
-        <div className="bg-white rounded-[18px] border border-slate-200/90 shadow-sm p-8 sm:p-10">
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-8 text-left">
+        {/* 1. TOP 6-COLUMN FOOTER LINKS IN CLEAN WHITE BOX - FULL WIDTH */}
+        <div className="w-full bg-white rounded-[24px] border border-slate-200/90 shadow-sm p-6 sm:p-8 xl:p-10">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 sm:gap-8 text-left">
             {Object.keys(footerLinksData).map((key) => {
               const col = footerLinksData[key];
               return (
                 <div key={key} className="space-y-4">
-                  <h4 className="text-[18px] font-[800] text-[#006B8F] font-sans tracking-tight">
+                  <h4 className="text-[17px] sm:text-[18px] font-[800] text-[#006B8F] font-sans tracking-tight">
                     {col.title}
                   </h4>
-                  <ul className="space-y-2.5 text-[13px] font-[400] text-slate-700 font-sans">
+                  <ul className="space-y-2.5 text-[13px] sm:text-[13.5px] font-[400] text-slate-700 font-sans">
                     {col.links.map((link, idx) => (
                       <li key={idx}>
                         <Link
@@ -136,9 +136,9 @@ export const Footer = () => {
           </div>
         </div>
 
-        {/* 2. AWARDS & RECOGNITION BADGE BANNER — LARGE PROMINENT SIZES */}
-        <div className="bg-white rounded-[18px] border border-slate-200/90 shadow-sm p-6 sm:p-8 text-left">
-          <h3 className="text-[22px] font-[800] text-[#006B8F] tracking-tight mb-6 font-sans">
+        {/* 2. AWARDS & RECOGNITION BADGE BANNER — FULL WIDTH */}
+        <div className="w-full bg-white rounded-[24px] border border-slate-200/90 shadow-sm p-6 sm:p-8 text-left">
+          <h3 className="text-[20px] sm:text-[22px] font-[800] text-[#006B8F] tracking-tight mb-6 font-sans">
             Awards & Recognition
           </h3>
           <div className="flex items-center justify-between gap-4 overflow-x-auto pb-2 scrollbar-none">
@@ -491,8 +491,8 @@ export const Footer = () => {
       </div>
 
       {/* 4. SOLID BLUE COPYRIGHT BAR ACROSS FULL WIDTH */}
-      <div className="bg-[#006B8F] text-white py-3.5 px-8 mt-6">
-        <div className="w-full max-w-[1560px] mx-auto flex flex-col sm:flex-row items-center justify-between text-[13px] font-sans">
+      <div className="bg-[#006B8F] text-white py-3.5 px-4 sm:px-8 xl:px-10 mt-6 w-full">
+        <div className="w-full flex flex-col sm:flex-row items-center justify-between text-[13px] font-sans">
           <div>
             © {currentYear} firevy.co. All rights reserved.
           </div>

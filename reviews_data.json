@@ -1,0 +1,216 @@
+{
+  "reviews": [
+    {
+      "clutchLogo": "/images/clutch_new.svg",
+      "headline": "They were always willing to make sure that we were satisfied with the final product, which was outstanding.",
+      "comment": "Sapphire Software Solutions' support enabled the company to build a solution that automates their workflows. The team was prompt, communicative, and helpful in fulfilling deadlines and keeping everything on track. Above all, their willingness to deliver satisfying outputs was notable.",
+      "authorName": "Marios C.",
+      "location": "Limassol, Cyprus",
+      "overallRating": "5.0",
+      "ratingDetails": {
+        "Quality": "5.0"
+      },
+      "avatar": "/images/client/1.webp"
+    },
+    {
+      "clutchLogo": "/images/clutch_new.svg",
+      "headline": "The team is very professional and friendly.",
+      "comment": "Thanks to Sapphire Software Solutions, we have launched the app and my customers are happy with the tool. currently, we have continuous work with Sapphire team to build new features and improve the product with their innovative ideas. Sapphire is responsive to queries, and we are pleased with the quality of their work.",
+      "authorName": "Tim",
+      "location": "New Hampshire",
+      "overallRating": "5.0",
+      "ratingDetails": {
+        "Quality": "5.0"
+      },
+      "avatar": "/images/client/2.webp"
+    },
+    {
+      "clutchLogo": "/images/clutch_new.svg",
+      "headline": "The time and effort the Sapphire Software Solutions team put into my project was phenomenal!",
+      "comment": "Sapphire Software Solutions uploaded the app successfully to the app stores. The team was highly responsive, delivered on time, and communicated effectively through Skype. Moreover, they adapted to the client's working style and overcame complex technical challenges with a quick turnaround.",
+      "authorName": "Christina Wälchli",
+      "location": "Germany",
+      "overallRating": "5.0",
+      "ratingDetails": {
+        "Quality": "5.0"
+      },
+      "avatar": "/images/client/3.webp"
+    },
+    {
+      "clutchLogo": "/images/clutch_new.svg",
+      "headline": "The technical support team was very responsive.",
+      "comment": "Sapphire Software Solutions delivered the software in a timely manner. The team was responsive to requests and feedback and implemented changes. The client was impressed with Sapphire Software Solutions' willingness to take on challenges presented during the engagement. ",
+      "authorName": "AMR ELATTAR",
+      "location": "Saudi Arabia",
+      "overallRating": "4.5",
+      "ratingDetails": {
+        "Quality": "4.5"
+      },
+      "avatar": "/images/client/sandeep_sodha.webp"
+    },
+    {
+      "clutchLogo": "/images/clutch_new.svg",
+      "headline": "I was impressed by their ability to communicate effectively.",
+      "comment": "Sapphire Software Solutions delivered a user-friendly application that looked great. The client received positive feedback from users during the app's testing phase. The team had the technical skills to build a complex app and communicated effectively with the client, delivering work on time.",
+      "authorName": "Nick",
+      "location": "Australia",
+      "overallRating": "5.0",
+      "ratingDetails": {
+        "Quality": "5.0"
+      },
+      "avatar": "/images/client/4.webp"
+    },
+    {
+      "clutchLogo": "/images/clutch_new.svg",
+      "headline": "Their mobile app skills, helpfulness, and overall problem-solving blew me away.",
+      "comment": "Sapphire Software Solutions created a platform that the client was happy with. They were easy to talk to, responsive, and attentive to the client's needs. They also provided a result-oriented approach that was helpful and highly knowledgeable.",
+      "authorName": "Vid Randjelovic",
+      "location": "Phuket, Thailand",
+      "overallRating": "5.0",
+      "ratingDetails": {
+        "Quality": "5.0"
+      },
+      "avatar": "/images/client/5.webp"
+    },
+    {
+      "clutchLogo": "/images/clutch_new.svg",
+      "headline": "They were excellent at finding the right level of detail in implementation and critical thinking to give good advice.",
+      "comment": "Sapphire Software Solutions impressed the client with the quality of their deliverables. They provided excellent designs, achieved the client's goals in unique ways, and prioritized the website's accessibility. The client also commended the vendor's high-quality and easy-to-follow codes.",
+      "authorName": "Smit Shah",
+      "location": "Parkland, Florida",
+      "overallRating": "5.0",
+      "ratingDetails": {
+        "Quality": "5.0"
+      },
+      "avatar": "/images/client/smit_shah.webp"
+    },
+    {
+      "clutchLogo": "/images/clutch_new.svg",
+      "headline": "The team's spirit is nice, and I've found the team cooperative at each step of the project.",
+      "comment": "While the project is ongoing, the results thus far have met the expectations of the internal team. Sapphire Software Solutions has been prepared to accommodate requests and changes in the project development. They've been prompt, clever, and collaborative throughout the workflow.",
+      "authorName": "Hesham Abdelfattah",
+      "location": "London, United Kingdom",
+      "overallRating": "5.0",
+      "ratingDetails": {
+        "Quality": "5.0"
+      },
+      "avatar": "/images/client/shafi_banada.webp"
+    },
+    {
+      "clutchLogo": "/images/clutch_new.svg",
+      "headline": "Sapphire delivered flawlessly what we envisioned. We were astonished by their work.",
+      "comment": "The product was delivered within budget and timeframe. Sapphire Software Solutions was able to work around the client's budget limitations. Their team provided excellent customer service and greater product development.",
+      "authorName": "Hamendra Shah",
+      "location": "Kenya",
+      "overallRating": "5.0",
+      "ratingDetails": {
+        "Quality": "5.0"
+      },
+      "avatar": "/images/client/hesham_abdelfattah.webp"
+    },
+    {
+      "clutchLogo": "/images/clutch_new.svg",
+      "headline": "We really appreciate the time and energy that go into developing our website.",
+      "comment": "The team continuous to exhibit development and collaborative skills that allow them to create end products that exceed their client's expectations. They exert ample time and energy to make sure that they provide high-quality service within a reliable timeframe.",
+      "authorName": "Ellwood G. Ivey Jr.",
+      "location": "Georgia",
+      "overallRating": "5.0",
+      "ratingDetails": {
+        "Quality": "5.0"
+      },
+      "avatar": "/images/client/vijaya_bhargavi.webp"
+    },
+    {
+      "clutchLogo": "/images/clutch_new.svg",
+      "headline": "They were able to add resources and specialties when applicable.",
+      "comment": "Sapphire Software Solutions quickly developed the website and met the client's target timeline. The team also met the client's budget and quality requirements. Their resources were communicative throughout the entire project, and they successfully fixed every issue that arose during the engagement.",
+      "authorName": "Travis Wilhelmsen",
+      "location": "Idaho",
+      "overallRating": "5.0",
+      "ratingDetails": {
+        "Quality": "5.0"
+      },
+      "avatar": "/images/client/anil_kumar.webp"
+    },
+    {
+      "clutchLogo": "/images/clutch_new.svg",
+      "headline": "They are very professional, respectful, competent, and approachable.",
+      "comment": "The client was highly pleased with Sapphire Software Solutions' development work. The team met most of the interface design requirements and remained receptive to all change requests. They were transparent, courteous, and keen on surpassing the client's expectations. ",
+      "authorName": "Christine Ine",
+      "location": "Rockville, Maryland",
+      "overallRating": "4.5",
+      "ratingDetails": {
+        "Quality": "4.0"
+      },
+      "avatar": "/images/client/bhavesh_patel.webp"
+    },
+    {
+      "clutchLogo": "/images/clutch_new.svg",
+      "headline": "Sapphire Software Solutions' team communicated effectively and promptly.",
+      "comment": "Sapphire Software Solutions successfully implemented all UX and design features on the app. The team has consistently delivered on time, provided daily updates on the project's progress, and communicated smoothly through virtual meetings, emails, and messages. Their turnaround time is impressive.",
+      "authorName": "Derrick Surratt",
+      "location": "Arkansas",
+      "overallRating": "5.0",
+      "ratingDetails": {
+        "Quality": "5.0"
+      },
+      "avatar": "/images/client/derrick_surratt.webp"
+    },
+    {
+      "clutchLogo": "/images/clutch_new.svg",
+      "headline": "They're able to listen to customer requests and attend to urgent matters.",
+      "comment": "Sapphire Software Solutions' updates improved a product's UX per the end customer's requests. The team is personable, reaches their milestones on time, and is responsive through virtual meetings, emails, and messages. Moreover, their listening skills and quick response to urgent tasks stand out.",
+      "authorName": "Hamidah Nalwoga",
+      "location": "Massachusetts",
+      "overallRating": "5.0",
+      "ratingDetails": {
+        "Quality": "5.0"
+      },
+      "avatar": "/images/client/vasu_suthar.webp"
+    },
+    {
+      "clutchLogo": "/images/clutch_new.svg",
+      "headline": "Our communication was very smooth, and the deliverables were done on time.",
+      "comment": "The client is happy with Sapphire Software Solutions. The team has met all expectations in terms of website design and feature development. They've also completed work on time without any issues. Moreover, they manage the project well by providing daily updates. Overall, the engagement is a success.",
+      "authorName": "Lino Barahona",
+      "location": "Portugal",
+      "overallRating": "5.0",
+      "ratingDetails": {
+        "Quality": "5.0"
+      },
+      "avatar": "/images/client/manish_shah.webp"
+    },
+    {
+      "clutchLogo": "/images/clutch_new.svg",
+      "headline": "They were always able to deliver the results on time and ensured excellent communication.",
+      "comment": "Sapphire Software Solutions drastically improved the client's platform and single-handedly developed all of the planned features in a timely manner. They also ensured excellent project management and updated the client on a daily basis. Their understanding approach was a key element of their work.",
+      "authorName": "Julius John",
+      "location": "Tanzania",
+      "overallRating": "5.0",
+      "ratingDetails": {
+        "Quality": "5.0"
+      },
+      "avatar": "/images/client/mask_group.webp"
+    }
+  ],
+  "urls": [
+    "/images/clutch_new.svg",
+    "/images/client/1.webp",
+    "/images/star_new_5.png",
+    "/images/client/2.webp",
+    "/images/client/3.webp",
+    "/images/client/sandeep_sodha.webp",
+    "/images/client/4.webp",
+    "/images/client/5.webp",
+    "/images/client/smit_shah.webp",
+    "/images/client/shafi_banada.webp",
+    "/images/client/hesham_abdelfattah.webp",
+    "/images/client/vijaya_bhargavi.webp",
+    "/images/client/anil_kumar.webp",
+    "/images/client/bhavesh_patel.webp",
+    "/images/client/derrick_surratt.webp",
+    "/images/client/vasu_suthar.webp",
+    "/images/client/manish_shah.webp",
+    "/images/client/mask_group.webp"
+  ]
+}
