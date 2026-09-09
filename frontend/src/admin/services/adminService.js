@@ -15,7 +15,11 @@ export const adminService = {
   // HOME PAGE CMS MANAGEMENT APIS (All 22 Sections)
   // ============================================================
   getHomePageAdmin: async () => {
-    return apiClient.get('/home-page/admin');
+    try {
+      return await apiClient.get('/home-page/admin');
+    } catch {
+      return await apiClient.get('/home-page');
+    }
   },
 
   getHomePageSection: async (key) => {

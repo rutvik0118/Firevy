@@ -175,13 +175,15 @@ export const EngagementModelsEditor = ({ data, onChange }) => {
           itemTitle="Engagement Model"
           fields={fields}
           renderItemSummary={(item) => (
-            <div>
-              <div style={{ fontSize: '12px', fontWeight: 700, color: '#0F172A' }}>
-                {item.title} {item.tag && <span style={{ fontSize: '10px', color: '#006B8F', fontWeight: 600 }}>({item.tag})</span>}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', minWidth: 0 }}>
+              <div style={{ fontSize: '12.5px', fontWeight: 700, color: '#0F172A', lineHeight: 1.35, wordBreak: 'break-word', overflowWrap: 'break-word' }}>
+                {item.title} {item.tag && <span style={{ fontSize: '10.5px', color: '#006B8F', fontWeight: 600 }}>({item.tag})</span>}
               </div>
-              <div style={{ fontSize: '11px', color: '#64748B', marginTop: '2px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                {item.description || item.desc}
-              </div>
+              {(item.description || item.desc) && (
+                <div style={{ fontSize: '11px', color: '#64748B', lineHeight: 1.35, wordBreak: 'break-word', overflowWrap: 'break-word', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+                  {item.description || item.desc}
+                </div>
+              )}
             </div>
           )}
         />

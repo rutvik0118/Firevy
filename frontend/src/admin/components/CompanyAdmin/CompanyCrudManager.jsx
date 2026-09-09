@@ -88,8 +88,10 @@ export const CompanyCrudManager = ({
     if (existing) {
       data._id = existing._id;
       data.isActive = existing.isActive !== undefined ? existing.isActive : true;
+      data.status = existing.status || 'published';
     } else {
       data.isActive = true;
+      data.status = 'published';
       data.order = items.length + 1;
     }
     return data;

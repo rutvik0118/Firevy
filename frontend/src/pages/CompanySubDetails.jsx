@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useLocation } from 'react-router-dom';
 import Careers from './Careers';
 import CSR from './CSR';
 import Podcast from './Podcast';
@@ -370,6 +370,8 @@ const companyPagesData = {
 
 export const CompanySubDetails = () => {
   const params = useParams();
+  const location = useLocation();
+  const isPreview = new URLSearchParams(location.search).get('preview') === 'true';
   const pageKey = params.slug || params.subpage || 'about-firevy';
   const pageData = companyPagesData[pageKey] || companyPagesData['about-firevy'];
   const [activeReviewIdx, setActiveReviewIdx] = useState(0);
@@ -393,7 +395,7 @@ export const CompanySubDetails = () => {
 
   useEffect(() => {
     // Fetch singleton section data if available
-    companyPublicService.getSection(pageKey).then((data) => {
+    companyPublicService.getSection(pageKey, isPreview).then((data) => {
       if (data) setDynamicSection(data);
     }).catch(console.error);
 
@@ -420,7 +422,7 @@ export const CompanySubDetails = () => {
         if (data && data.length > 0) setDynamicBlogs(data);
       }).catch(console.error);
     }
-  }, [pageKey]);
+  }, [pageKey, isPreview]);
 
   const clutchScrollRef = React.useRef(null);
   const workplaceScrollRef = React.useRef(null);
@@ -2666,17 +2668,17 @@ export const CompanySubDetails = () => {
               {/* Left Text */}
               <div className="lg:col-span-6 space-y-6">
                 <h1 className="text-[34px] font-[800] text-slate-900 tracking-tight leading-tight font-sans page-hero-title">
-                  Why Choose Us?
+                  {dynamicSection?.title || 'Why Choose Us?'}
                 </h1>
                 <p className="text-[15px] text-slate-600 leading-relaxed font-[400] font-sans max-w-xl page-hero-desc">
-                  We understand the seriousness of your project, and here are the few reasons that why should you join the firevy.co club and get added to the list of 1500+ clients who have been trusting us since 2 decades.
+                  {dynamicSection?.subtitle || 'We understand the seriousness of your project, and here are the few reasons that why should you join the firevy.co club and get added to the list of 1500+ clients who have been trusting us since 2 decades.'}
                 </p>
                 <div className="pt-2">
                   <Link
                     to="/contact"
                     className="inline-flex items-center justify-center space-x-2 px-8 py-3.5 rounded-[6px] bg-[#00668C] hover:bg-[#004E6C] text-white font-[700] text-[15px] transition-all shadow-md group font-sans"
                   >
-                    <span>Connect Now</span>
+                    <span>{dynamicSection?.ctaText || 'Connect Now'}</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </div>
@@ -2819,17 +2821,17 @@ export const CompanySubDetails = () => {
               {/* Left Text */}
               <div className="lg:col-span-6 space-y-6">
                 <h1 className="text-[34px] font-[800] text-slate-900 tracking-tight leading-tight font-sans page-hero-title">
-                  What Makes firevy.co An Exciting Place To Work?
+                  {dynamicSection?.title || 'What Makes firevy.co An Exciting Place To Work?'}
                 </h1>
                 <p className="text-[15px] text-slate-600 leading-relaxed font-[400] font-sans max-w-xl page-hero-desc">
-                  Working with firevy.co is much more than doing a set of tasks daily. You can think, innovate, and tell us your ideas to improve this organization! You have exciting new opportunities to follow your curiosity wherever it takes you and pursue a career with our company.
+                  {dynamicSection?.subtitle || 'Working with firevy.co is much more than doing a set of tasks daily. You can think, innovate, and tell us your ideas to improve this organization! You have exciting new opportunities to follow your curiosity wherever it takes you and pursue a career with our company.'}
                 </p>
                 <div className="pt-2">
                   <Link
                     to="/contact"
                     className="inline-flex items-center justify-center space-x-2 px-8 py-3.5 rounded-[6px] bg-[#00668C] hover:bg-[#004E6C] text-white font-[700] text-[15px] transition-all shadow-md group font-sans"
                   >
-                    <span>Discuss Your Project</span>
+                    <span>{dynamicSection?.ctaText || 'Discuss Your Project'}</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </div>
@@ -3463,17 +3465,17 @@ export const CompanySubDetails = () => {
               {/* Left Text */}
               <div className="lg:col-span-6 space-y-6">
                 <h1 className="text-[34px] font-[800] text-slate-900 tracking-tight leading-tight font-sans page-hero-title">
-                  Empowering The Women At firevy.co
+                  {dynamicSection?.title || 'Empowering The Women At firevy.co'}
                 </h1>
                 <p className="text-[15px] text-slate-600 leading-relaxed font-[400] font-sans max-w-xl page-hero-desc">
-                  At firevy.co, we firmly believe in equality of opportunity and non-discrimination.
+                  {dynamicSection?.subtitle || 'At firevy.co, we firmly believe in equality of opportunity and non-discrimination.'}
                 </p>
                 <div className="pt-2">
                   <Link
                     to="/contact"
                     className="inline-flex items-center justify-center space-x-2 px-8 py-3.5 rounded-[6px] bg-[#00668C] hover:bg-[#004E6C] text-white font-[700] text-[15px] transition-all shadow-md group font-sans"
                   >
-                    <span>Connect Now</span>
+                    <span>{dynamicSection?.ctaText || 'Connect Now'}</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </div>

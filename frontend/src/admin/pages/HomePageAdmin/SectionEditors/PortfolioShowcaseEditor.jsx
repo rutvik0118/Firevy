@@ -175,12 +175,12 @@ export const PortfolioShowcaseEditor = ({ data, onChange }) => {
           itemTitle="Project Card"
           fields={projectFields}
           renderItemSummary={(item) => (
-            <div>
-              <div style={{ fontSize: '12px', fontWeight: 700, color: '#0F172A' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', minWidth: 0 }}>
+              <div style={{ fontSize: '12.5px', fontWeight: 700, color: '#0F172A', lineHeight: 1.35, wordBreak: 'break-word', overflowWrap: 'break-word' }}>
                 {item.titleLine1 || item.title} {item.titleLine2 || ''}
               </div>
-              <div style={{ fontSize: '11px', color: '#64748B' }}>
-                {item.slug ? `/portfolio/${item.slug}` : 'No slug configured'}
+              <div style={{ fontSize: '11px', color: '#64748B', lineHeight: 1.35, wordBreak: 'break-word', overflowWrap: 'break-word' }}>
+                {item.slug ? `/portfolio/${item.slug}` : (item.description || item.desc || 'No slug configured')}
               </div>
             </div>
           )}

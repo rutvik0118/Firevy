@@ -10,6 +10,7 @@ const insightfulVideoSchema = new mongoose.Schema({
   tag: { type: String, default: 'Technology & AI' },
   description: { type: String, default: '' },
   order: { type: Number, default: 0 },
+  status: { type: String, enum: ['draft', 'published'], default: 'published' },
   isActive: { type: Boolean, default: true }
 }, {
   timestamps: true

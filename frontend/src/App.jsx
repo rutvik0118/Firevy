@@ -31,28 +31,15 @@ import SettingsPage from './admin/pages/SettingsPage';
 import ApiPlaygroundPage from './admin/pages/ApiPlaygroundPage';
 import AdminNotFoundPage from './admin/pages/NotFoundPage';
 
-// Company Admin Sub-Pages
-import {
-  AboutFirevyAdminPage,
-  CeoMessageAdminPage,
-  OurTeamAdminPage,
-  EventsActivitiesAdminPage,
-  BrochureAdminPage,
-  WhyChooseUsAdminPage,
-  GreatPlaceToWorkAdminPage,
-  WomenEmpowermentAdminPage,
-  AwardsRecognitionAdminPage,
-  InsightfulVideosAdminPage,
-  BlogAdminPage,
-  CsrAdminPage,
-  PodcastAdminPage,
-  DeliveryModelsAdminPage,
-  EngagementModelsAdminPage,
-  DevelopmentMethodologyAdminPage,
-  ClientTestimonialsAdminPage,
-  VideoTestimonialAdminPage,
-  ClutchTestimonialAdminPage
-} from './admin/pages/CompanyAdmin/CompanySubPages';
+// Module Master-Detail Management Pages
+import CompanyMasterPage from './admin/pages/CompanyAdmin/CompanyMasterPage';
+import ProductMasterPage from './admin/pages/ProductAdmin/ProductMasterPage';
+import ServicesMasterPage from './admin/pages/ServicesAdmin/ServicesMasterPage';
+import HireMasterPage from './admin/pages/HireAdmin/HireMasterPage';
+import TechnologiesMasterPage from './admin/pages/TechnologiesAdmin/TechnologiesMasterPage';
+import OurWorkMasterPage from './admin/pages/OurWorkAdmin/OurWorkMasterPage';
+
+
 
 // Public Website Lazy-Loaded Pages
 const Home = lazy(() => import('./pages/Home'));
@@ -188,176 +175,58 @@ export function App() {
                 }
               />
               {/* ============================================================
-                  COMPANY SECTION SUB-PAGES (20 Sub-Pages)
+                  COMPANY MASTER-DETAIL MANAGEMENT (20 Sub-Pages)
                   ============================================================ */}
-              {/* Group 1: ABOUT US */}
-              <Route path="/admin/company/about-firevy" element={<AdminRouteWrapper><AboutFirevyAdminPage /></AdminRouteWrapper>} />
-              <Route path="/admin/company/about" element={<AdminRouteWrapper><AboutFirevyAdminPage /></AdminRouteWrapper>} />
-              <Route path="/admin/company/ceo-message" element={<AdminRouteWrapper><CeoMessageAdminPage /></AdminRouteWrapper>} />
-              <Route path="/admin/company/our-team" element={<AdminRouteWrapper><OurTeamAdminPage /></AdminRouteWrapper>} />
-              <Route path="/admin/company/events-activities" element={<AdminRouteWrapper><EventsActivitiesAdminPage /></AdminRouteWrapper>} />
-              <Route path="/admin/company/download-brochure" element={<AdminRouteWrapper><BrochureAdminPage /></AdminRouteWrapper>} />
-              <Route path="/admin/company/brochure" element={<AdminRouteWrapper><BrochureAdminPage /></AdminRouteWrapper>} />
-              <Route path="/admin/company/why-choose-us" element={<AdminRouteWrapper><WhyChooseUsAdminPage /></AdminRouteWrapper>} />
-              <Route path="/admin/company/great-place-to-work" element={<AdminRouteWrapper><GreatPlaceToWorkAdminPage /></AdminRouteWrapper>} />
-              <Route path="/admin/company/women-empowerment" element={<AdminRouteWrapper><WomenEmpowermentAdminPage /></AdminRouteWrapper>} />
-              <Route path="/admin/company/awards-recognition" element={<AdminRouteWrapper><AwardsRecognitionAdminPage /></AdminRouteWrapper>} />
-              <Route path="/admin/company/insightful-videos" element={<AdminRouteWrapper><InsightfulVideosAdminPage /></AdminRouteWrapper>} />
-              <Route path="/admin/company/blog" element={<AdminRouteWrapper><BlogAdminPage /></AdminRouteWrapper>} />
-              <Route path="/admin/company/careers" element={<AdminRouteWrapper><CareersAdminPage /></AdminRouteWrapper>} />
-              <Route path="/admin/company/careers-jobs" element={<AdminRouteWrapper><CareersAdminPage /></AdminRouteWrapper>} />
-              <Route path="/admin/company/csr" element={<AdminRouteWrapper><CsrAdminPage /></AdminRouteWrapper>} />
-              <Route path="/admin/company/podcast" element={<AdminRouteWrapper><PodcastAdminPage /></AdminRouteWrapper>} />
+              <Route path="/admin/company" element={<AdminRouteWrapper><CompanyMasterPage /></AdminRouteWrapper>} />
+              <Route path="/admin/company/:subPage" element={<AdminRouteWrapper><CompanyMasterPage /></AdminRouteWrapper>} />
+              <Route path="/admin/company/:subPage/:sectionKey" element={<AdminRouteWrapper><CompanyMasterPage /></AdminRouteWrapper>} />
 
-              {/* Group 2: MODELS */}
-              <Route path="/admin/company/delivery-models" element={<AdminRouteWrapper><DeliveryModelsAdminPage /></AdminRouteWrapper>} />
-              <Route path="/admin/company/engagement-models" element={<AdminRouteWrapper><EngagementModelsAdminPage /></AdminRouteWrapper>} />
-              <Route path="/admin/company/development-methodology" element={<AdminRouteWrapper><DevelopmentMethodologyAdminPage /></AdminRouteWrapper>} />
+              {/* ============================================================
+                  PRODUCT SOLUTIONS MASTER-DETAIL MANAGEMENT (12 Products)
+                  ============================================================ */}
+              <Route path="/admin/product" element={<AdminRouteWrapper><ProductMasterPage /></AdminRouteWrapper>} />
+              <Route path="/admin/product/:slug" element={<AdminRouteWrapper><ProductMasterPage /></AdminRouteWrapper>} />
+              <Route path="/admin/product/:slug/:sectionKey" element={<AdminRouteWrapper><ProductMasterPage /></AdminRouteWrapper>} />
 
-              {/* Group 3: TESTIMONIAL */}
-              <Route path="/admin/company/client-testimonials" element={<AdminRouteWrapper><ClientTestimonialsAdminPage /></AdminRouteWrapper>} />
-              <Route path="/admin/company/video-testimonial" element={<AdminRouteWrapper><VideoTestimonialAdminPage /></AdminRouteWrapper>} />
-              <Route path="/admin/company/clutch-testimonial" element={<AdminRouteWrapper><ClutchTestimonialAdminPage /></AdminRouteWrapper>} />
+              {/* ============================================================
+                  SERVICES MASTER-DETAIL MANAGEMENT (10 Services)
+                  ============================================================ */}
+              <Route path="/admin/services" element={<AdminRouteWrapper><ServicesMasterPage /></AdminRouteWrapper>} />
+              <Route path="/admin/services/:slug" element={<AdminRouteWrapper><ServicesMasterPage /></AdminRouteWrapper>} />
+              <Route path="/admin/services/:slug/:sectionKey" element={<AdminRouteWrapper><ServicesMasterPage /></AdminRouteWrapper>} />
 
-              {/* Fallback Section Editor for other Company section keys */}
-              <Route path="/admin/company" element={<AdminRouteWrapper><AboutFirevyAdminPage /></AdminRouteWrapper>} />
-              <Route path="/admin/company/:sectionKey" element={<AdminRouteWrapper><SectionEditorPage /></AdminRouteWrapper>} />
-              <Route
-                path="/admin/product"
-                element={
-                  <AdminRouteWrapper>
-                    <ServicesPage />
-                  </AdminRouteWrapper>
-                }
-              />
-              <Route
-                path="/admin/product/:sectionKey"
-                element={
-                  <AdminRouteWrapper>
-                    <SectionEditorPage />
-                  </AdminRouteWrapper>
-                }
-              />
-              <Route
-                path="/admin/services"
-                element={
-                  <AdminRouteWrapper>
-                    <ServicesPage />
-                  </AdminRouteWrapper>
-                }
-              />
-              <Route
-                path="/admin/services/:sectionKey"
-                element={
-                  <AdminRouteWrapper>
-                    <SectionEditorPage />
-                  </AdminRouteWrapper>
-                }
-              />
-              <Route
-                path="/admin/hire"
-                element={
-                  <AdminRouteWrapper>
-                    <SectionEditorPage />
-                  </AdminRouteWrapper>
-                }
-              />
-              <Route
-                path="/admin/hire/:sectionKey"
-                element={
-                  <AdminRouteWrapper>
-                    <SectionEditorPage />
-                  </AdminRouteWrapper>
-                }
-              />
-              <Route
-                path="/admin/portfolio"
-                element={
-                  <AdminRouteWrapper>
-                    <PortfolioPage />
-                  </AdminRouteWrapper>
-                }
-              />
-              <Route
-                path="/admin/portfolio/:sectionKey"
-                element={
-                  <AdminRouteWrapper>
-                    <SectionEditorPage />
-                  </AdminRouteWrapper>
-                }
-              />
-              <Route
-                path="/admin/technologies/:sectionKey"
-                element={
-                  <AdminRouteWrapper>
-                    <SectionEditorPage />
-                  </AdminRouteWrapper>
-                }
-              />
-              <Route
-                path="/admin/jobs"
-                element={
-                  <AdminRouteWrapper>
-                    <CareersAdminPage />
-                  </AdminRouteWrapper>
-                }
-              />
-              <Route
-                path="/admin/company/careers"
-                element={
-                  <AdminRouteWrapper>
-                    <CareersAdminPage />
-                  </AdminRouteWrapper>
-                }
-              />
-              <Route
-                path="/admin/company/careers-jobs"
-                element={
-                  <AdminRouteWrapper>
-                    <CareersAdminPage />
-                  </AdminRouteWrapper>
-                }
-              />
-              <Route
-                path="/admin/applications"
-                element={
-                  <AdminRouteWrapper>
-                    <ApplicationsPage />
-                  </AdminRouteWrapper>
-                }
-              />
-              <Route
-                path="/admin/inquiries"
-                element={
-                  <AdminRouteWrapper>
-                    <InquiriesPage />
-                  </AdminRouteWrapper>
-                }
-              />
-              <Route
-                path="/admin/industries"
-                element={
-                  <AdminRouteWrapper>
-                    <IndustriesPage />
-                  </AdminRouteWrapper>
-                }
-              />
-              <Route
-                path="/admin/technologies"
-                element={
-                  <AdminRouteWrapper>
-                    <TechnologiesPage />
-                  </AdminRouteWrapper>
-                }
-              />
-              <Route
-                path="/admin/testimonials"
-                element={
-                  <AdminRouteWrapper>
-                    <TestimonialsPage />
-                  </AdminRouteWrapper>
-                }
-              />
+              {/* ============================================================
+                  HIRE DEVELOPERS MASTER-DETAIL MANAGEMENT (10 Tiers)
+                  ============================================================ */}
+              <Route path="/admin/hire" element={<AdminRouteWrapper><HireMasterPage /></AdminRouteWrapper>} />
+              <Route path="/admin/hire/:slug" element={<AdminRouteWrapper><HireMasterPage /></AdminRouteWrapper>} />
+              <Route path="/admin/hire/:slug/:sectionKey" element={<AdminRouteWrapper><HireMasterPage /></AdminRouteWrapper>} />
+
+              {/* ============================================================
+                  TECHNOLOGY STACK MASTER-DETAIL MANAGEMENT (8 Categories)
+                  ============================================================ */}
+              <Route path="/admin/technologies" element={<AdminRouteWrapper><TechnologiesMasterPage /></AdminRouteWrapper>} />
+              <Route path="/admin/technologies/:slug" element={<AdminRouteWrapper><TechnologiesMasterPage /></AdminRouteWrapper>} />
+              <Route path="/admin/technologies/:slug/:sectionKey" element={<AdminRouteWrapper><TechnologiesMasterPage /></AdminRouteWrapper>} />
+
+              {/* ============================================================
+                  OUR WORK & PORTFOLIO MASTER-DETAIL MANAGEMENT (7 Sections)
+                  ============================================================ */}
+              <Route path="/admin/our-work" element={<AdminRouteWrapper><OurWorkMasterPage /></AdminRouteWrapper>} />
+              <Route path="/admin/our-work/:slug" element={<AdminRouteWrapper><OurWorkMasterPage /></AdminRouteWrapper>} />
+              <Route path="/admin/our-work/:slug/:sectionKey" element={<AdminRouteWrapper><OurWorkMasterPage /></AdminRouteWrapper>} />
+              <Route path="/admin/portfolio" element={<AdminRouteWrapper><OurWorkMasterPage /></AdminRouteWrapper>} />
+              <Route path="/admin/portfolio/:slug" element={<AdminRouteWrapper><OurWorkMasterPage /></AdminRouteWrapper>} />
+              <Route path="/admin/portfolio/:slug/:sectionKey" element={<AdminRouteWrapper><OurWorkMasterPage /></AdminRouteWrapper>} />
+
+              {/* ============================================================
+                  OTHER ADMIN MANAGEMENT PAGES (Standalone CRUD & Settings)
+                  ============================================================ */}
+              <Route path="/admin/jobs" element={<AdminRouteWrapper><CareersAdminPage /></AdminRouteWrapper>} />
+              <Route path="/admin/applications" element={<AdminRouteWrapper><ApplicationsPage /></AdminRouteWrapper>} />
+              <Route path="/admin/inquiries" element={<AdminRouteWrapper><InquiriesPage /></AdminRouteWrapper>} />
+              <Route path="/admin/industries" element={<AdminRouteWrapper><IndustriesPage /></AdminRouteWrapper>} />
+              <Route path="/admin/testimonials" element={<AdminRouteWrapper><TestimonialsPage /></AdminRouteWrapper>} />
               <Route
                 path="/admin/settings"
                 element={

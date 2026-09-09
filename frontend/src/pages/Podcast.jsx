@@ -182,13 +182,40 @@ Key Insights:
   }
 ];
 
+import companyPublicService from '../services/companyPublicService';
+
 export const Podcast = () => {
+  const isPreview = typeof window !== 'undefined' && window.location.search.includes('preview=true');
   const [activeVideoModal, setActiveVideoModal] = useState(null);
   const [activeArticleModal, setActiveArticleModal] = useState(null);
   const [copiedId, setCopiedId] = useState(false);
+  const [episodes, setEpisodes] = useState(podcastEpisodesData);
+  const [dynamicSection, setDynamicSection] = useState(null);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    companyPublicService.getSection('podcast', isPreview).then((sec) => {
+      if (sec) setDynamicSection(sec);
+    }).catch(console.error);
+
+    companyPublicService.getPodcasts().then((data) => {
+      if (data && data.length > 0) {
+        const mapped = data.map((item) => ({
+          id: item._id || item.id,
+          title: item.title,
+          fullTitle: item.title,
+          category: 'PODCAST',
+          image: item.thumbnail || 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1200&q=80',
+          desc: item.description || '',
+          fullArticle: item.description || '',
+          duration: item.duration || '20 min',
+          date: item.publishDate || 'Recent',
+          videoUrl: item.videoUrl || item.audioUrl || 'https://www.youtube.com/embed/dQw4w9WgXcQ'
+        }));
+        setEpisodes(mapped);
+      }
+    }).catch(console.error);
   }, []);
 
   const handleShare = () => {
@@ -200,8 +227,8 @@ export const Podcast = () => {
   return (
     <div className="bg-white min-h-screen text-slate-900 font-sans">
       <SEO
-        title={`Podcasts | Learn About Tech On The Go | ${BRAND.name}`}
-        description="Listen to our podcasts where we discuss leading technologies, taking a deep dive into gripping topics from software and app development world."
+        title={dynamicSection?.seo?.metaTitle || `Podcasts | Learn About Tech On The Go | ${BRAND.name}`}
+        description={dynamicSection?.seo?.metaDescription || "Listen to our podcasts where we discuss leading technologies, taking a deep dive into gripping topics from software and app development world."}
         canonical="/company/podcast"
       />
 
@@ -215,11 +242,11 @@ export const Podcast = () => {
             {/* Left Content */}
             <div className="lg:col-span-7 space-y-6 text-left">
               <h1 className="text-[34px] sm:text-[44px] md:text-[50px] font-[800] text-slate-900 leading-[1.18] tracking-tight font-sans">
-                Learn About Tech On The Go
+                {dynamicSection?.title || 'Learn About Tech On The Go'}
               </h1>
               
               <p className="text-[15px] sm:text-[16px] md:text-[17px] text-slate-600 leading-relaxed font-[400] max-w-2xl font-sans">
-                Listen to our podcasts where we discuss all leading technologies, taking a deep dive into gripping topics from the software and app development world. You'll see new episodes, which will undoubtedly light up new ideas.
+                {dynamicSection?.subtitle || "Listen to our podcasts where we discuss all leading technologies, taking a deep dive into gripping topics from the software and app development world. You'll see new episodes, which will undoubtedly light up new ideas."}
               </p>
 
               <div className="pt-2">
@@ -375,7 +402,7 @@ export const Podcast = () => {
       <section className="py-16 md:py-24 bg-white text-slate-900 relative font-sans">
         <Container>
           <div className="space-y-16 md:space-y-24 max-w-6xl mx-auto">
-            {podcastEpisodesData.map((episode, idx) => {
+            {episodes.map((episode, idx) => {
               const isEven = idx % 2 === 0; // Alternating layout (Image left, then Image right)
 
               return (

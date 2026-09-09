@@ -11,6 +11,7 @@ const podcastSchema = new mongoose.Schema({
   host: { type: String, default: 'firevy.co Tech Spotlight' },
   publishDate: { type: String, default: () => new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) },
   order: { type: Number, default: 0 },
+  status: { type: String, enum: ['draft', 'published'], default: 'published' },
   isActive: { type: Boolean, default: true }
 }, {
   timestamps: true

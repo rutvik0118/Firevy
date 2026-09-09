@@ -139,28 +139,16 @@ export const RecentPodcastsEditor = ({ data, onChange }) => {
           itemTitle="Podcast Episode"
           fields={fields}
           renderItemSummary={(item) => (
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              {item.image && (
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  style={{
-                    width: '36px',
-                    height: '24px',
-                    objectFit: 'cover',
-                    borderRadius: '4px',
-                    border: '1px solid #E2E8F0'
-                  }}
-                />
-              )}
-              <div>
-                <div style={{ fontSize: '12px', fontWeight: 700, color: '#0F172A' }}>
-                  {item.title}
-                </div>
-                <div style={{ fontSize: '11px', color: '#64748B', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                  {item.desc || item.description}
-                </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', minWidth: 0 }}>
+              <div style={{ fontSize: '12.5px', fontWeight: 700, color: '#0F172A', lineHeight: 1.35, wordBreak: 'break-word', overflowWrap: 'break-word' }}>
+                {item.title}
               </div>
+              {(item.desc || item.description || item.host) && (
+                <div style={{ fontSize: '11px', color: '#64748B', lineHeight: 1.35, wordBreak: 'break-word', overflowWrap: 'break-word' }}>
+                  {item.host ? <span style={{ color: '#006B8F', fontWeight: 600 }}>{item.host} — </span> : null}
+                  {item.desc || item.description || ''}
+                </div>
+              )}
             </div>
           )}
         />

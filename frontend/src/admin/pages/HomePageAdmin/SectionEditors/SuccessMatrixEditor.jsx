@@ -114,13 +114,15 @@ export const SuccessMatrixEditor = ({ data, onChange }) => {
           itemTitle="Matrix Card"
           fields={fields}
           renderItemSummary={(item) => (
-            <div>
-              <div style={{ fontSize: '12px', fontWeight: 700, color: '#0F172A' }}>
-                {item.title} {item.stat && <span style={{ fontSize: '11px', color: '#006B8F' }}>({item.stat})</span>}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', minWidth: 0 }}>
+              <div style={{ fontSize: '12.5px', fontWeight: 700, color: '#0F172A', lineHeight: 1.35, wordBreak: 'break-word', overflowWrap: 'break-word' }}>
+                {item.title} {item.stat && <span style={{ fontSize: '11px', color: '#006B8F', fontWeight: 600 }}>({item.stat})</span>}
               </div>
-              <div style={{ fontSize: '11px', color: '#64748B' }}>
-                {item.desc || `Icon: ${item.icon || 'default'}`}
-              </div>
+              {(item.desc || item.description) && (
+                <div style={{ fontSize: '11px', color: '#64748B', lineHeight: 1.35, wordBreak: 'break-word', overflowWrap: 'break-word' }}>
+                  {item.desc || item.description}
+                </div>
+              )}
             </div>
           )}
         />

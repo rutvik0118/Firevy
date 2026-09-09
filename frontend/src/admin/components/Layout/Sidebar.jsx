@@ -15,6 +15,7 @@ import {
   LogOut
 } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
+import SidebarMenuItem from './SidebarMenuItem';
 import { useToast } from '../../context/ToastContext';
 
 const NAV_ITEMS = [
@@ -92,7 +93,7 @@ const NAV_ITEMS = [
     icon: Layers,
     isExpandable: true,
     subItems: [
-      { label: 'Services Overview', path: '/admin/services' },
+      { label: 'Services Overview', path: '/admin/services/services-overview' },
       { label: 'Mobile App Development', path: '/admin/services/mobile-app-development' },
       { label: 'Back End Development', path: '/admin/services/back-end-development' },
       { label: 'AI & ML Development', path: '/admin/services/ai-ml-development' },
@@ -101,7 +102,7 @@ const NAV_ITEMS = [
       { label: 'Blockchain Development', path: '/admin/services/blockchain-development' },
       { label: 'Software Development Service', path: '/admin/services/software-development-service' },
       { label: 'iWatch App Development', path: '/admin/services/iwatch-app-development' },
-      { label: 'Premium Services Grid', path: '/admin/home-page/premiumServices' }
+      { label: 'Premium Services Grid', path: '/admin/services/premium-services-grid' }
     ]
   },
   {
@@ -128,7 +129,7 @@ const NAV_ITEMS = [
     icon: Cpu,
     isExpandable: true,
     subItems: [
-      { label: 'Tech Stack Showcase', path: '/admin/home-page/techShowcase' },
+      { label: 'Tech Stack Showcase', path: '/admin/technologies/tech-showcase' },
       { label: 'Mobile Technologies', path: '/admin/technologies/mobile' },
       { label: 'Front End Frameworks', path: '/admin/technologies/frontend' },
       { label: 'Back End & APIs', path: '/admin/technologies/backend' },
@@ -144,13 +145,13 @@ const NAV_ITEMS = [
     icon: Briefcase,
     isExpandable: true,
     subItems: [
-      { label: 'Portfolio Showcase', path: '/admin/home-page/portfolioShowcase' },
-      { label: 'Case Studies & Metrics', path: '/admin/portfolio' },
-      { label: 'Success Matrix & ROI', path: '/admin/home-page/successMatrix' },
-      { label: 'Brand Logos & Clients', path: '/admin/home-page/brandLogoGrid' },
-      { label: 'Featured In & Media', path: '/admin/home-page/featuredInLogos' },
-      { label: 'Client Reviews & Ratings', path: '/admin/testimonials' },
-      { label: 'Video Testimonial Stories', path: '/admin/home-page/videoTestimonialsStory' }
+      { label: 'Portfolio Showcase', path: '/admin/our-work/portfolio-showcase' },
+      { label: 'Case Studies & Metrics', path: '/admin/our-work/case-studies-metrics' },
+      { label: 'Success Matrix & ROI', path: '/admin/our-work/success-matrix' },
+      { label: 'Brand Logos & Clients', path: '/admin/our-work/brand-logos' },
+      { label: 'Featured In & Media', path: '/admin/our-work/featured-in' },
+      { label: 'Client Reviews & Ratings', path: '/admin/our-work/client-reviews' },
+      { label: 'Video Testimonial Stories', path: '/admin/our-work/video-stories' }
     ]
   }
 ];
@@ -211,17 +212,33 @@ export const Sidebar = ({ isCollapsed, onToggleCollapse, isMobileOpen, onCloseMo
           to="/admin/dashboard"
           className="brand-logo-wrap"
           onClick={onCloseMobile}
-          title="firevy.co Admin Panel"
+          title="Firevy.co Admin Panel"
         >
           {!isCollapsed ? (
-            <div className="brand-logo-text">
-              <span className="brand-logo-name">firevy</span>
-              <span className="brand-logo-domain">.co</span>
+            <div className="brand-logo-full">
+              <img
+                src="/firevy_logo_dark.png"
+                alt="Firevy.co"
+                className="brand-logo-img brand-logo-img-light"
+              />
+              <img
+                src="/firevy_logo_white.png"
+                alt="Firevy.co"
+                className="brand-logo-img brand-logo-img-dark"
+              />
             </div>
           ) : (
-            <div className="brand-logo-collapsed">
-              <span className="brand-logo-name">f</span>
-              <span className="brand-logo-domain">.co</span>
+            <div className="brand-icon-wrap">
+              <img
+                src="/firevy_icon_dark.png"
+                alt="Firevy.co"
+                className="brand-icon-img brand-icon-img-light"
+              />
+              <img
+                src="/firevy_icon_white.png"
+                alt="Firevy.co"
+                className="brand-icon-img brand-icon-img-dark"
+              />
             </div>
           )}
         </NavLink>
@@ -241,100 +258,16 @@ export const Sidebar = ({ isCollapsed, onToggleCollapse, isMobileOpen, onCloseMo
       <div className="sidebar-nav-container">
         <div className="nav-section-title">Navigation</div>
 
-        {NAV_ITEMS.map((item) => {
-          const Icon = item.icon;
-          const isExpanded = !!expandedMenus[item.id];
-          const isDirectActive =
-            item.id === 'home-page'
-              ? location.pathname.startsWith('/admin/home-page')
-              : location.pathname === item.path;
-
-          if (item.isExpandable) {
-            const isGroupActive = item.subItems?.some((sub) => location.pathname === sub.path);
-
-            return (
-              <div key={item.id} style={{ display: 'flex', flexDirection: 'column' }}>
-                <div
-                  className={`nav-item ${isGroupActive ? 'has-active' : ''} ${isExpanded ? 'expanded' : ''}`}
-                  title={isCollapsed ? item.label : undefined}
-                  onClick={() => toggleMenu(item.id)}
-                >
-                  <div className="nav-item-content">
-                    <div className="nav-item-icon">
-                      <Icon size={18} />
-                    </div>
-                    {!isCollapsed && <span className="nav-item-text">{item.label}</span>}
-                  </div>
-
-                  {!isCollapsed && (
-                    <span className="nav-item-arrow">
-                      <ChevronDown size={14} />
-                    </span>
-                  )}
-                </div>
-
-                {/* Submenu for 6 Website Sections (Company, Product, Services, Hire Developers, Technology, Our Work) */}
-                {!isCollapsed && isExpanded && item.subItems && (
-                  <div className={`sidebar-submenu-container ${isGroupActive ? 'has-active' : ''}`}>
-                    <div className="sidebar-submenu-list">
-                      {item.subItems.map((sub, sIdx) => {
-                        if (sub.isHeader) {
-                          return (
-                            <div
-                              key={sIdx}
-                              style={{
-                                fontSize: '0.6875rem',
-                                fontWeight: 700,
-                                color: '#94A3B8',
-                                textTransform: 'uppercase',
-                                letterSpacing: '0.06em',
-                                padding: sIdx === 0 ? '2px 8px 2px' : '8px 8px 2px',
-                                userSelect: 'none'
-                              }}
-                            >
-                              {sub.label}
-                            </div>
-                          );
-                        }
-
-                        const isSubActive = location.pathname === sub.path;
-
-                        return (
-                          <NavLink
-                            key={sIdx}
-                            to={sub.path}
-                            onClick={onCloseMobile}
-                            className={`sidebar-submenu-link ${isSubActive ? 'active' : ''}`}
-                            title={sub.label}
-                          >
-                            <span>{sub.label}</span>
-                          </NavLink>
-                        );
-                      })}
-                    </div>
-                  </div>
-                )}
-              </div>
-            );
-          }
-
-          return (
-            <NavLink
-              key={item.id}
-              to={item.path}
-              className={`nav-item ${isDirectActive ? 'active' : ''}`}
-              onClick={onCloseMobile}
-              title={isCollapsed ? item.label : undefined}
-            >
-              <div className="nav-item-content">
-                <div className="nav-item-icon">
-                  <Icon size={18} />
-                </div>
-                {!isCollapsed && <span className="nav-item-text">{item.label}</span>}
-              </div>
-            </NavLink>
-          );
-        })}
+        {NAV_ITEMS.map((item) => (
+          <SidebarMenuItem
+            key={item.id}
+            item={item}
+            isCollapsed={isCollapsed}
+            isExpanded={!!expandedMenus[item.id]}
+            onToggleExpand={toggleMenu}
+            onCloseMobile={onCloseMobile}
+          />
+        ))}
       </div>
 
       {/* Sidebar Footer / User Profile */}

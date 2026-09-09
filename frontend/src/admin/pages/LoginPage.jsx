@@ -84,42 +84,45 @@ export const LoginPage = () => {
         }}
       >
         <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-          <div
-            style={{
-              width: '48px',
-              height: '48px',
-              borderRadius: 'var(--radius-md)',
-              background: 'var(--primary)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              margin: '0 auto 1.25rem',
-              color: '#FFFFFF',
-              boxShadow: '0 4px 12px rgba(0, 107, 143, 0.25)'
-            }}
+          <Link
+            to="/"
+            title="Firevy.co"
+            style={{ display: 'inline-block', marginBottom: '1.25rem' }}
           >
-            <Shield size={26} />
-          </div>
+            <img
+              src="/firevy_logo_dark.png"
+              alt="Firevy.co"
+              style={{
+                height: '38px',
+                width: 'auto',
+                maxWidth: '180px',
+                margin: '0 auto',
+                objectFit: 'contain',
+                display: 'block'
+              }}
+            />
+          </Link>
 
           <h2
             style={{
-              fontSize: '1.375rem',
+              fontSize: '1.25rem',
               fontWeight: 800,
-              color: 'var(--primary)',
-              letterSpacing: '-0.02em'
+              color: 'var(--text-primary)',
+              letterSpacing: '-0.02em',
+              margin: '0 0 0.25rem'
             }}
           >
-            FIREVY.CO
+            Admin Management Portal
           </h2>
 
           <p
             style={{
               fontSize: '0.8125rem',
               color: 'var(--text-secondary)',
-              marginTop: '0.25rem'
+              margin: 0
             }}
           >
-            Admin Panel Authentication
+            Sign in with your administrator credentials
           </p>
         </div>
 

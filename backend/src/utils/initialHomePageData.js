@@ -661,37 +661,111 @@ export const initialHomePageData = {
       description: 'Discover how we partner with industry pioneers to deliver bespoke web, mobile, and cloud software engineering.',
       caseStudies: [
         {
-          id: 0,
-          company: 'Bee Car Care',
-          bgColor: '#FFFBE8',
-          logoType: 'beecar',
-          desc: 'If you provide car washing services and need to reach a wide range of customers, the car wash app development is your best bet. firevy.co has built a car wash application that allows people to book car wash services in few clicks',
-          points: [
-            '96% customer retention rate',
-            '92% increase in service bookings',
-            'Over 1,10,000 satisfied users',
-            'Operating in 90+ locations',
-            'User-friendly & Efficient interface for easy booking'
+          id: 'lt',
+          company: 'Larsen & Toubro',
+          bgColor: '#E6F4FA',
+          logo: '/images/case_study_images/Images/new/finallogos_1/lt.png',
+          desc: "Larsen & Toubro Limited is one of India's largest and most well-known private corporations. L&T offers unrivaled capabilities across Technology, Engineering, Construction, and Manufacturing, and retains leadership in all of its primary lines of business, almost 80 years of a strong, customer-focused strategy and a never-ending search for world-class quality. The Hazira campus produce extra-large..",
+          bullets: [
+            'Automated safety audits and inspections',
+            '24/7 access to safety training resources',
+            'Customizable dashboards and reporting tools',
+            'Real-time incident reporting and tracking',
+            '99% compliance with health and safety regulations'
           ],
-          mockup: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=700&q=80',
-          slug: 'bee-car-care',
+          caseStudyLink: '/portfolio',
+          portfolioLink: '/portfolio',
+          mainImg: '/images/case_study_images/Images/new/l&t.webp',
           isActive: true
         },
         {
-          id: 1,
+          id: 'mg',
           company: 'Morris Garages',
-          bgColor: '#FDE8E8',
-          logoType: 'mg',
+          bgColor: '#FFEAEA',
+          logo: '/images/case_study_images/Images/new/finallogos_1/mg.png',
           desc: "MG Motor is a well-known firm that have large number of employee. It is their major responsibility to keep track of employees' health and records. The system from their end was to have one secure locker for the protection of all the papers in order to keep track of employee Examination and OPD records for audit purpose.",
-          points: [
+          bullets: [
             'Real-time health data analytics',
             'HIPAA-compliant data security',
             '24/7 access to health resources and support',
             'Personalized health recommendations',
             '98% improvement in employee health monitoring'
           ],
-          mockup: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=700&q=80',
-          slug: 'morris-garages',
+          caseStudyLink: '/portfolio',
+          portfolioLink: '/portfolio',
+          mainImg: '/images/case_study_images/Images/new/mg.webp',
+          isActive: true
+        },
+        {
+          id: 'adani',
+          company: 'Adani Group',
+          bgColor: '#EDEDF6',
+          logo: '/images/case_study_images/Images/new/finallogos_1/adani.png',
+          desc: "Adani EmCare is a Web + Mobile App used by Adani Group’s medical officer to capture, analyze and manage the health data of the employees and workers. And this data is used by medical officer to provide preventive healthcare to the employees.",
+          bullets: [
+            '98% Employee satisfaction ratio',
+            '91% reduction in appointment scheduling time',
+            '24/7 real-time health monitoring',
+            'Serving over 60,000 healthcare professionals',
+            'Generating over USD 30 billion in revenue'
+          ],
+          caseStudyLink: '/portfolio',
+          portfolioLink: '/portfolio',
+          mainImg: '/images/case_study_images/Images/new/adani.webp',
+          isActive: true
+        },
+        {
+          id: 'loreal',
+          company: "L'Oreal",
+          bgColor: '#F3F2EF',
+          logo: '/images/case_study_images/Images/new/finallogos_1/loreal.png',
+          desc: "This safety improvement application collects observations from organizational Staff and non-staff, and the respective department head will take care of closure observation, and some observation categories will be verified by top management.",
+          bullets: [
+            '97% reduction in safety incidents',
+            'Scalable solution for large enterprises',
+            'Recognized for excellence in safety innovation',
+            'Automated safety reminders and alerts',
+            'Real-time hazard identification and reporting'
+          ],
+          caseStudyLink: '/portfolio',
+          portfolioLink: '/portfolio',
+          mainImg: '/images/case_study_images/Images/new/loreal.webp',
+          isActive: true
+        },
+        {
+          id: 'waymark',
+          company: 'Waymark Maps',
+          bgColor: '#F9E5F7',
+          logo: '/images/case_study_images/Images/new/finallogos_1/waymarkmaps.png',
+          desc: "A city map and free business listings are available on Waymark. Our city information is consistently accurate and current. With advertisements, points of interest, restaurants, hotels, malls, parking, and metro routes, Waymark offers an interactive map.",
+          bullets: [
+            'Turn-by-turn voice navigation',
+            'Points of interest (POI) recommendations',
+            'Real-time traffic updates and route optimization',
+            'Offline map access for remote areas',
+            'Augmented reality (AR) navigation features'
+          ],
+          caseStudyLink: '/portfolio',
+          portfolioLink: '/portfolio',
+          mainImg: '/images/case_study_images/Images/new/waymark_map_app.webp',
+          isActive: true
+        },
+        {
+          id: 'beecar',
+          company: 'Bee Car Care',
+          bgColor: '#F4F2EC',
+          logo: '/images/case_study_images/Images/new/finallogos_1/beecar.png',
+          desc: "If you provide car washing services and need to reach a wide range of customers, the car wash app is your best bet. Firevy.co has built a car wash application that allows people to book car wash services in a few clicks.",
+          bullets: [
+            '96% customer retention rate',
+            '92% increase in service bookings',
+            'Over 1,10,000 satisfied users',
+            'Operating in 90+ locations',
+            'User-friendly & Efficient interface for easy booking'
+          ],
+          caseStudyLink: '/portfolio',
+          portfolioLink: '/portfolio',
+          mainImg: '/images/case_study_images/Images/new/beecar.webp',
           isActive: true
         }
       ]
@@ -702,36 +776,96 @@ export const initialHomePageData = {
       isVisible: true,
       order: 18,
       title: 'What Our Clients Have To Say',
-      description: 'Hear how our clients share their positive experiences of working with firevy.co team. How we’ve helped them to achieve business goals and deliver successful projects.',
+      description: "From satisfied clients to enthusiastic users, each testimonial shares a unique perspective on the impact and value of our solution. Get inspired as you listen to authentic voices that showcase the true essence of our project's impact.",
       testimonials: [
         {
-          name: "From Idea to Reality | Client's Success Story with firevy.co -...",
-          avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80',
+          id: 1,
+          clientName: 'Andrew',
+          company: 'Mobile Digital Diary',
+          title: "Discover why Andrew trusted firevy.co with his mobile digital diary project : A Client's Honest Experience.",
+          img: '/images/awards/hdimages/client_shay.webp',
+          videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
           isActive: true
         },
         {
-          name: "From Vision to Wellness | Client's Success Story with firevy.co - To...",
-          avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80',
+          id: 2,
+          clientName: 'Bruno',
+          company: 'Healthcare Innovation Brazil',
+          title: 'From Vision to Healthcare Innovation | Client Success With firevy.co - Top IT Company in Brazil',
+          img: '/images/awards/hdimages/bruno.webp',
+          videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
           isActive: true
         },
         {
-          name: 'Hear out Tim got to say about working with Team firevy.co on...',
-          avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80',
+          id: 3,
+          clientName: 'Enterprise Client',
+          company: 'Mobile App Development',
+          title: "From Idea to Reality | Client's Success Story with firevy.co - Best Mobile App Development Company",
+          img: '/images/awards/hdimages/client_seven.webp',
+          videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
           isActive: true
         },
         {
-          name: 'Testimonial from client who has expanded their business using...',
-          avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=300&q=80',
+          id: 4,
+          clientName: 'Wellness Founder',
+          company: 'Digital Wellness App',
+          title: "From Vision to Wellness | Client's Success Story with firevy.co - Top Mobile App Development Company",
+          img: '/images/awards/hdimages/client_eight.webp',
+          videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
           isActive: true
         },
         {
-          name: 'Hear what Pravin has got to say about working with firevy.co...',
-          avatar: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=300&q=80',
+          id: 5,
+          clientName: 'Tim',
+          company: 'Complex Web Application',
+          title: 'Hear out Tim got to say about working with Team firevy.co on building a complex and unique web application.',
+          img: '/images/awards/hdimages/clienttestimonial3.webp',
+          videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
           isActive: true
         },
         {
-          name: 'firevy.co Successfully Delivered Web & Mobile App Solutions -...',
-          avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80',
+          id: 6,
+          clientName: 'Business Expansion Client',
+          company: 'Global Enterprise Services',
+          title: 'Testimonial from client who has expanded their business using firevy.co Services',
+          img: '/images/awards/hdimages/clienttestimonial2.webp',
+          videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+          isActive: true
+        },
+        {
+          id: 7,
+          clientName: 'Pravin',
+          company: 'Software Solutions Partner',
+          title: 'Hear what Pravin has got to say about working with firevy.co',
+          img: '/images/awards/hdimages/clienttestimonial1.webp',
+          videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+          isActive: true
+        },
+        {
+          id: 8,
+          clientName: 'Canadian Enterprise Partner',
+          company: 'Web & Mobile Solutions Canada',
+          title: 'firevy.co Successfully Delivered Web & Mobile App Solutions - Leading IT Company in Canada',
+          img: '/images/awards/hdimages/img_client2.webp',
+          videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+          isActive: true
+        },
+        {
+          id: 9,
+          clientName: 'Christina',
+          company: 'Zetteli',
+          title: "Peer into Satisfaction: Christina's Testimonial Video Shines Bright!",
+          img: '/images/awards/hdimages/zetteli_client.webp',
+          videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+          isActive: true
+        },
+        {
+          id: 10,
+          clientName: 'Education Client',
+          company: 'Vision Education Platform',
+          title: "From Vision to Education | Client's Success Story with firevy.co Solutions",
+          img: '/images/awards/hdimages/vision_client.webp',
+          videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
           isActive: true
         }
       ]

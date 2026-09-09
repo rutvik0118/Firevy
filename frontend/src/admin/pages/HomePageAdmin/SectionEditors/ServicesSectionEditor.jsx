@@ -135,13 +135,15 @@ export const ServicesSectionEditor = ({ data, onChange }) => {
           itemTitle="Service Card"
           fields={fields}
           renderItemSummary={(item) => (
-            <div>
-              <div style={{ fontSize: '12px', fontWeight: 700, color: '#0F172A' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', minWidth: 0 }}>
+              <div style={{ fontSize: '12.5px', fontWeight: 700, color: '#0F172A', lineHeight: 1.35, wordBreak: 'break-word', overflowWrap: 'break-word' }}>
                 {item.titleLine1 || item.title} {item.titleLine2 || ''}
               </div>
-              <div style={{ fontSize: '11px', color: '#64748B', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                {item.description || item.desc}
-              </div>
+              {(item.description || item.desc) && (
+                <div style={{ fontSize: '11px', color: '#64748B', lineHeight: 1.35, wordBreak: 'break-word', overflowWrap: 'break-word', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+                  {item.description || item.desc}
+                </div>
+              )}
             </div>
           )}
         />

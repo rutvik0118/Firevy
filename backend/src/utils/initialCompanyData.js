@@ -817,5 +817,259 @@ export const initialCompanySections = {
       canonical: '/company/development-methodology'
     },
     isActive: true
+  },
+  'our-team': {
+    slug: 'our-team',
+    title: 'Our Team',
+    badge: 'ENGINEERING TALENT',
+    subtitle: 'Meet the team of innovative, driven and passionate individuals. We cultivate the diverse talents of our team and leverage their extraordinary perspectives and innovative ideas to make firevy.co the industry leader.',
+    heroImage: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80',
+    heroVideo: '',
+    ctaText: 'Connect Now',
+    ctaLink: '/contact',
+    contentSections: [
+      {
+        title: 'Management Team',
+        content: 'The outlook, passion and experience of our leaders guides firevy.co.'
+      }
+    ],
+    seo: {
+      metaTitle: 'Our Team | Innovative & Passionate Minds | firevy.co',
+      metaDescription: 'Meet the team of innovative, driven and passionate individuals at firevy.co. We cultivate diverse talents to make firevy.co the industry leader.',
+      canonical: '/company/our-team'
+    },
+    isActive: true
+  },
+  'events-activities': {
+    slug: 'events-activities',
+    title: 'Events & Celebrations',
+    badge: 'CULTURE & LIFE',
+    subtitle: 'At firevy.co, we believe that celebrating success is just as important as achieving it. Our culture thrives on a balanced blend of dedication and joyful celebration.',
+    heroImage: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1200&q=80',
+    ctaText: "Let's Talk",
+    ctaLink: '/contact',
+    contentSections: [
+      {
+        title: 'Life @firevy.co',
+        content: 'At firevy.co, we constantly try new ways to make our work environment, enjoyable and inspiring. From company outings to birthdays, we just need a reason to celebrate. Have a glimpse at life and culture @firevy.co!'
+      }
+    ],
+    seo: {
+      metaTitle: 'Events & Celebrations | Life @ firevy.co | firevy.co',
+      metaDescription: 'At firevy.co, we believe that celebrating success is just as important as achieving it. Have a glimpse at life and culture @ firevy.co!',
+      canonical: '/company/events-activities'
+    },
+    isActive: true
+  },
+  'download-brochure': {
+    slug: 'download-brochure',
+    title: "Let's create something big together!",
+    badge: 'CORPORATE OVERVIEW',
+    subtitle: 'firevy.co is a Leading software and app development company with offices worldwide. If you want to know more about our business.',
+    heroImage: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80',
+    ctaText: 'Connect Us',
+    ctaLink: '/contact',
+    contentSections: [
+      {
+        title: 'Easily & Quickly Downloadable Information',
+        content: 'As a global leader in the software development market, we have 2800+ satisfied clients in 30+ countries. Established in 2002, we are a leading Mobile App Development Company in the USA with ISO 27001:2013 certification.'
+      }
+    ],
+    seo: {
+      metaTitle: 'Download Brochure | Easily & Quickly Downloadable Information | firevy.co',
+      metaDescription: 'Download firevy.co corporate digital brochure. firevy.co is a leading software and app development company with offices worldwide.',
+      canonical: '/company/download-brochure'
+    },
+    isActive: true
+  },
+  brochure: {
+    slug: 'brochure',
+    title: "Let's create something big together!",
+    badge: 'CORPORATE OVERVIEW',
+    subtitle: 'firevy.co is a Leading software and app development company with offices worldwide. If you want to know more about our business.',
+    heroImage: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80',
+    ctaText: 'Connect Us',
+    ctaLink: '/contact',
+    contentSections: [
+      {
+        title: 'Easily & Quickly Downloadable Information',
+        content: 'As a global leader in the software development market, we have 2800+ satisfied clients in 30+ countries. Established in 2002, we are a leading Mobile App Development Company in the USA with ISO 27001:2013 certification.'
+      }
+    ],
+    seo: {
+      metaTitle: 'Download Brochure | Easily & Quickly Downloadable Information | firevy.co',
+      metaDescription: 'Download firevy.co corporate digital brochure. firevy.co is a leading software and app development company with offices worldwide.',
+      canonical: '/company/download-brochure'
+    },
+    isActive: true
+  },
+  'awards-recognition': {
+    slug: 'awards-recognition',
+    title: 'Recognized for Excellence',
+    badge: 'AWARDS & RECOGNITION',
+    subtitle: 'Celebrating our journey of innovation, excellence, and the prestigious recognitions we have earned along the way.',
+    heroImage: 'https://images.unsplash.com/photo-1579389083078-4e7018379f7e?auto=format&fit=crop&w=1200&q=80',
+    ctaText: 'View Our Accolades',
+    ctaLink: '/company/awards-recognition',
+    contentSections: [
+      {
+        title: 'Proud To Have Picked These Up Along The Way',
+        content: 'Over two decades of engineering rigor recognized by leading global technology review councils, enterprise platforms, and industry associations.'
+      }
+    ],
+    seo: {
+      metaTitle: 'Awards & Recognition | firevy.co',
+      metaDescription: 'Explore our prestigious industry honors, Clutch awards, and GoodFirms recognitions.',
+      canonical: '/company/awards-recognition'
+    },
+    isActive: true
+  },
+  'insightful-videos': {
+    slug: 'insightful-videos',
+    title: 'Insightful Videos',
+    badge: 'VIDEO SHOWCASE',
+    subtitle: "Now unleash the power of new ideas with our award-winning mobile app development company in USA. It's time to convert your ideas to life, whether you want solutions that work on iOS, Android, or both. Contact us now!",
+    heroImage: '/images/homeinnovation/eleventh.webp',
+    ctaText: "Let's Talk",
+    ctaLink: '/contact',
+    contentSections: [
+      {
+        title: 'Unveiling Our Innovative Solution',
+        content: "From cutting-edge technology to revolutionary concepts, get ready to be inspired and intrigued. This is more than just a video - it's a glimpse into the future of innovation."
+      }
+    ],
+    seo: {
+      metaTitle: 'Insightful Videos | Unveiling Our Innovative Solutions | firevy.co',
+      metaDescription: 'Explore insightful video showcases, technology demos, and client success stories from firevy.co.',
+      canonical: '/company/insightful-videos'
+    },
+    isActive: true
+  },
+  blog: {
+    slug: 'blog',
+    title: 'Our Latest Insights & Articles',
+    badge: 'THOUGHT LEADERSHIP',
+    subtitle: 'Explore in-depth engineering breakdowns, AI architecture case studies, and modern tech industry perspectives from the firevy.co team.',
+    heroImage: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80',
+    ctaText: 'Explore Articles',
+    ctaLink: '/company/blog',
+    contentSections: [
+      {
+        title: 'Articles & Tutorials',
+        content: 'Stay ahead of technological advancements with deep-dive technical articles written by our principal engineers.'
+      }
+    ],
+    seo: {
+      metaTitle: 'Blog & Technical Articles | firevy.co',
+      metaDescription: 'Read the latest thought leadership and software engineering articles by firevy.co developers and architects.',
+      canonical: '/company/blog'
+    },
+    isActive: true
+  },
+  careers: {
+    slug: 'careers',
+    title: 'Build your Future with us',
+    badge: 'JOIN OUR TEAM',
+    subtitle: 'Our team is the heart of everything we do. We are dedicated to empowering them to drive meaningful change and shape a brighter future for all. We believe in fostering fulfilling careers by offering inspiring opportunities, continuous development, and the encouragement to unlock their full potential.',
+    heroImage: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80',
+    ctaText: 'Explore Openings',
+    ctaLink: '/careers',
+    contentSections: [
+      {
+        title: 'Life at firevy.co',
+        content: 'A collaborative culture, flexible environment, continuous upskilling allowances, and global enterprise projects.'
+      }
+    ],
+    seo: {
+      metaTitle: 'Build your Future with us | Careers at firevy.co',
+      metaDescription: 'Explore open software engineering, mobile development, and UI/UX design positions at firevy.co.',
+      canonical: '/careers'
+    },
+    isActive: true
+  },
+  podcast: {
+    slug: 'podcast',
+    title: 'Welcome To firevy.co Podcast',
+    badge: 'TECH DIALOGUE',
+    subtitle: 'Tune in to insightful discussions with engineering leads, CTOs, and founders on scaling digital architectures, Generative AI in enterprise, and modern software leadership.',
+    heroImage: 'https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=1200&q=80',
+    ctaText: 'Listen on Spotify',
+    ctaLink: 'https://spotify.com',
+    contentSections: [
+      {
+        title: 'Latest Episodes',
+        content: 'Conversations with global industry leaders unraveling architecture patterns, cloud transformations, and AI workflows.'
+      }
+    ],
+    seo: {
+      metaTitle: 'Podcast | Tech Discussions & Leadership Insights | firevy.co',
+      metaDescription: 'Listen to the firevy.co tech podcast covering software engineering, cloud architecture, and AI.',
+      canonical: '/company/podcast'
+    },
+    isActive: true
+  },
+  'client-testimonials': {
+    slug: 'client-testimonials',
+    title: 'Client Testimonials',
+    badge: 'CLIENT SUCCESS',
+    subtitle: 'Hear firsthand from global founders, CTOs, and directors how firevy.co engineered robust software solutions to accelerate their growth.',
+    heroImage: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80',
+    ctaText: 'Work With Us',
+    ctaLink: '/contact',
+    contentSections: [
+      {
+        title: 'What Our Clients Say',
+        content: 'Verified reviews and ratings from our valued partners across North America, Europe, Australia, and Asia.'
+      }
+    ],
+    seo: {
+      metaTitle: 'Client Testimonials & Reviews | firevy.co',
+      metaDescription: 'Read authentic client testimonials and reviews from founders, CEOs, and CTOs who partnered with firevy.co.',
+      canonical: '/company/client-testimonials'
+    },
+    isActive: true
+  },
+  'video-testimonial': {
+    slug: 'video-testimonial',
+    title: 'Stories From Our Clients!',
+    badge: 'VIDEO TESTIMONIALS',
+    subtitle: "Voice of our Customers, Their trust transformed into words. You'll find excerpts from our clients, reflecting their views on client service, creativity, process, communication style, and more.",
+    heroImage: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=1200&q=80',
+    ctaText: 'Get In Touch',
+    ctaLink: '/contact',
+    contentSections: [
+      {
+        title: 'Video Testimonials',
+        content: 'Watch video success stories from satisfied clients around the world.'
+      }
+    ],
+    seo: {
+      metaTitle: 'Video Testimonials | Client Video Reviews | firevy.co',
+      metaDescription: 'Watch authentic video testimonials from our global clients. Hear directly from founders and CTOs.',
+      canonical: '/company/video-testimonial'
+    },
+    isActive: true
+  },
+  'clutch-testimonial': {
+    slug: 'clutch-testimonial',
+    title: 'Our Clients Do The Talking!',
+    badge: 'CLUTCH REVIEWS',
+    subtitle: 'Visit Clutch to read our 100% genuine and authentic testimonials given by customers after availing our services. These testimonials from our happy clients prove that we deliver nothing but only the best to our customers regardless of the project type and size.',
+    heroImage: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1200&q=80',
+    ctaText: 'Get In Touch',
+    ctaLink: '/contact',
+    contentSections: [
+      {
+        title: "Don't Take Our Word For It, Take Our Clients'",
+        content: 'Positive Clutch reviews are a clear sign of teamwork, good service, and improved project management. Our team takes pride in our ability to think beyond the box when it comes to producing cutting-edge digital solutions'
+      }
+    ],
+    seo: {
+      metaTitle: 'Clutch Testimonials & Reviews | Verified 5.0 Star Ratings | firevy.co',
+      metaDescription: 'Read verified Clutch reviews for firevy.co. Discover 100% authentic client feedback and project summaries.',
+      canonical: '/company/clutch-testimonial'
+    },
+    isActive: true
   }
 };
+

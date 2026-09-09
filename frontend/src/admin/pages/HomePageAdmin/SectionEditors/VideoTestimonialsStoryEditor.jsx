@@ -21,56 +21,37 @@ export const VideoTestimonialsStoryEditor = ({ data, onChange }) => {
 
   const fields = [
     {
-      name: 'name',
-      label: 'Client / Speaker Name',
-      type: 'text',
-      placeholder: 'e.g. Derrick Surratt, Hamidah Nalwoga',
-      required: true
-    },
-    {
       name: 'title',
       label: 'Story Headline / Video Title',
-      type: 'text',
-      placeholder: "e.g. From Idea to Reality | Client's Success Story",
+      type: 'textarea',
+      rows: 2,
+      fullWidth: true,
+      placeholder: "e.g. Discover why Andrew trusted firevy.co with his mobile digital diary project...",
       required: true
     },
     {
-      name: 'designation',
-      label: 'Job Designation / Role',
+      name: 'img',
+      label: 'Video Thumbnail / Cover Image',
+      type: 'image',
+      helperText: 'Upload or choose client video cover/thumbnail image.'
+    },
+    {
+      name: 'clientName',
+      label: 'Client / Speaker Name',
       type: 'text',
-      placeholder: 'e.g. Chief Technology Officer, VP Product'
+      placeholder: 'e.g. Andrew, Bruno, Tim, Christina'
     },
     {
       name: 'company',
-      label: 'Company Name',
+      label: 'Company / Project Context',
       type: 'text',
-      placeholder: 'e.g. Bee Car Care Inc.'
-    },
-    {
-      name: 'rating',
-      label: 'Client Rating Score',
-      type: 'text',
-      placeholder: '5.0'
-    },
-    {
-      name: 'avatar',
-      label: 'Client Portrait Avatar / Cover Image',
-      type: 'image',
-      helperText: 'Upload client photo portrait.'
+      placeholder: 'e.g. Mobile Digital Diary, Healthcare Innovation Brazil'
     },
     {
       name: 'videoUrl',
-      label: 'Video Testimonial File (MP4)',
-      type: 'video',
-      helperText: 'Upload MP4 video testimonial file.'
-    },
-    {
-      name: 'quote',
-      label: 'Quote Transcript / Summary',
-      type: 'textarea',
-      placeholder: 'Key quote or transcription of client feedback...',
-      rows: 2,
-      fullWidth: true
+      label: 'Video URL (YouTube / MP4 / Vimeo)',
+      type: 'text',
+      placeholder: 'e.g. https://www.youtube.com/watch?v=dQw4w9WgXcQ'
     }
   ];
 
@@ -81,7 +62,7 @@ export const VideoTestimonialsStoryEditor = ({ data, onChange }) => {
           What Our Clients Have To Say (Video Testimonials)
         </h4>
         <p style={{ margin: '1px 0 0 0', fontSize: '12px', color: '#64748B' }}>
-          Client story cards with video play triggers, client portraits, and authentic testimonial accounts.
+          Client story cards with video play triggers, client portraits/thumbnails, and authentic testimonial accounts.
         </p>
       </div>
 
@@ -91,7 +72,7 @@ export const VideoTestimonialsStoryEditor = ({ data, onChange }) => {
             <input
               type="text"
               className="form-control"
-              value={data?.title || 'What Our Clients Have To Say'}
+              value={data?.title ?? 'What Our Clients Have To Say'}
               onChange={(e) => handleFieldChange('title', e.target.value)}
               style={{
                 width: '100%',
@@ -109,7 +90,7 @@ export const VideoTestimonialsStoryEditor = ({ data, onChange }) => {
             <textarea
               className="form-control"
               rows={2}
-              value={data?.description || "Hear how our clients share their positive experiences of working with firevy.co team."}
+              value={data?.description ?? "From satisfied clients to enthusiastic users, each testimonial shares a unique perspective on the impact and value of our solution. Get inspired as you listen to authentic voices that showcase the true essence of our project's impact."}
               onChange={(e) => handleFieldChange('description', e.target.value)}
               style={{
                 width: '100%',
@@ -133,27 +114,12 @@ export const VideoTestimonialsStoryEditor = ({ data, onChange }) => {
           itemTitle="Video Testimonial"
           fields={fields}
           renderItemSummary={(item) => (
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              {item.avatar && (
-                <img
-                  src={item.avatar}
-                  alt={item.name}
-                  style={{
-                    width: '28px',
-                    height: '28px',
-                    objectFit: 'cover',
-                    borderRadius: '50%',
-                    border: '1px solid #E2E8F0'
-                  }}
-                />
-              )}
-              <div>
-                <div style={{ fontSize: '12px', fontWeight: 700, color: '#0F172A' }}>
-                  {item.name} {item.company && <span style={{ fontWeight: 400, color: '#64748B' }}>({item.company})</span>}
-                </div>
-                <div style={{ fontSize: '11px', color: '#64748B' }}>
-                  {item.title}
-                </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', minWidth: 0 }}>
+              <div style={{ fontSize: '12.5px', fontWeight: 700, color: '#0F172A', lineHeight: 1.35, wordBreak: 'break-word', overflowWrap: 'break-word' }}>
+                {item.title}
+              </div>
+              <div style={{ fontSize: '11px', color: '#64748B', lineHeight: 1.35, wordBreak: 'break-word', overflowWrap: 'break-word' }}>
+                {item.clientName || item.name || 'Client Testimonial'} {item.company && <span style={{ color: '#006B8F', fontWeight: 600 }}>({item.company})</span>}
               </div>
             </div>
           )}

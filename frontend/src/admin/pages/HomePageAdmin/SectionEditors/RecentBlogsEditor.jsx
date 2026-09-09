@@ -135,17 +135,13 @@ export const RecentBlogsEditor = ({ data, onChange }) => {
           itemTitle="Blog Post"
           fields={fields}
           renderItemSummary={(item) => (
-            <div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <span style={{ fontSize: '11px', color: '#64748B' }}>
-                  {item.date}
-                </span>
-                <span style={{ fontSize: '12px', fontWeight: 700, color: '#0F172A' }}>
-                  {item.title}
-                </span>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', minWidth: 0 }}>
+              <div style={{ fontSize: '12.5px', fontWeight: 700, color: '#0F172A', lineHeight: 1.35, wordBreak: 'break-word', overflowWrap: 'break-word' }}>
+                {item.title}
               </div>
-              <div style={{ fontSize: '11px', color: '#64748B', marginTop: '2px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                {item.description || item.desc}
+              <div style={{ fontSize: '11px', color: '#64748B', lineHeight: 1.35, wordBreak: 'break-word', overflowWrap: 'break-word' }}>
+                {item.date ? <span style={{ color: '#006B8F', fontWeight: 600 }}>{item.date} — </span> : null}
+                {item.description || item.desc || ''}
               </div>
             </div>
           )}

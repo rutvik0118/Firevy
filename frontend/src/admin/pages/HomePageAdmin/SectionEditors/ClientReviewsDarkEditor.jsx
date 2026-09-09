@@ -158,27 +158,12 @@ export const ClientReviewsDarkEditor = ({ data, onChange }) => {
           itemTitle="Client Review"
           fields={fields}
           renderItemSummary={(item) => (
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              {item.avatar && (
-                <img
-                  src={item.avatar}
-                  alt={item.author}
-                  style={{
-                    width: '28px',
-                    height: '28px',
-                    objectFit: 'cover',
-                    borderRadius: '50%',
-                    border: '1px solid #E2E8F0'
-                  }}
-                />
-              )}
-              <div>
-                <div style={{ fontSize: '12px', fontWeight: 700, color: '#0F172A' }}>
-                  {item.author} <span style={{ fontSize: '11px', color: '#D97706', fontWeight: 700 }}>★ {item.score || '5.0'}</span>
-                </div>
-                <div style={{ fontSize: '11px', color: '#64748B', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                  "{item.title}" {item.company ? `— ${item.company}` : item.location ? `— ${item.location}` : ''}
-                </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', minWidth: 0 }}>
+              <div style={{ fontSize: '12.5px', fontWeight: 700, color: '#0F172A', lineHeight: 1.35, wordBreak: 'break-word', overflowWrap: 'break-word' }}>
+                {item.author} <span style={{ fontSize: '11px', color: '#D97706', fontWeight: 700 }}>★ {item.score || '5.0'}</span>
+              </div>
+              <div style={{ fontSize: '11px', color: '#64748B', lineHeight: 1.35, wordBreak: 'break-word', overflowWrap: 'break-word' }}>
+                "{item.title}" {item.company ? `— ${item.company}` : item.location ? `— ${item.location}` : ''}
               </div>
             </div>
           )}

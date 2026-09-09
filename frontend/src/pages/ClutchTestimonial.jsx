@@ -1,18 +1,31 @@
 import React, { useEffect, useState } from 'react';
 import SEO from '../components/common/SEO';
 import Container from '../components/common/Container';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import BRAND from '../constants/brand';
 import TrustMarquee from '../components/home/TrustMarquee';
 import WorkTogetherNewsletterSection from '../components/home/WorkTogetherNewsletterSection';
+import companyPublicService from '../services/companyPublicService';
 import { ArrowRight, Star, ChevronDown, Check, User, Users, MapPin, Building, Globe, ShieldCheck } from 'lucide-react';
 
 export const ClutchTestimonial = () => {
+  const location = useLocation();
+  const isPreview = new URLSearchParams(location.search).get('preview') === 'true';
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
+  const [sectionData, setSectionData] = useState(null);
+  const [dynamicReviews, setDynamicReviews] = useState(null);
   const [expandedCard, setExpandedCard] = useState(null);
+
+  useEffect(() => {
+    companyPublicService.getSection('clutch-testimonial', isPreview).then(setSectionData).catch(console.error);
+    companyPublicService.getClutchReviews().then((items) => {
+      if (items && items.length > 0) setDynamicReviews(items);
+    }).catch(console.error);
+  }, [isPreview]);
 
   const toggleExpand = (id) => {
     setExpandedCard(expandedCard === id ? null : id);
@@ -115,11 +128,11 @@ export const ClutchTestimonial = () => {
             {/* Left Column */}
             <div className="lg:col-span-6 space-y-6 text-left">
               <h1 className="text-[36px] sm:text-[46px] md:text-[52px] font-[800] text-slate-900 leading-[1.15] tracking-tight font-sans">
-                Our Clients Do The Talking!
+                {sectionData?.title || 'Our Clients Do The Talking!'}
               </h1>
               
               <p className="text-[15px] sm:text-[16.5px] text-slate-600 leading-relaxed font-[400] max-w-xl font-sans">
-                Visit Clutch to read our 100% genuine and authentic testimonials given by customers after availing our services. These testimonials from our happy clients prove that we deliver nothing but only the best to our customers regardless of the project type and size.
+                {sectionData?.subtitle || 'Visit Clutch to read our 100% genuine and authentic testimonials given by customers after availing our services. These testimonials from our happy clients prove that we deliver nothing but only the best to our customers regardless of the project type and size.'}
               </p>
 
               <div className="pt-2">
@@ -127,7 +140,7 @@ export const ClutchTestimonial = () => {
                   to="/contact"
                   className="inline-flex items-center justify-center space-x-2 px-8 py-3.5 rounded-[6px] bg-[#006B8F] hover:bg-[#005478] text-white font-[700] text-[15px] transition-all shadow-md hover:shadow-lg group font-sans"
                 >
-                  <span>Get In Touch</span>
+                  <span>{sectionData?.ctaText || 'Get In Touch'}</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
@@ -197,10 +210,10 @@ export const ClutchTestimonial = () => {
           
           <div className="text-center max-w-4xl mx-auto mb-12">
             <h2 className="text-[32px] sm:text-[42px] font-[800] text-slate-900 tracking-tight leading-tight mb-4 font-sans">
-              Don't Take Our Word For It, Take Our Clients'
+              {sectionData?.contentSections?.[0]?.title || "Don't Take Our Word For It, Take Our Clients'"}
             </h2>
             <p className="text-[15px] sm:text-[16px] text-slate-600 leading-relaxed font-sans font-[400] max-w-3xl mx-auto">
-              Positive Clutch reviews are a clear sign of teamwork, good service, and improved project management. Our team takes pride in our ability to think beyond the box when it comes to producing cutting-edge digital solutions
+              {sectionData?.contentSections?.[0]?.content || "Positive Clutch reviews are a clear sign of teamwork, good service, and improved project management. Our team takes pride in our ability to think beyond the box when it comes to producing cutting-edge digital solutions"}
             </p>
           </div>
 
@@ -227,7 +240,7 @@ export const ClutchTestimonial = () => {
 
             {/* Clutch Detailed Review Boxes List */}
             <div className="p-6 space-y-8 text-left font-sans">
-              {clutchReviewsData.map((item) => (
+              {(dynamicReviews || clutchReviewsData).map((item) => (
                 <div key={item.id} className="border border-slate-200 rounded-[12px] overflow-hidden bg-white shadow-xs">
                   
                   {/* Card Header Title */}

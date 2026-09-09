@@ -13,6 +13,7 @@ const teamMemberSchema = new mongoose.Schema({
     email: { type: String, default: '' }
   },
   order: { type: Number, default: 0 },
+  status: { type: String, enum: ['draft', 'published'], default: 'published' },
   isActive: { type: Boolean, default: true }
 }, {
   timestamps: true

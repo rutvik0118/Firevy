@@ -1,24 +1,37 @@
 import React, { useEffect, useState, useRef } from 'react';
 import SEO from '../components/common/SEO';
 import Container from '../components/common/Container';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import BRAND from '../constants/brand';
 import TrustMarquee from '../components/home/TrustMarquee';
 import PremiumServicesGrid from '../components/home/PremiumServicesGrid';
 import WorkProcessGrid from '../components/home/WorkProcessGrid';
 import WorkTogetherNewsletterSection from '../components/home/WorkTogetherNewsletterSection';
+import companyPublicService from '../services/companyPublicService';
 import { ArrowRight, Play, X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 export const InsightfulVideos = () => {
+  const location = useLocation();
+  const isPreview = new URLSearchParams(location.search).get('preview') === 'true';
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
+  const [sectionData, setSectionData] = useState(null);
+  const [dynamicVideosList, setDynamicVideosList] = useState(null);
   const [activeVideoModal, setActiveVideoModal] = useState(null);
   const [activeCategory, setActiveCategory] = useState('All');
   const [visibleCount, setVisibleCount] = useState(6);
   const filterScrollRef = useRef(null);
   const storyScrollRef = useRef(null);
+
+  useEffect(() => {
+    companyPublicService.getSection('insightful-videos', isPreview).then(setSectionData).catch(console.error);
+    companyPublicService.getVideos().then((items) => {
+      if (items && items.length > 0) setDynamicVideosList(items);
+    }).catch(console.error);
+  }, [isPreview]);
 
   const categories = [
     'All', 'Utilities', 'Ecommerce', 'Technology', 'Real Estate', 'HR', 
@@ -134,9 +147,11 @@ export const InsightfulVideos = () => {
     }
   ];
 
+  const allVideos = dynamicVideosList || innovativeVideos;
+
   const filteredVideos = activeCategory === 'All'
-    ? innovativeVideos
-    : innovativeVideos.filter(v => v.category === activeCategory);
+    ? allVideos
+    : allVideos.filter(v => v.category === activeCategory);
 
   const scrollFilter = (direction) => {
     if (filterScrollRef.current) {
@@ -170,7 +185,7 @@ export const InsightfulVideos = () => {
             {/* Left Column */}
             <div className="lg:col-span-6 space-y-6 text-left">
               <p className="text-[16px] sm:text-[17.5px] text-slate-600 leading-relaxed font-[400] max-w-xl font-sans">
-                Now unleash the power of new ideas with our award-winning mobile app development company in USA. It's time to convert your ideas to life, whether you want solutions that work on iOS, Android, or both. Contact us now!
+                {sectionData?.subtitle || "Now unleash the power of new ideas with our award-winning mobile app development company in USA. It's time to convert your ideas to life, whether you want solutions that work on iOS, Android, or both. Contact us now!"}
               </p>
 
               <div className="pt-2">
@@ -178,7 +193,7 @@ export const InsightfulVideos = () => {
                   to="/contact"
                   className="inline-flex items-center justify-center space-x-2 px-8 py-3.5 rounded-[6px] bg-[#006B8F] hover:bg-[#005478] text-white font-[700] text-[15px] transition-all shadow-md hover:shadow-lg group font-sans"
                 >
-                  <span>Let's Talk</span>
+                  <span>{sectionData?.ctaText || "Let's Talk"}</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
@@ -246,10 +261,10 @@ export const InsightfulVideos = () => {
           
           <div className="text-center max-w-4xl mx-auto mb-10">
             <h2 className="text-[32px] sm:text-[42px] font-[800] text-slate-900 tracking-tight leading-tight mb-3 font-sans">
-              Unveiling Our Innovative Solution
+              {sectionData?.contentSections?.[0]?.title || 'Unveiling Our Innovative Solution'}
             </h2>
             <p className="text-[15px] sm:text-[16px] text-slate-600 leading-relaxed font-sans font-[400] max-w-3xl mx-auto mb-8">
-              From cutting-edge technology to revolutionary concepts, get ready to be inspired and intrigued. This is more than just a video - it's a glimpse into the future of innovation.
+              {sectionData?.contentSections?.[0]?.content || "From cutting-edge technology to revolutionary concepts, get ready to be inspired and intrigued. This is more than just a video - it's a glimpse into the future of innovation."}
             </p>
 
             <h3 className="text-[22px] font-[800] text-[#006B8F] font-sans tracking-tight mb-1">

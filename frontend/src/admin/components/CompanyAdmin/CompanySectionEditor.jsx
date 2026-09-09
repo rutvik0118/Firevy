@@ -185,27 +185,63 @@ export const CompanySectionEditor = ({
     setHasUnsavedChanges(true);
   };
 
-  // Save Changes to MongoDB
-  const handleSave = async () => {
+  // Save Draft (Live site remains unchanged)
+  const handleSaveDraft = async () => {
     setSaving(true);
     try {
-      const res = await companyService.updateSection(slug, sectionData);
+      const res = await companyService.saveDraftSection(slug, sectionData);
       if (res && res.data) {
         setSectionData(res.data);
         setHasUnsavedChanges(false);
-        addToast(`${title || sectionData.title} saved and published successfully!`, 'success');
+        addToast(`Draft for "${title || sectionData.title}" saved successfully! Live website remains unchanged.`, 'info');
       }
     } catch (err) {
-      console.error('[Save Error]', err);
-      addToast(err.message || 'Failed to save section changes', 'error');
+      console.error('[Save Draft Error]', err);
+      addToast(err.message || 'Failed to save draft', 'error');
     } finally {
       setSaving(false);
     }
   };
 
-  // Reset to Default Template
+  // Publish Draft (Live site updates)
+  const handlePublish = async () => {
+    setSaving(true);
+    try {
+      const res = await companyService.publishSection(slug, sectionData);
+      if (res && res.data) {
+        setSectionData(res.data);
+        setHasUnsavedChanges(false);
+        addToast(`"${title || sectionData.title}" published successfully! Live website is now updated.`, 'success');
+      }
+    } catch (err) {
+      console.error('[Publish Error]', err);
+      addToast(err.message || 'Failed to publish section', 'error');
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  // Unpublish Section (Set to Draft)
+  const handleUnpublish = async () => {
+    setSaving(true);
+    try {
+      const res = await companyService.unpublishSection(slug);
+      if (res && res.data) {
+        setSectionData(res.data);
+        setHasUnsavedChanges(false);
+        addToast(`"${title || sectionData.title}" set to Draft mode.`, 'info');
+      }
+    } catch (err) {
+      console.error('[Unpublish Error]', err);
+      addToast(err.message || 'Failed to unpublish', 'error');
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  // Reset to Original Website Content
   const handleReset = async () => {
-    if (!window.confirm('Reset this page to its original default website content? All unsaved edits will be replaced.')) {
+    if (!window.confirm('Reset this section to its original website content? All custom edits will be replaced.')) {
       return;
     }
     setResetting(true);
@@ -214,7 +250,7 @@ export const CompanySectionEditor = ({
       if (res && res.data) {
         setSectionData(res.data);
         setHasUnsavedChanges(false);
-        addToast(`${title || sectionData.title} reset to initial website template`, 'info');
+        addToast(`"${title || sectionData.title}" reset to original website content`, 'success');
       }
     } catch (err) {
       console.error('[Reset Error]', err);
@@ -233,58 +269,94 @@ export const CompanySectionEditor = ({
     );
   }
 
+  const isPublished = sectionData.status === 'published';
+  const previewUrl = `${publicRoute || `/company/${slug}`}?preview=true`;
+  const liveUrl = publicRoute || `/company/${slug}`;
+
   return (
     <div className="page-container animate-fade-in">
       {/* Top Header Bar */}
-      <div className="page-top-bar">
+      <div className="page-top-bar" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '1rem' }}>
         <div className="page-title-group">
-          <h1>
-            <FileText size={24} />
-            <span>{title || sectionData.title}</span>
-          </h1>
-          <p>{description}</p>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.25rem' }}>
+            <h1 style={{ margin: 0, display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <FileText size={24} />
+              <span>{title || sectionData.title}</span>
+            </h1>
+            <span
+              style={{
+                fontSize: '0.75rem',
+                fontWeight: 700,
+                padding: '0.25rem 0.6rem',
+                borderRadius: '9999px',
+                textTransform: 'uppercase',
+                letterSpacing: '0.05em',
+                background: isPublished ? 'rgba(16, 185, 129, 0.15)' : 'rgba(245, 158, 11, 0.15)',
+                color: isPublished ? '#059669' : '#D97706',
+                border: `1px solid ${isPublished ? 'rgba(16, 185, 129, 0.3)' : 'rgba(245, 158, 11, 0.3)'}`
+              }}
+            >
+              {isPublished ? '● Published' : '○ Draft'}
+            </span>
+          </div>
+          <p style={{ margin: 0, fontSize: '0.875rem', color: 'var(--text-muted)' }}>{description}</p>
         </div>
 
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap' }}>
-          {publicRoute && (
-            <a
-              href={publicRoute}
-              target="_blank"
-              rel="noreferrer"
-              className="btn btn-secondary btn-sm"
-              title="View on Public Website"
-            >
-              <ExternalLink size={14} />
-              <span>Preview Live</span>
-            </a>
-          )}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.6rem', flexWrap: 'wrap' }}>
+          {/* Preview Draft */}
+          <a
+            href={previewUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="btn btn-secondary btn-sm"
+            title="Preview Draft on website with draft data"
+          >
+            <ExternalLink size={14} />
+            <span>Preview Draft</span>
+          </a>
 
+          {/* Reset Template */}
           <button
             type="button"
             onClick={handleReset}
             className="btn btn-secondary btn-sm"
             disabled={resetting || saving}
-            title="Revert to original template"
+            title="Revert to original website content"
           >
             <RotateCcw size={14} className={resetting ? 'animate-spin' : ''} />
-            <span>Reset Template</span>
+            <span>Reset Section</span>
           </button>
 
+          {/* Save Draft Button */}
           <button
             type="button"
-            onClick={handleSave}
+            onClick={handleSaveDraft}
+            className="btn btn-secondary btn-sm"
+            disabled={saving}
+            title="Save as Draft (Does NOT update live website)"
+          >
+            {saving ? <RefreshCw size={14} className="animate-spin" /> : <Save size={14} />}
+            <span>Save Draft</span>
+          </button>
+
+          {/* Publish Button */}
+          <button
+            type="button"
+            onClick={handlePublish}
             className={`btn btn-primary btn-sm ${hasUnsavedChanges ? 'pulse-glow' : ''}`}
             disabled={saving}
+            style={{ backgroundColor: '#006B8F', borderColor: '#006B8F' }}
+            title="Publish changes to the live website"
           >
             {saving ? (
               <>
                 <RefreshCw size={14} className="animate-spin" />
-                <span>Saving...</span>
+                <span>Publishing...</span>
               </>
             ) : (
               <>
-                <Save size={14} />
-                <span>Save Changes</span>
+                <CheckCircle2 size={14} />
+                <span>Publish to Website</span>
               </>
             )}
           </button>

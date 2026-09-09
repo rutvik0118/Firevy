@@ -76,6 +76,9 @@ import {
   // Singleton Sections
   getSectionBySlug,
   updateSectionBySlug,
+  saveDraftSection,
+  publishSection,
+  unpublishSection,
   resetSectionBySlug,
   getAllSectionsSummary
 } from '../controllers/companyController.js';
@@ -235,6 +238,9 @@ router.route('/sections/:slug')
   .get(getSectionBySlug)
   .put(protectAdmin, updateSectionBySlug);
 
+router.put('/sections/:slug/draft', protectAdmin, saveDraftSection);
+router.post('/sections/:slug/publish', protectAdmin, publishSection);
+router.post('/sections/:slug/unpublish', protectAdmin, unpublishSection);
 router.post('/sections/:slug/reset', protectAdmin, resetSectionBySlug);
 
 export default router;

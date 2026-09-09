@@ -20,6 +20,7 @@ import adminService from '../../services/adminService';
 import { useToast } from '../../context/ToastContext';
 import { INITIAL_HOME_PAGE_DATA, initialSectionsOrder } from '../../../constants/initialHomePageData';
 import { SECTION_METADATA } from '../../constants/sectionMetadata';
+import SectionList from '../../components/UI/SectionList';
 
 export const HomePageManager = () => {
   const params = useParams();
@@ -27,6 +28,7 @@ export const HomePageManager = () => {
   const { addToast } = useToast();
 
   const [homeData, setHomeData] = useState(INITIAL_HOME_PAGE_DATA);
+  const [savedSections, setSavedSections] = useState(INITIAL_HOME_PAGE_DATA.sections);
   const [loading, setLoading] = useState(true);
   const [savingSection, setSavingSection] = useState(false);
   const [searchFilter, setSearchFilter] = useState('');
@@ -36,12 +38,10 @@ export const HomePageManager = () => {
   // Active section key state
   const [activeKey, setActiveKey] = useState(params.sectionKey || 'hero');
   const [activeSectionData, setActiveSectionData] = useState(null);
-  const [originalActiveData, setOriginalActiveData] = useState(null);
   const [resetVersion, setResetVersion] = useState(0);
 
   // Modals
   const [isResetAllModalOpen, setIsResetAllModalOpen] = useState(false);
-  const [isResetSectionModalOpen, setIsResetSectionModalOpen] = useState(false);
 
   const initialSyncDone = useRef(false);
 
@@ -52,6 +52,14 @@ export const HomePageManager = () => {
       const res = await adminService.getHomePageAdmin();
       if (res && res.data) {
         setHomeData(res.data);
+        const incomingSections = res.data.sections || {};
+        const clonedIncoming = JSON.parse(JSON.stringify(incomingSections));
+        setSavedSections(clonedIncoming);
+
+        const currentKey = params.sectionKey || activeKey || 'hero';
+        const targetSaved = clonedIncoming[currentKey] || INITIAL_HOME_PAGE_DATA.sections[currentKey] || {};
+        setActiveSectionData(JSON.parse(JSON.stringify(targetSaved)));
+        setResetVersion((v) => v + 1);
       }
     } catch {
       addToast('Using local default Home Page structure.', 'info');
@@ -82,15 +90,17 @@ export const HomePageManager = () => {
     }
   }, [params.sectionKey, sectionsOrder]);
 
-  // When activeKey or homeData changes, clone active section data for editing
+  // When activeKey changes, load and deep clone its saved section data for editing
   useEffect(() => {
     if (!activeKey) return;
-    const rawData = sections[activeKey] || INITIAL_HOME_PAGE_DATA.sections[activeKey] || {};
-    const cloned = JSON.parse(JSON.stringify(rawData));
+    const targetSaved = savedSections[activeKey]
+      || sections[activeKey]
+      || INITIAL_HOME_PAGE_DATA.sections[activeKey]
+      || {};
+    const cloned = JSON.parse(JSON.stringify(targetSaved));
     setActiveSectionData(cloned);
-    setOriginalActiveData(JSON.parse(JSON.stringify(rawData)));
     setResetVersion((v) => v + 1);
-  }, [activeKey, homeData]);
+  }, [activeKey]);
 
   // Active section metadata & dynamic editor component
   const meta = SECTION_METADATA[activeKey] || {
@@ -207,15 +217,21 @@ export const HomePageManager = () => {
     try {
       const res = await adminService.updateHomePageSection(activeKey, activeSectionData);
       const savedData = res?.data?.sections?.[activeKey] || activeSectionData;
-      
+      const clonedSaved = JSON.parse(JSON.stringify(savedData));
+
+      setSavedSections((prev) => ({
+        ...prev,
+        [activeKey]: clonedSaved
+      }));
       setHomeData((prev) => ({
         ...prev,
         sections: {
           ...prev.sections,
-          [activeKey]: savedData
+          [activeKey]: clonedSaved
         }
       }));
-      setOriginalActiveData(JSON.parse(JSON.stringify(savedData)));
+      setActiveSectionData(JSON.parse(JSON.stringify(clonedSaved)));
+      setResetVersion((v) => v + 1);
       addToast(`"${meta.title}" saved successfully!`, 'success');
     } catch (err) {
       addToast(`Failed to save: ${err.message}`, 'error');
@@ -224,24 +240,41 @@ export const HomePageManager = () => {
     }
   };
 
-  // Reset active section handler
-  const handleResetActiveSection = (toFactoryDefaults = false) => {
-    let sourceData = null;
-    if (toFactoryDefaults) {
-      sourceData = INITIAL_HOME_PAGE_DATA.sections[activeKey] || {};
-    } else {
-      sourceData = originalActiveData || INITIAL_HOME_PAGE_DATA.sections[activeKey] || {};
-    }
+  // Reset active section handler: restores the original Main Website content before Admin customization
+  const handleResetActiveSection = async () => {
+    if (!activeKey) return;
+    setSavingSection(true);
+    try {
+      // 1. Retrieve the original Main Website baseline content for this section
+      const originalBaseline = INITIAL_HOME_PAGE_DATA.sections[activeKey] || {};
+      const clonedOriginal = JSON.parse(JSON.stringify(originalBaseline));
 
-    const resetSnapshot = JSON.parse(JSON.stringify(sourceData));
-    setActiveSectionData(resetSnapshot);
-    setResetVersion((v) => v + 1);
-    setIsResetSectionModalOpen(false);
+      // 2. Persist the restored original content to the database via existing Home Page API
+      const res = await adminService.updateHomePageSection(activeKey, clonedOriginal);
+      const savedData = res?.data?.sections?.[activeKey] || clonedOriginal;
+      const finalRestored = JSON.parse(JSON.stringify(savedData));
 
-    if (toFactoryDefaults) {
-      addToast(`"${meta.title}" restored to factory defaults! Click 'Save Changes' to apply.`, 'info');
-    } else {
-      addToast(`"${meta.title}" reset to original saved values!`, 'info');
+      // 3. Update saved baseline, homeData state, and activeSectionData
+      setSavedSections((prev) => ({
+        ...prev,
+        [activeKey]: finalRestored
+      }));
+      setHomeData((prev) => ({
+        ...prev,
+        sections: {
+          ...prev.sections,
+          [activeKey]: finalRestored
+        }
+      }));
+      setActiveSectionData(JSON.parse(JSON.stringify(finalRestored)));
+      setResetVersion((v) => v + 1);
+
+      // 4. Show success toast only after successful restore & database update
+      addToast(`${meta.title} reset successfully`, 'success');
+    } catch (err) {
+      addToast(`Failed to reset section: ${err.message}`, 'error');
+    } finally {
+      setSavingSection(false);
     }
   };
 
@@ -298,21 +331,22 @@ export const HomePageManager = () => {
 
           <button
             type="button"
-            onClick={() => setIsResetAllModalOpen(true)}
+            onClick={handleResetActiveSection}
             className="btn btn-secondary btn-sm"
             style={{
-              color: 'var(--primary)',
-              borderColor: 'var(--primary)',
+              color: '#475569',
+              borderColor: 'var(--border-color, #E2E8F0)',
               backgroundColor: '#FFFFFF',
               fontWeight: 600,
               display: 'inline-flex',
               alignItems: 'center',
               gap: '6px'
             }}
-            title="Reset All 22 Sections to Factory Production Defaults"
+            title="Restore this section to original Main Website content"
+            disabled={savingSection || loading}
           >
             <RotateCcw size={14} />
-            <span>Reset Entire Home Page</span>
+            <span>Reset Section</span>
           </button>
 
           <button
@@ -347,117 +381,28 @@ export const HomePageManager = () => {
           {/* ========================================================= */}
           {/* LEFT RAIL: Page & Section Navigator + Positioning         */}
           {/* ========================================================= */}
-          <aside className="cms-section-rail">
-            {/* Rail Header */}
-            <div className="cms-rail-header">
-              <h3 className="cms-rail-title">
-                <Layers size={15} style={{ color: 'var(--primary)' }} />
-                <span>Page Sections</span>
-              </h3>
-            </div>
-
-            {/* Quick Search Filter */}
-            <div className="cms-rail-search">
-              <Search size={14} className="cms-rail-search-icon" />
-              <input
-                type="text"
-                className="cms-rail-search-input"
-                placeholder="Search sections..."
-                value={searchFilter}
-                onChange={(e) => setSearchFilter(e.target.value)}
-              />
-            </div>
-
-            {/* Scrollable Reorderable Section List */}
-            <div className="cms-rail-list">
-              {sectionsOrder
-                .filter((key) => {
-                  if (!searchFilter) return true;
-                  const itemMeta = SECTION_METADATA[key] || { title: key, category: '', description: '', slug: '' };
-                  const query = searchFilter.toLowerCase();
-                  return (
-                    itemMeta.title?.toLowerCase().includes(query) ||
-                    itemMeta.category?.toLowerCase().includes(query) ||
-                    itemMeta.slug?.toLowerCase().includes(query) ||
-                    key.toLowerCase().includes(query)
-                  );
-                })
-                .map((sectionKey) => {
-                  const actualIdx = sectionsOrder.indexOf(sectionKey);
-                  const sectionData = sections[sectionKey] || INITIAL_HOME_PAGE_DATA.sections[sectionKey] || {};
-                  const isVisible = sectionData.isVisible !== false && sectionData.isEnabled !== false;
-                  const itemMeta = SECTION_METADATA[sectionKey] || {
-                    title: sectionKey,
-                    category: 'General',
-                    slug: `/#${sectionKey}`
-                  };
-                  const isSelected = activeKey === sectionKey;
-                  const isDragging = draggedIndex === actualIdx;
-                  const isDragOver = dragOverIndex === actualIdx;
-
-                  return (
-                    <div
-                      key={sectionKey}
-                      draggable={true}
-                      onDragStart={(e) => handleDragStart(e, actualIdx)}
-                      onDragOver={(e) => handleDragOver(e, actualIdx)}
-                      onDragEnd={handleDragEnd}
-                      onDrop={(e) => handleDrop(e, actualIdx)}
-                      onClick={() => handleSelectSection(sectionKey)}
-                      className={`cms-section-card ${isSelected ? 'active' : ''} ${isDragging ? 'dragging' : ''} ${isDragOver ? 'drag-over' : ''}`}
-                      title="Click to edit section content. Drag grip icon to reposition."
-                    >
-                      {/* Left: Drag Grip + Position Number + Title & Slug */}
-                      <div className="cms-card-left">
-                        <div
-                          className="cms-card-grip"
-                          onClick={(e) => e.stopPropagation()}
-                          title="Drag to change section position on homepage"
-                        >
-                          <GripVertical size={16} />
-                        </div>
-
-                        <div className="cms-card-number">
-                          {actualIdx + 1}
-                        </div>
-
-                        <div className="cms-card-details">
-                          <div className="cms-card-title">
-                            {itemMeta.title}
-                          </div>
-                          <div className="cms-card-slug">
-                            {`/#${sectionKey}`}
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Right: Toggle Switch + Chevron Indicator */}
-                      <div className="cms-card-right">
-                        <label
-                          className="cms-switch-wrap"
-                          onClick={(e) => e.stopPropagation()}
-                          title={isVisible ? 'Click to hide from public home' : 'Click to show on public home'}
-                        >
-                          <input
-                            type="checkbox"
-                            className="cms-switch-input"
-                            checked={isVisible}
-                            onChange={(e) => handleToggleVisibility(sectionKey, e)}
-                          />
-                          <span className="cms-switch-slider" />
-                        </label>
-
-                        {isSelected && (
-                          <div className="cms-card-arrow">
-                            <ChevronRight size={15} />
-                          </div>
-                        )}
-                      </div>
-                    </div>
-                  );
-                })}
-            </div>
-          </aside>
+          <SectionList
+            title="Page Sections"
+            badgeCount={sectionsOrder.length}
+            sectionsOrder={sectionsOrder}
+            sectionsMetadata={SECTION_METADATA}
+            sectionsState={sections}
+            activeKey={activeKey}
+            onSelectSection={handleSelectSection}
+            onToggleVisibility={handleToggleVisibility}
+            onReorderSections={async (newOrder) => {
+              setHomeData((prev) => ({
+                ...prev,
+                sectionsOrder: newOrder
+              }));
+              try {
+                await adminService.reorderHomePageSections(newOrder);
+                addToast('Section order reordered successfully via Drag & Drop!', 'success');
+              } catch (err) {
+                addToast(`Order update error: ${err.message}`, 'error');
+              }
+            }}
+          />
 
           {/* ========================================================= */}
           {/* RIGHT PANE: Selected Section Edit Form / Detail Editor    */}
@@ -513,7 +458,7 @@ export const HomePageManager = () => {
                 <ErrorBoundary
                   key={`${activeKey}-${resetVersion}`}
                   title={`${meta.title} Editor`}
-                  onReset={() => handleResetActiveSection(false)}
+                  onReset={handleResetActiveSection}
                 >
                   <ActiveEditor
                     key={`${activeKey}-${resetVersion}`}
@@ -549,27 +494,27 @@ export const HomePageManager = () => {
                     Visible on Public Home
                   </label>
                 </div>
-
-                <button
-                  type="button"
-                  onClick={() => setIsResetSectionModalOpen(true)}
-                  className="btn btn-danger btn-sm"
-                  title="Reset this section to original saved values"
-                  disabled={savingSection || loading}
-                >
-                  <RotateCcw size={13} />
-                  <span>Reset Section</span>
-                </button>
               </div>
 
               <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
                 <button
                   type="button"
-                  onClick={() => handleResetActiveSection(false)}
+                  onClick={handleResetActiveSection}
                   className="btn btn-secondary btn-sm"
-                  disabled={savingSection}
+                  style={{
+                    color: '#475569',
+                    borderColor: 'var(--border-color, #E2E8F0)',
+                    backgroundColor: '#FFFFFF',
+                    fontWeight: 600,
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '6px'
+                  }}
+                  title="Restore this section to original Main Website content"
+                  disabled={savingSection || loading}
                 >
-                  Revert Unsaved
+                  <RotateCcw size={14} />
+                  <span>Reset Section</span>
                 </button>
 
                 <button
@@ -595,54 +540,6 @@ export const HomePageManager = () => {
           </main>
         </div>
       )}
-
-      {/* Reset Section Confirmation Modal */}
-      <Modal
-        isOpen={isResetSectionModalOpen}
-        onClose={() => setIsResetSectionModalOpen(false)}
-        title="Reset Section"
-        footer={
-          <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px', flexWrap: 'wrap' }}>
-            <button
-              type="button"
-              onClick={() => setIsResetSectionModalOpen(false)}
-              className="btn btn-secondary"
-            >
-              Cancel
-            </button>
-            <button
-              type="button"
-              onClick={() => handleResetActiveSection(false)}
-              className="btn btn-primary"
-              style={{ backgroundColor: '#006B8F', borderColor: '#006B8F', color: '#FFFFFF' }}
-            >
-              Reset Unsaved Edits
-            </button>
-            <button
-              type="button"
-              onClick={() => handleResetActiveSection(true)}
-              className="btn btn-danger"
-              style={{ backgroundColor: '#DC2626', borderColor: '#DC2626', color: '#FFFFFF' }}
-            >
-              Restore Factory Defaults
-            </button>
-          </div>
-        }
-      >
-        <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', padding: '8px 0' }}>
-          <div style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: '#FEF2F2', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#DC2626', flexShrink: 0 }}>
-            <AlertTriangle size={22} />
-          </div>
-          <div>
-            <h4 style={{ margin: '0 0 6px 0', fontSize: '15px', fontWeight: 700, color: '#0F172A' }}>
-              Reset "{meta.title}"?
-            </h4>
-            <p style={{ margin: 0, fontSize: '13px', color: '#64748B', lineHeight: '1.5' }}>
-              Choose <strong>Reset Unsaved Edits</strong> to revert this form back to its last saved values, or <strong>Restore Factory Defaults</strong> to reload original template values.
-            </p>
-          </div>
-        </div>
-      </Modal>
 
       {/* Reset All 22 Sections Confirmation Modal */}
       <Modal

@@ -9,6 +9,7 @@ const videoTestimonialSchema = new mongoose.Schema({
   description: { type: String, default: '' },
   rating: { type: Number, default: 5, min: 1, max: 5 },
   order: { type: Number, default: 0 },
+  status: { type: String, enum: ['draft', 'published'], default: 'published' },
   isActive: { type: Boolean, default: true }
 }, {
   timestamps: true
