@@ -5,57 +5,69 @@ import Container from './Container';
 const videoList = [
   {
     id: 1,
-    title: 'Top AI Avatar Generator App Development Company | Sapphire Solutions',
-    thumbnail: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=700&q=80',
-    videoUrl: 'https://www.youtube.com/embed/L_LUpnjgPso',
-    brand: 'Sapphire',
-    tag: 'PersonaFX',
-    subText: 'AI-Powered Healthcare Diagnostic & Virtual Assistant'
+    title: 'Revolutionizing Recruitment with AI/ML-Driven - Top AI Development Company in USA',
+    image: '/images/homeinnovation/ninth.webp',
+    videoUrl: 'https://www.youtube.com/embed/L_LUpnjgPso'
   },
   {
     id: 2,
-    title: 'Navigate effortlessly with Waymark: Guide Nearby Hospitals & Clinics',
-    thumbnail: 'https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=700&q=80',
-    videoUrl: 'https://www.youtube.com/embed/L_LUpnjgPso',
-    brand: 'Sapphire',
-    tag: 'Locate & Explore',
-    subText: 'Real-Time Hospital, Pharmacy & ER GPS Guidance'
+    title: 'National Water Supply Corporation : Ensure reliable water supply with National Water Supply Corporation, providing efficient and sustainable water solutions.',
+    image: '/images/homeinnovation/tenth.webp',
+    videoUrl: 'https://www.youtube.com/embed/L_LUpnjgPso'
   },
   {
     id: 3,
-    title: 'Explore trends, essential products, and wellness with BEAUTYBEE App',
-    thumbnail: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=700&q=80',
-    videoUrl: 'https://www.youtube.com/embed/L_LUpnjgPso',
-    brand: 'Sapphire',
-    tag: 'BEAUTYBEE',
-    subText: 'BEAUTYBEE: Discover Your Beauty & Health Essentials'
+    title: 'NutriPlan: Your Ultimate Meal Planning and Nutrition Guide - NutriPlan helps individuals make informed dietary choices, track daily food intake, and achieve health goals.',
+    image: '/images/homeinnovation/eleventh.webp',
+    videoUrl: 'https://www.youtube.com/embed/L_LUpnjgPso'
   },
   {
     id: 4,
-    title: 'BREATHCRAFT : Unleash Your Potential through Mindful Breathing',
-    thumbnail: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=700&q=80',
-    videoUrl: 'https://www.youtube.com/embed/L_LUpnjgPso',
-    brand: 'Sapphire',
-    tag: 'BREATHCRAFT',
-    subText: 'Improve mental clarity & wellness with BreathCraft App'
+    title: 'Terraform Timesheet App with Microsoft PowerApps & SharePoint - Best SharePoint Development Company',
+    image: '/images/homeinnovation/thirteen.webp',
+    videoUrl: 'https://www.youtube.com/embed/L_LUpnjgPso'
   },
   {
     id: 5,
-    title: 'Telemedicine App Development & Virtual Consultations | Sapphire Solutions',
-    thumbnail: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=700&q=80',
-    videoUrl: 'https://www.youtube.com/embed/L_LUpnjgPso',
-    brand: 'Sapphire',
-    tag: 'HealthConnect',
-    subText: 'Remote Doctor Booking & EHR Health Record Management'
+    title: 'AI-Powered Language Learning App Development Services',
+    image: '/images/homeinnovation/forteen.webp',
+    videoUrl: 'https://www.youtube.com/embed/L_LUpnjgPso'
   },
   {
     id: 6,
-    title: 'Personalized Health & Remote Fitness Training App Development',
-    thumbnail: 'https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=700&q=80',
-    videoUrl: 'https://www.youtube.com/embed/L_LUpnjgPso',
-    brand: 'Sapphire',
-    tag: 'FitTrack AI',
-    subText: 'Real-Time Fitness Analytics & Virtual Trainer Consultations'
+    title: 'Navigate effortlessly with Waymark Maps, offering comprehensive guides for travel and exploration.',
+    image: '/images/homeinnovation/first.webp',
+    videoUrl: 'https://www.youtube.com/embed/L_LUpnjgPso'
+  },
+  {
+    id: 7,
+    title: 'Explore trends, essential products, and expert tips with BEAUTYBEE. Enhance your beauty routine effortlessly.',
+    image: '/images/homeinnovation/third.webp',
+    videoUrl: 'https://www.youtube.com/embed/L_LUpnjgPso'
+  },
+  {
+    id: 8,
+    title: "Improve mental clarity, reduce stress, and boost well-being with BREATHCRAFT's mindful breathing techniques.",
+    image: '/images/homeinnovation/fourth.webp',
+    videoUrl: 'https://www.youtube.com/embed/L_LUpnjgPso'
+  },
+  {
+    id: 9,
+    title: 'Stream movies and TV shows in high quality with CINESTREAM for a seamless entertainment experience.',
+    image: '/images/homeinnovation/fifth.webp',
+    videoUrl: 'https://www.youtube.com/embed/L_LUpnjgPso'
+  },
+  {
+    id: 10,
+    title: 'Enhance safety and efficiency with Firevy Software Solutions, experts in SharePoint app development for MNCs.',
+    image: '/images/homeinnovation/sixth.webp',
+    videoUrl: 'https://www.youtube.com/embed/L_LUpnjgPso'
+  },
+  {
+    id: 11,
+    title: 'Revolutionize Your Business with Firevy Software Solutions: Top AI Chatbot Development Services',
+    image: '/images/homeinnovation/fifteen.webp',
+    videoUrl: 'https://www.youtube.com/embed/L_LUpnjgPso'
   }
 ];
 
@@ -65,22 +77,13 @@ export const InnovativeVideoSlider = () => {
   const [isPaused, setIsPaused] = useState(false);
   const sliderRef = useRef(null);
 
-  // Automatic Smooth Rotation towards Right Side (Every 2.8 seconds)
+  // Automatic Smooth Rotation (Every 3.2 seconds)
   useEffect(() => {
     if (isPaused) return;
 
     const interval = setInterval(() => {
-      if (sliderRef.current) {
-        const maxScrollLeft = sliderRef.current.scrollWidth - sliderRef.current.clientWidth;
-        if (sliderRef.current.scrollLeft >= maxScrollLeft - 10) {
-          sliderRef.current.scrollTo({ left: 0, behavior: 'smooth' });
-          setCurrentIndex(0);
-        } else {
-          sliderRef.current.scrollBy({ left: 320, behavior: 'smooth' });
-          setCurrentIndex((prev) => (prev + 1) % videoList.length);
-        }
-      }
-    }, 2800);
+      setCurrentIndex((prev) => (prev + 1) % videoList.length);
+    }, 3200);
 
     return () => clearInterval(interval);
   }, [isPaused]);
@@ -93,19 +96,23 @@ export const InnovativeVideoSlider = () => {
     setCurrentIndex((prev) => (prev + 1) % videoList.length);
   };
 
-  return (
-    <section className="py-10 sm:py-12 lg:py-14 bg-[#005D95] text-white relative overflow-hidden text-left border-t border-blue-900/40">
-      {/* Centered Heading & Subtitle */}
-      <div className="text-center max-w-4xl mx-auto px-4 mb-8 sm:mb-10 space-y-2.5">
-        <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-extrabold text-white tracking-tight font-sans">
-          Unveiling Our Innovative Solution
-        </h2>
-        <p className="text-xs sm:text-sm lg:text-base text-slate-100/90 font-normal leading-relaxed max-w-3xl mx-auto font-sans">
-          From cutting-edge technology to revolutionary concepts, get ready to be inspired and intrigued. This is more than just a video - it's a glimpse into the future of innovation.
-        </p>
-      </div>
+  const displayItems = [...videoList, ...videoList, ...videoList];
 
-      {/* Full Width Video Cards Continuous Auto-Rotating Slider Track (Edge-to-Edge) */}
+  return (
+    <section className="py-12 sm:py-16 bg-[#005d89] text-white relative overflow-hidden text-left font-sans">
+      {/* Centered Heading & Subtitle */}
+      <Container>
+        <div className="text-center max-w-4xl mx-auto px-4 mb-8 sm:mb-10 space-y-2.5">
+          <h2 className="text-[28px] sm:text-[34px] lg:text-[36px] font-[800] text-white tracking-tight font-sans">
+            Unveiling Our Innovative Solution
+          </h2>
+          <p className="text-[14px] sm:text-[15.5px] text-white/95 font-normal leading-relaxed max-w-3xl mx-auto font-sans">
+            From cutting-edge technology to revolutionary concepts, get ready to be inspired and intrigued. This is more than just a video - it's a glimpse into the future of innovation.
+          </p>
+        </div>
+      </Container>
+
+      {/* Full Width Video Cards Continuous Slider Track */}
       <div
         className="relative w-full overflow-hidden pb-2"
         onMouseEnter={() => setIsPaused(true)}
@@ -113,54 +120,38 @@ export const InnovativeVideoSlider = () => {
       >
         <div
           ref={sliderRef}
-          className="flex items-center space-x-5 sm:space-x-6 overflow-x-auto scrollbar-none scroll-smooth pb-4 px-4 sm:px-8 lg:px-12"
-          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          className="flex gap-4 sm:gap-5 transition-transform duration-700 ease-in-out px-4 sm:px-8"
+          style={{
+            transform: `translateX(-${currentIndex * 345}px)`
+          }}
         >
-          {videoList.map((video, idx) => (
+          {displayItems.map((video, idx) => (
             <div
-              key={video.id}
+              key={idx}
               onClick={() => setActiveVideo(video)}
-              className={`min-w-[280px] sm:min-w-[320px] max-w-[320px] rounded-2xl bg-white text-slate-900 shadow-xl overflow-hidden cursor-pointer transform transition-all duration-500 shrink-0 group ${
-                idx === currentIndex ? 'scale-105 shadow-2xl ring-2 ring-white/60' : 'hover:scale-[1.02] opacity-95'
-              }`}
+              className="w-[280px] sm:w-[320px] lg:w-[335px] shrink-0 bg-white rounded-[16px] overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 group cursor-pointer"
             >
               {/* Thumbnail Image Container */}
-              <div className="relative h-44 sm:h-48 overflow-hidden bg-slate-950">
+              <div className="relative h-[190px] sm:h-[205px] overflow-hidden bg-slate-900">
                 <img
-                  src={video.thumbnail}
+                  src={video.image}
                   alt={video.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 opacity-80 group-hover:opacity-90"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                
-                {/* Dark Gradient Overlay & Brand Watermark */}
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-slate-950/40" />
-                
-                {/* Top Right Sapphire Brand Stamp */}
-                <div className="absolute top-3 right-3 text-[10px] font-black uppercase text-white tracking-widest bg-black/40 backdrop-blur-md px-2 py-0.5 rounded border border-white/20">
-                  {video.brand}
-                </div>
 
-                {/* Top Left Tag */}
-                <div className="absolute top-3 left-3 text-xs font-bold text-amber-400">
-                  {video.tag}
-                </div>
-
-                {/* Circular White & Blue Play Button (▶) */}
-                <div className="absolute bottom-3 right-3 w-11 h-11 rounded-full bg-white text-[#005D95] shadow-lg flex items-center justify-center group-hover:scale-110 group-hover:bg-[#005D95] group-hover:text-white transition-all duration-300">
-                  <svg className="w-5 h-5 fill-current ml-0.5" viewBox="0 0 24 24">
+                {/* Circular White & Blue Play Button (▶) on Bottom Right */}
+                <div className="absolute bottom-3 right-3 w-10 h-10 rounded-full bg-white text-[#005d89] shadow-lg flex items-center justify-center group-hover:scale-110 group-hover:bg-[#005d89] group-hover:text-white transition-all duration-300">
+                  <svg className="w-4 h-4 fill-current ml-0.5" viewBox="0 0 24 24">
                     <path d="M8 5v14l11-7z" />
                   </svg>
                 </div>
               </div>
 
               {/* White Bottom Text Bar */}
-              <div className="p-4 sm:p-5 bg-white text-left font-sans flex flex-col justify-between h-24">
-                <h3 className="text-sm font-bold text-slate-900 line-clamp-1 group-hover:text-[#005D95] transition-colors">
+              <div className="p-3.5 sm:p-4 bg-white text-left font-sans flex items-center h-[62px]">
+                <h3 className="text-[13px] sm:text-[13.5px] font-[700] text-[#333333] leading-snug line-clamp-1 group-hover:text-[#005d89] transition-colors">
                   {video.title}
                 </h3>
-                <p className="text-xs text-slate-500 line-clamp-1 font-normal">
-                  {video.subText}
-                </p>
               </div>
             </div>
           ))}
@@ -168,32 +159,34 @@ export const InnovativeVideoSlider = () => {
       </div>
 
       {/* Prev (←) & Next (→) Navigation Arrows */}
-      <div className="flex items-center justify-center space-x-4 mt-4">
-        <button
-          onClick={handlePrev}
-          className="w-10 h-10 rounded-full border border-white/30 hover:border-white text-white hover:bg-white/10 flex items-center justify-center transition-all duration-200"
-          aria-label="Previous Video"
-        >
-          <span className="text-lg font-bold">←</span>
-        </button>
-        <button
-          onClick={handleNext}
-          className="w-10 h-10 rounded-full border border-white/30 hover:border-white text-white hover:bg-white/10 flex items-center justify-center transition-all duration-200"
-          aria-label="Next Video"
-        >
-          <span className="text-lg font-bold">→</span>
-        </button>
-      </div>
+      <Container className="mt-6 text-center">
+        <div className="flex items-center justify-center space-x-6 mb-6">
+          <button
+            onClick={handlePrev}
+            className="text-white hover:text-cyan-200 transition-all p-1 text-2xl font-bold hover:scale-125 cursor-pointer"
+            aria-label="Previous Video"
+          >
+            ←
+          </button>
+          <button
+            onClick={handleNext}
+            className="text-white hover:text-cyan-200 transition-all p-1 text-2xl font-bold hover:scale-125 cursor-pointer"
+            aria-label="Next Video"
+          >
+            →
+          </button>
+        </div>
 
-      {/* Centered White Button (View Insightful Videos) */}
-      <div className="mt-6 text-center">
-        <Link
-          to="/company/insightful-videos"
-          className="px-8 py-3.5 bg-white hover:bg-slate-100 text-[#005D95] font-extrabold text-sm sm:text-base rounded-md shadow-md hover:shadow-xl transition-all duration-300 inline-block font-sans transform hover:-translate-y-0.5 cursor-pointer"
-        >
-          View Insightful Videos
-        </Link>
-      </div>
+        {/* Centered White Button (View Insightful Videos) */}
+        <div>
+          <Link
+            to="/portfolio"
+            className="inline-block px-8 py-3 bg-white hover:bg-cyan-50 text-[#005d89] font-[700] text-[14px] rounded-[6px] shadow-md transition-all hover:scale-105 active:scale-95"
+          >
+            View Insightful Videos
+          </Link>
+        </div>
+      </Container>
 
       {/* Video Modal Popup */}
       {activeVideo && (
@@ -207,7 +200,7 @@ export const InnovativeVideoSlider = () => {
           >
             {/* Modal Header Bar */}
             <div className="flex items-center justify-between px-6 py-4 bg-slate-800 text-white border-b border-slate-700">
-              <h3 className="font-bold text-base sm:text-lg">{activeVideo.title}</h3>
+              <h3 className="font-bold text-base sm:text-lg line-clamp-1">{activeVideo.title}</h3>
               <button
                 onClick={() => setActiveVideo(null)}
                 className="w-8 h-8 rounded-full bg-slate-700 hover:bg-slate-600 text-white flex items-center justify-center font-bold text-sm"

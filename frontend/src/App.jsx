@@ -60,6 +60,14 @@ const About = lazy(() => import('./pages/About'));
 const Services = lazy(() => import('./pages/Services'));
 const ServiceDetails = lazy(() => import('./pages/ServiceDetails'));
 const CompanySubDetails = lazy(() => import('./pages/CompanySubDetails'));
+const Podcast = lazy(() => import('./pages/Podcast'));
+const DeliveryModels = lazy(() => import('./pages/DeliveryModels'));
+const EngagementModels = lazy(() => import('./pages/EngagementModels'));
+const DevelopmentMethodology = lazy(() => import('./pages/DevelopmentMethodology'));
+const Testimonials = lazy(() => import('./pages/Testimonials'));
+const ClutchTestimonial = lazy(() => import('./pages/ClutchTestimonial'));
+const VideoTestimonial = lazy(() => import('./pages/VideoTestimonial'));
+const InsightfulVideos = lazy(() => import('./pages/InsightfulVideos'));
 const Technologies = lazy(() => import('./pages/Technologies'));
 const Portfolio = lazy(() => import('./pages/Portfolio'));
 const PortfolioDetails = lazy(() => import('./pages/PortfolioDetails'));
@@ -100,6 +108,34 @@ export function App() {
               <Route element={<PublicLayoutWrapper />}>
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
+                <Route path="/company/podcast" element={<Podcast />} />
+                <Route path="/podcasts" element={<Podcast />} />
+                <Route path="/company/delivery-models" element={<DeliveryModels />} />
+                <Route path="/company/delivery-model" element={<DeliveryModels />} />
+                <Route path="/delivery-models" element={<DeliveryModels />} />
+                <Route path="/company/engagement-models" element={<EngagementModels />} />
+                <Route path="/company/engagement-model" element={<EngagementModels />} />
+                <Route path="/engagement-models" element={<EngagementModels />} />
+                <Route path="/company/development-methodology" element={<DevelopmentMethodology />} />
+                <Route path="/company/development-methodologies" element={<DevelopmentMethodology />} />
+                <Route path="/development-methodology" element={<DevelopmentMethodology />} />
+                <Route path="/development-methodologies" element={<DevelopmentMethodology />} />
+                <Route path="/company/client-testimonials" element={<Testimonials />} />
+                <Route path="/company/testimonials" element={<Testimonials />} />
+                <Route path="/client-testimonials" element={<Testimonials />} />
+                <Route path="/testimonials" element={<Testimonials />} />
+                <Route path="/company/clutch-testimonial" element={<ClutchTestimonial />} />
+                <Route path="/company/clutch-testimonials" element={<ClutchTestimonial />} />
+                <Route path="/clutch-testimonial" element={<ClutchTestimonial />} />
+                <Route path="/clutch-testimonials" element={<ClutchTestimonial />} />
+                <Route path="/company/video-testimonial" element={<VideoTestimonial />} />
+                <Route path="/company/video-testimonials" element={<VideoTestimonial />} />
+                <Route path="/video-testimonial" element={<VideoTestimonial />} />
+                <Route path="/video-testimonials" element={<VideoTestimonial />} />
+                <Route path="/company/insightful-videos" element={<InsightfulVideos />} />
+                <Route path="/company/insightful-video" element={<InsightfulVideos />} />
+                <Route path="/insightful-videos" element={<InsightfulVideos />} />
+                <Route path="/insightful-video" element={<InsightfulVideos />} />
                 <Route path="/company/:slug" element={<CompanySubDetails />} />
                 <Route path="/awards-and-recognition" element={<CompanySubDetails />} />
                 <Route path="/awards-recognition" element={<CompanySubDetails />} />
