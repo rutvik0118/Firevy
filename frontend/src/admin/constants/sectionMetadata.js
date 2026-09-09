@@ -631,28 +631,29 @@ export const SECTION_METADATA = {
 
 // Distinct 22 canonical home page section list for navigation
 export const HOME_PAGE_SECTIONS_LIST = [
-  { key: 'hero', title: 'Hero Banner', category: 'Hero & Ribbon' },
-  { key: 'trustMarquee', title: 'Trust Marquee', category: 'Social Proof' },
-  { key: 'aboutKeyMetrics', title: 'About & Key Metrics', category: 'About & Metrics' },
-  { key: 'brandLogoGrid', title: 'Brand Logo Grid', category: 'Social Proof' },
-  { key: 'servicesSection', title: 'Services Section', category: 'Offerings' },
-  { key: 'conversionCalloutBanner', title: 'Conversion Callout Banner', category: 'CTA & Action' },
-  { key: 'portfolioShowcase', title: 'Portfolio Showcase', category: 'Case Studies' },
-  { key: 'trustRecognitionBanner', title: 'Trust Recognition Banner', category: 'Social Proof' },
-  { key: 'workProcessGrid', title: 'Work Process Grid', category: 'Process' },
-  { key: 'engagementModels', title: 'Engagement Models', category: 'Business Models' },
-  { key: 'techShowcase', title: 'Tech Showcase', category: 'Tech Stack' },
-  { key: 'premiumServices', title: 'Premium Services', category: 'Offerings' },
-  { key: 'successMatrix', title: 'Success Matrix', category: 'Differentiators' },
-  { key: 'innovativeSolutionVideo', title: 'Innovative Solution Video', category: 'Video Spotlight' },
-  { key: 'recentPodcasts', title: 'Recent Podcasts', category: 'Media & Audio' },
-  { key: 'downloadBrochure', title: 'Download Brochure', category: 'Lead Capture' },
-  { key: 'digitalTransformationCaseStudies', title: 'Transformation Case Studies', category: 'Case Studies' },
-  { key: 'videoTestimonialsStory', title: 'Video Testimonials', category: 'Social Proof' },
-  { key: 'recentBlogs', title: 'Recent Blogs', category: 'Articles' },
-  { key: 'clientReviews', title: 'Client Reviews', category: 'Testimonials' },
-  { key: 'featuredInLogos', title: 'Featured In Logos', category: 'Media PR' },
-  { key: 'workTogetherNewsletter', title: 'Work Together & Newsletter', category: 'Footer CTA' }
+  { key: 'hero', title: 'Hero Banner', category: 'Hero & Ribbon', slug: '/#hero' },
+  { key: 'trustMarquee', title: 'Trust Marquee', category: 'Social Proof', slug: '/#trust-marquee' },
+  { key: 'aboutKeyMetrics', title: 'About & Key Metrics', category: 'About & Metrics', slug: '/#about' },
+  { key: 'brandLogoGrid', title: 'Brand Logo Grid', category: 'Social Proof', slug: '/#clients' },
+  { key: 'servicesSection', title: 'Services Section', category: 'Offerings', slug: '/#services' },
+  { key: 'conversionCalloutBanner', title: 'Conversion Callout Banner', category: 'CTA & Action', slug: '/#contact-cta' },
+  { key: 'portfolioShowcase', title: 'Portfolio Showcase', category: 'Case Studies', slug: '/#portfolio' },
+  { key: 'trustRecognitionBanner', title: 'Trust Recognition Banner', category: 'Social Proof', slug: '/#awards' },
+  { key: 'workProcessGrid', title: 'Work Process Grid', category: 'Process', slug: '/#process' },
+  { key: 'engagementModels', title: 'Engagement Models', category: 'Business Models', slug: '/#engagement-models' },
+  { key: 'techShowcase', title: 'Tech Showcase', category: 'Tech Stack', slug: '/#tech-stack' },
+  { key: 'premiumServices', title: 'Premium Services', category: 'Offerings', slug: '/#premium-services' },
+  { key: 'successMatrix', title: 'Success Matrix', category: 'Differentiators', slug: '/#why-choose-us' },
+  { key: 'innovativeSolutionVideo', title: 'Innovative Solution Video', category: 'Video Spotlight', slug: '/#solutions-video' },
+  { key: 'recentPodcasts', title: 'Recent Podcasts', category: 'Media & Audio', slug: '/#podcasts' },
+  { key: 'downloadBrochure', title: 'Download Brochure', category: 'Lead Capture', slug: '/#brochure' },
+  { key: 'digitalTransformationCaseStudies', title: 'Transformation Case Studies', category: 'Case Studies', slug: '/#case-studies' },
+  { key: 'videoTestimonialsStory', title: 'Video Testimonials', category: 'Social Proof', slug: '/#video-testimonials' },
+  { key: 'recentBlogs', title: 'Recent Blogs', category: 'Articles', slug: '/#blog' },
+  { key: 'clientReviews', title: 'Client Reviews', category: 'Testimonials', slug: '/#reviews' },
+  { key: 'featuredInLogos', title: 'Featured In Logos', category: 'Media PR', slug: '/#featured-in' },
+  { key: 'workTogetherNewsletter', title: 'Work Together & Newsletter', category: 'Footer CTA', slug: '/#newsletter' }
 ];
 
 export default SECTION_METADATA;
+

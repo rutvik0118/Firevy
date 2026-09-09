@@ -1,36 +1,51 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect, useRef } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import {
   Home,
-  Eye,
-  EyeOff,
-  Edit2,
   RotateCcw,
   ExternalLink,
   Loader2,
   GripVertical,
   AlertTriangle,
-  Search
+  Search,
+  ChevronRight,
+  Save,
+  Layers,
+  CheckCircle2
 } from 'lucide-react';
 import Modal from '../../components/UI/Modal';
 import Badge from '../../components/UI/Badge';
+import ErrorBoundary from '../../components/UI/ErrorBoundary';
 import adminService from '../../services/adminService';
 import { useToast } from '../../context/ToastContext';
 import { INITIAL_HOME_PAGE_DATA, initialSectionsOrder } from '../../../constants/initialHomePageData';
 import { SECTION_METADATA } from '../../constants/sectionMetadata';
 
 export const HomePageManager = () => {
+  const params = useParams();
   const navigate = useNavigate();
   const { addToast } = useToast();
+
   const [homeData, setHomeData] = useState(INITIAL_HOME_PAGE_DATA);
   const [loading, setLoading] = useState(true);
+  const [savingSection, setSavingSection] = useState(false);
   const [searchFilter, setSearchFilter] = useState('');
   const [draggedIndex, setDraggedIndex] = useState(null);
   const [dragOverIndex, setDragOverIndex] = useState(null);
 
-  // Modal confirmation states
-  const [isResetAllModalOpen, setIsResetAllModalOpen] = useState(false);
+  // Active section key state
+  const [activeKey, setActiveKey] = useState(params.sectionKey || 'hero');
+  const [activeSectionData, setActiveSectionData] = useState(null);
+  const [originalActiveData, setOriginalActiveData] = useState(null);
+  const [resetVersion, setResetVersion] = useState(0);
 
+  // Modals
+  const [isResetAllModalOpen, setIsResetAllModalOpen] = useState(false);
+  const [isResetSectionModalOpen, setIsResetSectionModalOpen] = useState(false);
+
+  const initialSyncDone = useRef(false);
+
+  // Fetch full homepage data from backend API
   const fetchHomePage = async () => {
     setLoading(true);
     try {
@@ -56,8 +71,49 @@ export const HomePageManager = () => {
 
   const sections = homeData?.sections || INITIAL_HOME_PAGE_DATA.sections;
 
-  // Toggle Section Visibility
-  const handleToggleVisibility = async (sectionKey) => {
+  // Resolve active section key from URL params or default to first ordered section
+  useEffect(() => {
+    if (params.sectionKey && SECTION_METADATA[params.sectionKey]) {
+      const canonical = SECTION_METADATA[params.sectionKey]?.key || params.sectionKey;
+      setActiveKey(canonical);
+    } else if (!initialSyncDone.current && sectionsOrder.length > 0) {
+      setActiveKey(sectionsOrder[0]);
+      initialSyncDone.current = true;
+    }
+  }, [params.sectionKey, sectionsOrder]);
+
+  // When activeKey or homeData changes, clone active section data for editing
+  useEffect(() => {
+    if (!activeKey) return;
+    const rawData = sections[activeKey] || INITIAL_HOME_PAGE_DATA.sections[activeKey] || {};
+    const cloned = JSON.parse(JSON.stringify(rawData));
+    setActiveSectionData(cloned);
+    setOriginalActiveData(JSON.parse(JSON.stringify(rawData)));
+    setResetVersion((v) => v + 1);
+  }, [activeKey, homeData]);
+
+  // Active section metadata & dynamic editor component
+  const meta = SECTION_METADATA[activeKey] || {
+    title: activeKey,
+    category: 'Home Section',
+    description: 'Customize layout, content, and media for this section.',
+    slug: `/#${activeKey}`,
+    editor: null
+  };
+  const ActiveEditor = meta.editor;
+
+  // Handler to switch active section in workspace without full page reload
+  const handleSelectSection = (sectionKey) => {
+    const canonical = SECTION_METADATA[sectionKey]?.key || sectionKey;
+    setActiveKey(canonical);
+    navigate(`/admin/home-page/${canonical}`, { replace: true });
+  };
+
+  // Toggle Section Visibility via Toggle Switch
+  const handleToggleVisibility = async (sectionKey, e) => {
+    if (e) {
+      e.stopPropagation();
+    }
     try {
       const currentVal = sections[sectionKey]?.isVisible !== false && sections[sectionKey]?.isEnabled !== false;
       const updatedSection = {
@@ -74,14 +130,26 @@ export const HomePageManager = () => {
         }
       }));
 
+      // If toggling the active section, also update activeSectionData
+      if (sectionKey === activeKey && activeSectionData) {
+        setActiveSectionData((prev) => ({
+          ...prev,
+          isVisible: !currentVal,
+          isEnabled: !currentVal
+        }));
+      }
+
       await adminService.toggleHomePageSection(sectionKey);
-      addToast(`Section "${SECTION_METADATA[sectionKey]?.title || sectionKey}" is now ${!currentVal ? 'enabled' : 'hidden'}`, 'success');
+      addToast(
+        `Section "${SECTION_METADATA[sectionKey]?.title || sectionKey}" is now ${!currentVal ? 'enabled' : 'hidden'}`,
+        'success'
+      );
     } catch (err) {
       addToast(`Visibility update error: ${err.message}`, 'error');
     }
   };
 
-  // Drag & Drop Reorder Handlers (Pure Drag and Drop)
+  // Drag & Drop Reorder Handlers for Section Positioning
   const handleDragStart = (e, index) => {
     setDraggedIndex(index);
     e.dataTransfer.effectAllowed = 'move';
@@ -127,7 +195,57 @@ export const HomePageManager = () => {
     }
   };
 
-  // Reset All Sections Confirmation Handlers
+  // Section editor change handler
+  const handleActiveSectionChange = (updated) => {
+    setActiveSectionData(updated);
+  };
+
+  // Save active section content
+  const handleSaveActiveSection = async () => {
+    if (!activeKey || !activeSectionData) return;
+    setSavingSection(true);
+    try {
+      const res = await adminService.updateHomePageSection(activeKey, activeSectionData);
+      const savedData = res?.data?.sections?.[activeKey] || activeSectionData;
+      
+      setHomeData((prev) => ({
+        ...prev,
+        sections: {
+          ...prev.sections,
+          [activeKey]: savedData
+        }
+      }));
+      setOriginalActiveData(JSON.parse(JSON.stringify(savedData)));
+      addToast(`"${meta.title}" saved successfully!`, 'success');
+    } catch (err) {
+      addToast(`Failed to save: ${err.message}`, 'error');
+    } finally {
+      setSavingSection(false);
+    }
+  };
+
+  // Reset active section handler
+  const handleResetActiveSection = (toFactoryDefaults = false) => {
+    let sourceData = null;
+    if (toFactoryDefaults) {
+      sourceData = INITIAL_HOME_PAGE_DATA.sections[activeKey] || {};
+    } else {
+      sourceData = originalActiveData || INITIAL_HOME_PAGE_DATA.sections[activeKey] || {};
+    }
+
+    const resetSnapshot = JSON.parse(JSON.stringify(sourceData));
+    setActiveSectionData(resetSnapshot);
+    setResetVersion((v) => v + 1);
+    setIsResetSectionModalOpen(false);
+
+    if (toFactoryDefaults) {
+      addToast(`"${meta.title}" restored to factory defaults! Click 'Save Changes' to apply.`, 'info');
+    } else {
+      addToast(`"${meta.title}" reset to original saved values!`, 'info');
+    }
+  };
+
+  // Reset all 22 sections handler
   const handleConfirmResetAll = async () => {
     setLoading(true);
     try {
@@ -146,10 +264,17 @@ export const HomePageManager = () => {
     }
   };
 
+  // Active section visibility boolean
+  const isActiveSectionVisible =
+    activeSectionData?.isVisible !== false && activeSectionData?.isEnabled !== false;
+
+  // Active section index number (1-based position in homepage order)
+  const activePositionIndex = sectionsOrder.indexOf(activeKey) + 1;
+
   return (
     <div className="page-container animate-fade-in">
-      {/* Top Header matching Admin Design System */}
-      <div className="page-top-bar">
+      {/* Top Header matching Firevy Admin Design System */}
+      <div className="page-top-bar" style={{ marginBottom: '20px' }}>
         <div className="page-title-group">
           <h1>
             <Home size={24} />
@@ -189,153 +314,335 @@ export const HomePageManager = () => {
             <RotateCcw size={14} />
             <span>Reset Entire Home Page</span>
           </button>
+
+          <button
+            type="button"
+            onClick={handleSaveActiveSection}
+            className="btn btn-primary btn-sm"
+            disabled={savingSection || loading}
+          >
+            {savingSection ? (
+              <>
+                <Loader2 className="animate-spin" size={15} />
+                <span>Saving Changes...</span>
+              </>
+            ) : (
+              <>
+                <Save size={15} />
+                <span>Save Section Changes</span>
+              </>
+            )}
+          </button>
         </div>
       </div>
 
-      {/* Main Sections Directory Card */}
-      <div className="card" style={{ padding: '24px', backgroundColor: '#FFFFFF', border: '1px solid #E2E8F0', borderRadius: '12px', boxShadow: '0 1px 3px rgba(0,0,0,0.05)' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px', flexWrap: 'wrap', gap: '16px' }}>
+      {loading ? (
+        <div className="card" style={{ padding: '80px 20px', textAlign: 'center', backgroundColor: '#FFFFFF', borderRadius: '12px', border: '1px solid #E2E8F0' }}>
+          <Loader2 className="animate-spin" size={36} style={{ margin: '0 auto 14px auto', color: '#006B8F' }} />
+          <p style={{ fontSize: '14px', color: '#64748B', margin: 0 }}>Loading Home Page Sections...</p>
+        </div>
+      ) : (
+        /* Master-Detail 2-Panel Split Workspace */
+        <div className="cms-builder-workspace">
+          {/* ========================================================= */}
+          {/* LEFT RAIL: Page & Section Navigator + Positioning         */}
+          {/* ========================================================= */}
+          <aside className="cms-section-rail">
+            {/* Rail Header */}
+            <div className="cms-rail-header">
+              <h3 className="cms-rail-title">
+                <Layers size={15} style={{ color: 'var(--primary)' }} />
+                <span>Page Sections</span>
+              </h3>
+            </div>
+
+            {/* Quick Search Filter */}
+            <div className="cms-rail-search">
+              <Search size={14} className="cms-rail-search-icon" />
+              <input
+                type="text"
+                className="cms-rail-search-input"
+                placeholder="Search sections..."
+                value={searchFilter}
+                onChange={(e) => setSearchFilter(e.target.value)}
+              />
+            </div>
+
+            {/* Scrollable Reorderable Section List */}
+            <div className="cms-rail-list">
+              {sectionsOrder
+                .filter((key) => {
+                  if (!searchFilter) return true;
+                  const itemMeta = SECTION_METADATA[key] || { title: key, category: '', description: '', slug: '' };
+                  const query = searchFilter.toLowerCase();
+                  return (
+                    itemMeta.title?.toLowerCase().includes(query) ||
+                    itemMeta.category?.toLowerCase().includes(query) ||
+                    itemMeta.slug?.toLowerCase().includes(query) ||
+                    key.toLowerCase().includes(query)
+                  );
+                })
+                .map((sectionKey) => {
+                  const actualIdx = sectionsOrder.indexOf(sectionKey);
+                  const sectionData = sections[sectionKey] || INITIAL_HOME_PAGE_DATA.sections[sectionKey] || {};
+                  const isVisible = sectionData.isVisible !== false && sectionData.isEnabled !== false;
+                  const itemMeta = SECTION_METADATA[sectionKey] || {
+                    title: sectionKey,
+                    category: 'General',
+                    slug: `/#${sectionKey}`
+                  };
+                  const isSelected = activeKey === sectionKey;
+                  const isDragging = draggedIndex === actualIdx;
+                  const isDragOver = dragOverIndex === actualIdx;
+
+                  return (
+                    <div
+                      key={sectionKey}
+                      draggable={true}
+                      onDragStart={(e) => handleDragStart(e, actualIdx)}
+                      onDragOver={(e) => handleDragOver(e, actualIdx)}
+                      onDragEnd={handleDragEnd}
+                      onDrop={(e) => handleDrop(e, actualIdx)}
+                      onClick={() => handleSelectSection(sectionKey)}
+                      className={`cms-section-card ${isSelected ? 'active' : ''} ${isDragging ? 'dragging' : ''} ${isDragOver ? 'drag-over' : ''}`}
+                      title="Click to edit section content. Drag grip icon to reposition."
+                    >
+                      {/* Left: Drag Grip + Position Number + Title & Slug */}
+                      <div className="cms-card-left">
+                        <div
+                          className="cms-card-grip"
+                          onClick={(e) => e.stopPropagation()}
+                          title="Drag to change section position on homepage"
+                        >
+                          <GripVertical size={16} />
+                        </div>
+
+                        <div className="cms-card-number">
+                          {actualIdx + 1}
+                        </div>
+
+                        <div className="cms-card-details">
+                          <div className="cms-card-title">
+                            {itemMeta.title}
+                          </div>
+                          <div className="cms-card-slug">
+                            {`/#${sectionKey}`}
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Right: Toggle Switch + Chevron Indicator */}
+                      <div className="cms-card-right">
+                        <label
+                          className="cms-switch-wrap"
+                          onClick={(e) => e.stopPropagation()}
+                          title={isVisible ? 'Click to hide from public home' : 'Click to show on public home'}
+                        >
+                          <input
+                            type="checkbox"
+                            className="cms-switch-input"
+                            checked={isVisible}
+                            onChange={(e) => handleToggleVisibility(sectionKey, e)}
+                          />
+                          <span className="cms-switch-slider" />
+                        </label>
+
+                        {isSelected && (
+                          <div className="cms-card-arrow">
+                            <ChevronRight size={15} />
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  );
+                })}
+            </div>
+          </aside>
+
+          {/* ========================================================= */}
+          {/* RIGHT PANE: Selected Section Edit Form / Detail Editor    */}
+          {/* ========================================================= */}
+          <main className="cms-editor-pane">
+            {/* Section Header Bar */}
+            <div className="cms-editor-header">
+              <div className="cms-editor-header-left">
+                <div className="cms-editor-badge">
+                  {activePositionIndex || 1}
+                </div>
+                <div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                    <h2 className="cms-editor-title">
+                      <span>{meta.title}</span>
+                    </h2>
+                    <span
+                      style={{
+                        fontSize: '11px',
+                        fontWeight: 700,
+                        padding: '2px 8px',
+                        borderRadius: '12px',
+                        backgroundColor: '#E2E8F0',
+                        color: '#334155'
+                      }}
+                    >
+                      {meta.category}
+                    </span>
+                  </div>
+                  <p style={{ margin: '3px 0 0 0', fontSize: '13px', color: '#64748B' }}>
+                    {meta.description || `Manage and customize the content displayed on this live section (/#${activeKey}).`}
+                  </p>
+                </div>
+              </div>
+
+              <div className="cms-editor-header-actions">
+                <a
+                  href={`/#${activeKey}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-secondary btn-sm"
+                  style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}
+                >
+                  <ExternalLink size={14} />
+                  <span>Preview Public Home</span>
+                </a>
+              </div>
+            </div>
+
+            {/* Dynamic Active Section Editor */}
+            {ActiveEditor && activeSectionData ? (
+              <div>
+                <ErrorBoundary
+                  key={`${activeKey}-${resetVersion}`}
+                  title={`${meta.title} Editor`}
+                  onReset={() => handleResetActiveSection(false)}
+                >
+                  <ActiveEditor
+                    key={`${activeKey}-${resetVersion}`}
+                    data={activeSectionData}
+                    onChange={handleActiveSectionChange}
+                  />
+                </ErrorBoundary>
+              </div>
+            ) : (
+              <div style={{ padding: '40px', textAlign: 'center', color: '#64748B', backgroundColor: '#F8FAFC', borderRadius: '10px' }}>
+                <p>No editor component registered for section "{activeKey}".</p>
+              </div>
+            )}
+
+            {/* Sticky Action Bar at Bottom of Editor Pane */}
+            <div className="cms-sticky-bar">
+              <div style={{ display: 'flex', alignItems: 'center', gap: '18px', flexWrap: 'wrap' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <input
+                    type="checkbox"
+                    id="pageSectionVisible"
+                    checked={isActiveSectionVisible}
+                    onChange={(e) =>
+                      setActiveSectionData((prev) => ({
+                        ...prev,
+                        isVisible: e.target.checked,
+                        isEnabled: e.target.checked
+                      }))
+                    }
+                    style={{ width: '16px', height: '16px', cursor: 'pointer', accentColor: '#006B8F' }}
+                  />
+                  <label htmlFor="pageSectionVisible" style={{ fontSize: '13px', fontWeight: 600, color: '#0F172A', cursor: 'pointer', userSelect: 'none' }}>
+                    Visible on Public Home
+                  </label>
+                </div>
+
+                <button
+                  type="button"
+                  onClick={() => setIsResetSectionModalOpen(true)}
+                  className="btn btn-danger btn-sm"
+                  title="Reset this section to original saved values"
+                  disabled={savingSection || loading}
+                >
+                  <RotateCcw size={13} />
+                  <span>Reset Section</span>
+                </button>
+              </div>
+
+              <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+                <button
+                  type="button"
+                  onClick={() => handleResetActiveSection(false)}
+                  className="btn btn-secondary btn-sm"
+                  disabled={savingSection}
+                >
+                  Revert Unsaved
+                </button>
+
+                <button
+                  type="button"
+                  onClick={handleSaveActiveSection}
+                  className="btn btn-primary btn-sm"
+                  disabled={savingSection || loading}
+                >
+                  {savingSection ? (
+                    <>
+                      <Loader2 className="animate-spin" size={15} />
+                      <span>Saving...</span>
+                    </>
+                  ) : (
+                    <>
+                      <CheckCircle2 size={14} />
+                      <span>Save Changes</span>
+                    </>
+                  )}
+                </button>
+              </div>
+            </div>
+          </main>
+        </div>
+      )}
+
+      {/* Reset Section Confirmation Modal */}
+      <Modal
+        isOpen={isResetSectionModalOpen}
+        onClose={() => setIsResetSectionModalOpen(false)}
+        title="Reset Section"
+        footer={
+          <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '10px', flexWrap: 'wrap' }}>
+            <button
+              type="button"
+              onClick={() => setIsResetSectionModalOpen(false)}
+              className="btn btn-secondary"
+            >
+              Cancel
+            </button>
+            <button
+              type="button"
+              onClick={() => handleResetActiveSection(false)}
+              className="btn btn-primary"
+              style={{ backgroundColor: '#006B8F', borderColor: '#006B8F', color: '#FFFFFF' }}
+            >
+              Reset Unsaved Edits
+            </button>
+            <button
+              type="button"
+              onClick={() => handleResetActiveSection(true)}
+              className="btn btn-danger"
+              style={{ backgroundColor: '#DC2626', borderColor: '#DC2626', color: '#FFFFFF' }}
+            >
+              Restore Factory Defaults
+            </button>
+          </div>
+        }
+      >
+        <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px', padding: '8px 0' }}>
+          <div style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: '#FEF2F2', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#DC2626', flexShrink: 0 }}>
+            <AlertTriangle size={22} />
+          </div>
           <div>
-            <h3 style={{ fontSize: '18px', fontWeight: 700, color: '#0F172A', margin: 0 }}>
-              All 22 Home Page Sections
-            </h3>
-            <p style={{ fontSize: '13px', color: '#64748B', margin: '4px 0 0 0' }}>
-              Drag and drop sections to rearrange the layout order. Click <strong>Edit Section</strong> to customize content and media.
+            <h4 style={{ margin: '0 0 6px 0', fontSize: '15px', fontWeight: 700, color: '#0F172A' }}>
+              Reset "{meta.title}"?
+            </h4>
+            <p style={{ margin: 0, fontSize: '13px', color: '#64748B', lineHeight: '1.5' }}>
+              Choose <strong>Reset Unsaved Edits</strong> to revert this form back to its last saved values, or <strong>Restore Factory Defaults</strong> to reload original template values.
             </p>
           </div>
-
-          {/* Search Box */}
-          <div style={{ position: 'relative', width: '280px' }}>
-            <Search size={16} style={{ position: 'absolute', left: '10px', top: '50%', transform: 'translateY(-50%)', color: '#94A3B8' }} />
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Search sections..."
-              value={searchFilter}
-              onChange={(e) => setSearchFilter(e.target.value)}
-              style={{ fontSize: '13px', padding: '8px 12px 8px 34px', borderRadius: '8px' }}
-            />
-          </div>
         </div>
-
-        {loading ? (
-          <div style={{ padding: '60px 20px', textAlign: 'center' }}>
-            <Loader2 className="animate-spin" size={36} style={{ margin: '0 auto', color: '#006B8F' }} />
-            <p style={{ marginTop: '14px', fontSize: '14px', color: '#64748B' }}>Loading Home Page Sections...</p>
-          </div>
-        ) : (
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            {sectionsOrder
-              .filter((key) => {
-                if (!searchFilter) return true;
-                const meta = SECTION_METADATA[key] || { title: key, category: '', description: '' };
-                return (
-                  meta.title.toLowerCase().includes(searchFilter.toLowerCase()) ||
-                  meta.category.toLowerCase().includes(searchFilter.toLowerCase()) ||
-                  (meta.description && meta.description.toLowerCase().includes(searchFilter.toLowerCase())) ||
-                  key.toLowerCase().includes(searchFilter.toLowerCase())
-                );
-              })
-              .map((sectionKey, idx) => {
-                const sectionData = sections[sectionKey] || INITIAL_HOME_PAGE_DATA.sections[sectionKey] || {};
-                const isVisible = sectionData.isVisible !== false && sectionData.isEnabled !== false;
-                const meta = SECTION_METADATA[sectionKey] || { title: sectionKey, category: 'General', actionLabel: 'Edit', description: '' };
-                const isDragging = draggedIndex === idx;
-                const isDragOver = dragOverIndex === idx;
-
-                return (
-                  <div
-                    key={sectionKey}
-                    draggable={true}
-                    onDragStart={(e) => handleDragStart(e, idx)}
-                    onDragOver={(e) => handleDragOver(e, idx)}
-                    onDragEnd={handleDragEnd}
-                    onDrop={(e) => handleDrop(e, idx)}
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'space-between',
-                      padding: '14px 18px',
-                      backgroundColor: isVisible ? '#FFFFFF' : '#F8FAFC',
-                      border: isDragOver ? '2px dashed #006B8F' : isDragging ? '1px dashed #94A3B8' : '1px solid #E2E8F0',
-                      borderRadius: '10px',
-                      transition: 'all 0.15s ease',
-                      opacity: isDragging ? 0.4 : isVisible ? 1 : 0.7,
-                      boxShadow: isVisible ? '0 1px 2px rgba(0,0,0,0.03)' : 'none',
-                      cursor: 'grab'
-                    }}
-                  >
-                    {/* Left Details */}
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '14px', flex: 1, minWidth: 0, paddingRight: '16px' }}>
-                      <div
-                        style={{ color: '#94A3B8', cursor: 'grab', display: 'flex', alignItems: 'center' }}
-                        title="Drag to reorder section"
-                      >
-                        <GripVertical size={20} />
-                      </div>
-                      <div style={{ width: '32px', height: '32px', borderRadius: '8px', backgroundColor: 'rgba(0, 107, 143, 0.08)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '13px', fontWeight: 800, color: '#006B8F', flexShrink: 0 }}>
-                        {idx + 1}
-                      </div>
-                      <div style={{ flex: 1, minWidth: 0 }}>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                          <span style={{ fontSize: '14px', fontWeight: 700, color: '#0F172A' }}>
-                            {meta.title}
-                          </span>
-                          <span style={{ fontSize: '11px', padding: '2px 8px', borderRadius: '6px', backgroundColor: '#F1F5F9', color: '#475569', fontWeight: 600 }}>
-                            {meta.category}
-                          </span>
-                        </div>
-                        <div style={{ fontSize: '12px', color: '#64748B', marginTop: '3px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                          {meta.description || sectionData.title || 'Dynamic section configured with production content'}
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Right Controls */}
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexShrink: 0 }}>
-                      {/* Visibility Status Badge */}
-                      <Badge variant={isVisible ? 'success' : 'secondary'}>
-                        {isVisible ? 'Live' : 'Hidden'}
-                      </Badge>
-
-                      {/* Visibility Toggle Button */}
-                      <button
-                        type="button"
-                        onClick={() => handleToggleVisibility(sectionKey)}
-                        className={`btn btn-xs ${isVisible ? 'btn-ghost' : 'btn-secondary'}`}
-                        style={{ padding: '6px 8px' }}
-                        title={isVisible ? 'Click to hide from public home' : 'Click to show on public home'}
-                      >
-                        {isVisible ? <EyeOff size={15} style={{ color: '#DC2626' }} /> : <Eye size={15} style={{ color: '#16A34A' }} />}
-                      </button>
-
-                      {/* Full Page Section Editor */}
-                      <button
-                        type="button"
-                        onClick={() => navigate(`/admin/home-page/${sectionKey}`)}
-                        className="btn btn-xs btn-primary"
-                        style={{
-                          padding: '6px 14px',
-                          display: 'flex',
-                          alignItems: 'center',
-                          gap: '6px',
-                          fontSize: '12px',
-                          fontWeight: 700,
-                          backgroundColor: '#006B8F',
-                          borderColor: '#006B8F',
-                          color: '#FFFFFF',
-                          borderRadius: '6px'
-                        }}
-                      >
-                        <Edit2 size={13} /> Edit Section
-                      </button>
-                    </div>
-                  </div>
-                );
-              })}
-          </div>
-        )}
-      </div>
+      </Modal>
 
       {/* Reset All 22 Sections Confirmation Modal */}
       <Modal

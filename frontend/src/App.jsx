@@ -31,6 +31,29 @@ import SettingsPage from './admin/pages/SettingsPage';
 import ApiPlaygroundPage from './admin/pages/ApiPlaygroundPage';
 import AdminNotFoundPage from './admin/pages/NotFoundPage';
 
+// Company Admin Sub-Pages
+import {
+  AboutFirevyAdminPage,
+  CeoMessageAdminPage,
+  OurTeamAdminPage,
+  EventsActivitiesAdminPage,
+  BrochureAdminPage,
+  WhyChooseUsAdminPage,
+  GreatPlaceToWorkAdminPage,
+  WomenEmpowermentAdminPage,
+  AwardsRecognitionAdminPage,
+  InsightfulVideosAdminPage,
+  BlogAdminPage,
+  CsrAdminPage,
+  PodcastAdminPage,
+  DeliveryModelsAdminPage,
+  EngagementModelsAdminPage,
+  DevelopmentMethodologyAdminPage,
+  ClientTestimonialsAdminPage,
+  VideoTestimonialAdminPage,
+  ClutchTestimonialAdminPage
+} from './admin/pages/CompanyAdmin/CompanySubPages';
+
 // Public Website Lazy-Loaded Pages
 const Home = lazy(() => import('./pages/Home'));
 const About = lazy(() => import('./pages/About'));
@@ -164,22 +187,41 @@ export function App() {
                   </AdminRouteWrapper>
                 }
               />
-              <Route
-                path="/admin/company"
-                element={
-                  <AdminRouteWrapper>
-                    <SectionEditorPage />
-                  </AdminRouteWrapper>
-                }
-              />
-              <Route
-                path="/admin/company/:sectionKey"
-                element={
-                  <AdminRouteWrapper>
-                    <SectionEditorPage />
-                  </AdminRouteWrapper>
-                }
-              />
+              {/* ============================================================
+                  COMPANY SECTION SUB-PAGES (20 Sub-Pages)
+                  ============================================================ */}
+              {/* Group 1: ABOUT US */}
+              <Route path="/admin/company/about-firevy" element={<AdminRouteWrapper><AboutFirevyAdminPage /></AdminRouteWrapper>} />
+              <Route path="/admin/company/about" element={<AdminRouteWrapper><AboutFirevyAdminPage /></AdminRouteWrapper>} />
+              <Route path="/admin/company/ceo-message" element={<AdminRouteWrapper><CeoMessageAdminPage /></AdminRouteWrapper>} />
+              <Route path="/admin/company/our-team" element={<AdminRouteWrapper><OurTeamAdminPage /></AdminRouteWrapper>} />
+              <Route path="/admin/company/events-activities" element={<AdminRouteWrapper><EventsActivitiesAdminPage /></AdminRouteWrapper>} />
+              <Route path="/admin/company/download-brochure" element={<AdminRouteWrapper><BrochureAdminPage /></AdminRouteWrapper>} />
+              <Route path="/admin/company/brochure" element={<AdminRouteWrapper><BrochureAdminPage /></AdminRouteWrapper>} />
+              <Route path="/admin/company/why-choose-us" element={<AdminRouteWrapper><WhyChooseUsAdminPage /></AdminRouteWrapper>} />
+              <Route path="/admin/company/great-place-to-work" element={<AdminRouteWrapper><GreatPlaceToWorkAdminPage /></AdminRouteWrapper>} />
+              <Route path="/admin/company/women-empowerment" element={<AdminRouteWrapper><WomenEmpowermentAdminPage /></AdminRouteWrapper>} />
+              <Route path="/admin/company/awards-recognition" element={<AdminRouteWrapper><AwardsRecognitionAdminPage /></AdminRouteWrapper>} />
+              <Route path="/admin/company/insightful-videos" element={<AdminRouteWrapper><InsightfulVideosAdminPage /></AdminRouteWrapper>} />
+              <Route path="/admin/company/blog" element={<AdminRouteWrapper><BlogAdminPage /></AdminRouteWrapper>} />
+              <Route path="/admin/company/careers" element={<AdminRouteWrapper><CareersAdminPage /></AdminRouteWrapper>} />
+              <Route path="/admin/company/careers-jobs" element={<AdminRouteWrapper><CareersAdminPage /></AdminRouteWrapper>} />
+              <Route path="/admin/company/csr" element={<AdminRouteWrapper><CsrAdminPage /></AdminRouteWrapper>} />
+              <Route path="/admin/company/podcast" element={<AdminRouteWrapper><PodcastAdminPage /></AdminRouteWrapper>} />
+
+              {/* Group 2: MODELS */}
+              <Route path="/admin/company/delivery-models" element={<AdminRouteWrapper><DeliveryModelsAdminPage /></AdminRouteWrapper>} />
+              <Route path="/admin/company/engagement-models" element={<AdminRouteWrapper><EngagementModelsAdminPage /></AdminRouteWrapper>} />
+              <Route path="/admin/company/development-methodology" element={<AdminRouteWrapper><DevelopmentMethodologyAdminPage /></AdminRouteWrapper>} />
+
+              {/* Group 3: TESTIMONIAL */}
+              <Route path="/admin/company/client-testimonials" element={<AdminRouteWrapper><ClientTestimonialsAdminPage /></AdminRouteWrapper>} />
+              <Route path="/admin/company/video-testimonial" element={<AdminRouteWrapper><VideoTestimonialAdminPage /></AdminRouteWrapper>} />
+              <Route path="/admin/company/clutch-testimonial" element={<AdminRouteWrapper><ClutchTestimonialAdminPage /></AdminRouteWrapper>} />
+
+              {/* Fallback Section Editor for other Company section keys */}
+              <Route path="/admin/company" element={<AdminRouteWrapper><AboutFirevyAdminPage /></AdminRouteWrapper>} />
+              <Route path="/admin/company/:sectionKey" element={<AdminRouteWrapper><SectionEditorPage /></AdminRouteWrapper>} />
               <Route
                 path="/admin/product"
                 element={

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
   ArrowRight,
@@ -9,9 +9,24 @@ import {
 import Container from '../common/Container';
 import SEO from '../common/SEO';
 import WorkTogetherNewsletterSection from '../home/WorkTogetherNewsletterSection';
+import companyPublicService from '../../services/companyPublicService';
 
 export const AwardsRecognitionPage = () => {
   const [selectedVideoModal, setSelectedVideoModal] = useState(null);
+  const [dynamicAwards, setDynamicAwards] = useState(null);
+
+  useEffect(() => {
+    companyPublicService.getAwards().then((data) => {
+      if (data && data.length > 0) {
+        setDynamicAwards(data.map(item => ({
+          id: item._id || item.id,
+          title: item.title,
+          platform: item.organization || item.platform,
+          img: item.image || item.img
+        })));
+      }
+    }).catch(console.error);
+  }, []);
 
   // Statistics Data (Exact Match from Sapphire)
   const stats = [
@@ -377,7 +392,7 @@ export const AwardsRecognitionPage = () => {
 
           {/* Badges Grid */}
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
-            {awardBadges.map((item) => (
+            {(dynamicAwards && dynamicAwards.length > 0 ? dynamicAwards : awardBadges).map((item) => (
               <div
                 key={item.id}
                 className="p-6 rounded-[16px] bg-white border border-slate-200 hover:border-[#006B8F] hover:shadow-md transition-all duration-300 flex flex-col items-center justify-center text-center group"

@@ -5,11 +5,17 @@ export const homePageService = {
   getHomePageData: async () => {
     try {
       const response = await apiClient.get('/home-page');
-      if (response && response.data) {
+      const payload = (response && response.data && (response.data.sections || response.data.sectionsOrder))
+        ? response.data
+        : (response && (response.sections || response.sectionsOrder))
+        ? response
+        : (response?.data || response);
+
+      if (payload && (payload.sections || payload.sectionsOrder)) {
         return {
-          sectionsOrder: response.data.sectionsOrder || initialSectionsOrder,
-          sections: response.data.sections || initialHomePageData.sections,
-          sectionsList: response.data.sectionsList || []
+          sectionsOrder: payload.sectionsOrder || initialSectionsOrder,
+          sections: payload.sections || initialHomePageData.sections,
+          sectionsList: payload.sectionsList || []
         };
       }
       return initialHomePageData;

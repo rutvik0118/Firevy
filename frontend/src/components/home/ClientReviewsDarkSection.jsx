@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Star, ArrowLeft, ArrowRight } from 'lucide-react';
 
 const defaultReviews = [
@@ -93,12 +93,12 @@ export const ClientReviewsDarkSection = ({ data }) => {
 
   // Auto-scroll timer
   useEffect(() => {
-    if (isPaused) return;
+    if (isPaused || total <= 1) return;
     const interval = setInterval(() => {
       goNext();
     }, 4000);
     return () => clearInterval(interval);
-  }, [goNext, isPaused]);
+  }, [goNext, isPaused, total]);
 
   return (
     <section className="py-16 sm:py-20 bg-[#006085] text-white relative font-sans overflow-hidden border-b border-cyan-950 select-none">
@@ -138,25 +138,25 @@ export const ClientReviewsDarkSection = ({ data }) => {
 
                   {/* Main Quote Title */}
                   <h4 className="text-[16px] sm:text-[17px] font-[800] text-slate-900 leading-snug font-sans mb-2.5 line-clamp-2">
-                    {review.title}
+                    {review.title || review.headline}
                   </h4>
 
                   {/* Description Comment */}
                   <p className="text-[12.5px] sm:text-[13px] text-slate-600 leading-[1.65] font-[400] font-sans line-clamp-3">
-                    {review.comment || review.desc}
+                    {review.comment || review.desc || review.description}
                   </p>
                 </div>
 
                 {/* Author Profile Row */}
                 <div className="flex items-center space-x-3 pt-3 border-t border-slate-100">
                   <img
-                    src={review.avatar}
-                    alt={review.author}
+                    src={review.avatar || '/images/client/1.webp'}
+                    alt={review.author || review.authorName}
                     className="w-11 h-11 rounded-full object-cover shrink-0 border border-slate-200 shadow-xs"
                   />
                   <div className="min-w-0">
                     <div className="text-[14px] font-[800] text-slate-900 tracking-tight font-sans truncate">
-                      {review.author}
+                      {review.author || review.authorName}
                     </div>
                     <div className="text-[12px] font-[500] text-slate-500 font-sans truncate">
                       {review.location}
@@ -170,7 +170,7 @@ export const ClientReviewsDarkSection = ({ data }) => {
                 {/* Rating Score & Stars */}
                 <div>
                   <div className="text-[36px] sm:text-[40px] font-[900] text-slate-900 leading-none tracking-tight font-sans mb-1.5">
-                    {review.score || "5.0"}
+                    {review.score || review.overallRating || "5.0"}
                   </div>
                   <div className="flex items-center justify-center space-x-0.5 text-amber-400">
                     {[...Array(review.stars || 5)].map((_, s) => (
@@ -183,19 +183,19 @@ export const ClientReviewsDarkSection = ({ data }) => {
                 <div className="space-y-1.5 text-[11.5px] font-[700] text-slate-700 border-t border-blue-200/70 pt-3">
                   <div className="flex justify-between items-center">
                     <span className="text-slate-600 font-[700]">Quality</span>
-                    <span className="font-[900] text-slate-900">{review.ratings?.quality || "5.0"}</span>
+                    <span className="font-[900] text-slate-900">{review.ratings?.quality || review.quality || "5.0"}</span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-slate-600 font-[700]">Schedule</span>
-                    <span className="font-[900] text-slate-900">{review.ratings?.schedule || "5.0"}</span>
+                    <span className="font-[900] text-slate-900">{review.ratings?.schedule || review.schedule || "5.0"}</span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-slate-600 font-[700]">Cost</span>
-                    <span className="font-[900] text-slate-900">{review.ratings?.cost || "5.0"}</span>
+                    <span className="font-[900] text-slate-900">{review.ratings?.cost || review.cost || "5.0"}</span>
                   </div>
                   <div className="flex justify-between items-center text-left">
                     <span className="text-slate-600 font-[700] leading-tight pr-1">Willing to Refer</span>
-                    <span className="font-[900] text-slate-900">{review.ratings?.refer || "5.0"}</span>
+                    <span className="font-[900] text-slate-900">{review.ratings?.refer || review.refer || "5.0"}</span>
                   </div>
                 </div>
               </div>
@@ -209,7 +209,7 @@ export const ClientReviewsDarkSection = ({ data }) => {
         <button
           onClick={goPrev}
           type="button"
-          className="text-white/80 hover:text-white transition-all p-1.5 hover:scale-110"
+          className="text-white/80 hover:text-white transition-all p-1.5 hover:scale-110 cursor-pointer"
           aria-label="Previous Review"
         >
           <ArrowLeft className="w-7 h-7 stroke-[2.5]" />
@@ -217,7 +217,7 @@ export const ClientReviewsDarkSection = ({ data }) => {
         <button
           onClick={goNext}
           type="button"
-          className="text-white/80 hover:text-white transition-all p-1.5 hover:scale-110"
+          className="text-white/80 hover:text-white transition-all p-1.5 hover:scale-110 cursor-pointer"
           aria-label="Next Review"
         >
           <ArrowRight className="w-7 h-7 stroke-[2.5]" />

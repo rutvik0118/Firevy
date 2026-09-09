@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
   ArrowRight,
@@ -21,12 +21,31 @@ import {
 import Container from '../common/Container';
 import SEO from '../common/SEO';
 import WorkTogetherNewsletterSection from '../home/WorkTogetherNewsletterSection';
+import companyPublicService from '../../services/companyPublicService';
 
 export const InsightfulVideosPage = () => {
   const [activeIndustry, setActiveIndustry] = useState('All');
   const [selectedVideoModal, setSelectedVideoModal] = useState(null);
   const [visibleCount, setVisibleCount] = useState(6);
+  const [dynamicVideos, setDynamicVideos] = useState(null);
   const tagContainerRef = useRef(null);
+
+  useEffect(() => {
+    companyPublicService.getVideos().then((data) => {
+      if (data && data.length > 0) {
+        setDynamicVideos(data.map(v => ({
+          id: v._id || v.id,
+          industry: v.industry,
+          title: v.title,
+          duration: v.duration,
+          tag: v.tag,
+          img: v.thumbnail || v.img,
+          youtubeId: v.youtubeId || (v.videoUrl?.includes('v=') ? v.videoUrl.split('v=')[1]?.split('&')[0] : 'dQw4w9WgXcQ'),
+          desc: v.description || v.desc
+        })));
+      }
+    }).catch(console.error);
+  }, []);
 
   // Industry Categories (Exact list from live site & Image 1)
   const industryCategories = [
@@ -189,10 +208,11 @@ export const InsightfulVideosPage = () => {
   ];
 
   // Filtered videos based on activeIndustry
+  const currentVideoList = dynamicVideos && dynamicVideos.length > 0 ? dynamicVideos : videoList;
   const filteredVideos =
     activeIndustry === 'All'
-      ? videoList
-      : videoList.filter((v) => v.industry.toLowerCase() === activeIndustry.toLowerCase() || (activeIndustry === 'Human Resource' && v.industry === 'HR'));
+      ? currentVideoList
+      : currentVideoList.filter((v) => v.industry.toLowerCase() === activeIndustry.toLowerCase() || (activeIndustry === 'Human Resource' && v.industry === 'HR'));
 
   // Scroll handlers for tags
   const scrollTags = (direction) => {

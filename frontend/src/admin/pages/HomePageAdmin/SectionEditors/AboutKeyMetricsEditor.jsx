@@ -77,7 +77,7 @@ export const AboutKeyMetricsEditor = ({ data, onChange }) => {
             <input
               type="text"
               className="form-control"
-              value={data?.title || 'Glance through our creations and presence'}
+              value={data?.title || 'About Us'}
               onChange={(e) => handleFieldChange('title', e.target.value)}
               style={{
                 width: '100%',
@@ -95,7 +95,7 @@ export const AboutKeyMetricsEditor = ({ data, onChange }) => {
             <textarea
               className="form-control"
               rows={2}
-              value={data?.description || "We are a team of qualified Salesforce & Enterprise Development Professionals adept at expanding your current system's capabilities via the development and integration of Salesforce CRM and cloud architectures."}
+              value={data?.description || 'Sapphire delivers cutting-edge digital solutions that drive our clients to achieve unparalleled success'}
               onChange={(e) => handleFieldChange('description', e.target.value)}
               style={{
                 width: '100%',

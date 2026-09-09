@@ -94,8 +94,14 @@ export const TechShowcaseTabbed = ({ data }) => {
   const title = data?.title || 'Technologies We Work With';
   const description = data?.description || 'We work on wide range of tools and technologies to cater client business requirement for existing project or new application.';
 
-  const tabs = Object.keys(defaultTechData);
-  const current = defaultTechData[activeTab] || defaultTechData['Cloud & Devops'];
+  const techData = (data?.techData && typeof data.techData === 'object' && Object.keys(data.techData).length > 0)
+    ? data.techData
+    : (data?.categories && typeof data.categories === 'object' && Object.keys(data.categories).length > 0
+        ? data.categories
+        : defaultTechData);
+
+  const tabs = Object.keys(techData);
+  const current = techData[activeTab] || techData[tabs[0]] || defaultTechData['Cloud & Devops'];
 
   return (
     <section className="py-12 sm:py-14 bg-white border-b border-slate-200 text-slate-900 relative font-sans select-none">

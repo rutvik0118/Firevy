@@ -37,14 +37,14 @@ export const ConversionCalloutBanner = ({ data }) => {
         <div className="absolute bottom-6 right-[45%] w-32 h-32 border border-white/10 rounded-lg -rotate-12" />
       </div>
 
-      <div className="w-full flex items-center justify-between min-h-[200px] lg:min-h-[250px] xl:min-h-[270px]">
+      <div className="w-full flex items-center justify-between min-h-[375px]">
         {/* Left Flush Grayscale Photo with Rounded Right Edge */}
         {leftImg && (
           <div className="hidden lg:flex shrink-0 self-stretch items-center justify-start">
             <img
               src={leftImg}
               alt="Business Handshake"
-              className="h-full max-h-[270px] xl:max-h-[300px] w-auto max-w-[200px] lg:max-w-[250px] xl:max-w-[310px] object-cover rounded-r-[50px] xl:rounded-r-[70px] shadow-2xl filter grayscale contrast-125 border-r border-white/10"
+              className="h-full max-h-[375px] w-auto max-w-[220px] lg:max-w-[280px] xl:max-w-[360px] object-cover rounded-r-[50px] xl:rounded-r-[70px] shadow-2xl filter grayscale contrast-125 border-r border-white/10"
             />
           </div>
         )}
@@ -75,7 +75,7 @@ export const ConversionCalloutBanner = ({ data }) => {
             <img
               src={rightImg}
               alt="Corporate Team"
-              className="h-full max-h-[270px] xl:max-h-[300px] w-auto max-w-[200px] lg:max-w-[250px] xl:max-w-[310px] object-cover rounded-l-[50px] xl:rounded-l-[70px] shadow-2xl filter grayscale contrast-125 border-l border-white/10"
+              className="h-full max-h-[375px] w-auto max-w-[220px] lg:max-w-[280px] xl:max-w-[360px] object-cover rounded-l-[50px] xl:rounded-l-[70px] shadow-2xl filter grayscale contrast-125 border-l border-white/10"
             />
           </div>
         )}
