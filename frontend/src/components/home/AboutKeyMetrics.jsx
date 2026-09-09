@@ -1,4 +1,5 @@
 import React from 'react';
+import BRAND from '../../constants/brand';
 
 const defaultCards = [
   {
@@ -7,7 +8,7 @@ const defaultCards = [
     image: '/images/first.webp'
   },
   {
-    metric: '320+',
+    metric: '95+',
     label: '5-Star Clutch Reviews',
     image: '/images/homeinnovation/second.webp'
   },
@@ -34,18 +35,18 @@ const defaultCards = [
   {
     metric: '2800+',
     label: 'Satisfied Clients',
-    image: '/images/awards/hdimages/client_seven.png'
+    image: '/images/client_seven.webp'
   },
   {
     metric: '1500+',
     label: 'Completed Projects',
-    image: '/images/awards/hdimages/clienttestimonial3.png'
+    image: '/images/clienttestimonial3.webp'
   }
 ];
 
 export const AboutKeyMetrics = ({ data }) => {
   const title = data?.title || 'About Us';
-  const description = data?.description || 'Sapphire delivers cutting-edge digital solutions that drive our clients to achieve unparalleled success';
+  const description = data?.description || `${BRAND.name} delivers cutting-edge digital solutions that drive our clients to achieve unparalleled success`;
   const cards = defaultCards;
 
   return (

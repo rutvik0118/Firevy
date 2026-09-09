@@ -33,13 +33,13 @@ export const DeliveryModels = () => {
       <section className="pt-28 pb-16 md:pt-36 md:pb-20 bg-[#F4F8FA] border-b border-slate-200/60 relative overflow-hidden font-sans">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            
+
             {/* Left Column */}
             <div className="lg:col-span-7 space-y-6 text-left">
               <h1 className="text-[34px] sm:text-[44px] md:text-[50px] font-[800] text-slate-900 leading-[1.18] tracking-tight font-sans">
                 Explore Our Delivery Model
               </h1>
-              
+
               <p className="text-[15px] sm:text-[16px] md:text-[17px] text-slate-600 leading-relaxed font-[400] max-w-2xl font-sans">
                 The Delivery Model Defines The Way Of Project Delivery Depending On The Location Of Manpower Resources. {BRAND.name} Offers Flexible And Efficient Delivery Models That Ensure Only The Success Of The Project.
               </p>
@@ -149,11 +149,11 @@ export const DeliveryModels = () => {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
+
             {/* Left Diagram: 4-Petal Delivery Model Flower Graphic (1:1 Reference Match) */}
             <div className="lg:col-span-6 flex justify-center items-center">
               <div className="relative w-full max-w-[420px] aspect-square flex items-center justify-center">
-                
+
                 {/* Top Circle: Client Side */}
                 <div className="absolute top-0 w-44 h-44 rounded-full bg-[#1E40AF] text-white flex items-start justify-center pt-8 shadow-xl">
                   <span className="text-base font-[800] tracking-tight font-sans">Client Side</span>
@@ -217,7 +217,7 @@ export const DeliveryModels = () => {
           ============================================================ */}
       <section className="py-16 md:py-24 bg-[#F4F8FA] text-slate-900 font-sans relative border-b border-slate-200/80">
         <Container>
-          
+
           {/* Header */}
           <div className="text-center max-w-4xl mx-auto mb-12">
             <h2 className="text-[32px] sm:text-[40px] font-[800] text-slate-900 tracking-tight leading-tight mb-4 font-sans">
@@ -231,7 +231,7 @@ export const DeliveryModels = () => {
           {/* Interactive Node Architecture Diagram (Image 3) */}
           <div className="max-w-4xl mx-auto mb-16 py-8">
             <div className="relative w-full h-[360px] sm:h-[420px] flex items-center justify-center">
-              
+
               {/* Top Left: Client Manager (Cyan Node) */}
               <div className="absolute top-2 left-6 sm:left-16 flex flex-col items-center">
                 <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-[#0284C7] text-white flex flex-col items-center justify-center shadow-xl border-4 border-white">
@@ -287,7 +287,7 @@ export const DeliveryModels = () => {
 
           {/* 6 Benefit Cards Grid (Image 4) */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-10 text-left font-sans">
-            
+
             {/* Card 1: Low Cost */}
             <div className="bg-white rounded-[12px] p-6 shadow-sm border border-slate-200/80 hover:shadow-md transition-shadow">
               <h3 className="text-lg font-[800] text-slate-900 mb-2 font-sans">Low Cost</h3>
@@ -369,7 +369,7 @@ export const DeliveryModels = () => {
           {/* Connected Node Architecture Diagram (Image 1) */}
           <div className="max-w-3xl mx-auto mb-14 p-6 sm:p-10 border-2 border-dashed border-slate-300 rounded-2xl bg-slate-50/50">
             <div className="flex flex-col sm:flex-row items-center justify-between gap-6 sm:gap-10">
-              
+
               {/* Onsite Project Manager */}
               <div className="flex flex-col items-center">
                 <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-full bg-[#0284C7] text-white flex flex-col items-center justify-center shadow-xl">
@@ -409,7 +409,7 @@ export const DeliveryModels = () => {
 
           {/* 5 Benefit Cards Grid (Image 2) */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-10 text-left font-sans">
-            
+
             {/* Card 1: Effective Communication */}
             <div className="bg-white rounded-[12px] p-6 shadow-sm border border-slate-200/80 hover:shadow-md transition-shadow">
               <h3 className="text-lg font-[800] text-slate-900 mb-2 font-sans">Effective Communication</h3>
@@ -481,7 +481,7 @@ export const DeliveryModels = () => {
 
           {/* Hybrid Process Flowchart Diagram (Image 3) */}
           <div className="max-w-4xl mx-auto mb-16 p-6 sm:p-10 border border-slate-200 rounded-2xl bg-white shadow-sm">
-            
+
             {/* ONSITE LEVEL */}
             <div className="border-b border-dashed border-slate-300 pb-6 mb-6">
               <span className="text-xs font-[900] text-slate-500 uppercase tracking-widest block mb-4 text-left">ONSITE LEVEL</span>
@@ -514,7 +514,7 @@ export const DeliveryModels = () => {
 
           {/* 6 Benefit Cards Grid (Image 4) */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-10 text-left font-sans">
-            
+
             {/* Card 1: Optimum Productivity */}
             <div className="bg-white rounded-[12px] p-6 shadow-sm border border-slate-200/80 hover:shadow-md transition-shadow">
               <h3 className="text-lg font-[800] text-slate-900 mb-2 font-sans">Optimum Productivity</h3>
