@@ -4,44 +4,66 @@ import { Star, ArrowLeft, ArrowRight } from 'lucide-react';
 const defaultReviews = [
   {
     id: 1,
-    title: "firevy.co's team communicated effectively...",
-    comment: "firevy.co successfully implemented all UX and design features on the app. The team has consistently delivered on milestones with remarkable technical agility.",
+    title: "Sapphire Software Solutions' team communicated effectively...",
+    comment: "Sapphire Software Solutions successfully implemented all UX and design features on the app. The team has consistently delivered on...",
     author: "Derrick Surratt",
     location: "Arkansas",
-    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80",
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80",
     score: "5.0",
     stars: 5,
     ratings: { quality: "5.0", schedule: "5.0", cost: "5.0", refer: "5.0" }
   },
   {
     id: 2,
-    title: "The team maintained excellent communication throughout...",
-    comment: "firevy.co's updates improved a product's UX per the end customer's requests. The team is personable, reaches their deliverables ahead of schedule, and maintains excellent communication.",
+    title: "They're able to listen to customer requests and attend to urgent matters.",
+    comment: "Sapphire Software Solutions' updates improved a product's UX per the end customer's requests. The team is personable, reaches their...",
     author: "Hamidah Nalwoga",
     location: "Massachusetts",
-    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80",
+    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80",
     score: "5.0",
     stars: 5,
     ratings: { quality: "5.0", schedule: "5.0", cost: "5.0", refer: "5.0" }
   },
   {
     id: 3,
-    title: "Intuitive, sleek, and high performing solution...",
-    comment: "The client was highly pleased with firevy.co's development work. The team met expectations, and the interface design was intuitive, sleek, and high performing.",
-    author: "Christine Ine",
-    location: "Rockville, Maryland",
-    avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80",
-    score: "4.5",
+    title: "Our communication was very smooth, and the deliverables were done o...",
+    comment: "The client is happy with Sapphire Software Solutions. The team has met all expectations in terms of website design and feature...",
+    author: "Lino Barahona",
+    location: "Portugal",
+    avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80",
+    score: "5.0",
     stars: 5,
-    ratings: { quality: "4.0", schedule: "4.5", cost: "5.0", refer: "5.0" }
+    ratings: { quality: "5.0", schedule: "5.0", cost: "5.0", refer: "5.0" }
   },
   {
     id: 4,
-    title: "Exceptional mobile architecture and seamless cross-platform delivery...",
-    comment: "Their engineers built an enterprise-grade mobile application that scaled seamlessly to over 350k active users in the first quarter post launch.",
-    author: "David Vance",
-    location: "Austin, Texas",
-    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=200&q=80",
+    title: "...were excellent at providing the right level of detail in implementation...",
+    comment: "Sapphire Software Solutions impressed the client with the quality of their deliverables. They provided consistent designs, achieved the...",
+    author: "Smit Shah",
+    location: "Parkland, Florida",
+    avatar: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=150&q=80",
+    score: "5.0",
+    stars: 5,
+    ratings: { quality: "5.0", schedule: "5.0", cost: "5.0", refer: "5.0" }
+  },
+  {
+    id: 5,
+    title: "The technical support team was very responsive.",
+    comment: "Sapphire Software Solutions delivered the software in a timely manner. The team was responsive to requests and feedback and...",
+    author: "AMR ELATTAR",
+    location: "Saudi Arabia",
+    avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=150&q=80",
+    score: "4.5",
+    stars: 5,
+    ratings: { quality: "4.5", schedule: "4.5", cost: "4.5", refer: "5.0" }
+  },
+  {
+    id: 6,
+    title: "...time and effort the Sapphire Software Solutions team put into m...",
+    comment: "Sapphire Software Solutions uploaded the app successfully to app stores. The team was highly responsive, delivered on time, and...",
+    author: "Christina Wälchli",
+    location: "Germany",
+    avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80",
     score: "5.0",
     stars: 5,
     ratings: { quality: "5.0", schedule: "5.0", cost: "5.0", refer: "5.0" }
@@ -49,18 +71,17 @@ const defaultReviews = [
 ];
 
 export const ClientReviewsDarkSection = ({ data }) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const title = data?.title || 'What Clients Say About Us';
-  const description = data?.description || "Read unfiltered reviews directly from Clutch, Upwork, and verified client testimonials worldwide.";
-  const clutchScore = data?.clutchScore || '4.9';
-  const clutchReviewCount = data?.clutchReviewCount || '32 REVIEWS';
-
+  const title = data?.title || 'What Our Clients Say';
   const reviews = (data?.reviews && Array.isArray(data.reviews) && data.reviews.filter(r => r.isActive !== false).length > 0)
     ? data.reviews.filter(r => r.isActive !== false)
     : defaultReviews;
 
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
   const total = reviews.length;
+
+  // Extended array for continuous multi-card infinite sliding
+  const extendedReviews = [...reviews, ...reviews, ...reviews, ...reviews];
 
   const goNext = useCallback(() => {
     setCurrentIndex((prev) => (prev + 1) % total);
@@ -70,110 +91,137 @@ export const ClientReviewsDarkSection = ({ data }) => {
     setCurrentIndex((prev) => (prev === 0 ? total - 1 : prev - 1));
   }, [total]);
 
+  // Auto-scroll timer
   useEffect(() => {
-    if (total <= 1) return;
-    const timer = setInterval(goNext, 5000);
-    return () => clearInterval(timer);
-  }, [goNext, total]);
-
-  const visibleCards = Array.from({ length: Math.min(3, total) }, (_, i) =>
-    reviews[(currentIndex + i) % total]
-  );
+    if (isPaused || total <= 1) return;
+    const interval = setInterval(() => {
+      goNext();
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [goNext, isPaused, total]);
 
   return (
-    <section className="py-20 bg-[#0B1528] text-white relative font-sans overflow-hidden">
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6">
-        {/* Section Header */}
-        <div className="text-center max-w-4xl mx-auto mb-14">
-          <h2 className="text-[34px] font-[800] tracking-tight text-white mb-3 font-sans">
-            {title}
-          </h2>
-          <p className="text-[17px] font-[400] text-slate-300 leading-relaxed font-sans max-w-3xl mx-auto">
-            {description}
-          </p>
+    <section className="py-16 sm:py-20 bg-[#006085] text-white relative font-sans overflow-hidden border-b border-cyan-950 select-none">
+      {/* Section Header */}
+      <div className="text-center max-w-4xl mx-auto mb-12 sm:mb-14 px-4">
+        <h2 className="text-[34px] sm:text-[42px] lg:text-[46px] font-[900] tracking-tight text-white font-sans">
+          {title}
+        </h2>
+      </div>
 
-          {/* Clutch Rating Pill Badge */}
-          <div className="inline-flex items-center gap-3 bg-slate-900/90 border border-slate-700/60 px-5 py-2 rounded-full mt-6">
-            <span className="text-red-500 font-black text-base">Clutch</span>
-            <div className="flex items-center text-amber-400">
-              {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-3.5 h-3.5 fill-current" />
-              ))}
-            </div>
-            <span className="text-sm font-bold text-slate-200">{clutchScore}</span>
-            <span className="text-xs text-slate-400 font-semibold">• {clutchReviewCount}</span>
-          </div>
-        </div>
-
-        {/* Carousel Row with Floating Controls */}
-        <div className="relative">
-          {/* Left Arrow */}
-          <button
-            onClick={goPrev}
-            className="absolute -left-3 sm:-left-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-slate-800 border border-slate-700 shadow-xl flex items-center justify-center text-white hover:bg-[#006B8F] transition-all duration-200"
-            aria-label="Previous Reviews"
-          >
-            <ArrowLeft className="w-4 h-4" />
-          </button>
-
-          {/* 3 Review Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {visibleCards.map((review, idx) => (
-              <div
-                key={`${currentIndex}-${idx}`}
-                className="bg-[#121E36] rounded-[24px] p-7 border border-slate-800 shadow-xl flex flex-col justify-between h-[360px] hover:border-cyan-500/50 transition-all duration-300 group text-left"
-              >
-                <div className="space-y-4">
-                  {/* Rating Stars & Score */}
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-1 text-amber-400">
-                      {[...Array(review.stars || 5)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 fill-current" />
-                      ))}
-                    </div>
-                    <span className="text-xs font-bold text-cyan-400 bg-cyan-950/60 border border-cyan-800/60 px-2 py-0.5 rounded">
-                      {review.score || "5.0"}
-                    </span>
+      {/* Overflowing Auto-Scrolling Track (Matching Image 1 Exact Width and Ratio) */}
+      <div
+        className="w-full overflow-hidden cursor-grab active:cursor-grabbing"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+      >
+        <div
+          className="flex transition-transform duration-700 ease-in-out gap-6 sm:gap-7 pl-6 sm:pl-10"
+          style={{
+            transform: `translateX(calc(-${currentIndex * 510}px - 140px + 10vw))`
+          }}
+        >
+          {extendedReviews.map((review, idx) => (
+            <div
+              key={idx}
+              className="w-[350px] sm:w-[480px] md:w-[500px] shrink-0 bg-white text-slate-900 rounded-[24px] sm:rounded-[28px] p-6 sm:p-7 shadow-2xl flex justify-between h-[340px] sm:h-[355px] border border-slate-100 transition-all duration-300 text-left"
+            >
+              {/* Left Section: Clutch, Quote, Desc, Author */}
+              <div className="flex-1 flex flex-col justify-between pr-4 sm:pr-5 min-w-0">
+                <div>
+                  {/* Clutch Logo with Red Dot */}
+                  <div className="flex items-center text-slate-900 font-black text-[24px] sm:text-[26px] tracking-tight font-sans mb-3">
+                    <span>Clutc</span>
+                    <span className="text-[#DE281F]">h</span>
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#DE281F] ml-0.5 mb-2 inline-block" />
                   </div>
 
-                  {/* Review Text */}
-                  <h4 className="text-[16px] font-[800] text-white leading-snug group-hover:text-cyan-300 transition-colors line-clamp-2">
-                    {review.title}
+                  {/* Main Quote Title */}
+                  <h4 className="text-[16px] sm:text-[17px] font-[800] text-slate-900 leading-snug font-sans mb-2.5 line-clamp-2">
+                    {review.title || review.headline}
                   </h4>
-                  <p className="text-[13.5px] text-slate-300 leading-relaxed line-clamp-4">
-                    "{review.comment || review.desc || review.description}"
+
+                  {/* Description Comment */}
+                  <p className="text-[12.5px] sm:text-[13px] text-slate-600 leading-[1.65] font-[400] font-sans line-clamp-3">
+                    {review.comment || review.desc || review.description}
                   </p>
                 </div>
 
-                {/* Author Card */}
-                <div className="flex items-center space-x-3 pt-4 border-t border-slate-800">
+                {/* Author Profile Row */}
+                <div className="flex items-center space-x-3 pt-3 border-t border-slate-100">
                   <img
-                    src={review.avatar || "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80"}
-                    alt={review.author || review.name}
-                    className="w-10 h-10 rounded-full object-cover border border-cyan-500/40"
+                    src={review.avatar || '/images/client/1.webp'}
+                    alt={review.author || review.authorName}
+                    className="w-11 h-11 rounded-full object-cover shrink-0 border border-slate-200 shadow-xs"
                   />
-                  <div>
-                    <div className="text-[14px] font-bold text-white">
-                      {review.author || review.name}
+                  <div className="min-w-0">
+                    <div className="text-[14px] font-[800] text-slate-900 tracking-tight font-sans truncate">
+                      {review.author || review.authorName}
                     </div>
-                    <div className="text-[12px] text-slate-400">
-                      {review.location || review.position || "Verified Client"}
+                    <div className="text-[12px] font-[500] text-slate-500 font-sans truncate">
+                      {review.location}
                     </div>
                   </div>
                 </div>
               </div>
-            ))}
-          </div>
 
-          {/* Right Arrow */}
-          <button
-            onClick={goNext}
-            className="absolute -right-3 sm:-right-5 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-slate-800 border border-slate-700 shadow-xl flex items-center justify-center text-white hover:bg-[#006B8F] transition-all duration-200"
-            aria-label="Next Reviews"
-          >
-            <ArrowRight className="w-4 h-4" />
-          </button>
+              {/* Right Section: Ice-Blue Rating Score & Breakdown Panel */}
+              <div className="w-[130px] sm:w-[145px] shrink-0 bg-[#EEF7FC] rounded-[22px] p-4 sm:p-5 flex flex-col justify-between text-center border border-blue-100/70">
+                {/* Rating Score & Stars */}
+                <div>
+                  <div className="text-[36px] sm:text-[40px] font-[900] text-slate-900 leading-none tracking-tight font-sans mb-1.5">
+                    {review.score || review.overallRating || "5.0"}
+                  </div>
+                  <div className="flex items-center justify-center space-x-0.5 text-amber-400">
+                    {[...Array(review.stars || 5)].map((_, s) => (
+                      <Star key={s} className="w-3.5 h-3.5 fill-current" />
+                    ))}
+                  </div>
+                </div>
+
+                {/* Breakdown Scores List */}
+                <div className="space-y-1.5 text-[11.5px] font-[700] text-slate-700 border-t border-blue-200/70 pt-3">
+                  <div className="flex justify-between items-center">
+                    <span className="text-slate-600 font-[700]">Quality</span>
+                    <span className="font-[900] text-slate-900">{review.ratings?.quality || review.quality || "5.0"}</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-slate-600 font-[700]">Schedule</span>
+                    <span className="font-[900] text-slate-900">{review.ratings?.schedule || review.schedule || "5.0"}</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-slate-600 font-[700]">Cost</span>
+                    <span className="font-[900] text-slate-900">{review.ratings?.cost || review.cost || "5.0"}</span>
+                  </div>
+                  <div className="flex justify-between items-center text-left">
+                    <span className="text-slate-600 font-[700] leading-tight pr-1">Willing to Refer</span>
+                    <span className="font-[900] text-slate-900">{review.ratings?.refer || review.refer || "5.0"}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
+      </div>
+
+      {/* Clean Bottom Navigation Arrows (Image 1 Exact Match) */}
+      <div className="flex items-center justify-center space-x-6 mt-10">
+        <button
+          onClick={goPrev}
+          type="button"
+          className="text-white/80 hover:text-white transition-all p-1.5 hover:scale-110 cursor-pointer"
+          aria-label="Previous Review"
+        >
+          <ArrowLeft className="w-7 h-7 stroke-[2.5]" />
+        </button>
+        <button
+          onClick={goNext}
+          type="button"
+          className="text-white/80 hover:text-white transition-all p-1.5 hover:scale-110 cursor-pointer"
+          aria-label="Next Review"
+        >
+          <ArrowRight className="w-7 h-7 stroke-[2.5]" />
+        </button>
       </div>
     </section>
   );

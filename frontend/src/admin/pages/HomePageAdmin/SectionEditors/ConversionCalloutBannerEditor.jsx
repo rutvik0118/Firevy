@@ -165,7 +165,7 @@ export const ConversionCalloutBannerEditor = ({ data, onChange }) => {
             <MediaUploadInput
               label="Left Visual Asset"
               type="image"
-              value={data?.leftImage || 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80'}
+              value={data?.leftImage || '/images/together_left.e9ba331b.webp'}
               onChange={(val) => handleFieldChange('leftImage', val)}
               helperText="Image displayed on left side of banner"
             />
@@ -175,7 +175,7 @@ export const ConversionCalloutBannerEditor = ({ data, onChange }) => {
             <MediaUploadInput
               label="Right Visual Asset"
               type="image"
-              value={data?.rightImage || 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80'}
+              value={data?.rightImage || '/images/together_right.5ad10a97.webp'}
               onChange={(val) => handleFieldChange('rightImage', val)}
               helperText="Image displayed on right side of banner"
             />

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import {
   Plus,
   Trash2,
@@ -16,9 +16,7 @@ import {
   TrendingUp,
   Layers,
   Image as ImageIcon,
-  Sliders,
-  AlignLeft,
-  Check,
+  Search,
   X
 } from 'lucide-react';
 import MediaUploadInput from './MediaUploadInput';
@@ -33,6 +31,7 @@ export const ItemListEditor = ({
 }) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [draggedIndex, setDraggedIndex] = useState(null);
+  const [searchTerm, setSearchTerm] = useState('');
 
   // Sync selected index if items list changes
   useEffect(() => {
@@ -55,7 +54,7 @@ export const ItemListEditor = ({
     initial.isActive = true;
 
     // Set a default title if field exists
-    const titleField = fields.find((f) => ['title', 'name', 'heading', 'company', 'author', 'label'].includes(f.name));
+    const titleField = fields.find((f) => ['title', 'name', 'heading', 'company', 'author', 'label', 'metric'].includes(f.name));
     if (titleField && !initial[titleField.name]) {
       initial[titleField.name] = `New ${itemTitle} 0${items.length + 1}`;
     }
@@ -128,7 +127,7 @@ export const ItemListEditor = ({
     onChange(newItems);
   };
 
-  // Safe Item Icon/Media Renderer (Prevents broken image tags)
+  // Safe Item Icon/Media Renderer
   const renderItemMediaIcon = (item) => {
     const media = item.image || item.icon || item.avatar || item.mockup || item.symbol || item.logo;
     const isStat = item.type === 'stat' || (item.metric && !item.icon);
@@ -148,28 +147,45 @@ export const ItemListEditor = ({
 
     if (typeof media === 'string' && media.trim() !== '') {
       const key = media.toLowerCase().trim();
-      if (key === 'globe' || key === 'world') return <Globe size={15} />;
-      if (key === 'chat' || key === 'message' || key === 'comments') return <MessageSquare size={15} />;
-      if (key === 'badge' || key === 'hired' || key === 'award') return <Award size={15} />;
-      if (key === 'handshake' || key === 'partner' || key === 'users') return <Users size={15} />;
-      if (key === 'web' || key === 'browser') return <Globe size={15} />;
-      if (key === 'mobile' || key === 'phone' || key === 'app') return <Smartphone size={15} />;
-      if (key === 'code' || key === 'dev') return <Code size={15} />;
-      if (key === 'cloud') return <Cloud size={15} />;
-      if (key === 'shield' || key === 'security') return <Shield size={15} />;
-      if (key === 'zap' || key === 'fast') return <Zap size={15} />;
+      if (key === 'globe' || key === 'world') return <Globe size={13} />;
+      if (key === 'chat' || key === 'message' || key === 'comments') return <MessageSquare size={13} />;
+      if (key === 'badge' || key === 'hired' || key === 'award') return <Award size={13} />;
+      if (key === 'handshake' || key === 'partner' || key === 'users') return <Users size={13} />;
+      if (key === 'web' || key === 'browser') return <Globe size={13} />;
+      if (key === 'mobile' || key === 'phone' || key === 'app') return <Smartphone size={13} />;
+      if (key === 'code' || key === 'dev') return <Code size={13} />;
+      if (key === 'cloud') return <Cloud size={13} />;
+      if (key === 'shield' || key === 'security') return <Shield size={13} />;
+      if (key === 'zap' || key === 'fast') return <Zap size={13} />;
 
       if (media.length <= 3) {
-        return <span style={{ fontSize: '13px', fontWeight: 800 }}>{media}</span>;
+        return <span style={{ fontSize: '11px', fontWeight: 800 }}>{media}</span>;
       }
     }
 
     if (isStat) {
-      return <TrendingUp size={15} />;
+      return <TrendingUp size={13} />;
     }
 
-    return <Layers size={15} />;
+    return <Layers size={13} />;
   };
+
+  // Filter items by search query if applicable
+  const filteredItemsWithIndex = useMemo(() => {
+    if (!searchTerm.trim()) {
+      return items.map((item, idx) => ({ item, originalIndex: idx }));
+    }
+    const q = searchTerm.toLowerCase().trim();
+    return items
+      .map((item, idx) => ({ item, originalIndex: idx }))
+      .filter(({ item, originalIndex }) => {
+        const str = Object.values(item)
+          .filter((v) => typeof v === 'string' || typeof v === 'number')
+          .join(' ')
+          .toLowerCase();
+        return str.includes(q) || `0${originalIndex + 1}`.includes(q);
+      });
+  }, [items, searchTerm]);
 
   // Separate fields by category
   const isMediaField = (f) => ['image', 'video', 'pdf', 'media'].includes(f.type) || f.section === 'media';
@@ -218,35 +234,12 @@ export const ItemListEditor = ({
   }
 
   return (
-    <div
-      style={{
-        display: 'grid',
-        gridTemplateColumns: 'minmax(320px, 360px) minmax(0, 1fr)',
-        gap: '16px',
-        alignItems: 'start',
-        fontFamily: "'Poppins', sans-serif",
-        width: '100%',
-        boxSizing: 'border-box'
-      }}
-    >
+    <div className="item-list-editor-grid">
       {/* ========================================================
-          LEFT COLUMN: ITEMS LIST
+          LEFT COLUMN: COMPACT SCROLLABLE ITEMS LIST (33% width)
           ======================================================== */}
-      <div
-        style={{
-          backgroundColor: '#FFFFFF',
-          border: '1px solid #E2E8F0',
-          borderRadius: '8px',
-          padding: '14px',
-          boxShadow: '0 1px 2px rgba(0,0,0,0.03)',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '12px',
-          width: '100%',
-          boxSizing: 'border-box',
-          minWidth: 0
-        }}
-      >
+      <div className="item-list-left-panel">
+        {/* Header */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingBottom: '8px', borderBottom: '1px solid #F1F5F9' }}>
           <div>
             <h3 style={{ margin: 0, fontSize: '13px', fontWeight: 800, color: '#0F172A' }}>
@@ -263,63 +256,88 @@ export const ItemListEditor = ({
               display: 'inline-flex',
               alignItems: 'center',
               gap: '4px',
-              padding: '4px 8px',
-              borderRadius: '5px',
+              padding: '5px 10px',
+              borderRadius: '6px',
               backgroundColor: '#006B8F',
               color: '#FFFFFF',
               fontSize: '11px',
               fontWeight: 700,
               border: 'none',
-              cursor: 'pointer'
+              cursor: 'pointer',
+              boxShadow: '0 1px 3px rgba(0, 107, 143, 0.2)'
             }}
           >
             <Plus size={13} /> Add {itemTitle}
           </button>
         </div>
 
-        {/* List of Item Cards */}
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '10px',
-            width: '100%',
-            boxSizing: 'border-box'
-          }}
-        >
-          {items.map((item, idx) => {
-            const isSelected = idx === selectedIndex;
-            const isActive = item.isActive !== false;
-            const itemNumber = idx < 9 ? `0${idx + 1}` : `${idx + 1}`;
-            const itemDisplayName = item.title || item.name || item.heading || item.label || item.company || item.tabName || `${itemTitle} ${itemNumber}`;
-            const itemSub = item.tag || item.category || item.sub || item.desc || item.slug || item.role || item.metric;
-
-            return (
-              <div
-                key={idx}
-                draggable={true}
-                onDragStart={(e) => handleDragStart(e, idx)}
-                onDragOver={(e) => handleDragOver(e, idx)}
-                onDrop={(e) => handleDrop(e, idx)}
-                onClick={() => setSelectedIndex(idx)}
+        {/* Search Filter when 4+ items */}
+        {items.length >= 4 && (
+          <div style={{ position: 'relative', width: '100%' }}>
+            <Search size={13} style={{ position: 'absolute', left: '8px', top: '50%', transform: 'translateY(-50%)', color: '#94A3B8' }} />
+            <input
+              type="text"
+              placeholder={`Filter ${items.length} ${itemTitle.toLowerCase()}s...`}
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              style={{
+                width: '100%',
+                padding: '5px 24px 5px 26px',
+                fontSize: '11px',
+                borderRadius: '5px',
+                border: '1px solid #CBD5E1',
+                backgroundColor: '#F8FAFC',
+                color: '#0F172A',
+                boxSizing: 'border-box'
+              }}
+            />
+            {searchTerm && (
+              <button
+                type="button"
+                onClick={() => setSearchTerm('')}
                 style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '8px',
-                  padding: '12px 14px',
-                  borderRadius: '8px',
-                  backgroundColor: isSelected ? '#F0F9FF' : '#FFFFFF',
-                  border: isSelected ? '1.5px solid #006B8F' : '1px solid #E2E8F0',
-                  boxShadow: isSelected ? '0 2px 6px rgba(0, 107, 143, 0.12)' : '0 1px 2px rgba(0,0,0,0.02)',
+                  position: 'absolute',
+                  right: '6px',
+                  top: '50%',
+                  transform: 'translateY(-50%)',
+                  background: 'none',
+                  border: 'none',
+                  padding: 0,
                   cursor: 'pointer',
-                  transition: 'all 0.15s ease',
-                  minWidth: 0,
-                  width: '100%',
-                  boxSizing: 'border-box'
+                  color: '#94A3B8'
                 }}
               >
-                {/* TOP ROW: [Drag] [Image/Icon] [Number] */}
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', minWidth: 0 }}>
+                <X size={12} />
+              </button>
+            )}
+          </div>
+        )}
+
+        {/* Scrollable Compact Cards List */}
+        <div className="item-list-scroll-area">
+          {filteredItemsWithIndex.length === 0 ? (
+            <div style={{ padding: '20px 10px', textAlign: 'center', color: '#94A3B8', fontSize: '11px' }}>
+              No matches found for "{searchTerm}"
+            </div>
+          ) : (
+            filteredItemsWithIndex.map(({ item, originalIndex }) => {
+              const isSelected = originalIndex === selectedIndex;
+              const isActive = item.isActive !== false;
+              const itemNumber = originalIndex < 9 ? `0${originalIndex + 1}` : `${originalIndex + 1}`;
+              const itemDisplayName = item.title || item.name || item.heading || item.label || item.company || item.tabName || `${itemTitle} ${itemNumber}`;
+              const itemSub = item.tag || item.category || item.sub || item.desc || item.slug || item.role || item.metric;
+
+              return (
+                <div
+                  key={originalIndex}
+                  draggable={true}
+                  onDragStart={(e) => handleDragStart(e, originalIndex)}
+                  onDragOver={(e) => handleDragOver(e, originalIndex)}
+                  onDrop={(e) => handleDrop(e, originalIndex)}
+                  onClick={() => setSelectedIndex(originalIndex)}
+                  className={`item-list-compact-card ${isSelected ? 'selected' : ''}`}
+                >
+                  {/* Left: Drag Handle */}
                   <div
                     style={{
                       color: isSelected ? '#006B8F' : '#94A3B8',
@@ -330,176 +348,153 @@ export const ItemListEditor = ({
                     }}
                     title="Drag to reorder"
                   >
-                    <GripVertical size={15} />
+                    <GripVertical size={14} />
                   </div>
 
-                  {/* Image / Icon container (Fixed consistent size, clean fallback) */}
-                  <div
-                    style={{
-                      width: '28px',
-                      height: '28px',
-                      borderRadius: '6px',
-                      backgroundColor: isSelected ? '#E0F2FE' : '#F1F5F9',
-                      border: '1px solid',
-                      borderColor: isSelected ? '#BAE6FD' : '#E2E8F0',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      flexShrink: 0,
-                      overflow: 'hidden',
-                      color: '#006B8F'
-                    }}
-                  >
-                    {renderItemMediaIcon(item)}
+                  {/* Badge & Media Icon */}
+                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '3px', flexShrink: 0 }}>
+                    <div
+                      style={{
+                        padding: '1px 5px',
+                        borderRadius: '3px',
+                        backgroundColor: isSelected ? '#006B8F' : '#E2E8F0',
+                        color: isSelected ? '#FFFFFF' : '#334155',
+                        fontSize: '10px',
+                        fontWeight: 800,
+                        letterSpacing: '0.02em',
+                        lineHeight: 1.2
+                      }}
+                    >
+                      {itemNumber}
+                    </div>
+                    <div
+                      style={{
+                        width: '24px',
+                        height: '24px',
+                        borderRadius: '5px',
+                        backgroundColor: isSelected ? '#E0F2FE' : '#F1F5F9',
+                        border: '1px solid',
+                        borderColor: isSelected ? '#BAE6FD' : '#E2E8F0',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        overflow: 'hidden',
+                        color: '#006B8F'
+                      }}
+                    >
+                      {renderItemMediaIcon(item)}
+                    </div>
                   </div>
 
-                  {/* Number Badge */}
-                  <div
-                    style={{
-                      padding: '2px 8px',
-                      height: '22px',
-                      borderRadius: '4px',
-                      backgroundColor: isSelected ? '#006B8F' : '#E2E8F0',
-                      color: isSelected ? '#FFFFFF' : '#334155',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      fontSize: '11px',
-                      fontWeight: 800,
-                      letterSpacing: '0.02em',
-                      flexShrink: 0
-                    }}
-                  >
-                    {itemNumber}
-                  </div>
-                </div>
-
-                {/* MIDDLE: Title & Description */}
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', minWidth: 0, paddingLeft: '2px' }}>
-                  {renderItemSummary ? (
-                    renderItemSummary(item, idx)
-                  ) : (
-                    <>
-                      <div
-                        style={{
-                          fontSize: '13px',
-                          fontWeight: 700,
-                          color: '#0F172A',
-                          lineHeight: 1.35,
-                          wordBreak: 'break-word',
-                          overflowWrap: 'break-word'
-                        }}
-                      >
-                        {itemDisplayName}
-                      </div>
-                      {itemSub && (
+                  {/* Center: Title / Metric & Active Pill */}
+                  <div style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column', gap: '2px', overflow: 'hidden' }}>
+                    {renderItemSummary ? (
+                      renderItemSummary(item, originalIndex)
+                    ) : (
+                      <>
                         <div
                           style={{
-                            fontSize: '11px',
-                            color: '#64748B',
-                            lineHeight: 1.4,
-                            wordBreak: 'break-word',
-                            overflowWrap: 'break-word'
+                            fontSize: '12px',
+                            fontWeight: 700,
+                            color: isSelected ? '#006B8F' : '#0F172A',
+                            lineHeight: 1.25,
+                            whiteSpace: 'nowrap',
+                            overflow: 'hidden',
+                            textOverflow: 'ellipsis'
                           }}
                         >
-                          {itemSub}
+                          {itemDisplayName}
                         </div>
-                      )}
-                    </>
-                  )}
-                </div>
+                        {itemSub && (
+                          <div
+                            style={{
+                              fontSize: '11px',
+                              color: '#64748B',
+                              lineHeight: 1.2,
+                              whiteSpace: 'nowrap',
+                              overflow: 'hidden',
+                              textOverflow: 'ellipsis'
+                            }}
+                          >
+                            {itemSub}
+                          </div>
+                        )}
+                      </>
+                    )}
 
-                {/* BOTTOM ROW: [Active] badge on left, [>] Chevron on right */}
-                <div
-                  style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'space-between',
-                    paddingTop: '6px',
-                    borderTop: '1px solid',
-                    borderColor: isSelected ? '#E0F2FE' : '#F1F5F9',
-                    marginTop: '2px'
-                  }}
-                >
-                  <button
-                    type="button"
-                    onClick={(e) => handleToggleActive(idx, e)}
-                    style={{
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      gap: '4px',
-                      fontSize: '10px',
-                      fontWeight: 700,
-                      padding: '2px 7px',
-                      borderRadius: '10px',
-                      backgroundColor: isActive ? '#DCFCE7' : '#F1F5F9',
-                      color: isActive ? '#15803D' : '#64748B',
-                      border: '1px solid',
-                      borderColor: isActive ? '#BBF7D0' : '#E2E8F0',
-                      cursor: 'pointer'
-                    }}
-                    title={isActive ? 'Click to deactivate' : 'Click to activate'}
-                  >
-                    <span
-                      style={{
-                        width: '5px',
-                        height: '5px',
-                        borderRadius: '50%',
-                        backgroundColor: isActive ? '#16A34A' : '#94A3B8'
-                      }}
-                    />
-                    {isActive ? 'Active' : 'Hidden'}
-                  </button>
+                    {/* Active Status Pill */}
+                    <div style={{ marginTop: '2px' }}>
+                      <span
+                        onClick={(e) => handleToggleActive(originalIndex, e)}
+                        style={{
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          gap: '3px',
+                          fontSize: '9px',
+                          fontWeight: 700,
+                          padding: '1px 5px',
+                          borderRadius: '8px',
+                          backgroundColor: isActive ? '#DCFCE7' : '#F1F5F9',
+                          color: isActive ? '#15803D' : '#64748B',
+                          border: '1px solid',
+                          borderColor: isActive ? '#BBF7D0' : '#E2E8F0',
+                          cursor: 'pointer',
+                          userSelect: 'none'
+                        }}
+                        title={isActive ? 'Click to hide' : 'Click to activate'}
+                      >
+                        <span
+                          style={{
+                            width: '4px',
+                            height: '4px',
+                            borderRadius: '50%',
+                            backgroundColor: isActive ? '#16A34A' : '#94A3B8'
+                          }}
+                        />
+                        {isActive ? 'Active' : 'Hidden'}
+                      </span>
+                    </div>
+                  </div>
 
+                  {/* Right: Chevron */}
                   <div
                     style={{
                       display: 'flex',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      color: isSelected ? '#006B8F' : '#94A3B8'
+                      color: isSelected ? '#006B8F' : '#CBD5E1',
+                      flexShrink: 0
                     }}
                   >
                     <ChevronRight size={15} />
                   </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })
+          )}
         </div>
       </div>
 
       {/* ========================================================
-          RIGHT COLUMN: INLINE EDIT FORM
+          RIGHT COLUMN: INLINE STICKY EDIT FORM (67% width)
           ======================================================== */}
       {currentItem && (
-        <div
-          style={{
-            backgroundColor: '#FFFFFF',
-            border: '1px solid #E2E8F0',
-            borderRadius: '8px',
-            padding: '16px',
-            boxShadow: '0 1px 2px rgba(0,0,0,0.03)',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '14px',
-            width: '100%',
-            boxSizing: 'border-box',
-            minWidth: 0
-          }}
-        >
-          {/* Header with Status & Delete */}
+        <div className="item-list-right-panel">
+          {/* Header with Title, Status & Delete */}
           <div
             style={{
               display: 'flex',
               justifyContent: 'space-between',
               alignItems: 'center',
               paddingBottom: '10px',
-              borderBottom: '1px solid #E2E8F0'
+              borderBottom: '1px solid #E2E8F0',
+              gap: '10px',
+              flexWrap: 'wrap'
             }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
               <h3 style={{ margin: 0, fontSize: '14px', fontWeight: 800, color: '#0F172A' }}>
-                Edit {itemTitle} ({itemTitle} 0{selectedIndex + 1})
+                Edit {itemTitle} ({itemTitle} {selectedIndex < 9 ? `0${selectedIndex + 1}` : `${selectedIndex + 1}`})
               </h3>
               <button
                 type="button"
@@ -508,13 +503,13 @@ export const ItemListEditor = ({
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '4px',
-                  padding: '2px 8px',
+                  padding: '3px 8px',
                   borderRadius: '12px',
                   backgroundColor: currentItem.isActive !== false ? '#DCFCE7' : '#F1F5F9',
                   color: currentItem.isActive !== false ? '#15803D' : '#64748B',
                   border: '1px solid',
                   borderColor: currentItem.isActive !== false ? '#BBF7D0' : '#E2E8F0',
-                  fontSize: '10px',
+                  fontSize: '11px',
                   fontWeight: 700,
                   cursor: 'pointer'
                 }}
@@ -527,7 +522,7 @@ export const ItemListEditor = ({
                     backgroundColor: currentItem.isActive !== false ? '#16A34A' : '#94A3B8'
                   }}
                 />
-                {currentItem.isActive !== false ? 'Active' : 'Inactive'}
+                {currentItem.isActive !== false ? 'Active' : 'Hidden'}
               </button>
             </div>
 
@@ -538,27 +533,40 @@ export const ItemListEditor = ({
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
-                gap: '4px',
-                padding: '4px 8px',
-                borderRadius: '5px',
+                gap: '5px',
+                padding: '5px 10px',
+                borderRadius: '6px',
                 backgroundColor: '#FEF2F2',
                 border: '1px solid #FEE2E2',
                 color: '#DC2626',
                 fontSize: '11px',
                 fontWeight: 600,
                 cursor: items.length <= 1 ? 'not-allowed' : 'pointer',
-                opacity: items.length <= 1 ? 0.5 : 1
+                opacity: items.length <= 1 ? 0.5 : 1,
+                transition: 'all 0.15s ease'
               }}
             >
-              <Trash2 size={12} /> Delete {itemTitle}
+              <Trash2 size={13} /> Delete {itemTitle}
             </button>
           </div>
 
-          {/* Regular Inputs Grid */}
+          {/* Regular Inputs Grid - Responsive 3-Column on Desktop */}
           {regularFields.length > 0 && (
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '10px 14px' }}>
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
+                gap: '12px 14px',
+                width: '100%'
+              }}
+            >
               {regularFields.map((field) => (
-                <div key={field.name} style={{ gridColumn: field.fullWidth ? '1 / -1' : 'auto' }}>
+                <div
+                  key={field.name}
+                  style={{
+                    gridColumn: field.fullWidth ? '1 / -1' : 'auto'
+                  }}
+                >
                   <label style={{ display: 'block', fontSize: '11px', fontWeight: 700, color: '#0F172A', marginBottom: '4px' }}>
                     {field.label} {field.required && <span style={{ color: '#DC2626' }}>*</span>}
                   </label>
@@ -567,7 +575,15 @@ export const ItemListEditor = ({
                       className="form-control"
                       value={currentItem[field.name] || ''}
                       onChange={(e) => handleFieldChange(field.name, e.target.value)}
-                      style={{ width: '100%', padding: '7px 10px', borderRadius: '5px', border: '1px solid #CBD5E1', fontSize: '12px', color: '#0F172A', backgroundColor: '#FFFFFF' }}
+                      style={{
+                        width: '100%',
+                        padding: '7px 10px',
+                        borderRadius: '6px',
+                        border: '1px solid #CBD5E1',
+                        fontSize: '12px',
+                        color: '#0F172A',
+                        backgroundColor: '#FFFFFF'
+                      }}
                     >
                       {field.options?.map((opt) => (
                         <option key={typeof opt === 'string' ? opt : opt.value} value={typeof opt === 'string' ? opt : opt.value}>
@@ -582,7 +598,15 @@ export const ItemListEditor = ({
                       value={currentItem[field.name] !== undefined ? currentItem[field.name] : 0}
                       onChange={(e) => handleFieldChange(field.name, Number(e.target.value))}
                       placeholder={field.placeholder || '0'}
-                      style={{ width: '100%', padding: '7px 10px', borderRadius: '5px', border: '1px solid #CBD5E1', fontSize: '12px', color: '#0F172A', backgroundColor: '#FFFFFF' }}
+                      style={{
+                        width: '100%',
+                        padding: '7px 10px',
+                        borderRadius: '6px',
+                        border: '1px solid #CBD5E1',
+                        fontSize: '12px',
+                        color: '#0F172A',
+                        backgroundColor: '#FFFFFF'
+                      }}
                     />
                   ) : (
                     <input
@@ -591,11 +615,19 @@ export const ItemListEditor = ({
                       value={currentItem[field.name] || ''}
                       onChange={(e) => handleFieldChange(field.name, e.target.value)}
                       placeholder={field.placeholder || `Enter ${field.label.toLowerCase()}...`}
-                      style={{ width: '100%', padding: '7px 10px', borderRadius: '5px', border: '1px solid #CBD5E1', fontSize: '12px', color: '#0F172A', backgroundColor: '#FFFFFF' }}
+                      style={{
+                        width: '100%',
+                        padding: '7px 10px',
+                        borderRadius: '6px',
+                        border: '1px solid #CBD5E1',
+                        fontSize: '12px',
+                        color: '#0F172A',
+                        backgroundColor: '#FFFFFF'
+                      }}
                     />
                   )}
                   {field.helperText && (
-                    <p style={{ margin: '2px 0 0 0', fontSize: '10px', color: '#64748B' }}>{field.helperText}</p>
+                    <p style={{ margin: '3px 0 0 0', fontSize: '10px', color: '#64748B' }}>{field.helperText}</p>
                   )}
                 </div>
               ))}
@@ -604,9 +636,9 @@ export const ItemListEditor = ({
 
           {/* Description Textareas (Full Width) */}
           {descFields.length > 0 && (
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', width: '100%' }}>
               {descFields.map((field) => (
-                <div key={field.name}>
+                <div key={field.name} style={{ width: '100%' }}>
                   <label style={{ display: 'block', fontSize: '11px', fontWeight: 700, color: '#0F172A', marginBottom: '4px' }}>
                     {field.label} {field.required && <span style={{ color: '#DC2626' }}>*</span>}
                   </label>
@@ -616,20 +648,29 @@ export const ItemListEditor = ({
                     value={currentItem[field.name] || ''}
                     onChange={(e) => handleFieldChange(field.name, e.target.value)}
                     placeholder={field.placeholder || `Enter ${field.label.toLowerCase()}...`}
-                    style={{ width: '100%', padding: '7px 10px', borderRadius: '5px', border: '1px solid #CBD5E1', fontSize: '12px', color: '#0F172A', backgroundColor: '#FFFFFF', fontFamily: 'inherit' }}
+                    style={{
+                      width: '100%',
+                      padding: '7px 10px',
+                      borderRadius: '6px',
+                      border: '1px solid #CBD5E1',
+                      fontSize: '12px',
+                      color: '#0F172A',
+                      backgroundColor: '#FFFFFF',
+                      fontFamily: 'inherit'
+                    }}
                   />
                   {field.helperText && (
-                    <p style={{ margin: '2px 0 0 0', fontSize: '10px', color: '#64748B' }}>{field.helperText}</p>
+                    <p style={{ margin: '3px 0 0 0', fontSize: '10px', color: '#64748B' }}>{field.helperText}</p>
                   )}
                 </div>
               ))}
             </div>
           )}
 
-          {/* Media Assets */}
+          {/* Media Assets (Full Width) */}
           {mediaFields.length > 0 && (
-            <div style={{ borderTop: '1px solid #E2E8F0', paddingTop: '10px' }}>
-              <h4 style={{ margin: '0 0 8px 0', fontSize: '11px', fontWeight: 800, color: '#475569', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+            <div style={{ borderTop: '1px solid #E2E8F0', paddingTop: '12px', width: '100%' }}>
+              <h4 style={{ margin: '0 0 10px 0', fontSize: '11px', fontWeight: 800, color: '#475569', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
                 Media & Visual Assets
               </h4>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', width: '100%' }}>
@@ -649,7 +690,7 @@ export const ItemListEditor = ({
 
           {/* Setting Checkboxes */}
           {settingFields.length > 0 && (
-            <div style={{ borderTop: '1px solid #E2E8F0', paddingTop: '8px', display: 'flex', flexDirection: 'column', gap: '6px' }}>
+            <div style={{ borderTop: '1px solid #E2E8F0', paddingTop: '10px', display: 'flex', flexDirection: 'column', gap: '8px', width: '100%' }}>
               {settingFields.map((field) => (
                 <label key={field.name} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12px', cursor: 'pointer', color: '#0F172A', fontWeight: 600 }}>
                   <input

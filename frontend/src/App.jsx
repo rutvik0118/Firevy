@@ -21,6 +21,7 @@ import SectionEditorPage from './admin/pages/HomePageAdmin/SectionEditorPage';
 import ServicesPage from './admin/pages/ServicesPage';
 import PortfolioPage from './admin/pages/PortfolioPage';
 import JobsPage from './admin/pages/JobsPage';
+import CareersAdminPage from './admin/pages/CareersAdminPage';
 import ApplicationsPage from './admin/pages/ApplicationsPage';
 import InquiriesPage from './admin/pages/InquiriesPage';
 import IndustriesPage from './admin/pages/IndustriesPage';
@@ -30,12 +31,43 @@ import SettingsPage from './admin/pages/SettingsPage';
 import ApiPlaygroundPage from './admin/pages/ApiPlaygroundPage';
 import AdminNotFoundPage from './admin/pages/NotFoundPage';
 
+// Company Admin Sub-Pages
+import {
+  AboutFirevyAdminPage,
+  CeoMessageAdminPage,
+  OurTeamAdminPage,
+  EventsActivitiesAdminPage,
+  BrochureAdminPage,
+  WhyChooseUsAdminPage,
+  GreatPlaceToWorkAdminPage,
+  WomenEmpowermentAdminPage,
+  AwardsRecognitionAdminPage,
+  InsightfulVideosAdminPage,
+  BlogAdminPage,
+  CsrAdminPage,
+  PodcastAdminPage,
+  DeliveryModelsAdminPage,
+  EngagementModelsAdminPage,
+  DevelopmentMethodologyAdminPage,
+  ClientTestimonialsAdminPage,
+  VideoTestimonialAdminPage,
+  ClutchTestimonialAdminPage
+} from './admin/pages/CompanyAdmin/CompanySubPages';
+
 // Public Website Lazy-Loaded Pages
 const Home = lazy(() => import('./pages/Home'));
 const About = lazy(() => import('./pages/About'));
 const Services = lazy(() => import('./pages/Services'));
 const ServiceDetails = lazy(() => import('./pages/ServiceDetails'));
 const CompanySubDetails = lazy(() => import('./pages/CompanySubDetails'));
+const Podcast = lazy(() => import('./pages/Podcast'));
+const DeliveryModels = lazy(() => import('./pages/DeliveryModels'));
+const EngagementModels = lazy(() => import('./pages/EngagementModels'));
+const DevelopmentMethodology = lazy(() => import('./pages/DevelopmentMethodology'));
+const Testimonials = lazy(() => import('./pages/Testimonials'));
+const ClutchTestimonial = lazy(() => import('./pages/ClutchTestimonial'));
+const VideoTestimonial = lazy(() => import('./pages/VideoTestimonial'));
+const InsightfulVideos = lazy(() => import('./pages/InsightfulVideos'));
 const Technologies = lazy(() => import('./pages/Technologies'));
 const Portfolio = lazy(() => import('./pages/Portfolio'));
 const PortfolioDetails = lazy(() => import('./pages/PortfolioDetails'));
@@ -76,6 +108,34 @@ export function App() {
               <Route element={<PublicLayoutWrapper />}>
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
+                <Route path="/company/podcast" element={<Podcast />} />
+                <Route path="/podcasts" element={<Podcast />} />
+                <Route path="/company/delivery-models" element={<DeliveryModels />} />
+                <Route path="/company/delivery-model" element={<DeliveryModels />} />
+                <Route path="/delivery-models" element={<DeliveryModels />} />
+                <Route path="/company/engagement-models" element={<EngagementModels />} />
+                <Route path="/company/engagement-model" element={<EngagementModels />} />
+                <Route path="/engagement-models" element={<EngagementModels />} />
+                <Route path="/company/development-methodology" element={<DevelopmentMethodology />} />
+                <Route path="/company/development-methodologies" element={<DevelopmentMethodology />} />
+                <Route path="/development-methodology" element={<DevelopmentMethodology />} />
+                <Route path="/development-methodologies" element={<DevelopmentMethodology />} />
+                <Route path="/company/client-testimonials" element={<Testimonials />} />
+                <Route path="/company/testimonials" element={<Testimonials />} />
+                <Route path="/client-testimonials" element={<Testimonials />} />
+                <Route path="/testimonials" element={<Testimonials />} />
+                <Route path="/company/clutch-testimonial" element={<ClutchTestimonial />} />
+                <Route path="/company/clutch-testimonials" element={<ClutchTestimonial />} />
+                <Route path="/clutch-testimonial" element={<ClutchTestimonial />} />
+                <Route path="/clutch-testimonials" element={<ClutchTestimonial />} />
+                <Route path="/company/video-testimonial" element={<VideoTestimonial />} />
+                <Route path="/company/video-testimonials" element={<VideoTestimonial />} />
+                <Route path="/video-testimonial" element={<VideoTestimonial />} />
+                <Route path="/video-testimonials" element={<VideoTestimonial />} />
+                <Route path="/company/insightful-videos" element={<InsightfulVideos />} />
+                <Route path="/company/insightful-video" element={<InsightfulVideos />} />
+                <Route path="/insightful-videos" element={<InsightfulVideos />} />
+                <Route path="/insightful-video" element={<InsightfulVideos />} />
                 <Route path="/company/:slug" element={<CompanySubDetails />} />
                 <Route path="/awards-and-recognition" element={<CompanySubDetails />} />
                 <Route path="/awards-recognition" element={<CompanySubDetails />} />
@@ -127,11 +187,86 @@ export function App() {
                   </AdminRouteWrapper>
                 }
               />
+              {/* ============================================================
+                  COMPANY SECTION SUB-PAGES (20 Sub-Pages)
+                  ============================================================ */}
+              {/* Group 1: ABOUT US */}
+              <Route path="/admin/company/about-firevy" element={<AdminRouteWrapper><AboutFirevyAdminPage /></AdminRouteWrapper>} />
+              <Route path="/admin/company/about" element={<AdminRouteWrapper><AboutFirevyAdminPage /></AdminRouteWrapper>} />
+              <Route path="/admin/company/ceo-message" element={<AdminRouteWrapper><CeoMessageAdminPage /></AdminRouteWrapper>} />
+              <Route path="/admin/company/our-team" element={<AdminRouteWrapper><OurTeamAdminPage /></AdminRouteWrapper>} />
+              <Route path="/admin/company/events-activities" element={<AdminRouteWrapper><EventsActivitiesAdminPage /></AdminRouteWrapper>} />
+              <Route path="/admin/company/download-brochure" element={<AdminRouteWrapper><BrochureAdminPage /></AdminRouteWrapper>} />
+              <Route path="/admin/company/brochure" element={<AdminRouteWrapper><BrochureAdminPage /></AdminRouteWrapper>} />
+              <Route path="/admin/company/why-choose-us" element={<AdminRouteWrapper><WhyChooseUsAdminPage /></AdminRouteWrapper>} />
+              <Route path="/admin/company/great-place-to-work" element={<AdminRouteWrapper><GreatPlaceToWorkAdminPage /></AdminRouteWrapper>} />
+              <Route path="/admin/company/women-empowerment" element={<AdminRouteWrapper><WomenEmpowermentAdminPage /></AdminRouteWrapper>} />
+              <Route path="/admin/company/awards-recognition" element={<AdminRouteWrapper><AwardsRecognitionAdminPage /></AdminRouteWrapper>} />
+              <Route path="/admin/company/insightful-videos" element={<AdminRouteWrapper><InsightfulVideosAdminPage /></AdminRouteWrapper>} />
+              <Route path="/admin/company/blog" element={<AdminRouteWrapper><BlogAdminPage /></AdminRouteWrapper>} />
+              <Route path="/admin/company/careers" element={<AdminRouteWrapper><CareersAdminPage /></AdminRouteWrapper>} />
+              <Route path="/admin/company/careers-jobs" element={<AdminRouteWrapper><CareersAdminPage /></AdminRouteWrapper>} />
+              <Route path="/admin/company/csr" element={<AdminRouteWrapper><CsrAdminPage /></AdminRouteWrapper>} />
+              <Route path="/admin/company/podcast" element={<AdminRouteWrapper><PodcastAdminPage /></AdminRouteWrapper>} />
+
+              {/* Group 2: MODELS */}
+              <Route path="/admin/company/delivery-models" element={<AdminRouteWrapper><DeliveryModelsAdminPage /></AdminRouteWrapper>} />
+              <Route path="/admin/company/engagement-models" element={<AdminRouteWrapper><EngagementModelsAdminPage /></AdminRouteWrapper>} />
+              <Route path="/admin/company/development-methodology" element={<AdminRouteWrapper><DevelopmentMethodologyAdminPage /></AdminRouteWrapper>} />
+
+              {/* Group 3: TESTIMONIAL */}
+              <Route path="/admin/company/client-testimonials" element={<AdminRouteWrapper><ClientTestimonialsAdminPage /></AdminRouteWrapper>} />
+              <Route path="/admin/company/video-testimonial" element={<AdminRouteWrapper><VideoTestimonialAdminPage /></AdminRouteWrapper>} />
+              <Route path="/admin/company/clutch-testimonial" element={<AdminRouteWrapper><ClutchTestimonialAdminPage /></AdminRouteWrapper>} />
+
+              {/* Fallback Section Editor for other Company section keys */}
+              <Route path="/admin/company" element={<AdminRouteWrapper><AboutFirevyAdminPage /></AdminRouteWrapper>} />
+              <Route path="/admin/company/:sectionKey" element={<AdminRouteWrapper><SectionEditorPage /></AdminRouteWrapper>} />
+              <Route
+                path="/admin/product"
+                element={
+                  <AdminRouteWrapper>
+                    <ServicesPage />
+                  </AdminRouteWrapper>
+                }
+              />
+              <Route
+                path="/admin/product/:sectionKey"
+                element={
+                  <AdminRouteWrapper>
+                    <SectionEditorPage />
+                  </AdminRouteWrapper>
+                }
+              />
               <Route
                 path="/admin/services"
                 element={
                   <AdminRouteWrapper>
                     <ServicesPage />
+                  </AdminRouteWrapper>
+                }
+              />
+              <Route
+                path="/admin/services/:sectionKey"
+                element={
+                  <AdminRouteWrapper>
+                    <SectionEditorPage />
+                  </AdminRouteWrapper>
+                }
+              />
+              <Route
+                path="/admin/hire"
+                element={
+                  <AdminRouteWrapper>
+                    <SectionEditorPage />
+                  </AdminRouteWrapper>
+                }
+              />
+              <Route
+                path="/admin/hire/:sectionKey"
+                element={
+                  <AdminRouteWrapper>
+                    <SectionEditorPage />
                   </AdminRouteWrapper>
                 }
               />
@@ -144,10 +279,42 @@ export function App() {
                 }
               />
               <Route
+                path="/admin/portfolio/:sectionKey"
+                element={
+                  <AdminRouteWrapper>
+                    <SectionEditorPage />
+                  </AdminRouteWrapper>
+                }
+              />
+              <Route
+                path="/admin/technologies/:sectionKey"
+                element={
+                  <AdminRouteWrapper>
+                    <SectionEditorPage />
+                  </AdminRouteWrapper>
+                }
+              />
+              <Route
                 path="/admin/jobs"
                 element={
                   <AdminRouteWrapper>
-                    <JobsPage />
+                    <CareersAdminPage />
+                  </AdminRouteWrapper>
+                }
+              />
+              <Route
+                path="/admin/company/careers"
+                element={
+                  <AdminRouteWrapper>
+                    <CareersAdminPage />
+                  </AdminRouteWrapper>
+                }
+              />
+              <Route
+                path="/admin/company/careers-jobs"
+                element={
+                  <AdminRouteWrapper>
+                    <CareersAdminPage />
                   </AdminRouteWrapper>
                 }
               />

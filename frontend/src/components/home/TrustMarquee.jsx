@@ -1,16 +1,16 @@
 import React from 'react';
 
 const defaultBrandLogos = [
-  { name: 'TOYOTA', color: 'text-red-600', symbol: '🚗' },
-  { name: 'Almarai', color: 'text-blue-700', symbol: '🌾' },
-  { name: 'ORIENT CEMENT', color: 'text-slate-800', symbol: '🏗️' },
-  { name: 'AMERICAN EXPRESS', color: 'text-blue-600', symbol: '💳' },
-  { name: 'Alembic', color: 'text-cyan-700', symbol: '🧪' },
-  { name: 'HONDA', color: 'text-red-600', symbol: '🏎️' },
-  { name: 'LafargeHolcim', color: 'text-slate-700', symbol: '🏢' },
-  { name: 'Cummins', color: 'text-[#006B8F]', symbol: '⚙️' },
-  { name: "L'ORÉAL", color: 'text-slate-900', symbol: '✨' },
-  { name: 'TDSG', color: 'text-red-700', symbol: '🛡️' }
+  { name: 'adani', color: 'text-[#9B111E] font-serif lowercase tracking-normal text-2xl font-bold', symbol: '' },
+  { name: 'TOYOTA', color: 'text-red-600 font-sans tracking-wider font-extrabold', symbol: '🔴' },
+  { name: 'المراعي Almarai', color: 'text-[#005B94] font-sans font-bold', symbol: '🌾' },
+  { name: 'CEMENT CK BIRLA GROUP', color: 'text-slate-800 font-sans font-bold', symbol: '🏗️' },
+  { name: 'AMERICAN EXPRESS', color: 'text-[#006FCF] font-sans tracking-widest font-extrabold', symbol: '💳' },
+  { name: 'Alembic Touching lives over 100 years', color: 'text-[#00875A] font-sans font-semibold', symbol: '🧪' },
+  { name: 'HONDA', color: 'text-[#CC0000] font-sans font-black tracking-widest', symbol: '🏎️' },
+  { name: 'LafargeHolcim', color: 'text-slate-700 font-sans font-bold', symbol: '🏢' },
+  { name: 'Cummins', color: 'text-[#006B8F] font-sans font-bold', symbol: '⚙️' },
+  { name: "L'ORÉAL", color: 'text-slate-900 font-sans font-bold', symbol: '✨' }
 ];
 
 export const TrustMarquee = ({ data }) => {

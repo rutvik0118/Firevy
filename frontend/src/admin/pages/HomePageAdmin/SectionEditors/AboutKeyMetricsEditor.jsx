@@ -23,15 +23,15 @@ export const AboutKeyMetricsEditor = ({ data, onChange }) => {
   const cardFields = [
     {
       name: 'metric',
-      label: 'Metric Value (e.g. 23+, 2800+, 95%)',
+      label: 'Metric Value',
       type: 'text',
-      placeholder: '23+'
+      placeholder: 'e.g. 23+, 2800+, 95%'
     },
     {
       name: 'label',
       label: 'Label / Description',
       type: 'text',
-      placeholder: 'e.g. Years Experience, Work at your time zone',
+      placeholder: 'e.g. Years Experience, Satisfied Clients',
       required: true
     },
     {
@@ -47,7 +47,9 @@ export const AboutKeyMetricsEditor = ({ data, onChange }) => {
       name: 'icon',
       label: 'Feature Icon Key',
       type: 'text',
-      placeholder: 'e.g. globe, chat, badge, handshake'
+      placeholder: 'e.g. globe, chat, badge, handshake, zap, code',
+      fullWidth: true,
+      helperText: 'Icon identifier used when Card Type is Feature Highlight'
     },
     {
       name: 'image',
@@ -75,7 +77,7 @@ export const AboutKeyMetricsEditor = ({ data, onChange }) => {
             <input
               type="text"
               className="form-control"
-              value={data?.title || 'Glance through our creations and presence'}
+              value={data?.title || 'About Us'}
               onChange={(e) => handleFieldChange('title', e.target.value)}
               style={{
                 width: '100%',
@@ -93,7 +95,7 @@ export const AboutKeyMetricsEditor = ({ data, onChange }) => {
             <textarea
               className="form-control"
               rows={2}
-              value={data?.description || "We are a team of qualified Salesforce & Enterprise Development Professionals adept at expanding your current system's capabilities via the development and integration of Salesforce CRM and cloud architectures."}
+              value={data?.description || 'Sapphire delivers cutting-edge digital solutions that drive our clients to achieve unparalleled success'}
               onChange={(e) => handleFieldChange('description', e.target.value)}
               style={{
                 width: '100%',
@@ -130,23 +132,23 @@ export const AboutKeyMetricsEditor = ({ data, onChange }) => {
           renderItemSummary={(item) => {
             const isStat = item.type === 'stat' || (item.metric && !item.icon);
             return (
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', minWidth: 0 }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1px', minWidth: 0, overflow: 'hidden' }}>
                 {isStat ? (
                   <>
-                    <div style={{ fontSize: '15px', fontWeight: 800, color: '#006B8F', lineHeight: 1.2 }}>
+                    <div style={{ fontSize: '13px', fontWeight: 800, color: '#006B8F', lineHeight: 1.2 }}>
                       {item.metric || '0+'}
                     </div>
-                    <div style={{ fontSize: '12px', fontWeight: 600, color: '#334155', lineHeight: 1.35, wordBreak: 'break-word' }}>
+                    <div style={{ fontSize: '11px', fontWeight: 600, color: '#334155', lineHeight: 1.25, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                       {item.label || item.title || 'Metric Description'}
                     </div>
                   </>
                 ) : (
                   <>
-                    <div style={{ fontSize: '13px', fontWeight: 700, color: '#0F172A', lineHeight: 1.3, wordBreak: 'break-word' }}>
+                    <div style={{ fontSize: '12px', fontWeight: 700, color: '#0F172A', lineHeight: 1.2, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                       {item.label || item.title || 'Feature Highlight'}
                     </div>
-                    <div style={{ fontSize: '11px', color: '#64748B', lineHeight: 1.3 }}>
-                      {item.description || (item.icon ? `Feature Highlight (${item.icon})` : 'Feature Highlight')}
+                    <div style={{ fontSize: '10px', color: '#64748B', lineHeight: 1.2, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                      {item.description || (item.icon ? `Icon: ${item.icon}` : 'Feature Highlight')}
                     </div>
                   </>
                 )}

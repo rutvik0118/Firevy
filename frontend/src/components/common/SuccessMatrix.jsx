@@ -4,51 +4,51 @@ import Container from './Container';
 const matrixItems = [
   {
     title: 'SEO and Digital Marketing',
-    icon: '/images/ic_seo.svg'
+    image: '/images/what_clientsay_icon/ic_seo.svg'
   },
   {
     title: '4 months + Free Post Launch Support',
-    icon: '/images/ic_support.svg'
+    image: '/images/what_clientsay_icon/ic_support.svg'
   },
   {
     title: 'Non-Disclosure',
-    icon: '/images/ic_non_disclosure.svg'
+    image: '/images/what_clientsay_icon/ic_non_disclosure.svg'
   },
   {
     title: '100% value for the money',
-    icon: '/images/ic_money.svg'
+    image: '/images/what_clientsay_icon/ic_money.svg'
   },
   {
     title: 'Professional coding and version controls',
-    icon: '/images/ic_coding_version.svg'
+    image: '/images/what_clientsay_icon/ic_coding_version.svg'
   },
   {
     title: 'Flexible payment plans',
-    icon: '/images/ic_flexible_payment.svg'
+    image: '/images/what_clientsay_icon/ic_flexible_payment.svg'
   },
   {
     title: 'Real-time project tracking tools',
-    icon: '/images/ic_real_time.svg'
+    image: '/images/what_clientsay_icon/ic_real_time.svg'
   },
   {
     title: 'Custom Tailored support | AMC Plans',
-    icon: '/images/ic_amc.svg'
+    image: '/images/what_clientsay_icon/ic_amc.svg'
   },
   {
-    title: 'Quality Asssurance and Unit Test Case',
-    icon: '/images/ic_quality.svg'
+    title: 'Quality Assurance and Unit Test Cases',
+    image: '/images/what_clientsay_icon/ic_quality.svg'
   },
   {
     title: 'Penalty enforce-ment in case of Delivery Delay',
-    icon: '/images/ic_penalty.svg'
+    image: '/images/what_clientsay_icon/ic_penalty.svg'
   },
   {
     title: 'In-dept analysis of revenue business Models',
-    icon: '/images/ic_in_dept_analysis.svg'
+    image: '/images/what_clientsay_icon/ic_in_dept_analysis.svg'
   },
   {
     title: 'Mind Maps and video demos',
-    icon: '/images/ic_mind_maps.svg'
+    image: '/images/what_clientsay_icon/ic_mind_maps.svg'
   }
 ];
 
@@ -62,7 +62,7 @@ export const SuccessMatrix = () => {
             Success Matrix
           </h2>
           <p className="text-[12.5px] sm:text-[13px] text-[#475569] font-normal leading-relaxed max-w-3xl mx-auto font-sans">
-            We offer comprehensive services to develop digital solutions & manage complete product lifecycle. We've robust work history with diverse business services.
+            We offer comprehensive services to develop digital solutions &amp; manage complete product lifecycle. We've robust work history with diverse business services.
           </p>
         </div>
 
@@ -76,7 +76,7 @@ export const SuccessMatrix = () => {
               {/* Authentic SVG Vector Icon */}
               <div className="h-9 flex items-center justify-center shrink-0 mb-2 group-hover:scale-110 transition-transform duration-300">
                 <img
-                  src={item.icon}
+                  src={item.image}
                   alt={item.title}
                   className="max-h-8 max-w-[38px] object-contain select-none"
                   loading="lazy"
@@ -96,4 +96,3 @@ export const SuccessMatrix = () => {
 };
 
 export default SuccessMatrix;
-

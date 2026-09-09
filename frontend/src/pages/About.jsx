@@ -4,6 +4,7 @@ import SEO from '../components/common/SEO';
 import Container from '../components/common/Container';
 import AboutKeyMetrics from '../components/home/AboutKeyMetrics';
 import WorkTogetherNewsletterSection from '../components/home/WorkTogetherNewsletterSection';
+import ClientReviewsDarkSection from '../components/home/ClientReviewsDarkSection';
 import BRAND from '../constants/brand';
 import { ArrowRight, Target, Linkedin, ChevronLeft, ChevronRight, Star } from 'lucide-react';
 
@@ -515,110 +516,8 @@ export const About = () => {
         </div>
       </section>
 
-      {/* 10. "What Our Clients Say" (Exact Two-Column Card Layout with Right-Side Ice-Blue Pill - Reference Screenshot 1 Match) */}
-      <section className="py-20 bg-[#005F96] text-white font-sans relative overflow-hidden">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-8">
-          <div className="text-center max-w-4xl mx-auto mb-14">
-            <h2 className="text-[38px] sm:text-[46px] font-[900] text-white tracking-tight leading-tight mb-2 font-sans">
-              What Our Clients Say
-            </h2>
-          </div>
-
-          {/* Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {clientReviews.slice(0, 3).map((rev) => (
-              <div
-                key={rev.id}
-                className="bg-white rounded-[24px] p-6 sm:p-7 text-slate-900 shadow-2xl flex flex-row items-stretch justify-between space-x-4 border border-white/20 hover:scale-[1.02] transition-transform duration-300"
-              >
-                {/* Left Sub-Column (Text & Author) */}
-                <div className="flex-1 flex flex-col justify-between text-left pr-2">
-                  <div>
-                    {/* Clutch Logo */}
-                    <div className="text-[26px] font-[900] text-slate-900 tracking-tight font-sans mb-4">
-                      Clutc<span className="text-red-500 font-[900]">h</span>
-                    </div>
-
-                    {/* Headline */}
-                    <h3 className="text-[16px] font-[800] text-slate-900 leading-snug mb-3 line-clamp-2">
-                      {rev.headline}
-                    </h3>
-
-                    {/* Review Snippet */}
-                    <p className="text-[13px] text-slate-600 leading-relaxed font-[400] mb-4 line-clamp-3">
-                      {rev.text}
-                    </p>
-                  </div>
-
-                  {/* Author Profile */}
-                  <div className="flex items-center space-x-2.5 pt-2">
-                    <img src={rev.avatar} alt={rev.name} className="w-9 h-9 rounded-full object-cover border border-slate-200" />
-                    <div>
-                      <div className="text-[14px] font-[800] text-slate-900 leading-tight">{rev.name}</div>
-                      <div className="text-[11.5px] text-slate-500">{rev.location}</div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Right Sub-Column: Ice-Blue Score Pill Box (Exact Reference Image 1 Match) */}
-                <div className="w-[135px] shrink-0 bg-[#F4F9FC] rounded-[18px] p-4 flex flex-col justify-between text-center border border-blue-50/80">
-                  <div>
-                    {/* Big Rating Number */}
-                    <div className="text-[34px] font-[900] text-slate-900 leading-none mb-1 font-sans">
-                      {rev.rating}
-                    </div>
-
-                    {/* 5 Stars */}
-                    <div className="flex items-center justify-center space-x-0.5 text-amber-400 mb-3">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-3.5 h-3.5 fill-current text-amber-400" />
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Vertical Score Breakdown List */}
-                  <div className="space-y-2 text-[12px] text-slate-700 font-sans text-left">
-                    <div className="flex justify-between items-center">
-                      <span className="text-slate-600 text-[11.5px]">Quality</span>
-                      <strong className="text-slate-900 font-[800]">{rev.scores.quality}</strong>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-slate-600 text-[11.5px]">Schedule</span>
-                      <strong className="text-slate-900 font-[800]">{rev.scores.schedule}</strong>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-slate-600 text-[11.5px]">Cost</span>
-                      <strong className="text-slate-900 font-[800]">{rev.scores.cost}</strong>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-slate-600 text-[10.5px] leading-tight">Willing to Refer</span>
-                      <strong className="text-slate-900 font-[800]">{rev.scores.refer}</strong>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Navigation Arrows */}
-          <div className="flex items-center justify-center space-x-4 mt-10">
-            <button
-              onClick={prevReview}
-              className="w-11 h-11 rounded-full bg-white/15 hover:bg-white text-white hover:text-[#005F96] flex items-center justify-center transition-all cursor-pointer border border-white/20 shadow-md"
-              aria-label="Previous Reviews"
-            >
-              <ChevronLeft className="w-6 h-6" />
-            </button>
-            <button
-              onClick={nextReview}
-              className="w-11 h-11 rounded-full bg-white/15 hover:bg-white text-white hover:text-[#005F96] flex items-center justify-center transition-all cursor-pointer border border-white/20 shadow-md"
-              aria-label="Next Reviews"
-            >
-              <ChevronRight className="w-6 h-6" />
-            </button>
-          </div>
-        </div>
-      </section>
+      {/* 10. "What Our Clients Say" (Exact Slider Carousel Matching Image 1) */}
+      <ClientReviewsDarkSection />
 
       {/* 11. "Insights" */}
       <section className="py-20 bg-white border-b border-slate-100 text-slate-900 font-sans">

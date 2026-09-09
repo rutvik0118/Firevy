@@ -45,52 +45,56 @@ export const Header = () => {
     { name: 'Company', hasMenu: 'company', path: '/about' },
     { name: 'Product', hasMenu: 'solutions', path: '/services' },
     { name: 'Services', hasMenu: 'services', path: '/services' },
-    { name: 'Hire Developers', hasMenu: 'hire-developers', path: '/services/dedicated-developers' },
     { name: 'Technology', hasMenu: 'technologies', path: '/technologies' },
+    { name: 'Hire Developers', hasMenu: 'hire-developers', path: '/services/dedicated-developers' },
     { name: 'Our Work', hasMenu: 'our-work', path: '/portfolio' }
   ];
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-200">
-      {/* Top Announcement / Utility Bar - Hides on homepage top or on scroll */}
+      {/* Top Announcement / Utility Bar */}
       <AnimatePresence>
-        {!isScrolled && location.pathname !== '/' && (
+        {!isScrolled && (
           <motion.div
             initial={{ height: 'auto', opacity: 1 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.08, ease: 'easeOut' }}
-            className="hidden lg:block bg-[#F4F7F9] border-b border-slate-200/90 text-[12px] font-sans text-slate-700 overflow-hidden"
+            transition={{ duration: 0.1, ease: 'easeOut' }}
+            className={`hidden lg:block border-b text-[12px] font-sans overflow-hidden transition-colors duration-300 ${
+              location.pathname === '/'
+                ? 'bg-[#011422] border-[#072439] text-slate-300'
+                : 'bg-[#F4F7F9] border-slate-200 text-slate-700'
+            }`}
           >
             <div className="w-full px-6 lg:px-10 py-1.5 flex items-center justify-between">
               {/* Sales Phone Numbers */}
               <div className="flex items-center space-x-6">
-                <a href={`tel:${BRAND.contact.phoneUS}`} className="flex items-center space-x-1.5 hover:text-[#005F96] transition-colors">
-                  <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">US</span>
-                  <span className="text-slate-500">For Sales:</span>
-                  <span className="font-bold text-slate-800">{BRAND.contact.phoneUS}</span>
+                <a href="tel:+17542587670" className="flex items-center space-x-2 hover:text-cyan-400 transition-colors">
+                  <span className="text-[13px]">🇺🇸</span>
+                  <span className={location.pathname === '/' ? 'text-slate-400' : 'text-slate-500'}>For Sales:</span>
+                  <span className="font-semibold text-white">+1-754-258-7670</span>
                 </a>
-                <a href={`tel:${BRAND.contact.phoneIN}`} className="flex items-center space-x-1.5 hover:text-[#005F96] transition-colors">
-                  <span className="text-xs font-bold text-slate-500 uppercase tracking-wider">IN</span>
-                  <span className="text-slate-500">For Sales:</span>
-                  <span className="font-bold text-slate-800">{BRAND.contact.phoneIN}</span>
+                <a href="tel:+919429709662" className="flex items-center space-x-2 hover:text-cyan-400 transition-colors">
+                  <span className="text-[13px]">🇮🇳</span>
+                  <span className={location.pathname === '/' ? 'text-slate-400' : 'text-slate-500'}>For Sales:</span>
+                  <span className="font-semibold text-white">+91-942-970-9662</span>
                 </a>
               </div>
 
               {/* Center / Right Links */}
               <div className="flex items-center space-x-6">
-                <span className="flex items-center space-x-1.5 text-slate-700 font-semibold">
-                  <Briefcase className="w-3.5 h-3.5 text-[#005F96]" />
-                  <span>Firevy Enterprise IT Solutions</span>
+                <span className="flex items-center space-x-1.5 font-medium text-slate-200">
+                  <span className="text-cyan-400 font-bold text-xs">❖</span>
+                  <span>Sapphire Software Solutions</span>
                 </span>
 
-                <a href={`mailto:${BRAND.contact.email}`} className="flex items-center space-x-1.5 text-slate-700 hover:text-[#005F96] transition-colors font-medium">
-                  <Mail className="w-3.5 h-3.5 text-red-500" />
-                  <span>{BRAND.contact.email}</span>
+                <a href="mailto:contact@sapphiresolutions.net" className="flex items-center space-x-1.5 text-slate-300 hover:text-cyan-400 transition-colors font-medium">
+                  <Mail className="w-3.5 h-3.5 text-red-400" />
+                  <span>contact@sapphiresolutions.net</span>
                 </a>
 
-                <Link to="/contact" className="flex items-center space-x-1.5 text-[#005F96] hover:text-[#004A75] font-bold transition-colors">
-                  <Calendar className="w-3.5 h-3.5 text-[#005F96]" />
+                <Link to="/contact" className="flex items-center space-x-1.5 text-cyan-400 hover:text-cyan-300 font-bold transition-colors">
+                  <Calendar className="w-3.5 h-3.5 text-cyan-400" />
                   <span>Schedule a Meeting</span>
                 </Link>
               </div>
@@ -99,26 +103,20 @@ export const Header = () => {
         )}
       </AnimatePresence>
 
-      {/* Main Header Bar - Spacious 82px Height Matching Reference Site */}
-      <div className={`relative transition-all duration-300 h-[82px] flex items-center ${
-        location.pathname === '/' && !isScrolled
-          ? 'bg-[#031120]/80 backdrop-blur-md border-b border-white/10 text-white shadow-lg'
-          : 'bg-white border-b border-slate-200 text-slate-900 shadow-sm'
+      {/* Main Header Bar */}
+      <div className={`relative transition-all duration-300 h-[76px] flex items-center ${
+        isScrolled
+          ? 'bg-white border-b border-slate-200 text-slate-900 shadow-md'
+          : 'bg-[#011422]/95 backdrop-blur-md border-b border-[#072439] text-white shadow-md'
       }`}>
         <div className="w-full px-6 lg:px-10 flex items-center justify-between h-full">
           {/* Brand Logo */}
           <Link to="/" className="flex items-center group shrink-0 mr-6">
-            {location.pathname === '/' && !isScrolled ? (
-              <img
-                src="/images/sapphire_logo_white.svg"
-                alt="Sapphire Software Solutions"
-                className="h-9 w-auto object-contain"
-              />
-            ) : (
-              <span className="text-2xl sm:text-3xl lg:text-[32px] font-extrabold tracking-wider font-sans text-slate-900 group-hover:opacity-90 transition-colors">
-                firevy<span className="text-[#005F96]">.co</span>
-              </span>
-            )}
+            <img
+              src={isScrolled ? "/firevy_logo_dark.png" : "/firevy_logo_white.png"}
+              alt="firevy.co"
+              className="h-[34px] sm:h-[38px] w-auto max-w-[180px] object-contain transition-all duration-200"
+            />
           </Link>
 
           {/* Desktop Nav & Action CTAs */}
@@ -127,7 +125,7 @@ export const Header = () => {
               {navLinks.map((link) => {
                 const isActive = location.pathname === link.path || activeDropdown === link.hasMenu;
                 const hasMenu = Boolean(link.hasMenu);
-                const isDarkHeader = location.pathname === '/' && !isScrolled;
+                const isDarkHeader = !isScrolled;
 
                 return (
                   <div
@@ -137,7 +135,7 @@ export const Header = () => {
                   >
                     <Link
                       to={link.path}
-                      className={`text-sm xl:text-[15.5px] font-semibold transition-colors flex items-center space-x-1 ${
+                      className={`text-sm xl:text-[15px] font-semibold transition-colors flex items-center space-x-1 ${
                         isDarkHeader
                           ? (isActive ? 'text-cyan-300 font-bold' : 'text-white/90 hover:text-cyan-300')
                           : (isActive ? 'text-[#005F96] font-bold' : 'text-[#2D3748] hover:text-[#005F96]')
@@ -145,7 +143,7 @@ export const Header = () => {
                     >
                       <span>{link.name}</span>
                       {hasMenu && (
-                        <span className={`text-[11px] leading-none ml-0.5 ${isDarkHeader ? 'text-white/60' : 'text-slate-400'}`}>
+                        <span className={`text-[11px] leading-none ml-0.5 ${isDarkHeader ? 'text-white/60' : 'text-slate-500'}`}>
                           ▾
                         </span>
                       )}
@@ -167,15 +165,15 @@ export const Header = () => {
             <div className="flex items-center space-x-3 shrink-0 ml-4">
               <Link
                 to="/contact"
-                className="inline-flex items-center justify-center px-5 py-3 text-xs xl:text-sm font-bold text-white rounded-[6px] bg-gradient-to-r from-[#D81B60] via-[#8E24AA] to-[#7B1FA2] hover:opacity-95 shadow-md transition-all duration-300 hover:scale-105"
+                className="inline-flex items-center justify-center px-4 py-2.5 text-xs xl:text-[13.5px] font-bold text-white rounded-[4px] bg-gradient-to-r from-[#D81B60] via-[#A855F7] to-[#8E24AA] hover:opacity-95 shadow-md transition-all duration-300 hover:scale-105"
               >
-                <Sparkles className="w-4 h-4 mr-1.5 text-amber-300 animate-pulse" />
+                <Sparkles className="w-3.5 h-3.5 mr-1.5 text-amber-300 animate-pulse" />
                 <span>Let's Talk AI</span>
               </Link>
 
               <Link
                 to="/contact"
-                className="inline-flex items-center justify-center px-6 py-3 text-xs xl:text-sm font-bold text-white rounded-[6px] bg-[#006B8F] hover:bg-[#005478] transition-all duration-300 shadow-md hover:scale-105"
+                className="inline-flex items-center justify-center px-5 py-2.5 text-xs xl:text-[13.5px] font-bold text-white rounded-[4px] bg-[#006B8F] hover:bg-[#005478] transition-all duration-300 shadow-md hover:scale-105"
               >
                 <span>Contact Us</span>
               </Link>
@@ -185,7 +183,11 @@ export const Header = () => {
           {/* Mobile Hamburger Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2.5 rounded-lg border text-slate-800 bg-slate-100 border-slate-300 focus:outline-none"
+            className={`lg:hidden p-2.5 rounded-lg border focus:outline-none transition-colors ${
+              isScrolled
+                ? 'text-slate-800 bg-slate-100 border-slate-300'
+                : 'text-white bg-white/10 border-white/20'
+            }`}
             aria-label="Toggle Navigation Menu"
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
