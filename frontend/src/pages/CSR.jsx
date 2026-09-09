@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import SEO from '../components/common/SEO';
 import Container from '../components/common/Container';
 import FeaturedInLogosGrid from '../components/home/FeaturedInLogosGrid';
 import WorkTogetherNewsletterSection from '../components/home/WorkTogetherNewsletterSection';
 import BRAND from '../constants/brand';
+import companyPublicService from '../services/companyPublicService';
 import {
   Lightbulb, Users, Target, ShieldCheck, FileCheck, RefreshCw,
   ChevronLeft, ChevronRight, Heart
@@ -11,8 +12,15 @@ import {
 
 export const CSR = () => {
   const [slideIdx, setSlideIdx] = useState(0);
+  const [sectionData, setSectionData] = useState(null);
 
-  const carouselItems = [
+  useEffect(() => {
+    companyPublicService.getSection('csr').then((data) => {
+      if (data) setSectionData(data);
+    }).catch(console.error);
+  }, []);
+
+  const defaultCarouselItems = [
     {
       title: 'Donations to students as a part of our CSR',
       desc: 'We donated supplies to our local schools to support children in education.',
@@ -29,6 +37,8 @@ export const CSR = () => {
       img: 'https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=800&q=80'
     }
   ];
+
+  const carouselItems = (sectionData?.items && sectionData.items.length > 0) ? sectionData.items : defaultCarouselItems;
 
   const handlePrev = () => {
     setSlideIdx((prev) => (prev === 0 ? carouselItems.length - 1 : prev - 1));

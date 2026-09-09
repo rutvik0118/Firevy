@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink, useLocation, useNavigate, Link } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import {
   LayoutDashboard,
   Home,
@@ -12,12 +12,10 @@ import {
   ChevronLeft,
   ChevronRight,
   ChevronDown,
-  LogOut,
-  Search
+  LogOut
 } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
 import { useToast } from '../../context/ToastContext';
-import { HOME_PAGE_SECTIONS_LIST } from '../../constants/sectionMetadata';
 
 const NAV_ITEMS = [
   {
@@ -30,8 +28,6 @@ const NAV_ITEMS = [
     id: 'home-page',
     label: 'Home Page',
     icon: Home,
-    isExpandable: true,
-    isHomeGroup: true,
     path: '/admin/home-page'
   },
   {
@@ -40,21 +36,34 @@ const NAV_ITEMS = [
     icon: Building2,
     isExpandable: true,
     subItems: [
+      // Group 1: ABOUT US
+      { label: 'ABOUT US', isHeader: true },
       { label: 'About firevy.co', path: '/admin/company/about-firevy' },
       { label: 'CEO Message', path: '/admin/company/ceo-message' },
       { label: 'Our Team', path: '/admin/company/our-team' },
-      { label: 'Why Choose Us', path: '/admin/company/why-choose-us' },
       { label: 'Events & Activities', path: '/admin/company/events-activities' },
-      { label: 'Brochure Download', path: '/admin/company/download-brochure' },
-      { label: 'Awards & Recognition', path: '/admin/company/awards-recognition' },
+      { label: 'Brochure', path: '/admin/company/download-brochure' },
+      { label: 'Why Choose Us', path: '/admin/company/why-choose-us' },
       { label: 'Great Place To Work', path: '/admin/company/great-place-to-work' },
       { label: 'Women Empowerment', path: '/admin/company/women-empowerment' },
+      { label: 'Awards & Recognition', path: '/admin/company/awards-recognition' },
+      { label: 'Insightful Videos', path: '/admin/company/insightful-videos' },
+      { label: 'Blog', path: '/admin/company/blog' },
+      { label: 'Careers (Jobs)', path: '/admin/company/careers' },
+      { label: 'CSR', path: '/admin/company/csr' },
+      { label: 'Podcast', path: '/admin/company/podcast' },
+
+      // Group 2: MODELS
+      { label: 'MODELS', isHeader: true },
       { label: 'Delivery Models', path: '/admin/company/delivery-models' },
       { label: 'Engagement Models', path: '/admin/company/engagement-models' },
       { label: 'Development Methodology', path: '/admin/company/development-methodology' },
-      { label: 'Client Testimonials', path: '/admin/testimonials' },
-      { label: 'Blog & Articles', path: '/admin/company/blog' },
-      { label: 'Careers (Jobs)', path: '/admin/jobs' }
+
+      // Group 3: TESTIMONIAL
+      { label: 'TESTIMONIAL', isHeader: true },
+      { label: 'Client Testimonials', path: '/admin/company/client-testimonials' },
+      { label: 'Video Testimonial', path: '/admin/company/video-testimonial' },
+      { label: 'Clutch Testimonial', path: '/admin/company/clutch-testimonial' }
     ]
   },
   {
@@ -152,9 +161,7 @@ export const Sidebar = ({ isCollapsed, onToggleCollapse, isMobileOpen, onCloseMo
   const { user, logout } = useAuth();
   const { addToast } = useToast();
 
-  const isCurrentHomeRoute = location.pathname.startsWith('/admin/home-page');
   const [expandedMenus, setExpandedMenus] = useState({
-    'home-page': isCurrentHomeRoute,
     company: false,
     product: false,
     services: false,
@@ -162,7 +169,6 @@ export const Sidebar = ({ isCollapsed, onToggleCollapse, isMobileOpen, onCloseMo
     technology: false,
     ourWork: false
   });
-  const [sectionFilter, setSectionFilter] = useState('');
 
   // Auto-expand relevant submenu if navigating
   useEffect(() => {
@@ -174,9 +180,6 @@ export const Sidebar = ({ isCollapsed, onToggleCollapse, isMobileOpen, onCloseMo
         }
       }
     });
-    if (location.pathname.startsWith('/admin/home-page')) {
-      setExpandedMenus((prev) => ({ ...prev, 'home-page': true }));
-    }
   }, [location.pathname]);
 
   const toggleMenu = (menuId) => {
@@ -196,11 +199,6 @@ export const Sidebar = ({ isCollapsed, onToggleCollapse, isMobileOpen, onCloseMo
     addToast('Signed out of Admin Panel', 'info');
     navigate('/admin', { replace: true });
   };
-
-  const filteredHomeSections = HOME_PAGE_SECTIONS_LIST.filter((sec) =>
-    sec.title.toLowerCase().includes(sectionFilter.toLowerCase()) ||
-    sec.category.toLowerCase().includes(sectionFilter.toLowerCase())
-  );
 
   return (
     <aside
@@ -246,12 +244,13 @@ export const Sidebar = ({ isCollapsed, onToggleCollapse, isMobileOpen, onCloseMo
         {NAV_ITEMS.map((item) => {
           const Icon = item.icon;
           const isExpanded = !!expandedMenus[item.id];
-          const isDirectActive = location.pathname === item.path;
+          const isDirectActive =
+            item.id === 'home-page'
+              ? location.pathname.startsWith('/admin/home-page')
+              : location.pathname === item.path;
 
           if (item.isExpandable) {
-            const isGroupActive = item.isHomeGroup
-              ? location.pathname.startsWith('/admin/home-page')
-              : item.subItems?.some((sub) => location.pathname === sub.path);
+            const isGroupActive = item.subItems?.some((sub) => location.pathname === sub.path);
 
             return (
               <div key={item.id} style={{ display: 'flex', flexDirection: 'column' }}>
@@ -274,63 +273,30 @@ export const Sidebar = ({ isCollapsed, onToggleCollapse, isMobileOpen, onCloseMo
                   )}
                 </div>
 
-                {/* Submenu for Home Page */}
-                {!isCollapsed && isExpanded && item.isHomeGroup && (
-                  <div className={`sidebar-submenu-container ${isGroupActive ? 'has-active' : ''}`}>
-                    {/* Main Overview Link */}
-                    <NavLink
-                      to="/admin/home-page"
-                      end
-                      className={({ isActive }) =>
-                        `sidebar-submenu-link ${isActive ? 'active' : ''}`
-                      }
-                      onClick={onCloseMobile}
-                    >
-                      <span>Overview (All 22)</span>
-                    </NavLink>
-
-                    {/* Search Filter for 22 Sections */}
-                    <div className="sidebar-submenu-search-wrap">
-                      <Search
-                        size={12}
-                        className="sidebar-submenu-search-icon"
-                      />
-                      <input
-                        type="text"
-                        placeholder="Find section..."
-                        value={sectionFilter}
-                        onChange={(e) => setSectionFilter(e.target.value)}
-                        className="sidebar-submenu-search-input"
-                      />
-                    </div>
-
-                    {/* Submenu Items List */}
-                    <div className="sidebar-submenu-list">
-                      {filteredHomeSections.map((sec) => {
-                        const secPath = `/admin/home-page/${sec.key}`;
-                        const isSecActive = location.pathname === secPath;
-
-                        return (
-                          <NavLink
-                            key={sec.key}
-                            to={secPath}
-                            onClick={onCloseMobile}
-                            className={`sidebar-submenu-link ${isSecActive ? 'active' : ''}`}
-                            title={`${sec.title} (${sec.category})`}
-                          >
-                            <span>{sec.title}</span>
-                          </NavLink>
-                        );
-                      })}
-                    </div>
-                  </div>
-                )}
-
                 {/* Submenu for 6 Website Sections (Company, Product, Services, Hire Developers, Technology, Our Work) */}
-                {!isCollapsed && isExpanded && !item.isHomeGroup && item.subItems && (
+                {!isCollapsed && isExpanded && item.subItems && (
                   <div className={`sidebar-submenu-container ${isGroupActive ? 'has-active' : ''}`}>
                     <div className="sidebar-submenu-list">
                       {item.subItems.map((sub, sIdx) => {
+                        if (sub.isHeader) {
+                          return (
+                            <div
+                              key={sIdx}
+                              style={{
+                                fontSize: '0.6875rem',
+                                fontWeight: 700,
+                                color: '#94A3B8',
+                                textTransform: 'uppercase',
+                                letterSpacing: '0.06em',
+                                padding: sIdx === 0 ? '2px 8px 2px' : '8px 8px 2px',
+                                userSelect: 'none'
+                              }}
+                            >
+                              {sub.label}
+                            </div>
+                          );
+                        }
+
                         const isSubActive = location.pathname === sub.path;
 
                         return (
@@ -356,7 +322,7 @@ export const Sidebar = ({ isCollapsed, onToggleCollapse, isMobileOpen, onCloseMo
             <NavLink
               key={item.id}
               to={item.path}
-              className={({ isActive }) => `nav-item ${isActive ? 'active' : ''}`}
+              className={`nav-item ${isDirectActive ? 'active' : ''}`}
               onClick={onCloseMobile}
               title={isCollapsed ? item.label : undefined}
             >

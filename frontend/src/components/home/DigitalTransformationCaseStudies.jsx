@@ -86,12 +86,14 @@ const defaultCaseStudies = [
 export const DigitalTransformationCaseStudies = ({ data }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const title = data?.title || 'Driving Digital Transformation';
-  const description = data?.description || 'Learn how we are empowering leading companies to achieve their transformation goals with our industry expertise and deep tech.';
+  const title = data?.title || 'Digital Transformation Case Studies';
+  const description = data?.description || 'Discover how we partner with industry pioneers to deliver bespoke web, mobile, and cloud software engineering.';
 
   const caseStudies = (data?.caseStudies && Array.isArray(data.caseStudies) && data.caseStudies.filter(c => c.isActive !== false).length > 0)
     ? data.caseStudies.filter(c => c.isActive !== false)
-    : defaultCaseStudies;
+    : (data?.studies && Array.isArray(data.studies) && data.studies.filter(c => c.isActive !== false).length > 0
+        ? data.studies.filter(c => c.isActive !== false)
+        : defaultCaseStudies);
 
   const total = caseStudies.length;
 

@@ -46,7 +46,9 @@ const defaultCards = [
 export const AboutKeyMetrics = ({ data }) => {
   const title = data?.title || 'About Us';
   const description = data?.description || 'Sapphire delivers cutting-edge digital solutions that drive our clients to achieve unparalleled success';
-  const cards = defaultCards;
+  const cards = (data?.cards && Array.isArray(data.cards) && data.cards.filter(c => c.isActive !== false).length > 0)
+    ? data.cards.filter(c => c.isActive !== false)
+    : defaultCards;
 
   return (
     <section className="py-16 sm:py-20 bg-[#006085] text-white relative font-sans overflow-hidden border-b border-cyan-900">

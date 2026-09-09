@@ -1,6 +1,6 @@
 /**
  * Complete Initial Default Data for all 22 Home Page Sections
- * Exactly matches current production content, texts, logos, icons, and media references.
+ * Exactly matches current production Main Website content, texts, logos, icons, and media references.
  */
 
 export const initialSectionsOrder = [
@@ -54,6 +54,8 @@ export const initialHomePageData = {
           secondaryCtaText: 'Get in Touch',
           secondaryCtaLink: '/contact',
           backgroundVideoUrl: '/Best Software Development Company in USA - Sapphire Software Sol.mp4',
+          backgroundImageUrl: '',
+          bgType: 'video',
           isActive: true
         },
         {
@@ -74,6 +76,8 @@ export const initialHomePageData = {
           secondaryCtaText: 'Get in Touch',
           secondaryCtaLink: '/contact',
           backgroundVideoUrl: '/Best Software Development Company in USA - Sapphire Software Sol.mp4',
+          backgroundImageUrl: '',
+          bgType: 'video',
           isActive: true
         },
         {
@@ -94,6 +98,8 @@ export const initialHomePageData = {
           secondaryCtaText: 'Get in Touch',
           secondaryCtaLink: '/contact',
           backgroundVideoUrl: '/Best Software Development Company in USA - Sapphire Software Sol.mp4',
+          backgroundImageUrl: '',
+          bgType: 'video',
           isActive: true
         }
       ]
@@ -123,15 +129,16 @@ export const initialHomePageData = {
       order: 3,
       title: 'About Us',
       description: 'Sapphire delivers cutting-edge digital solutions that drive our clients to achieve unparalleled success',
+      backgroundImage: '',
       cards: [
-        { metric: '23+', label: 'Years of Experience', image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=300&q=80', isActive: true },
-        { metric: '320+', label: '5-Star Clutch Reviews', image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=300&q=80', isActive: true },
-        { metric: '20+', label: 'Fortunes 500 Companies', image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=300&q=80', isActive: true },
-        { metric: '200+', label: 'IT Professional', image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=300&q=80', isActive: true },
-        { metric: '95%', label: 'Client Retention', image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=300&q=80', isActive: true },
-        { metric: '18+', label: 'Industry Served', image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=300&q=80', isActive: true },
-        { metric: '2800+', label: 'Satisfied Clients', image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=300&q=80', isActive: true },
-        { metric: '1500+', label: 'Completed Projects', image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=300&q=80', isActive: true }
+        { metric: '23+', label: 'Years of Experience', image: '/images/first.webp', isActive: true },
+        { metric: '320+', label: '5-Star Clutch Reviews', image: '/images/homeinnovation/second.webp', isActive: true },
+        { metric: '20+', label: 'Fortunes 500 Companies', image: '/images/third.webp', isActive: true },
+        { metric: '200+', label: 'IT Professional', image: '/images/fourth.webp', isActive: true },
+        { metric: '95%', label: 'Client Retention', image: '/images/fifth.webp', isActive: true },
+        { metric: '18+', label: 'Industry Served', image: '/images/sixth.webp', isActive: true },
+        { metric: '2800+', label: 'Satisfied Clients', image: '/images/awards/hdimages/client_seven.png', isActive: true },
+        { metric: '1500+', label: 'Completed Projects', image: '/images/awards/hdimages/clienttestimonial3.png', isActive: true }
       ]
     },
 
@@ -177,75 +184,59 @@ export const initialHomePageData = {
       description: "We offer comprehensive services to develop digital solutions & manage complete product lifecycle.\nWe’ve robust work history with diverse business services.",
       services: [
         {
-          titleLine1: 'Web',
-          titleLine2: 'Development',
+          title: 'Web Development',
           slug: 'web-development',
           description: 'We offer a broad spectrum of web development services to fully tap into the capabilities offered by modern web technologies.',
-          icon: 'web',
-          ctaText: 'Explore Service',
+          iconKey: 'web',
           isActive: true
         },
         {
-          titleLine1: 'Mobile App',
-          titleLine2: 'Development',
+          title: 'Mobile App Development',
           slug: 'mobile-app-development',
           description: 'End-to-end mobile apps development, from business analysis, design to testing and deployment or online market publication.',
-          icon: 'mobile',
-          ctaText: 'Explore Service',
+          iconKey: 'mobile',
           isActive: true
         },
         {
-          titleLine1: 'UI/UX',
-          titleLine2: 'Design',
+          title: 'UI/UX Design',
           slug: 'ui-ux-design',
           description: 'Comprehensive UI/UX services that include idea to the wireframes, web and mobile app design, consulting, and branding using the latest tools and technologies.',
-          icon: 'design',
-          ctaText: 'Explore Service',
+          iconKey: 'design',
           isActive: true
         },
         {
-          titleLine1: 'Product',
-          titleLine2: 'Development',
+          title: 'Product Development',
           slug: 'product-development',
           description: 'Full-spectrum product development ideation to deployment. Product consultation, Product enhancement, MVP (Minimum Viable Product) and support services with an NDA.',
-          icon: 'product',
-          ctaText: 'Explore Service',
+          iconKey: 'product',
           isActive: true
         },
         {
-          titleLine1: 'Software',
-          titleLine2: 'Testing',
+          title: 'Software Testing',
           slug: 'software-testing-qa',
-          description: 'End-to-end software testing services including automated QA, security audits, performance testing, and bug tracking to ensure zero-defect releases.',
-          icon: 'testing',
-          ctaText: 'Explore Service',
+          description: 'Quality Assurance (QA) and software testing services ensuring top-notch stability, automated validation, and zero-defect performance.',
+          iconKey: 'testing',
           isActive: true
         },
         {
-          titleLine1: 'Hire Dedicated',
-          titleLine2: 'Developers',
+          title: 'Hire Dedicated Developers',
           slug: 'dedicated-developers',
-          description: 'Hire dedicated top 1% senior full-stack developers and software engineers on-demand to scale your engineering team dynamically.',
-          icon: 'users',
-          ctaText: 'Explore Service',
+          description: 'Hire a dedicated developer team to scale your tech capabilities with flexible engagement models and proven senior engineers.',
+          iconKey: 'users',
           isActive: true
         },
         {
-          titleLine1: 'API Integration',
-          titleLine2: '& Development',
+          title: 'API Integration & Development',
           slug: 'api-integration-development',
-          description: 'Custom microservice API development, GraphQL implementation, and seamless third-party enterprise integrations.',
-          icon: 'api',
-          ctaText: 'Explore Service',
+          description: 'Integrate third-party APIs and build robust custom microservices for seamless enterprise interoperability and data sync.',
+          iconKey: 'api',
           isActive: true
         },
         {
-          titleLine1: 'Cloud',
-          titleLine2: 'Development',
+          title: 'Cloud Development',
           slug: 'cloud-solutions',
-          description: 'Enterprise AWS, Azure, and GCP cloud architecture, Kubernetes containerization, and automated CI/CD DevOps pipelines.',
-          icon: 'cloud',
-          ctaText: 'Explore Service',
+          description: 'Cloud development and infrastructure management on AWS, Azure, and Google Cloud with high availability architectures.',
+          iconKey: 'cloud',
           isActive: true
         }
       ]
@@ -278,7 +269,6 @@ export const initialHomePageData = {
           titleLine2: 'Development',
           slug: 'ai-chatbot-app-development',
           cardBg: 'bg-[#351475]',
-          image: '',
           isActive: true
         },
         {
@@ -287,7 +277,6 @@ export const initialHomePageData = {
           titleLine2: 'System',
           slug: 'ai-traffic-management-system',
           cardBg: 'bg-[#EBF3FB]',
-          image: '',
           isActive: true
         },
         {
@@ -296,25 +285,22 @@ export const initialHomePageData = {
           titleLine2: 'Development',
           slug: 'real-estate-app-development',
           cardBg: 'bg-[#0D2B45]',
-          image: '',
           isActive: true
         },
         {
           id: 4,
-          titleLine1: 'Bee Car Care -',
-          titleLine2: 'Car Services App',
-          slug: 'bee-car-care-app',
-          cardBg: 'bg-[#FFF9E6]',
-          image: '',
+          titleLine1: 'Health & Fitness',
+          titleLine2: 'App Development',
+          slug: 'health-fitness-app-development',
+          cardBg: 'bg-[#064E3B]',
           isActive: true
         },
         {
           id: 5,
-          titleLine1: 'Doctor & Patient App',
-          titleLine2: 'Development',
-          slug: 'doctor-patient-app-development',
-          cardBg: 'bg-[#E8F8F5]',
-          image: '',
+          titleLine1: 'Multi-Store',
+          titleLine2: 'E-Commerce App',
+          slug: 'multi-store-ecommerce-application',
+          cardBg: 'bg-[#701A75]',
           isActive: true
         },
         {
@@ -323,7 +309,6 @@ export const initialHomePageData = {
           titleLine2: 'Banking Platform',
           slug: 'fintech-investment-banking-platform',
           cardBg: 'bg-[#181D27]',
-          image: '',
           isActive: true
         }
       ]
@@ -333,9 +318,9 @@ export const initialHomePageData = {
     trustRecognitionBanner: {
       isVisible: true,
       order: 8,
-      title: 'Proud To Have Picked These Up Along The Way',
+      title: 'Recognized as a Market Leader in Digital Transformation',
       badges: [
-        { id: 1, title: 'Clutch - We Deliver On', image: '/images/clutch.png', isActive: true },
+        { id: 1, title: 'Clutch - Clients Say We Deliver On Clutch', image: '/images/clutch.png', isActive: true },
         { id: 2, title: 'Upwork Top Rated', image: '/images/9_upwork.png', isActive: true },
         { id: 3, title: 'Freelancer Preferred', image: '/images/10_freelancer.png', isActive: true },
         { id: 4, title: 'GoodFirms Top Developer', image: '/images/goodfirms.png', isActive: true }
@@ -347,62 +332,61 @@ export const initialHomePageData = {
       isVisible: true,
       order: 9,
       title: 'Process We Follow',
-      description: 'A systematic, milestone-driven development process engineered to maximize delivery speed, quality, and business value.',
       steps: [
         {
           step: '01',
-          title: 'Requirement Gathering',
-          desc: 'Focus would be on documentation first for clarity and better understanding from both sides and come to the same page.',
-          bg: 'bg-[#ECE7FE] border-[#DDD8FE]',
+          title: 'Discovery & Strategy',
+          desc: 'Detailed requirements gathering, feasibility studies, stakeholder alignment, and project roadmap architecture.',
+          bg: 'bg-[#EEECFE] border-[#DDD8FE]',
           isActive: true
         },
         {
           step: '02',
-          title: 'Designs, Wireframes, & Mockups',
-          desc: 'We help our clients to create an interactive and wonder to watch UI designs that describes user-friendly flow of web/app/platform.',
-          bg: 'bg-[#E5F7E8] border-[#C8EED0]',
+          title: 'UI/UX & Wireframing',
+          desc: 'Interactive wireframes, user personas, responsive design systems, and rapid clickable prototyping.',
+          bg: 'bg-[#E3F6E7] border-[#C8EED0]',
           isActive: true
         },
         {
           step: '03',
-          title: 'Prototype Demo',
-          desc: 'After finalizing and designs approval, we freeze the scope and help our client with demo or prototype to have a look and feel of the app/web/platform.',
-          bg: 'bg-[#FDF0E7] border-[#FADCD0]',
+          title: 'Architecture & DevOps',
+          desc: 'Microservices blueprints, database schema design, containerization, CI/CD pipelines, and cloud setup.',
+          bg: 'bg-[#FDF0E8] border-[#FADCD0]',
           isActive: true
         },
         {
           step: '04',
-          title: 'Changes And Confirmation',
-          desc: "Clients can feel free to add and mention the required changes as per expectations they need in the existing platform. We'll proceed with client's confirmation on the same.",
+          title: 'Agile Development',
+          desc: '2-week sprint cycles with clean modular code, continuous integration, and transparent weekly progress demos.',
           bg: 'bg-[#FEF8DB] border-[#F7EDB3]',
           isActive: true
         },
         {
           step: '05',
-          title: 'Development',
-          desc: 'With client approval, we start the development with the technologies best suited for you, and deliver you results in the timeframe as committed by our technical team.',
-          bg: 'bg-[#FDE7EE] border-[#FBCFE8]',
+          title: 'Testing & QA Assurance',
+          desc: 'Comprehensive automated test suites, performance benchmarking, security vulnerability scans, and UAT.',
+          bg: 'bg-[#FBE4EC] border-[#F8BBD0]',
           isActive: true
         },
         {
           step: '06',
-          title: 'Deployment',
-          desc: "We are open to help our clients with final testing, UAT, training, and final deployment of the source code, and launching in client's platform.",
-          bg: 'bg-[#E2F7F8] border-[#BAE6FD]',
+          title: 'Deployment & Launch',
+          desc: 'Zero-downtime production deployment, CDN configuration, real-time APM monitoring, and rollback safeguards.',
+          bg: 'bg-[#E1F7F9] border-[#BBEFF3]',
           isActive: true
         },
         {
           step: '07',
-          title: 'Support And Maintenance',
-          desc: 'We provide free service and support as per decided terms in our agreement. We also provide packages further monthly or yearly based on your requirement',
-          bg: 'bg-[#F6E8FD] border-[#E9D5FF]',
+          title: 'Maintenance & SLA',
+          desc: '24/7 infrastructure monitoring, critical security patching, performance optimization, and SLA response.',
+          bg: 'bg-[#F2E4F9] border-[#E6CDFA]',
           isActive: true
         },
         {
           step: '08',
-          title: 'SEO',
-          desc: 'We are open to help our clients for promoting their businesses/products with providing complimentary SEO services, providing them a help hand to market their product/business.',
-          bg: 'bg-[#F6FBDD] border-[#E5F2A8]',
+          title: 'Continuous Innovation',
+          desc: 'Feature iteration, analytics-driven UX enhancement, scaling advisory, and AI automation integration.',
+          bg: 'bg-[#EFF6CD] border-[#E2EEA5]',
           isActive: true
         }
       ]
@@ -412,33 +396,33 @@ export const initialHomePageData = {
     engagementModelsSection: {
       isVisible: true,
       order: 10,
-      title: 'Our Engagement Models',
-      description: 'At Sapphire, we provide full-cycle custom software development services to meet your financial requirements. Our software development team leverages their expertise in delivering process-oriented and high-performance software products for Cloud, Mobile, and Web.',
+      title: 'Engagement Models',
+      description: 'We offer variety of models to engage with us for your business requirement',
       buttonText: 'Get In Touch',
       buttonLink: '/contact',
       models: [
         {
           id: 1,
           title: 'Fixed Price',
-          description: 'This model is for projects with well-defined scope and requirements. When Clients know what they want and have fixed requirements, it works the best for small businesses and medium projects with limited or fixed budgets.',
+          desc: 'This model is for projects with well-defined scope and requirements. When Clients know what they want and have fixed requirements, it works the best for small businesses and medium projects with limited or fixed budgets.',
           isActive: true
         },
         {
           id: 2,
           title: 'Dedicated Hiring',
-          description: 'For projects when clients want to have a full-time, dedicated team working on their projects. Works best for projects which require fast scaling or require expert developers to work on a long-term basis.',
+          desc: 'For projects when clients want to have a full-time, dedicated team working on their projects. Works best for projects which require fast scaling or require expert developers to work on a long-term basis.',
           isActive: true
         },
         {
           id: 3,
           title: 'Time Material',
-          description: 'For projects where requirements are dynamic and constantly changing, and scope is not clearly defined. Works the best for When clients need short-term consulting or want to build a proof of concepts.',
+          desc: 'For projects where requirements are dynamic and constantly changing, and scope is not clearly defined. Works the best for When clients need short-term consulting or want to build a proof of concepts.',
           isActive: true
         },
         {
           id: 4,
           title: 'Buckets Approach',
-          description: 'A lot of businesses typically select our bucket approach which allow them for payment convenience once the project is finished and things are in place.',
+          desc: 'A lot of businesses typically select our bucket approach which allow them for payment convenience once the project is finished and things are in place.',
           isActive: true
         }
       ]
@@ -449,7 +433,93 @@ export const initialHomePageData = {
       isVisible: true,
       order: 11,
       title: 'Technologies We Work With',
-      description: 'We work on wide range of tools and technologies to cater client business requirement for existing project or new application.'
+      description: 'We work on wide range of tools and technologies to cater client business requirement for existing project or new application.',
+      techData: {
+        'Cloud & Devops': {
+          title: 'Cloud & Devops',
+          desc: 'Both cloud and DevOps engineers are essential and complementary components of contemporary infrastructure management and software development. To enhance your cloud experience and help you create more quickly, we provide dependable cloud and DevOps services on cloud platforms. DevOps enables almost instantaneous cloud product and service deployment, going beyond continuous integration and delivery (CI/CD).',
+          logos: [
+            { name: 'AWS', image: '/images/aws.png', isActive: true },
+            { name: 'Google Cloud', image: '/images/google_cloud.png', isActive: true },
+            { name: 'Docker', image: '/images/docker.png', isActive: true },
+            { name: 'Kubernets', image: '/images/kubernetes.png', isActive: true },
+            { name: 'Jenkins', image: '/images/jenkins.png', isActive: true },
+            { name: 'Azure', image: '/images/azure.png', isActive: true }
+          ]
+        },
+        'Frontend': {
+          title: 'Frontend',
+          desc: 'Our frontend engineering creates stunning, ultra-responsive, and modern interactive user interfaces with seamless accessibility and 60fps performance across desktop, tablet, and mobile devices.',
+          logos: [
+            { name: 'React', image: '/images/react.png', isActive: true },
+            { name: 'Angular', image: '/images/angular.png', isActive: true },
+            { name: 'Vue.js', image: '/images/vue.png', isActive: true },
+            { name: 'JavaScript', image: '/images/javascript.png', isActive: true },
+            { name: 'Ionic', image: '/images/Ionic.png', isActive: true },
+            { name: 'Knockout.js', image: '/images/knockout_js.png', isActive: true }
+          ]
+        },
+        'Backend': {
+          title: 'Backend',
+          desc: 'We design and build scalable, secure, and distributed microservices architectures and robust enterprise APIs capable of handling millions of real-time transactions with minimal latency.',
+          logos: [
+            { name: 'Node.js', image: '/images/node.png', isActive: true },
+            { name: 'Python', image: '/images/python.png', isActive: true },
+            { name: 'Java', image: '/images/java.png', isActive: true },
+            { name: 'PHP', image: '/images/php.png', isActive: true },
+            { name: '.NET', image: '/images/dot_net.png', isActive: true },
+            { name: 'Ruby', image: '/images/ruby.png', isActive: true }
+          ]
+        },
+        'Mobile': {
+          title: 'Mobile',
+          desc: 'We engineer state-of-the-art native iOS, Android, and cross-platform mobile apps with native fluid performance, secure biometric authentication, and offline capability.',
+          logos: [
+            { name: 'Flutter', image: '/images/flutter.png', isActive: true },
+            { name: 'iOS', image: '/images/apple.png', isActive: true },
+            { name: 'Android', image: '/images/android.png', isActive: true },
+            { name: 'Ionic', image: '/images/Ionic.png', isActive: true },
+            { name: 'Xamarin', image: '/images/xamarin.png', isActive: true },
+            { name: 'React Native', image: '/images/react.png', isActive: true }
+          ]
+        },
+        'Microsoft': {
+          title: 'Microsoft',
+          desc: 'As Microsoft solution partners, we build enterprise-grade SharePoint solutions, Power Platform automated workflows, Power BI dashboards, and custom .NET cloud applications.',
+          logos: [
+            { name: '.NET', image: '/images/dot_net.png', isActive: true },
+            { name: 'SharePoint', image: '/images/sharepoint.png', isActive: true },
+            { name: 'Office 365', image: '/images/office365.png', isActive: true },
+            { name: 'Power BI', image: '/images/power_bi.png', isActive: true },
+            { name: 'Power Automate', image: '/images/power_automate.png', isActive: true },
+            { name: 'Power Apps', image: '/images/powerapp.png', isActive: true }
+          ]
+        },
+        'Database': {
+          title: 'Database',
+          desc: 'High-availability relational and NoSQL databases optimized for ultra-low read/write latency, automatic failover clustering, sharding, and enterprise-grade data encryption.',
+          logos: [
+            { name: 'PostgreSQL', image: '/images/postgresql.png', isActive: true },
+            { name: 'MongoDB', image: '/images/mongo.png', isActive: true },
+            { name: 'MySQL', image: '/images/mysql.png', isActive: true },
+            { name: 'Microsoft SQL', image: '/images/microsoft_sql.png', isActive: true },
+            { name: 'Oracle', image: '/images/oracle.png', isActive: true },
+            { name: 'Cassandra', image: '/images/cassandra.png', isActive: true }
+          ]
+        },
+        'Testing': {
+          title: 'Testing',
+          desc: 'We implement end-to-end automated testing pipelines, stress testing, security audits, and regression verification to guarantee bug-free software that performs reliably under extreme demand.',
+          logos: [
+            { name: 'Selenium', image: '/images/selenium.png', isActive: true },
+            { name: 'Postman', image: '/images/postman.png', isActive: true },
+            { name: 'BrowserStack', image: '/images/browserstack.png', isActive: true },
+            { name: 'Apache JMeter', image: '/images/apache_jmeter.png', isActive: true },
+            { name: 'Katalon', image: '/images/katalon.png', isActive: true },
+            { name: 'Jira', image: '/images/jira.png', isActive: true }
+          ]
+        }
+      }
     },
 
     // 12. Our Premium Services (Pill Grid)
@@ -457,7 +527,19 @@ export const initialHomePageData = {
       isVisible: true,
       order: 12,
       title: 'Our Premium Services',
-      description: 'As a certified IT company, firevy.co helps organizations thrive digitally by offering innovative solutions using cutting-edge tools and frameworks.'
+      description: "We are a team of qualified Salesforce & Enterprise Development Professionals adept at expanding your current system's capabilities via the development and integration of Salesforce CRM.",
+      services: [
+        { name: 'Mobile App Development', link: '/services/mobile-app-development', isActive: true },
+        { name: 'Software Development', link: '/services/software-development', isActive: true },
+        { name: 'Web Development', link: '/services/web-development', isActive: true },
+        { name: '.NET Development', link: '/services/dot-net-development', isActive: true },
+        { name: 'PHP Development', link: '/services/php-development', isActive: true },
+        { name: 'Laravel Development', link: '/services/laravel-development', isActive: true },
+        { name: 'Node.js Development', link: '/services/node-js-development', isActive: true },
+        { name: 'React Native App Development', link: '/services/react-native-development', isActive: true },
+        { name: 'Flutter App Development', link: '/services/flutter-development', isActive: true },
+        { name: 'Cross Platform App Development', link: '/services/cross-platform-development', isActive: true }
+      ]
     },
 
     // 13. Success Matrix Section
@@ -465,7 +547,21 @@ export const initialHomePageData = {
       isVisible: true,
       order: 13,
       title: 'Success Matrix',
-      description: 'We offer comprehensive services to develop digital solutions & manage complete product lifecycle. We’ve robust work history with diverse business services.'
+      description: 'We offer comprehensive services to develop digital solutions & manage complete product lifecycle. We’ve robust work history with diverse business services.',
+      cards: [
+        { title: 'SEO and Digital Marketing', isActive: true },
+        { title: '4 months + Free Post Launch Support', isActive: true },
+        { title: 'Non-Disclosure', isActive: true },
+        { title: '100% value for the money', isActive: true },
+        { title: 'Professional coding and version controls', isActive: true },
+        { title: 'Flexible Payment Term', isActive: true },
+        { title: 'Hire dedicated team on hourly or fix price basis', isActive: true },
+        { title: 'Dedicated Team for Project Discussion', isActive: true },
+        { title: 'Penalty clause against late delivery', isActive: true },
+        { title: '18+ Years of Experience', isActive: true },
+        { title: 'Experienced Team', isActive: true },
+        { title: 'Explainer Videos', isActive: true }
+      ]
     },
 
     // 14. Innovative Solution Video Carousel
@@ -475,7 +571,49 @@ export const initialHomePageData = {
       title: 'Unveiling Our Innovative Solution',
       description: 'From cutting-edge technology to revolutionary concepts, get ready to be inspired and intrigued. This is more than just a video - it’s a glimpse into the future of innovation.',
       buttonText: 'View Insightful Videos',
-      buttonLink: '/portfolio'
+      buttonLink: '/company/insightful-videos',
+      videos: [
+        {
+          title: 'National Water Supply Corporation :...',
+          image: 'https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=800&q=80',
+          isActive: true
+        },
+        {
+          title: 'NutriPlan: Your Ultimate Meal Planning...',
+          image: 'https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=800&q=80',
+          isActive: true
+        },
+        {
+          title: 'Terraform Timesheet App with Microsoft...',
+          image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=800&q=80',
+          isActive: true
+        },
+        {
+          title: 'AI-Powered Language Learning App...',
+          image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=800&q=80',
+          isActive: true
+        },
+        {
+          title: 'Challenges of AI in Recruitment...',
+          image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80',
+          isActive: true
+        },
+        {
+          title: 'Leading Trading App Development...',
+          image: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=800&q=80',
+          isActive: true
+        },
+        {
+          title: 'Top React JS Development Company I...',
+          image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80',
+          isActive: true
+        },
+        {
+          title: 'Top AI Avatar Generator App...',
+          image: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=800&q=80',
+          isActive: true
+        }
+      ]
     },
 
     // 15. Our Recent Podcasts
@@ -483,7 +621,27 @@ export const initialHomePageData = {
       isVisible: true,
       order: 15,
       title: 'Our Recent Podcasts',
-      description: "Listen to our series of podcasts that expose you to a broad array of concepts. Whether you're looking for the latest trends or want to hear customer experience, our podcasts will be a treat for your ears."
+      description: "Listen to our series of podcasts that expose you to a broad array of concepts. Whether you're looking for the latest trends or want to hear customer experience, our podcasts will be a treat for your ears.",
+      podcasts: [
+        {
+          title: 'Mobile App Testing and Quality Assurance: Ensuring a Seamless Use...',
+          image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=80',
+          desc: "In today's fast-paced digital world, mobile applications have become an integral part of our daily lives. From communication to...",
+          isActive: true
+        },
+        {
+          title: 'Why Does Your Business Needs Software Applications?',
+          image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=800&q=80',
+          desc: "In today's fast-paced and digitally-driven world, businesses of all sizes and industries are recognizing the importance of integratin...",
+          isActive: true
+        },
+        {
+          title: 'A Chat with a Client: Why They Chose firevy.co',
+          image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80',
+          desc: 'There are several mobile app development companies worldwide. While searching for a reliable IT services provider, I came across...',
+          isActive: true
+        }
+      ]
     },
 
     // 16. Download Our Brochure Form Section
@@ -499,8 +657,44 @@ export const initialHomePageData = {
     digitalTransformationCaseStudies: {
       isVisible: true,
       order: 17,
-      title: 'Driving Digital Transformation',
-      description: 'Learn how we are empowering leading companies to achieve their transformation goals with our industry expertise and deep tech.'
+      title: 'Digital Transformation Case Studies',
+      description: 'Discover how we partner with industry pioneers to deliver bespoke web, mobile, and cloud software engineering.',
+      caseStudies: [
+        {
+          id: 0,
+          company: 'Bee Car Care',
+          bgColor: '#FFFBE8',
+          logoType: 'beecar',
+          desc: 'If you provide car washing services and need to reach a wide range of customers, the car wash app development is your best bet. firevy.co has built a car wash application that allows people to book car wash services in few clicks',
+          points: [
+            '96% customer retention rate',
+            '92% increase in service bookings',
+            'Over 1,10,000 satisfied users',
+            'Operating in 90+ locations',
+            'User-friendly & Efficient interface for easy booking'
+          ],
+          mockup: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=700&q=80',
+          slug: 'bee-car-care',
+          isActive: true
+        },
+        {
+          id: 1,
+          company: 'Morris Garages',
+          bgColor: '#FDE8E8',
+          logoType: 'mg',
+          desc: "MG Motor is a well-known firm that have large number of employee. It is their major responsibility to keep track of employees' health and records. The system from their end was to have one secure locker for the protection of all the papers in order to keep track of employee Examination and OPD records for audit purpose.",
+          points: [
+            'Real-time health data analytics',
+            'HIPAA-compliant data security',
+            '24/7 access to health resources and support',
+            'Personalized health recommendations',
+            '98% improvement in employee health monitoring'
+          ],
+          mockup: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=700&q=80',
+          slug: 'morris-garages',
+          isActive: true
+        }
+      ]
     },
 
     // 18. Our Story, Their Words (Video Testimonials)
@@ -508,7 +702,39 @@ export const initialHomePageData = {
       isVisible: true,
       order: 18,
       title: 'What Our Clients Have To Say',
-      description: 'Hear how our clients share their positive experiences of working with firevy.co team. How we’ve helped them to achieve business goals and deliver successful projects.'
+      description: 'Hear how our clients share their positive experiences of working with firevy.co team. How we’ve helped them to achieve business goals and deliver successful projects.',
+      testimonials: [
+        {
+          name: "From Idea to Reality | Client's Success Story with firevy.co -...",
+          avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80',
+          isActive: true
+        },
+        {
+          name: "From Vision to Wellness | Client's Success Story with firevy.co - To...",
+          avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80',
+          isActive: true
+        },
+        {
+          name: 'Hear out Tim got to say about working with Team firevy.co on...',
+          avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80',
+          isActive: true
+        },
+        {
+          name: 'Testimonial from client who has expanded their business using...',
+          avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=300&q=80',
+          isActive: true
+        },
+        {
+          name: 'Hear what Pravin has got to say about working with firevy.co...',
+          avatar: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=300&q=80',
+          isActive: true
+        },
+        {
+          name: 'firevy.co Successfully Delivered Web & Mobile App Solutions -...',
+          avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80',
+          isActive: true
+        }
+      ]
     },
 
     // 19. Our Recent Blogs Section
@@ -516,9 +742,38 @@ export const initialHomePageData = {
       isVisible: true,
       order: 19,
       title: 'Our Recent Blogs',
-      description: 'Read through our latest blog posts that cover everything from technology trends to business insights. Expand your knowledge and stay ahead of the curve.',
+      description: "Read through our latest blog posts that cover everything from technology trends to business insights. Expand your knowledge and stay ahead of the curve.",
       buttonText: 'View All Blogs',
-      buttonLink: '/about'
+      buttonLink: '/about',
+      blogs: [
+        {
+          id: 1,
+          date: 'March 6, 2026',
+          title: 'AI in Mobile App Development: Tools That Save Time and Money',
+          desc: 'AI is converting the way businesses accelerate and launch apps. By using AI Tools for mobile app development,...',
+          slug: 'ai-in-mobile-app-development',
+          image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80',
+          isActive: true
+        },
+        {
+          id: 2,
+          date: 'March 3, 2026',
+          title: 'Hire Dedicated Developers: Ultimate Guide for 2026',
+          desc: 'Hiring dedicated remote developers is the fastest way to scale software delivery while maintaining engineering quality...',
+          slug: 'hire-dedicated-developers-guide-2026',
+          image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80',
+          isActive: true
+        },
+        {
+          id: 3,
+          date: 'February 28, 2026',
+          title: 'Microservices vs Monolithic Architecture in Modern Cloud',
+          desc: 'Discover key architectural trade-offs, scalability metrics, and cost implications when modernizing legacy systems...',
+          slug: 'microservices-vs-monolithic-cloud-architecture',
+          image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=80',
+          isActive: true
+        }
+      ]
     },
 
     // 20. What Our Clients Say (Dark Client Reviews Section)
@@ -528,15 +783,79 @@ export const initialHomePageData = {
       title: 'What Clients Say About Us',
       description: 'Read unfiltered reviews directly from Clutch, Upwork, and verified client testimonials worldwide.',
       clutchScore: '4.9',
-      clutchReviewCount: '32 REVIEWS'
+      clutchReviewCount: '32 REVIEWS',
+      reviews: [
+        {
+          id: 1,
+          title: "firevy.co's team communicated effectively...",
+          comment: 'firevy.co successfully implemented all UX and design features on the app. The team has consistently delivered on milestones with remarkable technical agility.',
+          author: 'Derrick Surratt',
+          location: 'Arkansas',
+          avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80',
+          score: '5.0',
+          stars: 5,
+          ratings: { quality: '5.0', schedule: '5.0', cost: '5.0', refer: '5.0' },
+          isActive: true
+        },
+        {
+          id: 2,
+          title: 'The team maintained excellent communication throughout...',
+          comment: "firevy.co's updates improved a product's UX per the end customer's requests. The team is personable, reaches their deliverables ahead of schedule, and maintains excellent communication.",
+          author: 'Hamidah Nalwoga',
+          location: 'Massachusetts',
+          avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80',
+          score: '5.0',
+          stars: 5,
+          ratings: { quality: '5.0', schedule: '5.0', cost: '5.0', refer: '5.0' },
+          isActive: true
+        },
+        {
+          id: 3,
+          title: 'Intuitive, sleek, and high performing solution...',
+          comment: "The client was highly pleased with firevy.co's development work. The team met expectations, and the interface design was intuitive, sleek, and high performing.",
+          author: 'Christine Ine',
+          location: 'Rockville, Maryland',
+          avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80',
+          score: '4.5',
+          stars: 5,
+          ratings: { quality: '4.0', schedule: '4.5', cost: '5.0', refer: '5.0' },
+          isActive: true
+        },
+        {
+          id: 4,
+          title: 'Exceptional mobile architecture and seamless cross-platform delivery...',
+          comment: 'Their engineers built an enterprise-grade mobile application that scaled seamlessly to over 350k active users in the first quarter post launch.',
+          author: 'David Vance',
+          location: 'Austin, Texas',
+          avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=200&q=80',
+          score: '5.0',
+          stars: 5,
+          ratings: { quality: '5.0', schedule: '5.0', cost: '5.0', refer: '5.0' },
+          isActive: true
+        }
+      ]
     },
 
     // 21. We Have Been Featured In (Logo Grid)
     featuredInLogosGrid: {
       isVisible: true,
       order: 21,
-      title: 'Featured In',
-      description: 'Our technological innovations and digital achievements featured across premier global publications.'
+      title: 'Featured In Leading Global Publications',
+      description: 'Our insights, architectures, and client achievements have been recognized across prominent media outlets worldwide.',
+      logos: [
+        { id: 'microsoft', name: 'Microsoft', isActive: true },
+        { id: 'inc', name: 'Inc.', isActive: true },
+        { id: 'google-play', name: 'Google Play', isActive: true },
+        { id: 'app-store', name: 'App Store', isActive: true },
+        { id: 'forbes', name: 'Forbes', isActive: true },
+        { id: 'techcrunch', name: 'TechCrunch', isActive: true },
+        { id: 'bloomberg', name: 'Bloomberg', isActive: true },
+        { id: 'producthunt', name: 'Product Hunt', isActive: true },
+        { id: 'theverge', name: 'The Verge', isActive: true },
+        { id: 'reuters', name: 'Reuters', isActive: true },
+        { id: 'wired', name: 'Wired', isActive: true },
+        { id: 'venturebeat', name: 'VentureBeat', isActive: true }
+      ]
     },
 
     // 22. Let's Work Together & Newsletter Subscription
@@ -544,11 +863,11 @@ export const initialHomePageData = {
       isVisible: true,
       order: 22,
       bannerTitle: "Let's Work Together On Your Next Digital Project",
-      bannerDescription: "Book a meeting with our specialists today to learn more about how firevy.co can help you unlock technology visions and drive your product strategy.",
-      bannerButtonText: "Request A Free Quote",
-      bannerButtonLink: "/contact",
-      newsletterTitle: "Subscribe us and Get the latest updates and news",
-      newsletterButtonText: "Subscribe"
+      bannerDescription: 'Book a meeting with our specialists today to learn more about how firevy.co can help you unlock technology visions and drive your product strategy.',
+      bannerButtonText: 'Request A Free Quote',
+      bannerButtonLink: '/contact',
+      newsletterTitle: 'Subscribe us and Get the latest updates and news',
+      newsletterButtonText: 'Subscribe'
     }
   }
 };

@@ -9,6 +9,7 @@ import WorkTogetherNewsletterSection from '../components/home/WorkTogetherNewsle
 import FeaturedInLogosGrid from '../components/home/FeaturedInLogosGrid';
 import AwardsRecognitionPage from '../components/company/AwardsRecognitionPage';
 import InsightfulVideosPage from '../components/company/InsightfulVideosPage';
+import companyPublicService from '../services/companyPublicService';
 import {
   Users, Award, Calendar, BookOpen, Heart, ShieldCheck, CheckCircle2,
   ArrowRight, FileText, Mic, Globe, Sparkles, MessageSquare, Star, Quote, ChevronRight, ChevronLeft, ChevronDown, Briefcase, Target, Linkedin, ThumbsUp, Camera
@@ -376,6 +377,43 @@ export const CompanySubDetails = () => {
     message: ''
   });
 
+  const [dynamicSection, setDynamicSection] = useState(null);
+  const [dynamicTeam, setDynamicTeam] = useState(null);
+  const [dynamicBlogs, setDynamicBlogs] = useState(null);
+  const [dynamicEvents, setDynamicEvents] = useState(null);
+  const [dynamicBrochures, setDynamicBrochures] = useState(null);
+
+  useEffect(() => {
+    // Fetch singleton section data if available
+    companyPublicService.getSection(pageKey).then((data) => {
+      if (data) setDynamicSection(data);
+    }).catch(console.error);
+
+    if (pageKey === 'our-team' || pageKey === 'about-firevy') {
+      companyPublicService.getTeam().then((data) => {
+        if (data && data.length > 0) setDynamicTeam(data);
+      }).catch(console.error);
+    }
+
+    if (pageKey === 'events-activities') {
+      companyPublicService.getEvents().then((data) => {
+        if (data && data.length > 0) setDynamicEvents(data);
+      }).catch(console.error);
+    }
+
+    if (pageKey === 'brochure' || pageKey === 'download-brochure') {
+      companyPublicService.getBrochures().then((data) => {
+        if (data && data.length > 0) setDynamicBrochures(data);
+      }).catch(console.error);
+    }
+
+    if (pageKey === 'blog' || pageKey.includes('blog')) {
+      companyPublicService.getBlogs().then((data) => {
+        if (data && data.length > 0) setDynamicBlogs(data);
+      }).catch(console.error);
+    }
+  }, [pageKey]);
+
   const clutchScrollRef = React.useRef(null);
   const workplaceScrollRef = React.useRef(null);
 
@@ -430,8 +468,8 @@ export const CompanySubDetails = () => {
     return (
       <div className="bg-white min-h-screen text-slate-900 font-sans">
         <SEO
-          title={`About Us | We Shape Digital Solutions | firevy.co`}
-          description="firevy.co provides the solutions you need to innovate & accelerate business. We are a leading software development company with decade long expertise in creating innovative solutions."
+          title={dynamicSection?.seo?.metaTitle || `About Us | We Shape Digital Solutions | firevy.co`}
+          description={dynamicSection?.seo?.metaDescription || "firevy.co provides the solutions you need to innovate & accelerate business. We are a leading software development company with decade long expertise in creating innovative solutions."}
           canonical={`/company/${pageKey}`}
         />
 
@@ -441,10 +479,10 @@ export const CompanySubDetails = () => {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
               <div className="lg:col-span-6 space-y-6">
                 <h1 className="text-[34px] font-[800] text-slate-900 tracking-tight leading-tight font-sans page-hero-title">
-                  We Shape Digital Solutions
+                  {dynamicSection?.title || 'We Shape Digital Solutions'}
                 </h1>
                 <p className="text-[15px] text-slate-600 leading-relaxed font-[400] font-sans max-w-xl page-hero-desc">
-                  firevy.co provides the solutions you need to innovate & accelerate business. We are a leading software development company with decade long expertise in creating innovative solutions.
+                  {dynamicSection?.subtitle || 'firevy.co provides the solutions you need to innovate & accelerate business. We are a leading software development company with decade long expertise in creating innovative solutions.'}
                 </p>
                 <div className="pt-2">
                   <Link

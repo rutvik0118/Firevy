@@ -71,7 +71,7 @@ export const TrustRecognitionBannerEditor = ({ data, onChange }) => {
             <input
               type="text"
               className="form-control"
-              value={data?.title || 'Proud To Have Picked These Up Along The Way'}
+              value={data?.title || 'Recognized as a Market Leader in Digital Transformation'}
               onChange={(e) => handleFieldChange('title', e.target.value)}
               style={{
                 width: '100%',
