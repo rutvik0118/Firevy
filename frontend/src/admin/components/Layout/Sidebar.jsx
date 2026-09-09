@@ -209,20 +209,34 @@ export const Sidebar = ({ isCollapsed, onToggleCollapse, isMobileOpen, onCloseMo
       <div className="sidebar-header">
         <NavLink
           to="/admin/dashboard"
-          className="brand-logo-wrap"
+          className="brand-logo-wrap flex items-center"
           onClick={onCloseMobile}
           title="firevy.co Admin Panel"
         >
           {!isCollapsed ? (
-            <div className="brand-logo-text">
-              <span className="brand-logo-name">firevy</span>
-              <span className="brand-logo-domain">.co</span>
-            </div>
+            <img
+              src="/firevy_logo_dark.png"
+              alt="firevy.co"
+              style={{
+                height: '32px',
+                width: 'auto',
+                maxWidth: '145px',
+                objectFit: 'contain',
+                display: 'block'
+              }}
+            />
           ) : (
-            <div className="brand-logo-collapsed">
-              <span className="brand-logo-name">f</span>
-              <span className="brand-logo-domain">.co</span>
-            </div>
+            <img
+              src="/favicon.png"
+              alt="firevy"
+              style={{
+                height: '28px',
+                width: '28px',
+                borderRadius: '6px',
+                objectFit: 'contain',
+                display: 'block'
+              }}
+            />
           )}
         </NavLink>
 

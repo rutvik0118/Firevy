@@ -701,37 +701,63 @@ export const initialHomePageData = {
     videoTestimonialsStory: {
       isVisible: true,
       order: 18,
-      title: 'What Our Clients Have To Say',
-      description: 'Hear how our clients share their positive experiences of working with firevy.co team. How we’ve helped them to achieve business goals and deliver successful projects.',
+      title: 'Our Story, Their Words',
+      description: "From satisfied clients to enthusiastic users, each testimonial shares a unique perspective on the impact and value of our solution. Get inspired as you listen to authentic voices that showcase the true essence of our project's impact.",
       testimonials: [
         {
-          name: "From Idea to Reality | Client's Success Story with firevy.co -...",
-          avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80',
+          id: 1,
+          title: "Idea to Reality | Client's Success Story\nSapphire - Best Mobile App..",
+          img: '/images/awards/hdimages/client_seven.webp',
+          videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
           isActive: true
         },
         {
-          name: "From Vision to Wellness | Client's Success Story with firevy.co - To...",
-          avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80',
+          id: 2,
+          title: "From Vision to Wellness | Client's Success\nStory with Sapphire - Top Mobile App..",
+          img: '/images/awards/hdimages/client_eight.webp',
+          videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
           isActive: true
         },
         {
-          name: 'Hear out Tim got to say about working with Team firevy.co on...',
-          avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80',
+          id: 3,
+          title: 'Hear out Tim got to say about working with\nTeam Sapphire on building a complex and..',
+          img: '/images/awards/hdimages/clienttestimonial3.webp',
+          videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
           isActive: true
         },
         {
-          name: 'Testimonial from client who has expanded their business using...',
-          avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=300&q=80',
+          id: 4,
+          title: 'Testimonial from client who has expanded\ntheir business using Sapphire Services',
+          img: '/images/awards/hdimages/clienttestimonial2.webp',
+          videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
           isActive: true
         },
         {
-          name: 'Hear what Pravin has got to say about working with firevy.co...',
-          avatar: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=300&q=80',
+          id: 5,
+          title: 'Discover why Andrew trusted Sapphire Software Solutions with his mobile digital diary..',
+          img: '/images/awards/hdimages/client_shay.webp',
+          videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
           isActive: true
         },
         {
-          name: 'firevy.co Successfully Delivered Web & Mobile App Solutions -...',
-          avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80',
+          id: 6,
+          title: 'From Vision to Healthcare Innovation | Client Success With Sapphire - Top IT Company..',
+          img: '/images/awards/hdimages/bruno.webp',
+          videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+          isActive: true
+        },
+        {
+          id: 7,
+          title: 'Hear what Pravin has got to say about working with Sapphire Software Solutions',
+          img: '/images/awards/hdimages/clienttestimonial1.webp',
+          videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+          isActive: true
+        },
+        {
+          id: 8,
+          title: 'Sapphire Successfully Delivered Web & Mobile App Solutions - Leading IT Company in Canada',
+          img: '/images/awards/hdimages/img_client2.webp',
+          videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
           isActive: true
         }
       ]

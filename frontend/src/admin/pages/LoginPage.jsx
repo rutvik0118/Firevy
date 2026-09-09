@@ -84,37 +84,24 @@ export const LoginPage = () => {
         }}
       >
         <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-          <div
-            style={{
-              width: '48px',
-              height: '48px',
-              borderRadius: 'var(--radius-md)',
-              background: 'var(--primary)',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              margin: '0 auto 1.25rem',
-              color: '#FFFFFF',
-              boxShadow: '0 4px 12px rgba(0, 107, 143, 0.25)'
-            }}
-          >
-            <Shield size={26} />
-          </div>
-
-          <h2
-            style={{
-              fontSize: '1.375rem',
-              fontWeight: 800,
-              color: 'var(--primary)',
-              letterSpacing: '-0.02em'
-            }}
-          >
-            FIREVY.CO
-          </h2>
+          <Link to="/" style={{ display: 'inline-block', marginBottom: '0.75rem' }}>
+            <img
+              src="/firevy_logo_dark.png"
+              alt="firevy.co"
+              style={{
+                height: '46px',
+                width: 'auto',
+                maxWidth: '220px',
+                objectFit: 'contain',
+                margin: '0 auto'
+              }}
+            />
+          </Link>
 
           <p
             style={{
-              fontSize: '0.8125rem',
+              fontSize: '0.875rem',
+              fontWeight: 600,
               color: 'var(--text-secondary)',
               marginTop: '0.25rem'
             }}
