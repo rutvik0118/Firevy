@@ -23,6 +23,7 @@ import CloverAppDevelopmentService from '../components/services/CloverAppDevelop
 import AndroidAppDevelopmentService from '../components/services/AndroidAppDevelopmentService';
 import HireCSharpDevelopersService from '../components/services/HireCSharpDevelopersService';
 import IWatchAppDevelopmentService from '../components/services/IWatchAppDevelopmentService';
+import IOSAppDevelopmentService from '../components/services/IOSAppDevelopmentService';
 
 export const ServiceDetails = () => {
   const { slug } = useParams();
@@ -107,6 +108,15 @@ export const ServiceDetails = () => {
     slug.toLowerCase().includes('iwatch') ||
     slug.toLowerCase().includes('apple-watch') ||
     slug.toLowerCase().includes('watchos')
+  );
+
+  const isIOS = slug && (
+    slug.toLowerCase().includes('ios-app') ||
+    slug.toLowerCase().includes('ios-development') ||
+    slug.toLowerCase().includes('iphone-app') ||
+    slug.toLowerCase().includes('iphone-development') ||
+    slug.toLowerCase() === 'ios' ||
+    slug.toLowerCase() === 'iphone'
   );
 
   const unslugify = (str) => {
@@ -204,13 +214,17 @@ export const ServiceDetails = () => {
   };
 
   useEffect(() => {
-    if (!isAndroid && !isHealthcare && !isEducation && !isUber && !isSpotify && !isZomato && !isAmazon && !isVisitor && !isWarehouse && !isClover && !isCSharp && !isIWatch) {
+    if (!isAndroid && !isIOS && !isHealthcare && !isEducation && !isUber && !isSpotify && !isZomato && !isAmazon && !isVisitor && !isWarehouse && !isClover && !isCSharp && !isIWatch) {
       fetchServiceDetails();
     } else {
       setLoading(false);
     }
     window.scrollTo(0, 0);
   }, [slug]);
+
+  if (isIOS) {
+    return <IOSAppDevelopmentService />;
+  }
 
   if (isAndroid) {
     return <AndroidAppDevelopmentService />;

@@ -2,177 +2,224 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Container from './Container';
 
-export const SuccessStoriesSection = ({ category = 'general', title, subtitle }) => {
-  const isEducation = category === 'education';
-  const isAudio = category === 'audio' || category === 'spotify' || category === 'music';
+export const SuccessStoriesSection = () => {
+  const cards = [
+    {
+      id: 1,
+      title: 'AI Recruitment Software',
+      renderGraphic: (
+        <div className="w-full h-full relative overflow-hidden bg-[#EEF5FC] flex items-center justify-center">
+          <img
+            src="/images/talenti_qube.png"
+            alt="AI Recruitment Software - Talenti Qube"
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 select-none"
+            loading="lazy"
+            onError={(e) => {
+              // Fallback clean styled UI mockup if local image is missing
+              e.target.style.display = 'none';
+              e.target.nextSibling.style.display = 'flex';
+            }}
+          />
+          {/* Fallback mockup */}
+          <div className="hidden w-full h-full bg-gradient-to-br from-[#EEF5FC] to-[#DDEBFA] p-4 flex-col justify-between select-none">
+            <div className="flex justify-between items-center z-10">
+              <div className="flex items-center space-x-1">
+                <span className="w-4 h-4 rounded bg-indigo-600 text-white flex items-center justify-center text-[9px] font-bold">👔</span>
+                <span className="text-[10px] font-extrabold text-slate-900">Talenti Qube</span>
+              </div>
+              <span className="bg-sky-400 text-white text-[8px] font-extrabold px-2 py-0.5 rounded-sm uppercase">Case Study</span>
+            </div>
+            <div className="flex items-center justify-center my-auto">
+              <div className="text-center">
+                <div className="text-3xl mb-1">👨‍💼</div>
+                <div className="text-[13px] font-[900] text-indigo-950 uppercase tracking-tight">On Demand<br />AI Recruitment Tools</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 2,
+      title: 'Navigation App Development',
+      renderGraphic: (
+        <div className="w-full h-full bg-[#525B42] p-3 sm:p-4 flex items-center justify-between relative overflow-hidden select-none">
+          {/* Left: Branding & Tag */}
+          <div className="flex flex-col justify-between h-full z-10 text-left max-w-[110px] sm:max-w-[130px]">
+            <div className="w-7 h-7 rounded-[7px] bg-[#EAB308] flex items-center justify-center text-slate-950 text-xs font-black shadow-xs">
+              📍
+            </div>
+            <div className="text-white space-y-0.5 my-auto">
+              <div className="text-[12px] sm:text-[13px] font-[900] leading-tight text-white drop-shadow-sm">MyliveGps</div>
+              <div className="text-[7.5px] sm:text-[8px] text-white/80 font-[600] leading-tight">Navigation<br />Application</div>
+            </div>
+            <span className="text-[7px] text-[#EAB308] font-bold">● GPS Live</span>
+          </div>
+
+          {/* Right: Dual White Smartphone Navigation Mockup */}
+          <div className="relative flex items-center space-x-2 z-10 pr-1">
+            {/* Phone 1: Splash Screen */}
+            <div className="w-[78px] sm:w-[85px] h-[135px] sm:h-[145px] rounded-[16px] bg-white border-[2.5px] border-slate-900 p-1 shadow-2xl flex flex-col items-center justify-center shrink-0">
+              <div className="w-5 h-1 rounded-full bg-slate-200 mb-4" />
+              <div className="w-7 h-7 rounded-[7px] bg-[#EAB308] flex items-center justify-center text-slate-950 text-xs font-black mb-1">
+                📍
+              </div>
+              <span className="text-[6.5px] font-[900] text-slate-800">MyliveGps</span>
+            </div>
+
+            {/* Phone 2: Live Driving Route Map Screen */}
+            <div className="w-[78px] sm:w-[85px] h-[135px] sm:h-[145px] rounded-[16px] bg-white border-[2.5px] border-slate-900 p-1 shadow-2xl flex flex-col justify-between shrink-0">
+              <div className="w-5 h-1 rounded-full bg-slate-200 mx-auto" />
+              {/* Map Route Graphic */}
+              <div className="bg-slate-100 rounded-[8px] h-16 relative overflow-hidden my-1 border border-slate-200">
+                <svg viewBox="0 0 80 60" className="w-full h-full">
+                  <path d="M10 15 L35 30 L35 48 L65 52" fill="none" stroke="#EAB308" strokeWidth="3" strokeLinecap="round" />
+                  <circle cx="10" cy="15" r="3" fill="#10B981" />
+                  <circle cx="65" cy="52" r="3" fill="#EF4444" />
+                </svg>
+              </div>
+              {/* Turn Instruction Box */}
+              <div className="bg-slate-50 rounded p-1 border border-slate-200 text-[5px] text-slate-800 font-bold flex justify-between items-center">
+                <span>Turn Right 200m</span>
+                <span className="text-[#EAB308]">8 min</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 3,
+      title: 'Dropshipping App Development',
+      renderGraphic: (
+        <div className="w-full h-full bg-[#18353A] p-3 sm:p-4 flex items-center justify-center space-x-2.5 relative overflow-hidden select-none">
+          {/* Phone 1: Food/Product Order Screen */}
+          <div className="w-[82px] sm:w-[90px] h-[135px] sm:h-[145px] rounded-[16px] bg-[#0E2024] border-[2.5px] border-slate-800 p-1 shadow-2xl flex flex-col justify-between shrink-0 text-white">
+            <div className="w-5 h-0.5 rounded-full bg-slate-600 mx-auto" />
+            <div className="bg-white/10 rounded p-1 text-[5px]">
+              <div className="text-slate-400">Total price:</div>
+              <div className="font-bold text-amber-400">$45.20</div>
+            </div>
+            <div className="w-full bg-[#F97316] text-white rounded py-1 text-center text-[5.5px] font-bold">
+              Checkout
+            </div>
+            <div className="bg-white/5 rounded p-1 space-y-0.5">
+              <div className="text-[5px] text-slate-300">Your Order:</div>
+              <div className="flex space-x-1">
+                <span className="w-3 h-3 rounded bg-amber-400/20 text-[6px] flex items-center justify-center">🍔</span>
+                <span className="w-3 h-3 rounded bg-emerald-400/20 text-[6px] flex items-center justify-center">🥗</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Phone 2: Delivery Live Rider Tracking */}
+          <div className="w-[82px] sm:w-[90px] h-[135px] sm:h-[145px] rounded-[16px] bg-white border-[2.5px] border-slate-900 p-1 shadow-2xl flex flex-col justify-between shrink-0">
+            <div className="w-5 h-0.5 rounded-full bg-slate-200 mx-auto" />
+            <div className="bg-amber-100 rounded-[8px] h-14 flex items-center justify-center text-lg">
+              📦
+            </div>
+            <div className="space-y-0.5 text-left">
+              <div className="text-[6px] font-bold text-slate-800">Live Tracking</div>
+              <div className="text-[5px] text-emerald-600">Rider on the way • 12 mins</div>
+            </div>
+            <div className="w-full bg-[#005F96] text-white rounded py-0.5 text-center text-[5.5px] font-bold">
+              Contact Courier
+            </div>
+          </div>
+        </div>
+      )
+    }
+  ];
 
   return (
-    <section className={`py-14 sm:py-16 text-slate-900 font-sans text-left border-b border-slate-200 ${isEducation ? 'bg-[#DCF2F7]' : 'bg-[#EBF5FB]'}`}>
+    <section className="py-14 sm:py-18 lg:py-20 bg-[#EDF5F9] text-slate-900 font-sans border-b border-slate-200/80 text-left">
       <Container>
-        {/* Section Heading */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12 space-y-2.5">
-          <h2 className="text-3xl sm:text-4xl lg:text-[38px] font-extrabold text-slate-900 tracking-tight font-sans">
-            {title || "Success Stories"}
+        {/* Section Heading & Subtitle Matching Screenshot */}
+        <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-12 space-y-2">
+          <h2
+            className="font-[800] text-[#0B0F19] tracking-tight leading-tight"
+            style={{ fontSize: '32px' }}
+          >
+            Success Stories
           </h2>
-          <p className="text-xs sm:text-sm lg:text-base text-slate-600 font-normal leading-relaxed font-sans">
-            {subtitle || "Know Sapphire journey from concept to success. Explore how we’ve brought ideas to life and achieved remarkable results for our clients."}
+          <p
+            className="font-normal text-[#475569] max-w-3xl mx-auto"
+            style={{ fontSize: '14.5px', lineHeight: '1.6' }}
+          >
+            Know Firevy journey from concept to success. Explore how we’ve brought ideas to life and achieved remarkable results for our clients.
           </p>
         </div>
 
-        {/* 3 Portfolio Cards */}
-        {isEducation ? (
-          /* Education App Development 3 Showcase Image Cards 1:1 Sapphire Reference Match */
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto mb-10">
-            
-            {/* Card 1: Ai Powered Language Learning App Development */}
-            <div className="flex flex-col justify-between group cursor-pointer">
-              <div className="h-64 sm:h-72 rounded-2xl overflow-hidden shadow-md group-hover:shadow-xl transition-all duration-300 relative border border-slate-200/80 bg-white">
-                <img
-                  src="/images/edu_case_study_ai_language.jpg"
-                  alt="Ai Powered Language Learning App Development"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
+        {/* 3 Showcase Portfolio Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-[1320px] mx-auto mb-10 sm:mb-12">
+          {cards.map((item) => (
+            <div key={item.id} className="flex flex-col items-center group cursor-pointer">
+              {/* Large Rounded Image / UI Mockup Frame */}
+              <div className="w-full h-[220px] sm:h-[240px] rounded-[16px] overflow-hidden shadow-sm border border-slate-200/80 group-hover:shadow-md transition-shadow duration-200">
+                {item.renderGraphic}
               </div>
 
-              {/* Bottom Card Title */}
-              <h3 className="text-base sm:text-lg font-extrabold text-slate-900 group-hover:text-[#005D95] transition-colors leading-snug font-sans mt-3 text-left">
-                Ai Powered Language Learning App Development
+              {/* Title Below Card */}
+              <h3 className="font-[800] text-[16px] sm:text-[17px] text-[#0B0F19] mt-3.5 text-center group-hover:text-[#005F96] transition-colors">
+                {item.title}
               </h3>
             </div>
+          ))}
+        </div>
 
-            {/* Card 2: Learning Management System */}
-            <div className="flex flex-col justify-between group cursor-pointer">
-              <div className="h-64 sm:h-72 rounded-2xl overflow-hidden shadow-md group-hover:shadow-xl transition-all duration-300 relative border border-slate-200/80 bg-white">
-                <img
-                  src="/images/edu_case_study_lms.jpg"
-                  alt="Learning Management System"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-
-              {/* Bottom Card Title */}
-              <h3 className="text-base sm:text-lg font-extrabold text-slate-900 group-hover:text-[#005D95] transition-colors leading-snug font-sans mt-3 text-left">
-                Learning Management System
-              </h3>
-            </div>
-
-            {/* Card 3: Tutor Finder App Development */}
-            <div className="flex flex-col justify-between group cursor-pointer">
-              <div className="h-64 sm:h-72 rounded-2xl overflow-hidden shadow-md group-hover:shadow-xl transition-all duration-300 relative border border-slate-200/80 bg-white">
-                <img
-                  src="/images/edu_case_study_tutor_finder.jpg"
-                  alt="Tutor Finder App Development"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-
-              {/* Bottom Card Title */}
-              <h3 className="text-base sm:text-lg font-extrabold text-slate-900 group-hover:text-[#005D95] transition-colors leading-snug font-sans mt-3 text-left">
-                Tutor Finder App Development
-              </h3>
-            </div>
-
-          </div>
-        ) : isAudio ? (
-          /* Music & Audio Streaming Case Studies */
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-10">
-            <div className="rounded-2xl bg-white border border-slate-200/90 overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group">
-              <div className="h-60 bg-gradient-to-br from-[#1DB954] via-[#0F2E1B] to-[#0A0A0A] p-5 relative overflow-hidden flex flex-col justify-between text-white">
-                <div className="flex justify-between items-center z-10">
-                  <span className="px-2.5 py-1 rounded-full text-[10px] font-black bg-[#1DB954] text-slate-950 shadow-sm flex items-center space-x-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-slate-950 animate-pulse" />
-                    <span>Spotify Engine</span>
-                  </span>
-                  <span className="px-3 py-1 rounded-md text-[10px] font-extrabold bg-[#005F96] text-white shadow-sm">
-                    Case Study
-                  </span>
-                </div>
-
-                <div className="relative z-10 my-auto p-4 rounded-xl bg-white/95 text-slate-900 shadow-xl border border-white/40 space-y-1 backdrop-blur-md">
-                  <span className="text-[9px] font-black uppercase tracking-wider text-[#005F96] block">
-                    MOBILE APP SOLUTION
-                  </span>
-                  <h4 className="text-sm font-black text-slate-900">Spotify Music Streaming App</h4>
-                </div>
-              </div>
-
-              <div className="p-6">
-                <h3 className="text-base font-black text-slate-900 group-hover:text-[#005F96] transition-colors leading-snug">
-                  Spotify Clone Music Streaming App
-                </h3>
-              </div>
-            </div>
-          </div>
-        ) : (
-          /* General Enterprise / Mobility Case Studies */
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto mb-10">
-            <div className="rounded-2xl bg-white border border-slate-200/90 overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group">
-              <div className="h-60 bg-[#FEE996] p-5 relative overflow-hidden flex flex-col justify-between">
-                <div className="flex justify-between items-center z-10">
-                  <div className="flex items-center space-x-1.5 bg-red-600 text-white px-2.5 py-1 rounded-full text-[10px] font-black shadow-sm">
-                    <span>NGcab</span>
-                  </div>
-                  <span className="px-3 py-1 rounded-md text-[10px] font-extrabold bg-[#00B4D8] text-white shadow-sm">
-                    Case Study
-                  </span>
-                </div>
-
-                <div className="relative z-10 my-auto p-4 rounded-xl bg-white/95 text-slate-900 shadow-xl border border-white/40 space-y-1 backdrop-blur-md">
-                  <span className="text-[9px] font-black uppercase tracking-wider text-[#005F96] block">
-                    MOBILE APP SOLUTION
-                  </span>
-                  <h4 className="text-sm font-black text-slate-900">NGcab Taxi Dispatch Engine</h4>
-                </div>
-              </div>
-
-              <div className="p-6">
-                <h3 className="text-base font-black text-slate-900 group-hover:text-[#005F96] transition-colors leading-snug">
-                  Cab Booking Application Development
-                </h3>
-              </div>
-            </div>
-          </div>
-        )}
-
-        {/* View All Portfolio Button */}
-        <div className="text-center">
+        {/* Centered View All Portfolio CTA Button */}
+        <div className="text-center mb-12 sm:mb-14">
           <Link
             to="/portfolio"
-            className="inline-block px-9 py-3 rounded-lg bg-[#005D95] hover:bg-[#004A75] text-white font-extrabold text-sm transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 font-sans"
+            className="bg-[#005F96] hover:bg-[#004D7A] text-white text-xs sm:text-sm font-[800] rounded-[6px] px-8 py-3 inline-block transition-all shadow-xs"
           >
             View All Portfolio
           </Link>
         </div>
 
-        {/* 4 Pastel Stats Cards Row (Lavender, Green, Pink, Dark Blue) 1:1 Sapphire Match */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl mx-auto mt-12 sm:mt-14">
+        {/* 4 Pastel & Action Stats Cards Row (Lavender, Mint Green, Coral Pink, Dark Sapphire Blue) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 max-w-[1320px] mx-auto">
           {/* Card 1: Lavender */}
-          <div className="p-6 rounded-2xl bg-[#E2D9FF] border border-purple-200/80 text-slate-900 flex flex-col items-center justify-center text-center shadow-sm h-36 hover:shadow-md transition-shadow">
-            <div className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight font-sans">23+</div>
-            <div className="text-xs sm:text-sm font-bold text-slate-700 mt-2 font-sans">Years Experience</div>
+          <div className="rounded-[16px] bg-[#D7CCFA] p-6 text-center flex flex-col justify-center items-center shadow-xs min-h-[120px]">
+            <div className="text-[32px] sm:text-[34px] font-[800] text-[#0B0F19] leading-none mb-1">
+              23+
+            </div>
+            <div className="text-[12.5px] sm:text-[13px] font-[700] text-[#334155]">
+              Years Experience
+            </div>
           </div>
 
-          {/* Card 2: Soft Mint Green */}
-          <div className="p-6 rounded-2xl bg-[#A7F3D0] border border-emerald-200/80 text-slate-900 flex flex-col items-center justify-center text-center shadow-sm h-36 hover:shadow-md transition-shadow">
-            <div className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight font-sans">320+</div>
-            <div className="text-xs sm:text-sm font-bold text-slate-700 mt-2 font-sans">5–Star Clutch Reviews</div>
+          {/* Card 2: Mint Green */}
+          <div className="rounded-[16px] bg-[#B0F0DE] p-6 text-center flex flex-col justify-center items-center shadow-xs min-h-[120px]">
+            <div className="text-[32px] sm:text-[34px] font-[800] text-[#0B0F19] leading-none mb-1">
+              320+
+            </div>
+            <div className="text-[12.5px] sm:text-[13px] font-[700] text-[#334155]">
+              5-Star Clutch Reviews
+            </div>
           </div>
 
-          {/* Card 3: Soft Coral Pink */}
-          <div className="p-6 rounded-2xl bg-[#FFC5D7] border border-rose-200/80 text-slate-900 flex flex-col items-center justify-center text-center shadow-sm h-36 hover:shadow-md transition-shadow">
-            <div className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight font-sans">2800+</div>
-            <div className="text-xs sm:text-sm font-bold text-slate-700 mt-2 font-sans">Satisfied Clients</div>
+          {/* Card 3: Coral Pink */}
+          <div className="rounded-[16px] bg-[#FBB9B4] p-6 text-center flex flex-col justify-center items-center shadow-xs min-h-[120px]">
+            <div className="text-[32px] sm:text-[34px] font-[800] text-[#0B0F19] leading-none mb-1">
+              2800+
+            </div>
+            <div className="text-[12.5px] sm:text-[13px] font-[700] text-[#334155]">
+              Satisfied Clients
+            </div>
           </div>
 
-          {/* Card 4: Dark Sapphire Blue CTA */}
-          <div className="p-6 rounded-2xl bg-[#005D95] text-white flex flex-col items-center justify-center text-center shadow-lg h-36 space-y-2.5 font-sans">
-            <div className="text-sm sm:text-base font-extrabold text-white">Want to start Projects</div>
-            <a
-              href="#quote-form"
-              className="px-6 py-2 rounded-lg bg-white text-[#005D95] font-black text-xs hover:bg-slate-100 transition-colors shadow-md"
+          {/* Card 4: Sapphire Blue Action Card */}
+          <div className="rounded-[16px] bg-[#005F96] p-6 text-center flex flex-col justify-center items-center shadow-md min-h-[120px] space-y-2.5">
+            <div className="text-[16px] sm:text-[17px] font-[800] text-white leading-tight">
+              Want to start Projects
+            </div>
+            <Link
+              to="/contact"
+              className="bg-white hover:bg-slate-50 text-[#005F96] font-[800] text-[12px] sm:text-[13px] rounded-[6px] px-6 py-2 transition-all shadow-xs inline-block"
             >
               Get Estimation
-            </a>
+            </Link>
           </div>
         </div>
       </Container>
