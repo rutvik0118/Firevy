@@ -6,10 +6,12 @@ import ProcessWeFollow from '../common/ProcessWeFollow';
 import SuccessMatrix from '../common/SuccessMatrix';
 import TrustedBrandsGrid from '../common/TrustedBrandsGrid';
 import SapphireTechStackGrid from '../common/SapphireTechStackGrid';
-import SuccessStoriesSection from '../common/SuccessStoriesSection';
 import PremiumServicesGrid from '../common/PremiumServicesGrid';
 import BrandLogoMarquee from '../common/BrandLogoMarquee';
 import SapphireLightHeroBanner from '../common/SapphireLightHeroBanner';
+import SapphireFaqSection from '../common/SapphireFaqSection';
+import SectorsThrivingSection from './SectorsThrivingSection';
+import SuccessStories from './SuccessStories';
 import {
   Utensils,
   ShoppingBag,
@@ -33,60 +35,225 @@ import {
   DollarSign,
   Gift,
   Bike,
-  Check
+  Check,
+  Search,
+  ClipboardList,
+  Calendar,
+  Tag,
+  Bell,
+  Truck,
+  Megaphone,
+  Building,
+  Layers
 } from 'lucide-react';
 
 export const ZomatoLikeAppDevelopmentService = () => {
-  const [activePanelTab, setActivePanelTab] = useState('customer');
-  const [openFaq, setOpenFaq] = useState(0);
-  const [formSubmitted, setFormSubmitted] = useState(false);
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    model: 'Dedicated Team',
-    appType: 'Food Delivery & Cloud Kitchen Platform',
-    budget: '$25,000 - $50,000',
-    message: ''
-  });
+  const [activePanelTab, setActivePanelTab] = useState('userApp');
+  const [techCarouselIndex, setTechCarouselIndex] = useState(0);
+  const [isTechHovered, setIsTechHovered] = useState(false);
+  const [expertActiveCategory, setExpertActiveCategory] = useState('Trending');
+  const [expertTabs, setExpertTabs] = useState({});
+  const [expertCarouselIndex, setExpertCarouselIndex] = useState(0);
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setFormSubmitted(true);
-  };
-
-  // 3 Panel Features (Customer App, Delivery Partner App, Restaurant Admin Portal)
+  // 3 Panel Features matching Sapphire 1:1 Reference (User App, Restaurant Owners, Admin)
   const panelFeatures = {
-    customer: [
-      { title: 'User Registration & Auth', desc: 'Fast 1-tap social login, mobile OTP verification, and saved delivery addresses.' },
-      { title: 'Advanced Search & Filters', desc: 'Filter restaurants by cuisine, Veg/Non-Veg, dietary tags, ratings, and delivery time.' },
-      { title: 'Custom Cooking Instructions', desc: 'Allow customers to add special notes for chefs (e.g. "Less spicy", "No garlic").' },
-      { title: 'Live GPS Order Tracking', desc: 'Sub-second real-time map tracking of delivery executive from kitchen to doorstep.' },
-      { title: 'Multi-Gateway Payment', desc: 'Apple Pay, Credit Cards, Net Banking, UPI, Digital Wallets, and Cash on Delivery.' },
-      { title: 'Referral Codes & Cashback', desc: 'Invite friends to earn instant wallet credits and promotional discount coupons.' }
+    userApp: [
+      {
+        title: 'Search',
+        desc: 'Give users of your app the ability to search for various restaurants, cafés, pubs, and bars based on their location and the types of food they serve.',
+        Icon: Search
+      },
+      {
+        title: 'Order',
+        desc: 'Users can place an order for a selection of meals and food with just a few simple touches on the screen, thanks to a feature that makes ordering easy.',
+        Icon: ClipboardList
+      },
+      {
+        title: 'Monitoring Of The Driver In Real Time',
+        desc: 'Your users will have an easier time following delivery driver and being aware of their real-time whereabouts if you provide them with a tool that allows for real-time tracking.',
+        Icon: Clock
+      },
+      {
+        title: 'The Integration Of Payment Gateways',
+        desc: "Users can pay with their credit or debit cards if you integrate your app with a payment gateway like Braintree or Stripe, as Grubhub and Uber's Eats have done.",
+        Icon: CreditCard
+      },
+      {
+        title: 'Ratings And Reviews',
+        desc: "Give consumers the ability to rate the restaurant, the food, and the delivery driver's service and express their opinions about these aspects.",
+        Icon: Star
+      },
+      {
+        title: 'Real-Time Availability',
+        desc: 'Make it possible for users of your app to get up-to-the-minute information on the availability of tables at various restaurants and to book reservations with just a few clicks of the mouse.',
+        Icon: Calendar
+      }
     ],
-    driver: [
-      { title: 'Accept / Reject Orders', desc: 'Delivery partners can view distance and payout details before accepting trips.' },
-      { title: 'In-App Route Navigation', desc: 'Turn-by-turn Google Maps SDK navigation guiding drivers directly to customers.' },
-      { title: 'Online / Offline Availability', desc: 'Toggle working status to receive delivery requests whenever ready.' },
-      { title: 'Earnings & Trip History', desc: 'Daily/weekly income calculator, tip summaries, and completed delivery logs.' },
-      { title: 'Order Pickup Verification', desc: 'QR code scanning and OTP confirmation at restaurant counters.' },
-      { title: 'Delivery Status Alerts', desc: 'Mark order as Arrived, Picked Up, and Delivered with 1 tap.' }
+    restaurant: [
+      {
+        title: 'Profile Creation',
+        desc: "When creating a profile, proprietors can include information such as their restaurant's location, an exhaustive menu, prices, delivery information, and contact information.",
+        Icon: User
+      },
+      {
+        title: 'Order Management',
+        desc: 'Make it possible for owners to handle all orders in a single location, including those that are now being processed, have been sent out, are being picked up, etc.',
+        Icon: ShoppingBag
+      },
+      {
+        title: 'Menu Management',
+        desc: "The restaurant owners can manage a comprehensive menu for their establishment by adding to it and amending the list, pricing, products, today's special dish, and minimum order quantity.",
+        Icon: Utensils
+      },
+      {
+        title: 'Deals And Promotions Administration',
+        desc: 'Restaurant companies can design and add new discount deals and offers, which will reward their consumers with the ability to get perks while buying food.',
+        Icon: Tag
+      },
+      {
+        title: 'Monitoring Of The Driver In Real Time',
+        desc: "The delivery driver's real-time whereabouts may be tracked and made available to the restaurant owner. Additionally, owners can view the entire delivery time and the route the driver uses to deliver the food.",
+        Icon: Clock
+      },
+      {
+        title: 'Push Notifications',
+        desc: 'An alert or message will advise the restaurant proprietors about the new order, the status of any orders that have been received or dispatched, any online payments that have been received.',
+        Icon: Bell
+      }
     ],
     admin: [
-      { title: 'Restaurant & Menu Manager', desc: 'Add/edit food categories, prices, dish descriptions, and out-of-stock items.' },
-      { title: 'Auto-Dispatch Engine', desc: 'AI algorithm matching nearby delivery partners for fastest pickup dispatch.' },
-      { title: 'Revenue & Commission Ledgers', desc: 'Track merchant commission rates, driver payouts, and total daily sales.' },
-      { title: 'Dynamic Surge Pricing', desc: 'Enable surge fees during peak lunch/dinner hours and rain weather conditions.' },
-      { title: 'Promo & Discount Management', desc: 'Create festive coupon codes, buy-1-get-1 offers, and banner ads.' },
-      { title: 'Ratings & Feedback Audit', desc: 'Monitor customer reviews, restaurant ratings, and delivery partner complaints.' }
+      {
+        title: 'Delivery Charges',
+        desc: 'A restaurant with no delivery staff may find using an app like this helpful. The timely delivery of food may be taken care of for a charge by an app that delivers food.',
+        Icon: Truck
+      },
+      {
+        title: 'Commission From Restaurants And Eateries',
+        desc: 'The restaurants and the online food delivery applications may agree on the commission percentage that will be charged based on the order quantity.',
+        Icon: Building2
+      },
+      {
+        title: 'Peak Hours',
+        desc: 'You may create more cash by using the method of monetization known as charging premium prices during peak hours.',
+        Icon: Clock
+      },
+      {
+        title: 'Advertising',
+        desc: 'Putting certain restaurants at the top of the search results in exchange for an additional payment might help you create more cash for your business.',
+        Icon: Megaphone
+      },
+      {
+        title: 'Managing Restaurants',
+        desc: 'As an administrator, you can manage all restaurants by adding, updating, and deleting establishments from the list of restaurants and cafés.',
+        Icon: Building
+      },
+      {
+        title: 'Management Of Categories',
+        desc: 'It is essential to properly manage restaurant categories according to the kind of food served, specific price information, delivery alternatives and offers to achieve optimal business results.',
+        Icon: Layers
+      }
     ]
   };
+
+  // Cutting Edge Tech Cards (Matching Screenshot 1 Sapphire 1:1)
+  const cuttingEdgeTechList = [
+    {
+      title: 'Machine Learning Development Service',
+      desc: 'From custom AI applications to enterprise-scale automation, our developers leverage the latest machine learning Development Service and deep learning technologies to solve complex business challenges.',
+      icon: (
+        <svg viewBox="0 0 44 44" className="w-11 h-11 text-[#0084D1] fill-none stroke-current stroke-[1.8]">
+          <circle cx="22" cy="12" r="5" />
+          <circle cx="12" cy="30" r="5" />
+          <circle cx="32" cy="30" r="5" />
+          <path d="M19 16 L14 26 M25 16 L30 26 M17 30 L27 30" />
+        </svg>
+      )
+    },
+    {
+      title: 'Augmented Reality Development Service',
+      desc: 'Engage your audience with Augmented Reality Development Services overlay digital content into real world, creating interactive experiences that boost engagement and learning enhancing customer engagement.',
+      icon: (
+        <svg viewBox="0 0 44 44" className="w-11 h-11 text-[#0084D1] fill-none stroke-current stroke-[1.8]">
+          <path d="M12 8 L22 3 L32 8 L32 20 L22 25 L12 20 Z" />
+          <path d="M22 3 L22 25 M12 8 L22 13 L32 8" />
+          <ellipse cx="22" cy="33" rx="14" ry="5" strokeDasharray="3 3" />
+        </svg>
+      )
+    },
+    {
+      title: 'Low-Code No-Code Development Service',
+      desc: 'Accelerate app development with Low-Code No-Code Development Services a platform that empowers businesses to create scalable, robust applications quickly without extensive coding.',
+      icon: (
+        <svg viewBox="0 0 44 44" className="w-11 h-11 text-[#0084D1] fill-none stroke-current stroke-[1.8]">
+          <rect x="6" y="8" width="32" height="28" rx="4" />
+          <line x1="6" y1="16" x2="38" y2="16" />
+          <path d="M14 24 L10 28 L14 32 M22 24 L26 28 L22 32 M30 24 L34 28 L30 32" />
+        </svg>
+      )
+    },
+    {
+      title: 'Blockchain Development Service',
+      desc: 'We provide blockchain development services that will improve your company\'s security and transparency while giving you access to a variety of decentralized alternatives.',
+      icon: (
+        <svg viewBox="0 0 44 44" className="w-11 h-11 text-[#0084D1] fill-none stroke-current stroke-[1.8]">
+          <rect x="8" y="8" width="12" height="12" rx="2" />
+          <rect x="24" y="8" width="12" height="12" rx="2" />
+          <rect x="16" y="24" width="12" height="12" rx="2" />
+          <line x1="20" y1="14" x2="24" y2="14" />
+          <line x1="14" y1="20" x2="18" y2="24" />
+          <line x1="30" y1="20" x2="26" y2="24" />
+        </svg>
+      )
+    },
+    {
+      title: 'IoT Development Service',
+      desc: 'Discover personalized IoT development services that enable intelligent data analytics and remote device administration, tailored to your business needs.',
+      icon: (
+        <svg viewBox="0 0 44 44" className="w-11 h-11 text-[#0084D1] fill-none stroke-current stroke-[1.8]">
+          <rect x="14" y="16" width="16" height="16" rx="3" />
+          <circle cx="22" cy="24" r="3" />
+          <path d="M22 6 A14 14 0 0 1 36 20 M22 10 A10 10 0 0 1 32 20 M22 2 M6 20 A16 16 0 0 1 22 4" />
+        </svg>
+      )
+    },
+    {
+      title: 'Cloud Computing Service',
+      desc: 'We use the newest developments in cloud computing, such as creating hybrid multi-cloud solutions, transferring enterprise data to the cloud, and developing next-generation apps.',
+      icon: (
+        <svg viewBox="0 0 44 44" className="w-11 h-11 text-[#0084D1] fill-none stroke-current stroke-[1.8]">
+          <path d="M12 28 C8 28 5 25 5 21 C5 17.5 8 14.5 11.5 14.5 C12.5 10 16.5 7 21.5 7 C27.5 7 32 11.5 32.5 17 C36 17 39 20 39 24 C39 28 36 31 32 31 L12 31 Z" />
+        </svg>
+      )
+    }
+  ];
+
+  // Sapphire Comprehensive Suite Cards (Matching Screenshot 4 1:1)
+  const suiteCards = [
+    {
+      title: 'Mobile App UI/UX Design',
+      desc: 'By considering market trends and creating best practices that provide an enhanced user experience, we can help you create a unique, sophisticated, and user-friendly mobile app user interface.'
+    },
+    {
+      title: 'MVP Development',
+      desc: 'By creating an MVP with the necessary functionality, we increase your trust in the app idea. This enables you to swiftly release a test app onto the market and attract early users before moving on to complete app development.'
+    },
+    {
+      title: 'Custom App Development',
+      desc: 'Whether you\'re developing a mobile app for a business or a community, we can help you realize your unique idea by incorporating cutting-edge features that will make it stand out from the crowd.'
+    },
+    {
+      title: 'Startup App Development',
+      desc: 'Our world-class app development solutions will help your startup take off by helping startups get the best app solution possible with the use of leading app development frameworks.'
+    },
+    {
+      title: 'Enterprise App Development',
+      desc: 'Enhance your business operations through mobility by integrating third-party integrations and industry-leading technologies into your mobile app solutions to increase revenue and business operations.'
+    },
+    {
+      title: 'Embedded IoT App Development',
+      desc: 'To control and fully exploit your IoT-enabled environment, get a highly customized embedded software solution built with cloud and AI/ML technology.'
+    }
+  ];
 
   // Rich Technology Categories for Tech Stack Grid
   const techCategories = {
@@ -173,8 +340,8 @@ export const ZomatoLikeAppDevelopmentService = () => {
 
       {/* Sapphire Light Hero Banner */}
       <SapphireLightHeroBanner
-        title="Food Delivery App Like Zomato Development Services in USA"
-        subtitle="Rapidly transforming modern dining, Custom White Label Zomato-Like Food Delivery App Development Services empower cloud kitchens, single restaurants, and aggregator hubs with real-time order dispatch, live GPS driver tracking, and merchant portals."
+        title="Food Delivery App Development Company"
+        subtitle="The food industry is booming like never before; new restaurant & food delivery apps are launching daily, and consumers are discovering easier and more accessible methods to meet their hunger needs with food delivery app development like Zomato. Because of this, there is a greater need for restaurants to avail themselves of custom food delivery app development services. It is about time that you start capitalizing on the best food application you need with on-demand food delivery app developers who specialize in creating next-gen apps. Many businesses are now opting for a restaurant delivery app like Zomato or a multi-restaurant delivery app development solution to quickly enter the market and meet growing consumer demand efficiently."
         ctaText="Discuss Your Project"
         ctaLink="#quote-form"
         serviceCategory="zomato"
@@ -183,79 +350,60 @@ export const ZomatoLikeAppDevelopmentService = () => {
       {/* Brand Logo Marquee Right Below Hero Banner */}
       <BrandLogoMarquee />
 
-      {/* Review & Ratings Bar */}
-      <section className="py-6 bg-[#F8FAFC] border-b border-slate-200 text-slate-900 font-sans">
+      {/* Section 3: Get Zomato Like App Development Services From Us */}
+      <section id="panels-section" className="py-20 bg-[#F4F8FA] border-b border-slate-200 text-left font-sans">
         <Container>
-          <div className="flex flex-wrap items-center justify-around gap-6 text-center">
-            <div className="space-y-0.5">
-              <div className="text-base sm:text-lg font-extrabold text-[#005F96] flex items-center justify-center space-x-1">
-                <span>900+ GOOGLE REVIEWS</span>
-                <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
-              </div>
-              <p className="text-xs text-slate-500 font-medium">4.9 / 5.0 Rating</p>
-            </div>
-
-            <div className="space-y-0.5">
-              <div className="text-base sm:text-lg font-extrabold text-[#005F96] flex items-center justify-center space-x-1">
-                <span>320+ CLUTCH REVIEWS</span>
-                <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
-              </div>
-              <p className="text-xs text-slate-500 font-medium">Top Food Tech Partner</p>
-            </div>
-
-            <div className="space-y-0.5">
-              <div className="text-base sm:text-lg font-extrabold text-[#005F96] flex items-center justify-center space-x-1">
-                <span>200+ GOODFIRMS REVIEWS</span>
-                <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
-              </div>
-              <p className="text-xs text-slate-500 font-medium">Verified On-Demand Partner</p>
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      {/* Section 3: Get Fully Customized White Labelled Zomato-Like Apps (Dual Phone UI Layout 1:1 Match) */}
-      <section id="panels-section" className="py-20 bg-[#F4F8FA] border-b border-slate-200 text-left">
-        <Container>
-          <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
-            <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
-              Get Fully Customized White Labelled Zomato-Like Apps
+          <div className="text-center max-w-4xl mx-auto mb-10 space-y-4">
+            <h2
+              className="text-slate-900 tracking-tight"
+              style={{ fontSize: '40px', fontWeight: 800, lineHeight: '48px' }}
+            >
+              Get Zomato Like App Development Services From Us
             </h2>
-            <p className="text-base sm:text-lg text-slate-600 font-normal">
-              Our food delivery app development company understands how to make an app like Zomato and what it takes to establish a successful on-demand food ordering platform.
+            <p
+              className="text-slate-600 font-sans"
+              style={{ fontSize: '15px', fontWeight: 400, lineHeight: '26px' }}
+            >
+              Customers, restaurant owners, and delivery drivers can all benefit from Zomato-like food delivery app development company solutions. The advantages extend to all three parties, ensuring a win-win situation. Together, these three will help increase your company's reach and bring it to the list of top food apps with <span className="text-[#005F96] font-semibold hover:underline cursor-pointer">Uber like app development service</span>. With food delivery apps like Postmates & DoorDash, you may expand your business's scope and cater to diverse client needs with professional on-demand food delivery app developers.
+            </p>
+            <p
+              className="text-slate-600 font-sans"
+              style={{ fontSize: '15px', fontWeight: 400, lineHeight: '26px' }}
+            >
+              Before you start making one, you need to concentrate on a few crucial things, including the amount of time and money it will take to create the <span className="text-[#005F96] font-semibold hover:underline cursor-pointer">food delivery application</span>, and cost to develop Zomato-like app. To ensure the best outcome, it's wise to hire experts from the best company to develop an app similar to Zomato. Our skilled developers provide insights into app planning, designing, development, and scaling, ensuring your multi-restaurant delivery app development journey is seamless and profitable.
             </p>
 
-            {/* 3 Main Panel Pill Tabs */}
-            <div className="flex justify-center space-x-4 pt-4 max-w-2xl mx-auto">
+            {/* 3 Main Tab Buttons matching Sapphire Reference 1:1 (Full Width Grid Alignment) */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8 max-w-5xl mx-auto">
               <button
-                onClick={() => setActivePanelTab('customer')}
-                className={`flex-1 py-3 px-6 rounded-lg text-sm font-extrabold transition-all border ${
-                  activePanelTab === 'customer'
-                    ? 'bg-[#005F96] text-white border-[#005F96] shadow-md'
-                    : 'bg-white text-[#005F96] border-[#005F96]/40 hover:bg-slate-50'
+                onClick={() => setActivePanelTab('userApp')}
+                className={`w-full py-3.5 px-6 rounded-md text-base sm:text-lg font-extrabold text-center transition-all border-2 ${
+                  activePanelTab === 'userApp'
+                    ? 'bg-[#005F96] text-white border-[#005F96] shadow-sm'
+                    : 'bg-white text-[#005F96] border-[#005F96] hover:bg-slate-50'
                 }`}
               >
-                Customer App
+                User App
               </button>
               <button
-                onClick={() => setActivePanelTab('driver')}
-                className={`flex-1 py-3 px-6 rounded-lg text-sm font-extrabold transition-all border ${
-                  activePanelTab === 'driver'
-                    ? 'bg-[#005F96] text-white border-[#005F96] shadow-md'
-                    : 'bg-white text-[#005F96] border-[#005F96]/40 hover:bg-slate-50'
+                onClick={() => setActivePanelTab('restaurant')}
+                className={`w-full py-3.5 px-6 rounded-md text-base sm:text-lg font-extrabold text-center transition-all border-2 ${
+                  activePanelTab === 'restaurant'
+                    ? 'bg-[#005F96] text-white border-[#005F96] shadow-sm'
+                    : 'bg-white text-[#005F96] border-[#005F96] hover:bg-slate-50'
                 }`}
               >
-                Delivery Partner App
+                Restaurant Owners
               </button>
               <button
                 onClick={() => setActivePanelTab('admin')}
-                className={`flex-1 py-3 px-6 rounded-lg text-sm font-extrabold transition-all border ${
+                className={`w-full py-3.5 px-6 rounded-md text-base sm:text-lg font-extrabold text-center transition-all border-2 ${
                   activePanelTab === 'admin'
-                    ? 'bg-[#005F96] text-white border-[#005F96] shadow-md'
-                    : 'bg-white text-[#005F96] border-[#005F96]/40 hover:bg-slate-50'
+                    ? 'bg-[#005F96] text-white border-[#005F96] shadow-sm'
+                    : 'bg-white text-[#005F96] border-[#005F96] hover:bg-slate-50'
                 }`}
               >
-                Restaurant Merchant Portal
+                Admin
               </button>
             </div>
           </div>
@@ -263,322 +411,656 @@ export const ZomatoLikeAppDevelopmentService = () => {
           {/* Dual Phone Layout + Left 3 Cards + Right 3 Cards (1:1 Sapphire Match) */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center max-w-6xl mx-auto pt-6">
             {/* Left 3 Feature Cards */}
-            <div className="lg:col-span-4 space-y-6">
-              {panelFeatures[activePanelTab].slice(0, 3).map((item, idx) => (
-                <div key={idx} className="flex items-start space-x-4">
-                  <div className="p-3 rounded-xl bg-cyan-100/80 text-[#005F96] shrink-0 border border-cyan-200 shadow-sm">
-                    <Smartphone className="w-6 h-6" />
+            <div className="lg:col-span-4 space-y-4">
+              {panelFeatures[activePanelTab]?.slice(0, 3).map((item, idx) => {
+                const ItemIcon = item.Icon || Smartphone;
+                return (
+                  <div
+                    key={idx}
+                    className="group p-5 rounded-2xl transition-all duration-300 hover:bg-[#005F96] hover:shadow-xl cursor-pointer text-left"
+                  >
+                    <div className="flex items-start space-x-4">
+                      <div className="p-3.5 rounded-xl bg-[#E5F2F9] text-[#005F96] group-hover:bg-white group-hover:text-[#005F96] shrink-0 border border-cyan-100/60 shadow-xs transition-colors duration-300">
+                        <ItemIcon className="w-6 h-6" />
+                      </div>
+                      <div>
+                        <h3
+                          className="text-slate-900 group-hover:text-white mb-1 font-sans transition-colors duration-300"
+                          style={{ fontSize: '18px', fontWeight: 600, lineHeight: '22px' }}
+                        >
+                          {item.title}
+                        </h3>
+                        <p
+                          className="text-slate-600 group-hover:text-white font-sans font-normal transition-colors duration-300"
+                          style={{ fontSize: '15px', fontWeight: 400, lineHeight: '26px' }}
+                        >
+                          {item.desc}
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="text-lg font-black text-slate-900 mb-1">{item.title}</h3>
-                    <p className="text-xs text-slate-600 leading-relaxed font-normal">{item.desc}</p>
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
 
-            {/* Center Dual Mobile Phone Screens (1:1 Sapphire Food UI Visual) */}
+            {/* Center Graphic matching active tab (User App / Restaurant / Admin) */}
             <div className="lg:col-span-4 flex items-center justify-center relative py-4">
-              <div className="flex items-center -space-x-8">
-                {/* Phone 1: Customer Menu & Cart Screen */}
-                <div className="w-[200px] h-[400px] rounded-[36px] bg-slate-900 border-4 border-slate-800 p-2 shadow-2xl relative overflow-hidden text-left z-20">
-                  <div className="bg-white w-full h-full rounded-[28px] p-3 flex flex-col justify-between text-slate-900 text-[10px]">
-                    <div className="space-y-1">
-                      <div className="flex items-center justify-between text-[9px] font-bold text-slate-500">
+              {activePanelTab === 'admin' ? (
+                /* Admin Tab Graphic: Web Portal Laptop + Smartphone (1:1 Sapphire Reference) */
+                <div className="relative w-full max-w-[380px] flex items-center justify-center min-h-[460px]">
+                  {/* Laptop Admin Portal Frame */}
+                  <div className="w-[310px] sm:w-[340px] h-[220px] sm:h-[240px] rounded-xl bg-slate-900 border-4 border-slate-700 p-1.5 shadow-2xl relative overflow-hidden text-left bg-white z-10">
+                    <div className="bg-[#FF5722] text-white p-1.5 rounded text-[8.5px] flex justify-between items-center font-bold">
+                      <span className="flex items-center space-x-1">
+                        <span>🍕</span>
+                        <span>EasyEat Admin Portal</span>
+                      </span>
+                      <span>Platform Control</span>
+                    </div>
+                    <div className="my-2 p-2 bg-slate-50 rounded-lg border text-[8px] space-y-1.5">
+                      <div className="flex justify-between font-extrabold text-slate-800">
+                        <span>Managing Restaurants</span>
+                        <span className="text-[#FF5722]">142 Listed</span>
+                      </div>
+                      <div className="flex justify-between text-[7px] text-slate-600">
+                        <span>Commission From Eateries</span>
+                        <span className="font-bold text-emerald-600">18.5% Avg</span>
+                      </div>
+                      <div className="flex justify-between text-[7px] text-slate-600">
+                        <span>Delivery Charges</span>
+                        <span className="font-bold text-slate-800">Dynamic Surge</span>
+                      </div>
+                    </div>
+                    <div className="p-1.5 bg-orange-50 rounded-md border border-orange-200 text-[7.5px] text-[#FF5722] font-bold text-center">
+                      Peak Hours Premium Pricing Active
+                    </div>
+                  </div>
+
+                  {/* Overlapping Phone */}
+                  <div className="absolute -bottom-4 -right-2 w-[165px] sm:w-[185px] h-[330px] sm:h-[360px] rounded-[32px] bg-slate-950 border-4 border-slate-800 p-1.5 shadow-2xl z-20 bg-white">
+                    <div className="bg-[#005F96] text-white p-2 rounded-t-[24px] text-[8px] font-bold text-center">
+                      Admin Mobile App
+                    </div>
+                    <div className="p-2 text-[7.5px] space-y-1 text-slate-700 font-sans">
+                      <div className="p-1.5 border-b flex justify-between font-bold"><span>Managing Restaurants</span><span>›</span></div>
+                      <div className="p-1.5 border-b flex justify-between font-bold"><span>Management Of Categories</span><span>›</span></div>
+                      <div className="p-1.5 border-b flex justify-between font-bold"><span>Advertising & Banners</span><span>›</span></div>
+                      <div className="p-1.5 border-b flex justify-between font-bold"><span>Delivery Charges</span><span>›</span></div>
+                    </div>
+                  </div>
+                </div>
+              ) : activePanelTab === 'restaurant' ? (
+                /* Restaurant Tab Graphic: EasyEat Special Dish Screen + Profile Settings Screen (1:1 Sapphire Match) */
+                <div className="flex items-center -space-x-10 sm:-space-x-12 py-2">
+                  {/* FRONT PHONE: EasyEat Restaurant Menu Screen */}
+                  <div className="w-[220px] sm:w-[245px] h-[440px] sm:h-[475px] rounded-[38px] bg-slate-950 border-4 border-slate-800 p-2.5 shadow-2xl relative overflow-hidden text-left z-20 bg-white flex flex-col justify-between">
+                    <div>
+                      {/* Status Bar */}
+                      <div className="flex items-center justify-between text-[7.5px] text-slate-400 px-2 pt-0.5 font-semibold">
                         <span>9:41</span>
-                        <span className="text-rose-600 font-black">ZOMATO CLONE</span>
+                        <div className="flex items-center space-x-1">
+                          <div className="w-1.5 h-1.5 rounded-full bg-slate-400" />
+                          <div className="w-2 h-1.5 border border-slate-400 rounded-sm" />
+                        </div>
                       </div>
-                      <div className="font-bold text-slate-800 text-[11px]">Deliver to Swastik Society</div>
-                      <div className="text-slate-400 font-semibold text-[9px]">Search "Pizza, Biryani, Burgers"</div>
+
+                      {/* Brand Logo */}
+                      <div className="p-2 text-center space-y-0.5 border-b border-slate-100">
+                        <div className="w-8 h-8 mx-auto rounded-lg bg-[#FF5722] text-white flex items-center justify-center font-black text-sm shadow-sm">
+                          🍕
+                        </div>
+                        <h4 className="text-[11px] font-black text-slate-900 tracking-tight">EasyEat</h4>
+                      </div>
+
+                      {/* Today's Special Dish */}
+                      <div className="p-2 space-y-1">
+                        <span className="text-[8px] font-extrabold text-[#FF5722] block">Today's Special Dish</span>
+                        <div className="bg-slate-50 border border-slate-200 rounded-lg p-2 space-y-0.5 text-[7.5px]">
+                          <div className="flex justify-between font-bold text-slate-800">
+                            <span>Item Name</span>
+                            <span>Garlic Pizza</span>
+                          </div>
+                          <div className="flex justify-between text-slate-500">
+                            <span>Main Price</span>
+                            <span>Discount Price</span>
+                          </div>
+                          <div className="flex justify-between font-extrabold">
+                            <span className="text-slate-400 line-through">$ 19.55</span>
+                            <span className="text-[#FF5722]">$ 15.00</span>
+                          </div>
+                          <div className="text-[7px] text-slate-400 pt-0.5">Specification: Spicy</div>
+                        </div>
+                      </div>
+
+                      {/* Main Product List */}
+                      <div className="p-2 space-y-1">
+                        <span className="text-[8px] font-extrabold text-slate-900 block">Main Product List</span>
+                        <div className="bg-slate-50 border border-slate-200 rounded-lg p-2 space-y-0.5 text-[7.5px]">
+                          <div className="flex justify-between font-bold text-slate-800">
+                            <span>Item Name</span>
+                            <span>Garlic Pizza</span>
+                          </div>
+                          <div className="flex justify-between text-slate-500">
+                            <span>Main Price</span>
+                            <span>Discount Price</span>
+                          </div>
+                          <div className="flex justify-between font-extrabold">
+                            <span className="text-slate-400 line-through">$ 19.55</span>
+                            <span className="text-[#FF5722]">$ 15.00</span>
+                          </div>
+                        </div>
+                      </div>
                     </div>
 
-                    <div className="my-2 space-y-1.5">
-                      <div className="p-2 rounded-lg bg-rose-50 border border-rose-100 flex items-center justify-between">
-                        <div>
-                          <div className="font-extrabold text-slate-900 text-[10px]">Butter Chicken Combo</div>
-                          <div className="text-[8px] text-slate-500">⭐ 4.8 (1.2k+ reviews)</div>
-                        </div>
-                        <span className="font-black text-rose-600 text-[11px]">₹280</span>
+                    {/* Orange Continue CTA Button */}
+                    <div className="p-2">
+                      <button className="w-full py-2.5 rounded-xl bg-gradient-to-r from-[#FF5722] to-[#FF7043] text-white font-extrabold text-[9.5px] text-center shadow-md">
+                        Continue
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* BACK PHONE: Profile & Settings Screen */}
+                  <div className="w-[205px] sm:w-[225px] h-[420px] sm:h-[450px] rounded-[36px] bg-slate-950 border-4 border-slate-800 p-2 shadow-xl relative overflow-hidden text-left z-10 bg-white flex flex-col justify-between">
+                    <div>
+                      {/* Red/Orange Header */}
+                      <div className="bg-[#FF3B30] text-white p-2.5 rounded-t-[26px] flex justify-between items-center text-[9px] font-extrabold">
+                        <span>Profile</span>
+                        <span className="text-[7.5px] opacity-90 underline">Edit</span>
                       </div>
 
-                      <div className="p-2 rounded-lg bg-slate-50 border border-slate-200 flex items-center justify-between">
-                        <div>
-                          <div className="font-extrabold text-slate-900 text-[10px]">Veg Dum Biryani</div>
-                          <div className="text-[8px] text-slate-500">⭐ 4.6 (850+ reviews)</div>
+                      {/* User Info */}
+                      <div className="p-2 border-b border-slate-100 flex items-center space-x-2">
+                        <div className="w-7 h-7 rounded-full bg-slate-200 text-slate-700 flex items-center justify-center font-bold text-[9px]">
+                          👤
                         </div>
-                        <span className="font-black text-slate-900 text-[11px]">₹190</span>
+                        <div>
+                          <div className="text-[8.5px] font-extrabold text-slate-900">Anujak</div>
+                          <div className="text-[7px] text-slate-400">anujak@gmail.com</div>
+                        </div>
+                      </div>
+
+                      {/* Settings Menu Options */}
+                      <div className="p-1 space-y-0.5 text-[7.5px] text-slate-700 font-sans">
+                        <div className="p-1.5 border-b flex justify-between items-center">
+                          <span className="font-bold">My Orders</span>
+                          <span className="text-[6.5px] text-slate-400">Already have 10 Orders ›</span>
+                        </div>
+                        <div className="p-1.5 border-b flex justify-between items-center">
+                          <span className="font-bold">Item Category</span>
+                          <span className="text-[6.5px] text-slate-400">55 Orders ›</span>
+                        </div>
+                        <div className="p-1.5 border-b flex justify-between items-center">
+                          <span className="font-bold">Total Branch</span>
+                          <span className="text-[6.5px] text-slate-400">3 Addresses ›</span>
+                        </div>
+                        <div className="p-1.5 border-b flex justify-between items-center">
+                          <span className="font-bold">Payment Methods</span>
+                          <span className="text-[6.5px] text-slate-400">Visa *7134 ›</span>
+                        </div>
+                        <div className="p-1.5 border-b flex justify-between items-center">
+                          <span className="font-bold">My Reviews</span>
+                          <span className="text-[6.5px] text-slate-400">3 Reviews for 3 Items ›</span>
+                        </div>
+                        <div className="p-1.5 border-b flex justify-between items-center">
+                          <span className="font-bold">Settings</span>
+                          <span className="text-[6.5px] text-slate-400">Notification, Password ›</span>
+                        </div>
                       </div>
                     </div>
 
-                    <button className="w-full py-2 rounded-lg bg-rose-600 text-white font-extrabold text-xs text-center shadow-md">
-                      Proceed to Checkout
-                    </button>
+                    <div className="p-2 text-center text-[7.5px] font-bold text-rose-500">
+                      Logout
+                    </div>
                   </div>
                 </div>
+              ) : (
+                /* User App Tab Graphic: Dual Food App Phone Screens (1:1 Sapphire Match) */
+                <div className="flex items-center -space-x-10 sm:-space-x-12 py-2">
+                  {/* FRONT PHONE: User App Main Screen */}
+                  <div className="w-[220px] sm:w-[245px] h-[440px] sm:h-[475px] rounded-[38px] bg-slate-950 border-4 border-slate-800 p-2.5 shadow-2xl relative overflow-hidden text-left z-20 bg-white flex flex-col justify-between">
+                    <div>
+                      {/* Status Bar */}
+                      <div className="flex items-center justify-between text-[7.5px] text-slate-400 px-2 pt-0.5 font-semibold">
+                        <span>9:41</span>
+                        <div className="flex items-center space-x-1">
+                          <div className="w-1.5 h-1.5 rounded-full bg-slate-400" />
+                          <div className="w-2 h-1.5 border border-slate-400 rounded-sm" />
+                        </div>
+                      </div>
 
-                {/* Phone 2: Live Delivery Tracking Screen */}
-                <div className="w-[190px] h-[380px] rounded-[34px] bg-slate-900 border-4 border-slate-800 p-2 shadow-xl relative overflow-hidden text-left z-10">
-                  <div className="bg-white w-full h-full rounded-[26px] p-3 flex flex-col justify-between text-slate-900 text-[10px]">
-                    <div className="text-center space-y-1">
-                      <span className="text-[9px] font-bold text-rose-600 uppercase">Live Delivery GPS</span>
-                      <div className="text-xs font-black text-slate-900">Arriving in 14 Mins</div>
-                      <div className="text-[9px] text-emerald-600 font-bold">Driver is on the way 🚴</div>
-                    </div>
+                      {/* Header Location Bar */}
+                      <div className="bg-gradient-to-r from-[#FF5722] to-[#FF7043] -mx-2.5 -mt-1 p-2.5 text-white space-y-1">
+                        <div className="flex justify-between text-[8px] font-bold">
+                          <span>📍 102 E Taylor St, USA</span>
+                          <span>⚙️</span>
+                        </div>
+                        <div className="bg-white text-slate-400 rounded-md px-2 py-1 text-[7.5px] flex items-center">
+                          <span className="mr-1">🔍</span>
+                          <span>Search your product...</span>
+                        </div>
+                      </div>
 
-                    <div className="my-2 h-28 bg-emerald-50 rounded-xl border border-emerald-100 relative p-2 overflow-hidden flex flex-col justify-between">
-                      <div className="absolute inset-0 bg-[radial-gradient(#059669_1px,transparent_1px)] [background-size:12px_12px] opacity-20" />
-                      <div className="w-full text-center text-emerald-700 font-bold text-[9px] z-10">Restaurant ➔ Home</div>
-                      <div className="w-full text-center font-mono text-[8px] bg-white/80 rounded py-0.5 z-10">
-                        OTP: 4829
+                      {/* Categories */}
+                      <div className="p-1.5 mt-1 space-y-1">
+                        <div className="flex justify-between text-[8px] font-extrabold text-slate-900">
+                          <span>Categories</span>
+                          <span className="text-[7px] text-[#FF5722]">See All</span>
+                        </div>
+                        <div className="grid grid-cols-4 gap-1 text-center text-[6.5px]">
+                          <div className="bg-orange-50 rounded p-1"><span className="block text-[9px]">🥣</span>Breakfast</div>
+                          <div className="bg-amber-50 rounded p-1"><span className="block text-[9px]">🍔</span>Lunch</div>
+                          <div className="bg-red-50 rounded p-1"><span className="block text-[9px]">🍟</span>Snack</div>
+                          <div className="bg-yellow-50 rounded p-1"><span className="block text-[9px]">🍕</span>Dinner</div>
+                        </div>
+                      </div>
+
+                      {/* Popular Products */}
+                      <div className="p-1.5 space-y-1">
+                        <div className="flex justify-between text-[8px] font-extrabold text-slate-900">
+                          <span>Popular Products</span>
+                          <span className="text-[7px] text-[#FF5722]">See All</span>
+                        </div>
+                        <div className="grid grid-cols-3 gap-1 text-[6.5px]">
+                          <div className="bg-slate-50 border rounded p-1 text-center">
+                            <div className="text-[10px]">🍔</div>
+                            <div className="font-bold truncate">Hamburger</div>
+                            <div className="text-[#FF5722] font-extrabold">$12</div>
+                          </div>
+                          <div className="bg-slate-50 border rounded p-1 text-center">
+                            <div className="text-[10px]">🥪</div>
+                            <div className="font-bold truncate">Sandwich</div>
+                            <div className="text-[#FF5722] font-extrabold">$15</div>
+                          </div>
+                          <div className="bg-slate-50 border rounded p-1 text-center">
+                            <div className="text-[10px]">🍕</div>
+                            <div className="font-bold truncate">Pizza</div>
+                            <div className="text-[#FF5722] font-extrabold">$18</div>
+                          </div>
+                        </div>
                       </div>
                     </div>
 
-                    <button className="w-full py-1.5 rounded-lg bg-slate-900 text-white font-extrabold text-[10px] text-center shadow-sm">
-                      Call Delivery Partner
-                    </button>
+                    {/* Bottom Nav Bar */}
+                    <div className="bg-slate-900 text-white -mx-2.5 -mb-2.5 p-1.5 flex justify-around text-[7.5px] font-extrabold">
+                      <span className="text-[#FF5722]">🏠 Home</span>
+                      <span className="opacity-70">📂 Categories</span>
+                      <span className="opacity-70">🛒 Cart</span>
+                      <span className="opacity-70">👤 Profile</span>
+                    </div>
+                  </div>
+
+                  {/* BACK PHONE: My Cart Screen */}
+                  <div className="w-[205px] sm:w-[225px] h-[420px] sm:h-[450px] rounded-[36px] bg-slate-950 border-4 border-slate-800 p-2 shadow-xl relative overflow-hidden text-left z-10 bg-white flex flex-col justify-between">
+                    <div>
+                      <div className="bg-[#FF3B30] text-white p-2 rounded-t-[26px] font-extrabold text-[9px] text-center">
+                        My Cart
+                      </div>
+                      <div className="p-2 space-y-1.5 text-[7.5px]">
+                        <div className="bg-orange-50 border border-orange-200 rounded-lg p-2 space-y-1">
+                          <div className="flex justify-between font-bold text-slate-800">
+                            <span>Hakka Noodles Bowl</span>
+                            <span>1x</span>
+                          </div>
+                          <div className="text-[6.5px] text-slate-500">By Restaurant</div>
+                          <div className="font-extrabold text-[#FF5722]">$ 25</div>
+                        </div>
+                        <div className="p-1.5 bg-slate-50 border rounded text-[7px] space-y-0.5">
+                          <div className="flex justify-between"><span>Item Total</span><span>$25</span></div>
+                          <div className="flex justify-between"><span>Delivery Fee</span><span>$3</span></div>
+                          <div className="flex justify-between text-emerald-600 font-bold"><span>Discount</span><span>-$10</span></div>
+                          <div className="flex justify-between font-extrabold text-slate-900 pt-0.5 border-t"><span>Total MRP (incl of taxes)</span><span>$25</span></div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="p-2">
+                      <button className="w-full py-2 rounded-xl bg-[#FF5722] text-white font-extrabold text-[9px] text-center shadow">
+                        Checkout
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
+              )}
             </div>
 
             {/* Right 3 Feature Cards */}
-            <div className="lg:col-span-4 space-y-6">
-              {panelFeatures[activePanelTab].slice(3, 6).map((item, idx) => (
-                <div key={idx} className="flex items-start space-x-4">
-                  <div className="p-3 rounded-xl bg-cyan-100/80 text-[#005F96] shrink-0 border border-cyan-200 shadow-sm">
-                    <Smartphone className="w-6 h-6" />
+            <div className="lg:col-span-4 space-y-4">
+              {panelFeatures[activePanelTab]?.slice(3, 6).map((item, idx) => {
+                const ItemIcon = item.Icon || Smartphone;
+                return (
+                  <div
+                    key={idx}
+                    className="group p-5 rounded-2xl transition-all duration-300 hover:bg-[#005F96] hover:shadow-xl cursor-pointer text-left"
+                  >
+                    <div className="flex items-start space-x-4">
+                      <div className="p-3.5 rounded-xl bg-[#E5F2F9] text-[#005F96] group-hover:bg-white group-hover:text-[#005F96] shrink-0 border border-cyan-100/60 shadow-xs transition-colors duration-300">
+                        <ItemIcon className="w-6 h-6" />
+                      </div>
+                      <div>
+                        <h3
+                          className="text-slate-900 group-hover:text-white mb-1 font-sans transition-colors duration-300"
+                          style={{ fontSize: '18px', fontWeight: 600, lineHeight: '22px' }}
+                        >
+                          {item.title}
+                        </h3>
+                        <p
+                          className="text-slate-600 group-hover:text-white font-sans font-normal transition-colors duration-300"
+                          style={{ fontSize: '15px', fontWeight: 400, lineHeight: '26px' }}
+                        >
+                          {item.desc}
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="text-lg font-black text-slate-900 mb-1">{item.title}</h3>
-                    <p className="text-xs text-slate-600 leading-relaxed font-normal">{item.desc}</p>
-                  </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </Container>
       </section>
 
-      {/* Success Stories & Stat Cards (Food Delivery Category Match) */}
-      <SuccessStoriesSection category="zomato" />
+      {/* =========================================================================
+          SECTION 4: CUTTING EDGE TECHNOLOGIES SAPPHIRE USE FOR FOOD DELIVERY APP DEVELOPMENT (SCREENSHOT 1)
+          ========================================================================= */}
+      <section className="py-12 sm:py-16 bg-white text-slate-900 font-sans overflow-hidden text-left">
+        <div className="w-full max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-14">
+            <h2
+              className="font-[800] text-[#0B0F19] tracking-tight leading-[1.25]"
+              style={{ fontSize: '36px' }}
+            >
+              Cutting Edge Technologies Sapphire Use For Food Delivery App Development
+            </h2>
+          </div>
 
-      {/* Our Premium Services 10-Card Section */}
+          <div
+            className="relative overflow-hidden w-full py-2"
+            onMouseEnter={() => setIsTechHovered(true)}
+            onMouseLeave={() => setIsTechHovered(false)}
+          >
+            <div
+              className="flex space-x-6 sm:space-x-7 transition-transform duration-500 ease-in-out"
+              style={{
+                transform: `translateX(-${techCarouselIndex * 390}px)`
+              }}
+            >
+              {cuttingEdgeTechList.map((tech, idx) => (
+                <div
+                  key={idx}
+                  className="w-[320px] sm:w-[360px] lg:w-[380px] shrink-0 rounded-[16px] bg-[#EAF6FF] p-8 min-h-[300px] flex flex-col justify-start text-left select-none transition-all hover:shadow-md border border-[#D0E8FA]"
+                >
+                  <div className="mb-6">
+                    {tech.icon}
+                  </div>
+                  <h3 className="font-[800] text-[19px] sm:text-[20px] text-[#0B0F19] mb-3">
+                    {tech.title}
+                  </h3>
+                  <p
+                    className="font-normal text-[#2D3748]"
+                    style={{ fontSize: '14px', lineHeight: '1.65' }}
+                  >
+                    {tech.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="flex items-center justify-center space-x-6 mt-8 sm:mt-10">
+            <button
+              onClick={() => setTechCarouselIndex((prev) => Math.max(0, prev - 1))}
+              disabled={techCarouselIndex === 0}
+              aria-label="Previous Slide"
+              className="w-10 h-10 flex items-center justify-center text-slate-800 hover:text-[#005F96] disabled:opacity-25 disabled:cursor-not-allowed transition-all text-2xl font-bold cursor-pointer"
+            >
+              ←
+            </button>
+            <button
+              onClick={() => setTechCarouselIndex((prev) => Math.min(prev + 1, cuttingEdgeTechList.length - 3))}
+              disabled={techCarouselIndex >= cuttingEdgeTechList.length - 3}
+              aria-label="Next Slide"
+              className="w-10 h-10 flex items-center justify-center text-slate-800 hover:text-[#005F96] disabled:opacity-25 disabled:cursor-not-allowed transition-all text-2xl font-bold cursor-pointer"
+            >
+              →
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* =========================================================================
+          SECTION 5: OUR PREMIUM SERVICES (SCREENSHOT 2)
+          ========================================================================= */}
       <PremiumServicesGrid />
 
-      {/* Sapphire Success Matrix */}
-      <SuccessMatrix />
-
-      {/* Sapphire 6-Card Technology Stack Grid */}
-      <SapphireTechStackGrid domainName="food delivery" richTechCategories={techCategories} />
-
-      {/* Process We Follow - Sapphire 8-Step Timeline */}
-      <ProcessWeFollow
-        title="Process We Follow"
-        subtitle="Process-oriented execution from initial blueprinting to UAT, deployment, and ongoing SLA maintenance."
-      />
-
-      {/* Trusted By World's Leading Brands & Featured In Media */}
-      <TrustedBrandsGrid />
-
-      {/* Official Sapphire Zomato Food Delivery FAQs */}
-      <section className="py-20 bg-white border-b border-slate-200 text-left">
-        <Container className="max-w-4xl">
-          <div className="text-center mb-12 space-y-3">
-            <span className="px-3.5 py-1 rounded-full text-xs font-extrabold bg-[#005F96]/10 text-[#005F96] uppercase tracking-wider">
-              FREQUENTLY ASKED QUESTIONS
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
-              Food Delivery App Development FAQs
+      {/* =========================================================================
+          SECTION 6: MEET SAPPHIRE'S EXCEPTIONAL TEAM OF SEASONED EXPERTS (SCREENSHOT 3)
+          ========================================================================= */}
+      <section className="py-12 sm:py-16 bg-white text-slate-900 font-sans text-left">
+        <Container>
+          <div className="text-center max-w-4xl mx-auto mb-8 sm:mb-10">
+            <h2
+              className="font-[800] text-[#0B0F19] tracking-tight leading-tight"
+              style={{ fontSize: '36px' }}
+            >
+              Meet Sapphire’s Exceptional Team of Seasoned Experts
             </h2>
-            <p className="text-base text-slate-600">
-              Clear answers regarding cloud kitchen integration, revenue models, NDAs, source code ownership, and 24/7 SLA maintenance.
+          </div>
+
+          <div className="flex justify-center mb-10">
+            <div className="bg-[#D9EFF9] rounded-full p-1.5 inline-flex flex-wrap items-center justify-center gap-1.5 shadow-xs">
+              {[
+                'Trending',
+                'Product Development',
+                'Saas',
+                'AI/ML',
+                'Data Engineering',
+                'Design',
+                'Marketing',
+                'IoT App Dev',
+                'Blockchain Dev'
+              ].map((category) => (
+                <button
+                  key={category}
+                  onClick={() => setExpertActiveCategory(category)}
+                  className={`px-4 py-2 rounded-full text-xs sm:text-[13px] font-[700] transition-all cursor-pointer ${
+                    expertActiveCategory === category
+                      ? 'bg-[#005F96] text-white shadow-xs'
+                      : 'text-[#334155] hover:text-[#005F96] hover:bg-white/50'
+                  }`}
+                >
+                  {category}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 max-w-[1340px] mx-auto">
+            {[
+              {
+                id: 0,
+                title: 'Mobile Application Team',
+                image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80',
+                techs: ['Android', 'iOS', 'Flutter', 'React Native', 'Swift'],
+                team: ['Tech Lead (1)', 'Sr. iOS Dev (2)', 'Sr. Android Dev (2)', 'Flutter Dev (2)', 'QA Engineer (1)']
+              },
+              {
+                id: 1,
+                title: 'Saas Product Dev. Team',
+                image: 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=800&q=80',
+                techs: ['Vue.JS', 'React JS', 'DevOps', 'CRM', 'UI/UX', 'Mongo DB', 'Cloud'],
+                team: ['Solution Architect (1)', 'Full Stack Lead (2)', 'Cloud DevOps (1)', 'Frontend Specialist (2)', 'Product QA (1)']
+              },
+              {
+                id: 2,
+                title: 'Microsoft Dev. Team',
+                image: 'https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=800&q=80',
+                techs: ['.Net Core', 'Share Point', 'Power Apps', 'Power Automate', 'Power BI', 'Azure'],
+                team: ['.NET Architect (1)', 'SharePoint Lead (2)', 'Power Platform Eng (2)', 'Azure Cloud Eng (1)', 'BI Analyst (1)']
+              }
+            ].map((card, idx) => {
+              const currentTab = expertTabs[idx] || 'tech';
+              const activePills = currentTab === 'tech' ? card.techs : card.team;
+
+              return (
+                <div
+                  key={card.id}
+                  className="bg-[#EAF6FF] rounded-[18px] p-5 sm:p-6 border border-[#D0E8FA] flex flex-col justify-between shadow-xs hover:shadow-md transition-all duration-200 text-left"
+                >
+                  <div>
+                    <div className="w-full h-[180px] sm:h-[190px] rounded-[14px] overflow-hidden shadow-xs mb-4.5 bg-slate-900">
+                      <img
+                        src={card.image}
+                        alt={card.title}
+                        className="w-full h-full object-cover select-none"
+                      />
+                    </div>
+
+                    <h3 className="font-[800] text-[18px] sm:text-[19px] text-[#0B0F19] mb-3.5 text-left">
+                      {card.title}
+                    </h3>
+
+                    <div className="flex items-center space-x-2 mb-3.5 text-left">
+                      <button
+                        onClick={() => setExpertTabs((prev) => ({ ...prev, [idx]: 'tech' }))}
+                        className={`text-xs font-[800] rounded-[6px] px-3.5 py-1.5 transition-all cursor-pointer ${
+                          currentTab === 'tech'
+                            ? 'bg-[#005F96] text-white shadow-xs'
+                            : 'bg-white text-slate-700 hover:bg-slate-50'
+                        }`}
+                      >
+                        Technologies
+                      </button>
+                      <button
+                        onClick={() => setExpertTabs((prev) => ({ ...prev, [idx]: 'team' }))}
+                        className={`text-xs font-[700] rounded-[6px] px-3.5 py-1.5 transition-all cursor-pointer ${
+                          currentTab === 'team'
+                            ? 'bg-[#005F96] text-white shadow-xs'
+                            : 'bg-white text-slate-700 hover:bg-slate-50'
+                        }`}
+                      >
+                        Team Composition
+                      </button>
+                    </div>
+
+                    <div className="flex flex-wrap gap-2 min-h-[66px] text-left items-start">
+                      {activePills.map((pill, pillIdx) => (
+                        <span
+                          key={pillIdx}
+                          className="bg-white text-[#1E293B] font-[600] text-xs px-3.5 py-1.5 rounded-full shadow-2xs border border-slate-100"
+                        >
+                          {pill}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="pt-3.5 text-left">
+                    <Link
+                      to="/contact"
+                      className="bg-[#005F96] hover:bg-[#004D7A] text-white text-xs font-[800] rounded-[6px] px-4 py-2.5 inline-flex items-center space-x-2 transition-all shadow-xs"
+                    >
+                      <span>Get Details</span>
+                      <span>→</span>
+                    </Link>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="flex items-center justify-center space-x-6 mt-8 sm:mt-10">
+            <button
+              onClick={() => setExpertCarouselIndex((prev) => Math.max(0, prev - 1))}
+              disabled={expertCarouselIndex === 0}
+              aria-label="Previous Slide"
+              className="w-10 h-10 flex items-center justify-center text-slate-400 hover:text-slate-800 disabled:opacity-30 disabled:cursor-not-allowed transition-all text-2xl font-bold cursor-pointer"
+            >
+              ←
+            </button>
+            <button
+              onClick={() => setExpertCarouselIndex((prev) => Math.min(prev + 1, 2))}
+              disabled={expertCarouselIndex >= 2}
+              aria-label="Next Slide"
+              className="w-10 h-10 flex items-center justify-center text-slate-800 hover:text-[#005F96] disabled:opacity-30 disabled:cursor-not-allowed transition-all text-2xl font-bold cursor-pointer"
+            >
+              →
+            </button>
+          </div>
+        </Container>
+      </section>
+
+      {/* =========================================================================
+          SECTION 7: SAPPHIRE'S COMPREHENSIVE SUITE OF MOBILE APP DEVELOPMENT SERVICES (SCREENSHOT 4)
+          ========================================================================= */}
+      <section className="py-14 sm:py-18 bg-[#005F96] text-white font-sans text-left">
+        <Container>
+          <div className="text-center max-w-4xl mx-auto mb-12 sm:mb-14 space-y-4">
+            <h2
+              className="font-[800] text-white tracking-tight leading-tight"
+              style={{ fontSize: '36px' }}
+            >
+              Sapphire’s Comprehensive Suite of Mobile App Development Services
+            </h2>
+            <p
+              className="text-cyan-50 font-normal font-sans"
+              style={{ fontSize: '15px', lineHeight: '26px' }}
+            >
+              Sapphire developers thrive at developing compelling mobile applications by utilizing our knowledge of the latest app development frameworks. Sapphire provides full-service mobile app development customized to meet your requirements.
             </p>
           </div>
 
-          <div className="space-y-4">
-            {sapphireFaqs.map((faq, idx) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-[1340px] mx-auto">
+            {suiteCards.map((card, idx) => (
               <div
                 key={idx}
-                className="rounded-xl border border-slate-200 overflow-hidden bg-white shadow-sm transition-all"
+                className="bg-white rounded-[16px] p-7 text-slate-900 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-start text-left border border-white/20"
               >
-                <button
-                  onClick={() => setOpenFaq(openFaq === idx ? -1 : idx)}
-                  className="w-full p-5 flex items-center justify-between text-left font-bold text-base text-slate-900 hover:text-[#005F96] transition-colors"
+                <h3
+                  className="font-[800] text-slate-900 mb-3"
+                  style={{ fontSize: '20px', lineHeight: '26px' }}
                 >
-                  <span className="pr-4">{faq.q}</span>
-                  <ChevronDown
-                    className={`w-5 h-5 text-slate-400 shrink-0 transition-transform ${
-                      openFaq === idx ? 'rotate-180 text-[#005F96]' : ''
-                    }`}
-                  />
-                </button>
-                {openFaq === idx && (
-                  <div className="px-5 pb-5 pt-1 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100">
-                    {faq.a}
-                  </div>
-                )}
+                  {card.title}
+                </h3>
+                <p
+                  className="text-slate-600 font-sans font-normal"
+                  style={{ fontSize: '14px', lineHeight: '24px' }}
+                >
+                  {card.desc}
+                </p>
               </div>
             ))}
           </div>
         </Container>
       </section>
 
-      {/* Free Proposal & Project Quote Form Section */}
-      <section id="quote-form" className="py-20 bg-gradient-to-b from-[#005F96] via-[#004B77] to-[#003452] text-white text-left">
-        <Container className="max-w-5xl">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Left Content */}
-            <div className="lg:col-span-5 space-y-6">
-              <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full text-xs font-bold bg-white/10 text-cyan-300 border border-white/20">
-                <Utensils className="w-3.5 h-3.5 text-cyan-300" />
-                <span>BUILD YOUR FOOD DELIVERY APP</span>
-              </div>
+      {/* =========================================================================
+          SECTION 8: SECTORS THRIVING THROUGH SAPPHIRE'S BESPOKE MOBILE APP DEVELOPMENT SERVICES (SCREENSHOT 5 PART 1)
+          ========================================================================= */}
+      <SectorsThrivingSection />
 
-              <h2 className="text-3xl sm:text-4xl font-black text-white leading-tight">
-                Get Access to Senior Food Tech Developers
-              </h2>
+      {/* =========================================================================
+          SECTION 9: INDUSTRY-FOCUSED INSIGHTS TO ELEVATE YOUR BUSINESS (SCREENSHOT 5 PART 2)
+          ========================================================================= */}
+      <SuccessStories />
 
-              <p className="text-base text-blue-100 leading-relaxed font-normal">
-                Book a consultation with our food tech architects today to launch your Zomato-like restaurant delivery app or cloud kitchen portal.
-              </p>
+      {/* Process We Follow Section */}
+      <ProcessWeFollow
+        title="Process We Follow"
+        subtitle="Agile food delivery application development sprints from Figma wireframes to live dispatch engines and App Store / Play Store release."
+      />
 
-              <div className="space-y-3 pt-2">
-                <div className="flex items-center space-x-3 text-sm text-cyan-200 font-semibold">
-                  <CheckCircle2 className="w-5 h-5 text-cyan-400 shrink-0" />
-                  <span>100% Source Code Ownership & Signed NDA</span>
-                </div>
-                <div className="flex items-center space-x-3 text-sm text-cyan-200 font-semibold">
-                  <CheckCircle2 className="w-5 h-5 text-cyan-400 shrink-0" />
-                  <span>Sub-Second Live GPS Driver Tracking Engine</span>
-                </div>
-                <div className="flex items-center space-x-3 text-sm text-cyan-200 font-semibold">
-                  <CheckCircle2 className="w-5 h-5 text-cyan-400 shrink-0" />
-                  <span>Automated Merchant Commission Ledgers</span>
-                </div>
-              </div>
-            </div>
+      {/* Tech Stack Grid */}
+      <SapphireTechStackGrid categories={techCategories} />
 
-            {/* Right Contact Form Card */}
-            <div className="lg:col-span-7">
-              <div className="bg-white text-slate-900 rounded-2xl p-8 shadow-2xl">
-                {formSubmitted ? (
-                  <div className="py-12 text-center space-y-4">
-                    <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto">
-                      <Check className="w-8 h-8" />
-                    </div>
-                    <h3 className="text-2xl font-black text-slate-900">Inquiry Received!</h3>
-                    <p className="text-sm text-slate-600 max-w-md mx-auto">
-                      Thank you for contacting Sapphire Software Solutions. Our food delivery tech leads will review your project brief and respond within 2 business hours.
-                    </p>
-                    <button
-                      onClick={() => setFormSubmitted(false)}
-                      className="px-6 py-2.5 rounded-lg bg-[#005F96] text-white font-bold text-xs"
-                    >
-                      Submit Another Inquiry
-                    </button>
-                  </div>
-                ) : (
-                  <form onSubmit={handleSubmit} className="space-y-4">
-                    <h3 className="text-xl font-black text-slate-900 mb-2">Get A Free Project Quote</h3>
+      {/* Trusted Brands Grid */}
+      <TrustedBrandsGrid />
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-xs font-bold text-slate-700 mb-1">Your Name *</label>
-                        <input
-                          type="text"
-                          name="name"
-                          required
-                          value={formData.name}
-                          onChange={handleInputChange}
-                          placeholder="e.g. Michael Smith"
-                          className="w-full px-4 py-3 rounded-lg border border-slate-300 text-sm focus:ring-2 focus:ring-[#005F96] outline-none"
-                        />
-                      </div>
+      {/* Success Matrix */}
+      <SuccessMatrix />
 
-                      <div>
-                        <label className="block text-xs font-bold text-slate-700 mb-1">Business Email *</label>
-                        <input
-                          type="email"
-                          name="email"
-                          required
-                          value={formData.email}
-                          onChange={handleInputChange}
-                          placeholder="michael@foodbrand.com"
-                          className="w-full px-4 py-3 rounded-lg border border-slate-300 text-sm focus:ring-2 focus:ring-[#005F96] outline-none"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-xs font-bold text-slate-700 mb-1">Phone Number</label>
-                        <input
-                          type="tel"
-                          name="phone"
-                          value={formData.phone}
-                          onChange={handleInputChange}
-                          placeholder="+1 (555) 000-0000"
-                          className="w-full px-4 py-3 rounded-lg border border-slate-300 text-sm focus:ring-2 focus:ring-[#005F96] outline-none"
-                        />
-                      </div>
-
-                      <div>
-                        <label className="block text-xs font-bold text-slate-700 mb-1">Preferred Hiring Model</label>
-                        <select
-                          name="model"
-                          value={formData.model}
-                          onChange={handleInputChange}
-                          className="w-full px-4 py-3 rounded-lg border border-slate-300 text-sm focus:ring-2 focus:ring-[#005F96] outline-none bg-white"
-                        >
-                          <option value="Dedicated Team">Dedicated Team</option>
-                          <option value="Fixed Price">Fixed Price Contract</option>
-                          <option value="Time & Material">Time & Material</option>
-                          <option value="Buckets Approach">Buckets Approach</option>
-                        </select>
-                      </div>
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-bold text-slate-700 mb-1">Estimated Budget</label>
-                      <select
-                        name="budget"
-                        value={formData.budget}
-                        onChange={handleInputChange}
-                        className="w-full px-4 py-3 rounded-lg border border-slate-300 text-sm focus:ring-2 focus:ring-[#005F96] outline-none bg-white"
-                      >
-                        <option value="$10,000 - $25,000">$10,000 - $25,000</option>
-                        <option value="$25,000 - $50,000">$25,000 - $50,000</option>
-                        <option value="$50,000 - $100,000">$50,000 - $100,000</option>
-                        <option value="$100,000+">$100,000+</option>
-                      </select>
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-bold text-slate-700 mb-1">Project Brief / Requirements</label>
-                      <textarea
-                        name="message"
-                        rows="3"
-                        value={formData.message}
-                        onChange={handleInputChange}
-                        placeholder="Tell us about multi-restaurant aggregators, cloud kitchens, tiffin services, or custom notes..."
-                        className="w-full px-4 py-3 rounded-lg border border-slate-300 text-sm focus:ring-2 focus:ring-[#005F96] outline-none resize-none"
-                      />
-                    </div>
-
-                    <button
-                      type="submit"
-                      className="w-full py-4 rounded-lg bg-[#005F96] hover:bg-[#004A75] text-white font-black text-sm tracking-wide transition-all shadow-lg hover:shadow-xl flex items-center justify-center space-x-2"
-                    >
-                      <span>Submit Project Brief & Get Proposal</span>
-                      <ArrowRight className="w-4 h-4" />
-                    </button>
-                  </form>
-                )}
-              </div>
-            </div>
-          </div>
-        </Container>
-      </section>
+      {/* Sapphire Signature FAQ Section */}
+      <SapphireFaqSection faqs={sapphireFaqs} />
     </div>
   );
 };

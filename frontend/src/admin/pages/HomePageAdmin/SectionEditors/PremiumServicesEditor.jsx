@@ -121,11 +121,11 @@ export const PremiumServicesEditor = ({ data, onChange }) => {
           itemTitle="Premium Service"
           fields={fields}
           renderItemSummary={(item) => (
-            <div>
-              <div style={{ fontSize: '12px', fontWeight: 700, color: '#0F172A' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', minWidth: 0 }}>
+              <div style={{ fontSize: '12.5px', fontWeight: 700, color: '#0F172A', lineHeight: 1.35, wordBreak: 'break-word', overflowWrap: 'break-word' }}>
                 {item.name}
               </div>
-              <div style={{ fontSize: '11px', color: '#64748B' }}>
+              <div style={{ fontSize: '11px', color: '#64748B', lineHeight: 1.35, wordBreak: 'break-word', overflowWrap: 'break-word' }}>
                 {item.link || '/services'}
               </div>
             </div>

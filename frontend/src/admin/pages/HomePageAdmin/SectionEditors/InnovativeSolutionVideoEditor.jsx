@@ -148,23 +148,15 @@ export const InnovativeSolutionVideoEditor = ({ data, onChange }) => {
           itemTitle="Video Showcase"
           fields={fields}
           renderItemSummary={(item) => (
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              {item.image && (
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  style={{
-                    width: '42px',
-                    height: '28px',
-                    objectFit: 'cover',
-                    borderRadius: '4px',
-                    border: '1px solid #E2E8F0'
-                  }}
-                />
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', minWidth: 0 }}>
+              <div style={{ fontSize: '12.5px', fontWeight: 700, color: '#0F172A', lineHeight: 1.35, wordBreak: 'break-word', overflowWrap: 'break-word' }}>
+                {item.title || 'Video Showcase'}
+              </div>
+              {item.videoUrl && (
+                <div style={{ fontSize: '11px', color: '#64748B', lineHeight: 1.35, wordBreak: 'break-word', overflowWrap: 'break-word' }}>
+                  {item.videoUrl}
+                </div>
               )}
-              <span style={{ fontSize: '12px', fontWeight: 700, color: '#0F172A' }}>
-                {item.title}
-              </span>
             </div>
           )}
         />

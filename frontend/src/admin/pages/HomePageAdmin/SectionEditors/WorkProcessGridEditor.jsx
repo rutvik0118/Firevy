@@ -133,19 +133,16 @@ export const WorkProcessGridEditor = ({ data, onChange }) => {
           onChange={handleStepsChange}
           itemTitle="Process Step"
           fields={fields}
-          renderItemSummary={(item, idx) => (
-            <div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <span style={{ fontSize: '11px', padding: '1px 6px', borderRadius: '4px', backgroundColor: '#006B8F', color: '#fff', fontWeight: 700 }}>
-                  {item.step || `0${idx + 1}`}
-                </span>
-                <span style={{ fontSize: '12px', fontWeight: 700, color: '#0F172A' }}>
-                  {item.titleLine1 || item.title} {item.titleLine2 || ''}
-                </span>
+          renderItemSummary={(item) => (
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', minWidth: 0 }}>
+              <div style={{ fontSize: '12.5px', fontWeight: 700, color: '#0F172A', lineHeight: 1.35, wordBreak: 'break-word', overflowWrap: 'break-word' }}>
+                {item.titleLine1 || item.title} {item.titleLine2 || ''}
               </div>
-              <div style={{ fontSize: '11px', color: '#64748B', marginTop: '2px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
-                {item.desc || item.description}
-              </div>
+              {(item.desc || item.description) && (
+                <div style={{ fontSize: '11px', color: '#64748B', lineHeight: 1.35, wordBreak: 'break-word', overflowWrap: 'break-word', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+                  {item.desc || item.description}
+                </div>
+              )}
             </div>
           )}
         />

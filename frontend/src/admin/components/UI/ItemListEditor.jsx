@@ -240,12 +240,12 @@ export const ItemListEditor = ({
           ======================================================== */}
       <div className="item-list-left-panel">
         {/* Header */}
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingBottom: '8px', borderBottom: '1px solid #F1F5F9' }}>
-          <div>
-            <h3 style={{ margin: 0, fontSize: '13px', fontWeight: 800, color: '#0F172A' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', paddingBottom: '10px', borderBottom: '1px solid #F1F5F9', gap: '8px' }}>
+          <div style={{ minWidth: 0, flex: 1 }}>
+            <h3 style={{ margin: 0, fontSize: '13px', fontWeight: 800, color: '#0F172A', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
               {itemTitle}s ({items.length})
             </h3>
-            <p style={{ margin: '1px 0 0 0', fontSize: '11px', color: '#64748B' }}>
+            <p style={{ margin: '2px 0 0 0', fontSize: '11px', color: '#64748B', lineHeight: 1.3 }}>
               Drag to reorder {itemTitle.toLowerCase()}s
             </p>
           </div>
@@ -264,7 +264,9 @@ export const ItemListEditor = ({
               fontWeight: 700,
               border: 'none',
               cursor: 'pointer',
-              boxShadow: '0 1px 3px rgba(0, 107, 143, 0.2)'
+              boxShadow: '0 1px 3px rgba(0, 107, 143, 0.2)',
+              flexShrink: 0,
+              whiteSpace: 'nowrap'
             }}
           >
             <Plus size={13} /> Add {itemTitle}
@@ -325,7 +327,7 @@ export const ItemListEditor = ({
               const isActive = item.isActive !== false;
               const itemNumber = originalIndex < 9 ? `0${originalIndex + 1}` : `${originalIndex + 1}`;
               const itemDisplayName = item.title || item.name || item.heading || item.label || item.company || item.tabName || `${itemTitle} ${itemNumber}`;
-              const itemSub = item.tag || item.category || item.sub || item.desc || item.slug || item.role || item.metric;
+              const itemSub = item.tag || item.category || item.sub || item.desc || item.description || item.slug || item.role || item.metric;
 
               return (
                 <div
@@ -344,15 +346,18 @@ export const ItemListEditor = ({
                       cursor: 'grab',
                       display: 'flex',
                       alignItems: 'center',
-                      flexShrink: 0
+                      justifyContent: 'center',
+                      width: '14px',
+                      flexShrink: 0,
+                      paddingTop: '3px'
                     }}
                     title="Drag to reorder"
                   >
                     <GripVertical size={14} />
                   </div>
 
-                  {/* Badge & Media Icon */}
-                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '3px', flexShrink: 0 }}>
+                  {/* Badge & Media Icon Column */}
+                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '4px', flexShrink: 0, width: '28px', paddingTop: '1px' }}>
                     <div
                       style={{
                         padding: '1px 5px',
@@ -362,15 +367,18 @@ export const ItemListEditor = ({
                         fontSize: '10px',
                         fontWeight: 800,
                         letterSpacing: '0.02em',
-                        lineHeight: 1.2
+                        lineHeight: 1.2,
+                        textAlign: 'center',
+                        width: '100%',
+                        boxSizing: 'border-box'
                       }}
                     >
                       {itemNumber}
                     </div>
                     <div
                       style={{
-                        width: '24px',
-                        height: '24px',
+                        width: '26px',
+                        height: '26px',
                         borderRadius: '5px',
                         backgroundColor: isSelected ? '#E0F2FE' : '#F1F5F9',
                         border: '1px solid',
@@ -386,21 +394,21 @@ export const ItemListEditor = ({
                     </div>
                   </div>
 
-                  {/* Center: Title / Metric & Active Pill */}
-                  <div style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column', gap: '2px', overflow: 'hidden' }}>
+                  {/* Center: Content Column (Title, Description/Sub, Active Pill) */}
+                  <div style={{ flex: 1, minWidth: 0, display: 'flex', flexDirection: 'column', gap: '3px', justifyContent: 'flex-start', paddingRight: '2px' }}>
                     {renderItemSummary ? (
                       renderItemSummary(item, originalIndex)
                     ) : (
                       <>
                         <div
                           style={{
-                            fontSize: '12px',
+                            fontSize: '12.5px',
                             fontWeight: 700,
                             color: isSelected ? '#006B8F' : '#0F172A',
-                            lineHeight: 1.25,
-                            whiteSpace: 'nowrap',
-                            overflow: 'hidden',
-                            textOverflow: 'ellipsis'
+                            lineHeight: 1.35,
+                            wordBreak: 'break-word',
+                            overflowWrap: 'break-word',
+                            whiteSpace: 'normal'
                           }}
                         >
                           {itemDisplayName}
@@ -410,10 +418,14 @@ export const ItemListEditor = ({
                             style={{
                               fontSize: '11px',
                               color: '#64748B',
-                              lineHeight: 1.2,
-                              whiteSpace: 'nowrap',
-                              overflow: 'hidden',
-                              textOverflow: 'ellipsis'
+                              lineHeight: 1.35,
+                              wordBreak: 'break-word',
+                              overflowWrap: 'break-word',
+                              whiteSpace: 'normal',
+                              display: '-webkit-box',
+                              WebkitLineClamp: 2,
+                              WebkitBoxOrient: 'vertical',
+                              overflow: 'hidden'
                             }}
                           >
                             {itemSub}
@@ -422,31 +434,32 @@ export const ItemListEditor = ({
                       </>
                     )}
 
-                    {/* Active Status Pill */}
-                    <div style={{ marginTop: '2px' }}>
+                    {/* Active Status Pill - Always below description in normal flow */}
+                    <div style={{ marginTop: '4px' }}>
                       <span
                         onClick={(e) => handleToggleActive(originalIndex, e)}
                         style={{
                           display: 'inline-flex',
                           alignItems: 'center',
-                          gap: '3px',
-                          fontSize: '9px',
+                          gap: '4px',
+                          fontSize: '9.5px',
                           fontWeight: 700,
-                          padding: '1px 5px',
-                          borderRadius: '8px',
+                          padding: '2px 7px',
+                          borderRadius: '10px',
                           backgroundColor: isActive ? '#DCFCE7' : '#F1F5F9',
                           color: isActive ? '#15803D' : '#64748B',
                           border: '1px solid',
                           borderColor: isActive ? '#BBF7D0' : '#E2E8F0',
                           cursor: 'pointer',
-                          userSelect: 'none'
+                          userSelect: 'none',
+                          lineHeight: 1.2
                         }}
                         title={isActive ? 'Click to hide' : 'Click to activate'}
                       >
                         <span
                           style={{
-                            width: '4px',
-                            height: '4px',
+                            width: '5px',
+                            height: '5px',
                             borderRadius: '50%',
                             backgroundColor: isActive ? '#16A34A' : '#94A3B8'
                           }}
@@ -463,7 +476,9 @@ export const ItemListEditor = ({
                       alignItems: 'center',
                       justifyContent: 'center',
                       color: isSelected ? '#006B8F' : '#CBD5E1',
-                      flexShrink: 0
+                      flexShrink: 0,
+                      width: '16px',
+                      paddingTop: '3px'
                     }}
                   >
                     <ChevronRight size={15} />

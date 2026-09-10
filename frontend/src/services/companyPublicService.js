@@ -1,9 +1,9 @@
 const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5000/api/v1';
 
 export const companyPublicService = {
-  getSection: async (slug) => {
+  getSection: async (slug, isPreview = false) => {
     try {
-      const res = await fetch(`${API_BASE}/company/sections/${slug}`);
+      const res = await fetch(`${API_BASE}/company/sections/${slug}${isPreview ? '?preview=true' : ''}`);
       if (!res.ok) return null;
       const data = await res.json();
       return data.data;

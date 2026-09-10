@@ -4,19 +4,17 @@ import {
   Trash2,
   GripVertical,
   ChevronRight,
-  ChevronDown,
-  ChevronUp,
-  Video,
-  Image as ImageIcon,
-  CheckCircle2,
   Sliders,
   Sparkles,
   Layers,
+  Video,
+  Image as ImageIcon,
   Check,
   X
 } from 'lucide-react';
 import MediaUploadInput from '../../../components/UI/MediaUploadInput';
 import { useToast } from '../../../context/ToastContext';
+import { AdminFormSection, AdminFormGrid, AdminFormField, AdminMediaField } from '../../../components/UI/AdminEditLayout';
 
 export const HeroEditor = ({ data, onChange }) => {
   const { addToast } = useToast();
@@ -53,11 +51,6 @@ export const HeroEditor = ({ data, onChange }) => {
 
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [draggedIndex, setDraggedIndex] = useState(null);
-
-  // Collapsible Accordion States (collapsed initially to fit viewport naturally)
-  const [isMediaOpen, setIsMediaOpen] = useState(false);
-  const [isBulletsOpen, setIsBulletsOpen] = useState(false);
-  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 
   // Sync selected index if slides count shrinks
   useEffect(() => {
@@ -208,21 +201,21 @@ export const HeroEditor = ({ data, onChange }) => {
           style={{
             backgroundColor: '#FFFFFF',
             border: '1px solid #E2E8F0',
-            borderRadius: '8px',
-            padding: '12px',
-            boxShadow: '0 1px 2px rgba(0,0,0,0.03)',
+            borderRadius: '10px',
+            padding: '14px',
+            boxShadow: '0 1px 3px rgba(15, 23, 42, 0.04)',
             display: 'flex',
             flexDirection: 'column',
-            gap: '8px'
+            gap: '10px'
           }}
         >
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingBottom: '8px', borderBottom: '1px solid #F1F5F9' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingBottom: '10px', borderBottom: '1px solid #F1F5F9' }}>
             <div>
-              <h3 style={{ margin: 0, fontSize: '13px', fontWeight: 800, color: '#0F172A' }}>
+              <h3 style={{ margin: 0, fontSize: '13px', fontWeight: 800, color: '#0F172A', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
                 Slides ({slides.length})
               </h3>
               <p style={{ margin: '1px 0 0 0', fontSize: '11px', color: '#64748B' }}>
-                Drag to reorder carousel slides
+                Drag to reorder slides
               </p>
             </div>
             <button
@@ -232,8 +225,8 @@ export const HeroEditor = ({ data, onChange }) => {
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '4px',
-                padding: '4px 8px',
-                borderRadius: '5px',
+                padding: '5px 10px',
+                borderRadius: '6px',
                 backgroundColor: '#006B8F',
                 color: '#FFFFFF',
                 fontSize: '11px',
@@ -265,8 +258,8 @@ export const HeroEditor = ({ data, onChange }) => {
                     alignItems: 'center',
                     justifyContent: 'space-between',
                     padding: '8px 10px',
-                    borderRadius: '6px',
-                    backgroundColor: isSelected ? '#F0F9FF' : '#F8FAFC',
+                    borderRadius: '8px',
+                    backgroundColor: isSelected ? '#F0F9FF' : '#FFFFFF',
                     border: isSelected ? '1.5px solid #006B8F' : '1px solid #E2E8F0',
                     cursor: 'pointer',
                     transition: 'all 0.15s ease'
@@ -296,10 +289,10 @@ export const HeroEditor = ({ data, onChange }) => {
                     </div>
 
                     <div style={{ flex: 1, minWidth: 0 }}>
-                      <div style={{ fontSize: '11px', fontWeight: 700, color: '#0F172A', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                      <div style={{ fontSize: '11.5px', fontWeight: 700, color: isSelected ? '#006B8F' : '#0F172A', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                         {slide.titleLine1 || 'Slide'} {slide.titleLine2 || ''}
                       </div>
-                      <div style={{ fontSize: '10px', color: '#64748B', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                      <div style={{ fontSize: '10.5px', color: '#64748B', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                         {slide.tag || `Slide 0${idx + 1}`}
                       </div>
                     </div>
@@ -308,9 +301,9 @@ export const HeroEditor = ({ data, onChange }) => {
                   <div style={{ display: 'flex', alignItems: 'center', gap: '4px', flexShrink: 0 }}>
                     <span
                       style={{
-                        fontSize: '9px',
+                        fontSize: '9.5px',
                         fontWeight: 700,
-                        padding: '1px 5px',
+                        padding: '2px 6px',
                         borderRadius: '10px',
                         backgroundColor: isActive ? '#DCFCE7' : '#F1F5F9',
                         color: isActive ? '#15803D' : '#64748B'
@@ -327,31 +320,23 @@ export const HeroEditor = ({ data, onChange }) => {
         </div>
 
         {/* ========================================================
-            RIGHT COLUMN: EDIT SLIDE FORM
+            RIGHT COLUMN: EDIT SLIDE FORM IN STRUCTURED CARDS
             ======================================================== */}
-        <div
-          style={{
-            backgroundColor: '#FFFFFF',
-            border: '1px solid #E2E8F0',
-            borderRadius: '8px',
-            padding: '16px',
-            boxShadow: '0 1px 2px rgba(0,0,0,0.03)',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: '14px'
-          }}
-        >
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
           {/* Header with Status & Delete */}
           <div
             style={{
               display: 'flex',
               justifyContent: 'space-between',
               alignItems: 'center',
-              paddingBottom: '10px',
-              borderBottom: '1px solid #E2E8F0'
+              padding: '12px 16px',
+              backgroundColor: '#FFFFFF',
+              border: '1px solid #E2E8F0',
+              borderRadius: '10px',
+              boxShadow: '0 1px 3px rgba(15, 23, 42, 0.04)'
             }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
               <h3 style={{ margin: 0, fontSize: '14px', fontWeight: 800, color: '#0F172A' }}>
                 Edit Slide (Slide 0{selectedIndex + 1})
               </h3>
@@ -362,13 +347,13 @@ export const HeroEditor = ({ data, onChange }) => {
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '4px',
-                  padding: '2px 8px',
+                  padding: '3px 8px',
                   borderRadius: '12px',
                   backgroundColor: currentSlide.isActive !== false ? '#DCFCE7' : '#F1F5F9',
                   color: currentSlide.isActive !== false ? '#15803D' : '#64748B',
                   border: '1px solid',
                   borderColor: currentSlide.isActive !== false ? '#BBF7D0' : '#E2E8F0',
-                  fontSize: '10px',
+                  fontSize: '11px',
                   fontWeight: 700,
                   cursor: 'pointer'
                 }}
@@ -392,176 +377,151 @@ export const HeroEditor = ({ data, onChange }) => {
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
-                gap: '4px',
-                padding: '4px 8px',
-                borderRadius: '5px',
+                gap: '5px',
+                padding: '5px 10px',
+                borderRadius: '6px',
                 backgroundColor: '#FEF2F2',
                 border: '1px solid #FEE2E2',
                 color: '#DC2626',
-                fontSize: '11px',
+                fontSize: '11.5px',
                 fontWeight: 600,
                 cursor: slides.length <= 1 ? 'not-allowed' : 'pointer',
                 opacity: slides.length <= 1 ? 0.5 : 1
               }}
             >
-              <Trash2 size={12} /> Delete Slide
+              <Trash2 size={13} /> Delete Slide
             </button>
           </div>
 
-          {/* Form Fields: Structured 2-Column Grid */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '10px 14px' }}>
-            <div>
-              <label style={{ display: 'block', fontSize: '11px', fontWeight: 700, color: '#0F172A', marginBottom: '4px' }}>
-                Top Badge / Tag <span style={{ color: '#DC2626' }}>*</span>
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                style={{ width: '100%', padding: '7px 10px', borderRadius: '5px', border: '1px solid #CBD5E1', fontSize: '12px', color: '#0F172A', backgroundColor: '#FFFFFF' }}
-                value={currentSlide.tag || ''}
-                onChange={(e) => handleUpdateCurrentSlideField('tag', e.target.value)}
-                placeholder="e.g. AI Innovation"
-              />
-            </div>
+          {/* 1. Slide Headings & Labels Card */}
+          <AdminFormSection title="Slide Headings & Labels">
+            <AdminFormGrid columns={2}>
+              <AdminFormField label="Top Badge / Tag" required>
+                <input
+                  type="text"
+                  className="form-control"
+                  style={{ width: '100%', padding: '7px 10px', borderRadius: '5px', border: '1px solid #CBD5E1', fontSize: '12.5px', color: '#0F172A', backgroundColor: '#FFFFFF' }}
+                  value={currentSlide.tag || ''}
+                  onChange={(e) => handleUpdateCurrentSlideField('tag', e.target.value)}
+                  placeholder="e.g. AI Innovation"
+                />
+              </AdminFormField>
 
-            <div>
-              <label style={{ display: 'block', fontSize: '11px', fontWeight: 700, color: '#0F172A', marginBottom: '4px' }}>
-                Sub-heading (in parentheses)
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                style={{ width: '100%', padding: '7px 10px', borderRadius: '5px', border: '1px solid #CBD5E1', fontSize: '12px', color: '#0F172A', backgroundColor: '#FFFFFF' }}
-                value={currentSlide.subTag || ''}
-                onChange={(e) => handleUpdateCurrentSlideField('subTag', e.target.value)}
-                placeholder="e.g. (Limitless Possibilities)"
-              />
-            </div>
+              <AdminFormField label="Sub-heading Tag (Parentheses)">
+                <input
+                  type="text"
+                  className="form-control"
+                  style={{ width: '100%', padding: '7px 10px', borderRadius: '5px', border: '1px solid #CBD5E1', fontSize: '12.5px', color: '#0F172A', backgroundColor: '#FFFFFF' }}
+                  value={currentSlide.subTag || ''}
+                  onChange={(e) => handleUpdateCurrentSlideField('subTag', e.target.value)}
+                  placeholder="e.g. (Limitless Possibilities)"
+                />
+              </AdminFormField>
 
-            <div>
-              <label style={{ display: 'block', fontSize: '11px', fontWeight: 700, color: '#0F172A', marginBottom: '4px' }}>
-                Heading Line 1 <span style={{ color: '#DC2626' }}>*</span>
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                style={{ width: '100%', padding: '7px 10px', borderRadius: '5px', border: '1px solid #CBD5E1', fontSize: '12px', color: '#0F172A', backgroundColor: '#FFFFFF' }}
-                value={currentSlide.titleLine1 || ''}
-                onChange={(e) => handleUpdateCurrentSlideField('titleLine1', e.target.value)}
-                placeholder="e.g. Your Vision,"
-              />
-            </div>
+              <AdminFormField label="Heading Line 1" required>
+                <input
+                  type="text"
+                  className="form-control"
+                  style={{ width: '100%', padding: '7px 10px', borderRadius: '5px', border: '1px solid #CBD5E1', fontSize: '12.5px', color: '#0F172A', backgroundColor: '#FFFFFF' }}
+                  value={currentSlide.titleLine1 || ''}
+                  onChange={(e) => handleUpdateCurrentSlideField('titleLine1', e.target.value)}
+                  placeholder="e.g. Your Vision,"
+                />
+              </AdminFormField>
 
-            <div>
-              <label style={{ display: 'block', fontSize: '11px', fontWeight: 700, color: '#0F172A', marginBottom: '4px' }}>
-                Heading Line 2 <span style={{ color: '#DC2626' }}>*</span>
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                style={{ width: '100%', padding: '7px 10px', borderRadius: '5px', border: '1px solid #CBD5E1', fontSize: '12px', color: '#0F172A', backgroundColor: '#FFFFFF' }}
-                value={currentSlide.titleLine2 || ''}
-                onChange={(e) => handleUpdateCurrentSlideField('titleLine2', e.target.value)}
-                placeholder="e.g. Our Technology"
-              />
-            </div>
+              <AdminFormField label="Heading Line 2" required>
+                <input
+                  type="text"
+                  className="form-control"
+                  style={{ width: '100%', padding: '7px 10px', borderRadius: '5px', border: '1px solid #CBD5E1', fontSize: '12.5px', color: '#0F172A', backgroundColor: '#FFFFFF' }}
+                  value={currentSlide.titleLine2 || ''}
+                  onChange={(e) => handleUpdateCurrentSlideField('titleLine2', e.target.value)}
+                  placeholder="e.g. Our Technology"
+                />
+              </AdminFormField>
+            </AdminFormGrid>
+          </AdminFormSection>
 
-            <div>
-              <label style={{ display: 'block', fontSize: '11px', fontWeight: 700, color: '#0F172A', marginBottom: '4px' }}>
-                Primary Button Text <span style={{ color: '#DC2626' }}>*</span>
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                style={{ width: '100%', padding: '7px 10px', borderRadius: '5px', border: '1px solid #CBD5E1', fontSize: '12px', color: '#0F172A', backgroundColor: '#FFFFFF' }}
-                value={currentSlide.primaryCtaText || ''}
-                onChange={(e) => handleUpdateCurrentSlideField('primaryCtaText', e.target.value)}
-                placeholder="e.g. Let's Talk"
-              />
-            </div>
+          {/* 2. Call To Action Buttons */}
+          <AdminFormSection title="Call To Action Buttons">
+            <AdminFormGrid columns={2}>
+              <AdminFormField label="Primary Button Text" required>
+                <input
+                  type="text"
+                  className="form-control"
+                  style={{ width: '100%', padding: '7px 10px', borderRadius: '5px', border: '1px solid #CBD5E1', fontSize: '12.5px', color: '#0F172A', backgroundColor: '#FFFFFF' }}
+                  value={currentSlide.primaryCtaText || ''}
+                  onChange={(e) => handleUpdateCurrentSlideField('primaryCtaText', e.target.value)}
+                  placeholder="e.g. Let's Talk"
+                />
+              </AdminFormField>
 
-            <div>
-              <label style={{ display: 'block', fontSize: '11px', fontWeight: 700, color: '#0F172A', marginBottom: '4px' }}>
-                Primary Button Link <span style={{ color: '#DC2626' }}>*</span>
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                style={{ width: '100%', padding: '7px 10px', borderRadius: '5px', border: '1px solid #CBD5E1', fontSize: '12px', color: '#0F172A', backgroundColor: '#FFFFFF' }}
-                value={currentSlide.primaryCtaLink || ''}
-                onChange={(e) => handleUpdateCurrentSlideField('primaryCtaLink', e.target.value)}
-                placeholder="e.g. /contact"
-              />
-            </div>
+              <AdminFormField label="Primary Button Link" required>
+                <input
+                  type="text"
+                  className="form-control"
+                  style={{ width: '100%', padding: '7px 10px', borderRadius: '5px', border: '1px solid #CBD5E1', fontSize: '12.5px', color: '#0F172A', backgroundColor: '#FFFFFF' }}
+                  value={currentSlide.primaryCtaLink || ''}
+                  onChange={(e) => handleUpdateCurrentSlideField('primaryCtaLink', e.target.value)}
+                  placeholder="e.g. /contact"
+                />
+              </AdminFormField>
 
-            <div>
-              <label style={{ display: 'block', fontSize: '11px', fontWeight: 700, color: '#0F172A', marginBottom: '4px' }}>
-                Secondary Button Text
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                style={{ width: '100%', padding: '7px 10px', borderRadius: '5px', border: '1px solid #CBD5E1', fontSize: '12px', color: '#0F172A', backgroundColor: '#FFFFFF' }}
-                value={currentSlide.secondaryCtaText || ''}
-                onChange={(e) => handleUpdateCurrentSlideField('secondaryCtaText', e.target.value)}
-                placeholder="e.g. Get in Touch"
-              />
-            </div>
+              <AdminFormField label="Secondary Button Text">
+                <input
+                  type="text"
+                  className="form-control"
+                  style={{ width: '100%', padding: '7px 10px', borderRadius: '5px', border: '1px solid #CBD5E1', fontSize: '12.5px', color: '#0F172A', backgroundColor: '#FFFFFF' }}
+                  value={currentSlide.secondaryCtaText || ''}
+                  onChange={(e) => handleUpdateCurrentSlideField('secondaryCtaText', e.target.value)}
+                  placeholder="e.g. Get in Touch"
+                />
+              </AdminFormField>
 
-            <div>
-              <label style={{ display: 'block', fontSize: '11px', fontWeight: 700, color: '#0F172A', marginBottom: '4px' }}>
-                Secondary Button Link
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                style={{ width: '100%', padding: '7px 10px', borderRadius: '5px', border: '1px solid #CBD5E1', fontSize: '12px', color: '#0F172A', backgroundColor: '#FFFFFF' }}
-                value={currentSlide.secondaryCtaLink || ''}
-                onChange={(e) => handleUpdateCurrentSlideField('secondaryCtaLink', e.target.value)}
-                placeholder="e.g. /contact"
-              />
-            </div>
+              <AdminFormField label="Secondary Button Link">
+                <input
+                  type="text"
+                  className="form-control"
+                  style={{ width: '100%', padding: '7px 10px', borderRadius: '5px', border: '1px solid #CBD5E1', fontSize: '12.5px', color: '#0F172A', backgroundColor: '#FFFFFF' }}
+                  value={currentSlide.secondaryCtaLink || ''}
+                  onChange={(e) => handleUpdateCurrentSlideField('secondaryCtaLink', e.target.value)}
+                  placeholder="e.g. /contact"
+                />
+              </AdminFormField>
+            </AdminFormGrid>
+          </AdminFormSection>
 
-            <div>
-              <label style={{ display: 'block', fontSize: '11px', fontWeight: 700, color: '#0F172A', marginBottom: '4px' }}>
-                Right Box Title
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                style={{ width: '100%', padding: '7px 10px', borderRadius: '5px', border: '1px solid #CBD5E1', fontSize: '12px', color: '#0F172A', backgroundColor: '#FFFFFF' }}
-                value={currentSlide.rightBoxTitle || ''}
-                onChange={(e) => handleUpdateCurrentSlideField('rightBoxTitle', e.target.value)}
-                placeholder="e.g. Redefined Learning Experiences"
-              />
-            </div>
+          {/* 3. Floating Info Card */}
+          <AdminFormSection title="Right Floating Info Card">
+            <AdminFormGrid columns={2}>
+              <AdminFormField label="Card Title">
+                <input
+                  type="text"
+                  className="form-control"
+                  style={{ width: '100%', padding: '7px 10px', borderRadius: '5px', border: '1px solid #CBD5E1', fontSize: '12.5px', color: '#0F172A', backgroundColor: '#FFFFFF' }}
+                  value={currentSlide.rightBoxTitle || ''}
+                  onChange={(e) => handleUpdateCurrentSlideField('rightBoxTitle', e.target.value)}
+                  placeholder="e.g. Redefined Learning Experiences"
+                />
+              </AdminFormField>
 
-            <div>
-              <label style={{ display: 'block', fontSize: '11px', fontWeight: 700, color: '#0F172A', marginBottom: '4px' }}>
-                Right Box Sub-title
-              </label>
-              <input
-                type="text"
-                className="form-control"
-                style={{ width: '100%', padding: '7px 10px', borderRadius: '5px', border: '1px solid #CBD5E1', fontSize: '12px', color: '#0F172A', backgroundColor: '#FFFFFF' }}
-                value={currentSlide.rightBoxSub || ''}
-                onChange={(e) => handleUpdateCurrentSlideField('rightBoxSub', e.target.value)}
-                placeholder="e.g. With Intelligent AI Innovation"
-              />
-            </div>
-          </div>
+              <AdminFormField label="Card Sub-title">
+                <input
+                  type="text"
+                  className="form-control"
+                  style={{ width: '100%', padding: '7px 10px', borderRadius: '5px', border: '1px solid #CBD5E1', fontSize: '12.5px', color: '#0F172A', backgroundColor: '#FFFFFF' }}
+                  value={currentSlide.rightBoxSub || ''}
+                  onChange={(e) => handleUpdateCurrentSlideField('rightBoxSub', e.target.value)}
+                  placeholder="e.g. With Intelligent AI Innovation"
+                />
+              </AdminFormField>
+            </AdminFormGrid>
+          </AdminFormSection>
 
-          {/* Accordion 1: Background Media */}
-          <div style={{ border: '1px solid #E2E8F0', borderRadius: '6px', overflow: 'hidden' }}>
-            <div
-              onClick={() => setIsMediaOpen(!isMediaOpen)}
-              style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '9px 12px', backgroundColor: '#F8FAFC', cursor: 'pointer', userSelect: 'none' }}
-            >
-              <span style={{ fontSize: '12px', fontWeight: 700, color: '#0F172A' }}>Background Media</span>
-              {isMediaOpen ? <ChevronUp size={14} color="#64748B" /> : <ChevronDown size={14} color="#64748B" />}
-            </div>
-            {isMediaOpen && (
-              <div style={{ padding: '12px', display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px', backgroundColor: '#FFFFFF' }}>
+          {/* 4. Media Assets & Background */}
+          <AdminFormSection title="Background Media & Video">
+            <AdminFormGrid columns={2}>
+              <AdminFormField label="Background Video (MP4)" helperText="Upload looping hero background video">
                 <MediaUploadInput
                   label="Background Video (MP4)"
                   type="video"
@@ -569,6 +529,9 @@ export const HeroEditor = ({ data, onChange }) => {
                   onChange={(val) => handleUpdateCurrentSlideField('backgroundVideoUrl', val)}
                   helperText="Upload looping hero background video"
                 />
+              </AdminFormField>
+
+              <AdminFormField label="Fallback Background Image" helperText="Upload poster or background image">
                 <MediaUploadInput
                   label="Fallback Background Image"
                   type="image"
@@ -576,90 +539,72 @@ export const HeroEditor = ({ data, onChange }) => {
                   onChange={(val) => handleUpdateCurrentSlideField('backgroundImageUrl', val)}
                   helperText="Upload poster / background image"
                 />
-              </div>
-            )}
-          </div>
+              </AdminFormField>
+            </AdminFormGrid>
+          </AdminFormSection>
 
-          {/* Accordion 2: Bullet Points */}
-          <div style={{ border: '1px solid #E2E8F0', borderRadius: '6px', overflow: 'hidden' }}>
-            <div
-              onClick={() => setIsBulletsOpen(!isBulletsOpen)}
-              style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '9px 12px', backgroundColor: '#F8FAFC', cursor: 'pointer', userSelect: 'none' }}
-            >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                <span style={{ fontSize: '12px', fontWeight: 700, color: '#0F172A' }}>Highlight Bullet Points ({bullets.length})</span>
-              </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <button
-                  type="button"
-                  onClick={(e) => { e.stopPropagation(); handleAddBullet(); }}
-                  style={{ display: 'inline-flex', alignItems: 'center', gap: '3px', padding: '2px 6px', borderRadius: '4px', backgroundColor: '#E0F2FE', color: '#006B8F', border: 'none', fontSize: '10px', fontWeight: 700, cursor: 'pointer' }}
-                >
-                  <Plus size={11} /> Add Bullet
-                </button>
-                {isBulletsOpen ? <ChevronUp size={14} color="#64748B" /> : <ChevronDown size={14} color="#64748B" />}
-              </div>
-            </div>
-            {isBulletsOpen && (
-              <div style={{ padding: '12px', display: 'flex', flexDirection: 'column', gap: '8px', backgroundColor: '#FFFFFF' }}>
-                {bullets.map((bullet, bIdx) => (
-                  <div key={bIdx} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <span style={{ fontSize: '11px', color: '#64748B', fontWeight: 700, width: '16px' }}>{bIdx + 1}.</span>
-                    <input
-                      type="text"
-                      className="form-control"
-                      value={bullet}
-                      onChange={(e) => handleUpdateBullet(bIdx, e.target.value)}
-                      placeholder={`Bullet point ${bIdx + 1}...`}
-                      style={{ flex: 1, padding: '6px 10px', borderRadius: '5px', border: '1px solid #CBD5E1', fontSize: '12px', color: '#0F172A', backgroundColor: '#FFFFFF' }}
-                    />
-                    <button
-                      type="button"
-                      onClick={() => handleDeleteBullet(bIdx)}
-                      style={{ padding: '4px', backgroundColor: '#FEF2F2', border: '1px solid #FEE2E2', borderRadius: '4px', color: '#DC2626', cursor: 'pointer' }}
-                      title="Delete bullet point"
-                    >
-                      <Trash2 size={12} />
-                    </button>
-                  </div>
-                ))}
-              </div>
-            )}
-          </div>
-
-          {/* Accordion 3: Settings */}
-          <div style={{ border: '1px solid #E2E8F0', borderRadius: '6px', overflow: 'hidden' }}>
-            <div
-              onClick={() => setIsSettingsOpen(!isSettingsOpen)}
-              style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '9px 12px', backgroundColor: '#F8FAFC', cursor: 'pointer', userSelect: 'none' }}
-            >
-              <span style={{ fontSize: '12px', fontWeight: 700, color: '#0F172A' }}>Slide Settings</span>
-              {isSettingsOpen ? <ChevronUp size={14} color="#64748B" /> : <ChevronDown size={14} color="#64748B" />}
-            </div>
-            {isSettingsOpen && (
-              <div style={{ padding: '12px', display: 'flex', flexDirection: 'column', gap: '8px', backgroundColor: '#FFFFFF' }}>
-                <label style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12px', cursor: 'pointer', color: '#0F172A', fontWeight: 600 }}>
+          {/* 5. Highlight Bullet Points */}
+          <AdminFormSection
+            title={`Highlight Bullet Points (${bullets.length})`}
+            action={
+              <button
+                type="button"
+                onClick={handleAddBullet}
+                style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', padding: '3px 8px', borderRadius: '5px', backgroundColor: '#E0F2FE', color: '#006B8F', border: 'none', fontSize: '11px', fontWeight: 700, cursor: 'pointer' }}
+              >
+                <Plus size={12} /> Add Bullet
+              </button>
+            }
+          >
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+              {bullets.map((bullet, bIdx) => (
+                <div key={bIdx} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <span style={{ fontSize: '11px', color: '#64748B', fontWeight: 700, width: '18px' }}>{bIdx + 1}.</span>
                   <input
-                    type="checkbox"
-                    checked={currentSlide.isActive !== false}
-                    onChange={(e) => handleUpdateCurrentSlideField('isActive', e.target.checked)}
-                    style={{ width: '15px', height: '15px', cursor: 'pointer', accentColor: '#006B8F' }}
+                    type="text"
+                    className="form-control"
+                    value={bullet}
+                    onChange={(e) => handleUpdateBullet(bIdx, e.target.value)}
+                    placeholder={`Bullet point ${bIdx + 1}...`}
+                    style={{ flex: 1, padding: '7px 10px', borderRadius: '5px', border: '1px solid #CBD5E1', fontSize: '12.5px', color: '#0F172A', backgroundColor: '#FFFFFF' }}
                   />
-                  <span>Active / Visible in Homepage Carousel</span>
-                </label>
+                  <button
+                    type="button"
+                    onClick={() => handleDeleteBullet(bIdx)}
+                    style={{ padding: '6px', backgroundColor: '#FEF2F2', border: '1px solid #FEE2E2', borderRadius: '5px', color: '#DC2626', cursor: 'pointer' }}
+                    title="Delete bullet point"
+                  >
+                    <Trash2 size={13} />
+                  </button>
+                </div>
+              ))}
+            </div>
+          </AdminFormSection>
 
-                <label style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12px', cursor: 'pointer', color: '#0F172A', fontWeight: 600 }}>
-                  <input
-                    type="checkbox"
-                    checked={currentSlide.autoRotate !== false}
-                    onChange={(e) => handleUpdateCurrentSlideField('autoRotate', e.target.checked)}
-                    style={{ width: '15px', height: '15px', cursor: 'pointer', accentColor: '#006B8F' }}
-                  />
-                  <span>Auto-Rotation Enabled (Cycles automatically on timer)</span>
-                </label>
-              </div>
-            )}
-          </div>
+          {/* 6. Settings */}
+          <AdminFormSection title="Slide Settings">
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+              <label style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12.5px', cursor: 'pointer', color: '#0F172A', fontWeight: 600 }}>
+                <input
+                  type="checkbox"
+                  checked={currentSlide.isActive !== false}
+                  onChange={(e) => handleUpdateCurrentSlideField('isActive', e.target.checked)}
+                  style={{ width: '16px', height: '16px', cursor: 'pointer', accentColor: '#006B8F' }}
+                />
+                <span>Active / Visible in Homepage Carousel</span>
+              </label>
+
+              <label style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12.5px', cursor: 'pointer', color: '#0F172A', fontWeight: 600 }}>
+                <input
+                  type="checkbox"
+                  checked={currentSlide.autoRotate !== false}
+                  onChange={(e) => handleUpdateCurrentSlideField('autoRotate', e.target.checked)}
+                  style={{ width: '16px', height: '16px', cursor: 'pointer', accentColor: '#006B8F' }}
+                />
+                <span>Auto-Rotation Enabled (Cycles automatically on timer)</span>
+              </label>
+            </div>
+          </AdminFormSection>
         </div>
       </div>
     </div>
@@ -667,3 +612,4 @@ export const HeroEditor = ({ data, onChange }) => {
 };
 
 export default HeroEditor;
+

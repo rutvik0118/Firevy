@@ -54,7 +54,17 @@ export const WorkTogetherNewsletterSection = ({
           </div>
 
           <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
-            <h2 className="text-[28px] sm:text-[36px] lg:text-[38px] font-[800] text-white tracking-tight leading-snug font-sans mb-3 whitespace-pre-line section-content-title">
+            <h2
+              className="text-white tracking-tight mb-3 whitespace-pre-line section-content-title"
+              style={{
+                fontFamily: "'Poppins', sans-serif",
+                fontStyle: 'normal',
+                fontWeight: 700,
+                fontSize: '34px',
+                lineHeight: '41px',
+                color: 'rgb(255, 255, 255)'
+              }}
+            >
               {bannerTitle}
             </h2>
             <p className="text-[14.5px] sm:text-[16px] font-[400] text-blue-50/90 leading-relaxed max-w-3xl mx-auto mb-7 font-sans section-content-desc">
@@ -75,7 +85,17 @@ export const WorkTogetherNewsletterSection = ({
       {/* 2. Subscribe and Get Latest Updates Banner (Image 1 1:1 Match) */}
       <section className="py-14 sm:py-16 bg-[#EEF4F8] text-slate-900 text-center relative font-sans border-b border-slate-200">
         <Container>
-          <h2 className="text-[26px] sm:text-[32px] lg:text-[34px] font-[800] text-slate-900 tracking-tight font-sans mb-8 section-content-title">
+          <h2
+            className="tracking-tight mb-8 section-content-title"
+            style={{
+              fontFamily: "'Poppins', sans-serif",
+              fontStyle: 'normal',
+              fontWeight: 700,
+              fontSize: '34px',
+              lineHeight: '41px',
+              color: '#0F172A'
+            }}
+          >
             {newsletterTitle}
           </h2>
 

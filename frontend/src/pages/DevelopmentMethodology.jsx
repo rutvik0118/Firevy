@@ -10,16 +10,24 @@ import {
   ArrowRight, CheckCircle2, Check, RefreshCw, FileText, Calendar, Search, Users, Cpu, Layers, Zap, Code, ShieldCheck, Monitor, Wrench
 } from 'lucide-react';
 
+import companyPublicService from '../services/companyPublicService';
+
 export const DevelopmentMethodology = () => {
+  const isPreview = typeof window !== 'undefined' && window.location.search.includes('preview=true');
+  const [dynamicSection, setDynamicSection] = useState(null);
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    companyPublicService.getSection('development-methodology', isPreview).then((data) => {
+      if (data) setDynamicSection(data);
+    }).catch(console.error);
   }, []);
 
   return (
     <div className="bg-white min-h-screen text-slate-900 font-sans">
       <SEO
-        title={`Development Methodologies | Agile, Scrum, DevOps, Waterfall & Iterative | ${BRAND.name}`}
-        description={`Every project starts with deciding the perfect development methodology. ${BRAND.name} implements Agile, Scrum, DevOps, Waterfall, and Iterative frameworks to ensure project success.`}
+        title={dynamicSection?.seo?.metaTitle || `Development Methodologies | Agile, Scrum, DevOps, Waterfall & Iterative | ${BRAND.name}`}
+        description={dynamicSection?.seo?.metaDescription || `Every project starts with deciding the perfect development methodology. ${BRAND.name} implements Agile, Scrum, DevOps, Waterfall, and Iterative frameworks to ensure project success.`}
         canonical="/company/development-methodology"
       />
 
@@ -33,11 +41,11 @@ export const DevelopmentMethodology = () => {
             {/* Left Column */}
             <div className="lg:col-span-6 space-y-6 text-left">
               <h1 className="text-[36px] sm:text-[46px] md:text-[52px] font-[800] text-slate-900 leading-[1.15] tracking-tight font-sans">
-                Development Methodologies
+                {dynamicSection?.title || 'Development Methodologies'}
               </h1>
               
               <p className="text-[16px] sm:text-[17px] text-slate-600 leading-relaxed font-[400] max-w-xl font-sans">
-                Every Project Starts With Deciding The Perfect Development Methodology For It
+                {dynamicSection?.subtitle || 'Every Project Starts With Deciding The Perfect Development Methodology For It'}
               </p>
 
               <div className="pt-2">

@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import SEO from '../components/common/SEO';
 import Container from '../components/common/Container';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import BRAND from '../constants/brand';
 import TrustMarquee from '../components/home/TrustMarquee';
 import PremiumServicesGrid from '../components/home/PremiumServicesGrid';
@@ -12,18 +12,32 @@ import BrandLogoGrid from '../components/home/BrandLogoGrid';
 import ClientReviewsDarkSection from '../components/home/ClientReviewsDarkSection';
 import FeaturedInLogosGrid from '../components/home/FeaturedInLogosGrid';
 import WorkTogetherNewsletterSection from '../components/home/WorkTogetherNewsletterSection';
+import VideoTestimonialsStory from '../components/home/VideoTestimonialsStory';
+import companyPublicService from '../services/companyPublicService';
 import { ArrowRight, Play, X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 export const InsightfulVideos = () => {
+  const location = useLocation();
+  const isPreview = new URLSearchParams(location.search).get('preview') === 'true';
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
+  const [sectionData, setSectionData] = useState(null);
+  const [dynamicVideosList, setDynamicVideosList] = useState(null);
   const [activeVideoModal, setActiveVideoModal] = useState(null);
   const [activeCategory, setActiveCategory] = useState('All');
   const [visibleCount, setVisibleCount] = useState(6);
   const filterScrollRef = useRef(null);
   const storyScrollRef = useRef(null);
+
+  useEffect(() => {
+    companyPublicService.getSection('insightful-videos', isPreview).then(setSectionData).catch(console.error);
+    companyPublicService.getVideos().then((items) => {
+      if (items && items.length > 0) setDynamicVideosList(items);
+    }).catch(console.error);
+  }, [isPreview]);
 
   const categories = [
     'All', 'Utilities', 'Ecommerce', 'Technology', 'Real Estate', 'HR', 
@@ -139,9 +153,11 @@ export const InsightfulVideos = () => {
     }
   ];
 
+  const allVideos = dynamicVideosList || innovativeVideos;
+
   const filteredVideos = activeCategory === 'All'
-    ? innovativeVideos
-    : innovativeVideos.filter(v => v.category === activeCategory);
+    ? allVideos
+    : allVideos.filter(v => v.category === activeCategory);
 
   const scrollFilter = (direction) => {
     if (filterScrollRef.current) {
@@ -175,7 +191,7 @@ export const InsightfulVideos = () => {
             {/* Left Column */}
             <div className="lg:col-span-6 space-y-6 text-left">
               <p className="text-[16px] sm:text-[17.5px] text-slate-600 leading-relaxed font-[400] max-w-xl font-sans">
-                Now unleash the power of new ideas with our award-winning mobile app development company in USA. It's time to convert your ideas to life, whether you want solutions that work on iOS, Android, or both. Contact us now!
+                {sectionData?.subtitle || "Now unleash the power of new ideas with our award-winning mobile app development company in USA. It's time to convert your ideas to life, whether you want solutions that work on iOS, Android, or both. Contact us now!"}
               </p>
 
               <div className="pt-2">
@@ -183,7 +199,7 @@ export const InsightfulVideos = () => {
                   to="/contact"
                   className="inline-flex items-center justify-center space-x-2 px-8 py-3.5 rounded-[6px] bg-[#006B8F] hover:bg-[#005478] text-white font-[700] text-[15px] transition-all shadow-md hover:shadow-lg group font-sans"
                 >
-                  <span>Let's Talk</span>
+                  <span>{sectionData?.ctaText || "Let's Talk"}</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
@@ -249,12 +265,25 @@ export const InsightfulVideos = () => {
       <section className="py-16 md:py-24 bg-white text-slate-900 font-sans border-b border-slate-100">
         <Container>
           
-          <div className="text-center max-w-4xl mx-auto mb-3">
-            <h2 className="text-[32px] sm:text-[40px] font-[800] text-slate-900 tracking-tight leading-tight mb-3 font-sans">
-              Unveiling Our Innovative Solution
+          <div className="text-center max-w-4xl mx-auto mb-10">
+            <h2 className="text-[32px] sm:text-[42px] font-[800] text-slate-900 tracking-tight leading-tight mb-3 font-sans">
+=======
+          <div className="text-center max-w-4xl mx-auto mb-8">
+            <h2
+              className="tracking-tight mb-3 font-sans text-slate-900"
+              style={{
+                fontFamily: "'Poppins', sans-serif",
+                fontStyle: 'normal',
+                fontWeight: 700,
+                fontSize: '34px',
+                lineHeight: '41px'
+              }}
+            >
+>>>>>>> 424022e15d674ae227b2674f3091a824143db712
+              {sectionData?.contentSections?.[0]?.title || 'Unveiling Our Innovative Solution'}
             </h2>
-            <p className="text-[14.5px] sm:text-[15.5px] text-slate-600 leading-relaxed font-sans font-[400] max-w-3xl mx-auto mb-6">
-              From cutting-edge technology to revolutionary concepts, get ready to be inspired and intrigued. This is more than just a video - it's a glimpse into the future of innovation.
+            <p className="text-[15px] sm:text-[16px] text-slate-600 leading-relaxed font-sans font-[400] max-w-3xl mx-auto mb-6">
+              {sectionData?.contentSections?.[0]?.content || "From cutting-edge technology to revolutionary concepts, get ready to be inspired and intrigued. This is more than just a video - it's a glimpse into the future of innovation."}
             </p>
 
             <h3 className="text-[22px] font-[800] text-[#006B8F] font-sans tracking-tight mb-2">
@@ -539,74 +568,7 @@ export const InsightfulVideos = () => {
       {/* ============================================================
           4. "Our Story, Their Words" - Screenshot 3
           ============================================================ */}
-      <section className="py-16 md:py-24 bg-[#EAF4FA] text-slate-900 font-sans border-b border-slate-200">
-        <Container>
-          
-          <div className="text-center max-w-4xl mx-auto mb-12">
-            <h2 className="text-[32px] sm:text-[42px] font-[900] text-slate-900 tracking-tight leading-tight mb-3 font-sans">
-              Our Story, Their Words
-            </h2>
-            <p className="text-[15px] sm:text-[16px] text-slate-600 leading-relaxed font-sans font-[400] max-w-3xl mx-auto">
-              From satisfied clients to enthusiastic users, each testimonial shares a unique perspective on the impact and value of our solution. Get inspired as you listen to authentic voices that showcase the true essence of our project's impact.
-            </p>
-          </div>
-
-          {/* Story Slider Container */}
-          <div className="relative max-w-6xl mx-auto">
-            <div
-              ref={storyScrollRef}
-              className="flex items-stretch space-x-6 overflow-x-auto no-scrollbar scroll-smooth py-4 px-2"
-            >
-              {storyTestimonials.map((item) => (
-                <div
-                  key={item.id}
-                  onClick={() => setActiveVideoModal('/Best Software Development Company in USA - Sapphire Software Sol.mp4')}
-                  className="w-[280px] sm:w-[320px] shrink-0 bg-white rounded-[16px] overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 group cursor-pointer flex flex-col justify-between"
-                >
-                  <div className="bg-gradient-to-br from-[#0284C7] via-[#006B8F] to-[#0F172A] pt-8 pb-6 px-4 relative flex items-center justify-center overflow-hidden">
-                    <svg viewBox="0 0 400 120" className="absolute bottom-0 left-0 w-full h-16 pointer-events-none opacity-40" preserveAspectRatio="none">
-                      <path d="M0,40 C150,90 250,10 400,60 L400,120 L0,120 Z" fill="#38BDF8" />
-                    </svg>
-
-                    <div className="relative z-10 w-28 h-28 rounded-full border-4 border-white/90 shadow-md overflow-hidden bg-slate-100 shrink-0">
-                      <img src={item.avatar} alt={item.name} className="w-full h-full object-cover" />
-                    </div>
-                  </div>
-
-                  <div className="bg-[#F4F9FC] p-5 flex-1 flex items-center justify-between space-x-3 border-t border-slate-200/80">
-                    <p className="text-[13.5px] font-[700] text-slate-800 leading-snug font-sans text-left">
-                      {item.quote}
-                    </p>
-                    <div className="w-9 h-9 rounded-full bg-[#006B8F] group-hover:bg-[#004D68] text-white flex items-center justify-center shrink-0 shadow-md">
-                      <Play className="w-3.5 h-3.5 fill-current ml-0.5" />
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Slider Navigation Arrows */}
-            <div className="flex items-center justify-center space-x-4 mt-6">
-              <button
-                type="button"
-                onClick={() => scrollStory('left')}
-                className="w-10 h-10 rounded-full bg-white border border-slate-300 shadow-md text-slate-700 hover:bg-[#006B8F] hover:text-white transition-colors flex items-center justify-center"
-              >
-                <ChevronLeft className="w-5 h-5" />
-              </button>
-              <button
-                type="button"
-                onClick={() => scrollStory('right')}
-                className="w-10 h-10 rounded-full bg-white border border-slate-300 shadow-md text-slate-700 hover:bg-[#006B8F] hover:text-white transition-colors flex items-center justify-center"
-              >
-                <ChevronRight className="w-5 h-5" />
-              </button>
-            </div>
-
-          </div>
-
-        </Container>
-      </section>
+      <VideoTestimonialsStory />
 
       {/* ============================================================
           5. OUR PREMIUM SERVICES (Screenshot 4)

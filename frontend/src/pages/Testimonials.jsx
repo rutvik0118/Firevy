@@ -10,61 +10,39 @@ import FeaturedInLogosGrid from '../components/home/FeaturedInLogosGrid';
 import WorkTogetherNewsletterSection from '../components/home/WorkTogetherNewsletterSection';
 import { ArrowRight, Quote, Star } from 'lucide-react';
 
+import companyPublicService from '../services/companyPublicService';
+
 export const Testimonials = () => {
+  const isPreview = typeof window !== 'undefined' && window.location.search.includes('preview=true');
+  const [dynamicSection, setDynamicSection] = useState(null);
+  const [reviews, setReviews] = useState(testimonialsList);
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, []);
 
-  const testimonialsList = [
-    {
-      id: 1,
-      name: 'Carmen Dumascu',
-      location: 'Florida, USA',
-      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80',
-      text: 'I have had very good experience with the team. They definitely have the right skill in house, I would definitely recommend them for future .NET projects. Hope to get back to them with more work :) Cheers!'
-    },
-    {
-      id: 2,
-      name: 'Saichand Mekala',
-      location: 'Alabama, USA',
-      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80',
-      text: 'This is my second project with this team and they are awesome in what they do.. I came back them with suggestions /changes to the output and they were able to knock the work well in time.. I would love to work with them again.'
-    },
-    {
-      id: 3,
-      name: 'Arjun Aileeni',
-      location: 'Ohio, USA',
-      avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80',
-      text: '*****FIVE STARS***** He is very talented and the work is completed on time and he explained it very well. He used latest technologies to complete the task. I am ready to offer him more tasks in future.'
-    },
-    {
-      id: 4,
-      name: 'Praveen Gami',
-      location: 'Riyadh, Saudi Arabia',
-      avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&q=80',
-      text: `I appreciate the work quality and deadline adherence of ${BRAND.name} Team to finish agreed project work on time and with quality.`
-    },
-    {
-      id: 5,
-      name: 'Pamir',
-      location: 'Florida, USA',
-      avatar: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=400&q=80',
-      text: 'Have done a good work, reliability and adherence to the schedule was a key factor in this assignment.'
-    },
-    {
-      id: 6,
-      name: 'AMR ELATTAR',
-      location: 'Saudi Arabia',
-      avatar: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80',
-      text: `${BRAND.name} delivered the software in a timely manner. The team was responsive to requests and feedback and provided excellent engineering support throughout.`
-    }
-  ];
+    companyPublicService.getSection('client-testimonials', isPreview).then((data) => {
+      if (data) setDynamicSection(data);
+    }).catch(console.error);
+
+    companyPublicService.getClutchReviews().then((data) => {
+      if (data && data.length > 0) {
+        const mapped = data.map((item, idx) => ({
+          id: item._id || item.id || idx,
+          name: item.clientName || item.name,
+          location: item.location || item.company || 'Verified Client',
+          avatar: item.avatar || item.image || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80',
+          text: item.review || item.text || ''
+        }));
+        setReviews(mapped);
+      }
+    }).catch(console.error);
+  }, []);
 
   return (
     <div className="bg-white min-h-screen text-slate-900 font-sans">
       <SEO
-        title={`Client Testimonials | What Our Clients Say | ${BRAND.name}`}
-        description={`Read verified client testimonials and reviews for ${BRAND.name}. Discover why Fortune 500s, ISVs, and startups trust us as their dedicated tech partner.`}
+        title={dynamicSection?.seo?.metaTitle || `Client Testimonials | What Our Clients Say | ${BRAND.name}`}
+        description={dynamicSection?.seo?.metaDescription || `Read verified client testimonials and reviews for ${BRAND.name}. Discover why Fortune 500s, ISVs, and startups trust us as their dedicated tech partner.`}
         canonical="/company/client-testimonials"
       />
 
@@ -78,11 +56,11 @@ export const Testimonials = () => {
             {/* Left Column */}
             <div className="lg:col-span-6 space-y-6 text-left">
               <h1 className="text-[34px] sm:text-[44px] md:text-[50px] font-[800] text-slate-900 leading-[1.18] tracking-tight font-sans">
-                Celebrating The Successful Partnerships
+                {dynamicSection?.title || 'Celebrating The Successful Partnerships'}
               </h1>
               
               <p className="text-[15px] sm:text-[16.5px] text-slate-600 leading-relaxed font-[400] max-w-xl font-sans">
-                People Said At {BRAND.name}, we ensure 100% customer satisfaction in everything we deliver. Read our customer testimonials to know how much we are loved by our customers.
+                {dynamicSection?.subtitle || `People Said At ${BRAND.name}, we ensure 100% customer satisfaction in everything we deliver. Read our customer testimonials to know how much we are loved by our customers.`}
               </p>
 
               <div className="pt-2">

@@ -2,6 +2,8 @@ import mongoose from 'mongoose';
 
 const companySectionSchema = new mongoose.Schema({
   slug: { type: String, required: true, unique: true, lowercase: true, trim: true },
+  name: { type: String, default: '' },
+  category: { type: String, default: 'Company' },
   title: { type: String, required: true },
   subtitle: { type: String, default: '' },
   badge: { type: String, default: '' },
@@ -22,6 +24,11 @@ const companySectionSchema = new mongoose.Schema({
     metaKeywords: { type: String, default: '' },
     canonical: { type: String, default: '' }
   },
+  // Draft / Publish System Fields
+  status: { type: String, enum: ['draft', 'published'], default: 'published' },
+  publishedAt: { type: Date, default: Date.now },
+  publishedData: { type: mongoose.Schema.Types.Mixed, default: null },
+  draftData: { type: mongoose.Schema.Types.Mixed, default: null },
   isActive: { type: Boolean, default: true }
 }, {
   timestamps: true

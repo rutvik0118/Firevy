@@ -10,6 +10,7 @@ const companyEventSchema = new mongoose.Schema({
   content: { type: String, default: '' },
   location: { type: String, default: 'Global / Headquarters' },
   order: { type: Number, default: 0 },
+  status: { type: String, enum: ['draft', 'published'], default: 'published' },
   isActive: { type: Boolean, default: true }
 }, {
   timestamps: true

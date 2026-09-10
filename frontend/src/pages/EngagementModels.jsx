@@ -13,16 +13,24 @@ import {
   Lightbulb, PenTool, Smartphone, Settings, Code, Rocket, Wrench, Search, Target, Award, Compass, Calculator, FileText, ClipboardList, User
 } from 'lucide-react';
 
+import companyPublicService from '../services/companyPublicService';
+
 export const EngagementModels = () => {
+  const isPreview = typeof window !== 'undefined' && window.location.search.includes('preview=true');
+  const [dynamicSection, setDynamicSection] = useState(null);
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    companyPublicService.getSection('engagement-models', isPreview).then((data) => {
+      if (data) setDynamicSection(data);
+    }).catch(console.error);
   }, []);
 
   return (
     <div className="bg-white min-h-screen text-slate-900 font-sans">
       <SEO
-        title={`Engagement Models | Flexible Pricing & Collaboration | ${BRAND.name}`}
-        description="Our engagement models connect the dots and ensure price and quality relationship is maintained. Choose Dedicated Team, Time & Material, or Fixed Price."
+        title={dynamicSection?.seo?.metaTitle || `Engagement Models | Flexible Pricing & Collaboration | ${BRAND.name}`}
+        description={dynamicSection?.seo?.metaDescription || "Our engagement models connect the dots and ensure price and quality relationship is maintained. Choose Dedicated Team, Time & Material, or Fixed Price."}
         canonical="/company/engagement-models"
       />
 
@@ -36,11 +44,11 @@ export const EngagementModels = () => {
             {/* Left Column */}
             <div className="lg:col-span-7 space-y-6 text-left">
               <h1 className="text-[34px] sm:text-[44px] md:text-[50px] font-[800] text-slate-900 leading-[1.18] tracking-tight font-sans">
-                Engagement Models
+                {dynamicSection?.title || 'Engagement Models'}
               </h1>
               
               <p className="text-[15px] sm:text-[16px] md:text-[17px] text-slate-600 leading-relaxed font-[400] max-w-2xl font-sans">
-                Our Engagement Models Connect The Dots And Ensures Price And Quality Relationship Is Maintained
+                {dynamicSection?.subtitle || 'Our Engagement Models Connect The Dots And Ensures Price And Quality Relationship Is Maintained'}
               </p>
 
               <div className="pt-2">

@@ -12,18 +12,25 @@ import {
   ArrowRight, Users, CheckCircle2, Globe, ShieldCheck, Clock, DollarSign, Award, Layers, Zap, UserCheck, MessageSquare
 } from 'lucide-react';
 
+import companyPublicService from '../services/companyPublicService';
+
 export const DeliveryModels = () => {
+  const isPreview = typeof window !== 'undefined' && window.location.search.includes('preview=true');
   const [activeTab, setActiveTab] = useState('offshore');
+  const [dynamicSection, setDynamicSection] = useState(null);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    companyPublicService.getSection('delivery-models', isPreview).then((data) => {
+      if (data) setDynamicSection(data);
+    }).catch(console.error);
   }, []);
 
   return (
     <div className="bg-white min-h-screen text-slate-900 font-sans">
       <SEO
-        title={`Explore Our Delivery Model | Flexible Project Delivery | ${BRAND.name}`}
-        description="The Delivery Model defines the way of project delivery depending on manpower resources. firevy.co offers flexible Onsite, Offshore, and Hybrid delivery models."
+        title={dynamicSection?.seo?.metaTitle || `Explore Our Delivery Model | Flexible Project Delivery | ${BRAND.name}`}
+        description={dynamicSection?.seo?.metaDescription || "The Delivery Model defines the way of project delivery depending on manpower resources. firevy.co offers flexible Onsite, Offshore, and Hybrid delivery models."}
         canonical="/company/delivery-models"
       />
 
@@ -37,11 +44,11 @@ export const DeliveryModels = () => {
             {/* Left Column */}
             <div className="lg:col-span-7 space-y-6 text-left">
               <h1 className="text-[34px] sm:text-[44px] md:text-[50px] font-[800] text-slate-900 leading-[1.18] tracking-tight font-sans">
-                Explore Our Delivery Model
+                {dynamicSection?.title || 'Explore Our Delivery Model'}
               </h1>
 
               <p className="text-[15px] sm:text-[16px] md:text-[17px] text-slate-600 leading-relaxed font-[400] max-w-2xl font-sans">
-                The Delivery Model Defines The Way Of Project Delivery Depending On The Location Of Manpower Resources. {BRAND.name} Offers Flexible And Efficient Delivery Models That Ensure Only The Success Of The Project.
+                {dynamicSection?.subtitle || `The Delivery Model Defines The Way Of Project Delivery Depending On The Location Of Manpower Resources. ${BRAND.name} Offers Flexible And Efficient Delivery Models That Ensure Only The Success Of The Project.`}
               </p>
 
               <div className="pt-2">

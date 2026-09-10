@@ -115,44 +115,15 @@ export const BrandLogoGridEditor = ({ data, onChange }) => {
           itemTitle="Brand Partner"
           fields={fields}
           renderItemSummary={(item) => (
-            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              {item.image ? (
-                <img
-                  src={item.image}
-                  alt={item.name}
-                  style={{
-                    width: '28px',
-                    height: '28px',
-                    objectFit: 'contain',
-                    backgroundColor: '#FFFFFF',
-                    borderRadius: '4px',
-                    border: '1px solid #E2E8F0',
-                    padding: '2px'
-                  }}
-                />
-              ) : item.symbol ? (
-                <span style={{ fontSize: '16px' }}>{item.symbol}</span>
-              ) : (
-                <div
-                  style={{
-                    width: '28px',
-                    height: '28px',
-                    backgroundColor: '#E0F2FE',
-                    color: '#006B8F',
-                    borderRadius: '4px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    fontSize: '11px',
-                    fontWeight: 800
-                  }}
-                >
-                  {item.name?.substring(0, 2)?.toUpperCase() || 'BD'}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', minWidth: 0 }}>
+              <div style={{ fontSize: '12.5px', fontWeight: 700, color: '#0F172A', lineHeight: 1.35, wordBreak: 'break-word', overflowWrap: 'break-word' }}>
+                {item.name || 'Brand Partner'}
+              </div>
+              {(item.category || item.tag || item.link) && (
+                <div style={{ fontSize: '11px', color: '#64748B', lineHeight: 1.35, wordBreak: 'break-word', overflowWrap: 'break-word' }}>
+                  {item.category || item.tag || item.link}
                 </div>
               )}
-              <span style={{ fontSize: '12px', fontWeight: 700, color: '#0F172A' }}>
-                {item.name || 'Brand Name'}
-              </span>
             </div>
           )}
         />

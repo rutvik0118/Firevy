@@ -3,14 +3,24 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import SEO from '../common/SEO';
 import Container from '../common/Container';
-import ProcessWeFollow from '../common/ProcessWeFollow';
-import SuccessMatrix from '../common/SuccessMatrix';
+import WorkProcessGrid from '../home/WorkProcessGrid';
+import SuccessMatrixGrid from '../home/SuccessMatrixGrid';
 import TrustedBrandsGrid from '../common/TrustedBrandsGrid';
 import SapphireTechStackGrid from '../common/SapphireTechStackGrid';
 import BrandLogoMarquee from '../common/BrandLogoMarquee';
 import SapphireLightHeroBanner from '../common/SapphireLightHeroBanner';
-import EducationQuoteOverview from '../common/EducationQuoteOverview';
+import ClutchTopRatedBanner from '../common/ClutchTopRatedBanner';
 import PremiumServicesGrid from '../common/PremiumServicesGrid';
+import InnovativeVideoSlider from '../common/InnovativeVideoSlider';
+import ClientStoryVideoSlider from '../common/ClientStoryVideoSlider';
+import FeaturedInMedia from '../common/FeaturedInMedia';
+import DigitalTransformationSlider from '../common/DigitalTransformationSlider';
+import SapphireFaqSection, { educationFaqList } from '../common/SapphireFaqSection';
+import RecentBlogsSection from '../common/RecentBlogsSection';
+import WhatSetsUsApartSection from '../common/WhatSetsUsApartSection';
+import HealthcareChallengeCtaBanner from '../common/HealthcareChallengeCtaBanner';
+import NewsletterSubscribeBanner from '../common/NewsletterSubscribeBanner';
+import EducationQuoteOverview from '../common/EducationQuoteOverview';
 import SuccessStoriesSection from '../common/SuccessStoriesSection';
 import WhyChooseEducationShowcase from '../common/WhyChooseEducationShowcase';
 import {
@@ -64,42 +74,194 @@ export const EducationAppDevelopmentService = () => {
     setFormSubmitted(true);
   };
 
+// 1:1 Reference Match Education Expertise SVG Icons
+const InteractiveEbooksIcon = ({ className = "w-6 h-6" }) => (
+  <svg viewBox="0 0 36 36" fill="none" className={className} xmlns="http://www.w3.org/2000/svg">
+    <rect x="8" y="4" width="20" height="28" rx="4" stroke="currentColor" strokeWidth="2" fill="none" />
+    <rect x="12" y="9" width="12" height="10" rx="2" stroke="currentColor" strokeWidth="1.5" fill="none" />
+    <path d="M 14 12 H 22 M 14 15 H 19" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+    <path d="M 12 23 H 24 M 12 26 H 20" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+  </svg>
+);
+
+const PuzzleAppsIcon = ({ className = "w-6 h-6" }) => (
+  <svg viewBox="0 0 36 36" fill="none" className={className} xmlns="http://www.w3.org/2000/svg">
+    <rect x="8" y="4" width="20" height="28" rx="4" stroke="currentColor" strokeWidth="2" fill="none" />
+    <path d="M 14 12 H 17 C 17 10.5 19 10.5 19 12 H 22 V 15 C 23.5 15 23.5 17 22 17 V 20 H 14 V 17 C 12.5 17 12.5 15 14 15 V 12 Z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" fill="none" />
+    <circle cx="18" cy="25" r="2" fill="currentColor" />
+  </svg>
+);
+
+const WorksheetAppsIcon = ({ className = "w-6 h-6" }) => (
+  <svg viewBox="0 0 36 36" fill="none" className={className} xmlns="http://www.w3.org/2000/svg">
+    <rect x="8" y="4" width="20" height="28" rx="4" stroke="currentColor" strokeWidth="2" fill="none" />
+    <path d="M 13 10 H 23 M 13 14 H 23 M 13 18 H 19" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+    <circle cx="21" cy="22" r="3.5" stroke="currentColor" strokeWidth="1.5" />
+    <path d="M 23.5 24.5 L 27 28" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+  </svg>
+);
+
+const ClassroomAppsIcon = ({ className = "w-6 h-6" }) => (
+  <svg viewBox="0 0 36 36" fill="none" className={className} xmlns="http://www.w3.org/2000/svg">
+    <rect x="8" y="4" width="20" height="28" rx="4" stroke="currentColor" strokeWidth="2" fill="none" />
+    <rect x="12" y="9" width="12" height="8" rx="1.5" stroke="currentColor" strokeWidth="1.5" fill="none" />
+    <path d="M 14 13 H 20" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+    <circle cx="18" cy="22" r="2.5" stroke="currentColor" strokeWidth="1.5" />
+    <path d="M 13 28 C 13 25 23 25 23 28" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" fill="none" />
+  </svg>
+);
+
+const SkillBoostingIcon = ({ className = "w-6 h-6" }) => (
+  <svg viewBox="0 0 36 36" fill="none" className={className} xmlns="http://www.w3.org/2000/svg">
+    <rect x="8" y="4" width="20" height="28" rx="4" stroke="currentColor" strokeWidth="2" fill="none" />
+    <circle cx="18" cy="15" r="4" stroke="currentColor" strokeWidth="1.5" />
+    <path d="M 18 11 V 9 M 18 19 V 20 M 14 15 H 12 M 24 15 H 22" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+    <path d="M 13 25 L 18 22 L 23 25" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
+const EducationalAppIcon = ({ className = "w-6 h-6" }) => (
+  <svg viewBox="0 0 36 36" fill="none" className={className} xmlns="http://www.w3.org/2000/svg">
+    <rect x="8" y="4" width="20" height="28" rx="4" stroke="currentColor" strokeWidth="2" fill="none" />
+    <path d="M 11 13 L 18 9 L 25 13 L 18 17 L 11 13 Z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" fill="none" />
+    <path d="M 13 14.5 V 19 C 13 21 23 21 23 19 V 14.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" fill="none" />
+    <path d="M 25 13 V 18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+  </svg>
+);
+
+// 1:1 Reference Match Benefits Section Blue Outline SVG Icon Components
+const CareEngagementIcon = ({ className = "w-7 h-7" }) => (
+  <svg viewBox="0 0 48 48" fill="none" className={className} xmlns="http://www.w3.org/2000/svg">
+    <path d="M 14 26 C 14 20, 20 16, 24 16 C 28 16, 34 20, 34 26" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+    <circle cx="24" cy="11" r="4" stroke="currentColor" strokeWidth="2.5" />
+    <path d="M 10 32 L 18 28 L 24 34 L 30 28 L 38 32" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M 16 38 C 20 42, 28 42, 32 38" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+  </svg>
+);
+
+const OptimizedOperationsIcon = ({ className = "w-7 h-7" }) => (
+  <svg viewBox="0 0 48 48" fill="none" className={className} xmlns="http://www.w3.org/2000/svg">
+    <circle cx="24" cy="24" r="10" stroke="currentColor" strokeWidth="2.5" strokeDasharray="3 3" />
+    <path d="M 24 8 V 12 M 24 36 V 40 M 8 24 H 12 M 36 24 H 40" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+    <path d="M 18 18 L 30 30 M 30 18 L 18 30" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    <circle cx="24" cy="24" r="4" fill="currentColor" />
+  </svg>
+);
+
+const SecureDataIcon = ({ className = "w-7 h-7" }) => (
+  <svg viewBox="0 0 48 48" fill="none" className={className} xmlns="http://www.w3.org/2000/svg">
+    <path d="M 24 6 L 38 12 V 24 C 38 33 24 40 24 40 C 24 40 10 33 10 24 V 12 L 24 6 Z" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" fill="none" />
+    <rect x="18" y="20" width="12" height="10" rx="2" stroke="currentColor" strokeWidth="2.5" fill="none" />
+    <path d="M 21 20 V 16 C 21 14 27 14 27 16 V 20" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+  </svg>
+);
+
+const CustomizedCareIcon = ({ className = "w-7 h-7" }) => (
+  <svg viewBox="0 0 48 48" fill="none" className={className} xmlns="http://www.w3.org/2000/svg">
+    <path d="M 10 34 C 14 28, 24 28, 28 34" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+    <circle cx="19" cy="21" r="3.5" stroke="currentColor" strokeWidth="2.5" />
+    <path d="M 32 12 V 20 M 28 16 H 36" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+    <path d="M 8 38 C 16 42, 32 42, 40 38" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+  </svg>
+);
+
+const HighTechResourcesIcon = ({ className = "w-7 h-7" }) => (
+  <svg viewBox="0 0 48 48" fill="none" className={className} xmlns="http://www.w3.org/2000/svg">
+    <path d="M 18 16 C 18 12, 30 12, 30 16 C 30 20, 26 21, 26 24 H 22 C 22 21, 18 20, 18 16 Z" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" fill="none" />
+    <path d="M 21 28 H 27" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+    <circle cx="24" cy="16" r="3" stroke="currentColor" strokeWidth="2" />
+    <path d="M 10 34 C 18 30, 30 30, 38 34" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+  </svg>
+);
+
+const UpdatesSupportIcon = ({ className = "w-7 h-7" }) => (
+  <svg viewBox="0 0 48 48" fill="none" className={className} xmlns="http://www.w3.org/2000/svg">
+    <circle cx="24" cy="24" r="12" stroke="currentColor" strokeWidth="2.5" strokeDasharray="6 4" fill="none" />
+    <path d="M 24 16 V 24 L 29 27" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+    <path d="M 36 14 L 40 18 L 36 22" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M 12 34 L 8 30 L 12 26" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
+// 1:1 Reference Match Hiring Models SVG Icon Components
+const FixedPriceIcon = ({ className = "w-12 h-12" }) => (
+  <svg viewBox="0 0 48 48" fill="none" className={className} xmlns="http://www.w3.org/2000/svg">
+    <path d="M 20 10 C 20 8, 28 8, 28 10 L 30 15 H 18 L 20 10 Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" fill="none" />
+    <path d="M 17 15 H 31" stroke="currentColor" strokeWidth="1.5" />
+    <path d="M 14 19 C 12 28, 14 40, 24 40 C 34 40, 36 28, 34 19 C 34 16, 14 16, 14 19 Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" fill="none" />
+    <text x="24" y="32" textAnchor="middle" fontSize="15" fontWeight="bold" fill="currentColor" fontFamily="sans-serif">$</text>
+  </svg>
+);
+
+const TimeMaterialIcon = ({ className = "w-12 h-12" }) => (
+  <svg viewBox="0 0 48 48" fill="none" className={className} xmlns="http://www.w3.org/2000/svg">
+    <circle cx="26" cy="27" r="12" stroke="currentColor" strokeWidth="2" fill="none" />
+    <path d="M 26 20 V 27 L 31 30" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M 23 8 H 29 M 26 8 V 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    <path d="M 10 14 L 14 17" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+    <path d="M 7 21 H 11 M 7 28 H 11 M 9 35 L 13 32" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+  </svg>
+);
+
+const DedicatedTeamIcon = ({ className = "w-12 h-12" }) => (
+  <svg viewBox="0 0 48 48" fill="none" className={className} xmlns="http://www.w3.org/2000/svg">
+    <circle cx="24" cy="14" r="4.5" stroke="currentColor" strokeWidth="2" />
+    <path d="M 16 32 C 16 25, 32 25, 32 32" stroke="currentColor" strokeWidth="2" strokeLinecap="round" fill="none" />
+    <circle cx="13" cy="18" r="3.5" stroke="currentColor" strokeWidth="1.8" />
+    <path d="M 7 33 C 7 28, 17 28, 17 33" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" fill="none" />
+    <circle cx="35" cy="18" r="3.5" stroke="currentColor" strokeWidth="1.8" />
+    <path d="M 31 33 C 31 28, 41 28, 41 33" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" fill="none" />
+  </svg>
+);
+
+const BucketsApproachIcon = ({ className = "w-12 h-12" }) => (
+  <svg viewBox="0 0 48 48" fill="none" className={className} xmlns="http://www.w3.org/2000/svg">
+    <circle cx="19" cy="19" r="6.5" stroke="currentColor" strokeWidth="2" fill="none" />
+    <circle cx="19" cy="19" r="2" stroke="currentColor" strokeWidth="1.5" fill="none" />
+    <path d="M 19 10 V 12.5 M 19 25.5 V 28 M 10 19 H 12.5 M 25.5 19 H 28 M 12.5 12.5 L 14.5 14.5 M 23.5 23.5 L 25.5 25.5 M 25.5 12.5 L 23.5 14.5 M 14.5 23.5 L 12.5 25.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+    
+    <circle cx="32" cy="30" r="5" stroke="currentColor" strokeWidth="1.8" fill="none" />
+    <circle cx="32" cy="30" r="1.5" stroke="currentColor" strokeWidth="1.2" fill="none" />
+    <path d="M 32 23.5 V 25 M 32 35 V 36.5 M 25.5 30 H 27 M 37 30 H 38.5 M 27.5 25.5 L 28.5 26.5 M 35.5 33.5 L 36.5 34.5 M 36.5 25.5 L 35.5 26.5 M 28.5 33.5 L 27.5 34.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
+  </svg>
+);
+
   // Sapphire Solutions - Education Expertise Cards (Exact 1:1 Reference Match)
   const expertiseList = [
     {
       title: 'Interactive EBooks',
-      iconColor: 'bg-[#F3E8FF] text-purple-600',
-      isFirst: true,
+      icon: InteractiveEbooksIcon,
+      bgColor: 'bg-[#F3E8FF] text-purple-600',
       desc: 'In the eBooks app, you may see many instructive videos and photos, read motivational tales or themes, and explore their area of interest by taking quizzes or playing mental games.'
     },
     {
       title: 'Puzzle-Solving Apps',
-      iconColor: 'bg-[#DCFCE7] text-emerald-600',
-      isFirst: false,
+      icon: PuzzleAppsIcon,
+      bgColor: 'bg-[#DCFCE7] text-emerald-600',
       desc: 'Users may download and play games on their smartphones to enhance their memory, grammar, and vocabulary skills, among other vital abilities.'
     },
     {
       title: 'Worksheet Apps',
-      iconColor: 'bg-[#FFEDD5] text-orange-500',
-      isFirst: false,
+      icon: WorksheetAppsIcon,
+      bgColor: 'bg-[#FFEDD5] text-orange-500',
       desc: 'Worksheet applications designed specifically for children on the brink of adulthood allow students to practice formulae, macros, etc., in the comfort of their homes.'
     },
     {
       title: 'Classroom Apps',
-      iconColor: 'bg-[#FEF9C3] text-amber-600',
-      isFirst: false,
+      icon: ClassroomAppsIcon,
+      bgColor: 'bg-[#FEF9C3] text-amber-600',
       desc: 'Classroom applications are designed for all students, who may use them throughout the class to acquire new knowledge.'
     },
     {
       title: 'Skill Boosting Applications',
-      iconColor: 'bg-[#FCE7F3] text-pink-600',
-      isFirst: false,
+      icon: SkillBoostingIcon,
+      bgColor: 'bg-[#FCE7F3] text-[#DB2777]',
       desc: 'Powered by AR/VR and IoT, our skill enhancement applications are focused on increasing learner\'s abilities via gamification.'
     },
     {
       title: 'Educational Application',
-      iconColor: 'bg-[#E0F2FE] text-cyan-600',
-      isFirst: false,
+      icon: EducationalAppIcon,
+      bgColor: 'bg-[#E0F2FE] text-cyan-600',
       desc: 'Our tuition app development services are intended to make education accessible in real-time and regardless of location.'
     }
   ];
@@ -108,110 +270,84 @@ export const EducationAppDevelopmentService = () => {
   const advantagesList = [
     {
       title: 'Enhanced Student Engagement',
-      desc: 'Gamification, interactive quizzes, video modules, and push notifications keep students motivated and actively engaged in course materials.'
+      icon: CareEngagementIcon,
+      desc: 'Professional education app development produces user-friendly apps that improve student engagement and learning. Course scheduling, virtual classrooms, and learning material access allow students to manage their education using these applications.'
     },
     {
       title: 'Automated School Operations',
-      desc: 'Automate student admissions, fee collection, attendance management, examination report generation, and parent-teacher communication.'
+      icon: OptimizedOperationsIcon,
+      desc: 'Apps can automate student enrollment, tuition fee management, and examination schedule administration. Operational efficiency frees up educators to concentrate on interactive teaching.'
     },
     {
-      title: 'Personalized Adaptive Learning',
-      desc: 'AI-driven algorithms evaluate student strengths and weaknesses to deliver customized learning paths and targeted practice tests.'
+      title: 'Secure Data Management',
+      icon: SecureDataIcon,
+      desc: 'Due to FERPA/GDPR compliance and superior encryption, these applications manage sensitive student records. Student privacy and data breach prevention promote trust and reliability.'
     },
     {
-      title: '24/7 Anywhere Access',
-      desc: 'Students and teachers can access course materials, live class recordings, and homework assignments anytime from iOS, Android, or web.'
+      title: 'Customized Adaptive Learning',
+      icon: CustomizedCareIcon,
+      desc: 'EdTech applications let teachers tailor student learning. Customized study recommendations, adaptive learning paths, and interactive feedback improve student achievement.'
     },
     {
-      title: 'High-Tech AR/VR & AI Resources',
-      desc: 'Leverage cutting-edge AR/VR 3D visual models and AI speech recognition for language learning and interactive science labs.'
+      title: 'High-Tech Resources',
+      icon: HighTechResourcesIcon,
+      desc: 'AI, ML, and AR/VR interactive tools are available in education app development. It enhances online labs, automated grading, and personalized study insights in educational applications.'
     },
     {
-      title: 'Continuous Maintenance & Updates',
-      desc: 'Regular app performance optimization, OS compatibility updates, new feature additions, and round-the-clock technical SLA support.'
+      title: 'Updates and Support',
+      icon: UpdatesSupportIcon,
+      desc: 'Professional education app development includes bug fixes, feature additions, and security compliance updates. The app stays dependable, secure, and up-to-date with modern tech.'
     }
   ];
 
-  // Real Enterprise Education Case Studies (Exact Sapphire Case Studies)
-  const caseStudies = [
-    {
-      client: 'Vidyalaya EdTech Enterprise',
-      title: 'Vidyalaya School Management Software & App',
-      desc: 'Comprehensive K-12 school ERP and mobile application empowering over 1,500 schools with digital admissions, fee gateways, online exams, and student tracking.',
-      stats: [
-        'Over 1.5 Million active students served',
-        '95% reduction in administrative paperwork',
-        'Automated online fee collection & receipt generation',
-        'Real-time parent notification portal'
-      ],
-      badge: 'School Management ERP'
-    },
-    {
-      client: 'LingoPulse EdTech',
-      title: 'AI-Powered Language Learning Application',
-      desc: 'Interactive language learning mobile platform featuring LLM speech recognition, instant accent correction, and gamified vocabulary flashcards.',
-      stats: [
-        '500,000+ App downloads worldwide',
-        '4.8/5 App Store user rating',
-        'Real-time AI pronunciation feedback engine',
-        'Multi-lingual interactive courses'
-      ],
-      badge: 'AI eLearning'
-    },
-    {
-      client: 'EduMatch Global',
-      title: 'On-Demand Tutor Finder & Booking App',
-      desc: 'On-demand tutoring marketplace connecting students with verified subject matter experts for instant 1-on-1 virtual video sessions.',
-      stats: [
-        'Over 25,000 verified active tutors',
-        'Integrated WebRTC HD video & digital whiteboard',
-        'Sub-60 second tutor matching algorithm',
-        'Instant secure in-app payments'
-      ],
-      badge: 'Tutor Marketplace'
-    }
-  ];
-
-  // Hiring Models (Sapphire Signature 4 Models)
+  // Business Friendly Hiring Models (1:1 Reference Match)
   const hiringModels = [
     {
       title: 'Fixed Price',
-      tagline: 'Ideal for well-defined scope & predictable budget',
+      icon: FixedPriceIcon,
+      iconColor: 'text-[#9333EA]',
+      desc: 'If you represent a company with a project that needs dedicated attention, ask about dedicated teams. It\'s a pay-as-you-go monthly rolling contract.',
       features: [
-        'Optimal flexibility & milestone delivery',
-        'Dedicated Agile squad',
-        'Small to medium scope projects',
-        'Complete control over budget & timeline'
+        'Optimal flexibility',
+        'Agile team',
+        'Small projects',
+        'Complete control over budget'
       ]
     },
     {
-      title: 'Time & Material',
-      tagline: 'For dynamic projects requiring flexible ongoing work',
+      title: 'Time Material',
+      icon: TimeMaterialIcon,
+      iconColor: 'text-[#16A34A]',
+      desc: 'If you are represent a company with undefined projects and need ongoing work, ask about hourly. It\'s a pay-as-you-go hour-wise rolling contract.',
       features: [
-        'No hidden costs – pay per hour worked',
-        'Pay-as-you-go hourly rolling contract',
-        'Monthly transparent billing',
-        'Pay only for measurable delivered work'
+        'No hidden costs',
+        'Working based hours',
+        'Monthly billing',
+        'Pay only for measurable work'
       ]
     },
     {
       title: 'Dedicated Team',
-      tagline: 'Full-time senior engineers focused solely on your app',
+      icon: DedicatedTeamIcon,
+      iconColor: 'text-[#EA580C]',
+      desc: 'If you represent a company with a project that needs dedicated attention, ask about dedicated teams. It\'s a pay-as-you-go monthly rolling contract.',
       features: [
-        'Direct resource control & daily standups',
-        '160 hours of assured monthly work per dev',
-        'Agile sprint management via Slack/Jira',
-        'Seamless long-term scaling capability'
+        'No hidden costs',
+        '160 hours of assured work',
+        'Monthly billing',
+        'Pay only for measurable work'
       ]
     },
     {
       title: 'Buckets Approach',
-      tagline: 'Flexible bucket of hours used as needed for updates',
+      icon: BucketsApproachIcon,
+      iconColor: 'text-[#0284C7]',
+      desc: 'A lot of businesses typically select our bucket approach which allow them for payment convenience once the project is finished and things are in place.',
       features: [
-        'Direct resource monitoring',
-        'Reduced risk & lower entry budget',
-        'Use hours for maintenance, features or QA',
-        'Pay only for used engineering hours'
+        'Direct Resource Monitoring',
+        'Less Risk',
+        'Less budget',
+        'Pay only for measurable work'
       ]
     }
   ];
@@ -266,27 +402,6 @@ export const EducationAppDevelopmentService = () => {
       { name: 'Trello', desc: 'Visual Kanban board system for intuitive milestone tracking and UI/UX design asset handoffs.' }
     ]
   };
-
-  // 8-Step Development Lifecycle
-  const developmentLifecycle = [
-    { step: '01', title: 'Requirement Gathering', desc: 'Focus on documentation first for clarity and alignment between both client and engineering teams.' },
-    { step: '02', title: 'Designs, Wireframes & Mockups', desc: 'Craft interactive, user-friendly UI designs and wireframe flows for intuitive student & teacher navigation.' },
-    { step: '03', title: 'Prototype Demo', desc: 'Build an interactive demo prototype so clients can experience the look and feel of the platform before coding.' },
-    { step: '04', title: 'Changes & Scope Confirmation', desc: 'Review client feedback, refine requirements, and freeze final technical scope for sprint development.' },
-    { step: '05', title: 'Agile Development', desc: 'Execute bi-weekly sprints with clean code standards, microservices, and live video streaming integrations.' },
-    { step: '06', title: 'QA & Load Stress Audit', desc: 'Execute end-to-end automated testing, load stress tests for concurrent users, and security vulnerability scans.' },
-    { step: '07', title: 'Production Deployment', desc: 'Perform zero-downtime final deployment, UAT verification, and store publication to Google Play & App Store.' },
-    { step: '08', title: 'Support, Maintenance & Growth', desc: 'Provide 24/7 technical maintenance, continuous SLA monitoring, and complimentary product growth advisory.' }
-  ];
-
-  // Why Choose Us Pillars
-  const whyChooseUs = [
-    { title: 'Flexible Engagement Models', desc: 'Customized engagement models facilitating hourly, fixed rate, or dedicated team hiring.' },
-    { title: '100% Transparency', desc: 'Transparent communication policy ensuring client and dev team remain on the exact same page.' },
-    { title: 'Experienced EdTech Developers', desc: 'Seasoned engineers with deep domain experience in LMS platforms, WebRTC live video, and AI tutors.' },
-    { title: 'Timely Sprint Delivery', desc: 'Rigorous adherence to sprint timelines backed by continuous integration and automated deployments.' },
-    { title: '24/7 Dedicated Technical Support', desc: 'Immediate resolution of technical queries with 24/7 SLA infrastructure support staff.' }
-  ];
 
   // Official Sapphire Education FAQs
   const sapphireFaqs = [
@@ -354,83 +469,65 @@ export const EducationAppDevelopmentService = () => {
       <SuccessStoriesSection category="education" />
 
       {/* The Expertise Of Our Education App Developers (6 Cards 1:1 Reference Match) */}
-      <section id="expertise-section" className="py-14 sm:py-16 bg-[#EEF5FB] border-b border-slate-200 text-left font-sans">
+      <section id="expertise-section" className="py-14 sm:py-16 bg-[#F4F8FA] border-b border-slate-200 text-left font-sans">
         <Container>
-          <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-12 space-y-2.5">
-            <h2 className="text-3xl sm:text-4xl lg:text-[38px] font-extrabold text-slate-900 tracking-tight font-sans">
+          <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-12 space-y-3">
+            <h2
+              className="text-slate-900 tracking-tight section-content-title"
+              style={{
+                fontFamily: "'Poppins', sans-serif",
+                fontWeight: 800,
+                fontSize: '34px',
+                lineHeight: '41px'
+              }}
+            >
               The Expertise Of Our Education App Developers
             </h2>
-            <p className="text-xs sm:text-sm lg:text-base text-slate-600 font-normal leading-relaxed font-sans">
+            <p
+              className="text-slate-600 section-content-desc max-w-3xl mx-auto"
+              style={{
+                fontFamily: "'Poppins', sans-serif",
+                fontWeight: 400,
+                fontSize: '15px',
+                lineHeight: '26px'
+              }}
+            >
               Our comprehensive set of products makes us one of the world's top education app development firms.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
-            {expertiseList.map((item, idx) => (
-              <div
-                key={idx}
-                className="p-7 sm:p-8 rounded-2xl bg-white border border-slate-200/90 shadow-md hover:bg-gradient-to-b hover:from-[#E0F2FE] hover:via-[#EAF7FF] hover:to-[#D4F1F7] hover:border-[#38BDF8] hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between cursor-pointer font-sans group"
-              >
-                <div className="space-y-3">
-                  {/* Pastel Icon Container */}
-                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${item.iconColor} shadow-sm`}>
-                    {idx === 0 && (
-                      <svg className="w-6 h-6 stroke-current" fill="none" viewBox="0 0 24 24" strokeWidth="2">
-                        <rect x="5" y="3" width="14" height="18" rx="2" />
-                        <path d="M9 7h6M9 11h6M9 15h4" />
-                      </svg>
-                    )}
-                    {idx === 1 && (
-                      <svg className="w-6 h-6 stroke-current" fill="none" viewBox="0 0 24 24" strokeWidth="2">
-                        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
-                        <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
-                      </svg>
-                    )}
-                    {idx === 2 && (
-                      <svg className="w-6 h-6 stroke-current" fill="none" viewBox="0 0 24 24" strokeWidth="2">
-                        <rect x="5" y="2" width="14" height="20" rx="2" />
-                        <line x1="12" y1="18" x2="12.01" y2="18" />
-                      </svg>
-                    )}
-                    {idx === 3 && (
-                      <svg className="w-6 h-6 stroke-current" fill="none" viewBox="0 0 24 24" strokeWidth="2">
-                        <rect x="5" y="2" width="14" height="20" rx="2" />
-                        <path d="M9 6h6M9 10h6" />
-                      </svg>
-                    )}
-                    {idx === 4 && (
-                      <svg className="w-6 h-6 stroke-current" fill="none" viewBox="0 0 24 24" strokeWidth="2">
-                        <circle cx="12" cy="12" r="8" />
-                        <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83" />
-                      </svg>
-                    )}
-                    {idx === 5 && (
-                      <svg className="w-6 h-6 stroke-current" fill="none" viewBox="0 0 24 24" strokeWidth="2">
-                        <rect x="5" y="2" width="14" height="20" rx="2" />
-                        <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
-                      </svg>
-                    )}
+            {expertiseList.map((item, idx) => {
+              const IconComp = item.icon;
+              return (
+                <div
+                  key={idx}
+                  className="p-7 sm:p-8 rounded-2xl bg-white border border-slate-100 shadow-[0_4px_25px_rgba(0,0,0,0.04)] hover:shadow-[0_12px_35px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col justify-start group"
+                >
+                  {/* Pastel Rounded Icon Box */}
+                  <div className={`w-12 h-12 rounded-xl ${item.bgColor} flex items-center justify-center mb-5 shrink-0 group-hover:scale-105 transition-transform duration-300`}>
+                    <IconComp className="w-6 h-6" />
                   </div>
 
-                  {/* Title */}
-                  <h3 className="text-lg font-black text-slate-900 font-sans tracking-tight pt-1">
+                  {/* Card Title */}
+                  <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-3 font-sans group-hover:text-[#005F96] transition-colors">
                     {item.title}
                   </h3>
 
-                  {/* Description */}
-                  <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed font-sans">
+                  {/* Verbatim Description */}
+                  <p className="text-xs sm:text-[14px] text-slate-600 leading-[1.7] font-normal font-sans">
                     {item.desc}
                   </p>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           {/* Bottom CTA Button */}
           <div className="text-center mt-10 sm:mt-12">
             <a
               href="#quote-form"
-              className="inline-block px-9 py-3.5 rounded-lg bg-[#005D95] hover:bg-[#004A75] text-white font-extrabold text-sm transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 font-sans"
+              className="inline-block px-9 py-3.5 rounded-lg bg-[#005F96] hover:bg-[#004b78] text-white font-extrabold text-sm transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5 font-sans"
             >
               Get A Free Quote For Your Project
             </a>
@@ -441,395 +538,127 @@ export const EducationAppDevelopmentService = () => {
       {/* Why Choose Sapphire for? Education App Development Service (18 Circular Feature Orbit Ring 1:1 Match) */}
       <WhyChooseEducationShowcase />
 
-      {/* Advantages of Hiring Education App Developers */}
-      <section className="py-20 bg-white border-b border-slate-200 text-left">
+      {/* Proud To Have Picked These Up Along The Way Banner (Clutch Top Rated Banner) */}
+      <ClutchTopRatedBanner />
+
+      {/* Business Friendly Hiring Models Section (Exact 1:1 Reference Match) */}
+      <section className="py-16 md:py-20 bg-[#F4F8FA] border-b border-slate-200 text-left">
         <Container>
-          <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-            <span className="px-3.5 py-1 rounded-full text-xs font-extrabold bg-[#005F96]/10 text-[#005F96] uppercase tracking-wider">
-              KEY BENEFITS
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
-              Advantages of Hiring Our Education App Developers
+          <div className="text-center max-w-4xl mx-auto mb-12 sm:mb-14 space-y-3">
+            <h2
+              className="text-slate-900 tracking-tight section-content-title"
+              style={{
+                fontFamily: "'Poppins', sans-serif",
+                fontStyle: 'normal',
+                fontWeight: 800,
+                fontSize: '34px',
+                lineHeight: '41px'
+              }}
+            >
+              Business Friendly Hiring Models : Building Greater Futures Through Innovation
             </h2>
-            <p className="text-base sm:text-lg text-slate-600 font-normal">
-              Empower your institution with high-performance, user-friendly digital learning solutions.
+            <p
+              className="text-slate-600 section-content-desc max-w-3xl mx-auto"
+              style={{
+                fontFamily: "'Poppins', sans-serif",
+                fontStyle: 'normal',
+                fontWeight: 400,
+                fontSize: '15px',
+                lineHeight: '26px'
+              }}
+            >
+              We offer three different types of hiring models that are designed to suit your diverse needs and budget. Take a look at our hiring models:
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {advantagesList.map((adv, idx) => (
-              <div
-                key={idx}
-                className="p-6 rounded-2xl bg-[#F8FAFC] border border-slate-200/90 hover:border-[#005F96]/40 hover:bg-white transition-all space-y-3"
-              >
-                <div className="w-8 h-8 rounded-lg bg-blue-50 text-[#005F96] flex items-center justify-center font-bold text-xs">
-                  0{idx + 1}
-                </div>
-                <h3 className="text-lg font-bold text-slate-900">{adv.title}</h3>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">{adv.desc}</p>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      {/* Featured EdTech Case Studies */}
-      <section className="py-20 bg-[#F4F8FA] border-b border-slate-200 text-left">
-        <Container>
-          <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-            <span className="px-3.5 py-1 rounded-full text-xs font-extrabold bg-[#005F96]/10 text-[#005F96] uppercase tracking-wider">
-              PROVEN SUCCESS STORIES
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
-              Featured Education Case Studies
-            </h2>
-            <p className="text-base sm:text-lg text-slate-600 font-normal">
-              Explore how we delivered large-scale EdTech solutions to schools, universities, and startups.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {caseStudies.map((cs, idx) => (
-              <div
-                key={idx}
-                className="p-8 rounded-2xl bg-white border border-slate-200 shadow-sm flex flex-col justify-between hover:shadow-xl transition-all"
-              >
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-[#005F96] uppercase tracking-wider">{cs.client}</span>
-                    <span className="px-2.5 py-0.5 rounded text-[10px] font-extrabold bg-blue-50 text-blue-700 border border-blue-100">
-                      {cs.badge}
-                    </span>
-                  </div>
-
-                  <h3 className="text-xl font-black text-slate-900">{cs.title}</h3>
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">{cs.desc}</p>
-
-                  <div className="border-t border-slate-100 pt-4">
-                    <h4 className="text-xs font-extrabold text-slate-800 uppercase tracking-wider mb-2">Key Metrics Achieved:</h4>
-                    <ul className="space-y-2">
-                      {cs.stats.map((stat, sIdx) => (
-                        <li key={sIdx} className="flex items-center text-xs font-semibold text-slate-700">
-                          <CheckCircle2 className="w-4 h-4 text-emerald-500 mr-2 shrink-0" />
-                          <span>{stat}</span>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            {hiringModels.map((item, idx) => {
+              const IconComp = item.icon;
+              return (
+                <div
+                  key={idx}
+                  className="p-6 sm:p-7 rounded-2xl bg-white border border-slate-100 shadow-[0_6px_25px_rgba(0,0,0,0.04)] hover:shadow-[0_12px_35px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col justify-between"
+                >
+                  <div className="flex flex-col items-center">
+                    <div className={`mb-4 flex items-center justify-center ${item.iconColor}`}>
+                      <IconComp className="w-12 h-12" />
+                    </div>
+                    <h3 className="text-lg sm:text-xl font-bold text-slate-900 font-sans text-center mb-3">
+                      {item.title}
+                    </h3>
+                    <p className="text-xs sm:text-[13.5px] text-slate-600 leading-[1.65] font-normal font-sans text-center mb-6">
+                      {item.desc}
+                    </p>
+                    <ul className="w-full space-y-2.5 text-xs sm:text-[13px] text-slate-700 font-normal font-sans text-left mb-6">
+                      {item.features.map((feat, fIdx) => (
+                        <li key={fIdx} className="flex items-start space-x-2">
+                          <span className="text-[#005F96] font-bold text-sm shrink-0">✓</span>
+                          <span>{feat}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
-                </div>
-
-                <div className="pt-6 border-t border-slate-100 mt-6">
-                  <Link
-                    to="/portfolio"
-                    className="inline-flex items-center text-xs font-extrabold text-[#005F96] hover:underline"
-                  >
-                    <span>View Detailed Case Study</span>
-                    <ArrowRight className="w-3.5 h-3.5 ml-1" />
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      {/* Engagement Models */}
-      <section className="py-20 bg-white border-b border-slate-200 text-left">
-        <Container>
-          <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-            <span className="px-3.5 py-1 rounded-full text-xs font-extrabold bg-[#005F96]/10 text-[#005F96] uppercase tracking-wider">
-              FLEXIBLE HIRING MODELS
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
-              Our Education Engagement Models
-            </h2>
-            <p className="text-base sm:text-lg text-slate-600 font-normal">
-              Select the hiring model that best suits your project scope, budget, and delivery timeline.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {hiringModels.map((model, idx) => (
-              <div
-                key={idx}
-                className="p-6 rounded-2xl bg-[#F8FAFC] border border-slate-200 hover:border-[#005F96] hover:shadow-lg transition-all flex flex-col justify-between"
-              >
-                <div>
-                  <div className="w-10 h-10 rounded-xl bg-[#005F96] text-white flex items-center justify-center font-bold text-sm mb-4">
-                    0{idx + 1}
+                  <div className="text-center pt-2">
+                    <a
+                      href="#quote-form"
+                      className="px-8 py-2.5 bg-[#005F96] hover:bg-[#004b78] text-white font-bold text-xs sm:text-sm rounded-md shadow-sm hover:shadow-md transition-all duration-300 inline-block font-sans cursor-pointer"
+                    >
+                      Hire Now
+                    </a>
                   </div>
-                  <h3 className="text-xl font-black text-slate-900 mb-1">{model.title}</h3>
-                  <p className="text-xs text-slate-500 font-medium mb-4">{model.tagline}</p>
-
-                  <ul className="space-y-2 border-t border-slate-200/80 pt-4">
-                    {model.features.map((feat, fIdx) => (
-                      <li key={fIdx} className="flex items-start text-xs text-slate-700">
-                        <Check className="w-3.5 h-3.5 text-[#005F96] mr-2 shrink-0 mt-0.5" />
-                        <span>{feat}</span>
-                      </li>
-                    ))}
-                  </ul>
                 </div>
-
-                <div className="pt-6 border-t border-slate-200 mt-6">
-                  <a
-                    href="#quote-form"
-                    className="w-full py-2.5 rounded-lg bg-[#005F96] hover:bg-[#004A75] text-white text-xs font-bold transition-colors inline-block text-center"
-                  >
-                    Hire Now
-                  </a>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </Container>
       </section>
 
-      {/* Sapphire 6-Card Technology Stack Grid (Exact Screenshot Match) */}
-      <SapphireTechStackGrid domainName="education" richTechCategories={techCategories} />
+      {/* Unveiling Our Innovative Solution - Auto Moving Video Slider Section */}
+      <InnovativeVideoSlider />
 
-      {/* Process We Follow - Sapphire 8-Step Timeline */}
-      <ProcessWeFollow
-        title="Process We Follow"
-        subtitle="Process-oriented execution from initial blueprinting to UAT, deployment, and ongoing SLA maintenance."
-      />
+      {/* Process We Follow - Home Page Version */}
+      <WorkProcessGrid />
 
-      {/* Success Matrix - Sapphire 12 Guarantees */}
-      <SuccessMatrix />
+      {/* Our Story, Their Words - Client Video Testimonials Slider Section */}
+      <ClientStoryVideoSlider />
 
-      {/* Trusted By World's Leading Brands & Featured In Media */}
+      {/* Trusted By The World's Leading Brands - 24 White Cards Logo Grid Section */}
       <TrustedBrandsGrid />
 
-      {/* Why Choose Us Pillars */}
-      <section className="py-20 bg-[#F4F8FA] border-b border-slate-200 text-left">
-        <Container>
-          <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-            <span className="px-3.5 py-1 rounded-full text-xs font-extrabold bg-[#005F96]/10 text-[#005F96] uppercase tracking-wider">
-              THE SAPPHIRE DIFFERENCE
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
-              Why Choose Us for Education App Development?
-            </h2>
-            <p className="text-base sm:text-lg text-slate-600 font-normal">
-              Being unique is our quality! We stand one level up with end-to-end support and deep EdTech expertise.
-            </p>
-          </div>
+      {/* Success Matrix - Home Page Version */}
+      <SuccessMatrixGrid />
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {whyChooseUs.map((pillar, idx) => (
-              <div key={idx} className="p-6 rounded-2xl bg-white border border-slate-200 shadow-sm space-y-3">
-                <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#005F96] flex items-center justify-center font-bold text-sm">
-                  0{idx + 1}
-                </div>
-                <h3 className="text-lg font-bold text-slate-900">{pillar.title}</h3>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">{pillar.desc}</p>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
+      {/* Technology Stack We Use For Education App Development Section */}
+      <SapphireTechStackGrid domainName="education" richTechCategories={techCategories} />
 
-      {/* Official Sapphire Education FAQs */}
-      <section className="py-20 bg-white border-b border-slate-200 text-left">
-        <Container className="max-w-4xl">
-          <div className="text-center mb-12 space-y-3">
-            <span className="px-3.5 py-1 rounded-full text-xs font-extrabold bg-[#005F96]/10 text-[#005F96] uppercase tracking-wider">
-              FREQUENTLY ASKED QUESTIONS
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
-              Education App Development FAQs
-            </h2>
-            <p className="text-base text-slate-600">
-              Clear answers regarding app features, timelines, development cost, and custom LMS integrations.
-            </p>
-          </div>
+      {/* We Have Been Featured In - Media Recognition Logo Cards Section */}
+      <FeaturedInMedia />
 
-          <div className="space-y-4">
-            {sapphireFaqs.map((faq, idx) => (
-              <div
-                key={idx}
-                className="rounded-xl border border-slate-200 overflow-hidden bg-white shadow-sm transition-all"
-              >
-                <button
-                  onClick={() => setOpenFaq(openFaq === idx ? -1 : idx)}
-                  className="w-full p-5 flex items-center justify-between text-left font-bold text-base text-slate-900 hover:text-[#005F96] transition-colors"
-                >
-                  <span className="pr-4">{faq.q}</span>
-                  <ChevronDown
-                    className={`w-5 h-5 text-slate-400 shrink-0 transition-transform ${
-                      openFaq === idx ? 'rotate-180 text-[#005F96]' : ''
-                    }`}
-                  />
-                </button>
-                {openFaq === idx && (
-                  <div className="px-5 pb-5 pt-1 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100">
-                    {faq.a}
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
+      {/* Digital Transformation Through Innovation - Case Study Banner Slider Section */}
+      <DigitalTransformationSlider />
 
-      {/* Contact & Free Proposal Form Section */}
-      <section id="quote-form" className="py-20 bg-gradient-to-b from-[#005F96] via-[#004B77] to-[#003452] text-white text-left">
-        <Container className="max-w-5xl">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Left Content */}
-            <div className="lg:col-span-5 space-y-6">
-              <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full text-xs font-bold bg-white/10 text-cyan-300 border border-white/20">
-                <Sparkles className="w-3.5 h-3.5 text-cyan-300" />
-                <span>LET'S START SOMETHING NEW</span>
-              </div>
+      {/* Frequently Asked Questions - Sapphire Signature 2-Column FAQ Section */}
+      <SapphireFaqSection faqList={educationFaqList} />
 
-              <h2 className="text-3xl sm:text-4xl font-black text-white leading-tight">
-                Get Access to Top Education App Developers
-              </h2>
+      {/* Our Recent Blogs - 3 Card Grid Section */}
+      <RecentBlogsSection />
 
-              <p className="text-base text-blue-100 leading-relaxed font-normal">
-                Book a meeting with our EdTech specialists today to learn how we can transform your educational vision into a robust, scalable digital learning application.
-              </p>
+      {/* What Sets Us Apart As Education App Development Company */}
+      <WhatSetsUsApartSection />
 
-              <div className="space-y-3 pt-2">
-                <div className="flex items-center space-x-3 text-sm text-cyan-200 font-semibold">
-                  <CheckCircle2 className="w-5 h-5 text-cyan-400 shrink-0" />
-                  <span>Free Non-Disclosure Agreement (NDA)</span>
-                </div>
-                <div className="flex items-center space-x-3 text-sm text-cyan-200 font-semibold">
-                  <CheckCircle2 className="w-5 h-5 text-cyan-400 shrink-0" />
-                  <span>Comprehensive Feature Roadmap & Cost Estimate</span>
-                </div>
-                <div className="flex items-center space-x-3 text-sm text-cyan-200 font-semibold">
-                  <CheckCircle2 className="w-5 h-5 text-cyan-400 shrink-0" />
-                  <span>Same Timezone Dedicated Senior Developers</span>
-                </div>
-              </div>
-            </div>
+      {/* Have Education App Development Challenge To Address CTA Banner Section */}
+      <HealthcareChallengeCtaBanner
+        title="Have Education App Development Challenge To Address ?"
+        subtitle="Get access to top Education app developers to transform your ideas into a robust application."
+        buttonText="Hire Now"
+      />
 
-            {/* Right Contact Form Card */}
-            <div className="lg:col-span-7">
-              <div className="bg-white text-slate-900 rounded-2xl p-8 shadow-2xl">
-                {formSubmitted ? (
-                  <div className="py-12 text-center space-y-4">
-                    <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto">
-                      <Check className="w-8 h-8" />
-                    </div>
-                    <h3 className="text-2xl font-black text-slate-900">Inquiry Received!</h3>
-                    <p className="text-sm text-slate-600 max-w-md mx-auto">
-                      Thank you for contacting Sapphire Software Solutions. Our EdTech technology architects will review your project brief and respond within 2 business hours.
-                    </p>
-                    <button
-                      onClick={() => setFormSubmitted(false)}
-                      className="px-6 py-2.5 rounded-lg bg-[#005F96] text-white font-bold text-xs"
-                    >
-                      Submit Another Inquiry
-                    </button>
-                  </div>
-                ) : (
-                  <form onSubmit={handleSubmit} className="space-y-4">
-                    <h3 className="text-xl font-black text-slate-900 mb-2">Get A Free Project Quote</h3>
+      {/* Subscribe us and Get the latest updates and news */}
+      <NewsletterSubscribeBanner />
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-xs font-bold text-slate-700 mb-1">Your Name *</label>
-                        <input
-                          type="text"
-                          name="name"
-                          required
-                          value={formData.name}
-                          onChange={handleInputChange}
-                          placeholder="e.g. Sarah Connor"
-                          className="w-full px-4 py-3 rounded-lg border border-slate-300 text-sm focus:ring-2 focus:ring-[#005F96] outline-none"
-                        />
-                      </div>
-
-                      <div>
-                        <label className="block text-xs font-bold text-slate-700 mb-1">Business Email *</label>
-                        <input
-                          type="email"
-                          name="email"
-                          required
-                          value={formData.email}
-                          onChange={handleInputChange}
-                          placeholder="sarah@edtech.com"
-                          className="w-full px-4 py-3 rounded-lg border border-slate-300 text-sm focus:ring-2 focus:ring-[#005F96] outline-none"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-xs font-bold text-slate-700 mb-1">Phone Number</label>
-                        <input
-                          type="tel"
-                          name="phone"
-                          value={formData.phone}
-                          onChange={handleInputChange}
-                          placeholder="+1 (555) 000-0000"
-                          className="w-full px-4 py-3 rounded-lg border border-slate-300 text-sm focus:ring-2 focus:ring-[#005F96] outline-none"
-                        />
-                      </div>
-
-                      <div>
-                        <label className="block text-xs font-bold text-slate-700 mb-1">Preferred Hiring Model</label>
-                        <select
-                          name="model"
-                          value={formData.model}
-                          onChange={handleInputChange}
-                          className="w-full px-4 py-3 rounded-lg border border-slate-300 text-sm focus:ring-2 focus:ring-[#005F96] outline-none bg-white"
-                        >
-                          <option value="Dedicated Team">Dedicated Team</option>
-                          <option value="Fixed Price">Fixed Price Contract</option>
-                          <option value="Time & Material">Time & Material</option>
-                          <option value="Buckets Approach">Buckets Approach</option>
-                        </select>
-                      </div>
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-bold text-slate-700 mb-1">Estimated Budget</label>
-                      <select
-                        name="budget"
-                        value={formData.budget}
-                        onChange={handleInputChange}
-                        className="w-full px-4 py-3 rounded-lg border border-slate-300 text-sm focus:ring-2 focus:ring-[#005F96] outline-none bg-white"
-                      >
-                        <option value="$10,000 - $25,000">$10,000 - $25,000</option>
-                        <option value="$25,000 - $50,000">$25,000 - $50,000</option>
-                        <option value="$50,000 - $100,000">$50,000 - $100,000</option>
-                        <option value="$100,000+">$100,000+</option>
-                      </select>
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-bold text-slate-700 mb-1">Project Brief / Requirements</label>
-                      <textarea
-                        name="message"
-                        rows="3"
-                        value={formData.message}
-                        onChange={handleInputChange}
-                        placeholder="Tell us about your target features, timeline, or LMS platforms..."
-                        className="w-full px-4 py-3 rounded-lg border border-slate-300 text-sm focus:ring-2 focus:ring-[#005F96] outline-none resize-none"
-                      />
-                    </div>
-
-                    <button
-                      type="submit"
-                      className="w-full py-4 rounded-lg bg-[#005F96] hover:bg-[#004A75] text-white font-black text-sm tracking-wide transition-all shadow-lg hover:shadow-xl flex items-center justify-center space-x-2"
-                    >
-                      <span>Submit Project Brief & Get Proposal</span>
-                      <ArrowRight className="w-4 h-4" />
-                    </button>
-                  </form>
-                )}
-              </div>
-            </div>
-          </div>
-        </Container>
-      </section>
     </div>
   );
 };
 
 export default EducationAppDevelopmentService;
+

@@ -471,18 +471,25 @@ export const toggleClutchReview = asyncHandler(async (req, res) => {
 
 // ============================================================
 // 10. SINGLETON COMPANY SECTIONS CONTROLLER
-// (about-firevy, ceo-message, why-choose-us, great-place-to-work,
-//  women-empowerment, csr, delivery-models, engagement-models, development-methodology)
 // ============================================================
 export const getSectionBySlug = asyncHandler(async (req, res) => {
   const { slug } = req.params;
+  const isPreview = req.query.preview === 'true';
+  const isAdmin = req.query.admin === 'true';
+
   let section = await CompanySection.findOne({ slug });
 
   if (!section) {
     const seedData = initialCompanySections[slug];
     if (seedData) {
       try {
-        section = await CompanySection.create(seedData);
+        section = await CompanySection.create({
+          ...seedData,
+          status: 'published',
+          publishedAt: new Date(),
+          publishedData: seedData,
+          draftData: seedData
+        });
       } catch (err) {
         console.warn('[Company Section Seed Warning]', err.message);
         section = seedData;
@@ -494,17 +501,89 @@ export const getSectionBySlug = asyncHandler(async (req, res) => {
     return errorResponse(res, `Company section not found: ${slug}`, null, 404);
   }
 
+  // Public visitor request (NOT preview and NOT admin editor)
+  if (!isPreview && !isAdmin) {
+    if (section.publishedData && Object.keys(section.publishedData).length > 0) {
+      const plain = section.toObject ? section.toObject() : section;
+      return successResponse(res, `Section ${slug} (Published) fetched successfully`, {
+        ...plain,
+        ...section.publishedData,
+        status: section.status,
+        publishedAt: section.publishedAt
+      });
+    }
+    if (section.status === 'draft') {
+      const fallback = initialCompanySections[slug] || section;
+      return successResponse(res, `Section ${slug} baseline fetched successfully`, fallback);
+    }
+  }
+
   return successResponse(res, `Section ${slug} fetched successfully`, section);
 });
 
 export const updateSectionBySlug = asyncHandler(async (req, res) => {
   const { slug } = req.params;
-  let section = await CompanySection.findOneAndUpdate(
+  const section = await CompanySection.findOneAndUpdate(
     { slug },
-    { ...req.body, slug },
+    {
+      ...req.body,
+      slug,
+      draftData: req.body,
+      publishedData: req.body,
+      status: 'published',
+      publishedAt: new Date()
+    },
     { new: true, upsert: true, runValidators: true }
   );
-  return successResponse(res, `Section ${slug} updated successfully`, section);
+  return successResponse(res, `Section ${slug} updated and published successfully`, section);
+});
+
+export const saveDraftSection = asyncHandler(async (req, res) => {
+  const { slug } = req.params;
+  const existing = await CompanySection.findOne({ slug });
+  const section = await CompanySection.findOneAndUpdate(
+    { slug },
+    {
+      ...req.body,
+      slug,
+      status: 'draft',
+      draftData: req.body,
+      publishedData: existing?.publishedData || existing || initialCompanySections[slug]
+    },
+    { new: true, upsert: true, runValidators: true }
+  );
+  return successResponse(res, `Draft for ${slug} saved successfully (Live site unchanged)`, section);
+});
+
+export const publishSection = asyncHandler(async (req, res) => {
+  const { slug } = req.params;
+  const bodyData = req.body && Object.keys(req.body).length > 0 ? req.body : null;
+  const existing = await CompanySection.findOne({ slug });
+  const dataToPublish = bodyData || existing?.draftData || existing || initialCompanySections[slug];
+
+  const section = await CompanySection.findOneAndUpdate(
+    { slug },
+    {
+      ...dataToPublish,
+      slug,
+      status: 'published',
+      publishedAt: new Date(),
+      publishedData: dataToPublish,
+      draftData: dataToPublish
+    },
+    { new: true, upsert: true, runValidators: true }
+  );
+  return successResponse(res, `Section ${slug} published successfully! Live website updated.`, section);
+});
+
+export const unpublishSection = asyncHandler(async (req, res) => {
+  const { slug } = req.params;
+  const section = await CompanySection.findOneAndUpdate(
+    { slug },
+    { status: 'draft' },
+    { new: true }
+  );
+  return successResponse(res, `Section ${slug} set to draft (Unpublished from live site)`, section);
 });
 
 export const resetSectionBySlug = asyncHandler(async (req, res) => {
@@ -515,19 +594,29 @@ export const resetSectionBySlug = asyncHandler(async (req, res) => {
   }
 
   await CompanySection.findOneAndDelete({ slug });
-  const section = await CompanySection.create(seedData);
-  return successResponse(res, `Section ${slug} reset to initial template`, section);
+  const section = await CompanySection.create({
+    ...seedData,
+    status: 'published',
+    publishedAt: new Date(),
+    publishedData: seedData,
+    draftData: seedData
+  });
+  return successResponse(res, `Section ${slug} reset to original website content`, section);
 });
 
 export const getAllSectionsSummary = asyncHandler(async (req, res) => {
-  // Ensure all initial sections exist
   const slugs = Object.keys(initialCompanySections);
   const sections = await Promise.all(
     slugs.map(async (slug) => {
       let sec = await CompanySection.findOne({ slug });
       if (!sec) {
         try {
-          sec = await CompanySection.create(initialCompanySections[slug]);
+          sec = await CompanySection.create({
+            ...initialCompanySections[slug],
+            status: 'published',
+            publishedData: initialCompanySections[slug],
+            draftData: initialCompanySections[slug]
+          });
         } catch {
           sec = initialCompanySections[slug];
         }
@@ -537,6 +626,8 @@ export const getAllSectionsSummary = asyncHandler(async (req, res) => {
         title: sec.title,
         badge: sec.badge,
         subtitle: sec.subtitle,
+        status: sec.status || 'published',
+        publishedAt: sec.publishedAt,
         updatedAt: sec.updatedAt,
         isActive: sec.isActive
       };

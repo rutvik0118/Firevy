@@ -113,13 +113,15 @@ export const TrustRecognitionBannerEditor = ({ data, onChange }) => {
           itemTitle="Trust Badge"
           fields={fields}
           renderItemSummary={(item) => (
-            <div>
-              <div style={{ fontSize: '12px', fontWeight: 700, color: '#0F172A' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', minWidth: 0 }}>
+              <div style={{ fontSize: '12.5px', fontWeight: 700, color: '#0F172A', lineHeight: 1.35, wordBreak: 'break-word', overflowWrap: 'break-word' }}>
                 {item.title}
               </div>
-              <div style={{ fontSize: '11px', color: '#64748B' }}>
-                {item.sub || item.description}
-              </div>
+              {(item.sub || item.description) && (
+                <div style={{ fontSize: '11px', color: '#64748B', lineHeight: 1.35, wordBreak: 'break-word', overflowWrap: 'break-word' }}>
+                  {item.sub || item.description}
+                </div>
+              )}
             </div>
           )}
         />

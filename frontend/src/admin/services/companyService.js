@@ -35,12 +35,24 @@ export const companyService = {
   // ============================================================
   // SINGLETON SECTION CMS ENDPOINTS
   // ============================================================
-  getSection: async (slug) => {
-    return apiClient.get(`/company/sections/${slug}`);
+  getSection: async (slug, isPreview = false) => {
+    return apiClient.get(`/company/sections/${slug}${isPreview ? '?preview=true' : '?admin=true'}`);
   },
 
   updateSection: async (slug, data) => {
     return apiClient.put(`/company/sections/${slug}`, data);
+  },
+
+  saveDraftSection: async (slug, data) => {
+    return apiClient.put(`/company/sections/${slug}/draft`, data);
+  },
+
+  publishSection: async (slug, data = null) => {
+    return apiClient.post(`/company/sections/${slug}/publish`, data || {});
+  },
+
+  unpublishSection: async (slug) => {
+    return apiClient.post(`/company/sections/${slug}/unpublish`);
   },
 
   resetSection: async (slug) => {

@@ -1,20 +1,33 @@
 import React, { useEffect, useState } from 'react';
 import SEO from '../components/common/SEO';
 import Container from '../components/common/Container';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import BRAND from '../constants/brand';
 import TrustMarquee from '../components/home/TrustMarquee';
 import TrustRecognitionBanner from '../components/home/TrustRecognitionBanner';
 import FeaturedInLogosGrid from '../components/home/FeaturedInLogosGrid';
 import WorkTogetherNewsletterSection from '../components/home/WorkTogetherNewsletterSection';
+import companyPublicService from '../services/companyPublicService';
 import { ArrowRight, Play, X } from 'lucide-react';
 
 export const VideoTestimonial = () => {
+  const location = useLocation();
+  const isPreview = new URLSearchParams(location.search).get('preview') === 'true';
+
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
+  const [sectionData, setSectionData] = useState(null);
+  const [dynamicVideos, setDynamicVideos] = useState(null);
   const [activeVideoModal, setActiveVideoModal] = useState(null);
+
+  useEffect(() => {
+    companyPublicService.getSection('video-testimonial', isPreview).then(setSectionData).catch(console.error);
+    companyPublicService.getVideoTestimonials().then((items) => {
+      if (items && items.length > 0) setDynamicVideos(items);
+    }).catch(console.error);
+  }, [isPreview]);
 
   const videoTestimonialsData = [
     {
@@ -133,11 +146,11 @@ export const VideoTestimonial = () => {
             {/* Left Column */}
             <div className="lg:col-span-6 space-y-6 text-left">
               <h1 className="text-[36px] sm:text-[46px] md:text-[52px] font-[800] text-slate-900 leading-[1.15] tracking-tight font-sans">
-                Stories From Our Clients!
+                {sectionData?.title || 'Stories From Our Clients!'}
               </h1>
               
               <p className="text-[15px] sm:text-[16.5px] text-slate-600 leading-relaxed font-[400] max-w-xl font-sans">
-                Voice of our Customers, Their trust transformed into words. You'll find excerpts from our clients, reflecting their views on client service, creativity, process, communication style, and more.
+                {sectionData?.subtitle || "Voice of our Customers, Their trust transformed into words. You'll find excerpts from our clients, reflecting their views on client service, creativity, process, communication style, and more."}
               </p>
 
               <div className="pt-2">
@@ -145,7 +158,7 @@ export const VideoTestimonial = () => {
                   to="/contact"
                   className="inline-flex items-center justify-center space-x-2 px-8 py-3.5 rounded-[6px] bg-[#006B8F] hover:bg-[#005478] text-white font-[700] text-[15px] transition-all shadow-md hover:shadow-lg group font-sans"
                 >
-                  <span>Get In Touch</span>
+                  <span>{sectionData?.ctaText || 'Get In Touch'}</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
@@ -225,15 +238,15 @@ export const VideoTestimonial = () => {
           
           <div className="text-center max-w-4xl mx-auto mb-14">
             <h2 className="text-[36px] sm:text-[44px] font-[900] text-slate-900 tracking-tight leading-tight font-sans">
-              Video Testimonials
+              {sectionData?.contentSections?.[0]?.title || 'Video Testimonials'}
             </h2>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {videoTestimonialsData.map((item) => (
+            {(dynamicVideos || videoTestimonialsData).map((item) => (
               <div
-                key={item.id}
-                onClick={() => setActiveVideoModal(item.videoSrc)}
+                key={item._id || item.id}
+                onClick={() => setActiveVideoModal(item.videoSrc || item.videoUrl)}
                 className="bg-white rounded-[16px] overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 group cursor-pointer flex flex-col justify-between"
               >
                 {/* Top Card Banner with Curved Blue Wave & Circular Avatar */}
@@ -248,7 +261,7 @@ export const VideoTestimonial = () => {
                   {/* Circular Avatar */}
                   <div className="relative z-10 w-28 h-28 sm:w-32 sm:h-32 rounded-full border-4 border-white/90 shadow-md overflow-hidden bg-slate-100 shrink-0 group-hover:scale-105 transition-transform duration-300">
                     <img
-                      src={item.avatar}
+                      src={item.avatar || item.clientAvatar}
                       alt={item.clientName}
                       className="w-full h-full object-cover"
                     />

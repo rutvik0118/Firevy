@@ -111,8 +111,8 @@ const caseStudiesList = [
 export const DigitalTransformationCaseStudies = ({ data }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const title = data?.title || 'Digital Transformation Through Innovation and Collective Knowledge';
-  const description = data?.description || 'At Sapphire, we have a dedicated development team to deliver IT services and create solutions that surpass expectations.';
+  const title = data?.title || 'Digital Transformation Case Studies';
+  const description = data?.description || 'Discover how we partner with industry pioneers to deliver bespoke web, mobile, and cloud software engineering.';
 
   const caseStudies = (data?.caseStudies && Array.isArray(data.caseStudies) && data.caseStudies.filter(c => c.isActive !== false).length > 0)
     ? data.caseStudies.filter(c => c.isActive !== false)
@@ -139,7 +139,20 @@ export const DigitalTransformationCaseStudies = ({ data }) => {
     return () => clearInterval(timer);
   }, [total, handleNext]);
 
-  const current = caseStudies[currentIndex] || caseStudies[0];
+  const current = caseStudies[currentIndex] || caseStudies[0] || caseStudiesList[0];
+
+  const currentLogo = current?.logo || current?.logoImg || current?.brandLogo || '';
+  const currentMainImg = current?.mainImg || current?.mockup || current?.image || '';
+  const currentDesc = current?.desc || current?.description || '';
+  const currentCompany = current?.company || current?.title || 'Case Study';
+  const currentBgColor = current?.bgColor || '#E6F4FA';
+  const currentCaseStudyLink = current?.caseStudyLink || '/portfolio';
+  const currentPortfolioLink = current?.portfolioLink || '/portfolio';
+  const currentBullets = Array.isArray(current?.bullets) && current.bullets.length > 0
+    ? current.bullets
+    : (Array.isArray(current?.points) && current.points.length > 0
+        ? current.points
+        : (typeof current?.bullets === 'string' ? current.bullets.split('\n').filter(Boolean) : []));
 
   return (
     <section className="py-14 sm:py-18 bg-white text-slate-900 relative font-sans overflow-hidden w-full">
@@ -158,47 +171,53 @@ export const DigitalTransformationCaseStudies = ({ data }) => {
         <div className="w-full">
           <div
             className="w-full rounded-[24px] overflow-hidden transition-all duration-500 shadow-sm border border-slate-100"
-            style={{ backgroundColor: current.bgColor || '#E6F4FA' }}
+            style={{ backgroundColor: currentBgColor }}
           >
             <div className="grid grid-cols-1 lg:grid-cols-12 items-stretch min-h-[500px]">
               {/* Left Column: Client Info & Bullets */}
               <div className="lg:col-span-6 p-8 sm:p-10 lg:p-14 xl:p-16 flex flex-col justify-between text-left">
                 <div>
                   {/* Brand Logo */}
-                  <div className="h-14 flex items-center mb-6">
-                    <img
-                      src={current.logo}
-                      alt={current.company}
-                      className="max-h-12 max-w-[220px] object-contain"
-                    />
-                  </div>
+                  {currentLogo && (
+                    <div className="h-14 flex items-center mb-6">
+                      <img
+                        src={currentLogo}
+                        alt={currentCompany}
+                        className="max-h-12 max-w-[220px] object-contain"
+                      />
+                    </div>
+                  )}
 
                   {/* Paragraph Description */}
-                  <p className="text-[14px] sm:text-[15px] text-[#374151] leading-[1.7] font-sans mb-6">
-                    {current.desc}
-                  </p>
+                  {currentDesc && (
+                    <p className="text-[14px] sm:text-[15px] text-[#374151] leading-[1.7] font-sans mb-6">
+                      {currentDesc}
+                    </p>
+                  )}
 
                   {/* Bullet Points with >> Chevrons */}
-                  <ul className="space-y-3.5 mb-8">
-                    {current.bullets?.map((bullet, idx) => (
-                      <li key={idx} className="flex items-start text-[14px] sm:text-[14.5px] font-[500] text-[#1f2937] font-sans">
-                        <ChevronsRight className="w-4 h-4 text-[#111827] mr-2.5 shrink-0 mt-0.5 stroke-[2.5]" />
-                        <span>{bullet}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  {currentBullets.length > 0 && (
+                    <ul className="space-y-3.5 mb-8">
+                      {currentBullets.map((bullet, idx) => (
+                        <li key={idx} className="flex items-start text-[14px] sm:text-[14.5px] font-[500] text-[#1f2937] font-sans">
+                          <ChevronsRight className="w-4 h-4 text-[#111827] mr-2.5 shrink-0 mt-0.5 stroke-[2.5]" />
+                          <span>{bullet}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
 
                 {/* Bottom Action Pill Buttons */}
                 <div className="flex flex-wrap items-center gap-4 pt-4">
                   <Link
-                    to={current.caseStudyLink || '/portfolio'}
+                    to={currentCaseStudyLink}
                     className="px-8 py-3 rounded-full bg-[#18181b] hover:bg-black text-white font-[700] text-[14.5px] transition-all duration-200 shadow-sm hover:scale-105 active:scale-95"
                   >
                     View Case Study
                   </Link>
                   <Link
-                    to={current.portfolioLink || '/portfolio'}
+                    to={currentPortfolioLink}
                     className="px-8 py-3 rounded-full border border-[#18181b] hover:bg-[#18181b] hover:text-white text-[#18181b] font-[700] text-[14.5px] transition-all duration-200 shadow-sm hover:scale-105 active:scale-95"
                   >
                     View Portfolio
@@ -209,12 +228,18 @@ export const DigitalTransformationCaseStudies = ({ data }) => {
               {/* Right Column: High-Res Mockup Graphic */}
               <div className="lg:col-span-6 flex items-center justify-center p-6 sm:p-10 lg:p-12 xl:p-14 bg-white/40">
                 <div className="relative w-full h-full flex items-center justify-center">
-                  <img
-                    src={current.mainImg}
-                    alt={`${current.company} Overview`}
-                    className="w-full h-auto max-h-[520px] object-contain drop-shadow-2xl hover:scale-102 transition-transform duration-500"
-                    loading="lazy"
-                  />
+                  {currentMainImg ? (
+                    <img
+                      src={currentMainImg}
+                      alt={`${currentCompany} Overview`}
+                      className="w-full h-auto max-h-[520px] object-contain drop-shadow-2xl hover:scale-102 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div className="w-full h-[300px] flex items-center justify-center text-slate-400">
+                      No Preview Image
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

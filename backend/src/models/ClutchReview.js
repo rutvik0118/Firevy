@@ -17,6 +17,7 @@ const clutchReviewSchema = new mongoose.Schema({
     refer: { type: String, default: '5.0' }
   },
   order: { type: Number, default: 0 },
+  status: { type: String, enum: ['draft', 'published'], default: 'published' },
   isActive: { type: Boolean, default: true }
 }, {
   timestamps: true

@@ -132,22 +132,22 @@ export const AboutKeyMetricsEditor = ({ data, onChange }) => {
           renderItemSummary={(item) => {
             const isStat = item.type === 'stat' || (item.metric && !item.icon);
             return (
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '1px', minWidth: 0, overflow: 'hidden' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', minWidth: 0 }}>
                 {isStat ? (
                   <>
                     <div style={{ fontSize: '13px', fontWeight: 800, color: '#006B8F', lineHeight: 1.2 }}>
                       {item.metric || '0+'}
                     </div>
-                    <div style={{ fontSize: '11px', fontWeight: 600, color: '#334155', lineHeight: 1.25, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                    <div style={{ fontSize: '11.5px', fontWeight: 600, color: '#334155', lineHeight: 1.35, wordBreak: 'break-word', overflowWrap: 'break-word' }}>
                       {item.label || item.title || 'Metric Description'}
                     </div>
                   </>
                 ) : (
                   <>
-                    <div style={{ fontSize: '12px', fontWeight: 700, color: '#0F172A', lineHeight: 1.2, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                    <div style={{ fontSize: '12.5px', fontWeight: 700, color: '#0F172A', lineHeight: 1.35, wordBreak: 'break-word', overflowWrap: 'break-word' }}>
                       {item.label || item.title || 'Feature Highlight'}
                     </div>
-                    <div style={{ fontSize: '10px', color: '#64748B', lineHeight: 1.2, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                    <div style={{ fontSize: '11px', color: '#64748B', lineHeight: 1.35, wordBreak: 'break-word', overflowWrap: 'break-word' }}>
                       {item.description || (item.icon ? `Icon: ${item.icon}` : 'Feature Highlight')}
                     </div>
                   </>

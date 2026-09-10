@@ -661,37 +661,111 @@ export const initialHomePageData = {
       description: 'Discover how we partner with industry pioneers to deliver bespoke web, mobile, and cloud software engineering.',
       caseStudies: [
         {
-          id: 0,
-          company: 'Bee Car Care',
-          bgColor: '#FFFBE8',
-          logoType: 'beecar',
-          desc: 'If you provide car washing services and need to reach a wide range of customers, the car wash app development is your best bet. firevy.co has built a car wash application that allows people to book car wash services in few clicks',
-          points: [
-            '96% customer retention rate',
-            '92% increase in service bookings',
-            'Over 1,10,000 satisfied users',
-            'Operating in 90+ locations',
-            'User-friendly & Efficient interface for easy booking'
+          id: 'lt',
+          company: 'Larsen & Toubro',
+          bgColor: '#E6F4FA',
+          logo: '/images/case_study_images/Images/new/finallogos_1/lt.png',
+          desc: "Larsen & Toubro Limited is one of India's largest and most well-known private corporations. L&T offers unrivaled capabilities across Technology, Engineering, Construction, and Manufacturing, and retains leadership in all of its primary lines of business, almost 80 years of a strong, customer-focused strategy and a never-ending search for world-class quality. The Hazira campus produce extra-large..",
+          bullets: [
+            'Automated safety audits and inspections',
+            '24/7 access to safety training resources',
+            'Customizable dashboards and reporting tools',
+            'Real-time incident reporting and tracking',
+            '99% compliance with health and safety regulations'
           ],
-          mockup: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=700&q=80',
-          slug: 'bee-car-care',
+          caseStudyLink: '/portfolio',
+          portfolioLink: '/portfolio',
+          mainImg: '/images/case_study_images/Images/new/l&t.webp',
           isActive: true
         },
         {
-          id: 1,
+          id: 'mg',
           company: 'Morris Garages',
-          bgColor: '#FDE8E8',
-          logoType: 'mg',
+          bgColor: '#FFEAEA',
+          logo: '/images/case_study_images/Images/new/finallogos_1/mg.png',
           desc: "MG Motor is a well-known firm that have large number of employee. It is their major responsibility to keep track of employees' health and records. The system from their end was to have one secure locker for the protection of all the papers in order to keep track of employee Examination and OPD records for audit purpose.",
-          points: [
+          bullets: [
             'Real-time health data analytics',
             'HIPAA-compliant data security',
             '24/7 access to health resources and support',
             'Personalized health recommendations',
             '98% improvement in employee health monitoring'
           ],
-          mockup: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=700&q=80',
-          slug: 'morris-garages',
+          caseStudyLink: '/portfolio',
+          portfolioLink: '/portfolio',
+          mainImg: '/images/case_study_images/Images/new/mg.webp',
+          isActive: true
+        },
+        {
+          id: 'adani',
+          company: 'Adani Group',
+          bgColor: '#EDEDF6',
+          logo: '/images/case_study_images/Images/new/finallogos_1/adani.png',
+          desc: "Adani EmCare is a Web + Mobile App used by Adani Group’s medical officer to capture, analyze and manage the health data of the employees and workers. And this data is used by medical officer to provide preventive healthcare to the employees.",
+          bullets: [
+            '98% Employee satisfaction ratio',
+            '91% reduction in appointment scheduling time',
+            '24/7 real-time health monitoring',
+            'Serving over 60,000 healthcare professionals',
+            'Generating over USD 30 billion in revenue'
+          ],
+          caseStudyLink: '/portfolio',
+          portfolioLink: '/portfolio',
+          mainImg: '/images/case_study_images/Images/new/adani.webp',
+          isActive: true
+        },
+        {
+          id: 'loreal',
+          company: "L'Oreal",
+          bgColor: '#F3F2EF',
+          logo: '/images/case_study_images/Images/new/finallogos_1/loreal.png',
+          desc: "This safety improvement application collects observations from organizational Staff and non-staff, and the respective department head will take care of closure observation, and some observation categories will be verified by top management.",
+          bullets: [
+            '97% reduction in safety incidents',
+            'Scalable solution for large enterprises',
+            'Recognized for excellence in safety innovation',
+            'Automated safety reminders and alerts',
+            'Real-time hazard identification and reporting'
+          ],
+          caseStudyLink: '/portfolio',
+          portfolioLink: '/portfolio',
+          mainImg: '/images/case_study_images/Images/new/loreal.webp',
+          isActive: true
+        },
+        {
+          id: 'waymark',
+          company: 'Waymark Maps',
+          bgColor: '#F9E5F7',
+          logo: '/images/case_study_images/Images/new/finallogos_1/waymarkmaps.png',
+          desc: "A city map and free business listings are available on Waymark. Our city information is consistently accurate and current. With advertisements, points of interest, restaurants, hotels, malls, parking, and metro routes, Waymark offers an interactive map.",
+          bullets: [
+            'Turn-by-turn voice navigation',
+            'Points of interest (POI) recommendations',
+            'Real-time traffic updates and route optimization',
+            'Offline map access for remote areas',
+            'Augmented reality (AR) navigation features'
+          ],
+          caseStudyLink: '/portfolio',
+          portfolioLink: '/portfolio',
+          mainImg: '/images/case_study_images/Images/new/waymark_map_app.webp',
+          isActive: true
+        },
+        {
+          id: 'beecar',
+          company: 'Bee Car Care',
+          bgColor: '#F4F2EC',
+          logo: '/images/case_study_images/Images/new/finallogos_1/beecar.png',
+          desc: "If you provide car washing services and need to reach a wide range of customers, the car wash app is your best bet. Firevy.co has built a car wash application that allows people to book car wash services in a few clicks.",
+          bullets: [
+            '96% customer retention rate',
+            '92% increase in service bookings',
+            'Over 1,10,000 satisfied users',
+            'Operating in 90+ locations',
+            'User-friendly & Efficient interface for easy booking'
+          ],
+          caseStudyLink: '/portfolio',
+          portfolioLink: '/portfolio',
+          mainImg: '/images/case_study_images/Images/new/beecar.webp',
           isActive: true
         }
       ]
@@ -702,36 +776,96 @@ export const initialHomePageData = {
       isVisible: true,
       order: 18,
       title: 'What Our Clients Have To Say',
-      description: 'Hear how our clients share their positive experiences of working with firevy.co team. How we’ve helped them to achieve business goals and deliver successful projects.',
+      description: "From satisfied clients to enthusiastic users, each testimonial shares a unique perspective on the impact and value of our solution. Get inspired as you listen to authentic voices that showcase the true essence of our project's impact.",
       testimonials: [
         {
-          name: "From Idea to Reality | Client's Success Story with firevy.co -...",
-          avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80',
+          id: 1,
+          clientName: 'Andrew',
+          company: 'Mobile Digital Diary',
+          title: "Discover why Andrew trusted firevy.co with his mobile digital diary project : A Client's Honest Experience.",
+          img: '/images/awards/hdimages/client_shay.webp',
+          videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
           isActive: true
         },
         {
-          name: "From Vision to Wellness | Client's Success Story with firevy.co - To...",
-          avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80',
+          id: 2,
+          clientName: 'Bruno',
+          company: 'Healthcare Innovation Brazil',
+          title: 'From Vision to Healthcare Innovation | Client Success With firevy.co - Top IT Company in Brazil',
+          img: '/images/awards/hdimages/bruno.webp',
+          videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
           isActive: true
         },
         {
-          name: 'Hear out Tim got to say about working with Team firevy.co on...',
-          avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80',
+          id: 3,
+          clientName: 'Enterprise Client',
+          company: 'Mobile App Development',
+          title: "From Idea to Reality | Client's Success Story with firevy.co - Best Mobile App Development Company",
+          img: '/images/awards/hdimages/client_seven.webp',
+          videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
           isActive: true
         },
         {
-          name: 'Testimonial from client who has expanded their business using...',
-          avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=300&q=80',
+          id: 4,
+          clientName: 'Wellness Founder',
+          company: 'Digital Wellness App',
+          title: "From Vision to Wellness | Client's Success Story with firevy.co - Top Mobile App Development Company",
+          img: '/images/awards/hdimages/client_eight.webp',
+          videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
           isActive: true
         },
         {
-          name: 'Hear what Pravin has got to say about working with firevy.co...',
-          avatar: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=300&q=80',
+          id: 5,
+          clientName: 'Tim',
+          company: 'Complex Web Application',
+          title: 'Hear out Tim got to say about working with Team firevy.co on building a complex and unique web application.',
+          img: '/images/awards/hdimages/clienttestimonial3.webp',
+          videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
           isActive: true
         },
         {
-          name: 'firevy.co Successfully Delivered Web & Mobile App Solutions -...',
-          avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80',
+          id: 6,
+          clientName: 'Business Expansion Client',
+          company: 'Global Enterprise Services',
+          title: 'Testimonial from client who has expanded their business using firevy.co Services',
+          img: '/images/awards/hdimages/clienttestimonial2.webp',
+          videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+          isActive: true
+        },
+        {
+          id: 7,
+          clientName: 'Pravin',
+          company: 'Software Solutions Partner',
+          title: 'Hear what Pravin has got to say about working with firevy.co',
+          img: '/images/awards/hdimages/clienttestimonial1.webp',
+          videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+          isActive: true
+        },
+        {
+          id: 8,
+          clientName: 'Canadian Enterprise Partner',
+          company: 'Web & Mobile Solutions Canada',
+          title: 'firevy.co Successfully Delivered Web & Mobile App Solutions - Leading IT Company in Canada',
+          img: '/images/awards/hdimages/img_client2.webp',
+          videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+          isActive: true
+        },
+        {
+          id: 9,
+          clientName: 'Christina',
+          company: 'Zetteli',
+          title: "Peer into Satisfaction: Christina's Testimonial Video Shines Bright!",
+          img: '/images/awards/hdimages/zetteli_client.webp',
+          videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+          isActive: true
+        },
+        {
+          id: 10,
+          clientName: 'Education Client',
+          company: 'Vision Education Platform',
+          title: "From Vision to Education | Client's Success Story with firevy.co Solutions",
+          img: '/images/awards/hdimages/vision_client.webp',
+          videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
           isActive: true
         }
       ]
@@ -868,6 +1002,154 @@ export const initialHomePageData = {
       bannerButtonLink: '/contact',
       newsletterTitle: 'Subscribe us and Get the latest updates and news',
       newsletterButtonText: 'Subscribe'
+    },
+
+    // 23. About Preview
+    aboutPreview: {
+      isVisible: true,
+      order: 23,
+      badge: 'WHO WE ARE',
+      title: 'Technology Expertise. Business Thinking. Real Results.',
+      subtitle: 'At firevy.co, we bridge the gap between complex software engineering and strategic business growth. We help enterprises and high-growth scale-ups turn technological vision into high-throughput realities.',
+      points: [
+        'Digital Transformation & Legacy System Modernization',
+        'Enterprise Cloud-Native Microservices Architecture',
+        'Custom RAG Generative AI & Autonomous Agent Engineering',
+        'Agile Product Delivery with 2-Week Sprint Cadence',
+        'Strict SOC2 & ISO-27001 Security Standards'
+      ],
+      buttonText: 'Learn More About Us',
+      buttonLink: '/about',
+      imageUrl: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80',
+      floatingTitle: 'Engineering Excellence',
+      floatingSubtitle: '95% Long-term Client Retention Rate',
+      floatingBadge: 'TOP 1% TALENT'
+    },
+
+    // 24. Awards & Accolades
+    awardsSection: {
+      isVisible: true,
+      order: 24,
+      badge: 'RECOGNITION & EXCELLENCE',
+      title: 'Proud To Have Picked These Up Along The Way',
+      subtitle: 'Our commitment to technical rigor, innovation, and client success has earned top industry accolades.',
+      awards: [
+        { title: 'Clutch Top AI & Software Developer 2026', badge: 'CLUTCH LEADER', year: '2026', desc: 'Ranked #1 Global AI & Custom Software Engineering Firm.' },
+        { title: 'ISO 9001:2015 & SOC2 Type II Certified', badge: 'ENTERPRISE COMPLIANT', year: 'Certified', desc: 'Bank-grade cybersecurity & quality management standards.' },
+        { title: 'GoodFirms Top App Development Agency', badge: 'TOP DEVELOPER', year: '2025-2026', desc: 'Recognized for high-impact mobile & web product delivery.' },
+        { title: 'G2 High Performer Enterprise Software', badge: '5-STAR RATED', year: 'Top 1%', desc: 'Highest customer satisfaction rating across 300+ reviews.' }
+      ]
+    },
+
+    // 25. Primary CTA Section
+    ctaSection: {
+      isVisible: true,
+      order: 25,
+      badge: 'TRANSFORM YOUR VISION INTO SOFTWARE',
+      title: "Have an Idea? Let's Build It Together.",
+      subtitle: 'Whether you need to launch a new SaaS MVP, scale legacy microservices, or integrate private enterprise AI, our engineering team is ready.',
+      primaryButtonText: 'Start a Project',
+      primaryButtonLink: '/contact',
+      secondaryButtonText: 'Book a Consultation',
+      secondaryButtonLink: '/contact'
+    },
+
+    // 26. Light Conversion Banner
+    conversionBanner: {
+      isVisible: true,
+      order: 26,
+      badge: 'COLLABORATE WITH EXPERTS',
+      title: "Let's Start Something Big Together",
+      subtitle: 'Have an ambitious digital product in mind or scaling an enterprise platform? Partner with our engineers for custom product strategy, technical roadmap design, and rapid execution.',
+      buttonText: 'Get In Touch',
+      buttonLink: '/contact'
+    },
+
+    // 27. FAQ Accordion
+    faqAccordion: {
+      isVisible: true,
+      order: 27,
+      badge: 'FREQUENTLY ASKED QUESTIONS',
+      title: 'Everything You Need to Know Before Starting',
+      subtitle: 'Clear, honest answers to key technical and operational questions.',
+      faqs: [
+        { question: 'How much does a typical software development project cost?', answer: 'Project pricing depends on scope, complexity, tech stack, and timeline. Small-to-medium enterprise MVPs typically range from $15,000 to $45,000, while complex multi-platform platforms with custom AI microservices are scoped under fixed milestones or dedicated monthly retainers.' },
+        { question: 'What is your standard development timeline?', answer: 'Most custom web or mobile MVP applications are delivered within 6 to 12 weeks following 2-week agile sprint iterations. We provide a detailed sprint roadmap during our initial discovery phase.' },
+        { question: 'How do you select the right technology stack for our product?', answer: 'We analyze your target user concurrency, performance SLAs, security requirements, and long-term scalability needs. We typically recommend React/Next.js for frontend, Node.js or Python for APIs, and MongoDB or PostgreSQL for persistent databases.' },
+        { question: 'How quickly can dedicated developers join our project?', answer: 'Our pre-vetted senior full-stack engineers, cloud architects, and UI/UX designers can onboard into your Slack, GitHub, and daily standups within 48 to 72 hours.' },
+        { question: 'Are your AI & Machine Learning solutions secure for private enterprise data?', answer: 'Yes, 100%. We deploy private model instances with vector database isolation so your proprietary enterprise data is encrypted and never shared or trained publicly.' },
+        { question: 'Do you offer post-launch maintenance and 24/7 cloud support?', answer: 'Yes, we offer dedicated post-launch SLAs covering continuous infrastructure monitoring, automated security patch updates, feature enhancements, and 24/7 incident response.' }
+      ]
+    },
+
+    // 28. Industries Verticals
+    industriesGrid: {
+      isVisible: true,
+      order: 28,
+      badge: 'INDUSTRIES WE TRANSFORM',
+      title: 'Tailored Solutions for Diverse Domain Verticals',
+      subtitle: 'We bring deep domain expertise and compliance understanding across key industries worldwide.'
+    },
+
+    // 29. Process Timeline
+    processTimeline: {
+      isVisible: true,
+      order: 29,
+      badge: 'HOW WE WORK',
+      title: 'Process We Follow',
+      subtitle: 'A structured 8-step software engineering process designed to ensure transparent delivery and high quality outcomes.',
+      steps: [
+        { number: '01', title: 'Requirement Gathering', desc: 'In-depth discovery, business goals audit, and technical specification definition.' },
+        { number: '02', title: 'Designs, Wireframes, & Mockups', desc: 'Crafting responsive UI layout wireframes, design systems, and visual mockups.' },
+        { number: '03', title: 'Prototype Demo', desc: 'Interactive clickable prototype demonstration for early stakeholder feedback.' },
+        { number: '04', title: 'Changes And Confirmation', desc: 'Incorporating feedback, refining architecture scope, and locking design signoff.' },
+        { number: '05', title: 'Development', desc: 'Agile frontend & backend code engineering with clean modular architecture.' },
+        { number: '06', title: 'Deployment', desc: 'Automated CI/CD pipeline deployment to production cloud infrastructure.' },
+        { number: '07', title: 'Support And Maintenance', desc: '24/7 proactive monitoring, security updates, and performance optimizations.' },
+        { number: '08', title: 'SEO', desc: 'Search engine optimization, schema structured tags, and performance tuning.' }
+      ]
+    },
+
+    // 30. Animated Key Stats
+    statsSection: {
+      isVisible: true,
+      order: 30,
+      statsList: [
+        { value: '95%', label: 'Client Retention', numeric: 95, suffix: '%' },
+        { value: '18+', label: 'Industries Served', numeric: 18, suffix: '+' },
+        { value: '2800+', label: 'Satisfied Clients', numeric: 2800, suffix: '+' },
+        { value: '1500+', label: 'Projects Completed', numeric: 1500, suffix: '+' },
+        { value: '23+', label: 'Years of Experience', numeric: 23, suffix: '+' },
+        { value: '320+', label: '5-Star Reviews', numeric: 320, suffix: '+' }
+      ]
+    },
+
+    // 31. Tech Ecosystem Grid
+    techEcosystem: {
+      isVisible: true,
+      order: 31,
+      badge: 'OUR TECHNOLOGY ECOSYSTEM',
+      title: 'Battle-Tested Tech Stack & Modern Frameworks',
+      subtitle: 'We leverage enterprise-proven technologies and cutting-edge frameworks to build high-performance software systems that scale with confidence.'
+    },
+
+    // 32. Why Choose Us
+    whyChooseUs: {
+      isVisible: true,
+      order: 32,
+      badge: 'WHY FIREVY',
+      title: 'The Engineering Partner Built for Long-Term Growth',
+      subtitle: "We don't just write code—we design resilient digital infrastructure that accelerates business outcomes.",
+      pillars: [
+        { title: 'Experienced Developers', desc: 'Top 1% pre-vetted engineers with deep expertise in modern tech stacks.' },
+        { title: 'Agile Development', desc: 'Iterative 2-week sprints with full client visibility into code progress.' },
+        { title: 'Transparent Communication', desc: 'Direct Slack, Jira, and weekly video standups with zero middleman friction.' },
+        { title: 'Quality Assurance', desc: 'Automated E2E testing, code reviews, and zero-defect deployment standards.' },
+        { title: 'Scalable Architecture', desc: 'Microservices designed to handle millions of queries with zero downtime.' },
+        { title: 'Security First', desc: 'Bank-grade encryption, OWASP audits, and SOC2 / HIPAA compliance readiness.' },
+        { title: 'On-Time Delivery', desc: 'Strict milestone tracking and 99.4% on-time project completion record.' },
+        { title: 'Post-Launch Support', desc: 'Dedicated SLAs, 24/7 cloud monitoring, and continuous product updates.' }
+      ]
     }
   }
 };

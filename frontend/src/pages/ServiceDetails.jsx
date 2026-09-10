@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, useLocation, Link } from 'react-router-dom';
 import SEO from '../components/common/SEO';
 import Container from '../components/common/Container';
 import SectionHeading from '../components/common/SectionHeading';
@@ -27,119 +27,90 @@ import HireCSharpDevelopersService from '../components/services/HireCSharpDevelo
 import IWatchAppDevelopmentService from '../components/services/IWatchAppDevelopmentService';
 import IOSAppDevelopmentService from '../components/services/IOSAppDevelopmentService';
 import XamarinAppDevelopmentService from '../components/services/XamarinAppDevelopmentService';
+import WordPressDevelopmentService from '../components/services/WordPressDevelopmentService';
+import DrupalDevelopmentService from '../components/services/DrupalDevelopmentService';
+import UmbracoDevelopmentService from '../components/services/UmbracoDevelopmentService';
+import SitecoreDevelopmentService from '../components/services/SitecoreDevelopmentService';
+import SitefinityDevelopmentService from '../components/services/SitefinityDevelopmentService';
+import MagentoDevelopmentService from '../components/services/MagentoDevelopmentService';
+import ShopifyDevelopmentService from '../components/services/ShopifyDevelopmentService';
 
 export const ServiceDetails = () => {
   const { slug } = useParams();
+  const location = useLocation();
+  const pathSegments = location.pathname.toLowerCase().split('/').filter(Boolean);
+  const pathSlug = pathSegments.length > 1 ? pathSegments[pathSegments.length - 1] : pathSegments[0] || '';
+  const currentSlug = (slug || pathSlug || '').toLowerCase();
+
   const [service, setService] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [openFaq, setOpenFaq] = useState(0);
 
-  const isXamarin = slug && (
-    slug.toLowerCase().includes('xamarin') ||
-    slug.toLowerCase() === 'xamarin-app-development' ||
-    slug.toLowerCase() === 'xamarin-development' ||
-    slug.toLowerCase() === 'xamarin'
-  );
+  const isXamarin = currentSlug.includes('xamarin');
+  const isReactNative = currentSlug.includes('react-native') || currentSlug.includes('reactnative');
+  const isFlutter = currentSlug.includes('flutter');
+  const isSitecore = currentSlug.includes('sitecore') || currentSlug.includes('hire-sitecore');
+  const isSitefinity = currentSlug.includes('sitefinity') || currentSlug.includes('hire-sitefinity');
 
-  const isAndroid = slug && (
-    slug.toLowerCase().includes('android-app') ||
-    slug.toLowerCase().includes('android-development') ||
-    slug.toLowerCase() === 'android'
-  );
+  const isMagento = currentSlug.includes('magento') ||
+    currentSlug.includes('adobe-commerce') ||
+    currentSlug.includes('hire-magento');
 
-  const isReactNative = slug && (
-    slug.toLowerCase().includes('react-native') ||
-    slug.toLowerCase().includes('reactnative') ||
-    slug.toLowerCase() === 'react-native'
-  );
+  const isShopify = currentSlug.includes('shopify') ||
+    currentSlug.includes('shopify-plus') ||
+    currentSlug.includes('hire-shopify');
 
-  const isFlutter = slug && (
-    slug.toLowerCase().includes('flutter-app') ||
-    slug.toLowerCase().includes('flutter-development') ||
-    slug.toLowerCase() === 'flutter'
-  );
+  const isUmbraco = currentSlug.includes('umbraco') ||
+    currentSlug.includes('hire-umbraco');
 
-  const isHealthcare = slug && (
-    slug.toLowerCase().includes('health-care-app') ||
-    slug.toLowerCase().includes('healthcare-app') ||
-    slug.toLowerCase() === 'healthcare'
-  );
+  const isDrupal = currentSlug.includes('drupal') ||
+    currentSlug.includes('hire-drupal');
 
-  const isEducation = slug && (
-    slug.toLowerCase().includes('education-app') ||
-    slug.toLowerCase().includes('elearning-app') ||
-    slug.toLowerCase() === 'education'
-  );
+  const isWordpress = currentSlug.includes('wordpress') ||
+    currentSlug.includes('word-press') ||
+    currentSlug.includes('wp-development') ||
+    currentSlug.includes('hire-wordpress');
 
-  const isUber = slug && (
-    slug.toLowerCase().includes('uber-like') ||
-    slug.toLowerCase().includes('uber-clone') ||
-    slug.toLowerCase().includes('taxi-booking') ||
-    slug.toLowerCase() === 'uber'
-  );
+  const isAndroid = currentSlug.includes('android');
 
-  const isSpotify = slug && (
-    slug.toLowerCase().includes('spotify-like') ||
-    slug.toLowerCase().includes('audio-streaming') ||
-    slug.toLowerCase().includes('music-streaming') ||
-    slug.toLowerCase() === 'spotify'
-  );
+  const isHealthcare = currentSlug.includes('health-care') ||
+    currentSlug.includes('healthcare');
 
-  const isZomato = slug && (
-    slug.toLowerCase().includes('zomato-like') ||
-    slug.toLowerCase().includes('zomato-clone') ||
-    slug.toLowerCase().includes('food-delivery') ||
-    slug.toLowerCase() === 'zomato'
-  );
+  const isEducation = currentSlug.includes('education') ||
+    currentSlug.includes('elearning');
 
-  const isAmazon = slug && (
-    slug.toLowerCase().includes('amazon-like') ||
-    slug.toLowerCase().includes('amazon-clone') ||
-    slug.toLowerCase().includes('ecommerce') ||
-    slug.toLowerCase() === 'e-commerce' ||
-    slug.toLowerCase() === 'amazon'
-  );
+  const isUber = currentSlug.includes('uber') ||
+    currentSlug.includes('taxi-booking');
 
-  const isVisitor = slug && (
-    slug.toLowerCase().includes('visitor-management') ||
-    slug.toLowerCase().includes('visitor-app') ||
-    slug.toLowerCase() === 'visitor'
-  );
+  const isSpotify = currentSlug.includes('spotify') ||
+    currentSlug.includes('audio-streaming') ||
+    currentSlug.includes('music-streaming');
 
-  const isWarehouse = slug && (
-    slug.toLowerCase().includes('warehouse-management') ||
-    slug.toLowerCase().includes('wms') ||
-    slug.toLowerCase() === 'warehouse'
-  );
+  const isZomato = currentSlug.includes('zomato') ||
+    currentSlug.includes('food-delivery');
 
-  const isClover = slug && (
-    slug.toLowerCase().includes('clover-app') ||
-    slug.toLowerCase().includes('clover-pos') ||
-    slug.toLowerCase() === 'clover'
-  );
+  const isAmazon = currentSlug.includes('amazon') ||
+    currentSlug.includes('ecommerce') ||
+    currentSlug.includes('e-commerce');
 
-  const isCSharp = slug && (
-    slug.toLowerCase().includes('c-sharp') ||
-    slug.toLowerCase().includes('csharp') ||
-    slug.toLowerCase().includes('hire-c-sharp') ||
-    slug.toLowerCase() === 'hire-c-sharp-developers'
-  );
+  const isVisitor = currentSlug.includes('visitor');
 
-  const isIWatch = slug && (
-    slug.toLowerCase().includes('iwatch') ||
-    slug.toLowerCase().includes('apple-watch') ||
-    slug.toLowerCase().includes('watchos')
-  );
+  const isWarehouse = currentSlug.includes('warehouse') ||
+    currentSlug.includes('wms');
 
-  const isIOS = slug && (
-    slug.toLowerCase().includes('ios-app') ||
-    slug.toLowerCase().includes('ios-development') ||
-    slug.toLowerCase().includes('iphone-app') ||
-    slug.toLowerCase().includes('iphone-development') ||
-    slug.toLowerCase() === 'ios' ||
-    slug.toLowerCase() === 'iphone'
-  );
+  const isClover = currentSlug.includes('clover');
+
+  const isCSharp = currentSlug.includes('c-sharp') ||
+    currentSlug.includes('csharp') ||
+    currentSlug.includes('hire-c-sharp');
+
+  const isIWatch = currentSlug.includes('iwatch') ||
+    currentSlug.includes('apple-watch') ||
+    currentSlug.includes('watchos');
+
+  const isIOS = currentSlug.includes('ios') ||
+    currentSlug.includes('iphone');
 
   const unslugify = (str) => {
     if (!str) return 'Enterprise Tech Solution';
@@ -219,30 +190,58 @@ export const ServiceDetails = () => {
   const fetchServiceDetails = async () => {
     try {
       setLoading(true);
-      const data = await serviceApi.getServiceBySlug(slug);
+      const data = await serviceApi.getServiceBySlug(currentSlug);
       if (data && data.success && data.data) {
         setService(data.data);
       } else if (data && data.title) {
         setService(data);
       } else {
-        setService(generateFallbackService(slug));
+        setService(generateFallbackService(currentSlug));
       }
     } catch (err) {
       console.warn("Backend unavailable or service not found in DB. Falling back to static enterprise content.", err);
-      setService(generateFallbackService(slug));
+      setService(generateFallbackService(currentSlug));
     } finally {
       setLoading(false);
     }
   };
 
   useEffect(() => {
-    if (!isXamarin && !isAndroid && !isReactNative && !isFlutter && !isIOS && !isHealthcare && !isEducation && !isUber && !isSpotify && !isZomato && !isAmazon && !isVisitor && !isWarehouse && !isClover && !isCSharp && !isIWatch) {
+    if (!isXamarin && !isAndroid && !isReactNative && !isFlutter && !isIOS && !isHealthcare && !isEducation && !isUber && !isSpotify && !isZomato && !isAmazon && !isVisitor && !isWarehouse && !isClover && !isCSharp && !isIWatch && !isWordpress && !isDrupal && !isUmbraco && !isSitecore && !isSitefinity && !isMagento && !isShopify) {
       fetchServiceDetails();
     } else {
       setLoading(false);
     }
     window.scrollTo(0, 0);
-  }, [slug]);
+  }, [currentSlug]);
+
+  if (isSitecore) {
+    return <SitecoreDevelopmentService />;
+  }
+
+  if (isSitefinity) {
+    return <SitefinityDevelopmentService />;
+  }
+
+  if (isMagento) {
+    return <MagentoDevelopmentService />;
+  }
+
+  if (isShopify) {
+    return <ShopifyDevelopmentService />;
+  }
+
+  if (isUmbraco) {
+    return <UmbracoDevelopmentService />;
+  }
+
+  if (isDrupal) {
+    return <DrupalDevelopmentService />;
+  }
+
+  if (isWordpress) {
+    return <WordPressDevelopmentService />;
+  }
 
   if (isXamarin) {
     return <XamarinAppDevelopmentService />;

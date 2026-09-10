@@ -156,6 +156,36 @@ const defaultPremiumServices = [
         <path d="M26.5 8.75L26.5 23.75" stroke="#FF2D20" strokeWidth="1.4" strokeOpacity="0.6" />
       </svg>
     )
+  },
+  {
+    name: 'Drupal Development',
+    link: '/services/drupal',
+    image: '/images/ourpremiumservice/ic_drupal.svg'
+  },
+  {
+    name: 'Umbraco Development',
+    link: '/services/umbraco',
+    image: '/images/ourpremiumservice/ic_umbraco.svg'
+  },
+  {
+    name: 'Sitecore Development',
+    link: '/services/sitecore',
+    image: '/images/ourpremiumservice/ic_sitecore.svg'
+  },
+  {
+    name: 'Sitefinity Development',
+    link: '/services/sitefinity',
+    image: '/images/ourpremiumservice/ic_sitefinity.svg'
+  },
+  {
+    name: 'Magento Development',
+    link: '/services/magento',
+    image: '/images/ourpremiumservice/ic_magento.svg'
+  },
+  {
+    name: 'Shopify Development',
+    link: '/services/shopify',
+    image: '/images/ourpremiumservice/ic_shopify.svg'
   }
 ];
 

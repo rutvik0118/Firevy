@@ -800,43 +800,97 @@ export const initialHomePageData = {
     videoTestimonialsStory: {
       isVisible: true,
       order: 18,
-      title: 'Our Story, Their Words',
+      title: 'What Our Clients Have To Say',
       description: "From satisfied clients to enthusiastic users, each testimonial shares a unique perspective on the impact and value of our solution. Get inspired as you listen to authentic voices that showcase the true essence of our project's impact.",
       testimonials: [
         {
-          name: "From Idea to Reality | Client's Success Story with firevy.co -...",
-          avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80',
-          videoUrl: 'https://www.youtube.com',
+          id: 1,
+          clientName: 'Andrew',
+          company: 'Mobile Digital Diary',
+          title: "Discover why Andrew trusted firevy.co with his mobile digital diary project : A Client's Honest Experience.",
+          img: '/images/awards/hdimages/client_shay.webp',
+          videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
           isActive: true
         },
         {
-          name: "From Vision to Wellness | Client's Success Story with firevy.co - To...",
-          avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80',
-          videoUrl: 'https://www.youtube.com',
+          id: 2,
+          clientName: 'Bruno',
+          company: 'Healthcare Innovation Brazil',
+          title: 'From Vision to Healthcare Innovation | Client Success With firevy.co - Top IT Company in Brazil',
+          img: '/images/awards/hdimages/bruno.webp',
+          videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
           isActive: true
         },
         {
-          name: 'Hear out Tim got to say about working with Team firevy.co on...',
-          avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80',
-          videoUrl: 'https://www.youtube.com',
+          id: 3,
+          clientName: 'Enterprise Client',
+          company: 'Mobile App Development',
+          title: "From Idea to Reality | Client's Success Story with firevy.co - Best Mobile App Development Company",
+          img: '/images/awards/hdimages/client_seven.webp',
+          videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
           isActive: true
         },
         {
-          name: 'Testimonial from client who has expanded their business using...',
-          avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=300&q=80',
-          videoUrl: 'https://www.youtube.com',
+          id: 4,
+          clientName: 'Wellness Founder',
+          company: 'Digital Wellness App',
+          title: "From Vision to Wellness | Client's Success Story with firevy.co - Top Mobile App Development Company",
+          img: '/images/awards/hdimages/client_eight.webp',
+          videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
           isActive: true
         },
         {
-          name: 'Hear what Pravin has got to say about working with firevy.co...',
-          avatar: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=300&q=80',
-          videoUrl: 'https://www.youtube.com',
+          id: 5,
+          clientName: 'Tim',
+          company: 'Complex Web Application',
+          title: 'Hear out Tim got to say about working with Team firevy.co on building a complex and unique web application.',
+          img: '/images/awards/hdimages/clienttestimonial3.webp',
+          videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
           isActive: true
         },
         {
-          name: 'firevy.co Successfully Delivered Web & Mobile App Solutions -...',
-          avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80',
-          videoUrl: 'https://www.youtube.com',
+          id: 6,
+          clientName: 'Business Expansion Client',
+          company: 'Global Enterprise Services',
+          title: 'Testimonial from client who has expanded their business using firevy.co Services',
+          img: '/images/awards/hdimages/clienttestimonial2.webp',
+          videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+          isActive: true
+        },
+        {
+          id: 7,
+          clientName: 'Pravin',
+          company: 'Software Solutions Partner',
+          title: 'Hear what Pravin has got to say about working with firevy.co',
+          img: '/images/awards/hdimages/clienttestimonial1.webp',
+          videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+          isActive: true
+        },
+        {
+          id: 8,
+          clientName: 'Canadian Enterprise Partner',
+          company: 'Web & Mobile Solutions Canada',
+          title: 'firevy.co Successfully Delivered Web & Mobile App Solutions - Leading IT Company in Canada',
+          img: '/images/awards/hdimages/img_client2.webp',
+          videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+          isActive: true
+        },
+        {
+          id: 9,
+          clientName: 'Christina',
+          company: 'Zetteli',
+          title: "Peer into Satisfaction: Christina's Testimonial Video Shines Bright!",
+          img: '/images/awards/hdimages/zetteli_client.webp',
+          videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+          isActive: true
+        },
+        {
+          id: 10,
+          clientName: 'Education Client',
+          company: 'Vision Education Platform',
+          title: "From Vision to Education | Client's Success Story with firevy.co Solutions",
+          img: '/images/awards/hdimages/vision_client.webp',
+          videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
           isActive: true
         }
       ]

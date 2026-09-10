@@ -3,45 +3,53 @@ import Container from './Container';
 
 // 5 Outline Vector SVG Icons matching Sapphire Solutions reference screenshot 1:1
 const FlexibleIcon = () => (
-  <svg className="w-8 h-8 text-slate-800" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M 16 36 C 24 36 28 32 36 24" />
-    <circle cx="16" cy="18" r="4" />
-    <circle cx="28" cy="14" r="4" />
-    <circle cx="36" cy="22" r="4" />
-    <path d="M 10 38 C 10 38 18 34 26 34 C 34 34 40 40 40 40" />
+  <svg className="w-8 h-8 text-slate-800" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M 14 36 C 14 36 20 31 24 31 C 28 31 34 36 34 36" />
+    <path d="M 16 39 C 16 35 20 32 24 32 C 28 32 32 35 32 39" />
+    <circle cx="24" cy="21" r="4" />
+    <path d="M 17 22 C 14 22 12 20 12 17" />
+    <circle cx="11" cy="16" r="3" />
+    <path d="M 31 22 C 34 22 36 20 36 17" />
+    <circle cx="37" cy="16" r="3" />
+    <path d="M 10 40 L 24 35 L 38 40" />
   </svg>
 );
 
 const TransparencyIcon = () => (
-  <svg className="w-8 h-8 text-slate-800" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2.2">
-    <circle cx="20" cy="24" r="12" />
-    <circle cx="28" cy="24" r="12" strokeDasharray="3 2" />
+  <svg className="w-8 h-8 text-slate-800" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2">
+    <circle cx="19" cy="24" r="11" />
+    <circle cx="29" cy="24" r="11" />
+    <path d="M 22 16 L 26 32 M 18 20 L 29 28 M 18 28 L 29 20" strokeWidth="1.5" />
   </svg>
 );
 
 const DevelopersIcon = () => (
-  <svg className="w-8 h-8 text-slate-800" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M 16 16 A 8 8 0 0 1 32 16" />
-    <rect x="18" y="8" width="12" height="4" rx="1" fill="currentColor" />
-    <circle cx="24" cy="20" r="4" />
-    <rect x="8" y="32" width="32" height="10" rx="2" />
-    <path d="M 16 32 L 20 28 H 28 L 32 32" />
+  <svg className="w-8 h-8 text-slate-800" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="24" cy="18" r="4.5" />
+    <path d="M 16 28 C 16 23 20 22 24 22 C 28 22 32 23 32 28" />
+    <path d="M 20 13.5 C 20 11.5 28 11.5 28 13.5" />
+    <rect x="8" y="28" width="32" height="13" rx="2" />
+    <path d="M 16 36 L 14 38 M 32 36 L 34 38 M 22 38 H 26" />
+    <path d="M 19 33.5 L 17 35.5 L 19 37.5 M 29 33.5 L 31 35.5 L 29 37.5 M 23 37.5 L 25 33.5" strokeWidth="1.5" />
   </svg>
 );
 
 const TimelyIcon = () => (
-  <svg className="w-8 h-8 text-slate-800" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-    <circle cx="24" cy="26" r="14" />
-    <path d="M 24 18 V 26 L 30 30" />
-    <path d="M 18 6 H 30 M 24 6 V 12" />
+  <svg className="w-8 h-8 text-slate-800" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="24" cy="26" r="13" />
+    <path d="M 24 18 V 26 L 29 29" strokeWidth="2.2" />
+    <path d="M 19 8 H 29 M 24 8 V 13" />
+    <path d="M 12 14 L 15 17" />
   </svg>
 );
 
 const SupportIcon = () => (
-  <svg className="w-8 h-8 text-slate-800" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M 16 18 L 22 24 M 22 18 L 16 24" />
-    <circle cx="24" cy="24" r="12" />
-    <path d="M 10 38 L 18 32 M 38 38 L 30 32" />
+  <svg className="w-8 h-8 text-slate-800" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="24" cy="21" r="6" />
+    <path d="M 24 11 V 13 M 24 29 V 31 M 14 21 H 16 M 32 21 H 34" />
+    <path d="M 17 14 L 18.5 15.5 M 29.5 26.5 L 31 28 M 31 14 L 29.5 15.5 M 18.5 26.5 L 17 28" />
+    <path d="M 12 37 C 18 33, 30 33, 36 37" />
+    <path d="M 10 40 L 24 35 L 38 40" />
   </svg>
 );
 
@@ -93,13 +101,29 @@ export const WhatSetsUsApartSection = () => {
   };
 
   return (
-    <section className="py-14 sm:py-16 bg-[#EFF7FE] text-slate-900 text-left font-sans border-b border-slate-200">
+    <section className="py-14 sm:py-16 bg-[#F4F8FA] text-slate-900 text-left font-sans border-b border-slate-200">
       {/* Full Width Edge-to-Edge Centered Header */}
       <div className="text-center w-full max-w-full px-4 sm:px-8 lg:px-12 mx-auto mb-10 sm:mb-12 space-y-3">
-        <h2 className="text-3xl sm:text-4xl lg:text-[38px] font-extrabold text-slate-900 tracking-tight font-sans">
+        <h2
+          className="text-slate-900 tracking-tight section-content-title"
+          style={{
+            fontFamily: "'Poppins', sans-serif",
+            fontWeight: 800,
+            fontSize: '34px',
+            lineHeight: '41px'
+          }}
+        >
           What Sets Us Apart As Healthcare App Development Company?
         </h2>
-        <p className="text-xs sm:text-sm lg:text-base text-slate-600 font-normal leading-relaxed max-w-4xl mx-auto font-sans">
+        <p
+          className="text-slate-600 section-content-desc max-w-4xl mx-auto"
+          style={{
+            fontFamily: "'Poppins', sans-serif",
+            fontWeight: 400,
+            fontSize: '15px',
+            lineHeight: '26px'
+          }}
+        >
           Being unique is our quality! Sapphire Solutions believe in the things that give us an edge over our competitors. We are renowned software and mobile application development organization serving customers with end-to-end support. Our Idealization, feasibility assessment of the entire software development process stands us one level up the competitors.
         </p>
       </div>
@@ -113,14 +137,14 @@ export const WhatSetsUsApartSection = () => {
               const IconComp = pillar.icon;
               return (
                 <div key={pillar.id} className="flex items-start space-x-4 group">
-                  {/* Icon Box */}
-                  <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-white shadow-sm border border-slate-100/90 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300">
+                  {/* Light Grey Round-Cornered Icon Box */}
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-white shadow-sm border border-slate-100 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform duration-300">
                     <IconComp />
                   </div>
 
                   {/* Title & Description */}
                   <div className="space-y-1 font-sans">
-                    <h3 className="text-base sm:text-lg font-extrabold text-slate-900 font-sans tracking-tight">
+                    <h3 className="text-base sm:text-lg font-bold text-slate-900 font-sans tracking-tight">
                       {pillar.title}
                     </h3>
                     <p className="text-xs sm:text-[13.5px] text-slate-600 leading-relaxed font-normal font-sans">
@@ -134,12 +158,19 @@ export const WhatSetsUsApartSection = () => {
 
           {/* Right Column: "Let's Discuss" Contact Form Card */}
           <div className="lg:col-span-5 relative">
-            {/* Top-Left Ribbon Accent */}
-            <div className="absolute -top-3 -left-3 w-8 h-8 bg-[#005D95] clip-path-triangle pointer-events-none z-0" />
+            {/* Corner Ribbon Triangle Accent on Top-Left Edge */}
+            <div className="absolute -top-3 -left-3 z-30 pointer-events-none">
+              <svg viewBox="0 0 36 36" fill="none" className="w-9 h-9">
+                <path d="M 0 36 L 0 0 L 36 0 Z" fill="#005F96" />
+              </svg>
+            </div>
+
+            {/* Right Side Arrow Pointer Notch Accent */}
+            <div className="hidden lg:block absolute -right-3 top-[68%] w-0 h-0 border-t-[10px] border-t-transparent border-b-[10px] border-b-transparent border-l-[12px] border-l-[#005F96] z-30 pointer-events-none" />
             
             {/* White Floating Form Card */}
-            <div className="relative z-10 bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/90 shadow-xl font-sans">
-              <h3 className="text-xl font-extrabold text-slate-900 text-center font-sans mb-6">
+            <div className="relative z-10 bg-white rounded-2xl p-6 sm:p-8 border border-slate-200/90 shadow-[0_10px_35px_rgba(0,0,0,0.06)] font-sans overflow-hidden">
+              <h3 className="text-xl font-bold text-slate-900 text-center font-sans mb-6">
                 Let's Discuss
               </h3>
 
@@ -158,7 +189,7 @@ export const WhatSetsUsApartSection = () => {
                       placeholder="Your name *"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full p-3 rounded-lg border border-slate-200 focus:border-[#005D95] focus:ring-2 focus:ring-[#005D95]/20 text-xs sm:text-sm text-slate-900 outline-none transition-all font-sans"
+                      className="w-full p-3 rounded-lg border border-slate-200 focus:border-[#005F96] focus:ring-2 focus:ring-[#005F96]/20 text-xs sm:text-sm text-slate-900 outline-none transition-all font-sans"
                     />
                   </div>
 
@@ -170,7 +201,7 @@ export const WhatSetsUsApartSection = () => {
                       placeholder="Email ID *"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full p-3 rounded-lg border border-slate-200 focus:border-[#005D95] focus:ring-2 focus:ring-[#005D95]/20 text-xs sm:text-sm text-slate-900 outline-none transition-all font-sans"
+                      className="w-full p-3 rounded-lg border border-slate-200 focus:border-[#005F96] focus:ring-2 focus:ring-[#005F96]/20 text-xs sm:text-sm text-slate-900 outline-none transition-all font-sans"
                     />
                   </div>
 
@@ -185,7 +216,7 @@ export const WhatSetsUsApartSection = () => {
                       placeholder="Mobile Number *"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full p-3 rounded-lg border border-slate-200 focus:border-[#005D95] focus:ring-2 focus:ring-[#005D95]/20 text-xs sm:text-sm text-slate-900 outline-none transition-all font-sans"
+                      className="w-full p-3 rounded-lg border border-slate-200 focus:border-[#005F96] focus:ring-2 focus:ring-[#005F96]/20 text-xs sm:text-sm text-slate-900 outline-none transition-all font-sans"
                     />
                   </div>
 
@@ -197,7 +228,7 @@ export const WhatSetsUsApartSection = () => {
                       placeholder="Tell us more about your project *"
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className="w-full p-3 rounded-lg border border-slate-200 focus:border-[#005D95] focus:ring-2 focus:ring-[#005D95]/20 text-xs sm:text-sm text-slate-900 outline-none transition-all font-sans resize-none"
+                      className="w-full p-3 rounded-lg border border-slate-200 focus:border-[#005F96] focus:ring-2 focus:ring-[#005F96]/20 text-xs sm:text-sm text-slate-900 outline-none transition-all font-sans resize-none"
                     />
                   </div>
 
@@ -210,7 +241,7 @@ export const WhatSetsUsApartSection = () => {
                       <span className="text-xs font-bold text-slate-700 font-sans">Success!</span>
                     </div>
                     <div className="text-[10px] text-slate-400 font-sans text-right">
-                      <span className="font-extrabold text-orange-600 block">CLOUDFLARE</span>
+                      <span className="font-bold text-orange-600 block">CLOUDFLARE</span>
                       <span>Privacy - Help</span>
                     </div>
                   </div>
@@ -218,7 +249,7 @@ export const WhatSetsUsApartSection = () => {
                   {/* Send Button */}
                   <button
                     type="submit"
-                    className="w-full py-3.5 rounded-lg bg-[#005D95] hover:bg-[#004A75] text-white text-sm font-extrabold shadow-md hover:shadow-lg transition-all duration-200 font-sans"
+                    className="w-full py-3.5 rounded-lg bg-[#005F96] hover:bg-[#004b78] text-white text-sm font-bold shadow-md hover:shadow-lg transition-all duration-200 font-sans"
                   >
                     Send
                   </button>
