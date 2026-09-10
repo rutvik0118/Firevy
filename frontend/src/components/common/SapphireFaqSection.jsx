@@ -94,7 +94,134 @@ const androidFaqList = [
   }
 ];
 
-export const SapphireFaqSection = () => {
+export const healthcareFaqList = [
+  {
+    id: 1,
+    question: '1. Should the development of a medical app for healthcare professionals begin on iOS or Android?',
+    answer: 'It fully depends on the purpose of your medical mobile app development procedure. If you are searching for a platform to facilitate staff communication and have a large crew, use an Android application. However, if you are searching for a platform on which they may communicate encrypted data, medical records, etc., choose iOS since it is naturally more secure.'
+  },
+  {
+    id: 2,
+    question: '2. How much do medical applications for healthcare professionals cost to develop?',
+    answer: 'The cost to develop a medical application for healthcare professionals depends on the app\'s complexity, features, integrations (like HIPAA compliance, EHR/EMR systems, telemedicine), and chosen platform (iOS, Android, or cross-platform).'
+  },
+  {
+    id: 3,
+    question: '3. What makes a health app effective?',
+    answer: 'An effective health app requires an intuitive user interface, robust HIPAA-compliant security, real-time data synchronization, seamless EHR integration, reliable communication channels (chat/video), and accurate patient monitoring capabilities.'
+  },
+  {
+    id: 4,
+    question: '4. What are Healthcare App Development Services?',
+    answer: 'Healthcare App Development Services include building digital solutions for hospitals, physicians, startups, and patients—such as telemedicine platforms, remote patient monitoring, appointment scheduling, e-prescriptions, and medical billing systems.'
+  },
+  {
+    id: 5,
+    question: '5. Why should businesses choose Sapphire Solutions for Healthcare App Development?',
+    answer: 'Sapphire Solutions brings 23+ years of IT expertise, 320+ 5-star Clutch reviews, certified healthcare developers, HIPAA and GDPR compliance experience, and end-to-end custom healthcare app development tailored to your budget and timelines.'
+  },
+  {
+    id: 6,
+    question: '6. How do Healthcare Apps benefit hospitals and patients?',
+    answer: 'Healthcare apps benefit hospitals by automating administrative workflows, reducing diagnostic errors, and cutting operating costs. For patients, they offer remote care accessibility, instant doctor consultation, easy medical record management, and improved treatment outcomes.'
+  }
+];
+
+export const educationFaqList = [
+  {
+    id: 1,
+    question: '1. What characteristics should a mobile app for education possess?',
+    answer: 'Online Live sessions, a video player, a repository for session recordings, events, online exams and results, and chat are the essential aspects of any learning and education app.'
+  },
+  {
+    id: 2,
+    question: '2. How long does it take to design a mobile app for education?',
+    answer: 'The time required for education app development depends on the complexity of features, third-party integrations (video, payment gateways), and UI/UX requirements. Typical projects take 6 to 12 weeks. We offer agile 2-week sprint iterations for fast time-to-market.'
+  },
+  {
+    id: 3,
+    question: '3. How much does the education of an educational app cost?',
+    answer: 'Developing an educational app depends on the tech stack, features (live video, AI tutor, offline mode), and engagement model. Project estimates range from $15,000 for specialized MVPs to $50,000+ for enterprise multi-institution LMS portals. Send us your project brief for an exact quote.'
+  },
+  {
+    id: 4,
+    question: '4. Why should I choose you for education app development?',
+    answer: 'We provide 24/7 technical support, deep EdTech domain expertise, 100% transparency, and flexible engagement models. Furthermore, our senior developers align with your timezone to eliminate communication delays.'
+  },
+  {
+    id: 5,
+    question: '5. Why choose Sapphire Solutions for Education App Development Services in USA?',
+    answer: 'Sapphire Solutions brings 23+ years of IT expertise, 320+ 5-star Clutch reviews, dedicated EdTech engineers, and proven success delivering school ERPs and eLearning mobile applications.'
+  },
+  {
+    id: 6,
+    question: '6. What types of education apps do you develop in USA?',
+    answer: 'We build a comprehensive suite of EdTech apps including eLearning portals, Learning Management Systems (LMS), virtual classrooms, tutor finder marketplaces, school management ERPs, interactive eBook apps, and AI language apps.'
+  },
+  {
+    id: 7,
+    question: '7. Do you provide custom Education App Development Services in USA?',
+    answer: 'Yes, our services are 100% customizable to meet your specific requirements—whether you need an eLearning mobile app for students, a teaching tool for tutors, or an enterprise-level LMS for universities.'
+  },
+  {
+    id: 8,
+    question: '8. How do your Education App Development Services in USA benefit schools and universities?',
+    answer: 'Educational apps improve student engagement through gamification, simplify administrative attendance and fee collection, enable remote teaching, track student progress in real time, and reduce operational overhead.'
+  }
+];
+
+export const uberFaqList = [
+  {
+    id: 1,
+    question: '1. How tailored will the app be to my business?',
+    answer: 'Not by supplying generic off-the-shelf scripts, but by engineering 100% white-label custom solutions have we earned the title of top On-demand app development company. Every application we design is 100% customized to your brand image, color palette, logo, and business workflow.'
+  },
+  {
+    id: 2,
+    question: '2. What is the scope of your mobility solutions in Uber-Like App Development?',
+    answer: 'Our mobility solutions cover ride-hailing taxi apps, parcel delivery dispatch, cloud kitchen food delivery, female safety rides, child safety transit, and caregiver booking platforms. We build cross-platform solutions for iOS, Android, and Web.'
+  },
+  {
+    id: 3,
+    question: '3. Do you provide complete source code and documentation?',
+    answer: 'Yes, we provide 100% source code ownership and end-to-end technical documentation, architectural blueprints, and API guides for all solutions developed by our engineering team.'
+  },
+  {
+    id: 4,
+    question: '4. Can you distribute my mobile app to the Play Store and App Store?',
+    answer: 'Yes! We handle the entire publication process, including Apple App Store and Google Play Store submission guidelines, review approvals, and zero-downtime deployment.'
+  },
+  {
+    id: 5,
+    question: '5. What technologies do you use for ride-sharing app development?',
+    answer: 'We use Node.js, WebSockets, Flutter, React Native, Kotlin, Swift, PostGIS PostgreSQL, Firebase, and AWS Cloud to ensure sub-second GPS tracking, high scalability, and bank-grade data encryption.'
+  },
+  {
+    id: 6,
+    question: '6. What makes Sapphire Software Solutions a trusted Uber-like app developer?',
+    answer: 'With 23+ years of IT expertise, 1,500+ successful projects, and 2,800+ global clients across USA, UK, UAE, and Canada, we deliver robust, high-performance mobility apps backed by 24/7 SLA support.'
+  },
+  {
+    id: 7,
+    question: '7. What features are included in your Uber clone app solutions?',
+    answer: 'Our Uber clone apps include rider booking, driver dispatch, real-time GPS tracking, surge pricing, fare estimation, multi-payment gateways, ratings & reviews, heat maps, and a central super admin dashboard.'
+  },
+  {
+    id: 8,
+    question: '8. How long does it take to build a custom Uber-like app?',
+    answer: 'We typically deliver an MVP within 10–12 weeks, and a full enterprise multi-city dispatch solution within 4 to 6 months.'
+  },
+  {
+    id: 9,
+    question: '9. What engagement models do you offer for Uber-like app projects?',
+    answer: 'We offer flexible models including Dedicated Developer Teams, Fixed Price Contracts, Time & Material hourly contracts, and SLA Maintenance Buckets.'
+  }
+];
+
+export const SapphireFaqSection = ({
+  faqList = androidFaqList,
+  subtitle = "We listen to query and provide solutions that captivate users. Feel free to contact us in case of any query which is not mention below."
+}) => {
   const [openId, setOpenId] = useState(1);
 
   const toggleFaq = (id) => {
@@ -106,13 +233,19 @@ export const SapphireFaqSection = () => {
       {/* Centered White Heading & Subtitle */}
       <div className="text-center max-w-4xl mx-auto px-4 sm:px-6 mb-6 sm:mb-8 space-y-2">
         <h2
-          className="font-[800] text-white tracking-tight leading-tight"
-          style={{ fontSize: '34px' }}
+          className="font-[800] text-white tracking-tight leading-tight section-content-title"
+          style={{
+            fontFamily: "'Poppins', sans-serif",
+            fontWeight: 800,
+            fontSize: '34px',
+            lineHeight: '41px',
+            color: '#FFFFFF'
+          }}
         >
           Frequently Asked Questions
         </h2>
         <p className="text-[13px] sm:text-[14px] text-blue-100 font-normal leading-relaxed max-w-2xl mx-auto opacity-95">
-          We Listen To Query And Provide Solutions That Captivate Users. Feel Free To Contact Us In Case Of Any Query Which Is Not Mention Below.
+          {subtitle}
         </p>
       </div>
 
@@ -190,17 +323,20 @@ export const SapphireFaqSection = () => {
               </div>
             </div>
 
-            {/* Right Column: Interactive FAQ Accordion List (1 to 8) */}
+            {/* Right Column: Interactive FAQ Accordion List */}
             <div className="lg:col-span-7 space-y-0 text-left font-sans">
-              {androidFaqList.map((faq) => {
-                const isOpen = openId === faq.id;
+              {faqList.map((faq, index) => {
+                const id = faq.id || index + 1;
+                const questionText = faq.question || faq.q || '';
+                const answerText = faq.answer || faq.a || '';
+                const isOpen = openId === id;
                 return (
                   <div
-                    key={faq.id}
+                    key={id}
                     className="border-b border-slate-200/80 py-3.5 first:pt-0 last:border-b-0 transition-colors"
                   >
                     <button
-                      onClick={() => toggleFaq(faq.id)}
+                      onClick={() => toggleFaq(id)}
                       className="w-full text-left flex items-start justify-between space-x-3 group cursor-pointer focus:outline-none"
                     >
                       <h3
@@ -208,14 +344,14 @@ export const SapphireFaqSection = () => {
                           isOpen ? 'text-[#005F96]' : 'text-[#0F172A] group-hover:text-[#005F96]'
                         }`}
                       >
-                        {faq.question}
+                        {questionText}
                       </h3>
                     </button>
 
                     {/* Expandable Answer */}
                     {isOpen && (
                       <div className="pt-2.5 pb-1 text-[12px] sm:text-[13px] text-[#475569] font-normal leading-[1.68] transition-all">
-                        {faq.answer}
+                        {answerText}
                       </div>
                     )}
                   </div>

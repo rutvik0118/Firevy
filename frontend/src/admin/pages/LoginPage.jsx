@@ -93,9 +93,9 @@ export const LoginPage = () => {
               src="/firevy_logo_dark.png"
               alt="Firevy.co"
               style={{
-                height: '38px',
+                height: '42px',
                 width: 'auto',
-                maxWidth: '180px',
+                maxWidth: '200px',
                 margin: '0 auto',
                 objectFit: 'contain',
                 display: 'block'

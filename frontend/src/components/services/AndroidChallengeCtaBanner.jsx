@@ -22,7 +22,17 @@ export const AndroidChallengeCtaBanner = ({
       {/* Centered Content */}
       <div className="relative z-10 w-full max-w-5xl px-4 sm:px-8 mx-auto text-center space-y-3.5">
         {/* Main Title */}
-        <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-extrabold text-white tracking-tight font-sans leading-tight">
+        <h2
+          className="text-white tracking-tight"
+          style={{
+            fontFamily: "'Poppins', sans-serif",
+            fontStyle: 'normal',
+            fontWeight: 700,
+            fontSize: '34px',
+            lineHeight: '41px',
+            color: 'rgb(255, 255, 255)'
+          }}
+        >
           {title}
         </h2>
 
