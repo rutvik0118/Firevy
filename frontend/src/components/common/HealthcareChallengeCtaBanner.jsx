@@ -21,7 +21,17 @@ export const HealthcareChallengeCtaBanner = ({
       {/* Full Width Edge-to-Edge Content Container */}
       <div className="relative z-10 w-full max-w-full px-4 sm:px-8 lg:px-12 mx-auto text-center space-y-2">
         {/* Main Title */}
-        <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-extrabold text-white tracking-tight font-sans leading-tight">
+        <h2
+          className="text-white tracking-tight"
+          style={{
+            fontFamily: "'Poppins', sans-serif",
+            fontStyle: 'normal',
+            fontWeight: 700,
+            fontSize: '34px',
+            lineHeight: '41px',
+            color: 'rgb(255, 255, 255)'
+          }}
+        >
           {title}
         </h2>
 

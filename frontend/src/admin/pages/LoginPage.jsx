@@ -84,7 +84,6 @@ export const LoginPage = () => {
         }}
       >
         <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-<<<<<<< HEAD
           <Link
             to="/"
             title="Firevy.co"
@@ -94,9 +93,9 @@ export const LoginPage = () => {
               src="/firevy_logo_dark.png"
               alt="Firevy.co"
               style={{
-                height: '38px',
+                height: '42px',
                 width: 'auto',
-                maxWidth: '180px',
+                maxWidth: '200px',
                 margin: '0 auto',
                 objectFit: 'contain',
                 display: 'block'
@@ -115,21 +114,6 @@ export const LoginPage = () => {
           >
             Admin Management Portal
           </h2>
-=======
-          <Link to="/" style={{ display: 'inline-block', marginBottom: '0.75rem' }}>
-            <img
-              src="/firevy_logo_dark.png"
-              alt="firevy.co"
-              style={{
-                height: '46px',
-                width: 'auto',
-                maxWidth: '220px',
-                objectFit: 'contain',
-                margin: '0 auto'
-              }}
-            />
-          </Link>
->>>>>>> bb37771cb477c9f866579ae567ca998f22679827
 
           <p
             style={{

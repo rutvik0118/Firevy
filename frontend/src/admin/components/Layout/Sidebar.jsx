@@ -215,7 +215,6 @@ export const Sidebar = ({ isCollapsed, onToggleCollapse, isMobileOpen, onCloseMo
           title="Firevy.co Admin Panel"
         >
           {!isCollapsed ? (
-<<<<<<< HEAD
             <div className="brand-logo-full">
               <img
                 src="/firevy_logo_dark.png"
@@ -241,31 +240,6 @@ export const Sidebar = ({ isCollapsed, onToggleCollapse, isMobileOpen, onCloseMo
                 className="brand-icon-img brand-icon-img-dark"
               />
             </div>
-=======
-            <img
-              src="/firevy_logo_dark.png"
-              alt="firevy.co"
-              style={{
-                height: '32px',
-                width: 'auto',
-                maxWidth: '145px',
-                objectFit: 'contain',
-                display: 'block'
-              }}
-            />
-          ) : (
-            <img
-              src="/favicon.png"
-              alt="firevy"
-              style={{
-                height: '28px',
-                width: '28px',
-                borderRadius: '6px',
-                objectFit: 'contain',
-                display: 'block'
-              }}
-            />
->>>>>>> bb37771cb477c9f866579ae567ca998f22679827
           )}
         </NavLink>
 

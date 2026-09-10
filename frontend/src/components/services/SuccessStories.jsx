@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import Container from '../common/Container';
 
-export const SuccessStories = () => {
+export const SuccessStories = ({ subtitle }) => {
   const [activeCategory, setActiveCategory] = useState('Automotive');
   const impactCarouselRef = useRef(null);
   const [isImpactHovered, setIsImpactHovered] = useState(false);
@@ -52,17 +52,17 @@ export const SuccessStories = () => {
       {
         id: 'auto-1',
         title: 'Vehicle Data Logging Software',
-        image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop&q=80'
+        image: '/assets/portfolio/vehicle_logging.jpg'
       },
       {
         id: 'auto-2',
         title: 'Car Wash App Development',
-        image: 'https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?w=800&auto=format&fit=crop&q=80'
+        image: '/assets/portfolio/car_wash.jpg'
       },
       {
         id: 'auto-3',
         title: 'Taxi Booking-App Development',
-        image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=800&auto=format&fit=crop&q=80'
+        image: '/assets/portfolio/taxi_booking.jpg'
       }
     ],
     Ecommerce: [
@@ -245,8 +245,8 @@ export const SuccessStories = () => {
         {/* Section Heading & Subtitle */}
         <div className="text-center max-w-4xl mx-auto mb-8 sm:mb-10 space-y-2">
           <h2
-            className="font-[800] text-[#0B0F19] tracking-tight leading-tight"
-            style={{ fontSize: '32px' }}
+            className="text-[#0B0F19] tracking-tight"
+            style={{ fontSize: '34px', fontWeight: 800, lineHeight: '51px' }}
           >
             Industry-Focused Insights To Elevate Your Business
           </h2>
@@ -254,23 +254,25 @@ export const SuccessStories = () => {
             className="font-normal text-[#475569]"
             style={{ fontSize: '15px' }}
           >
-            Trending Industries that Use Android App Development
+            {subtitle || 'Trending Industries that Use Mobile App Development'}
           </p>
         </div>
 
         {/* Large Rounded Category Navigation Box (2 Rows) with fully functional active state switching */}
-        <div className="bg-[#F0F8FD] rounded-[16px] p-3 sm:p-4 max-w-5xl mx-auto mb-10 sm:mb-12 border border-[#E2F1F8] flex flex-col gap-2.5 shadow-xs">
+        <div className="bg-[#F0F8FD] rounded-[16px] p-3 sm:p-4 max-w-[1140px] mx-auto mb-10 sm:mb-12 border border-[#E2F1F8] flex flex-col gap-2.5 shadow-xs">
           {/* Row 1 */}
-          <div className="flex flex-wrap items-center justify-center gap-2">
+          <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2.5">
             {categoriesRow1.map((cat) => (
               <button
                 key={cat}
                 type="button"
                 onClick={() => setActiveCategory(cat)}
-                className={`px-4 sm:px-5 py-2 rounded-[8px] text-xs sm:text-[13px] font-[700] transition-all cursor-pointer ${activeCategory === cat
+                style={{ fontSize: '16px', fontWeight: activeCategory === cat ? 700 : 400, lineHeight: '24px' }}
+                className={`px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-[8px] whitespace-nowrap transition-all cursor-pointer ${
+                  activeCategory === cat
                     ? 'bg-[#005F96] text-white shadow-xs'
                     : 'bg-white text-[#334155] hover:text-[#005F96] hover:bg-slate-50 border border-slate-100/80 shadow-2xs'
-                  }`}
+                }`}
               >
                 {cat}
               </button>
@@ -278,16 +280,18 @@ export const SuccessStories = () => {
           </div>
 
           {/* Row 2 */}
-          <div className="flex flex-wrap items-center justify-center gap-2">
+          <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2.5">
             {categoriesRow2.map((cat) => (
               <button
                 key={cat}
                 type="button"
                 onClick={() => setActiveCategory(cat)}
-                className={`px-5 sm:px-6 py-2 rounded-[8px] text-xs sm:text-[13px] font-[700] transition-all cursor-pointer ${activeCategory === cat
+                style={{ fontSize: '16px', fontWeight: activeCategory === cat ? 700 : 400, lineHeight: '24px' }}
+                className={`px-4.5 sm:px-6 py-1.5 sm:py-2 rounded-[8px] whitespace-nowrap transition-all cursor-pointer ${
+                  activeCategory === cat
                     ? 'bg-[#005F96] text-white shadow-xs'
                     : 'bg-white text-[#334155] hover:text-[#005F96] hover:bg-slate-50 border border-slate-100/80 shadow-2xs'
-                  }`}
+                }`}
               >
                 {cat}
               </button>

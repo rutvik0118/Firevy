@@ -12,6 +12,7 @@ import BrandLogoGrid from '../components/home/BrandLogoGrid';
 import ClientReviewsDarkSection from '../components/home/ClientReviewsDarkSection';
 import FeaturedInLogosGrid from '../components/home/FeaturedInLogosGrid';
 import WorkTogetherNewsletterSection from '../components/home/WorkTogetherNewsletterSection';
+import VideoTestimonialsStory from '../components/home/VideoTestimonialsStory';
 import companyPublicService from '../services/companyPublicService';
 import { ArrowRight, Play, X, ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -264,21 +265,21 @@ export const InsightfulVideos = () => {
       <section className="py-16 md:py-24 bg-white text-slate-900 font-sans border-b border-slate-100">
         <Container>
           
-<<<<<<< HEAD
-          <div className="text-center max-w-4xl mx-auto mb-10">
-            <h2 className="text-[32px] sm:text-[42px] font-[800] text-slate-900 tracking-tight leading-tight mb-3 font-sans">
+          <div className="text-center max-w-4xl mx-auto mb-8">
+            <h2
+              className="tracking-tight mb-3 font-sans text-slate-900"
+              style={{
+                fontFamily: "'Poppins', sans-serif",
+                fontStyle: 'normal',
+                fontWeight: 700,
+                fontSize: '34px',
+                lineHeight: '41px'
+              }}
+            >
               {sectionData?.contentSections?.[0]?.title || 'Unveiling Our Innovative Solution'}
             </h2>
-            <p className="text-[15px] sm:text-[16px] text-slate-600 leading-relaxed font-sans font-[400] max-w-3xl mx-auto mb-8">
+            <p className="text-[15px] sm:text-[16px] text-slate-600 leading-relaxed font-sans font-[400] max-w-3xl mx-auto mb-6">
               {sectionData?.contentSections?.[0]?.content || "From cutting-edge technology to revolutionary concepts, get ready to be inspired and intrigued. This is more than just a video - it's a glimpse into the future of innovation."}
-=======
-          <div className="text-center max-w-4xl mx-auto mb-3">
-            <h2 className="text-[32px] sm:text-[40px] font-[800] text-slate-900 tracking-tight leading-tight mb-3 font-sans">
-              Unveiling Our Innovative Solution
-            </h2>
-            <p className="text-[14.5px] sm:text-[15.5px] text-slate-600 leading-relaxed font-sans font-[400] max-w-3xl mx-auto mb-6">
-              From cutting-edge technology to revolutionary concepts, get ready to be inspired and intrigued. This is more than just a video - it's a glimpse into the future of innovation.
->>>>>>> bb37771cb477c9f866579ae567ca998f22679827
             </p>
 
             <h3 className="text-[22px] font-[800] text-[#006B8F] font-sans tracking-tight mb-2">
@@ -563,74 +564,7 @@ export const InsightfulVideos = () => {
       {/* ============================================================
           4. "Our Story, Their Words" - Screenshot 3
           ============================================================ */}
-      <section className="py-16 md:py-24 bg-[#EAF4FA] text-slate-900 font-sans border-b border-slate-200">
-        <Container>
-          
-          <div className="text-center max-w-4xl mx-auto mb-12">
-            <h2 className="text-[32px] sm:text-[42px] font-[900] text-slate-900 tracking-tight leading-tight mb-3 font-sans">
-              Our Story, Their Words
-            </h2>
-            <p className="text-[15px] sm:text-[16px] text-slate-600 leading-relaxed font-sans font-[400] max-w-3xl mx-auto">
-              From satisfied clients to enthusiastic users, each testimonial shares a unique perspective on the impact and value of our solution. Get inspired as you listen to authentic voices that showcase the true essence of our project's impact.
-            </p>
-          </div>
-
-          {/* Story Slider Container */}
-          <div className="relative max-w-6xl mx-auto">
-            <div
-              ref={storyScrollRef}
-              className="flex items-stretch space-x-6 overflow-x-auto no-scrollbar scroll-smooth py-4 px-2"
-            >
-              {storyTestimonials.map((item) => (
-                <div
-                  key={item.id}
-                  onClick={() => setActiveVideoModal('/Best Software Development Company in USA - Sapphire Software Sol.mp4')}
-                  className="w-[280px] sm:w-[320px] shrink-0 bg-white rounded-[16px] overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300 group cursor-pointer flex flex-col justify-between"
-                >
-                  <div className="bg-gradient-to-br from-[#0284C7] via-[#006B8F] to-[#0F172A] pt-8 pb-6 px-4 relative flex items-center justify-center overflow-hidden">
-                    <svg viewBox="0 0 400 120" className="absolute bottom-0 left-0 w-full h-16 pointer-events-none opacity-40" preserveAspectRatio="none">
-                      <path d="M0,40 C150,90 250,10 400,60 L400,120 L0,120 Z" fill="#38BDF8" />
-                    </svg>
-
-                    <div className="relative z-10 w-28 h-28 rounded-full border-4 border-white/90 shadow-md overflow-hidden bg-slate-100 shrink-0">
-                      <img src={item.avatar} alt={item.name} className="w-full h-full object-cover" />
-                    </div>
-                  </div>
-
-                  <div className="bg-[#F4F9FC] p-5 flex-1 flex items-center justify-between space-x-3 border-t border-slate-200/80">
-                    <p className="text-[13.5px] font-[700] text-slate-800 leading-snug font-sans text-left">
-                      {item.quote}
-                    </p>
-                    <div className="w-9 h-9 rounded-full bg-[#006B8F] group-hover:bg-[#004D68] text-white flex items-center justify-center shrink-0 shadow-md">
-                      <Play className="w-3.5 h-3.5 fill-current ml-0.5" />
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Slider Navigation Arrows */}
-            <div className="flex items-center justify-center space-x-4 mt-6">
-              <button
-                type="button"
-                onClick={() => scrollStory('left')}
-                className="w-10 h-10 rounded-full bg-white border border-slate-300 shadow-md text-slate-700 hover:bg-[#006B8F] hover:text-white transition-colors flex items-center justify-center"
-              >
-                <ChevronLeft className="w-5 h-5" />
-              </button>
-              <button
-                type="button"
-                onClick={() => scrollStory('right')}
-                className="w-10 h-10 rounded-full bg-white border border-slate-300 shadow-md text-slate-700 hover:bg-[#006B8F] hover:text-white transition-colors flex items-center justify-center"
-              >
-                <ChevronRight className="w-5 h-5" />
-              </button>
-            </div>
-
-          </div>
-
-        </Container>
-      </section>
+      <VideoTestimonialsStory />
 
       {/* ============================================================
           5. OUR PREMIUM SERVICES (Screenshot 4)

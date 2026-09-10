@@ -111,13 +111,8 @@ const caseStudiesList = [
 export const DigitalTransformationCaseStudies = ({ data }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-<<<<<<< HEAD
   const title = data?.title || 'Digital Transformation Case Studies';
   const description = data?.description || 'Discover how we partner with industry pioneers to deliver bespoke web, mobile, and cloud software engineering.';
-=======
-  const title = data?.title || 'Digital Transformation Through Innovation and Collective Knowledge';
-  const description = data?.description || 'At Sapphire, we have a dedicated development team to deliver IT services and create solutions that surpass expectations.';
->>>>>>> bb37771cb477c9f866579ae567ca998f22679827
 
   const caseStudies = (data?.caseStudies && Array.isArray(data.caseStudies) && data.caseStudies.filter(c => c.isActive !== false).length > 0)
     ? data.caseStudies.filter(c => c.isActive !== false)
