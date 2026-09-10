@@ -264,21 +264,12 @@ export const InsightfulVideos = () => {
       <section className="py-16 md:py-24 bg-white text-slate-900 font-sans border-b border-slate-100">
         <Container>
           
-<<<<<<< HEAD
           <div className="text-center max-w-4xl mx-auto mb-10">
             <h2 className="text-[32px] sm:text-[42px] font-[800] text-slate-900 tracking-tight leading-tight mb-3 font-sans">
               {sectionData?.contentSections?.[0]?.title || 'Unveiling Our Innovative Solution'}
             </h2>
             <p className="text-[15px] sm:text-[16px] text-slate-600 leading-relaxed font-sans font-[400] max-w-3xl mx-auto mb-8">
               {sectionData?.contentSections?.[0]?.content || "From cutting-edge technology to revolutionary concepts, get ready to be inspired and intrigued. This is more than just a video - it's a glimpse into the future of innovation."}
-=======
-          <div className="text-center max-w-4xl mx-auto mb-3">
-            <h2 className="text-[32px] sm:text-[40px] font-[800] text-slate-900 tracking-tight leading-tight mb-3 font-sans">
-              Unveiling Our Innovative Solution
-            </h2>
-            <p className="text-[14.5px] sm:text-[15.5px] text-slate-600 leading-relaxed font-sans font-[400] max-w-3xl mx-auto mb-6">
-              From cutting-edge technology to revolutionary concepts, get ready to be inspired and intrigued. This is more than just a video - it's a glimpse into the future of innovation.
->>>>>>> bb37771cb477c9f866579ae567ca998f22679827
             </p>
 
             <h3 className="text-[22px] font-[800] text-[#006B8F] font-sans tracking-tight mb-2">

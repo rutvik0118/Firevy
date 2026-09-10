@@ -60,23 +60,19 @@ export const Header = () => {
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.1, ease: 'easeOut' }}
-            className={`hidden lg:block border-b text-[12px] font-sans overflow-hidden transition-colors duration-300 ${
-              location.pathname === '/'
-                ? 'bg-[#011422] border-[#072439] text-slate-300'
-                : 'bg-[#F4F7F9] border-slate-200 text-slate-700'
-            }`}
+            className="hidden lg:block border-b border-[#072439] bg-[#011422] text-slate-300 text-[12px] font-sans overflow-hidden transition-colors duration-300"
           >
             <div className="w-full px-6 lg:px-10 py-1.5 flex items-center justify-between">
               {/* Sales Phone Numbers */}
               <div className="flex items-center space-x-6">
                 <a href="tel:+17542587670" className="flex items-center space-x-2 hover:text-cyan-400 transition-colors">
                   <span className="text-[13px]">🇺🇸</span>
-                  <span className={location.pathname === '/' ? 'text-slate-400' : 'text-slate-500'}>For Sales:</span>
+                  <span className="text-slate-400">For Sales:</span>
                   <span className="font-semibold text-white">+1-754-258-7670</span>
                 </a>
                 <a href="tel:+919429709662" className="flex items-center space-x-2 hover:text-cyan-400 transition-colors">
                   <span className="text-[13px]">🇮🇳</span>
-                  <span className={location.pathname === '/' ? 'text-slate-400' : 'text-slate-500'}>For Sales:</span>
+                  <span className="text-slate-400">For Sales:</span>
                   <span className="font-semibold text-white">+91-942-970-9662</span>
                 </a>
               </div>
@@ -85,12 +81,12 @@ export const Header = () => {
               <div className="flex items-center space-x-6">
                 <span className="flex items-center space-x-1.5 font-medium text-slate-200">
                   <span className="text-cyan-400 font-bold text-xs">❖</span>
-                  <span>Sapphire Software Solutions</span>
+                  <span className="font-semibold">{BRAND.name || 'Firevy.co'}</span>
                 </span>
 
-                <a href="mailto:contact@sapphiresolutions.net" className="flex items-center space-x-1.5 text-slate-300 hover:text-cyan-400 transition-colors font-medium">
+                <a href={`mailto:${BRAND.contact?.email || 'contact@firevy.co'}`} className="flex items-center space-x-1.5 text-slate-300 hover:text-cyan-400 transition-colors font-medium">
                   <Mail className="w-3.5 h-3.5 text-red-400" />
-                  <span>contact@sapphiresolutions.net</span>
+                  <span>{BRAND.contact?.email || 'contact@firevy.co'}</span>
                 </a>
 
                 <Link to="/contact" className="flex items-center space-x-1.5 text-cyan-400 hover:text-cyan-300 font-bold transition-colors">

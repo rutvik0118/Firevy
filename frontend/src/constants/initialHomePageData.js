@@ -538,7 +538,13 @@ export const initialHomePageData = {
         { name: 'Node.js Development', link: '/services/node-js-development', isActive: true },
         { name: 'React Native App Development', link: '/services/react-native-development', isActive: true },
         { name: 'Flutter App Development', link: '/services/flutter-development', isActive: true },
-        { name: 'Cross Platform App Development', link: '/services/cross-platform-development', isActive: true }
+        { name: 'Cross Platform App Development', link: '/services/cross-platform-development', isActive: true },
+        { name: 'Drupal Development', link: '/services/drupal', isActive: true },
+        { name: 'Umbraco Development', link: '/services/umbraco', isActive: true },
+        { name: 'Sitecore Development', link: '/services/sitecore', isActive: true },
+        { name: 'Sitefinity Development', link: '/services/sitefinity', isActive: true },
+        { name: 'Magento Development', link: '/services/magento', isActive: true },
+        { name: 'Shopify Development', link: '/services/shopify', isActive: true }
       ]
     },
 
@@ -775,121 +781,74 @@ export const initialHomePageData = {
     videoTestimonialsStory: {
       isVisible: true,
       order: 18,
-<<<<<<< HEAD
       title: 'What Our Clients Have To Say',
-=======
-      title: 'Our Story, Their Words',
->>>>>>> bb37771cb477c9f866579ae567ca998f22679827
       description: "From satisfied clients to enthusiastic users, each testimonial shares a unique perspective on the impact and value of our solution. Get inspired as you listen to authentic voices that showcase the true essence of our project's impact.",
       testimonials: [
         {
           id: 1,
-<<<<<<< HEAD
           clientName: 'Andrew',
           company: 'Mobile Digital Diary',
           title: "Discover why Andrew trusted firevy.co with his mobile digital diary project : A Client's Honest Experience.",
           img: '/images/awards/hdimages/client_shay.webp',
           videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-=======
-          title: "Idea to Reality | Client's Success Story\nSapphire - Best Mobile App..",
-          img: '/images/awards/hdimages/client_seven.webp',
-          videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
->>>>>>> bb37771cb477c9f866579ae567ca998f22679827
           isActive: true
         },
         {
           id: 2,
-<<<<<<< HEAD
           clientName: 'Bruno',
           company: 'Healthcare Innovation Brazil',
           title: 'From Vision to Healthcare Innovation | Client Success With firevy.co - Top IT Company in Brazil',
           img: '/images/awards/hdimages/bruno.webp',
           videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-=======
-          title: "From Vision to Wellness | Client's Success\nStory with Sapphire - Top Mobile App..",
-          img: '/images/awards/hdimages/client_eight.webp',
-          videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
->>>>>>> bb37771cb477c9f866579ae567ca998f22679827
           isActive: true
         },
         {
           id: 3,
-<<<<<<< HEAD
           clientName: 'Enterprise Client',
           company: 'Mobile App Development',
           title: "From Idea to Reality | Client's Success Story with firevy.co - Best Mobile App Development Company",
           img: '/images/awards/hdimages/client_seven.webp',
           videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-=======
-          title: 'Hear out Tim got to say about working with\nTeam Sapphire on building a complex and..',
-          img: '/images/awards/hdimages/clienttestimonial3.webp',
-          videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
->>>>>>> bb37771cb477c9f866579ae567ca998f22679827
           isActive: true
         },
         {
           id: 4,
-<<<<<<< HEAD
           clientName: 'Wellness Founder',
           company: 'Digital Wellness App',
           title: "From Vision to Wellness | Client's Success Story with firevy.co - Top Mobile App Development Company",
           img: '/images/awards/hdimages/client_eight.webp',
           videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-=======
-          title: 'Testimonial from client who has expanded\ntheir business using Sapphire Services',
-          img: '/images/awards/hdimages/clienttestimonial2.webp',
-          videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
->>>>>>> bb37771cb477c9f866579ae567ca998f22679827
           isActive: true
         },
         {
           id: 5,
-<<<<<<< HEAD
           clientName: 'Tim',
           company: 'Complex Web Application',
           title: 'Hear out Tim got to say about working with Team firevy.co on building a complex and unique web application.',
           img: '/images/awards/hdimages/clienttestimonial3.webp',
           videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-=======
-          title: 'Discover why Andrew trusted Sapphire Software Solutions with his mobile digital diary..',
-          img: '/images/awards/hdimages/client_shay.webp',
-          videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
->>>>>>> bb37771cb477c9f866579ae567ca998f22679827
           isActive: true
         },
         {
           id: 6,
-<<<<<<< HEAD
           clientName: 'Business Expansion Client',
           company: 'Global Enterprise Services',
           title: 'Testimonial from client who has expanded their business using firevy.co Services',
           img: '/images/awards/hdimages/clienttestimonial2.webp',
           videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-=======
-          title: 'From Vision to Healthcare Innovation | Client Success With Sapphire - Top IT Company..',
-          img: '/images/awards/hdimages/bruno.webp',
-          videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
->>>>>>> bb37771cb477c9f866579ae567ca998f22679827
           isActive: true
         },
         {
           id: 7,
-<<<<<<< HEAD
           clientName: 'Pravin',
           company: 'Software Solutions Partner',
           title: 'Hear what Pravin has got to say about working with firevy.co',
           img: '/images/awards/hdimages/clienttestimonial1.webp',
           videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-=======
-          title: 'Hear what Pravin has got to say about working with Sapphire Software Solutions',
-          img: '/images/awards/hdimages/clienttestimonial1.webp',
-          videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
->>>>>>> bb37771cb477c9f866579ae567ca998f22679827
           isActive: true
         },
         {
           id: 8,
-<<<<<<< HEAD
           clientName: 'Canadian Enterprise Partner',
           company: 'Web & Mobile Solutions Canada',
           title: 'firevy.co Successfully Delivered Web & Mobile App Solutions - Leading IT Company in Canada',
@@ -913,11 +872,6 @@ export const initialHomePageData = {
           title: "From Vision to Education | Client's Success Story with firevy.co Solutions",
           img: '/images/awards/hdimages/vision_client.webp',
           videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-=======
-          title: 'Sapphire Successfully Delivered Web & Mobile App Solutions - Leading IT Company in Canada',
-          img: '/images/awards/hdimages/img_client2.webp',
-          videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
->>>>>>> bb37771cb477c9f866579ae567ca998f22679827
           isActive: true
         }
       ]
