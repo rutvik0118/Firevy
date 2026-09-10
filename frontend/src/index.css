@@ -146,22 +146,21 @@ html, body, #root {
 }
 
 /* Global Typography Standards */
-.page-hero-title {
+h2,
+.page-hero-title,
+.section-content-title,
+.section-heading-title {
+  font-family: 'Poppins', sans-serif !important;
   font-size: 34px !important;
   font-weight: 800 !important;
+  line-height: 41px !important;
 }
 
-.page-hero-desc {
+.page-hero-desc,
+.section-content-desc,
+.section-heading-desc {
+  font-family: 'Poppins', sans-serif !important;
   font-size: 15px !important;
   font-weight: 400 !important;
-}
-
-.section-content-title {
-  font-size: 40px !important;
-  font-weight: 800 !important;
-}
-
-.section-content-desc {
-  font-size: 15px !important;
-  font-weight: 400 !important;
+  line-height: 26px !important;
 }

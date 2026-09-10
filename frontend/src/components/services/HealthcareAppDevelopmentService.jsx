@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import SEO from '../common/SEO';
 import Container from '../common/Container';
-import ProcessWeFollow from '../common/ProcessWeFollow';
-import SuccessMatrix from '../common/SuccessMatrix';
+import WorkProcessGrid from '../home/WorkProcessGrid';
+import SuccessMatrixGrid from '../home/SuccessMatrixGrid';
 import TrustedBrandsGrid from '../common/TrustedBrandsGrid';
 import SapphireTechStackGrid from '../common/SapphireTechStackGrid';
 import BRAND from '../../constants/brand';
@@ -16,7 +16,7 @@ import InnovativeVideoSlider from '../common/InnovativeVideoSlider';
 import ClientStoryVideoSlider from '../common/ClientStoryVideoSlider';
 import FeaturedInMedia from '../common/FeaturedInMedia';
 import DigitalTransformationSlider from '../common/DigitalTransformationSlider';
-import SapphireFaqSection from '../common/SapphireFaqSection';
+import SapphireFaqSection, { healthcareFaqList } from '../common/SapphireFaqSection';
 import RecentBlogsSection from '../common/RecentBlogsSection';
 import WhatSetsUsApartSection from '../common/WhatSetsUsApartSection';
 import HealthcareChallengeCtaBanner from '../common/HealthcareChallengeCtaBanner';
@@ -183,40 +183,45 @@ const UpdatesSupportIcon = ({ className = "w-7 h-7" }) => (
 );
 
 // 1:1 Reference Match Hiring Models SVG Icon Components
-const FixedPriceIcon = ({ className = "w-7 h-7" }) => (
+const FixedPriceIcon = ({ className = "w-12 h-12" }) => (
   <svg viewBox="0 0 48 48" fill="none" className={className} xmlns="http://www.w3.org/2000/svg">
-    <path d="M 20 8 H 28 L 30 14 H 18 L 20 8 Z" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" fill="none" />
-    <path d="M 12 18 C 12 14, 36 14, 36 18 C 36 28, 38 38, 32 42 C 24 44, 16 42, 16 42 C 10 38, 12 28, 12 18 Z" stroke="currentColor" strokeWidth="2.5" strokeLinejoin="round" fill="none" />
-    <path d="M 24 24 V 34 M 20 27 C 20 24 28 24 28 27 C 28 31 20 31 20 34" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" opacity="0.9" />
+    <path d="M 20 10 C 20 8, 28 8, 28 10 L 30 15 H 18 L 20 10 Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" fill="none" />
+    <path d="M 17 15 H 31" stroke="currentColor" strokeWidth="1.5" />
+    <path d="M 14 19 C 12 28, 14 40, 24 40 C 34 40, 36 28, 34 19 C 34 16, 14 16, 14 19 Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" fill="none" />
+    <text x="24" y="32" textAnchor="middle" fontSize="15" fontWeight="bold" fill="currentColor" fontFamily="sans-serif">$</text>
   </svg>
 );
 
-const TimeMaterialIcon = ({ className = "w-7 h-7" }) => (
+const TimeMaterialIcon = ({ className = "w-12 h-12" }) => (
   <svg viewBox="0 0 48 48" fill="none" className={className} xmlns="http://www.w3.org/2000/svg">
-    <circle cx="25" cy="26" r="13" stroke="currentColor" strokeWidth="2.5" fill="none" />
-    <path d="M 25 19 V 26 L 30 29" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
-    <path d="M 22 7 H 28 M 25 7 V 11" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
-    <path d="M 8 18 H 14 M 6 26 H 10 M 8 34 H 14" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
+    <circle cx="26" cy="27" r="12" stroke="currentColor" strokeWidth="2" fill="none" />
+    <path d="M 26 20 V 27 L 31 30" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    <path d="M 23 8 H 29 M 26 8 V 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+    <path d="M 10 14 L 14 17" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+    <path d="M 7 21 H 11 M 7 28 H 11 M 9 35 L 13 32" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
   </svg>
 );
 
-const DedicatedTeamIcon = ({ className = "w-7 h-7" }) => (
+const DedicatedTeamIcon = ({ className = "w-12 h-12" }) => (
   <svg viewBox="0 0 48 48" fill="none" className={className} xmlns="http://www.w3.org/2000/svg">
-    <circle cx="24" cy="14" r="5" stroke="currentColor" strokeWidth="2.5" />
-    <path d="M 14 34 C 14 26, 34 26, 34 34" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" fill="none" />
-    <circle cx="12" cy="18" r="3.5" stroke="currentColor" strokeWidth="2" />
-    <path d="M 6 34 C 6 29, 16 28, 16 34" stroke="currentColor" strokeWidth="2" strokeLinecap="round" fill="none" />
-    <circle cx="36" cy="18" r="3.5" stroke="currentColor" strokeWidth="2" />
-    <path d="M 32 34 C 32 28, 42 29, 42 34" stroke="currentColor" strokeWidth="2" strokeLinecap="round" fill="none" />
+    <circle cx="24" cy="14" r="4.5" stroke="currentColor" strokeWidth="2" />
+    <path d="M 16 32 C 16 25, 32 25, 32 32" stroke="currentColor" strokeWidth="2" strokeLinecap="round" fill="none" />
+    <circle cx="13" cy="18" r="3.5" stroke="currentColor" strokeWidth="1.8" />
+    <path d="M 7 33 C 7 28, 17 28, 17 33" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" fill="none" />
+    <circle cx="35" cy="18" r="3.5" stroke="currentColor" strokeWidth="1.8" />
+    <path d="M 31 33 C 31 28, 41 28, 41 33" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" fill="none" />
   </svg>
 );
 
-const BucketsApproachIcon = ({ className = "w-7 h-7" }) => (
+const BucketsApproachIcon = ({ className = "w-12 h-12" }) => (
   <svg viewBox="0 0 48 48" fill="none" className={className} xmlns="http://www.w3.org/2000/svg">
-    <circle cx="18" cy="20" r="7" stroke="currentColor" strokeWidth="2.5" strokeDasharray="3 3" fill="none" />
-    <circle cx="32" cy="28" r="6" stroke="currentColor" strokeWidth="2.5" strokeDasharray="3 3" fill="none" />
-    <circle cx="18" cy="20" r="3" fill="currentColor" />
-    <circle cx="32" cy="28" r="2.5" fill="currentColor" />
+    <circle cx="19" cy="19" r="6.5" stroke="currentColor" strokeWidth="2" fill="none" />
+    <circle cx="19" cy="19" r="2" stroke="currentColor" strokeWidth="1.5" fill="none" />
+    <path d="M 19 10 V 12.5 M 19 25.5 V 28 M 10 19 H 12.5 M 25.5 19 H 28 M 12.5 12.5 L 14.5 14.5 M 23.5 23.5 L 25.5 25.5 M 25.5 12.5 L 23.5 14.5 M 14.5 23.5 L 12.5 25.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+    
+    <circle cx="32" cy="30" r="5" stroke="currentColor" strokeWidth="1.8" fill="none" />
+    <circle cx="32" cy="30" r="1.5" stroke="currentColor" strokeWidth="1.2" fill="none" />
+    <path d="M 32 23.5 V 25 M 32 35 V 36.5 M 25.5 30 H 27 M 37 30 H 38.5 M 27.5 25.5 L 28.5 26.5 M 35.5 33.5 L 36.5 34.5 M 36.5 25.5 L 35.5 26.5 M 28.5 33.5 L 27.5 34.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
   </svg>
 );
 
@@ -323,7 +328,7 @@ export const HealthcareAppDevelopmentService = () => {
     {
       title: 'Fixed Price',
       icon: FixedPriceIcon,
-      bgColor: 'bg-[#F3E8FF] text-[#9333EA]',
+      iconColor: 'text-[#9333EA]',
       desc: 'If you represent a company with a project that needs dedicated attention, ask about dedicated teams. It\'s a pay-as-you-go monthly rolling contract.',
       features: [
         'Optimal flexibility',
@@ -335,7 +340,7 @@ export const HealthcareAppDevelopmentService = () => {
     {
       title: 'Time Material',
       icon: TimeMaterialIcon,
-      bgColor: 'bg-[#DCFCE7] text-[#16A34A]',
+      iconColor: 'text-[#16A34A]',
       desc: 'If you are represent a company with undefined projects and need ongoing work, ask about hourly. It\'s a pay-as-you-go hour-wise rolling contract.',
       features: [
         'No hidden costs',
@@ -347,7 +352,7 @@ export const HealthcareAppDevelopmentService = () => {
     {
       title: 'Dedicated Team',
       icon: DedicatedTeamIcon,
-      bgColor: 'bg-[#FFEDD5] text-[#EA580C]',
+      iconColor: 'text-[#EA580C]',
       desc: 'If you represent a company with a project that needs dedicated attention, ask about dedicated teams. It\'s a pay-as-you-go monthly rolling contract.',
       features: [
         'No hidden costs',
@@ -359,7 +364,7 @@ export const HealthcareAppDevelopmentService = () => {
     {
       title: 'Buckets Approach',
       icon: BucketsApproachIcon,
-      bgColor: 'bg-[#E0F2FE] text-[#0284C7]',
+      iconColor: 'text-[#0284C7]',
       desc: 'A lot of businesses typically select our bucket approach which allow them for payment convenience once the project is finished and things are in place.',
       features: [
         'Direct Resource Monitoring',
@@ -540,59 +545,48 @@ export const HealthcareAppDevelopmentService = () => {
       {/* Brand Logo Marquee Right Below Hero Banner */}
       <BrandLogoMarquee />
 
-      {/* On-Demand Healthcare App Development Services Showcase (Exact Sapphire 1:1 Reference Match) */}
-      <section className="py-20 bg-white border-b border-slate-200 text-left overflow-hidden">
+      {/* On-Demand Healthcare App Development Services Showcase (1:1 Reference Match) */}
+      <section className="py-16 md:py-20 bg-white border-b border-slate-200 text-left overflow-hidden">
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             {/* Left Visual Vector Graphic (Exact Reference Image Asset Match) */}
             <div className="lg:col-span-6 flex justify-center">
-              <div className="relative w-full max-w-[540px] flex items-center justify-center">
+              <div className="relative w-full max-w-[540px]">
                 <img
                   src="/images/services/healthcare-ondemand-illustration.jpg"
                   alt="On-Demand Healthcare App Development Services Illustration"
-                  className="w-full h-auto object-contain rounded-2xl drop-shadow-md hover:scale-[1.01] transition-transform duration-300"
+                  className="w-full h-auto object-contain"
                 />
               </div>
             </div>
 
-            {/* Right Text Content (Exact Sapphire Reference Font Styling & Text) */}
-            <div className="lg:col-span-6 space-y-5">
-              <h2 className="text-2xl sm:text-[32px] lg:text-[36px] font-[700] text-slate-900 tracking-tight leading-[1.25]">
+            {/* Right Text Content (Exact Reference Font Styling & Text) */}
+            <div className="lg:col-span-6 space-y-4">
+              <h2
+                className="text-slate-900 tracking-tight section-content-title"
+                style={{
+                  fontFamily: "'Poppins', sans-serif",
+                  fontStyle: 'normal',
+                  fontWeight: 800,
+                  fontSize: '34px',
+                  lineHeight: '41px'
+                }}
+              >
                 On-Demand Healthcare App Development Services
               </h2>
 
-              <div className="space-y-4 text-slate-600 text-[15px] leading-[1.7] font-[400]">
-                <p>
-                  Our AI-powered healthcare mobile application development streamlines clinical, administrative, and financial processes. As a Best healthcare app development company, we provide healthcare application development services that assist startups, hospitals, medtech companies, private clinics, and pharmacies in designing, developing, and marketing mobile and online Health solutions.
-                </p>
-
-                <p>
-                  Our bespoke healthcare app solutions enable customers to provide safer, more efficient, and effective care while also adhering to stringent industry regulations like HIPAA.
-                </p>
-              </div>
-
-              {/* Quick Trust Pillars */}
-              <div className="grid grid-cols-2 gap-3 pt-2">
-                <div className="p-3.5 rounded-xl bg-[#F4F8FA] border border-slate-200/90 flex items-center space-x-3">
-                  <div className="w-8 h-8 rounded-lg bg-blue-50 text-[#005F96] flex items-center justify-center font-bold text-sm shrink-0">
-                    🔒
-                  </div>
-                  <div>
-                    <span className="text-xs font-bold text-slate-900 block">100% HIPAA Compliant</span>
-                    <span className="text-[10px] text-slate-500">Bank-Grade Encryption</span>
-                  </div>
-                </div>
-
-                <div className="p-3.5 rounded-xl bg-[#F4F8FA] border border-slate-200/90 flex items-center space-x-3">
-                  <div className="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-sm shrink-0">
-                    ⚡
-                  </div>
-                  <div>
-                    <span className="text-xs font-bold text-slate-900 block">AI Triage & Diagnostics</span>
-                    <span className="text-[10px] text-slate-500">Real-Time Patient Alerts</span>
-                  </div>
-                </div>
-              </div>
+              <p
+                className="text-slate-600 section-content-desc"
+                style={{
+                  fontFamily: "'Poppins', sans-serif",
+                  fontStyle: 'normal',
+                  fontWeight: 400,
+                  fontSize: '15px',
+                  lineHeight: '26px'
+                }}
+              >
+                Our AI-powered healthcare mobile application development streamlines clinical, administrative, and financial processes. As a Best healthcare app development company, we provide healthcare application development services that assist startups, hospitals, medtech companies, private clinics, and pharmacies in designing, developing, and marketing mobile and online Health solutions. Our bespoke healthcare app solutions enable customers to provide safer, more efficient, and effective care while also adhering to stringent industry regulations like HIPAA.
+              </p>
             </div>
           </div>
         </Container>
@@ -603,16 +597,43 @@ export const HealthcareAppDevelopmentService = () => {
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             {/* Left Column: Title & Text */}
-            <div className="lg:col-span-6 space-y-6">
-              <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-extrabold text-slate-900 tracking-tight leading-[1.25] font-sans">
+            <div className="lg:col-span-6 space-y-5">
+              <h2
+                className="text-slate-900 tracking-tight section-content-title"
+                style={{
+                  fontFamily: "'Poppins', sans-serif",
+                  fontStyle: 'normal',
+                  fontWeight: 800,
+                  fontSize: '34px',
+                  lineHeight: '41px'
+                }}
+              >
                 Brief About Healthcare App Development
               </h2>
 
-              <p className="text-slate-600 text-[15px] sm:text-[16px] leading-[1.75] font-normal font-sans">
+              <p
+                className="text-slate-600 section-content-desc"
+                style={{
+                  fontFamily: "'Poppins', sans-serif",
+                  fontStyle: 'normal',
+                  fontWeight: 400,
+                  fontSize: '15px',
+                  lineHeight: '26px'
+                }}
+              >
                 As a Top medical app development company, we include the best features while developing a healthcare app. Patients and physicians will be able to quickly access and modify their medical records and the user profiles are the most effective approach to managing this information. A patient application that allows patients to provide feedback on any part of medical treatment or other procedures inspires confidence.
               </p>
 
-              <p className="text-slate-600 text-[15px] sm:text-[16px] leading-[1.75] font-normal font-sans">
+              <p
+                className="text-slate-600 section-content-desc"
+                style={{
+                  fontFamily: "'Poppins', sans-serif",
+                  fontStyle: 'normal',
+                  fontWeight: 400,
+                  fontSize: '15px',
+                  lineHeight: '26px'
+                }}
+              >
                 Chat becomes an integral component of the app development process for healthcare due to the ability to send photographs and documents that aid the physician in better understanding the patient. A push notification function in mobile healthcare applications for patients is greatly sought after and significantly promotes doctor-patient connection.
               </p>
             </div>
@@ -639,7 +660,16 @@ export const HealthcareAppDevelopmentService = () => {
         <Container>
           {/* Centered Heading */}
           <div className="text-center mb-8 sm:mb-10">
-            <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-extrabold text-slate-900 tracking-tight font-sans">
+            <h2
+              className="text-slate-900 tracking-tight section-content-title"
+              style={{
+                fontFamily: "'Poppins', sans-serif",
+                fontStyle: 'normal',
+                fontWeight: 800,
+                fontSize: '34px',
+                lineHeight: '41px'
+              }}
+            >
               What Exactly Is Healthcare App Development?
             </h2>
           </div>
@@ -688,12 +718,30 @@ export const HealthcareAppDevelopmentService = () => {
             </div>
 
             {/* Right Detailed Text Paragraphs */}
-            <div className="lg:col-span-7 space-y-4 text-[#555555] text-[14px] sm:text-[15px] leading-[1.75] font-[400] font-sans">
-              <p>
+            <div className="lg:col-span-7 space-y-4">
+              <p
+                className="text-[#555555] section-content-desc"
+                style={{
+                  fontFamily: "'Poppins', sans-serif",
+                  fontStyle: 'normal',
+                  fontWeight: 400,
+                  fontSize: '15px',
+                  lineHeight: '26px'
+                }}
+              >
                 Healthcare App Development Services include features like telemedicine, medical coding, and billing to improve the operational management of healthcare professionals. These might assist a person in better managing their illness or guide health enthusiasts toward their wellness objectives. Moreover, these apps may also be designed for healthcare professionals in addition to patients. A nice interface is a key criterion that substantially influences an app's popularity. It is not sufficient for mobile apps to be helpful; they must also be simple.
               </p>
 
-              <p>
+              <p
+                className="text-[#555555] section-content-desc"
+                style={{
+                  fontFamily: "'Poppins', sans-serif",
+                  fontStyle: 'normal',
+                  fontWeight: 400,
+                  fontSize: '15px',
+                  lineHeight: '26px'
+                }}
+              >
                 As a Healthcare Development Company in the USA, we know what it take to create a healthcare app using the latest technologies. Health Care Mobile App streamlines medical procedures and has the potential to enhance the patient experience dramatically. With, Healthcare App Development, the data accessibility is better, remote health care is expanded, medical mistakes are decreased, costs are lowered, and communication is enhanced, to name a few benefits.
               </p>
             </div>
@@ -709,10 +757,28 @@ export const HealthcareAppDevelopmentService = () => {
         <Container>
           {/* Centered Title & Subtitle */}
           <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-12 space-y-3">
-            <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-extrabold text-slate-900 tracking-tight font-sans">
+            <h2
+              className="text-slate-900 tracking-tight section-content-title"
+              style={{
+                fontFamily: "'Poppins', sans-serif",
+                fontStyle: 'normal',
+                fontWeight: 800,
+                fontSize: '34px',
+                lineHeight: '41px'
+              }}
+            >
               The Expertise Of Our Healthcare App Development
             </h2>
-            <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed max-w-3xl mx-auto font-sans">
+            <p
+              className="text-slate-600 section-content-desc max-w-3xl mx-auto"
+              style={{
+                fontFamily: "'Poppins', sans-serif",
+                fontStyle: 'normal',
+                fontWeight: 400,
+                fontSize: '15px',
+                lineHeight: '26px'
+              }}
+            >
               We use the latest technology and methods to develop healthcare app for business of different types and sizes.
             </p>
           </div>
@@ -773,7 +839,17 @@ export const HealthcareAppDevelopmentService = () => {
           <div className="flex flex-col lg:flex-row items-center justify-between gap-6 lg:gap-10 max-w-6xl mx-auto text-left relative z-10">
             {/* Left Section Heading */}
             <div className="lg:w-4/12 text-center lg:text-left">
-              <h2 className="text-2xl sm:text-3xl lg:text-[32px] font-extrabold text-white leading-[1.2] font-sans tracking-tight">
+              <h2
+                className="text-white tracking-tight section-content-title"
+                style={{
+                  fontFamily: "'Poppins', sans-serif",
+                  fontStyle: 'normal',
+                  fontWeight: 800,
+                  fontSize: '34px',
+                  lineHeight: '41px',
+                  color: '#FFFFFF'
+                }}
+              >
                 Proud To Have Picked These Up Along The Way
               </h2>
             </div>
@@ -825,10 +901,28 @@ export const HealthcareAppDevelopmentService = () => {
         <Container>
           {/* Centered Title & Subtitle */}
           <div className="text-center max-w-4xl mx-auto mb-12 sm:mb-14 space-y-3">
-            <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-extrabold text-slate-900 tracking-tight font-sans">
+            <h2
+              className="text-slate-900 tracking-tight section-content-title"
+              style={{
+                fontFamily: "'Poppins', sans-serif",
+                fontStyle: 'normal',
+                fontWeight: 800,
+                fontSize: '34px',
+                lineHeight: '41px'
+              }}
+            >
               Benefits of Healthcare App Development Services
             </h2>
-            <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed max-w-3xl mx-auto font-sans">
+            <p
+              className="text-slate-600 section-content-desc max-w-3xl mx-auto"
+              style={{
+                fontFamily: "'Poppins', sans-serif",
+                fontStyle: 'normal',
+                fontWeight: 400,
+                fontSize: '15px',
+                lineHeight: '26px'
+              }}
+            >
               Use Healthcare App Development Services to transform medical treatment and operations. Here are the advantages of hiring a healthcare app developer:
             </p>
           </div>
@@ -868,10 +962,28 @@ export const HealthcareAppDevelopmentService = () => {
         <Container>
           {/* Centered Heading & Subtitle */}
           <div className="text-center max-w-4xl mx-auto mb-12 sm:mb-14 space-y-3">
-            <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-extrabold text-slate-900 tracking-tight font-sans">
+            <h2
+              className="text-slate-900 tracking-tight section-content-title"
+              style={{
+                fontFamily: "'Poppins', sans-serif",
+                fontStyle: 'normal',
+                fontWeight: 800,
+                fontSize: '34px',
+                lineHeight: '41px'
+              }}
+            >
               Business Friendly Hiring Models : Building Greater Futures Through Innovation
             </h2>
-            <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed max-w-3xl mx-auto font-sans">
+            <p
+              className="text-slate-600 section-content-desc max-w-3xl mx-auto"
+              style={{
+                fontFamily: "'Poppins', sans-serif",
+                fontStyle: 'normal',
+                fontWeight: 400,
+                fontSize: '15px',
+                lineHeight: '26px'
+              }}
+            >
               We offer three different types of hiring models that are designed to suit your diverse needs and budget. Take a look at our hiring models:
             </p>
           </div>
@@ -883,29 +995,29 @@ export const HealthcareAppDevelopmentService = () => {
               return (
                 <div
                   key={idx}
-                  className="p-6 sm:p-7 rounded-2xl bg-white border border-slate-100 shadow-[0_6px_25px_rgba(0,0,0,0.04)] hover:shadow-[0_12px_35px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col justify-between group"
+                  className="p-6 sm:p-7 rounded-2xl bg-white border border-slate-100 shadow-[0_6px_25px_rgba(0,0,0,0.04)] hover:shadow-[0_12px_35px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col justify-between"
                 >
-                  <div className="space-y-4">
-                    {/* Pastel Icon Box */}
-                    <div className={`w-12 h-12 rounded-xl ${item.bgColor} flex items-center justify-center mx-auto sm:mx-0 shrink-0 group-hover:scale-105 transition-transform duration-300`}>
-                      <IconComp className="w-7 h-7" />
+                  <div className="flex flex-col items-center">
+                    {/* Standalone Outline Icon (No background pastel box) */}
+                    <div className={`mb-4 flex items-center justify-center ${item.iconColor}`}>
+                      <IconComp className="w-12 h-12" />
                     </div>
 
                     {/* Title */}
-                    <h3 className="text-lg sm:text-xl font-bold text-slate-900 font-sans group-hover:text-[#005F96] transition-colors">
+                    <h3 className="text-lg sm:text-xl font-bold text-slate-900 font-sans text-center mb-3">
                       {item.title}
                     </h3>
 
                     {/* Verbatim Description */}
-                    <p className="text-xs sm:text-[13.5px] text-slate-600 leading-[1.65] font-normal font-sans">
+                    <p className="text-xs sm:text-[13.5px] text-slate-600 leading-[1.65] font-normal font-sans text-center mb-6">
                       {item.desc}
                     </p>
 
                     {/* Features List with Blue Checkmarks */}
-                    <ul className="space-y-2 pt-2 border-t border-slate-100 text-xs sm:text-[13px] text-slate-700 font-normal font-sans">
+                    <ul className="w-full space-y-2.5 text-xs sm:text-[13px] text-slate-700 font-normal font-sans text-left mb-6">
                       {item.features.map((feat, fIdx) => (
                         <li key={fIdx} className="flex items-start space-x-2">
-                          <span className="text-[#005F96] font-extrabold text-sm shrink-0">✓</span>
+                          <span className="text-[#005F96] font-bold text-sm shrink-0">✓</span>
                           <span>{feat}</span>
                         </li>
                       ))}
@@ -913,10 +1025,10 @@ export const HealthcareAppDevelopmentService = () => {
                   </div>
 
                   {/* Hire Now Button */}
-                  <div className="pt-6 text-center sm:text-left">
+                  <div className="text-center pt-2">
                     <a
                       href="#quote-form"
-                      className="px-6 py-2.5 bg-[#005F96] hover:bg-[#004b78] text-white font-extrabold text-xs sm:text-sm rounded-lg shadow-sm hover:shadow-md transition-all duration-300 inline-block w-full text-center font-sans cursor-pointer"
+                      className="px-8 py-2.5 bg-[#005F96] hover:bg-[#004b78] text-white font-bold text-xs sm:text-sm rounded-md shadow-sm hover:shadow-md transition-all duration-300 inline-block font-sans cursor-pointer"
                     >
                       Hire Now
                     </a>
@@ -931,8 +1043,8 @@ export const HealthcareAppDevelopmentService = () => {
       {/* Unveiling Our Innovative Solution - Auto Moving Video Slider Section (Exact 1:1 Reference Match) */}
       <InnovativeVideoSlider />
 
-      {/* Process We Follow - 8-Step Timeline Flow Section (Exact 1:1 Reference Match) */}
-      <ProcessWeFollow />
+      {/* Process We Follow - Home Page Version */}
+      <WorkProcessGrid />
 
       {/* Our Story, Their Words - Client Video Testimonials Slider Section (Exact 1:1 Reference Match) */}
       <ClientStoryVideoSlider />
@@ -940,8 +1052,8 @@ export const HealthcareAppDevelopmentService = () => {
       {/* Trusted By The World's Leading Brands - 24 White Cards Logo Grid Section (Exact 1:1 Reference Match) */}
       <TrustedBrandsGrid />
 
-      {/* Success Matrix - 12 White Cards Grid Section (Exact 1:1 Reference Match) */}
-      <SuccessMatrix />
+      {/* Success Matrix - Home Page Version */}
+      <SuccessMatrixGrid />
 
       {/* Technology Stack We Use For Healthcare App Development Section (Exact 1:1 Reference Match) */}
       <SapphireTechStackGrid domainName="healthcare" richTechCategories={techCategories} />
@@ -953,7 +1065,7 @@ export const HealthcareAppDevelopmentService = () => {
       <DigitalTransformationSlider />
 
       {/* Frequently Asked Questions - Sapphire Signature 2-Column FAQ Section (Exact 1:1 Reference Match) */}
-      <SapphireFaqSection />
+      <SapphireFaqSection faqList={healthcareFaqList} />
 
       {/* Our Recent Blogs - 3 Card Grid Section (Exact 1:1 Reference Match) */}
       <RecentBlogsSection />

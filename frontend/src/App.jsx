@@ -130,6 +130,36 @@ export function App() {
                 <Route path="/blog" element={<CompanySubDetails />} />
                 <Route path="/services" element={<Services />} />
                 <Route path="/services/:slug" element={<ServiceDetails />} />
+                <Route path="/services/wordpress" element={<ServiceDetails />} />
+                <Route path="/wordpress" element={<ServiceDetails />} />
+                <Route path="/wordpress-development" element={<ServiceDetails />} />
+                <Route path="/hire-wordpress-developers" element={<ServiceDetails />} />
+                <Route path="/services/drupal" element={<ServiceDetails />} />
+                <Route path="/drupal" element={<ServiceDetails />} />
+                <Route path="/drupal-development" element={<ServiceDetails />} />
+                <Route path="/hire-drupal-developers" element={<ServiceDetails />} />
+                <Route path="/services/umbraco" element={<ServiceDetails />} />
+                <Route path="/umbraco" element={<ServiceDetails />} />
+                <Route path="/umbraco-development" element={<ServiceDetails />} />
+                <Route path="/hire-umbraco-developers" element={<ServiceDetails />} />
+                <Route path="/services/sitecore" element={<ServiceDetails />} />
+                <Route path="/sitecore" element={<ServiceDetails />} />
+                <Route path="/sitecore-development" element={<ServiceDetails />} />
+                <Route path="/hire-sitecore-developers" element={<ServiceDetails />} />
+                <Route path="/services/sitefinity" element={<ServiceDetails />} />
+                <Route path="/sitefinity" element={<ServiceDetails />} />
+                <Route path="/sitefinity-development" element={<ServiceDetails />} />
+                <Route path="/hire-sitefinity-developers" element={<ServiceDetails />} />
+                <Route path="/services/magento" element={<ServiceDetails />} />
+                <Route path="/magento" element={<ServiceDetails />} />
+                <Route path="/magento-development" element={<ServiceDetails />} />
+                <Route path="/adobe-commerce" element={<ServiceDetails />} />
+                <Route path="/hire-magento-developers" element={<ServiceDetails />} />
+                <Route path="/services/shopify" element={<ServiceDetails />} />
+                <Route path="/shopify" element={<ServiceDetails />} />
+                <Route path="/shopify-development" element={<ServiceDetails />} />
+                <Route path="/shopify-plus" element={<ServiceDetails />} />
+                <Route path="/hire-shopify-developers" element={<ServiceDetails />} />
                 <Route path="/iwatch-app-development" element={<ServiceDetails />} />
                 <Route path="/technologies" element={<Technologies />} />
                 <Route path="/portfolio" element={<Portfolio />} />

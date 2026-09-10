@@ -538,7 +538,13 @@ export const initialHomePageData = {
         { name: 'Node.js Development', link: '/services/node-js-development', isActive: true },
         { name: 'React Native App Development', link: '/services/react-native-development', isActive: true },
         { name: 'Flutter App Development', link: '/services/flutter-development', isActive: true },
-        { name: 'Cross Platform App Development', link: '/services/cross-platform-development', isActive: true }
+        { name: 'Cross Platform App Development', link: '/services/cross-platform-development', isActive: true },
+        { name: 'Drupal Development', link: '/services/drupal', isActive: true },
+        { name: 'Umbraco Development', link: '/services/umbraco', isActive: true },
+        { name: 'Sitecore Development', link: '/services/sitecore', isActive: true },
+        { name: 'Sitefinity Development', link: '/services/sitefinity', isActive: true },
+        { name: 'Magento Development', link: '/services/magento', isActive: true },
+        { name: 'Shopify Development', link: '/services/shopify', isActive: true }
       ]
     },
 
