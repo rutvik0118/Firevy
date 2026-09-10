@@ -8,19 +8,20 @@ import TrustedBrandsGrid from '../common/TrustedBrandsGrid';
 import SapphireTechStackGrid from '../common/SapphireTechStackGrid';
 import SuccessStoriesSection from '../common/SuccessStoriesSection';
 import SuccessStories from './SuccessStories';
+import IOSTechnologyCombinationsSection from './IOSTechnologyCombinationsSection';
 import AboutUsStats from './AboutUsStats';
+import IOSTransformativeImpactSection from './IOSTransformativeImpactSection';
 import SectorsThrivingSection from './SectorsThrivingSection';
-import KeyReasonsChooseAndroid from './KeyReasonsChooseAndroid';
+import IOSBenefitsSection from './IOSBenefitsSection';
 import BestAndroidAppCompanyShowcase from './BestAndroidAppCompanyShowcase';
 import AndroidTechStackSection from './AndroidTechStackSection';
-import AndroidExpertiseServices from './AndroidExpertiseServices';
+import IOSExpertiseServices from './IOSExpertiseServices';
+import IOSAwardsMarqueeBanner from './IOSAwardsMarqueeBanner';
 import ProudAwardsBanner from './ProudAwardsBanner';
 import AndroidCompanyBenefits from './AndroidCompanyBenefits';
 import AndroidHiringModels from './AndroidHiringModels';
-import AndroidComparativeAnalysis from './AndroidComparativeAnalysis';
 import InnovativeSolutionsVideoSection from './InnovativeSolutionsVideoSection';
 import OurStoryTheirWordsSection from './OurStoryTheirWordsSection';
-import WhatOurClientsSaySection from './WhatOurClientsSaySection';
 import FeaturedInBrandsSection from './FeaturedInBrandsSection';
 import DigitalTransformationSlider from '../common/DigitalTransformationSlider';
 import SapphireFaqSection from '../common/SapphireFaqSection';
@@ -60,12 +61,12 @@ export const IOSAppDevelopmentService = () => {
   const [expertTabs, setExpertTabs] = useState({ 0: 'tech', 1: 'tech', 2: 'tech', 3: 'tech', 4: 'tech', 5: 'tech' });
   const [expertCarouselIndex, setExpertCarouselIndex] = useState(0);
 
-  // Auto-scroll technology cards every 3 seconds (pauses on hover)
+  // Auto-scroll technology cards every 2.5 seconds (pauses on hover)
   useEffect(() => {
     if (isTechHovered) return;
     const interval = setInterval(() => {
       setTechCarouselIndex((prev) => (prev >= 5 ? 0 : prev + 1));
-    }, 3000);
+    }, 2500);
     return () => clearInterval(interval);
   }, [isTechHovered]);
 
@@ -405,186 +406,7 @@ export const IOSAppDevelopmentService = () => {
       <BrandLogoMarquee />
 
       {/* =========================================================================
-          MOBILE APP MARKET STATS & MARKET SIZE SECTION
-          ========================================================================= */}
-      <section className="py-8 sm:py-10 bg-white text-slate-900 font-sans text-left">
-        <Container>
-          <div className="space-y-6 sm:space-y-8">
-
-            {/* ROW 1: Chart Left + Content Right */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
-              {/* Left Column: Bar Chart Graphic */}
-              <div className="lg:col-span-6 flex justify-center">
-                <div className="w-full max-w-[480px] rounded-xl bg-[#F4F8FA] border border-slate-200/90 p-3.5 sm:p-4 shadow-sm transition-all duration-300 ease-out hover:scale-105 hover:shadow-2xl hover:shadow-[#005F96]/15 hover:border-[#005F96]/50 cursor-pointer group">
-                  {/* Chart Title */}
-                  <h4 className="text-[11px] sm:text-[12px] font-bold text-slate-800 text-center mb-2 group-hover:text-[#005F96] transition-colors">
-                    Mobile App Market Stats, By Industry IN($Bn), From 2017 To 2025
-                  </h4>
-
-                  {/* SVG Bar Chart Visualization */}
-                  <div className="w-full h-32 sm:h-36 relative flex items-end justify-between px-1 pt-2 pb-4 border-b border-slate-200 transition-transform duration-300 ease-out group-hover:scale-[1.03]">
-                    {/* Y-Axis Grid Lines & Labels */}
-                    <div className="absolute inset-0 flex flex-col justify-between pointer-events-none text-[7px] text-slate-400 select-none pb-4">
-                      <div className="flex items-center space-x-1.5 w-full"><span className="w-5 text-right">700</span><div className="w-full border-b border-slate-200/60" /></div>
-                      <div className="flex items-center space-x-1.5 w-full"><span className="w-5 text-right">500</span><div className="w-full border-b border-slate-200/60" /></div>
-                      <div className="flex items-center space-x-1.5 w-full"><span className="w-5 text-right">300</span><div className="w-full border-b border-slate-200/60" /></div>
-                      <div className="flex items-center space-x-1.5 w-full"><span className="w-5 text-right">100</span><div className="w-full border-b border-slate-200/60" /></div>
-                      <div className="flex items-center space-x-1.5 w-full"><span className="w-5 text-right">0</span><div className="w-full border-b border-slate-200/60" /></div>
-                    </div>
-
-                    {/* Bars Container */}
-                    <div className="relative z-10 w-full flex items-end justify-between pl-6 pr-1 space-x-1">
-                      {[
-                        { year: '2017', val: '174.53', h: '28%' },
-                        { year: '2018', val: '218.14', h: '35%' },
-                        { year: '2019', val: '253.14', h: '41%' },
-                        { year: '2020', val: '318.02', h: '51%' },
-                        { year: '2021', val: '387.65', h: '62%' },
-                        { year: '2022', val: '435.19', h: '70%' },
-                        { year: '2023', val: '497.58', h: '80%' },
-                        { year: '2024', val: '563.13', h: '90%' },
-                        { year: '2025', val: '610.40', h: '98%' },
-                      ].map((item, idx) => (
-                        <div key={idx} className="flex-1 flex flex-col items-center group/bar relative transition-all duration-200 hover:scale-110 hover:-translate-y-1.5 cursor-pointer">
-                          {/* Value above bar */}
-                          <span className="text-[6px] sm:text-[6.5px] font-semibold text-slate-700 leading-none mb-0.5 group-hover/bar:text-[#005F96] group-hover/bar:font-bold">
-                            {item.val}
-                          </span>
-                          {/* Stacked Bar */}
-                          <div
-                            className="w-full max-w-[22px] rounded-t-xs overflow-hidden flex flex-col justify-end shadow-xs transition-all duration-200 group-hover/bar:brightness-110 group-hover/bar:shadow-lg"
-                            style={{ height: item.h }}
-                          >
-                            <div className="w-full h-[12%] bg-[#F59E0B]" />
-                            <div className="w-full h-[14%] bg-[#EC4899]" />
-                            <div className="w-full h-[18%] bg-[#8B5CF6]" />
-                            <div className="w-full h-[22%] bg-[#3B82F6]" />
-                            <div className="w-full h-[34%] bg-[#004A75]" />
-                          </div>
-                          {/* Year label below */}
-                          <span className="text-[6.5px] sm:text-[7.5px] font-medium text-slate-500 mt-1 leading-none group-hover/bar:text-slate-900 group-hover/bar:font-bold">
-                            {item.year}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Chart Legend Grid */}
-                  <div className="grid grid-cols-5 gap-x-1.5 gap-y-1 pt-2.5 text-[6.5px] sm:text-[7.5px] text-slate-600">
-                    <div className="flex items-center space-x-1"><span className="w-1.5 h-1.5 rounded-xs bg-[#004A75]" /><span>Total</span></div>
-                    <div className="flex items-center space-x-1"><span className="w-1.5 h-1.5 rounded-xs bg-[#3B82F6]" /><span className="truncate">Photo & Video</span></div>
-                    <div className="flex items-center space-x-1"><span className="w-1.5 h-1.5 rounded-xs bg-[#8B5CF6]" /><span>Medical</span></div>
-                    <div className="flex items-center space-x-1"><span className="w-1.5 h-1.5 rounded-xs bg-[#EC4899]" /><span className="truncate">Productivity</span></div>
-                    <div className="flex items-center space-x-1"><span className="w-1.5 h-1.5 rounded-xs bg-[#F59E0B]" /><span>Utilities</span></div>
-                    <div className="flex items-center space-x-1"><span className="w-1.5 h-1.5 rounded-xs bg-[#10B981]" /><span>Games</span></div>
-                    <div className="flex items-center space-x-1"><span className="w-1.5 h-1.5 rounded-xs bg-[#06B6D4]" /><span className="truncate">Food & Drink</span></div>
-                    <div className="flex items-center space-x-1"><span className="w-1.5 h-1.5 rounded-xs bg-[#6366F1]" /><span>Shopping</span></div>
-                    <div className="flex items-center space-x-1"><span className="w-1.5 h-1.5 rounded-xs bg-[#F43F5E]" /><span>Education</span></div>
-                    <div className="flex items-center space-x-1"><span className="w-1.5 h-1.5 rounded-xs bg-[#84CC16]" /><span>Lifestyle</span></div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Right Column: Heading + Paragraph + Button */}
-              <div className="lg:col-span-6 space-y-2.5">
-                <h2 className="text-[22px] sm:text-[26px] lg:text-[28px] font-[800] text-[#0B0F19] tracking-tight leading-tight">
-                  Mobile App Market Stats
-                </h2>
-
-                <p className="text-[12.5px] sm:text-[13.5px] text-[#475569] leading-[1.55] font-normal max-w-md">
-                  The global mobile app market is expected to generate $610.40 billion in sales by 2025. With such enormous potential wealth comes a great deal of responsibility to adapt to changing.
-                </p>
-
-                <div className="pt-1">
-                  <a
-                    href="#quote-form"
-                    className="inline-flex items-center justify-center px-5 py-2.5 rounded-[4px] bg-[#005F96] hover:bg-[#004A75] text-white font-[700] text-[13px] transition-all shadow-xs"
-                  >
-                    Connect With An Expert
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            {/* ROW 2: Content Left + Donut Chart Right */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
-              {/* Left Column: Heading + Paragraph + Button */}
-              <div className="lg:col-span-6 space-y-2.5 order-2 lg:order-1">
-                <h2 className="text-[22px] sm:text-[26px] lg:text-[28px] font-[800] text-[#0B0F19] tracking-tight leading-tight">
-                  The Mobile Application<br />Development Market Size
-                </h2>
-
-                <p className="text-[12.5px] sm:text-[13.5px] text-[#475569] leading-[1.55] font-normal max-w-md">
-                  According to one study, there will be 4.74 billion smartphone users by the end of 2024, growing at a rate of 2.2% each year. When examining the rise in smartphone users between 2020 to 2025 , we find that the average yearly growth rate is 6.2%.
-                </p>
-
-                <div className="pt-1">
-                  <a
-                    href="#quote-form"
-                    className="inline-flex items-center justify-center px-5 py-2.5 rounded-[4px] bg-[#005F96] hover:bg-[#004A75] text-white font-[700] text-[13px] transition-all shadow-xs"
-                  >
-                    Connect With An Expert
-                  </a>
-                </div>
-              </div>
-
-              {/* Right Column: Donut Semicircle Chart Graphic */}
-              <div className="lg:col-span-6 flex justify-center order-1 lg:order-2">
-                <div className="w-full max-w-[480px] rounded-xl bg-[#F4F8FA] border border-slate-200/90 p-3.5 sm:p-4 shadow-sm flex flex-col items-center transition-all duration-300 ease-out hover:scale-105 hover:shadow-2xl hover:shadow-[#005F96]/15 hover:border-[#005F96]/50 cursor-pointer group">
-                  {/* Chart Title */}
-                  <h4 className="text-[11px] sm:text-[12px] font-bold text-slate-800 text-center mb-2 w-full group-hover:text-[#005F96] transition-colors">
-                    Number of Global Smartphone Users From 2020 To 2025
-                  </h4>
-
-                  {/* Semicircular Ring Donut Graphic */}
-                  <div className="relative w-56 h-28 sm:w-64 sm:h-32 flex items-end justify-center my-1 transition-transform duration-300 ease-out group-hover:scale-110">
-                    <svg viewBox="0 0 200 110" className="w-full h-full overflow-visible">
-                      {/* Cyan Outer Base Accent */}
-                      <path d="M 20 100 A 80 80 0 0 1 40 50" fill="none" stroke="#06B6D4" strokeWidth="24" strokeLinecap="butt" className="transition-all duration-200 hover:stroke-[27px] hover:brightness-110 cursor-pointer" />
-
-                      {/* Orange 2020 Segment (6.95) */}
-                      <path d="M 38 52 A 80 80 0 0 1 75 25" fill="none" stroke="#F97316" strokeWidth="24" strokeLinecap="butt" className="transition-all duration-200 hover:stroke-[27px] hover:brightness-110 cursor-pointer" />
-
-                      {/* Pink 2021 Segment (7.1) */}
-                      <path d="M 73 26 A 80 80 0 0 1 125 25" fill="none" stroke="#F472B6" strokeWidth="24" strokeLinecap="butt" className="transition-all duration-200 hover:stroke-[27px] hover:brightness-110 cursor-pointer" />
-
-                      {/* Yellow 2022 Segment (7.26) */}
-                      <path d="M 123 26 A 80 80 0 0 1 162 52" fill="none" stroke="#FBBF24" strokeWidth="24" strokeLinecap="butt" className="transition-all duration-200 hover:stroke-[27px] hover:brightness-110 cursor-pointer" />
-
-                      {/* Purple 2023-2025 Segment (7.33) */}
-                      <path d="M 160 50 A 80 80 0 0 1 180 100" fill="none" stroke="#8B5CF6" strokeWidth="24" strokeLinecap="butt" className="transition-all duration-200 hover:stroke-[27px] hover:brightness-110 cursor-pointer" />
-
-                      {/* Data Labels inside arcs */}
-                      <text x="56" y="58" fill="#1E293B" fontSize="8" fontWeight="800" textAnchor="middle" className="pointer-events-none select-none">6.95</text>
-                      <text x="100" y="42" fill="#1E293B" fontSize="8" fontWeight="800" textAnchor="middle" className="pointer-events-none select-none">7.1</text>
-                      <text x="144" y="58" fill="#1E293B" fontSize="8" fontWeight="800" textAnchor="middle" className="pointer-events-none select-none">7.26</text>
-                      <text x="168" y="85" fill="#1E293B" fontSize="8" fontWeight="800" textAnchor="middle" className="pointer-events-none select-none">7.33</text>
-
-                      {/* Year callout pointers */}
-                      {/* 2020 Label */}
-                      <line x1="28" y1="62" x2="10" y2="62" stroke="#64748B" strokeWidth="1" />
-                      <text x="6" y="65" fill="#475569" fontSize="7.5" fontWeight="600" textAnchor="end" className="pointer-events-none select-none">2020</text>
-
-                      {/* 2021 Label */}
-                      <line x1="88" y1="20" x2="88" y2="6" stroke="#64748B" strokeWidth="1" />
-                      <text x="88" y="2" fill="#475569" fontSize="7.5" fontWeight="600" textAnchor="middle" className="pointer-events-none select-none">2021</text>
-
-                      {/* 2022 Label */}
-                      <line x1="152" y1="26" x2="162" y2="12" stroke="#64748B" strokeWidth="1" />
-                      <text x="166" y="10" fill="#475569" fontSize="7.5" fontWeight="600" textAnchor="start" className="pointer-events-none select-none">2022</text>
-                    </svg>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </Container>
-      </section>
-
-      {/* =========================================================================
-          BRIEF ABOUT IOS APP DEVELOPERS SECTION (EXACT 1:1 MATCH)
+          BRIEF ABOUT OUR IOS APP DEVELOPERS SECTION (EXACT 1:1 MATCH)
           ========================================================================= */}
       <section className="py-8 sm:py-10 bg-white text-slate-900 font-sans text-left">
         <Container>
@@ -741,22 +563,327 @@ export const IOSAppDevelopmentService = () => {
                 className="font-[800] text-[#0B0F19] tracking-tight leading-[1.2]"
                 style={{ fontSize: '32px' }}
               >
-                Brief About iOS App<br className="hidden sm:inline" /> Developers
+                Brief About Our IOS App<br className="hidden sm:inline" /> Developers
               </h2>
 
               <p
                 className="font-normal text-[#475569]"
                 style={{ fontSize: '14px', lineHeight: '1.68' }}
               >
-                Our app development company for industry are passionate specialists who produce perfection every time. Their expertise and enthusiasm for innovation allow them to solve any problem and implement your ideas when delivering custom iOS app development services. Our AI iOS App Development Services ensures that your app is not only functional but also highly scalable and user-friendly, offering the best user experience across all Apple devices. Whether you're a startup, Top iOS developers for custom business apps or an enterprise Mobile App Development Agency for iOS is the key to unlocking digital success.
+                Hire iOS app developer who knows Swift and Objective-C, the main programming languages. They excel in writing clean, efficient code and troubleshooting complicated situations. As an iPhone app development company, our developers are innovative problem-solvers who love challenges. From brainstorming creative concepts to integrating cutting-edge features, we are the reputable iOS app development company for the best project results.
               </p>
 
               <p
                 className="font-normal text-[#475569]"
                 style={{ fontSize: '14px', lineHeight: '1.68' }}
               >
-                Our designers and developers collaborate to build beautiful, intuitive user interfaces adhering strictly to Apple's Human Interface Guidelines. They focus on user experience, making your software simple to use and seamless. Our programmers strive to write well-tested, error-free code in Swift and SwiftUI. As the Best iOS app development company for startups, we follow strict quality assurance standards to ensure your software works seamlessly across iPhones and iPads. If you're concerned about iOS app development cost, we offer flexible engagement models that suit your budget and business goals.
+                As a leading iOS mobile app development company, we guarantee your app meets the highest quality and performance requirements, they test and provide quality assurance using industry best practices. Overall, our iOS app developers are talented, collaborative, and dedicated to quality. They can implement your app ideas and help you reach your company goals with their experience and devotion.
               </p>
+            </div>
+
+          </div>
+        </Container>
+      </section>
+
+      {/* =========================================================================
+          MOBILE APP MARKET STATS & MARKET SIZE SECTION (COMPACT & SLEEK GRAPHS)
+          ========================================================================= */}
+      <section className="py-10 sm:py-14 bg-white text-slate-900 font-sans text-left">
+        <Container>
+          <div className="space-y-10 sm:space-y-14">
+
+            {/* ROW 1: Content Left + Compact Bar Chart Right */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+              {/* Left Column: Heading + Paragraph + Button */}
+              <div className="lg:col-span-7 space-y-3.5">
+                <h2 className="text-[26px] sm:text-[30px] lg:text-[32px] font-[800] text-[#0B0F19] tracking-tight leading-tight">
+                  Mobile App Market Stats
+                </h2>
+
+                <p className="text-[13px] sm:text-[14px] text-[#475569] leading-[1.65] font-normal max-w-lg">
+                  The global mobile application market size was valued at nearly USD 250.75 billion in 2023 and is projected to grow at a CAGR of 15% from 2024 to 2030.
+                </p>
+
+                <div className="pt-1.5">
+                  <a
+                    href="#quote-form"
+                    className="inline-flex items-center justify-center px-5 py-2.5 rounded-[4px] bg-[#005F96] hover:bg-[#004A75] text-white font-[700] text-[13px] sm:text-[13.5px] transition-all shadow-xs"
+                  >
+                    Connect With An Expert
+                  </a>
+                </div>
+              </div>
+
+              {/* Right Column: Compact & Premium 100% SVG Bar Chart Graphic */}
+              <div className="lg:col-span-5 flex justify-center lg:justify-end relative z-10">
+                <div className="w-full max-w-[420px] rounded-xl bg-[#F4F8FA] border border-slate-200/80 p-4 shadow-sm transition-all duration-300 ease-out hover:scale-[1.12] sm:hover:scale-[1.16] hover:shadow-2xl hover:shadow-slate-500/25 hover:border-[#005F96]/40 hover:z-30 cursor-pointer group bg-opacity-100">
+                  {/* Chart Title */}
+                  <div className="flex items-center justify-between mb-2">
+                    <h4 className="text-[11.5px] font-bold text-slate-800 group-hover:text-[#005F96] transition-colors">
+                      Mobile Application Market Size
+                    </h4>
+                    <span className="text-[9px] font-semibold text-slate-400 bg-white px-2 py-0.5 rounded-full border border-slate-200/60 shadow-2xs">2020-2030</span>
+                  </div>
+
+                  {/* 100% SVG Stacked Bar Chart Visualization */}
+                  <div className="w-full relative flex items-center justify-center pt-1 pb-1">
+                    <svg viewBox="0 0 400 170" className="w-full h-auto overflow-visible select-none">
+                      <defs>
+                        {/* Gradient Fills */}
+                        <linearGradient id="googleGrad" x1="0" y1="1" x2="0" y2="0">
+                          <stop offset="0%" stopColor="#1E3A8A" />
+                          <stop offset="100%" stopColor="#2563EB" />
+                        </linearGradient>
+                        <linearGradient id="appleGrad" x1="0" y1="1" x2="0" y2="0">
+                          <stop offset="0%" stopColor="#0284C7" />
+                          <stop offset="100%" stopColor="#38BDF8" />
+                        </linearGradient>
+                        <linearGradient id="othersGrad" x1="0" y1="1" x2="0" y2="0">
+                          <stop offset="0%" stopColor="#06B6D4" />
+                          <stop offset="100%" stopColor="#67E8F9" />
+                        </linearGradient>
+                        <filter id="badgeShadow" x="-20%" y="-20%" width="140%" height="140%">
+                          <feDropShadow dx="0" dy="2" stdDeviation="2" floodOpacity="0.25" />
+                        </filter>
+                      </defs>
+
+                      {/* Horizontal Gridlines */}
+                      <line x1="25" y1="30" x2="395" y2="30" stroke="#CBD5E1" strokeWidth="0.8" strokeDasharray="3 3" opacity="0.6" />
+                      <line x1="25" y1="65" x2="395" y2="65" stroke="#CBD5E1" strokeWidth="0.8" strokeDasharray="3 3" opacity="0.6" />
+                      <line x1="25" y1="100" x2="395" y2="100" stroke="#CBD5E1" strokeWidth="0.8" strokeDasharray="3 3" opacity="0.6" />
+                      <line x1="25" y1="135" x2="395" y2="135" stroke="#94A3B8" strokeWidth="1" />
+
+                      {/* Y-Axis Reference Markers */}
+                      <text x="20" y="33" fill="#94A3B8" fontSize="6.5" fontWeight="600" textAnchor="end">$600B</text>
+                      <text x="20" y="68" fill="#94A3B8" fontSize="6.5" fontWeight="600" textAnchor="end">$400B</text>
+                      <text x="20" y="103" fill="#94A3B8" fontSize="6.5" fontWeight="600" textAnchor="end">$200B</text>
+                      <text x="20" y="137" fill="#94A3B8" fontSize="6.5" fontWeight="600" textAnchor="end">$0</text>
+
+                      {/* Stacked Bars (11 Years: 2020 to 2030) */}
+                      {[
+                        { year: '2020', x: 48, g: 12, a: 11, o: 6, tag: false },
+                        { year: '2021', x: 81, g: 15, a: 14, o: 8, tag: false },
+                        { year: '2022', x: 114, g: 19, a: 18, o: 9, tag: false },
+                        { year: '2023', x: 147, g: 24, a: 23, o: 11, tag: true },
+                        { year: '2024', x: 180, g: 29, a: 28, o: 13, tag: false },
+                        { year: '2025', x: 213, g: 35, a: 34, o: 15, tag: false },
+                        { year: '2026', x: 246, g: 41, a: 40, o: 17, tag: false },
+                        { year: '2027', x: 279, g: 47, a: 45, o: 19, tag: false },
+                        { year: '2028', x: 312, g: 52, a: 50, o: 21, tag: false },
+                        { year: '2029', x: 345, g: 56, a: 54, o: 23, tag: false },
+                        { year: '2030', x: 378, g: 60, a: 57, o: 25, tag: false }
+                      ].map((bar, i) => {
+                        const totalH = bar.g + bar.a + bar.o;
+                        const barW = 15;
+                        const xLeft = bar.x - barW / 2;
+                        const baseY = 135;
+
+                        const googleY = baseY - bar.g;
+                        const appleY = googleY - bar.a;
+                        const othersY = appleY - bar.o;
+
+                        return (
+                          <g key={i} className="transition-all duration-200 hover:opacity-90 cursor-pointer">
+                            {/* Google Store (Bottom segment) */}
+                            <rect
+                              x={xLeft}
+                              y={googleY}
+                              width={barW}
+                              height={bar.g}
+                              fill="url(#googleGrad)"
+                            />
+
+                            {/* Apple Store (Middle segment) */}
+                            <rect
+                              x={xLeft}
+                              y={appleY}
+                              width={barW}
+                              height={bar.a}
+                              fill="url(#appleGrad)"
+                            />
+
+                            {/* Others (Top segment with rounded cap) */}
+                            <rect
+                              x={xLeft}
+                              y={othersY}
+                              width={barW}
+                              height={bar.o}
+                              rx="2.5"
+                              fill="url(#othersGrad)"
+                            />
+
+                            {/* Year Label */}
+                            <text
+                              x={bar.x}
+                              y="146"
+                              fill="#64748B"
+                              fontSize="7"
+                              fontWeight="600"
+                              textAnchor="middle"
+                            >
+                              {bar.year}
+                            </text>
+
+                            {/* 2023 $250.75 B Floating Callout Badge */}
+                            {bar.tag && (
+                              <g transform={`translate(${bar.x}, ${othersY - 14})`} filter="url(#badgeShadow)">
+                                <rect
+                                  x="-23"
+                                  y="-8"
+                                  width="46"
+                                  height="13"
+                                  rx="3"
+                                  fill="#005F96"
+                                />
+                                <polygon points="-3,5 3,5 0,8" fill="#005F96" />
+                                <text
+                                  x="0"
+                                  y="1"
+                                  fill="#FFFFFF"
+                                  fontSize="6.5"
+                                  fontWeight="800"
+                                  textAnchor="middle"
+                                >
+                                  $250.75 B
+                                </text>
+                              </g>
+                            )}
+                          </g>
+                        );
+                      })}
+
+                      {/* Bottom Legend */}
+                      <g transform="translate(115, 164)">
+                        {/* Google Store */}
+                        <rect x="0" y="-5" width="7" height="7" rx="1.5" fill="#1E3A8A" />
+                        <text x="10" y="1" fill="#475569" fontSize="7" fontWeight="600">Google Store</text>
+
+                        {/* Apple Store */}
+                        <rect x="68" y="-5" width="7" height="7" rx="1.5" fill="#0284C7" />
+                        <text x="78" y="1" fill="#475569" fontSize="7" fontWeight="600">Apple Store</text>
+
+                        {/* Others */}
+                        <rect x="135" y="-5" width="7" height="7" rx="1.5" fill="#06B6D4" />
+                        <text x="145" y="1" fill="#475569" fontSize="7" fontWeight="600">Others</text>
+                      </g>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* ROW 2: Compact Donut Chart Left + Content Right */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+              {/* Left Column: Compact & Premium Donut Chart Graphic */}
+              <div className="lg:col-span-5 flex justify-center lg:justify-start relative z-10">
+                <div className="w-full max-w-[420px] rounded-xl bg-[#F4F8FA] border border-slate-200/80 p-4 shadow-sm flex flex-col items-center transition-all duration-300 ease-out hover:scale-[1.12] sm:hover:scale-[1.16] hover:shadow-2xl hover:shadow-slate-500/25 hover:border-[#005F96]/40 hover:z-30 cursor-pointer group bg-opacity-100">
+                  {/* Chart Title */}
+                  <h4 className="text-[11px] sm:text-[11.5px] font-bold text-slate-800 text-left mb-1 w-full group-hover:text-[#005F96] transition-colors">
+                    Number of Global Smartphone Users From 2020 To 2025(In Billions)
+                  </h4>
+
+                  {/* 360-Degree Circular Donut Graphic */}
+                  <div className="relative w-48 h-40 sm:w-52 sm:h-44 flex items-center justify-center transition-transform duration-300 ease-out">
+                    <svg viewBox="0 0 200 170" className="w-full h-full overflow-visible">
+                      {/* Defs for Arc Gradients */}
+                      <defs>
+                        <filter id="softGlow" x="-10%" y="-10%" width="120%" height="120%">
+                          <feDropShadow dx="0" dy="2" stdDeviation="2" floodOpacity="0.1" />
+                        </filter>
+                      </defs>
+
+                      {/* Donut Center Shadow/Hole */}
+                      <circle cx="100" cy="85" r="28" fill="#FFFFFF" filter="url(#softGlow)" />
+
+                      {/* Arc 1: 2021 (Top Pink #F472B6) */}
+                      <path d="M 76 48.8 A 42 42 0 0 1 124 48.8" fill="none" stroke="#F472B6" strokeWidth="21" strokeLinecap="butt" className="transition-all duration-200 hover:stroke-[24px] hover:brightness-110 cursor-pointer" />
+
+                      {/* Arc 2: 2022 (Top-Right Yellow #FBBF24) */}
+                      <path d="M 124 48.8 A 42 42 0 0 1 142 85" fill="none" stroke="#FBBF24" strokeWidth="21" strokeLinecap="butt" className="transition-all duration-200 hover:stroke-[24px] hover:brightness-110 cursor-pointer" />
+
+                      {/* Arc 3: 2023 (Right/Bottom-Right Purple #8B5CF6) */}
+                      <path d="M 142 85 A 42 42 0 0 1 124 121.2" fill="none" stroke="#8B5CF6" strokeWidth="21" strokeLinecap="butt" className="transition-all duration-200 hover:stroke-[24px] hover:brightness-110 cursor-pointer" />
+
+                      {/* Arc 4: 2024 (Bottom Light Coral #FB7185) */}
+                      <path d="M 124 121.2 A 42 42 0 0 1 76 121.2" fill="none" stroke="#FB7185" strokeWidth="21" strokeLinecap="butt" className="transition-all duration-200 hover:stroke-[24px] hover:brightness-110 cursor-pointer" />
+
+                      {/* Arc 5: 2025 (Bottom-Left Cyan #06B6D4) */}
+                      <path d="M 76 121.2 A 42 42 0 0 1 58 85" fill="none" stroke="#06B6D4" strokeWidth="21" strokeLinecap="butt" className="transition-all duration-200 hover:stroke-[24px] hover:brightness-110 cursor-pointer" />
+
+                      {/* Arc 6: 2020 (Left Orange #F97316) */}
+                      <path d="M 58 85 A 42 42 0 0 1 76 48.8" fill="none" stroke="#F97316" strokeWidth="21" strokeLinecap="butt" className="transition-all duration-200 hover:stroke-[24px] hover:brightness-110 cursor-pointer" />
+
+                      {/* Thin Separator Rings */}
+                      <circle cx="100" cy="85" r="31.5" fill="none" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.8" />
+                      <circle cx="100" cy="85" r="52.5" fill="none" stroke="#FFFFFF" strokeWidth="1.5" opacity="0.8" />
+
+                      {/* Data Labels inside Donut Segments */}
+                      <text x="100" y="46" fill="#1E293B" fontSize="7" fontWeight="800" textAnchor="middle" className="pointer-events-none select-none">7.1</text>
+                      <text x="129" y="65" fill="#1E293B" fontSize="7" fontWeight="800" textAnchor="middle" className="pointer-events-none select-none">7.26</text>
+                      <text x="129" y="110" fill="#1E293B" fontSize="7" fontWeight="800" textAnchor="middle" className="pointer-events-none select-none">7.33</text>
+                      <text x="100" y="128" fill="#1E293B" fontSize="7" fontWeight="800" textAnchor="middle" className="pointer-events-none select-none">7.41</text>
+                      <text x="71" y="110" fill="#1E293B" fontSize="7" fontWeight="800" textAnchor="middle" className="pointer-events-none select-none">7.67</text>
+                      <text x="71" y="65" fill="#1E293B" fontSize="7" fontWeight="800" textAnchor="middle" className="pointer-events-none select-none">6.95</text>
+
+                      {/* Year Callout Labels & Pointers */}
+                      {/* 2021 Top */}
+                      <line x1="100" y1="33" x2="100" y2="19" stroke="#94A3B8" strokeWidth="1" strokeDasharray="1.5 1.5" />
+                      <circle cx="100" cy="33" r="1.5" fill="#64748B" />
+                      <text x="100" y="15" fill="#334155" fontSize="7" fontWeight="700" textAnchor="middle">2021</text>
+
+                      {/* 2022 Top-Right */}
+                      <line x1="136" y1="50" x2="149" y2="35" stroke="#94A3B8" strokeWidth="1" strokeDasharray="1.5 1.5" />
+                      <circle cx="136" cy="50" r="1.5" fill="#64748B" />
+                      <text x="153" y="33" fill="#334155" fontSize="7" fontWeight="700" textAnchor="start">2022</text>
+
+                      {/* 2023 Right */}
+                      <line x1="147" y1="85" x2="162" y2="85" stroke="#94A3B8" strokeWidth="1" strokeDasharray="1.5 1.5" />
+                      <circle cx="147" cy="85" r="1.5" fill="#64748B" />
+                      <text x="166" y="87.5" fill="#334155" fontSize="7" fontWeight="700" textAnchor="start">2023</text>
+
+                      {/* 2024 Bottom-Right */}
+                      <line x1="136" y1="120" x2="149" y2="135" stroke="#94A3B8" strokeWidth="1" strokeDasharray="1.5 1.5" />
+                      <circle cx="136" cy="120" r="1.5" fill="#64748B" />
+                      <text x="153" y="139" fill="#334155" fontSize="7" fontWeight="700" textAnchor="start">2024</text>
+
+                      {/* 2025 Bottom-Left */}
+                      <line x1="64" y1="120" x2="51" y2="135" stroke="#94A3B8" strokeWidth="1" strokeDasharray="1.5 1.5" />
+                      <circle cx="64" cy="120" r="1.5" fill="#64748B" />
+                      <text x="47" y="139" fill="#334155" fontSize="7" fontWeight="700" textAnchor="end">2025</text>
+
+                      {/* 2020 Left */}
+                      <line x1="53" y1="85" x2="38" y2="85" stroke="#94A3B8" strokeWidth="1" strokeDasharray="1.5 1.5" />
+                      <circle cx="53" cy="85" r="1.5" fill="#64748B" />
+                      <text x="34" y="87.5" fill="#334155" fontSize="7" fontWeight="700" textAnchor="end">2020</text>
+                    </svg>
+                  </div>
+
+                  {/* Donut Bottom Label */}
+                  <span className="text-[7.5px] font-bold text-slate-500 uppercase tracking-wide -mt-1">
+                    Mobile Users in Billions
+                  </span>
+                </div>
+              </div>
+
+              {/* Right Column: Heading + Paragraph + Button */}
+              <div className="lg:col-span-7 space-y-3.5">
+                <h2 className="text-[26px] sm:text-[30px] lg:text-[32px] font-[800] text-[#0B0F19] tracking-tight leading-tight">
+                  The Mobile Application<br />Development Market Size
+                </h2>
+
+                <p className="text-[13px] sm:text-[14px] text-[#475569] leading-[1.65] font-normal max-w-lg">
+                  According to one study, there will be 4.74 billion smartphone users by the end of 2024, growing at a rate of 2.2% each year. When examining the rise in smartphone users between 2020 to 2025 , we find that the average yearly growth rate is 6.2%.
+                </p>
+
+                <div className="pt-1.5">
+                  <a
+                    href="#quote-form"
+                    className="inline-flex items-center justify-center px-5 py-2.5 rounded-[4px] bg-[#005F96] hover:bg-[#004A75] text-white font-[700] text-[13px] sm:text-[13.5px] transition-all shadow-xs"
+                  >
+                    Connect With An Expert
+                  </a>
+                </div>
+              </div>
             </div>
 
           </div>
@@ -766,25 +893,22 @@ export const IOSAppDevelopmentService = () => {
       {/* =========================================================================
           WORLD WIDE TOP RATED CLUTCH AWARDS & RECOGNITIONS BAR (ANIMATED MARQUEE)
           ========================================================================= */}
-      <ProudAwardsBanner />
+      <IOSAwardsMarqueeBanner />
 
       {/* =========================================================================
-          LEADING IOS APP DEVELOPMENT AGENCY SECTION (EXACT 1:1 MATCH)
+          GET 100% CUSTOMIZABLE IOS APP DEVELOPMENT SERVICES (EXACT 1:1 MATCH)
           ========================================================================= */}
-      <section className="py-8 sm:py-10 bg-white text-slate-900 font-sans text-left">
+      <section className="py-10 sm:py-14 bg-white text-slate-900 font-sans text-left">
         <Container>
           <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-12">
-            <h2
-              className="font-[800] text-[#0B0F19] tracking-tight leading-tight"
-              style={{ fontSize: '32px' }}
-            >
-              Leading iOS App Development Agency
+            <h2 className="text-[28px] sm:text-[32px] lg:text-[36px] font-[800] text-[#0B0F19] tracking-tight leading-tight">
+              Get 100% Customizable iOS App Development Services
             </h2>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
             {/* Left Column: Light-Blue Patterned Quote Panel */}
-            <div className="lg:col-span-4 bg-[#EBF5FA] rounded-[3px] p-8 sm:p-10 flex flex-col justify-start relative overflow-hidden shadow-xs min-h-[340px]">
+            <div className="lg:col-span-4 bg-[#EBF5FA] rounded-[6px] p-8 sm:p-10 flex flex-col justify-start relative overflow-hidden shadow-xs min-h-[340px]">
               <svg className="absolute inset-0 w-full h-full opacity-60 pointer-events-none" viewBox="0 0 400 400" fill="none" stroke="#CBE4F3" strokeWidth="1.2">
                 <path d="M-40 60 C 50 20, 140 130, 220 70 C 300 10, 370 110, 440 80" />
                 <path d="M-40 120 C 60 70, 160 180, 250 120 C 330 60, 390 170, 440 140" />
@@ -815,14 +939,14 @@ export const IOSAppDevelopmentService = () => {
                 className="font-normal text-[#475569]"
                 style={{ fontSize: '14px', lineHeight: '1.68' }}
               >
-                As one of the leading Award-winning Generative AI iOS App Development Firms, we thrive on creating high-quality iOS applications that stand out in the App Store with our skilled developers, designers, and project managers. iOS application development company help startups and established businesses make a strong entry or develop their digital presence with Affordable iOS App Development Company. We also offer Enterprise iOS app development services to empower large-scale organizations with robust and secure mobile solutions.
+                As an iOS app development agency, our organization prides itself on providing customized solutions that match your vision and objectives. Our experienced iOS developers offer years of experience and skill. From ideation to coding, every stage of the iOS mobile application development services process is tailored to your needs.
               </p>
 
               <p
                 className="font-normal text-[#475569]"
                 style={{ fontSize: '14px', lineHeight: '1.68' }}
               >
-                You can Hire iOS App Developer for Startup who provides unmatched support and maintenance. Our talented engineers and designers help you build a mobile app that matches your brand, works effortlessly, and provides a great user experience. As the Experienced iOS App Development Company, we have the skills to create your iOS business app, e-commerce solution, social networking platform, or other software. Contact us now to design a unique, compelling mobile solution that sets you apart from the competition.
+                As a Top-Rated iOS app development company, we collaborate with you to understand your goals and design an innovative app or improve an existing one. We want to turn your ideas into a fully working iOS app that surpasses your expectations. We make your app stand out in the crowded market with creativity and excellence. From user interface design to backend operations, your app is meticulously created through expert iOS mobile app design and development processes. Utilize our custom iOS application development services for full customization and innovative solutions. Contact us immediately to discuss your app concept and start realizing it.
               </p>
             </div>
           </div>
@@ -830,43 +954,144 @@ export const IOSAppDevelopmentService = () => {
       </section>
 
       {/* =========================================================================
-          CUTTING EDGE TECHNOLOGY CAROUSEL SECTION (EXACT 1:1 MATCH)
+          TECHNOLOGY FIREVY USE FOR IOS APP DEVELOPMENT (1:1 REFERENCE MATCH)
           ========================================================================= */}
-      <section className="py-9 sm:py-12 bg-white text-slate-900 font-sans overflow-hidden text-left">
+      <section className="py-10 sm:py-14 bg-white text-slate-900 font-sans overflow-hidden text-left">
         <div className="w-full max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-14">
-            <h2
-              className="font-[800] text-[#0B0F19] tracking-tight leading-[1.25]"
-              style={{ fontSize: '32px' }}
-            >
-              Cutting Edge Technology Firevy Use For iOS App Development
+          <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-12">
+            <h2 className="text-[28px] sm:text-[32px] lg:text-[36px] font-[800] text-[#0B0F19] tracking-tight leading-tight">
+              Technology Firevy Use For iOS App Development
             </h2>
           </div>
 
           <div
-            className="relative overflow-hidden w-full py-2"
+            className="relative overflow-hidden w-full py-2 select-none"
             onMouseEnter={() => setIsTechHovered(true)}
             onMouseLeave={() => setIsTechHovered(false)}
           >
             <div
-              className="flex space-x-6 sm:space-x-7 transition-transform duration-500 ease-in-out"
+              className="flex space-x-6 transition-transform duration-700 ease-in-out"
               style={{
-                transform: `translateX(-${techCarouselIndex * 410}px)`
+                transform: `translateX(-${techCarouselIndex * 394}px)`
               }}
             >
               {[
                 {
-                  title: 'Xcode & Instruments',
-                  desc: "Apple's flagship IDE and diagnostic suite for high-performance profiling, memory leak detection, CPU optimization, and rapid Swift compilation.",
+                  title: 'Vision Framework',
+                  desc: 'Use the Vision Framework to add advanced picture and video analysis to your iOS app. Our developers enable object identification, facial recognition, word recognition, and more to help your app interact with visual content.',
                   icon: (
-                    <svg viewBox="0 0 44 44" className="w-11 h-11 text-[#0084D1] fill-none stroke-current stroke-[1.8]">
-                      <rect x="8" y="4" width="22" height="34" rx="3.5" />
-                      <circle cx="19" cy="8" r="1" fill="currentColor" />
-                      <line x1="14" y1="34" x2="24" y2="34" />
-                      <circle cx="28" cy="22" r="8" fill="#DDF1FC" stroke="currentColor" strokeWidth="1.8" />
-                      <circle cx="28" cy="20" r="2.8" />
-                      <path d="M23 27 C23 24.5, 25.5 24, 28 24 C30.5 24, 33 24.5, 33 27" />
-                      <path d="M28 12.5 L28 14 M28 30 L28 31.5 M18.5 22 L20 22 M36 22 L37.5 22" />
+                    <svg viewBox="0 0 44 44" className="w-10 h-10 text-[#0099DA] fill-none stroke-current stroke-[1.8] stroke-linecap-round stroke-linejoin-round">
+                      {/* Face outline / Scanning frame */}
+                      <path d="M 8 14 L 8 10 C 8 7.8 9.8 6 12 6 L 16 6" />
+                      <path d="M 28 6 L 32 6 C 34.2 6 36 7.8 36 10 L 36 14" />
+                      <path d="M 8 30 L 8 34 C 8 36.2 9.8 38 12 38 L 16 38" />
+                      <path d="M 28 38 L 32 38 C 34.2 38 36 36.2 36 34 L 36 30" />
+                      {/* Stylized Face Contour */}
+                      <path d="M 15 17 C 15 13, 29 13, 29 17 C 29 25, 25 31, 22 33 C 19 31, 15 25, 15 17 Z" strokeWidth="1.6" />
+                      {/* Neural Eye Dots & Focus Crosshair */}
+                      <circle cx="18.5" cy="19" r="1.5" fill="#0099DA" stroke="none" />
+                      <circle cx="25.5" cy="19" r="1.5" fill="#0099DA" stroke="none" />
+                      <line x1="22" y1="21" x2="22" y2="25" strokeWidth="1.5" />
+                      <circle cx="22" cy="28" r="1" fill="#0099DA" stroke="none" />
+                    </svg>
+                  )
+                },
+                {
+                  title: 'Reality Composer',
+                  desc: "Our specialty is dynamic 3D scenes that work with your app. Apple's powerful tools for intuitive and engaging experiences let us bring your AR thoughts to life for product demos, educational tools, and games.",
+                  icon: (
+                    <svg viewBox="0 0 44 44" className="w-10 h-10 text-[#0099DA] fill-none stroke-current stroke-[1.7] stroke-linecap-round stroke-linejoin-round">
+                      {/* Browser Window Frame */}
+                      <rect x="5" y="6" width="34" height="32" rx="3" strokeWidth="1.8" />
+                      <line x1="5" y1="13" x2="39" y2="13" strokeWidth="1.5" />
+                      <circle cx="9.5" cy="9.5" r="1" fill="#0099DA" stroke="none" />
+                      <circle cx="13.5" cy="9.5" r="1" fill="#0099DA" stroke="none" />
+                      <circle cx="17.5" cy="9.5" r="1" fill="#0099DA" stroke="none" />
+
+                      {/* Left: 3D Badge with mini text lines */}
+                      <text x="9" y="22" fill="#0099DA" fontSize="6.5" fontWeight="900" stroke="none" fontFamily="sans-serif">3D</text>
+                      <line x1="9" y1="26" x2="16" y2="26" strokeWidth="1.3" />
+                      <line x1="9" y1="29" x2="14" y2="29" strokeWidth="1.3" />
+                      <line x1="9" y1="32" x2="17" y2="32" strokeWidth="1.3" />
+
+                      {/* Right: 3D Isometric Cube Scene */}
+                      <polygon points="28,17 35,21 28,25 21,21" strokeWidth="1.6" fill="#0099DA" fillOpacity="0.1" />
+                      <polygon points="21,21 28,25 28,33 21,29" strokeWidth="1.6" fill="#0099DA" fillOpacity="0.2" />
+                      <polygon points="35,21 28,25 28,33 35,29" strokeWidth="1.6" fill="#0099DA" fillOpacity="0.3" />
+                    </svg>
+                  )
+                },
+                {
+                  title: 'iCloud and CloudKit',
+                  desc: 'Use iCloud and CloudKit to sync and store data across devices. Our iOS apps give users reliable data access for backups, document sharing, and cross-device continuity. We build cloud solutions with security, scalability, and a great user experience.',
+                  icon: (
+                    <svg viewBox="0 0 44 44" className="w-10 h-10 text-[#0099DA] fill-none stroke-current stroke-[1.8] stroke-linecap-round stroke-linejoin-round">
+                      {/* Cloud Shape on Left */}
+                      <path d="M 9 24 C 7.5 24 6 22.5 6 20.5 C 6 18.8 7.2 17.3 8.8 17.1 C 9.4 13.6 12.4 11 16 11 C 19.1 11 21.8 13 22.8 16 C 23.2 15.9 23.6 15.8 24 15.8 C 26.2 15.8 28 17.6 28 19.8 C 28 20.2 27.9 20.6 27.8 21 L 28 21 C 29.7 21 31 22.3 31 24 C 31 25.7 29.7 27 28 27 L 9 27 C 7.3 27 6 25.7 6 24" strokeWidth="1.7" />
+
+                      {/* Vertical Data Sync Arrows */}
+                      <path d="M 13 17 L 13 23 M 11 19 L 13 17 L 15 19" strokeWidth="1.6" />
+                      <path d="M 21 23 L 21 17 M 19 21 L 21 23 L 23 21" strokeWidth="1.6" />
+
+                      {/* Server Tower on Right */}
+                      <rect x="23" y="15" width="16" height="23" rx="2.5" strokeWidth="1.8" />
+                      <line x1="23" y1="22" x2="39" y2="22" strokeWidth="1.5" />
+                      <line x1="23" y1="29" x2="39" y2="29" strokeWidth="1.5" />
+                      <circle cx="27" cy="18.5" r="1" fill="#0099DA" stroke="none" />
+                      <circle cx="27" cy="25.5" r="1" fill="#0099DA" stroke="none" />
+                      <circle cx="27" cy="32.5" r="1" fill="#0099DA" stroke="none" />
+                      <line x1="31" y1="18.5" x2="35" y2="18.5" strokeWidth="1.4" />
+                      <line x1="31" y1="25.5" x2="35" y2="25.5" strokeWidth="1.4" />
+                      <line x1="31" y1="32.5" x2="35" y2="32.5" strokeWidth="1.4" />
+                    </svg>
+                  )
+                },
+                {
+                  title: 'ARKit',
+                  desc: 'Our ARKit developers create immersive and engaging augmented reality experiences. We use ARKit to blend digital items into the physical world, making your app more engaging, responsive, and innovative.',
+                  icon: (
+                    <svg viewBox="0 0 44 44" className="w-10 h-10 text-[#0099DA] fill-none stroke-current stroke-[1.8] stroke-linecap-round stroke-linejoin-round">
+                      {/* Smartphone Body */}
+                      <rect x="7" y="6" width="20" height="32" rx="3" strokeWidth="1.8" />
+                      <circle cx="17" cy="34" r="1" fill="#0099DA" stroke="none" />
+
+                      {/* AR Badge in Top Right of Screen */}
+                      <rect x="13" y="9" width="11" height="7" rx="1.5" fill="#0099DA" stroke="none" />
+                      <text x="18.5" y="14.2" fill="#FFFFFF" fontSize="4.5" fontWeight="900" textAnchor="middle" stroke="none" fontFamily="sans-serif">AR</text>
+
+                      {/* 3D Isometric Cube Floating / Projecting */}
+                      <polygon points="28,15 36,19 28,23 20,19" strokeWidth="1.7" fill="#0099DA" fillOpacity="0.1" />
+                      <polygon points="20,19 28,23 28,32 20,28" strokeWidth="1.7" fill="#0099DA" fillOpacity="0.2" />
+                      <polygon points="36,19 28,23 28,32 36,28" strokeWidth="1.7" fill="#0099DA" fillOpacity="0.3" />
+                    </svg>
+                  )
+                },
+                {
+                  title: 'Core Data & Realm',
+                  desc: 'High-performance object persistence engines providing encrypted local database storage, transactional safety, and rapid offline sync.',
+                  icon: (
+                    <svg viewBox="0 0 44 44" className="w-10 h-10 text-[#0099DA] fill-none stroke-current stroke-[1.8] stroke-linecap-round stroke-linejoin-round">
+                      {/* 3-Tier Database Cylinder Stack */}
+                      <ellipse cx="22" cy="11" rx="15" ry="5.5" strokeWidth="1.8" fill="#0099DA" fillOpacity="0.1" />
+                      <path d="M 7 11 L 7 20 C 7 24 37 24 37 20 L 37 11" strokeWidth="1.8" />
+                      <path d="M 7 20 L 7 29 C 7 33 37 33 37 29 L 37 20" strokeWidth="1.8" />
+                      <path d="M 7 29 L 7 35 C 7 39 37 39 37 35 L 37 29" strokeWidth="1.8" />
+                      <line x1="22" y1="16.5" x2="22" y2="17" strokeWidth="2" />
+                      <line x1="22" y1="25.5" x2="22" y2="26" strokeWidth="2" />
+                    </svg>
+                  )
+                },
+                {
+                  title: 'CocoaPods & SPM',
+                  desc: 'Seamless Swift Package Manager and CocoaPods integration for automated dependency versioning, modular build targets, and CI/CD pipelines.',
+                  icon: (
+                    <svg viewBox="0 0 44 44" className="w-10 h-10 text-[#0099DA] fill-none stroke-current stroke-[1.8] stroke-linecap-round stroke-linejoin-round">
+                      {/* Code Document with Folded Corner */}
+                      <path d="M 10 6 L 26 6 L 34 14 L 34 38 L 10 38 Z" strokeWidth="1.8" />
+                      <path d="M 26 6 L 26 14 L 34 14" strokeWidth="1.8" />
+                      {/* SPM Package Box inside */}
+                      <rect x="15" y="21" width="14" height="11" rx="2" fill="#0099DA" stroke="none" />
+                      <text x="22" y="29.2" fill="#FFFFFF" fontSize="6.5" fontWeight="900" textAnchor="middle" stroke="none" fontFamily="sans-serif">SPM</text>
                     </svg>
                   )
                 },
@@ -874,80 +1099,38 @@ export const IOSAppDevelopmentService = () => {
                   title: 'Swift & SwiftUI',
                   desc: "Modern declarative UI framework and type-safe language built by Apple for high performance, smooth 120Hz animations, and reactive state management.",
                   icon: (
-                    <svg viewBox="0 0 44 44" className="w-11 h-11 text-[#0084D1] fill-none stroke-current stroke-[1.8]">
-                      <polygon points="22,5 36,13 36,29 22,37 8,29 8,13" />
-                      <polyline points="22,5 22,37" />
-                      <polyline points="8,13 22,21 36,13" />
+                    <svg viewBox="0 0 44 44" className="w-10 h-10 text-[#0099DA] fill-none stroke-current stroke-[1.8] stroke-linecap-round stroke-linejoin-round">
+                      {/* Swift Bird Wings / Silhouette */}
+                      <path d="M 10 32 C 14 36, 26 38, 34 30 C 26 31, 20 26, 17 21 C 24 24, 32 23, 37 16 C 30 18, 24 16, 21 12 C 26 14, 33 13, 37 8 C 29 10, 20 7, 14 13 C 10 17, 8 25, 10 32 Z" strokeWidth="1.8" fill="#0099DA" fillOpacity="0.1" />
                     </svg>
                   )
                 },
                 {
-                  title: 'Core ML & Vision',
-                  desc: "On-device hardware-accelerated machine learning running models seamlessly with zero latency and complete privacy on the Apple Neural Engine.",
+                  title: 'Xcode & Instruments',
+                  desc: "Apple's flagship IDE and diagnostic suite for high-performance profiling, memory leak detection, CPU optimization, and rapid Swift compilation.",
                   icon: (
-                    <svg viewBox="0 0 44 44" className="w-11 h-11 text-[#0084D1] fill-none stroke-current stroke-[1.8]">
-                      <rect x="4" y="8" width="16" height="12" rx="2" />
-                      <circle cx="8" cy="12" r="1" fill="currentColor" />
-                      <circle cx="12" cy="12" r="1" fill="currentColor" />
-                      <line x1="8" y1="16" x2="16" y2="16" />
-                      <ellipse cx="28" cy="12" rx="10" ry="4.5" />
-                      <path d="M18 12 L18 19 C18 22.5, 38 22.5, 38 19 L38 12" />
-                      <path d="M18 19 L18 26 C18 29.5, 38 29.5, 38 26 L38 19" />
-                      <path d="M18 26 L18 33 C18 36.5, 38 36.5, 38 33 L38 26" />
-                    </svg>
-                  )
-                },
-                {
-                  title: 'Combine & Concurrency',
-                  desc: "Reactive asynchronous programming and Swift async/await concurrency delivering robust real-time data streams and fluid responsiveness.",
-                  icon: (
-                    <svg viewBox="0 0 44 44" className="w-11 h-11 text-[#0084D1] fill-none stroke-current stroke-[1.8]">
-                      <path d="M11 31 L23 19 M20 16 L24 12 C26 10, 29 10, 31 12 C33 14, 33 17, 31 19 L27 23 L24 20" />
-                      <path d="M11 31 L8 34 C7 35, 6 36, 7 37 C8 38, 9 37, 10 36 L13 33" />
-                      <path d="M31 31 L19 19 M16 16 L12 12 C10 10, 10 7, 12 5 C14 3, 17 3, 19 5 L23 9 L20 12" />
-                      <path d="M31 31 L34 34 C35 35, 36 36, 37 35 C38 34, 37 33, 36 32 L33 29" />
-                    </svg>
-                  )
-                },
-                {
-                  title: 'Core Data & Realm',
-                  desc: "High-performance object persistence engines providing encrypted local database storage, transactional safety, and rapid offline sync.",
-                  icon: (
-                    <svg viewBox="0 0 44 44" className="w-11 h-11 text-[#0084D1] fill-none stroke-current stroke-[1.8]">
-                      <ellipse cx="22" cy="11" rx="15" ry="5.5" />
-                      <path d="M7 11 L7 21 C7 26.5, 37 26.5, 37 21 L37 11" />
-                      <path d="M7 21 L7 31 C7 36.5, 37 36.5, 37 31 L37 21" />
-                    </svg>
-                  )
-                },
-                {
-                  title: 'CocoaPods & SPM',
-                  desc: "Seamless Swift Package Manager and CocoaPods integration for automated dependency versioning, modular build targets, and CI/CD pipelines.",
-                  icon: (
-                    <svg viewBox="0 0 44 44" className="w-11 h-11 text-[#0084D1] fill-none stroke-current stroke-[1.8]">
-                      <path d="M10 6 L26 6 L34 14 L34 38 L10 38 Z" />
-                      <path d="M26 6 L26 14 L34 14" />
-                      <line x1="15" y1="12" x2="21" y2="12" />
-                      <rect x="15" y="21" width="14" height="11" rx="2" />
-                      <text x="22" y="29.2" fill="#0084D1" fontSize="7" fontWeight="900" textAnchor="middle" stroke="none" fontFamily="sans-serif">SPM</text>
+                    <svg viewBox="0 0 44 44" className="w-10 h-10 text-[#0099DA] fill-none stroke-current stroke-[1.8] stroke-linecap-round stroke-linejoin-round">
+                      {/* Blueprint Hammer & Compass */}
+                      <rect x="7" y="6" width="30" height="32" rx="3" strokeWidth="1.8" />
+                      <circle cx="14" cy="13" r="1.5" fill="#0099DA" stroke="none" />
+                      <line x1="7" y1="18" x2="37" y2="18" strokeWidth="1.5" />
+                      {/* Hammer */}
+                      <path d="M 18 31 L 27 22 M 25 20 L 30 25 L 32 23 L 27 18 Z" strokeWidth="1.8" fill="#0099DA" fillOpacity="0.2" />
                     </svg>
                   )
                 }
               ].map((tech, idx) => (
                 <div
                   key={idx}
-                  className="w-[330px] sm:w-[370px] lg:w-[390px] shrink-0 rounded-[8px] bg-[#DDF1FC] p-8 sm:p-9 min-h-[300px] flex flex-col justify-start text-left select-none transition-all hover:shadow-sm"
+                  className="w-[320px] sm:w-[350px] lg:w-[370px] shrink-0 rounded-[14px] bg-[#E4F2FA] p-6 sm:p-7 min-h-[240px] flex flex-col justify-start text-left select-none transition-all duration-300 hover:shadow-md hover:bg-[#DDF0FA]"
                 >
-                  <div className="mb-6">
+                  <div className="mb-4">
                     {tech.icon}
                   </div>
-                  <h3 className="font-[800] text-[19px] sm:text-[20px] text-[#0B0F19] mb-3">
+                  <h3 className="font-[800] text-[17px] sm:text-[18px] text-[#0B0F19] mb-2 leading-tight">
                     {tech.title}
                   </h3>
-                  <p
-                    className="font-normal text-[#2D3748]"
-                    style={{ fontSize: '13.5px', lineHeight: '1.68' }}
-                  >
+                  <p className="font-normal text-[#334155] text-[12.5px] sm:text-[13px] leading-[1.62]">
                     {tech.desc}
                   </p>
                 </div>
@@ -955,20 +1138,19 @@ export const IOSAppDevelopmentService = () => {
             </div>
           </div>
 
+          {/* Left & Right Navigation Arrows (Centered at bottom) */}
           <div className="flex items-center justify-center space-x-6 mt-8 sm:mt-10">
             <button
-              onClick={() => setTechCarouselIndex((prev) => Math.max(0, prev - 1))}
-              disabled={techCarouselIndex === 0}
+              onClick={() => setTechCarouselIndex((prev) => (prev > 0 ? prev - 1 : 5))}
               aria-label="Previous Slide"
-              className="w-10 h-10 flex items-center justify-center text-slate-800 hover:text-[#005F96] disabled:opacity-25 disabled:cursor-not-allowed transition-all text-2xl font-bold cursor-pointer"
+              className="w-10 h-10 flex items-center justify-center text-slate-800 hover:text-[#005F96] hover:scale-110 active:scale-95 transition-all text-2xl font-bold cursor-pointer"
             >
               ←
             </button>
             <button
-              onClick={() => setTechCarouselIndex((prev) => Math.min(prev + 1, 5))}
-              disabled={techCarouselIndex >= 5}
+              onClick={() => setTechCarouselIndex((prev) => (prev < 5 ? prev + 1 : 0))}
               aria-label="Next Slide"
-              className="w-10 h-10 flex items-center justify-center text-slate-800 hover:text-[#005F96] disabled:opacity-25 disabled:cursor-not-allowed transition-all text-2xl font-bold cursor-pointer"
+              className="w-10 h-10 flex items-center justify-center text-slate-800 hover:text-[#005F96] hover:scale-110 active:scale-95 transition-all text-2xl font-bold cursor-pointer"
             >
               →
             </button>
@@ -1135,23 +1317,23 @@ export const IOSAppDevelopmentService = () => {
 
       {/* Reused Existing Components in Identical Order */}
       <SuccessStories />
+      <IOSTechnologyCombinationsSection />
       <AboutUsStats />
+      <IOSTransformativeImpactSection />
+      <IOSBenefitsSection />
       <SectorsThrivingSection />
       <SuccessStoriesSection />
-      <KeyReasonsChooseAndroid />
-      <BestAndroidAppCompanyShowcase />
       <AndroidTechStackSection />
-      <AndroidExpertiseServices />
+      <BestAndroidAppCompanyShowcase />
       <ProudAwardsBanner />
       <AndroidCompanyBenefits />
+      <IOSExpertiseServices />
       <AndroidHiringModels />
-      <AndroidComparativeAnalysis />
       <InnovativeSolutionsVideoSection />
       <ProcessWeFollow title="Process We Follow" subtitle="Agile iOS development sprints from Figma wireframes to CI/CD automated builds and App Store release." />
       <OurStoryTheirWordsSection />
       <TrustedBrandsGrid />
       <SuccessMatrix />
-      <WhatOurClientsSaySection />
       <FeaturedInBrandsSection />
       <DigitalTransformationSlider />
 

@@ -1,5 +1,17 @@
 import React, { useState, useEffect, useRef } from 'react';
 
+// 0. Waymark Maps Logo
+const WaymarkLogo = () => (
+  <div>
+    <div className="text-[26px] sm:text-[28px] font-[900] text-[#5B21B6] leading-none tracking-tight">
+      Waymark
+    </div>
+    <div className="text-[22px] sm:text-[24px] font-[800] text-[#5B21B6] leading-none tracking-tight mt-0.5">
+      Maps
+    </div>
+  </div>
+);
+
 // 1. BeeCar CARE Logo
 const BeeCarLogo = () => (
   <div className="flex items-center space-x-2">
@@ -81,6 +93,22 @@ const LorealLogo = () => (
 const transformCards = [
   {
     id: 1,
+    logoComp: WaymarkLogo,
+    desc: 'A city map and free business listings are available on Waymark. Our city information is consistently accurate and current. With...',
+    bullets: [
+      'Turn-by-turn voice navigation',
+      'Points of Interest (POI)...',
+      'Real-time traffic updates an..',
+      'Offline map access for remot..',
+      'Augmented reality (AR)...'
+    ],
+    leftBg: 'bg-[#F4EAFA]',
+    rightBg: 'bg-[#FCF9FD]',
+    image: '/images/waymark_map_app.webp',
+    imageAlt: 'Waymark Maps Application'
+  },
+  {
+    id: 2,
     logoComp: BeeCarLogo,
     desc: 'If you provide car washing services and need to reach a wide range of customers, the car wash app is your best bet. Sapphire Software..',
     bullets: [
@@ -96,7 +124,7 @@ const transformCards = [
     imageAlt: 'BeeCar CARE Mobile App Mockup'
   },
   {
-    id: 2,
+    id: 3,
     logoComp: LtLogo,
     desc: "Larsen & Toubro Limited is one of India's largest and most well-known private corporations. L&T offers unrivaled capabilities acros..",
     bullets: [
@@ -112,7 +140,7 @@ const transformCards = [
     imageAlt: 'Larsen & Toubro Enterprise Dashboard'
   },
   {
-    id: 3,
+    id: 4,
     logoComp: MgLogo,
     desc: "MG Motor is a well-known firm that have large number of employee. It is their major responsibility to keep track of employees' health and..",
     bullets: [
@@ -128,7 +156,7 @@ const transformCards = [
     imageAlt: 'MG Motor Health & Process Automation'
   },
   {
-    id: 4,
+    id: 5,
     logoComp: AdaniLogo,
     desc: 'Adani Group is a leading Indian multinational conglomerate. Adani EmCare is a comprehensive enterprise healthcare and telemedicine solution..',
     bullets: [
@@ -144,7 +172,7 @@ const transformCards = [
     imageAlt: 'Adani EmCare Healthcare Telemedicine'
   },
   {
-    id: 5,
+    id: 6,
     logoComp: LorealLogo,
     desc: "L'Oréal is the world's largest cosmetics company. We engineered an intelligent beauty and cosmetic analytics platform..",
     bullets: [
@@ -166,12 +194,12 @@ export const DigitalTransformationSlider = () => {
   const [isPaused, setIsPaused] = useState(false);
   const sliderRef = useRef(null);
 
-  // 2.5 Second Auto Scroll
+  // 3 Second Auto Scroll (pauses on hover)
   useEffect(() => {
     if (isPaused) return;
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % transformCards.length);
-    }, 2500);
+    }, 3000);
     return () => clearInterval(interval);
   }, [isPaused]);
 
@@ -198,16 +226,13 @@ export const DigitalTransformationSlider = () => {
   };
 
   return (
-    <section className="py-7 sm:py-9 bg-[#F8FAFC]/50 text-slate-900 font-sans text-left overflow-hidden">
+    <section className="py-10 sm:py-14 bg-white text-slate-900 font-sans text-left overflow-hidden">
       {/* Centered Heading & Subtitle */}
       <div className="text-center max-w-4xl mx-auto px-4 sm:px-6 mb-8 sm:mb-10">
-        <h2
-          className="font-[800] text-[#0B0F19] tracking-tight leading-tight"
-          style={{ fontSize: '32px' }}
-        >
+        <h2 className="text-[26px] sm:text-[32px] lg:text-[36px] font-[800] text-[#0B0F19] tracking-tight leading-tight">
           Digital Transformation Through Innovation and Collective Knowledge
         </h2>
-        <p className="text-[13.5px] sm:text-[14px] text-[#64748B] font-normal leading-relaxed mt-2.5 max-w-3xl mx-auto">
+        <p className="text-[13.5px] sm:text-[14.5px] text-[#475569] font-normal leading-relaxed mt-2.5 max-w-3xl mx-auto">
           At Sapphire, we have a dedicated development team to deliver IT services and create solutions that surpass expectations.
         </p>
       </div>
@@ -223,12 +248,12 @@ export const DigitalTransformationSlider = () => {
           className="flex items-stretch gap-6 sm:gap-7 overflow-x-auto snap-x snap-mandatory scrollbar-none px-4 sm:px-8 lg:px-12 py-3"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
-          {transformCards.map((card, idx) => {
+          {transformCards.map((card) => {
             const LogoComponent = card.logoComp;
             return (
               <div
                 key={card.id}
-                className="w-[90vw] sm:w-[740px] md:w-[820px] lg:w-[920px] shrink-0 rounded-[24px] overflow-hidden border border-slate-100 shadow-[0_6px_25px_rgba(0,0,0,0.05)] snap-center grid grid-cols-1 md:grid-cols-12 transition-all duration-300 bg-white"
+                className="w-[90vw] sm:w-[740px] md:w-[820px] lg:w-[920px] shrink-0 rounded-[20px] overflow-hidden border border-slate-100 shadow-[0_6px_25px_rgba(0,0,0,0.05)] snap-center grid grid-cols-1 md:grid-cols-12 transition-all duration-300 bg-white"
               >
                 {/* Left Side: Information & Bullets */}
                 <div className={`md:col-span-5 p-6 sm:p-8 flex flex-col justify-between ${card.leftBg} text-left`}>

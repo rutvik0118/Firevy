@@ -10,8 +10,8 @@ const videoSolutions = [
       <div className="relative w-full h-[145px] sm:h-[155px] bg-gradient-to-r from-[#181109] via-[#2A1D11] to-[#120C06] p-3 sm:p-3.5 flex items-center justify-between text-white overflow-hidden select-none">
         <div className="absolute -top-10 -left-10 w-28 h-28 bg-amber-500/20 rounded-full blur-xl pointer-events-none" />
 
-        <div className="absolute top-2.5 right-3 flex items-center space-x-1 opacity-90">
-          <span className="text-white font-[800] text-[9.5px] tracking-wider">FIREVY</span>
+        <div className="absolute top-2.5 right-3 flex items-center opacity-90">
+          <img src="/firevy_logo_white.png" alt="firevy.co" className="h-3.5 sm:h-4 w-auto object-contain drop-shadow-xs" />
         </div>
 
         <div className="w-[58%] z-10 text-left space-y-1">
@@ -51,8 +51,8 @@ const videoSolutions = [
       <div className="relative w-full h-[145px] sm:h-[155px] bg-[#FFFFFF] p-3 sm:p-3.5 flex items-center justify-between text-slate-800 overflow-hidden select-none">
         <div className="absolute inset-x-0 bottom-0 h-12 bg-[#E8EEF5] rounded-t-[40%] pointer-events-none" />
 
-        <div className="absolute top-2.5 right-3 flex items-center space-x-1 opacity-90">
-          <span className="text-[#005F96] font-[800] text-[9.5px] tracking-wider">FIREVY</span>
+        <div className="absolute top-2.5 right-3 flex items-center opacity-90">
+          <img src="/firevy_logo_dark.png" alt="firevy.co" className="h-3.5 sm:h-4 w-auto object-contain" />
         </div>
 
         <div className="w-[58%] z-10 text-left space-y-0.5">
@@ -94,8 +94,8 @@ const videoSolutions = [
       <div className="relative w-full h-[145px] sm:h-[155px] bg-[#0C101A] p-3 sm:p-3.5 flex items-center justify-between text-white overflow-hidden select-none">
         <div className="absolute bottom-0 left-1/4 w-36 h-16 bg-rose-500/20 rounded-full blur-xl pointer-events-none" />
 
-        <div className="absolute top-2.5 right-3 flex items-center space-x-1 opacity-90">
-          <span className="text-cyan-400 font-[800] text-[9.5px] tracking-wider">FIREVY</span>
+        <div className="absolute top-2.5 right-3 flex items-center opacity-90">
+          <img src="/firevy_logo_white.png" alt="firevy.co" className="h-3.5 sm:h-4 w-auto object-contain drop-shadow-xs" />
         </div>
 
         <div className="w-[50%] z-10 text-left space-y-0.5">
@@ -134,8 +134,8 @@ const videoSolutions = [
     videoUrl: 'https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ',
     renderThumb: () => (
       <div className="relative w-full h-[145px] sm:h-[155px] bg-gradient-to-r from-[#0C1E38] via-[#102A4E] to-[#0A182E] p-3 sm:p-3.5 flex items-center justify-between text-white overflow-hidden select-none">
-        <div className="absolute top-2.5 right-3 flex items-center space-x-1 opacity-90">
-          <span className="text-white font-[800] text-[9.5px] tracking-wider">FIREVY</span>
+        <div className="absolute top-2.5 right-3 flex items-center opacity-90">
+          <img src="/firevy_logo_white.png" alt="firevy.co" className="h-3.5 sm:h-4 w-auto object-contain drop-shadow-xs" />
         </div>
 
         <div className="w-[38%] flex justify-center items-center z-10">
@@ -175,8 +175,8 @@ const videoSolutions = [
     videoUrl: 'https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ',
     renderThumb: () => (
       <div className="relative w-full h-[145px] sm:h-[155px] bg-[#0E1726] p-3 sm:p-3.5 flex items-center justify-between text-white overflow-hidden select-none">
-        <div className="absolute top-2.5 right-3 flex items-center space-x-1 opacity-90">
-          <span className="text-white font-[800] text-[9.5px] tracking-wider">FIREVY</span>
+        <div className="absolute top-2.5 right-3 flex items-center opacity-90">
+          <img src="/firevy_logo_white.png" alt="firevy.co" className="h-3.5 sm:h-4 w-auto object-contain drop-shadow-xs" />
         </div>
 
         <div className="w-[46%] z-10 text-left space-y-1">
@@ -214,8 +214,8 @@ const videoSolutions = [
     videoUrl: 'https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ',
     renderThumb: () => (
       <div className="relative w-full h-[145px] sm:h-[155px] bg-gradient-to-r from-[#052E16] via-[#064E3B] to-[#022C22] p-3 sm:p-3.5 flex items-center justify-between text-white overflow-hidden select-none">
-        <div className="absolute top-2.5 right-3 flex items-center space-x-1 opacity-90">
-          <span className="text-emerald-400 font-[800] text-[9.5px] tracking-wider">FIREVY</span>
+        <div className="absolute top-2.5 right-3 flex items-center opacity-90">
+          <img src="/firevy_logo_white.png" alt="firevy.co" className="h-3.5 sm:h-4 w-auto object-contain drop-shadow-xs" />
         </div>
 
         <div className="w-[56%] z-10 text-left space-y-0.5">
@@ -255,8 +255,8 @@ const videoSolutions = [
     videoUrl: 'https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ',
     renderThumb: () => (
       <div className="relative w-full h-[145px] sm:h-[155px] bg-gradient-to-r from-[#083344] via-[#0E4A62] to-[#082F49] p-3 sm:p-3.5 flex items-center justify-between text-white overflow-hidden select-none">
-        <div className="absolute top-2.5 right-3 flex items-center space-x-1 opacity-90">
-          <span className="text-cyan-300 font-[800] text-[9.5px] tracking-wider">FIREVY</span>
+        <div className="absolute top-2.5 right-3 flex items-center opacity-90">
+          <img src="/firevy_logo_white.png" alt="firevy.co" className="h-3.5 sm:h-4 w-auto object-contain drop-shadow-xs" />
         </div>
 
         <div className="w-[56%] z-10 text-left space-y-0.5">
@@ -300,8 +300,8 @@ const videoSolutions = [
     videoUrl: 'https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ',
     renderThumb: () => (
       <div className="relative w-full h-[145px] sm:h-[155px] bg-[#111827] p-3 sm:p-3.5 flex items-center justify-between text-white overflow-hidden select-none">
-        <div className="absolute top-2.5 right-3 flex items-center space-x-1 opacity-90">
-          <span className="text-amber-400 font-[800] text-[9.5px] tracking-wider">FIREVY</span>
+        <div className="absolute top-2.5 right-3 flex items-center opacity-90">
+          <img src="/firevy_logo_white.png" alt="firevy.co" className="h-3.5 sm:h-4 w-auto object-contain drop-shadow-xs" />
         </div>
 
         <div className="w-[54%] z-10 text-left space-y-0.5">

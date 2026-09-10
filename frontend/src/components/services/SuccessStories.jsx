@@ -268,8 +268,8 @@ export const SuccessStories = () => {
                 type="button"
                 onClick={() => setActiveCategory(cat)}
                 className={`px-4 sm:px-5 py-2 rounded-[8px] text-xs sm:text-[13px] font-[700] transition-all cursor-pointer ${activeCategory === cat
-                    ? 'bg-[#005F96] text-white shadow-xs'
-                    : 'bg-white text-[#334155] hover:text-[#005F96] hover:bg-slate-50 border border-slate-100/80 shadow-2xs'
+                  ? 'bg-[#005F96] text-white shadow-xs'
+                  : 'bg-white text-[#334155] hover:text-[#005F96] hover:bg-slate-50 border border-slate-100/80 shadow-2xs'
                   }`}
               >
                 {cat}
@@ -285,8 +285,8 @@ export const SuccessStories = () => {
                 type="button"
                 onClick={() => setActiveCategory(cat)}
                 className={`px-5 sm:px-6 py-2 rounded-[8px] text-xs sm:text-[13px] font-[700] transition-all cursor-pointer ${activeCategory === cat
-                    ? 'bg-[#005F96] text-white shadow-xs'
-                    : 'bg-white text-[#334155] hover:text-[#005F96] hover:bg-slate-50 border border-slate-100/80 shadow-2xs'
+                  ? 'bg-[#005F96] text-white shadow-xs'
+                  : 'bg-white text-[#334155] hover:text-[#005F96] hover:bg-slate-50 border border-slate-100/80 shadow-2xs'
                   }`}
               >
                 {cat}
@@ -319,7 +319,7 @@ export const SuccessStories = () => {
         </div>
 
         {/* Centered View All Portfolio CTA Button */}
-        <div className="text-center mb-14 sm:mb-16">
+        <div className="text-center">
           <Link
             to="/portfolio"
             className="bg-[#005F96] hover:bg-[#004D7A] text-white text-xs sm:text-sm font-[800] rounded-[6px] px-7 py-3 inline-block transition-all shadow-xs"
@@ -328,149 +328,6 @@ export const SuccessStories = () => {
           </Link>
         </div>
       </Container>
-
-      {/* =========================================================================
-          HORIZONTAL PASTEL VALUE CARDS CAROUSEL (WITH AUTO-SCROLL EVERY 2.5s)
-          ========================================================================= */}
-      <div className="text-center max-w-4xl mx-auto mb-8 sm:mb-10 space-y-2 px-4">
-        <h2
-          className="font-[800] text-[#0B0F19] tracking-tight leading-tight"
-          style={{ fontSize: '32px' }}
-        >
-          Explore The Transformative Impact Of Mobile App On Your Business Success
-        </h2>
-      </div>
-
-      <div
-        className="relative overflow-hidden w-full select-none mt-2 pb-4"
-        onMouseEnter={() => setIsImpactHovered(true)}
-        onMouseLeave={() => setIsImpactHovered(false)}
-      >
-        <div
-          ref={impactCarouselRef}
-          className="flex space-x-6 overflow-x-auto scroll-smooth scrollbar-none px-4 sm:px-6 lg:px-8"
-          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-        >
-          {[
-            {
-              bgColor: 'bg-[#D7EDFB]',
-              iconBg: 'bg-[#0284C7]',
-              icon: (
-                <svg viewBox="0 0 24 24" className="w-5 h-5 text-white fill-none stroke-current stroke-2">
-                  <rect x="5" y="2" width="14" height="20" rx="3" />
-                  <line x1="12" y1="18" x2="12.01" y2="18" strokeWidth="2.5" />
-                </svg>
-              ),
-              title: 'Brand Recognition & Reach',
-              desc: "Mobile apps put your brand directly on users' home screens, delivering 24/7 visibility, personalized engagement, and seamless brand accessibility."
-            },
-            {
-              bgColor: 'bg-[#E5DAF6]',
-              iconBg: 'bg-[#9867E9]',
-              icon: (
-                <svg viewBox="0 0 24 24" className="w-5 h-5 text-white fill-none stroke-current stroke-2">
-                  <rect x="3" y="3" width="18" height="14" rx="2" />
-                  <line x1="7" y1="13" x2="7" y2="10" />
-                  <line x1="11" y1="13" x2="11" y2="7" />
-                  <line x1="15" y1="13" x2="15" y2="9" />
-                  <circle cx="17" cy="17" r="3" />
-                  <line x1="19.5" y1="19.5" x2="22" y2="22" />
-                </svg>
-              ),
-              title: 'Data Collection and Analytics',
-              desc: 'App analytics can help you learn more about your employer and make decisions that are appropriate, you can gather information on name, age, gender, location, interests, behavior, etc.'
-            },
-            {
-              bgColor: 'bg-[#D1F2EE]',
-              iconBg: 'bg-[#1EB1A8]',
-              icon: (
-                <svg viewBox="0 0 24 24" className="w-5 h-5 text-white fill-none stroke-current stroke-2">
-                  <line x1="18" y1="20" x2="18" y2="10" />
-                  <line x1="12" y1="20" x2="12" y2="4" />
-                  <line x1="6" y1="20" x2="6" y2="14" />
-                  <polyline points="4 8 10 2 16 7 20 3" />
-                </svg>
-              ),
-              title: 'Gather Valuable Customer Insights',
-              desc: 'You can interact with your customers using mobile apps, meet them where they are, ask them for ratings or feedback and get real-time analytics to act accordingly.'
-            },
-            {
-              bgColor: 'bg-[#F8D3E3]',
-              iconBg: 'bg-[#DE5B8F]',
-              icon: (
-                <svg viewBox="0 0 24 24" className="w-5 h-5 text-white fill-none stroke-current stroke-2">
-                  <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3" />
-                  <path d="M18 4l1 2 2 1-2 1-1 2-1-2-2-1 2-1z" />
-                </svg>
-              ),
-              title: 'Competitive Advantage',
-              desc: 'Businesses can make a big competitive edge by using mobile apps. Apps offer the opportunity to optimize processes, significant data insights, and more direct and personalized client connections.'
-            },
-            {
-              bgColor: 'bg-[#FCE2CD]',
-              iconBg: 'bg-[#E67E3F]',
-              icon: (
-                <svg viewBox="0 0 24 24" className="w-5 h-5 text-white fill-none stroke-current stroke-2">
-                  <path d="M9 18h6" />
-                  <path d="M10 22h4" />
-                  <path d="M12 2a7 7 0 0 0-7 7c0 2.5 1.5 4.5 3 6h8c1.5-1.5 3-3.5 3-6a7 7 0 0 0-7-7z" />
-                </svg>
-              ),
-              title: 'Innovate and Stay Competitive',
-              desc: 'Investigating flutter app development services can be a calculated move for companies looking to take advantage of the benefits of mobile applications to boost client engagement and productivity.'
-            },
-            {
-              bgColor: 'bg-[#D9F5E5]',
-              iconBg: 'bg-[#10B981]',
-              icon: (
-                <svg viewBox="0 0 24 24" className="w-5 h-5 text-white fill-none stroke-current stroke-2">
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                  <path d="m9 12 2 2 4-4" />
-                </svg>
-              ),
-              title: 'Ensure Security and Compliance',
-              desc: 'Ensure Security and Compliance Using mobile apps, businesses can ensure that user data is never inadvertently disclosed to hackers or unscrupulous commercial vendors by employing secure analytics providers & executing advertising in ethical manner.'
-            },
-            {
-              bgColor: 'bg-[#FEF3C7]',
-              iconBg: 'bg-[#D97706]',
-              icon: (
-                <svg viewBox="0 0 24 24" className="w-5 h-5 text-white fill-none stroke-current stroke-2">
-                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                  <circle cx="9" cy="7" r="4" />
-                  <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                </svg>
-              ),
-              title: 'Enhanced Customer Engagement',
-              desc: 'Mobile apps offer a more immersive and interactive environment than websites, leading to higher conversion rates and direct engagement.'
-            }
-          ].map((card, idx) => (
-            <div
-              key={idx}
-              className={`impact-card ${card.bgColor} w-[340px] sm:w-[370px] lg:w-[390px] min-h-[220px] sm:min-h-[235px] rounded-[16px] p-6 sm:p-7 text-left flex flex-col justify-start shrink-0 shadow-xs border border-white/70 hover:shadow-md transition-shadow`}
-            >
-              {/* Small Rounded Icon Box at Top-Left */}
-              <div className={`w-10 h-10 rounded-[10px] ${card.iconBg} flex items-center justify-center mb-4 shadow-xs`}>
-                {card.icon}
-              </div>
-
-              {/* Card Heading */}
-              <h4 className="font-[800] text-[16px] sm:text-[17px] text-[#0B0F19] mb-2 leading-snug">
-                {card.title}
-              </h4>
-
-              {/* Description Text */}
-              <p
-                className="font-normal text-[#334155]"
-                style={{ fontSize: '13px', lineHeight: '1.6' }}
-              >
-                {card.desc}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
     </section>
   );
 };

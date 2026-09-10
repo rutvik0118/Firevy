@@ -21,9 +21,12 @@ import VisitorManagementSystemService from '../components/services/VisitorManage
 import WarehouseManagementSystemService from '../components/services/WarehouseManagementSystemService';
 import CloverAppDevelopmentService from '../components/services/CloverAppDevelopmentService';
 import AndroidAppDevelopmentService from '../components/services/AndroidAppDevelopmentService';
+import ReactNativeAppDevelopmentService from '../components/services/ReactNativeAppDevelopmentService';
+import FlutterAppDevelopmentService from '../components/services/FlutterAppDevelopmentService';
 import HireCSharpDevelopersService from '../components/services/HireCSharpDevelopersService';
 import IWatchAppDevelopmentService from '../components/services/IWatchAppDevelopmentService';
 import IOSAppDevelopmentService from '../components/services/IOSAppDevelopmentService';
+import XamarinAppDevelopmentService from '../components/services/XamarinAppDevelopmentService';
 
 export const ServiceDetails = () => {
   const { slug } = useParams();
@@ -32,10 +35,29 @@ export const ServiceDetails = () => {
   const [error, setError] = useState(null);
   const [openFaq, setOpenFaq] = useState(0);
 
+  const isXamarin = slug && (
+    slug.toLowerCase().includes('xamarin') ||
+    slug.toLowerCase() === 'xamarin-app-development' ||
+    slug.toLowerCase() === 'xamarin-development' ||
+    slug.toLowerCase() === 'xamarin'
+  );
+
   const isAndroid = slug && (
     slug.toLowerCase().includes('android-app') ||
     slug.toLowerCase().includes('android-development') ||
     slug.toLowerCase() === 'android'
+  );
+
+  const isReactNative = slug && (
+    slug.toLowerCase().includes('react-native') ||
+    slug.toLowerCase().includes('reactnative') ||
+    slug.toLowerCase() === 'react-native'
+  );
+
+  const isFlutter = slug && (
+    slug.toLowerCase().includes('flutter-app') ||
+    slug.toLowerCase().includes('flutter-development') ||
+    slug.toLowerCase() === 'flutter'
   );
 
   const isHealthcare = slug && (
@@ -214,7 +236,7 @@ export const ServiceDetails = () => {
   };
 
   useEffect(() => {
-    if (!isAndroid && !isIOS && !isHealthcare && !isEducation && !isUber && !isSpotify && !isZomato && !isAmazon && !isVisitor && !isWarehouse && !isClover && !isCSharp && !isIWatch) {
+    if (!isXamarin && !isAndroid && !isReactNative && !isFlutter && !isIOS && !isHealthcare && !isEducation && !isUber && !isSpotify && !isZomato && !isAmazon && !isVisitor && !isWarehouse && !isClover && !isCSharp && !isIWatch) {
       fetchServiceDetails();
     } else {
       setLoading(false);
@@ -222,12 +244,24 @@ export const ServiceDetails = () => {
     window.scrollTo(0, 0);
   }, [slug]);
 
+  if (isXamarin) {
+    return <XamarinAppDevelopmentService />;
+  }
+
   if (isIOS) {
     return <IOSAppDevelopmentService />;
   }
 
   if (isAndroid) {
     return <AndroidAppDevelopmentService />;
+  }
+
+  if (isReactNative) {
+    return <ReactNativeAppDevelopmentService />;
+  }
+
+  if (isFlutter) {
+    return <FlutterAppDevelopmentService />;
   }
 
   if (isHealthcare) {

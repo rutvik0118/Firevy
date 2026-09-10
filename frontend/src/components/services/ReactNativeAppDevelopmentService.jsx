@@ -8,14 +8,14 @@ import TrustedBrandsGrid from '../common/TrustedBrandsGrid';
 import SapphireTechStackGrid from '../common/SapphireTechStackGrid';
 import SuccessStoriesSection from '../common/SuccessStoriesSection';
 import SuccessStories from './SuccessStories';
+import TransformativeImpactSection from './TransformativeImpactSection';
 import AboutUsStats from './AboutUsStats';
 import SectorsThrivingSection from './SectorsThrivingSection';
-import KeyReasonsChooseAndroid from './KeyReasonsChooseAndroid';
-import BestAndroidAppCompanyShowcase from './BestAndroidAppCompanyShowcase';
+import MobileAppExpertiseServices from './MobileAppExpertiseServices';
 import AndroidTechStackSection from './AndroidTechStackSection';
-import AndroidExpertiseServices from './AndroidExpertiseServices';
+import ReactNativeExpertiseServices from './ReactNativeExpertiseServices';
 import ProudAwardsBanner from './ProudAwardsBanner';
-import AndroidCompanyBenefits from './AndroidCompanyBenefits';
+import ReactNativeReasonsChoose from './ReactNativeReasonsChoose';
 import AndroidHiringModels from './AndroidHiringModels';
 import AndroidComparativeAnalysis from './AndroidComparativeAnalysis';
 import InnovativeSolutionsVideoSection from './InnovativeSolutionsVideoSection';
@@ -48,10 +48,13 @@ import {
   Search,
   Globe,
   Lock,
-  Boxes
+  Boxes,
+  Brain,
+  Cloud,
+  Radio
 } from 'lucide-react';
 
-export const AndroidAppDevelopmentService = () => {
+export const ReactNativeAppDevelopmentService = () => {
   const [openFaq, setOpenFaq] = useState(0);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [techCarouselIndex, setTechCarouselIndex] = useState(0);
@@ -192,78 +195,35 @@ export const AndroidAppDevelopmentService = () => {
   return (
     <div className="bg-white text-slate-900 font-sans min-h-screen">
       <SEO
-        title="Best Android App Development Company | AI-Powered Android Solutions"
-        description="Top AI-Powered Android App Development Company. We design and build high-quality, user-friendly Android mobile apps to help businesses scale across devices and markets."
-        canonical="/services/android"
+        title="Top React Native App Development Company in USA | Firevy"
+        description="We are the #1 Reactive Native App Development company building highly interactive, versatile React Native applications for Android and iOS platforms."
+        canonical="/services/react-native"
       />
 
       {/* =========================================================================
-          EXACT 1:1 RECREATED HERO SECTION (MATCHING REFERENCE IMAGE COPY-TO-COPY)
+          EXACT 1:1 RECREATED REACT NATIVE HERO SECTION (MATCHING REFERENCE IMAGE 1:1)
           ========================================================================= */}
       <section className="pt-24 pb-8 sm:pt-28 sm:pb-10 lg:pt-32 lg:pb-12 bg-[#EDF5F9] text-slate-900 relative overflow-hidden text-left font-sans">
         <Container className="relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-center">
 
-            {/* Left Column: Heading, Paragraph, 4 Stats, 2 CTAs */}
-            <div className="lg:col-span-7 space-y-4 sm:space-y-4">
+            {/* Left Column: Heading, Paragraph, 2 CTAs */}
+            <div className="lg:col-span-7 space-y-4 sm:space-y-5">
               {/* Heading */}
               <h1 className="text-[30px] sm:text-[36px] lg:text-[40px] font-[800] text-[#0B0F19] leading-[1.18] tracking-tight">
-                Best Android App<br />Development Company
+                Top React Native App<br />Development Company in USA
               </h1>
 
-              {/* Subtitle / Paragraph */}
-              <p className="text-[13px] sm:text-[14px] text-[#475569] leading-[1.65] font-normal max-w-[520px]">
-                As a top AI-Powered Android App Development Company, we design Android apps by implementing your original ideas! We build high-quality, user-friendly Android apps to match your demands as a leading bespoke app developer. We specialize in Android mobile app development to help businesses scale efficiently across devices and markets. Contact us for a quote!
+              {/* Subtitle / Paragraph matching screenshot 1:1 */}
+              <p className="text-[13px] sm:text-[14px] text-[#475569] leading-[1.65] font-normal max-w-[560px]">
+                We are the #1 Reactive Native App Development company; we use React Native to build highly interactive, versatile React native applications for Android and iOS platforms. We are an established React native mobile app development company with decade-long experience and follow us <span className="font-[700] text-[#005F96]">Hire react native developers in USA</span> to deliver the best-in-quality services. With decade-long experience, we follow agile methodologies and strive to provide the best-in-class React Native Development services to our clients. Are you looking for developers or exploring React Native app development cost, we ensure transparency and cost-effectiveness in our approach.
               </p>
 
-              {/* 4 Statistics Blocks */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-5 pt-1 max-w-[580px]">
-                {/* Stat 1 */}
-                <div className="space-y-0.5">
-                  <div className="text-[26px] sm:text-[28px] font-[800] text-[#005F96] leading-none">
-                    80+
-                  </div>
-                  <div className="text-[11.5px] sm:text-[12px] font-[600] text-[#1E293B] leading-tight">
-                    Mobile App<br />Developers
-                  </div>
-                </div>
-
-                {/* Stat 2 */}
-                <div className="space-y-0.5">
-                  <div className="text-[26px] sm:text-[28px] font-[800] text-[#005F96] leading-none">
-                    20+
-                  </div>
-                  <div className="text-[11.5px] sm:text-[12px] font-[600] text-[#1E293B] leading-tight">
-                    Fortunes 500<br />Companies
-                  </div>
-                </div>
-
-                {/* Stat 3 */}
-                <div className="space-y-0.5">
-                  <div className="text-[26px] sm:text-[28px] font-[800] text-[#005F96] leading-none">
-                    800+
-                  </div>
-                  <div className="text-[11.5px] sm:text-[12px] font-[600] text-[#1E293B] leading-tight">
-                    Project Completed in<br />Mobile Technology
-                  </div>
-                </div>
-
-                {/* Stat 4 */}
-                <div className="space-y-0.5">
-                  <div className="text-[26px] sm:text-[28px] font-[800] text-[#005F96] leading-none">
-                    320+
-                  </div>
-                  <div className="text-[11.5px] sm:text-[12px] font-[600] text-[#1E293B] leading-tight">
-                    5-Star Clutch Reviews
-                  </div>
-                </div>
-              </div>
-
-              {/* Two CTA Buttons Directly Below Statistics */}
-              <div className="pt-2 flex flex-wrap items-center gap-3">
+              {/* Two CTA Buttons Directly Below Description */}
+              <div className="pt-2 flex flex-wrap items-center gap-3.5">
                 <a
                   href="#quote-form"
-                  className="inline-flex items-center justify-center px-5 py-2.5 sm:px-6 sm:py-3 rounded-[4px] bg-[#005F96] hover:bg-[#004A75] text-white font-[700] text-[13px] sm:text-[14px] transition-all shadow-sm group"
+                  className="inline-flex items-center justify-center px-5 py-2.5 sm:px-6 sm:py-3 rounded-[4px] bg-[#005F96] hover:bg-[#004A75] text-white font-[700] text-[13px] sm:text-[14px] transition-all shadow-sm group cursor-pointer"
                 >
                   <span>Discuss Your Project</span>
                   <span className="ml-2 text-base transition-transform group-hover:translate-x-1">→</span>
@@ -271,131 +231,129 @@ export const AndroidAppDevelopmentService = () => {
 
                 <a
                   href="#quote-form"
-                  className="inline-flex items-center justify-center px-5 py-2.5 sm:px-6 sm:py-3 rounded-[4px] bg-[#005F96] hover:bg-[#004A75] text-white font-[700] text-[13px] sm:text-[14px] transition-all shadow-sm group"
+                  className="inline-flex items-center justify-center px-5 py-2.5 sm:px-6 sm:py-3 rounded-[4px] bg-[#005F96] hover:bg-[#004A75] text-white font-[700] text-[13px] sm:text-[14px] transition-all shadow-sm group cursor-pointer"
                 >
-                  <span>Hire Android App Developers</span>
+                  <span>Hire React Native Developers</span>
                   <span className="ml-2 text-base transition-transform group-hover:translate-x-1">→</span>
                 </a>
               </div>
             </div>
 
-            {/* Right Column: Android Dual Mobile Device Mockup */}
+            {/* Right Column: React Native Dual Mobile Device Mockup (Matching Screenshot 1:1) */}
             <div className="lg:col-span-5 flex flex-col items-center justify-center relative pt-2 pb-2">
-              <div className="relative w-full max-w-[360px] sm:max-w-[390px] flex items-center justify-center">
+              <div className="relative w-full max-w-[360px] sm:max-w-[400px] flex items-center justify-center">
 
-                {/* Back Smartphone (Left, Food Product Listing App Screen) */}
+                {/* Back Smartphone (Left, Social App Congratulation Screen) */}
                 <div
-                  className="w-[150px] sm:w-[165px] lg:w-[175px] h-[295px] sm:h-[325px] lg:h-[345px] rounded-[24px] bg-slate-900 border-[3px] border-slate-700 p-1.5 shadow-lg relative overflow-hidden -rotate-6 translate-y-3 -mr-12 z-0 shrink-0"
+                  className="w-[155px] sm:w-[170px] lg:w-[185px] h-[310px] sm:h-[340px] lg:h-[365px] rounded-[26px] bg-slate-900 border-[3.5px] border-slate-700 p-1.5 shadow-xl relative overflow-hidden -rotate-6 translate-y-3 -mr-12 z-0 shrink-0"
                   style={{
-                    boxShadow: '0 15px 30px -10px rgba(0,0,0,0.25)'
+                    boxShadow: '0 15px 30px -10px rgba(0,0,0,0.3)'
                   }}
                 >
-                  {/* Screen Content */}
-                  <div className="bg-[#FAFAFC] w-full h-full rounded-[18px] p-2 flex flex-col justify-between text-slate-800 text-[8.5px] overflow-hidden select-none">
-                    {/* Status Bar */}
-                    <div className="flex justify-between items-center text-[7.5px] font-bold text-slate-400 border-b border-slate-100 pb-0.5">
-                      <span>9:41</span>
-                      <div className="flex space-x-1 items-center">
-                        <span className="w-1.5 h-1.5 rounded-full bg-slate-300" />
-                        <span className="w-1.5 h-1.5 rounded-full bg-slate-300" />
-                      </div>
+                  <div className="bg-white w-full h-full rounded-[20px] p-2.5 flex flex-col justify-between text-slate-800 text-center overflow-hidden select-none">
+                    {/* Top Status Bar & Header */}
+                    <div className="space-y-1 pt-1">
+                      <span className="text-[9px] font-bold text-slate-800 block">Congratulations!</span>
+                      <p className="text-[6.5px] text-slate-400 leading-tight">You matched with someone new</p>
                     </div>
 
-                    {/* App Header */}
-                    <div className="py-0.5">
-                      <div className="text-[9.5px] font-extrabold text-slate-900 leading-tight">Products</div>
-                      <div className="text-[7px] text-slate-400">Popular dishes around you</div>
+                    {/* Dual Mini Profile Photos */}
+                    <div className="flex items-center justify-center -space-x-3 my-auto py-2">
+                      <img
+                        src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80"
+                        alt="Match 1"
+                        className="w-12 h-16 rounded-[10px] object-cover border-2 border-white shadow-md -rotate-6"
+                      />
+                      <img
+                        src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80"
+                        alt="Match 2"
+                        className="w-12 h-16 rounded-[10px] object-cover border-2 border-white shadow-md rotate-6"
+                      />
                     </div>
 
-                    {/* Food Items List */}
-                    <div className="space-y-1 flex-1 overflow-hidden py-0.5">
-                      <div className="p-1 rounded-md bg-white border border-slate-100 shadow-sm flex items-center space-x-1.5">
-                        <div className="w-6 h-6 rounded bg-amber-100 flex items-center justify-center text-[10px] shrink-0">
-                          🍕
-                        </div>
-                        <div className="min-w-0 flex-1">
-                          <div className="font-bold text-[7.5px] text-slate-800 truncate">Margherita Pizza</div>
-                          <div className="text-[6.5px] text-amber-500 font-semibold">★ 4.9 • $14.99</div>
-                        </div>
+                    {/* Purple CTA Button */}
+                    <div className="pb-2">
+                      <div className="w-full py-1.5 rounded-[8px] bg-gradient-to-r from-[#9333EA] to-[#A855F7] text-white text-[7.5px] font-bold shadow-sm">
+                        Send a Message
                       </div>
-
-                      <div className="p-1 rounded-md bg-white border border-slate-100 shadow-sm flex items-center space-x-1.5">
-                        <div className="w-6 h-6 rounded bg-orange-100 flex items-center justify-center text-[10px] shrink-0">
-                          🍔
-                        </div>
-                        <div className="min-w-0 flex-1">
-                          <div className="font-bold text-[7.5px] text-slate-800 truncate">Smash Burger</div>
-                          <div className="text-[6.5px] text-amber-500 font-semibold">★ 4.8 • $11.50</div>
-                        </div>
-                      </div>
-
-                      <div className="p-1 rounded-md bg-white border border-slate-100 shadow-sm flex items-center space-x-1.5">
-                        <div className="w-6 h-6 rounded bg-emerald-100 flex items-center justify-center text-[10px] shrink-0">
-                          🥗
-                        </div>
-                        <div className="min-w-0 flex-1">
-                          <div className="font-bold text-[7.5px] text-slate-800 truncate">Healthy Salad</div>
-                          <div className="text-[6.5px] text-amber-500 font-semibold">★ 4.7 • $9.99</div>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Bottom Nav Bar */}
-                    <div className="pt-0.5 border-t border-slate-100 flex justify-around text-[8px] text-slate-400">
-                      <span className="text-[#005F96] font-bold">🏠</span>
-                      <span>🔍</span>
-                      <span>🛒</span>
-                      <span>👤</span>
+                      <span className="text-[6px] text-slate-400 mt-1 block">Keep Browsing</span>
                     </div>
                   </div>
                 </div>
 
-                {/* Front Smartphone (Right, Foreground Android Device with "Easy Eat" Logo over Food Wallpaper) */}
+                {/* Front Smartphone (Right, Foreground React Native Dating / Social App UI) */}
                 <div
-                  className="w-[170px] sm:w-[185px] lg:w-[195px] h-[330px] sm:h-[355px] lg:h-[375px] rounded-[26px] bg-[#1E293B] border-[3.5px] border-[#334155] p-1.5 shadow-2xl relative overflow-hidden z-10 shrink-0"
+                  className="w-[175px] sm:w-[195px] lg:w-[210px] h-[345px] sm:h-[375px] lg:h-[400px] rounded-[30px] bg-slate-900 border-[4px] border-slate-800 p-1.5 shadow-2xl relative overflow-hidden z-10 shrink-0"
                   style={{
-                    boxShadow: '0 20px 40px -10px rgba(0, 0, 0, 0.4)'
+                    boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.45)'
                   }}
                 >
-                  {/* Top Android Speaker Ear Piece & Camera */}
-                  <div className="absolute top-2 left-1/2 -translate-x-1/2 w-10 h-0.5 rounded-full bg-slate-600/80 z-20" />
-                  <div className="absolute top-2 right-5 w-1 h-1 rounded-full bg-slate-600/80 z-20" />
+                  {/* Top Notch Speaker Ear Piece & Camera */}
+                  <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-12 h-3.5 bg-slate-900 rounded-b-xl z-30 flex items-center justify-center">
+                    <div className="w-6 h-1 rounded-full bg-slate-700/80" />
+                  </div>
 
-                  {/* Android Screen Container */}
-                  <div className="relative w-full h-full rounded-[18px] overflow-hidden flex flex-col items-center justify-center select-none">
+                  {/* App Screen Container */}
+                  <div className="relative w-full h-full bg-white rounded-[22px] overflow-hidden flex flex-col justify-between select-none">
 
-                    {/* High-Resolution Food Table Wallpaper */}
-                    <img
-                      src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=80"
-                      alt="Easy Eat Android App Mockup"
-                      className="absolute inset-0 w-full h-full object-cover"
-                    />
-
-                    {/* Dark/Warm Tint Overlay matching reference */}
-                    <div className="absolute inset-0 bg-slate-950/40 backdrop-brightness-90" />
-
-                    {/* Centered App Logo Card: Orange Icon + "Easy Eat" */}
-                    <div className="relative z-10 flex flex-col items-center justify-center space-y-2">
-                      {/* Orange Rounded Square App Icon with Pizza SVG */}
-                      <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-[12px] bg-[#F97316] shadow-lg flex items-center justify-center border border-white/20">
-                        {/* Crisp White Pizza Slice Icon */}
-                        <svg viewBox="0 0 24 24" className="w-7 h-7 sm:w-8 sm:h-8 text-white fill-none stroke-white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                          <path d="M15 11h.01" />
-                          <path d="M11 15h.01" />
-                          <path d="M16 16h.01" />
-                          <path d="m2 16 20 6-6-20A20 20 0 0 0 2 16Z" fill="currentColor" fillOpacity="0.2" />
-                          <path d="M5.71 17.11a17.04 17.04 0 0 1 11.4-11.4" />
+                    {/* Top App Header Icons */}
+                    <div className="pt-4 pb-2 px-3 flex items-center justify-between z-20 bg-white/90 backdrop-blur-xs">
+                      {/* Profile Icon */}
+                      <div className="w-5 h-5 rounded-full bg-purple-100 flex items-center justify-center text-purple-600">
+                        <svg viewBox="0 0 24 24" className="w-3 h-3 fill-current">
+                          <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
                         </svg>
                       </div>
 
-                      {/* App Name Text: Easy Eat */}
-                      <div className="text-white font-[800] text-[14px] sm:text-[15px] tracking-wide drop-shadow-md">
-                        Easy Eat
+                      {/* Flame / Match Icon */}
+                      <div className="w-5 h-5 flex items-center justify-center text-purple-600">
+                        <svg viewBox="0 0 24 24" className="w-3.5 h-3.5 fill-current">
+                          <path d="M12 23c-4.97 0-9-4.03-9-9 0-3.64 2.18-6.78 5.34-8.19.46-.2.98.11 1.05.61.16 1.15.65 2.19 1.41 3.01.27.29.74.22.92-.12.56-1.07 1.44-2.73 1.44-4.81 0-.5.44-.9.94-.85 4.35.45 7.9 4.05 7.9 8.35 0 4.97-4.03 9-9 9z" />
+                        </svg>
+                      </div>
+
+                      {/* Chat Messages Icon */}
+                      <div className="w-5 h-5 rounded-full bg-purple-100 flex items-center justify-center text-purple-600">
+                        <svg viewBox="0 0 24 24" className="w-3 h-3 fill-current">
+                          <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" />
+                        </svg>
                       </div>
                     </div>
 
-                    {/* Subtle Android Bottom Navigation Bar */}
-                    <div className="absolute bottom-1.5 left-1/2 -translate-x-1/2 w-16 h-0.5 rounded-full bg-white/60 z-20" />
+                    {/* Main Dating Profile Card with Portrait Image */}
+                    <div className="relative flex-1 mx-2 mb-2 rounded-[18px] overflow-hidden shadow-inner flex flex-col justify-end p-2.5">
+                      <img
+                        src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80"
+                        alt="Marlene - React Native Social App"
+                        className="absolute inset-0 w-full h-full object-cover"
+                      />
+
+                      {/* Gradient Overlay for Text Readability */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+
+                      {/* Profile Details */}
+                      <div className="relative z-10 text-left text-white space-y-0.5">
+                        <div className="flex items-center space-x-1">
+                          <span className="font-[800] text-[12px] sm:text-[13px] text-white leading-tight">Marlene, 21</span>
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                        </div>
+                        <p className="text-[7.5px] text-slate-200 leading-tight line-clamp-1">
+                          Fashion design student • West Bay
+                        </p>
+                      </div>
+
+                      {/* Floating Bottom Right Purple Chat Bubble */}
+                      <div className="absolute bottom-2.5 right-2.5 z-20 w-8 h-8 rounded-full bg-gradient-to-br from-[#9333EA] to-[#7E22CE] text-white flex items-center justify-center shadow-lg border border-white/40">
+                        <svg viewBox="0 0 24 24" className="w-4 h-4 fill-current">
+                          <path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z" />
+                        </svg>
+                      </div>
+                    </div>
+
+                    {/* Bottom Home Indicator */}
+                    <div className="pb-1 flex justify-center">
+                      <div className="w-16 h-0.5 rounded-full bg-slate-300" />
+                    </div>
                   </div>
                 </div>
 
@@ -413,370 +371,39 @@ export const AndroidAppDevelopmentService = () => {
       <BrandLogoMarquee />
 
       {/* =========================================================================
-          MOBILE APP MARKET STATS & MARKET SIZE SECTION (COMPACT 1-SCREEN VIEWPORT)
-          ========================================================================= */}
-      <section className="py-8 sm:py-10 bg-white text-slate-900 font-sans text-left">
-        <Container>
-          <div className="space-y-6 sm:space-y-8">
-
-            {/* ROW 1: Chart Left + Content Right */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
-              {/* Left Column: Bar Chart Graphic */}
-              <div className="lg:col-span-6 flex justify-center">
-                <div className="w-full max-w-[480px] rounded-xl bg-[#F4F8FA] border border-slate-200/90 p-3.5 sm:p-4 shadow-sm transition-all duration-300 ease-out hover:scale-105 hover:shadow-2xl hover:shadow-[#005F96]/15 hover:border-[#005F96]/50 cursor-pointer group">
-                  {/* Chart Title */}
-                  <h4 className="text-[11px] sm:text-[12px] font-bold text-slate-800 text-center mb-2 group-hover:text-[#005F96] transition-colors">
-                    Mobile App Market Stats, By Industry IN($Bn), From 2017 To 2025
-                  </h4>
-
-                  {/* SVG Bar Chart Visualization */}
-                  <div className="w-full h-32 sm:h-36 relative flex items-end justify-between px-1 pt-2 pb-4 border-b border-slate-200 transition-transform duration-300 ease-out group-hover:scale-[1.02]">
-                    {/* Y-Axis Grid Lines & Labels */}
-                    <div className="absolute inset-0 flex flex-col justify-between pointer-events-none text-[7px] text-slate-400 select-none pb-4">
-                      <div className="flex items-center space-x-1.5 w-full"><span className="w-5 text-right">700</span><div className="w-full border-b border-slate-200/60" /></div>
-                      <div className="flex items-center space-x-1.5 w-full"><span className="w-5 text-right">500</span><div className="w-full border-b border-slate-200/60" /></div>
-                      <div className="flex items-center space-x-1.5 w-full"><span className="w-5 text-right">300</span><div className="w-full border-b border-slate-200/60" /></div>
-                      <div className="flex items-center space-x-1.5 w-full"><span className="w-5 text-right">100</span><div className="w-full border-b border-slate-200/60" /></div>
-                      <div className="flex items-center space-x-1.5 w-full"><span className="w-5 text-right">0</span><div className="w-full border-b border-slate-200/60" /></div>
-                    </div>
-
-                    {/* Bars Container */}
-                    <div className="relative z-10 w-full flex items-end justify-between pl-6 pr-1 space-x-1">
-                      {[
-                        { year: '2017', val: '174.53', h: '28%' },
-                        { year: '2018', val: '218.14', h: '35%' },
-                        { year: '2019', val: '253.14', h: '41%' },
-                        { year: '2020', val: '318.02', h: '51%' },
-                        { year: '2021', val: '387.65', h: '62%' },
-                        { year: '2022', val: '435.19', h: '70%' },
-                        { year: '2023', val: '497.58', h: '80%' },
-                        { year: '2024', val: '563.13', h: '90%' },
-                        { year: '2025', val: '610.40', h: '98%' },
-                      ].map((item, idx) => (
-                        <div key={idx} className="flex-1 flex flex-col items-center group/bar relative transition-transform duration-200 hover:-translate-y-1">
-                          {/* Value above bar */}
-                          <span className="text-[6px] sm:text-[6.5px] font-semibold text-slate-700 leading-none mb-0.5 group-hover/bar:text-[#005F96] group-hover/bar:font-bold">
-                            {item.val}
-                          </span>
-                          {/* Stacked Bar */}
-                          <div
-                            className="w-full max-w-[22px] rounded-t-xs overflow-hidden flex flex-col justify-end shadow-xs transition-all duration-200 group-hover/bar:brightness-110 group-hover/bar:shadow-md"
-                            style={{ height: item.h }}
-                          >
-                            <div className="w-full h-[12%] bg-[#F59E0B]" />
-                            <div className="w-full h-[14%] bg-[#EC4899]" />
-                            <div className="w-full h-[18%] bg-[#8B5CF6]" />
-                            <div className="w-full h-[22%] bg-[#3B82F6]" />
-                            <div className="w-full h-[34%] bg-[#004A75]" />
-                          </div>
-                          {/* Year label below */}
-                          <span className="text-[6.5px] sm:text-[7.5px] font-medium text-slate-500 mt-1 leading-none group-hover/bar:text-slate-900 group-hover/bar:font-bold">
-                            {item.year}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Chart Legend Grid */}
-                  <div className="grid grid-cols-5 gap-x-1.5 gap-y-1 pt-2.5 text-[6.5px] sm:text-[7.5px] text-slate-600">
-                    <div className="flex items-center space-x-1"><span className="w-1.5 h-1.5 rounded-xs bg-[#004A75]" /><span>Total</span></div>
-                    <div className="flex items-center space-x-1"><span className="w-1.5 h-1.5 rounded-xs bg-[#3B82F6]" /><span className="truncate">Photo & Video</span></div>
-                    <div className="flex items-center space-x-1"><span className="w-1.5 h-1.5 rounded-xs bg-[#8B5CF6]" /><span>Medical</span></div>
-                    <div className="flex items-center space-x-1"><span className="w-1.5 h-1.5 rounded-xs bg-[#EC4899]" /><span className="truncate">Productivity</span></div>
-                    <div className="flex items-center space-x-1"><span className="w-1.5 h-1.5 rounded-xs bg-[#F59E0B]" /><span>Utilities</span></div>
-                    <div className="flex items-center space-x-1"><span className="w-1.5 h-1.5 rounded-xs bg-[#10B981]" /><span>Games</span></div>
-                    <div className="flex items-center space-x-1"><span className="w-1.5 h-1.5 rounded-xs bg-[#06B6D4]" /><span className="truncate">Food & Drink</span></div>
-                    <div className="flex items-center space-x-1"><span className="w-1.5 h-1.5 rounded-xs bg-[#6366F1]" /><span>Shopping</span></div>
-                    <div className="flex items-center space-x-1"><span className="w-1.5 h-1.5 rounded-xs bg-[#F43F5E]" /><span>Education</span></div>
-                    <div className="flex items-center space-x-1"><span className="w-1.5 h-1.5 rounded-xs bg-[#84CC16]" /><span>Lifestyle</span></div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Right Column: Heading + Paragraph + Button */}
-              <div className="lg:col-span-6 space-y-2.5">
-                <h2 className="text-[22px] sm:text-[26px] lg:text-[28px] font-[800] text-[#0B0F19] tracking-tight leading-tight">
-                  Mobile App Market Stats
-                </h2>
-
-                <p className="text-[12.5px] sm:text-[13.5px] text-[#475569] leading-[1.55] font-normal max-w-md">
-                  The global mobile app market is expected to generate $610.40 billion in sales by 2025. With such enormous potential wealth comes a great deal of responsibility to adapt to changing.
-                </p>
-
-                <div className="pt-1">
-                  <a
-                    href="#quote-form"
-                    className="inline-flex items-center justify-center px-5 py-2.5 rounded-[4px] bg-[#005F96] hover:bg-[#004A75] text-white font-[700] text-[13px] transition-all shadow-xs"
-                  >
-                    Connect With An Expert
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            {/* ROW 2: Content Left + Donut Chart Right */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
-              {/* Left Column: Heading + Paragraph + Button */}
-              <div className="lg:col-span-6 space-y-2.5 order-2 lg:order-1">
-                <h2 className="text-[22px] sm:text-[26px] lg:text-[28px] font-[800] text-[#0B0F19] tracking-tight leading-tight">
-                  The Mobile Application<br />Development Market Size
-                </h2>
-
-                <p className="text-[12.5px] sm:text-[13.5px] text-[#475569] leading-[1.55] font-normal max-w-md">
-                  According to one study, there will be 4.74 billion smartphone users by the end of 2024, growing at a rate of 2.2% each year. When examining the rise in smartphone users between 2020 to 2025 , we find that the average yearly growth rate is 6.2%.
-                </p>
-
-                <div className="pt-1">
-                  <a
-                    href="#quote-form"
-                    className="inline-flex items-center justify-center px-5 py-2.5 rounded-[4px] bg-[#005F96] hover:bg-[#004A75] text-white font-[700] text-[13px] transition-all shadow-xs"
-                  >
-                    Connect With An Expert
-                  </a>
-                </div>
-              </div>
-
-              {/* Right Column: Donut Semicircle Chart Graphic */}
-              <div className="lg:col-span-6 flex justify-center order-1 lg:order-2">
-                <div className="w-full max-w-[480px] rounded-xl bg-[#F4F8FA] border border-slate-200/90 p-3.5 sm:p-4 shadow-sm flex flex-col items-center transition-all duration-300 ease-out hover:scale-105 hover:shadow-2xl hover:shadow-[#005F96]/15 hover:border-[#005F96]/50 cursor-pointer group">
-                  {/* Chart Title */}
-                  <h4 className="text-[11px] sm:text-[12px] font-bold text-slate-800 text-center mb-2 w-full group-hover:text-[#005F96] transition-colors">
-                    Number of Global Smartphone Users From 2020 To 2025
-                  </h4>
-
-                  {/* Semicircular Ring Donut Graphic */}
-                  <div className="relative w-56 h-28 sm:w-64 sm:h-32 flex items-end justify-center my-1 transition-transform duration-300 ease-out group-hover:scale-110">
-                    <svg viewBox="0 0 200 110" className="w-full h-full overflow-visible">
-                      {/* Cyan Outer Base Accent */}
-                      <path d="M 20 100 A 80 80 0 0 1 40 50" fill="none" stroke="#06B6D4" strokeWidth="24" strokeLinecap="butt" className="transition-all duration-200 hover:stroke-[27px] hover:brightness-110 cursor-pointer" />
-
-                      {/* Orange 2020 Segment (6.95) */}
-                      <path d="M 38 52 A 80 80 0 0 1 75 25" fill="none" stroke="#F97316" strokeWidth="24" strokeLinecap="butt" className="transition-all duration-200 hover:stroke-[27px] hover:brightness-110 cursor-pointer" />
-
-                      {/* Pink 2021 Segment (7.1) */}
-                      <path d="M 73 26 A 80 80 0 0 1 125 25" fill="none" stroke="#F472B6" strokeWidth="24" strokeLinecap="butt" className="transition-all duration-200 hover:stroke-[27px] hover:brightness-110 cursor-pointer" />
-
-                      {/* Yellow 2022 Segment (7.26) */}
-                      <path d="M 123 26 A 80 80 0 0 1 162 52" fill="none" stroke="#FBBF24" strokeWidth="24" strokeLinecap="butt" className="transition-all duration-200 hover:stroke-[27px] hover:brightness-110 cursor-pointer" />
-
-                      {/* Purple 2023-2025 Segment (7.33) */}
-                      <path d="M 160 50 A 80 80 0 0 1 180 100" fill="none" stroke="#8B5CF6" strokeWidth="24" strokeLinecap="butt" className="transition-all duration-200 hover:stroke-[27px] hover:brightness-110 cursor-pointer" />
-
-                      {/* Data Labels inside arcs */}
-                      <text x="56" y="58" fill="#1E293B" fontSize="8" fontWeight="800" textAnchor="middle" className="pointer-events-none select-none">6.95</text>
-                      <text x="100" y="42" fill="#1E293B" fontSize="8" fontWeight="800" textAnchor="middle" className="pointer-events-none select-none">7.1</text>
-                      <text x="144" y="58" fill="#1E293B" fontSize="8" fontWeight="800" textAnchor="middle" className="pointer-events-none select-none">7.26</text>
-                      <text x="168" y="85" fill="#1E293B" fontSize="8" fontWeight="800" textAnchor="middle" className="pointer-events-none select-none">7.33</text>
-
-                      {/* Year callout pointers */}
-                      {/* 2020 Label */}
-                      <line x1="28" y1="62" x2="10" y2="62" stroke="#64748B" strokeWidth="1" />
-                      <text x="6" y="65" fill="#475569" fontSize="7.5" fontWeight="600" textAnchor="end" className="pointer-events-none select-none">2020</text>
-
-                      {/* 2021 Label */}
-                      <line x1="88" y1="20" x2="88" y2="6" stroke="#64748B" strokeWidth="1" />
-                      <text x="88" y="2" fill="#475569" fontSize="7.5" fontWeight="600" textAnchor="middle" className="pointer-events-none select-none">2021</text>
-
-                      {/* 2022 Label */}
-                      <line x1="152" y1="26" x2="162" y2="12" stroke="#64748B" strokeWidth="1" />
-                      <text x="166" y="10" fill="#475569" fontSize="7.5" fontWeight="600" textAnchor="start" className="pointer-events-none select-none">2022</text>
-                    </svg>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </Container>
-      </section>
-
-      {/* =========================================================================
-          BRIEF ABOUT ANDROID APP DEVELOPERS SECTION (EXACT 1:1 MATCH)
+          QUALITY REACT NATIVE APPLICATION DEVELOPMENT SERVICES SECTION (1:1 MATCH)
           ========================================================================= */}
       <section className="py-8 sm:py-10 bg-white text-slate-900 font-sans text-left">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
 
-            {/* Left Column: Android App Development & Programmer Illustration */}
+            {/* Left Column: Exact React Native App Development & Code Illustration (1:1 from Reference Image) */}
             <div className="lg:col-span-5 flex justify-center items-center">
-              <div className="relative w-full max-w-[420px] aspect-[4/3.2] flex items-center justify-center select-none">
-
-                {/* Soft Pale Blue Ambient Blob Backdrop */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-blue-50/80 to-sky-100/60 rounded-full blur-2xl transform scale-90 -z-10" />
-
-                {/* Main Vector Illustration Composition */}
-                <svg viewBox="0 0 460 380" className="w-full h-full drop-shadow-sm overflow-visible" fill="none">
-                  {/* Soft Background Cloud/Floor Shadow */}
-                  <ellipse cx="230" cy="355" rx="190" ry="18" fill="#E2EDF8" />
-
-                  {/* LEFT: Floating Dark Code Editor Window */}
-                  <g transform="translate(40, 60)">
-                    {/* Window Frame */}
-                    <rect x="0" y="0" width="135" height="150" rx="6" fill="#1E293B" />
-                    {/* Left Sidebar */}
-                    <rect x="0" y="0" width="26" height="150" rx="6" fill="#0F172A" />
-                    {/* Editor icons */}
-                    <rect x="7" y="14" width="12" height="2" rx="1" fill="#64748B" />
-                    <rect x="7" y="24" width="12" height="2" rx="1" fill="#64748B" />
-                    <rect x="7" y="34" width="12" height="2" rx="1" fill="#64748B" />
-                    <rect x="7" y="44" width="12" height="2" rx="1" fill="#64748B" />
-                    <rect x="7" y="54" width="12" height="2" rx="1" fill="#64748B" />
-                    <rect x="7" y="64" width="12" height="2" rx="1" fill="#64748B" />
-
-                    {/* Colored Code Lines */}
-                    <g transform="translate(34, 14)">
-                      <rect x="0" y="0" width="38" height="3.5" rx="1" fill="#38BDF8" />
-                      <rect x="42" y="0" width="22" height="3.5" rx="1" fill="#F472B6" />
-
-                      <rect x="6" y="8" width="55" height="3.5" rx="1" fill="#94A3B8" />
-                      <rect x="6" y="16" width="40" height="3.5" rx="1" fill="#818CF8" />
-
-                      <rect x="12" y="24" width="48" height="3.5" rx="1" fill="#FBBF24" />
-                      <rect x="12" y="32" width="62" height="3.5" rx="1" fill="#38BDF8" />
-                      <rect x="12" y="40" width="35" height="3.5" rx="1" fill="#34D399" />
-
-                      <rect x="6" y="48" width="50" height="3.5" rx="1" fill="#F472B6" />
-                      <rect x="12" y="56" width="42" height="3.5" rx="1" fill="#94A3B8" />
-                      <rect x="12" y="64" width="58" height="3.5" rx="1" fill="#FBBF24" />
-                      <rect x="12" y="72" width="30" height="3.5" rx="1" fill="#38BDF8" />
-
-                      <rect x="6" y="80" width="45" height="3.5" rx="1" fill="#34D399" />
-                      <rect x="0" y="88" width="16" height="3.5" rx="1" fill="#818CF8" />
-                    </g>
-                  </g>
-
-                  {/* CENTER-RIGHT: Large White Smartphone Wireframe Display */}
-                  <g transform="translate(150, 40)">
-                    {/* Phone Outer Shadow / Bezel */}
-                    <rect x="0" y="0" width="170" height="295" rx="22" fill="#60A5FA" />
-                    <rect x="3" y="3" width="164" height="289" rx="19" fill="#93C5FD" />
-                    {/* Screen White Interior */}
-                    <rect x="7" y="7" width="156" height="281" rx="15" fill="#FFFFFF" />
-
-                    {/* Top Notch Speaker */}
-                    <rect x="58" y="12" width="40" height="3.5" rx="1.5" fill="#CBD5E1" />
-                    <circle cx="106" cy="14" r="2" fill="#CBD5E1" />
-
-                    {/* App Screen Grid Tiles (6 Colorful App Widgets) */}
-                    <g transform="translate(16, 28)">
-                      {/* Tile 1: Coral Play Button */}
-                      <rect x="0" y="0" width="64" height="48" rx="4" fill="#FDA4AF" />
-                      <polygon points="28,18 40,24 28,30" fill="#FFFFFF" />
-
-                      {/* Tile 2: Blue Music Note */}
-                      <rect x="74" y="0" width="64" height="48" rx="4" fill="#BAE6FD" />
-                      <path d="M102 18 L114 15 L114 26 A 4 4 0 1 1 110 23 L110 20 L102 22 L102 29 A 4 4 0 1 1 98 26 L98 18 Z" fill="#FFFFFF" />
-
-                      {/* Tile 3: Wireframe Box */}
-                      <rect x="0" y="56" width="64" height="48" rx="4" fill="#E0F2FE" />
-                      <line x1="0" y1="56" x2="64" y2="104" stroke="#93C5FD" strokeWidth="1.5" />
-                      <line x1="64" y1="56" x2="0" y2="104" stroke="#93C5FD" strokeWidth="1.5" />
-
-                      {/* Tile 4: Image Landscape */}
-                      <rect x="74" y="56" width="64" height="48" rx="4" fill="#BAE6FD" />
-                      <circle cx="88" cy="68" r="4" fill="#FFFFFF" />
-                      <polygon points="78,98 94,80 106,92 118,74 134,98" fill="#FFFFFF" />
-
-                      {/* Tile 5: Yellow Folder */}
-                      <rect x="0" y="112" width="64" height="48" rx="4" fill="#F8FAFC" />
-                      <path d="M12 124 L24 124 L28 128 L52 128 A 2 2 0 0 1 54 130 L54 148 A 2 2 0 0 1 52 150 L12 150 A 2 2 0 0 1 10 148 L10 126 A 2 2 0 0 1 12 124 Z" fill="#FBBF24" />
-
-                      {/* Tile 6: Settings Gear */}
-                      <rect x="74" y="112" width="64" height="48" rx="4" fill="#E0F2FE" />
-                      <circle cx="106" cy="136" r="8" fill="#FFFFFF" />
-                      <circle cx="106" cy="136" r="4" fill="#BAE6FD" />
-                    </g>
-                  </g>
-
-                  {/* BOTTOM RIGHT: Gear Settings Floating Widget */}
-                  <g transform="translate(270, 270)">
-                    <rect x="0" y="0" width="62" height="62" rx="4" fill="#93C5FD" />
-                    {/* White Cog/Gear in Center */}
-                    <circle cx="31" cy="31" r="14" fill="#FFFFFF" />
-                    <circle cx="31" cy="31" r="7" fill="#93C5FD" />
-                    <rect x="29" y="11" width="4" height="40" fill="#FFFFFF" rx="1" />
-                    <rect x="11" y="29" width="40" height="4" fill="#FFFFFF" rx="1" />
-                    <rect x="15" y="15" width="4" height="32" fill="#FFFFFF" rx="1" transform="rotate(45 31 31)" />
-                    <rect x="15" y="15" width="4" height="32" fill="#FFFFFF" rx="1" transform="rotate(-45 31 31)" />
-                  </g>
-
-                  {/* FOREGROUND: Developer Sitting in Beanbag Working on Laptop */}
-                  <g transform="translate(45, 170)">
-                    {/* Soft Sky-Blue Beanbag Chair */}
-                    <path
-                      d="M 60 165 C 10 160, -10 110, 5 60 C 15 20, 50 10, 85 20 C 115 28, 125 70, 120 120 C 115 155, 95 168, 60 165 Z"
-                      fill="#93C5FD"
-                    />
-                    <path
-                      d="M 65 155 C 25 150, 10 110, 22 70 C 30 35, 60 25, 85 35 C 108 42, 115 75, 110 120 C 105 148, 90 158, 65 155 Z"
-                      fill="#BFDBFE"
-                    />
-
-                    {/* Developer Legs (Navy Blue Pants) */}
-                    {/* Right Leg */}
-                    <path d="M 85 105 L 115 110 L 140 165 L 155 165 L 155 172 L 132 172 L 105 118 Z" fill="#1E3A8A" />
-                    {/* Right Shoe */}
-                    <ellipse cx="145" cy="172" rx="12" ry="4.5" fill="#0F172A" />
-
-                    {/* Left Leg */}
-                    <path d="M 68 100 L 95 105 L 108 170 L 125 170 L 125 176 L 100 176 L 85 112 Z" fill="#2563EB" />
-                    {/* Left Shoe */}
-                    <ellipse cx="115" cy="176" rx="12" ry="4.5" fill="#0F172A" />
-
-                    {/* Developer Body / Torso (Bright Orange T-Shirt) */}
-                    <path d="M 62 42 C 60 35, 78 30, 92 35 C 100 38, 105 50, 98 75 L 85 102 L 60 98 L 62 42 Z" fill="#F97316" />
-
-                    {/* Developer Head & Hair */}
-                    {/* Neck */}
-                    <rect x="80" y="28" width="8" height="9" fill="#FBCFE8" />
-                    {/* Face / Head */}
-                    <circle cx="84" cy="22" r="10" fill="#FBCFE8" />
-                    {/* Dark Hair */}
-                    <path d="M 74 20 C 74 12, 85 8, 92 12 C 95 14, 96 18, 94 22 C 90 20, 85 20, 82 23 C 78 22, 74 23, 74 20 Z" fill="#1E293B" />
-
-                    {/* Developer Arms & Laptop */}
-                    {/* Left Arm holding laptop */}
-                    <path d="M 68 45 L 85 75 L 115 72 L 110 80 L 80 82 L 62 50 Z" fill="#F97316" />
-                    <circle cx="112" cy="74" r="4" fill="#FBCFE8" />
-
-                    {/* White Modern Slim Laptop */}
-                    <g transform="translate(98, 62) rotate(-10)">
-                      {/* Laptop Screen */}
-                      <rect x="0" y="0" width="3" height="24" rx="1" fill="#CBD5E1" />
-                      <rect x="2" y="1" width="22" height="22" rx="2" fill="#F8FAFC" stroke="#E2E8F0" />
-                      {/* Laptop Base */}
-                      <rect x="-4" y="21" width="30" height="3" rx="1.5" fill="#E2E8F0" />
-                    </g>
-                  </g>
-                </svg>
+              <div className="relative w-full max-w-[440px] flex items-center justify-center select-none">
+                <img
+                  src="/react_native_service_illustration.png"
+                  alt="Quality React Native Application Development Services"
+                  className="w-full h-auto object-contain select-none drop-shadow-xs"
+                />
               </div>
             </div>
 
-            {/* Right Column: Heading & 2 Detailed Paragraphs */}
+            {/* Right Column: Heading & Description Paragraph matching reference 1:1 */}
             <div className="lg:col-span-7 space-y-4 text-left">
               {/* Heading */}
               <h2
                 className="font-[800] text-[#0B0F19] tracking-tight leading-[1.2]"
                 style={{ fontSize: '32px' }}
               >
-                Brief About Android App<br className="hidden sm:inline" /> Developers
+                Quality React Native<br className="hidden sm:inline" /> Application Development<br className="hidden sm:inline" /> Services
               </h2>
 
-              {/* Paragraph 1 */}
+              {/* Description Paragraph */}
               <p
                 className="font-normal text-[#475569]"
                 style={{ fontSize: '14px', lineHeight: '1.68' }}
               >
-                Our app development company for industry are passionate specialists who produce perfection every time. Their expertise and enthusiasm for innovation allow them to solve any problem and implement your ideas when delivering custom android app development services. Our AI Android App Development Services ensures that your app is not only functional but also highly scalable and user-friendly, offering the best user experience across all Secure Real-Time Android Device Management Platform. Whether you're a startup, Top Android developers for custom business apps or an enterprise Mobile App Development Agency for Android is the key to unlocking digital success.
-              </p>
-
-              {/* Paragraph 2 */}
-              <p
-                className="font-normal text-[#475569]"
-                style={{ fontSize: '14px', lineHeight: '1.68' }}
-              >
-                Our designers and developers collaborate to build beautiful, intuitive user interfaces. They focus on user experience, making your software simple to use and seamless. Our programmers strive to write well-tested, error-free code. As the Best Android app development company for startups, we follow strict quality assurance standards to ensure your software works across devices and platforms. We provide a wide range of Android application development services, from custom app development to ongoing support and maintenance. If you're concerned about AI-Integrated Android App Development cost, we offer flexible engagement models that suit your budget and business goals.
+                We provide a variety of React Native mobile application development services tailored to your unique development goals and challenges, whether you're a startup, SMB, or corporate enterprise. As a best React Native app development Agency, we help businesses across industries grow by leveraging the power of React Native to create dynamic, scalable web products that meet their unique needs. We deliver seamless cross-platform applications using a single codebase, cutting development time and costs significantly. Our services include everything from UI/UX design to backend integrations, ensuring that each project is custom-tailored to your requirements.
               </p>
             </div>
 
@@ -1039,25 +666,25 @@ export const AndroidAppDevelopmentService = () => {
       </section>
 
       {/* =========================================================================
-          LEADING ANDROID APP DEVELOPMENT AGENCY SECTION (EXACT 1:1 MATCH)
+          GET TOP-NOTCH REACT NATIVE DEVELOPMENT SERVICES SECTION (EXACT 1:1 MATCH)
           ========================================================================= */}
       <section className="py-8 sm:py-10 bg-white text-slate-900 font-sans text-left">
         <Container>
           {/* Centered Top Heading */}
-          <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-12">
+          <div className="text-center max-w-4xl mx-auto mb-8 sm:mb-10">
             <h2
               className="font-[800] text-[#0B0F19] tracking-tight leading-tight"
               style={{ fontSize: '32px' }}
             >
-              Leading Android App Development Agency
+              Get Top-Notch React Native Development Services.
             </h2>
           </div>
 
           {/* Two-Column Layout */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
 
-            {/* Left Column: Light-Blue Patterned Quote Panel */}
-            <div className="lg:col-span-4 bg-[#EBF5FA] rounded-[3px] p-8 sm:p-10 flex flex-col justify-start relative overflow-hidden shadow-xs min-h-[340px]">
+            {/* Left Column: Light-Blue Patterned Quote Panel with Pointer */}
+            <div className="lg:col-span-4 bg-[#F0F7FC] rounded-[3px] p-8 sm:p-10 flex flex-col justify-start relative overflow-hidden shadow-xs min-h-[300px]">
               {/* Authentic Topographical Contour Curves Background */}
               <svg className="absolute inset-0 w-full h-full opacity-60 pointer-events-none" viewBox="0 0 400 400" fill="none" stroke="#CBE4F3" strokeWidth="1.2">
                 <path d="M-40 60 C 50 20, 140 130, 220 70 C 300 10, 370 110, 440 80" />
@@ -1069,19 +696,22 @@ export const AndroidAppDevelopmentService = () => {
                 <ellipse cx="280" cy="240" rx="80" ry="60" stroke="#CBE4F3" strokeWidth="1" />
               </svg>
 
+              {/* Right Speech Bubble Arrow / Notch */}
+              <div className="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 translate-x-full w-0 h-0 border-t-[10px] border-t-transparent border-b-[10px] border-b-transparent border-l-[12px] border-l-[#F0F7FC] z-20" />
+
               {/* Solid Large Blue Double Quotation Mark */}
-              <div className="text-[#00669E] mb-5 relative z-10">
-                <svg viewBox="0 0 44 34" className="w-11 h-8.5 fill-current">
+              <div className="text-[#005F96] mb-4 relative z-10">
+                <svg viewBox="0 0 44 34" className="w-10 h-8 fill-current">
                   <path d="M0 19.428C0 8.7 6.857 0 17.143 0v6.857c-5.714 0-8.571 4-8.571 9.143h8.571V34H0V19.428zm25.714 0C25.714 8.7 32.571 0 42.857 0v6.857c-5.714 0-8.571 4-8.571 9.143h8.571V34H25.714V19.428z" />
                 </svg>
               </div>
 
               {/* Quote Heading in Deep Sapphire Blue */}
               <h3
-                className="font-[800] text-[#00669E] tracking-tight leading-[1.2] relative z-10"
-                style={{ fontSize: '28px' }}
+                className="font-[800] text-[#005F96] tracking-tight leading-[1.25] relative z-10"
+                style={{ fontSize: '26px' }}
               >
-                Not Just Another<br />Android App<br />Development<br />Company
+                React Native<br />Development<br />Services Tailored<br />For Your Needs
               </h3>
             </div>
 
@@ -1091,14 +721,18 @@ export const AndroidAppDevelopmentService = () => {
                 className="font-normal text-[#475569]"
                 style={{ fontSize: '14px', lineHeight: '1.68' }}
               >
-                As one of the leading Award-winning Generative AI Android App Development Firms, we thrive on creating high-quality Android applications that stand out in the market with our skilled developers, designers, and project managers. Android application development company help startups and established businesses make a strong entry or develop their digital presence with Affordable Android App Development Company. We also offer Enterprise Android app development services to empower large-scale organizations with robust and secure mobile solutions. From idea to implementation, we collaborate with customers to ensure the app meets their goals.
+                We are the #1 react native development company; we use React Native to build highly interactive, versatile React Native applications for Android and iOS platforms. As an established react native development agency with decade-long experience, we follow an agile system to deliver the best-in-quality services.
               </p>
 
               <p
                 className="font-normal text-[#475569]"
                 style={{ fontSize: '14px', lineHeight: '1.68' }}
               >
-                You can Hire Android App Developer for Startup who provides unmatched support and maintenance. Our talented engineers and designers help you build a mobile app that matches your brand, works effortlessly, and provides a great user experience. As the Experienced Android App Development Company, we have the skills to create your Android business app, e-commerce solution, social networking platform, or other software. Our top Android app development services maximize its potential. With Android app development outsourcing capabilities, global clients rely on us for cost-effective and scalable solutions. Contact us now to design a unique, compelling mobile solution that sets you apart from the competition. Explore our Android app development solutions to turn your ideas into a real, functional application with measurable results.
+                We take a step-by-step approach to ensure smooth and on-time delivery of React native app development services. Once we start working together, our React Native Web Development will work closely with you and keep you updated on each development process step.{' '}
+                <a href="#quote-form" className="text-[#005F96] font-bold hover:underline">
+                  Top reactjs development company
+                </a>{' '}
+                leverage all the great features of React Native to help you develop intuitive cross-platform mobile applications. In our React-native cross-platform development process, we use a single codebase shared between different platforms to enable faster time to market and shorter development cycles.
               </p>
             </div>
 
@@ -1107,7 +741,7 @@ export const AndroidAppDevelopmentService = () => {
       </section>
 
       {/* =========================================================================
-          CUTTING EDGE TECHNOLOGY CAROUSEL SECTION (FULL WIDTH & REAL ICONS)
+          CUTTING EDGE TECHNOLOGY CAROUSEL SECTION (FIREVY - WIDER & COMPACT HEIGHT)
           ========================================================================= */}
       <section className="py-10 sm:py-14 bg-white text-slate-900 font-sans overflow-hidden text-left w-full">
         {/* Centered Heading */}
@@ -1116,7 +750,7 @@ export const AndroidAppDevelopmentService = () => {
             className="font-[800] text-[#0B0F19] tracking-tight leading-[1.25]"
             style={{ fontSize: '32px' }}
           >
-            Cutting Edge Technology Sapphire Use For Android App Development
+            Cutting Edge Technologies Firevy Use For Mobile App Development
           </h2>
         </div>
 
@@ -1129,147 +763,58 @@ export const AndroidAppDevelopmentService = () => {
           <div
             className="flex space-x-6 sm:space-x-8 px-4 sm:px-8 lg:px-12 transition-transform duration-500 ease-in-out"
             style={{
-              transform: `translateX(-${techCarouselIndex * 490}px)`
+              transform: `translateX(-${techCarouselIndex * 550}px)`
             }}
           >
             {[
               {
-                title: 'Android Studio',
-                desc: "Android Studio's sophisticated debugging, testing, and code-refactoring features speed development. We use Android Studio to create high-quality, responsive, and optimized apps for numerous Android devices.",
-                icon: (
-                  <svg viewBox="0 0 44 44" className="w-12 h-12 text-[#0084D1] fill-none stroke-current stroke-[1.8] stroke-linecap-round stroke-linejoin-round">
-                    {/* Smartphone outline */}
-                    <rect x="7" y="5" width="22" height="34" rx="3.5" strokeWidth="1.9" />
-                    <circle cx="18" cy="9" r="1" fill="#0084D1" stroke="none" />
-                    <line x1="13" y1="34" x2="23" y2="34" strokeWidth="1.6" />
-                    {/* Top Right Developer Profile Badge */}
-                    <circle cx="29" cy="20" r="9" fill="#DDF1FC" stroke="#0084D1" strokeWidth="1.9" />
-                    <circle cx="29" cy="18" r="2.8" strokeWidth="1.6" />
-                    <path d="M23.5 25 C24 22.8, 26.5 22, 29 22 C31.5 22, 34 22.8, 34.5 25" strokeWidth="1.6" />
-                    {/* Gear Teeth Accent on Badge */}
-                    <path d="M29 9.5 L29 11 M29 29 L29 30.5 M18.5 20 L20 20 M38 20 L39.5 20" strokeWidth="1.6" />
-                  </svg>
-                )
+                title: 'Cross-Platform Frameworks',
+                desc: 'Leverage modern React Native and cross-platform frameworks to build high-performance mobile applications with a single codebase and execute it on all mobile platforms seamlessly.',
+                icon: <Smartphone className="w-8 h-8 text-[#0084D1]" strokeWidth={1.8} />
               },
               {
-                title: 'Firebase',
-                desc: "Firebase is a robust Backend-as-a-Service (BaaS) platform that provides real-time databases, authentication, analytics, and cloud messaging for app development. Our Firebase integration adds push alerts, user engagement tracking, and data storage to your app.",
-                icon: (
-                  <svg viewBox="0 0 44 44" className="w-12 h-12 text-[#0084D1] fill-none stroke-current stroke-[1.8] stroke-linecap-round stroke-linejoin-round">
-                    {/* Server Rack Box on Left */}
-                    <rect x="4" y="9" width="16" height="26" rx="2" strokeWidth="1.8" />
-                    <circle cx="8" cy="14" r="1" fill="#0084D1" stroke="none" />
-                    <circle cx="12" cy="14" r="1" fill="#0084D1" stroke="none" />
-                    <line x1="8" y1="18" x2="16" y2="18" strokeWidth="1.4" />
-                    <circle cx="8" cy="23" r="1" fill="#0084D1" stroke="none" />
-                    <circle cx="12" cy="23" r="1" fill="#0084D1" stroke="none" />
-                    <line x1="8" y1="27" x2="16" y2="27" strokeWidth="1.4" />
-                    {/* Stacked Database Disks on Right */}
-                    <ellipse cx="30" cy="13" rx="10" ry="4.5" strokeWidth="1.8" />
-                    <path d="M20 13 L20 21 C20 24.5, 40 24.5, 40 21 L40 13" strokeWidth="1.8" />
-                    <path d="M20 21 L20 29 C20 32.5, 40 32.5, 40 29 L40 21" strokeWidth="1.8" />
-                    <path d="M20 29 L20 35 C20 38.5, 40 38.5, 40 35 L40 29" strokeWidth="1.8" />
-                  </svg>
-                )
+                title: 'Machine Learning Development Service',
+                desc: 'From custom AI applications to enterprise-scale automation, our developers leverage the latest machine learning Development Service and deep learning technologies to solve complex business challenges.',
+                icon: <Brain className="w-8 h-8 text-[#0084D1]" strokeWidth={1.8} />
               },
               {
-                title: 'XML',
-                desc: "XML is needed to develop Android app layouts and UI components. Our team creates attractive, intuitive layouts that work across screen sizes and resolutions. We optimize XML files to make your app's UI lightweight, quick, and user-friendly.",
-                icon: (
-                  <svg viewBox="0 0 44 44" className="w-12 h-12 text-[#0084D1] fill-none stroke-current stroke-[1.8] stroke-linecap-round stroke-linejoin-round">
-                    {/* Document outline with folded corner */}
-                    <path d="M9 5 L25 5 L35 15 L35 39 L9 39 Z" strokeWidth="1.9" />
-                    <path d="M25 5 L25 15 L35 15" strokeWidth="1.8" />
-                    <line x1="14" y1="12" x2="20" y2="12" strokeWidth="1.4" />
-                    {/* XML Badge in Center */}
-                    <rect x="13" y="21" width="18" height="12" rx="2" strokeWidth="1.6" />
-                    <text x="22" y="29.5" fill="#0084D1" fontSize="7" fontWeight="900" textAnchor="middle" stroke="none" fontFamily="sans-serif">XML</text>
-                  </svg>
-                )
+                title: 'Augmented Reality Development Service',
+                desc: 'Engage your audience with Augmented Reality Development Services overlay digital content into real world, creating interactive experiences that boost engagement and learning enhancing customer engagement.',
+                icon: <Boxes className="w-8 h-8 text-[#0084D1]" strokeWidth={1.8} />
               },
               {
-                title: 'Retrofit',
-                desc: "Our team optimizes Retrofit for data processing, error handling, and API call management to keep your app responsive under pressure. Optimizing network performance gives apps smooth data synchronization and real-time updates.",
-                icon: (
-                  <svg viewBox="0 0 44 44" className="w-12 h-12 text-[#0084D1] fill-none stroke-current stroke-[1.8] stroke-linecap-round stroke-linejoin-round">
-                    {/* Crossed Wrench and Screwdriver */}
-                    <path d="M10 32 L22 20 M19 17 L23 13 C25 11, 28 11, 30 13 C32 15, 32 18, 30 20 L26 24 L23 21" strokeWidth="1.9" />
-                    <path d="M10 32 L7 35 C6 36, 5 37, 6 38 C7 39, 8 38, 9 37 L12 34" strokeWidth="1.9" />
-                    {/* Screwdriver */}
-                    <path d="M32 32 L20 20 M17 17 L13 13 C11 11, 11 8, 13 6 C15 4, 18 4, 20 6 L24 10 L21 13" strokeWidth="1.9" />
-                    <path d="M32 32 L35 35 C36 36, 37 37, 38 36 C39 35, 38 34, 37 33 L34 30" strokeWidth="1.9" />
-                  </svg>
-                )
+                title: 'Low-Code No-Code Development Service',
+                desc: 'Accelerate app development with Low-Code No-Code Development Services a platform that empowers businesses to create and deploy robust applications quickly without extensive manual coding.',
+                icon: <Code2 className="w-8 h-8 text-[#0084D1]" strokeWidth={1.8} />
               },
               {
-                title: 'Kotlin',
-                desc: "Modern features, concise syntax, and seamless Java interoperability make Kotlin our team's preferred language for Android development. We build Kotlin-based solutions to improve code quality, developer productivity, and app performance.",
-                icon: (
-                  <svg viewBox="0 0 44 44" className="w-12 h-12 text-[#0084D1] fill-none stroke-current stroke-[1.8] stroke-linecap-round stroke-linejoin-round">
-                    {/* Document outline */}
-                    <path d="M9 5 L25 5 L35 15 L35 39 L9 39 Z" strokeWidth="1.9" />
-                    <path d="M25 5 L25 15 L35 15" strokeWidth="1.8" />
-                    <line x1="14" y1="12" x2="20" y2="12" strokeWidth="1.4" />
-                    {/* KT Badge */}
-                    <rect x="14" y="21" width="16" height="12" rx="2" strokeWidth="1.6" />
-                    <text x="22" y="29.5" fill="#0084D1" fontSize="7" fontWeight="900" textAnchor="middle" stroke="none" fontFamily="sans-serif">KT</text>
-                  </svg>
-                )
+                title: 'Cloud & API Integration Service',
+                desc: 'Connect your React Native mobile app with resilient cloud infrastructure, GraphQL and REST APIs, microservices, and automated CI/CD deployment pipelines.',
+                icon: <Cloud className="w-8 h-8 text-[#0084D1]" strokeWidth={1.8} />
               },
               {
-                title: 'Java',
-                desc: "Android app development has relied on Java's reliability and community support for years. Java's numerous libraries and tools let us build apps with smooth functionality and broad device compatibility.",
-                icon: (
-                  <svg viewBox="0 0 44 44" className="w-12 h-12 text-[#0084D1] fill-none stroke-current stroke-[1.8] stroke-linecap-round stroke-linejoin-round">
-                    <rect x="6" y="6" width="32" height="24" rx="3" strokeWidth="1.9" />
-                    <path d="M15 30 L29 30" strokeWidth="1.8" />
-                    <path d="M22 30 L22 37" strokeWidth="1.8" />
-                    <path d="M14 37 L30 37" strokeWidth="1.8" />
-                    <rect x="10" y="11" width="24" height="14" rx="1.5" strokeWidth="1.4" />
-                    <text x="22" y="20.5" fill="#0084D1" fontSize="6.5" fontWeight="900" textAnchor="middle" stroke="none" fontFamily="sans-serif">&lt;JAVA&gt;</text>
-                  </svg>
-                )
-              },
-              {
-                title: 'Jetpack Compose',
-                desc: "Jetpack Compose simplifies and accelerates UI development on Android. Our developers use its declarative approach and intuitive Kotlin APIs to build reactive, robust, and visually stunning Android apps.",
-                icon: (
-                  <svg viewBox="0 0 44 44" className="w-12 h-12 text-[#0084D1] fill-none stroke-current stroke-[1.8] stroke-linecap-round stroke-linejoin-round">
-                    <polygon points="22,5 36,13 36,29 22,37 8,29 8,13" strokeWidth="1.9" />
-                    <polyline points="22,5 22,37" strokeWidth="1.8" />
-                    <polyline points="8,13 22,21 36,13" strokeWidth="1.8" />
-                  </svg>
-                )
-              },
-              {
-                title: 'Room & SQLite',
-                desc: "Room provides an abstraction layer over SQLite to allow fluent database access while harnessing the full power of SQLite. We build robust offline-first Android apps with persistent caching.",
-                icon: (
-                  <svg viewBox="0 0 44 44" className="w-12 h-12 text-[#0084D1] fill-none stroke-current stroke-[1.8] stroke-linecap-round stroke-linejoin-round">
-                    <ellipse cx="22" cy="11" rx="15" ry="5.5" strokeWidth="1.9" />
-                    <path d="M7 11 L7 21 C7 26.5, 37 26.5, 37 21 L37 11" strokeWidth="1.8" />
-                    <path d="M7 21 L7 31 C7 36.5, 37 36.5, 37 31 L37 21" strokeWidth="1.8" />
-                  </svg>
-                )
+                title: 'IoT & Real-Time Sync Development',
+                desc: 'Build connected mobile experiences communicating with IoT sensors, smart wearables, and smart appliances using Bluetooth Low Energy (BLE) and WebSockets.',
+                icon: <Radio className="w-8 h-8 text-[#0084D1]" strokeWidth={1.8} />
               }
             ].map((tech, idx) => (
               <div
                 key={idx}
-                className="w-[370px] sm:w-[420px] lg:w-[450px] shrink-0 rounded-[16px] bg-[#DDF1FC] p-8 sm:p-9 min-h-[300px] sm:min-h-[320px] flex flex-col justify-start text-left select-none transition-all duration-300 hover:shadow-lg hover:bg-[#D5EEFB] border border-[#CCE8F8]"
+                className="w-[440px] sm:w-[500px] lg:w-[530px] shrink-0 rounded-[14px] bg-[#E3F2FD] p-6 sm:p-7 min-h-[200px] sm:min-h-[210px] flex flex-col justify-start text-left select-none transition-all duration-300 hover:shadow-md hover:bg-[#DBEEFA] border border-[#CCE5F7]"
               >
                 {/* Top Icon */}
-                <div className="mb-6">
+                <div className="mb-4">
                   {tech.icon}
                 </div>
 
                 {/* Tech Title */}
-                <h3 className="font-[800] text-[19px] sm:text-[20px] text-[#0B0F19] mb-3.5 leading-snug tracking-tight">
+                <h3 className="font-[800] text-[18px] sm:text-[19px] text-[#0B0F19] mb-2.5 leading-snug tracking-tight">
                   {tech.title}
                 </h3>
 
                 {/* Tech Description */}
                 <p
-                  className="font-normal text-[#334155] text-[13px] sm:text-[13.5px] leading-[1.7]"
+                  className="font-normal text-[#334155] text-[13px] sm:text-[13.5px] leading-[1.65]"
                 >
                   {tech.desc}
                 </p>
@@ -1279,7 +824,7 @@ export const AndroidAppDevelopmentService = () => {
         </div>
 
         {/* Bottom Center Arrow Controls */}
-        <div className="flex items-center justify-center space-x-6 mt-9 sm:mt-11">
+        <div className="flex items-center justify-center space-x-6 mt-8 sm:mt-10">
           <button
             onClick={() => setTechCarouselIndex((prev) => Math.max(0, prev - 1))}
             disabled={techCarouselIndex === 0}
@@ -1468,15 +1013,15 @@ export const AndroidAppDevelopmentService = () => {
 
       {/* Success Stories, Sectors, Key Reasons & Showcase Sections */}
       <SuccessStories />
+      <TransformativeImpactSection />
       <AboutUsStats />
-      <SectorsThrivingSection />
+      <SectorsThrivingSection title="Sectors Thriving Through Firevy’s Bespoke React Native App Development Services" />
       <SuccessStoriesSection />
-      <KeyReasonsChooseAndroid />
-      <BestAndroidAppCompanyShowcase />
+      <MobileAppExpertiseServices />
       <AndroidTechStackSection />
+      <ReactNativeExpertiseServices />
       <ProudAwardsBanner />
-      <AndroidCompanyBenefits />
-      <AndroidExpertiseServices />
+      <ReactNativeReasonsChoose />
       <AndroidHiringModels />
       <AndroidComparativeAnalysis />
       <InnovativeSolutionsVideoSection />
@@ -1503,4 +1048,4 @@ export const AndroidAppDevelopmentService = () => {
   );
 };
 
-export default AndroidAppDevelopmentService;
+export default ReactNativeAppDevelopmentService;

@@ -10,7 +10,7 @@ export const TrustedBrandsGrid = () => {
     { name: 'CLP INDIA', logo: '/images/logo_clp_india.svg' },
     { name: 'adani', logo: '/images/logo_adani.svg' },
     { name: 'GFL', logo: '/images/logo_gfl.svg' },
-    
+
     { name: 'TOYOTA', logo: '/images/toyota_logo.webp' },
     { name: 'ACC LIMITED', logo: '/images/logo_acc.svg' },
     { name: 'Ambuja Cement', logo: '/images/logo_ambuja.svg' },

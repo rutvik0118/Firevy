@@ -158,7 +158,7 @@ export const ProcessWeFollow = () => {
 
         {/* 8-Step Timeline Flow Grid */}
         <div className="max-w-6xl mx-auto space-y-4 sm:space-y-6">
-          
+
           {/* Top Row: Steps 01, 02, 03, 04 */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {topSteps.map((item, idx) => {
