@@ -7,7 +7,7 @@ import SectionRow from './SectionRow';
  * SectionList Component
  * 
  * Reusable container for the left "PAGE SECTIONS" rail.
- * Manages search filtering, drag & drop event handling, selection, and visibility toggles.
+ * Manages search filtering, drag & drop event handling, and selection.
  */
 export const SectionList = ({
   title = 'Page Sections',
@@ -17,7 +17,6 @@ export const SectionList = ({
   sectionsState = {},
   activeKey = '',
   onSelectSection,
-  onToggleVisibility,
   onReorderSections,
   searchPlaceholder = 'Search sections...'
 }) => {
@@ -132,8 +131,6 @@ export const SectionList = ({
               title: secKey,
               category: 'Section'
             };
-            const secData = sectionsState[secKey] || {};
-            const isVisible = secData.isVisible !== false && secData.isEnabled !== false;
             const isSelected = activeKey === secKey;
             const isDragging = draggedIndex === actualIdx;
             const isDragOver = dragOverIndex === actualIdx;
@@ -144,14 +141,12 @@ export const SectionList = ({
                 index={actualIdx}
                 sectionKey={secKey}
                 title={meta.title || secKey}
-                subtitle={meta.subtitle || meta.slug || meta.description}
+                subtitle={meta.slug || `/${secKey}`}
                 category={meta.category}
                 isSelected={isSelected}
-                isVisible={isVisible}
                 isDragging={isDragging}
                 isDragOver={isDragOver}
                 onSelect={onSelectSection}
-                onToggleVisibility={onToggleVisibility}
                 onDragStart={(e) => handleDragStart(e, actualIdx)}
                 onDragOver={(e) => handleDragOver(e, actualIdx)}
                 onDragEnd={handleDragEnd}

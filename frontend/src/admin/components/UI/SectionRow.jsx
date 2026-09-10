@@ -1,15 +1,14 @@
 import React from 'react';
-import { GripVertical, ChevronRight, Check } from 'lucide-react';
+import { GripVertical, ChevronRight } from 'lucide-react';
 
 /**
  * SectionRow Component
  * 
  * Reusable, robust row component for Page Sections across Home Page and all Sub-Pages.
  * Layout strategy:
- * [Drag Handle: 20px] [Number: 24px] [Content: flex: 1, min-width: 0] [Visibility Toggle: 28px] [Chevron: 16px]
+ * [Drag Handle: 18px] [Number: 22px] [Content: flex: 1, min-width: 0] [Chevron: 16px]
  * 
- * Prevents text overflow, ensures perfect vertical and horizontal alignment,
- * and isolates the visibility toggle click from row selection.
+ * Prevents text overflow, ensures perfect vertical and horizontal alignment.
  */
 export const SectionRow = ({
   index,
@@ -18,23 +17,14 @@ export const SectionRow = ({
   subtitle,
   category,
   isSelected = false,
-  isVisible = true,
   isDragging = false,
   isDragOver = false,
   onSelect,
-  onToggleVisibility,
   onDragStart,
   onDragOver,
   onDragEnd,
   onDrop
 }) => {
-  const handleToggleClick = (e) => {
-    e.stopPropagation();
-    if (onToggleVisibility) {
-      onToggleVisibility(sectionKey, e);
-    }
-  };
-
   const handleRowClick = () => {
     if (onSelect) {
       onSelect(sectionKey);
@@ -51,8 +41,8 @@ export const SectionRow = ({
       onDragEnd={onDragEnd}
       onDrop={onDrop}
       onClick={handleRowClick}
-      className={`cms-section-card ${isSelected ? 'active' : ''} ${!isVisible ? 'is-hidden-section' : ''} ${isDragging ? 'dragging' : ''} ${isDragOver ? 'drag-over' : ''}`}
-      title={isVisible ? 'Click to edit section. Drag grip to reorder.' : 'Section is hidden on website. Click to edit.'}
+      className={`cms-section-card ${isSelected ? 'active' : ''} ${isDragging ? 'dragging' : ''} ${isDragOver ? 'drag-over' : ''}`}
+      title="Click to edit section. Drag grip to reorder."
       role="button"
       tabIndex={0}
       onKeyDown={(e) => {
@@ -88,22 +78,7 @@ export const SectionRow = ({
         )}
       </div>
 
-      {/* 4. Visibility Toggle / Checkbox (Fixed Width, Isolated Event) */}
-      <div className="cms-card-controls" onClick={(e) => e.stopPropagation()}>
-        <button
-          type="button"
-          onClick={handleToggleClick}
-          className={`cms-visibility-btn ${isVisible ? 'checked' : 'unchecked'}`}
-          title={isVisible ? 'Visible on website (Click to hide)' : 'Hidden on website (Click to show)'}
-          aria-label={isVisible ? `Hide ${title}` : `Show ${title}`}
-        >
-          <div className="cms-checkbox-box">
-            {isVisible && <Check size={13} strokeWidth={3} className="cms-check-icon" />}
-          </div>
-        </button>
-      </div>
-
-      {/* 5. Chevron Arrow (Fixed Width) */}
+      {/* 4. Chevron Arrow (Fixed Width) */}
       <div className="cms-card-arrow-wrap">
         <ChevronRight
           size={15}

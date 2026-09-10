@@ -119,45 +119,6 @@ export const HomePageManager = () => {
     navigate(`/admin/home-page/${canonical}`, { replace: true });
   };
 
-  // Toggle Section Visibility via Toggle Switch
-  const handleToggleVisibility = async (sectionKey, e) => {
-    if (e) {
-      e.stopPropagation();
-    }
-    try {
-      const currentVal = sections[sectionKey]?.isVisible !== false && sections[sectionKey]?.isEnabled !== false;
-      const updatedSection = {
-        ...(sections[sectionKey] || INITIAL_HOME_PAGE_DATA.sections[sectionKey] || {}),
-        isVisible: !currentVal,
-        isEnabled: !currentVal
-      };
-
-      setHomeData((prev) => ({
-        ...prev,
-        sections: {
-          ...prev.sections,
-          [sectionKey]: updatedSection
-        }
-      }));
-
-      // If toggling the active section, also update activeSectionData
-      if (sectionKey === activeKey && activeSectionData) {
-        setActiveSectionData((prev) => ({
-          ...prev,
-          isVisible: !currentVal,
-          isEnabled: !currentVal
-        }));
-      }
-
-      await adminService.toggleHomePageSection(sectionKey);
-      addToast(
-        `Section "${SECTION_METADATA[sectionKey]?.title || sectionKey}" is now ${!currentVal ? 'enabled' : 'hidden'}`,
-        'success'
-      );
-    } catch (err) {
-      addToast(`Visibility update error: ${err.message}`, 'error');
-    }
-  };
 
   // Drag & Drop Reorder Handlers for Section Positioning
   const handleDragStart = (e, index) => {
@@ -306,19 +267,19 @@ export const HomePageManager = () => {
 
   return (
     <div className="page-container animate-fade-in">
-      {/* Top Header matching Firevy Admin Design System */}
-      <div className="page-top-bar" style={{ marginBottom: '20px' }}>
-        <div className="page-title-group">
-          <h1>
-            <Home size={24} />
+      {/* Top Header matching Firevy Admin Design System Header Architecture */}
+      <div className="page-top-bar" style={{ marginBottom: '20px', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '1rem' }}>
+        <div className="page-title-group" style={{ flex: '1 1 300px', minWidth: 0 }}>
+          <h1 style={{ margin: 0, display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <Home size={24} style={{ color: '#006B8F' }} />
             <span>Home Page Management</span>
           </h1>
-          <p>
+          <p style={{ margin: '6px 0 0 0', fontSize: '0.875rem', color: '#64748B' }}>
             Manage all 22 public sections, content, cards, media assets, and drag-and-drop display order in real time.
           </p>
         </div>
 
-        <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center', flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'center', flexWrap: 'wrap', flexShrink: 0 }}>
           <a
             href="/"
             target="_blank"
@@ -389,7 +350,6 @@ export const HomePageManager = () => {
             sectionsState={sections}
             activeKey={activeKey}
             onSelectSection={handleSelectSection}
-            onToggleVisibility={handleToggleVisibility}
             onReorderSections={async (newOrder) => {
               setHomeData((prev) => ({
                 ...prev,
@@ -408,31 +368,46 @@ export const HomePageManager = () => {
           {/* RIGHT PANE: Selected Section Edit Form / Detail Editor    */}
           {/* ========================================================= */}
           <main className="cms-editor-pane">
-            {/* Section Header Bar */}
-            <div className="cms-editor-header">
+            {/* Section Header Bar matching Company Sub-Page Editor Layout */}
+            <div className="cms-editor-header" style={{ marginBottom: '16px', paddingBottom: '14px' }}>
               <div className="cms-editor-header-left">
-                <div className="cms-editor-badge">
+                <div
+                  style={{
+                    width: '28px',
+                    height: '28px',
+                    borderRadius: '50%',
+                    backgroundColor: '#0F172A',
+                    color: '#FFFFFF',
+                    fontSize: '12.5px',
+                    fontWeight: 800,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    flexShrink: 0
+                  }}
+                >
                   {activePositionIndex || 1}
                 </div>
                 <div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <h2 className="cms-editor-title">
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+                    <h2 className="cms-editor-title" style={{ textTransform: 'uppercase', letterSpacing: '0.04em', fontSize: '15px' }}>
                       <span>{meta.title}</span>
                     </h2>
                     <span
                       style={{
-                        fontSize: '11px',
+                        fontSize: '10.5px',
                         fontWeight: 700,
-                        padding: '2px 8px',
-                        borderRadius: '12px',
-                        backgroundColor: '#E2E8F0',
-                        color: '#334155'
+                        padding: '1px 7px',
+                        borderRadius: '4px',
+                        backgroundColor: '#E0F2FE',
+                        color: '#0369A1',
+                        border: '1px solid #BAE6FD'
                       }}
                     >
                       {meta.category}
                     </span>
                   </div>
-                  <p style={{ margin: '3px 0 0 0', fontSize: '13px', color: '#64748B' }}>
+                  <p style={{ margin: '2px 0 0 0', fontSize: '12.5px', color: '#64748B', lineHeight: 1.35 }}>
                     {meta.description || `Manage and customize the content displayed on this live section (/#${activeKey}).`}
                   </p>
                 </div>
@@ -447,7 +422,7 @@ export const HomePageManager = () => {
                   style={{ display: 'inline-flex', alignItems: 'center', gap: '6px' }}
                 >
                   <ExternalLink size={14} />
-                  <span>Preview Public Home</span>
+                  <span>Preview Public Section</span>
                 </a>
               </div>
             </div>

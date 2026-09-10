@@ -241,9 +241,6 @@ export const CompanySectionEditor = ({
 
   // Reset to Original Website Content
   const handleReset = async () => {
-    if (!window.confirm('Reset this section to its original website content? All custom edits will be replaced.')) {
-      return;
-    }
     setResetting(true);
     try {
       const res = await companyService.resetSection(slug);
@@ -327,18 +324,6 @@ export const CompanySectionEditor = ({
             <span>Reset Section</span>
           </button>
 
-          {/* Save Draft Button */}
-          <button
-            type="button"
-            onClick={handleSaveDraft}
-            className="btn btn-secondary btn-sm"
-            disabled={saving}
-            title="Save as Draft (Does NOT update live website)"
-          >
-            {saving ? <RefreshCw size={14} className="animate-spin" /> : <Save size={14} />}
-            <span>Save Draft</span>
-          </button>
-
           {/* Publish Button */}
           <button
             type="button"
@@ -351,12 +336,12 @@ export const CompanySectionEditor = ({
             {saving ? (
               <>
                 <RefreshCw size={14} className="animate-spin" />
-                <span>Publishing...</span>
+                <span>Saving...</span>
               </>
             ) : (
               <>
                 <CheckCircle2 size={14} />
-                <span>Publish to Website</span>
+                <span>Save Changes</span>
               </>
             )}
           </button>

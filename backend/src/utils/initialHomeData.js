@@ -895,14 +895,6 @@ export const initialHomePageData = {
         }
       ]
     },
-        {
-          name: 'firevy.co Successfully Delivered Web & Mobile App Solutions -...',
-          avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80',
-          videoUrl: 'https://www.youtube.com',
-          isActive: true
-        }
-      ]
-    },
 
     // 19. Our Recent Blogs Section
     recentBlogsSection: {

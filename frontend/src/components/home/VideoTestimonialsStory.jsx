@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
 
 const defaultTestimonials = [
   {
     id: 1,
-<<<<<<< HEAD
     clientName: 'Andrew',
     company: 'Mobile Digital Diary',
     title: "Discover why Andrew trusted firevy.co with his mobile digital diary project : A Client's Honest Experience.",
@@ -55,41 +55,6 @@ const defaultTestimonials = [
     img: '/images/awards/hdimages/clienttestimonial2.webp',
     videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
     isActive: true
-=======
-    title: "Idea to Reality | Client's Success Story\nSapphire - Best Mobile App..",
-    img: '/images/awards/hdimages/client_seven.webp',
-    videoUrl: 'https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ'
-  },
-  {
-    id: 2,
-    title: "From Vision to Wellness | Client's Success\nStory with Sapphire - Top Mobile App..",
-    img: '/images/awards/hdimages/client_eight.webp',
-    videoUrl: 'https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ'
-  },
-  {
-    id: 3,
-    title: 'Hear out Tim got to say about working with\nTeam Sapphire on building a complex and..',
-    img: '/images/awards/hdimages/clienttestimonial3.webp',
-    videoUrl: 'https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ'
-  },
-  {
-    id: 4,
-    title: 'Testimonial from client who has expanded\ntheir business using Sapphire Services',
-    img: '/images/awards/hdimages/clienttestimonial2.webp',
-    videoUrl: 'https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ'
-  },
-  {
-    id: 5,
-    title: 'Discover why Andrew trusted Sapphire Software Solutions with his mobile digital diary..',
-    img: '/images/awards/hdimages/client_shay.webp',
-    videoUrl: 'https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ'
-  },
-  {
-    id: 6,
-    title: 'From Vision to Healthcare Innovation | Client Success With Sapphire - Top IT Company..',
-    img: '/images/awards/hdimages/bruno.webp',
-    videoUrl: 'https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ'
->>>>>>> bb37771cb477c9f866579ae567ca998f22679827
   },
   {
     id: 7,
@@ -97,12 +62,8 @@ const defaultTestimonials = [
     company: 'Software Solutions Partner',
     title: 'Hear what Pravin has got to say about working with firevy.co',
     img: '/images/awards/hdimages/clienttestimonial1.webp',
-<<<<<<< HEAD
     videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
     isActive: true
-=======
-    videoUrl: 'https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ'
->>>>>>> bb37771cb477c9f866579ae567ca998f22679827
   },
   {
     id: 8,
@@ -110,7 +71,6 @@ const defaultTestimonials = [
     company: 'Web & Mobile Solutions Canada',
     title: 'firevy.co Successfully Delivered Web & Mobile App Solutions - Leading IT Company in Canada',
     img: '/images/awards/hdimages/img_client2.webp',
-<<<<<<< HEAD
     videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
     isActive: true
   },
@@ -131,23 +91,19 @@ const defaultTestimonials = [
     img: '/images/awards/hdimages/vision_client.webp',
     videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
     isActive: true
-=======
-    videoUrl: 'https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ'
-  },
-  {
-    id: 9,
-    title: "Peer into Satisfaction: Christina's Testimonial Video Shines Bright!",
-    img: '/images/awards/hdimages/zetteli_client.webp',
-    videoUrl: 'https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ'
-  },
-  {
-    id: 10,
-    title: "From Vision to Education | Client's Success Story with Sapphire Solutions",
-    img: '/images/awards/hdimages/vision_client.webp',
-    videoUrl: 'https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ'
->>>>>>> bb37771cb477c9f866579ae567ca998f22679827
   }
 ];
+
+const getEmbedUrl = (url) => {
+  if (!url) return 'https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ';
+  if (url.includes('youtube.com/embed/')) return url;
+  if (url.includes('youtube-nocookie.com/embed/')) return url;
+  const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([\w-]{11})/);
+  if (match && match[1]) {
+    return `https://www.youtube-nocookie.com/embed/${match[1]}`;
+  }
+  return url;
+};
 
 export const VideoTestimonialsStory = ({ data }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -162,56 +118,31 @@ export const VideoTestimonialsStory = ({ data }) => {
     ? data.testimonials
     : defaultTestimonials;
 
-<<<<<<< HEAD
-  const testimonials = rawTestimonials.filter((item) => item.isActive !== false);
-  const total = testimonials.length;
+  // Filter and normalize items
+  const testimonials = rawTestimonials
+    .filter((item) => item.isActive !== false)
+    .map((item, idx) => ({
+      id: item.id || idx + 1,
+      clientName: item.clientName || '',
+      company: item.company || '',
+      title: item.title || item.name || item.caption || `Client Testimonial ${idx + 1}`,
+      img: item.img || item.avatar || item.image || defaultTestimonials[idx % defaultTestimonials.length].img,
+      videoUrl: item.videoUrl || 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
+    }));
 
-  const goNext = useCallback(() => {
-    if (total <= 1) return;
-    setStartIndex((prev) => (prev + 1) % total);
-  }, [total]);
-
-  const goPrev = useCallback(() => {
-    if (total <= 1) return;
-    setStartIndex((prev) => (prev === 0 ? total - 1 : prev - 1));
-  }, [total]);
-
-  // Auto-scroll every 5 seconds
-=======
-  // Normalize items to ensure img and title exist
-  const testimonials = rawTestimonials.map((item, idx) => ({
-    id: item.id || idx + 1,
-    title: item.title || item.name || item.caption || `Client Testimonial ${idx + 1}`,
-    img: item.img || item.avatar || item.image || defaultTestimonials[idx % defaultTestimonials.length].img,
-    videoUrl: item.videoUrl || 'https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ'
-  }));
-
-  // Auto-scroll every 3.5s when not hovered
->>>>>>> bb37771cb477c9f866579ae567ca998f22679827
+  // Auto-scroll every 4s when not hovered
   useEffect(() => {
     if (isHovered || testimonials.length <= 1) return;
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-    }, 3500);
+    }, 4000);
     return () => clearInterval(interval);
   }, [isHovered, testimonials.length]);
 
-<<<<<<< HEAD
-  if (total === 0) {
-    return null;
-  }
-
-  // Show up to 4 visible cards in a multi-card row
-  const countToShow = Math.min(total, 4);
-  const visibleCards = [];
-  for (let i = 0; i < countToShow; i++) {
-    visibleCards.push(testimonials[(startIndex + i) % total]);
-  }
-=======
   // Sync scroll position
   useEffect(() => {
     if (scrollRef.current) {
-      const cardWidth = 350;
+      const cardWidth = 370;
       scrollRef.current.scrollTo({
         left: currentIndex * cardWidth,
         behavior: 'smooth'
@@ -226,7 +157,10 @@ export const VideoTestimonialsStory = ({ data }) => {
   const handleNext = () => {
     setCurrentIndex((prev) => (prev + 1) % testimonials.length);
   };
->>>>>>> bb37771cb477c9f866579ae567ca998f22679827
+
+  if (testimonials.length === 0) {
+    return null;
+  }
 
   return (
     <section
@@ -235,7 +169,6 @@ export const VideoTestimonialsStory = ({ data }) => {
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="w-full mx-auto">
-        
         {/* Section Heading */}
         <div className="text-center max-w-4xl mx-auto px-4 mb-8 sm:mb-10">
           <h2 className="text-[28px] sm:text-[34px] lg:text-[38px] font-[800] tracking-tight text-slate-950 mb-3 font-sans">
@@ -246,32 +179,6 @@ export const VideoTestimonialsStory = ({ data }) => {
           </p>
         </div>
 
-<<<<<<< HEAD
-        {/* Multi-Card Track */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6 mb-8">
-          {visibleCards.map((item, idx) => {
-            const cardImg = item.img || item.avatar || '/images/awards/hdimages/client_shay.webp';
-            const cardTitle = item.title || item.clientName || item.name || 'Client Testimonial';
-
-            return (
-              <div
-                key={`${item.id || item.clientName || startIndex}-${idx}`}
-                onClick={() => {
-                  if (item.videoUrl) {
-                    window.open(item.videoUrl, '_blank', 'noopener,noreferrer');
-                  }
-                }}
-                className="bg-white rounded-[16px] overflow-hidden shadow-[0_4px_16px_rgba(0,0,0,0.06)] hover:shadow-lg transition-all duration-300 flex flex-col group cursor-pointer border border-slate-100/80"
-              >
-                {/* Upper: Video Portrait Thumbnail */}
-                <div className="relative w-full aspect-[2/1] overflow-hidden bg-[#005d89]">
-                  <img
-                    src={cardImg}
-                    alt={cardTitle}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
-                  />
-=======
         {/* Full Width Horizontal Carousel Track */}
         <div className="w-full relative mb-6">
           <div
@@ -285,7 +192,7 @@ export const VideoTestimonialsStory = ({ data }) => {
                 onClick={() => setActiveVideo(item)}
                 className="w-[300px] sm:w-[345px] lg:w-[370px] xl:w-[385px] shrink-0 bg-white rounded-[18px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer flex flex-col group select-none border border-slate-200/80"
               >
-                {/* Upper: Sapphire Blue Video Banner with Yellow Waves & Large Centered Client Portrait */}
+                {/* Upper: Video Banner with Yellow Waves & Large Centered Client Portrait */}
                 <div className="relative w-full h-[175px] sm:h-[195px] bg-gradient-to-br from-[#0086C6] via-[#007BB8] to-[#006093] flex items-center justify-center overflow-hidden">
                   {/* Decorative Yellow & Cyan Graphic Curves */}
                   <svg
@@ -375,40 +282,24 @@ export const VideoTestimonialsStory = ({ data }) => {
                       <polygon points="6 4 20 12 6 20 6 4" />
                     </svg>
                   </button>
->>>>>>> bb37771cb477c9f866579ae567ca998f22679827
-                </div>
-
-                {/* Lower: Title Text & Blue Play Button */}
-                <div className="p-4 sm:p-5 bg-white flex items-center justify-between gap-3 min-h-[96px]">
-                  <p className="text-[13px] sm:text-[13.5px] font-[600] text-[#1f2937] leading-[1.4] line-clamp-3 font-sans group-hover:text-[#005d89] transition-colors flex-1 text-left">
-                    {cardTitle}
-                  </p>
-                  <div className="shrink-0">
-                    <img
-                      src="/images/ic_video_blue.svg"
-                      alt="Play Video"
-                      className="w-10 h-10 group-hover:scale-110 transition-transform duration-300"
-                    />
-                  </div>
                 </div>
               </div>
-<<<<<<< HEAD
-            );
-          })}
+            ))}
+          </div>
         </div>
 
         {/* Centered Navigation Arrows at the Bottom */}
-        {total > 1 && (
-          <div className="flex items-center justify-center gap-4">
+        {testimonials.length > 1 && (
+          <div className="flex items-center justify-center gap-4 mt-2">
             <button
-              onClick={goPrev}
+              onClick={handlePrev}
               className="w-10 h-10 rounded-full border border-slate-300 hover:border-slate-900 bg-white text-slate-800 hover:text-black flex items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 shadow-sm cursor-pointer"
               aria-label="Previous Testimonial"
             >
               <ArrowLeft className="w-4 h-4 stroke-[2.5]" />
             </button>
             <button
-              onClick={goNext}
+              onClick={handleNext}
               className="w-10 h-10 rounded-full border border-slate-300 hover:border-slate-900 bg-white text-slate-800 hover:text-black flex items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 shadow-sm cursor-pointer"
               aria-label="Next Testimonial"
             >
@@ -416,30 +307,6 @@ export const VideoTestimonialsStory = ({ data }) => {
             </button>
           </div>
         )}
-=======
-            ))}
-          </div>
-        </div>
-
-        {/* Centered Navigation Arrows at the Bottom */}
-        <div className="flex items-center justify-center space-x-6 mt-4">
-          <button
-            onClick={handlePrev}
-            aria-label="Previous Slide"
-            className="w-9 h-9 flex items-center justify-center text-slate-700 hover:text-black hover:scale-125 active:scale-95 transition-all text-2xl font-bold cursor-pointer select-none"
-          >
-            ←
-          </button>
-          <button
-            onClick={handleNext}
-            aria-label="Next Slide"
-            className="w-9 h-9 flex items-center justify-center text-slate-700 hover:text-black hover:scale-125 active:scale-95 transition-all text-2xl font-bold cursor-pointer select-none"
-          >
-            →
-          </button>
-        </div>
-
->>>>>>> bb37771cb477c9f866579ae567ca998f22679827
       </div>
 
       {/* Interactive Video Popup Modal */}
@@ -465,7 +332,7 @@ export const VideoTestimonialsStory = ({ data }) => {
             </div>
             <div className="aspect-video w-full bg-black flex items-center justify-center">
               <iframe
-                src={`${activeVideo.videoUrl}?autoplay=1`}
+                src={`${getEmbedUrl(activeVideo.videoUrl)}?autoplay=1`}
                 title={activeVideo.title}
                 className="w-full h-full border-0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -480,4 +347,3 @@ export const VideoTestimonialsStory = ({ data }) => {
 };
 
 export default VideoTestimonialsStory;
-
