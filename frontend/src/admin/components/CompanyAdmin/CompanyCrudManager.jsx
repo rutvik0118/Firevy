@@ -25,6 +25,7 @@ import Modal from '../UI/Modal';
 import MediaUploadInput from '../UI/MediaUploadInput';
 import { useToast } from '../../context/ToastContext';
 import companyService from '../../services/companyService';
+import { AdminFormGrid, AdminFormField, AdminMediaField } from '../UI/AdminEditLayout';
 
 export const CompanyCrudManager = ({
   pageTitle,
@@ -639,157 +640,197 @@ export const CompanyCrudManager = ({
           </div>
         }
       >
-        <form onSubmit={handleSave} style={{ display: 'flex', flexDirection: 'column', gap: '1.125rem' }}>
-          {fields.map((field) => {
-            const isError = !!formErrors[field.name];
-            const value = formData[field.name] !== undefined ? formData[field.name] : '';
+        <form onSubmit={handleSave} style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+          <AdminFormGrid columns={2} gap="14px">
+            {fields.map((field) => {
+              const isError = !!formErrors[field.name];
+              const value = formData[field.name] !== undefined ? formData[field.name] : '';
+              const isFullWidth = field.fullWidth || field.type === 'textarea' || field.type === 'rich' || field.type === 'image' || field.type === 'file' || field.type === 'tags';
 
-            // Image / Thumbnail / Media Upload Input
-            if (field.type === 'image' || field.type === 'file') {
-              return (
-                <div key={field.name} className="form-group">
-                  <label className="form-label">
-                    <span>{field.label || field.name}</span>
-                    {field.required && <span style={{ color: 'var(--color-rose-500)', marginLeft: '4px' }}>*</span>}
-                  </label>
-                  <MediaUploadInput
+              // Image / Thumbnail / Media Upload Input
+              if (field.type === 'image' || field.type === 'file') {
+                return (
+                  <AdminMediaField
+                    key={field.name}
+                    label={field.label || field.name}
                     value={value}
                     onChange={(url) => handleFieldChange(field.name, url)}
-                    label={field.label}
-                    accept={field.type === 'file' ? '.pdf,.doc,.docx,.zip' : 'image/*'}
-                    previewType={field.type === 'file' ? 'file' : 'image'}
+                    required={field.required}
+                    helperText={field.helpText || 'Upload or select media file'}
+                    fullWidth
                   />
-                  {field.helpText && <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: '4px' }}>{field.helpText}</span>}
-                  {isError && <span style={{ fontSize: '0.75rem', color: 'var(--color-rose-500)', marginTop: '4px' }}>{formErrors[field.name]}</span>}
-                </div>
-              );
-            }
+                );
+              }
 
-            // Textarea / Rich Text
-            if (field.type === 'textarea' || field.type === 'rich') {
-              return (
-                <div key={field.name} className="form-group">
-                  <label className="form-label">
-                    <span>{field.label || field.name}</span>
-                    {field.required && <span style={{ color: 'var(--color-rose-500)', marginLeft: '4px' }}>*</span>}
-                  </label>
-                  <textarea
-                    rows={field.rows || 4}
-                    value={value}
-                    onChange={(e) => handleFieldChange(field.name, e.target.value)}
-                    placeholder={field.placeholder || `Enter ${field.label?.toLowerCase()}...`}
-                    className={`form-textarea ${isError ? 'input-error' : ''}`}
-                  />
-                  {field.helpText && <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: '4px' }}>{field.helpText}</span>}
-                  {isError && <span style={{ fontSize: '0.75rem', color: 'var(--color-rose-500)', marginTop: '4px' }}>{formErrors[field.name]}</span>}
-                </div>
-              );
-            }
-
-            // Select Dropdown
-            if (field.type === 'select') {
-              return (
-                <div key={field.name} className="form-group">
-                  <label className="form-label">
-                    <span>{field.label || field.name}</span>
-                    {field.required && <span style={{ color: 'var(--color-rose-500)', marginLeft: '4px' }}>*</span>}
-                  </label>
-                  <select
-                    value={value}
-                    onChange={(e) => handleFieldChange(field.name, e.target.value)}
-                    className={`form-select ${isError ? 'input-error' : ''}`}
+              // Textarea / Rich Text
+              if (field.type === 'textarea' || field.type === 'rich') {
+                return (
+                  <AdminFormField
+                    key={field.name}
+                    label={field.label || field.name}
+                    required={field.required}
+                    helperText={field.helpText}
+                    error={isError ? formErrors[field.name] : undefined}
+                    fullWidth
                   >
-                    {(field.options || []).map((opt) => {
-                      const optVal = typeof opt === 'string' ? opt : opt.value;
-                      const optLabel = typeof opt === 'string' ? opt : opt.label;
-                      return (
-                        <option key={optVal} value={optVal}>
-                          {optLabel}
-                        </option>
-                      );
-                    })}
-                  </select>
-                  {isError && <span style={{ fontSize: '0.75rem', color: 'var(--color-rose-500)', marginTop: '4px' }}>{formErrors[field.name]}</span>}
-                </div>
-              );
-            }
+                    <textarea
+                      rows={field.rows || 3}
+                      value={value}
+                      onChange={(e) => handleFieldChange(field.name, e.target.value)}
+                      placeholder={field.placeholder || `Enter ${field.label?.toLowerCase()}...`}
+                      className={`form-control ${isError ? 'input-error' : ''}`}
+                      style={{
+                        width: '100%',
+                        padding: '8px 12px',
+                        borderRadius: '6px',
+                        border: isError ? '1.5px solid #EF4444' : '1px solid #CBD5E1',
+                        fontSize: '13px',
+                        color: '#0F172A',
+                        backgroundColor: '#FFFFFF',
+                        fontFamily: 'inherit'
+                      }}
+                    />
+                  </AdminFormField>
+                );
+              }
 
-            // Tags / Array of Strings
-            if (field.type === 'tags') {
-              const tagsArray = Array.isArray(value) ? value : (typeof value === 'string' ? value.split(',').map(s => s.trim()).filter(Boolean) : []);
-              return (
-                <div key={field.name} className="form-group">
-                  <label className="form-label">
-                    <span>{field.label || field.name}</span>
-                    {field.required && <span style={{ color: 'var(--color-rose-500)', marginLeft: '4px' }}>*</span>}
-                  </label>
-                  <input
-                    type="text"
-                    value={Array.isArray(value) ? value.join(', ') : value}
-                    onChange={(e) => handleFieldChange(field.name, e.target.value.split(',').map(s => s.trim()).filter(Boolean))}
-                    placeholder="Separate items with commas (e.g. AI, React, Cloud)"
-                    className={`form-input ${isError ? 'input-error' : ''}`}
-                  />
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px', marginTop: '6px' }}>
-                    {tagsArray.map((tag, tIdx) => (
-                      <span key={tIdx} className="badge badge-cyan" style={{ fontSize: '0.6875rem' }}>
-                        {tag}
-                      </span>
-                    ))}
+              // Select Dropdown
+              if (field.type === 'select') {
+                return (
+                  <AdminFormField
+                    key={field.name}
+                    label={field.label || field.name}
+                    required={field.required}
+                    helperText={field.helpText}
+                    error={isError ? formErrors[field.name] : undefined}
+                    fullWidth={field.fullWidth}
+                  >
+                    <select
+                      value={value}
+                      onChange={(e) => handleFieldChange(field.name, e.target.value)}
+                      className={`form-control ${isError ? 'input-error' : ''}`}
+                      style={{
+                        width: '100%',
+                        padding: '8px 12px',
+                        borderRadius: '6px',
+                        border: isError ? '1.5px solid #EF4444' : '1px solid #CBD5E1',
+                        fontSize: '13px',
+                        color: '#0F172A',
+                        backgroundColor: '#FFFFFF'
+                      }}
+                    >
+                      {(field.options || []).map((opt) => {
+                        const optVal = typeof opt === 'string' ? opt : opt.value;
+                        const optLabel = typeof opt === 'string' ? opt : opt.label;
+                        return (
+                          <option key={optVal} value={optVal}>
+                            {optLabel}
+                          </option>
+                        );
+                      })}
+                    </select>
+                  </AdminFormField>
+                );
+              }
+
+              // Tags / Array of Strings
+              if (field.type === 'tags') {
+                const tagsArray = Array.isArray(value) ? value : (typeof value === 'string' ? value.split(',').map(s => s.trim()).filter(Boolean) : []);
+                return (
+                  <AdminFormField
+                    key={field.name}
+                    label={field.label || field.name}
+                    required={field.required}
+                    helperText={field.helpText || 'Separate items with commas'}
+                    error={isError ? formErrors[field.name] : undefined}
+                    fullWidth
+                  >
+                    <input
+                      type="text"
+                      value={Array.isArray(value) ? value.join(', ') : value}
+                      onChange={(e) => handleFieldChange(field.name, e.target.value.split(',').map(s => s.trim()).filter(Boolean))}
+                      placeholder="e.g. AI, React, Cloud"
+                      className={`form-control ${isError ? 'input-error' : ''}`}
+                      style={{
+                        width: '100%',
+                        padding: '8px 12px',
+                        borderRadius: '6px',
+                        border: isError ? '1.5px solid #EF4444' : '1px solid #CBD5E1',
+                        fontSize: '13px',
+                        color: '#0F172A',
+                        backgroundColor: '#FFFFFF'
+                      }}
+                    />
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px', marginTop: '6px' }}>
+                      {tagsArray.map((tag, tIdx) => (
+                        <span key={tIdx} className="badge badge-cyan" style={{ fontSize: '0.6875rem' }}>
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </AdminFormField>
+                );
+              }
+
+              // Checkbox / Switch
+              if (field.type === 'checkbox') {
+                return (
+                  <div key={field.name} style={{ gridColumn: '1 / -1', display: 'flex', alignItems: 'center', gap: '8px', padding: '4px 0' }}>
+                    <input
+                      type="checkbox"
+                      id={field.name}
+                      checked={!!value}
+                      onChange={(e) => handleFieldChange(field.name, e.target.checked)}
+                      style={{ width: '16px', height: '16px', cursor: 'pointer', accentColor: '#006B8F' }}
+                    />
+                    <label htmlFor={field.name} style={{ fontSize: '13px', color: '#0F172A', cursor: 'pointer', fontWeight: 600 }}>
+                      {field.label || field.name}
+                    </label>
                   </div>
-                  {isError && <span style={{ fontSize: '0.75rem', color: 'var(--color-rose-500)', marginTop: '4px' }}>{formErrors[field.name]}</span>}
-                </div>
-              );
-            }
+                );
+              }
 
-            // Checkbox / Switch
-            if (field.type === 'checkbox') {
+              // Default Text / Number / URL / Date input
               return (
-                <div key={field.name} style={{ display: 'flex', alignItems: 'center', gap: '0.625rem', padding: '0.25rem 0' }}>
+                <AdminFormField
+                  key={field.name}
+                  label={field.label || field.name}
+                  required={field.required}
+                  helperText={field.helpText}
+                  error={isError ? formErrors[field.name] : undefined}
+                  fullWidth={field.fullWidth}
+                >
                   <input
-                    type="checkbox"
-                    id={field.name}
-                    checked={!!value}
-                    onChange={(e) => handleFieldChange(field.name, e.target.checked)}
-                    style={{ width: '16px', height: '16px', cursor: 'pointer' }}
+                    type={field.type || 'text'}
+                    value={value}
+                    onChange={(e) => handleFieldChange(field.name, field.type === 'number' ? Number(e.target.value) : e.target.value)}
+                    placeholder={field.placeholder || `Enter ${field.label?.toLowerCase()}...`}
+                    className={`form-control ${isError ? 'input-error' : ''}`}
+                    style={{
+                      width: '100%',
+                      padding: '8px 12px',
+                      borderRadius: '6px',
+                      border: isError ? '1.5px solid #EF4444' : '1px solid #CBD5E1',
+                      fontSize: '13px',
+                      color: '#0F172A',
+                      backgroundColor: '#FFFFFF'
+                    }}
                   />
-                  <label htmlFor={field.name} style={{ fontSize: '0.875rem', color: 'var(--text-primary)', cursor: 'pointer', fontWeight: 600 }}>
-                    {field.label || field.name}
-                  </label>
-                </div>
+                </AdminFormField>
               );
-            }
-
-            // Default Text / Number / URL / Date input
-            return (
-              <div key={field.name} className="form-group">
-                <label className="form-label">
-                  <span>{field.label || field.name}</span>
-                  {field.required && <span style={{ color: 'var(--color-rose-500)', marginLeft: '4px' }}>*</span>}
-                </label>
-                <input
-                  type={field.type || 'text'}
-                  value={value}
-                  onChange={(e) => handleFieldChange(field.name, field.type === 'number' ? Number(e.target.value) : e.target.value)}
-                  placeholder={field.placeholder || `Enter ${field.label?.toLowerCase()}...`}
-                  className={`form-input ${isError ? 'input-error' : ''}`}
-                />
-                {field.helpText && <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: '4px' }}>{field.helpText}</span>}
-                {isError && <span style={{ fontSize: '0.75rem', color: 'var(--color-rose-500)', marginTop: '4px' }}>{formErrors[field.name]}</span>}
-              </div>
-            );
-          })}
+            })}
+          </AdminFormGrid>
 
           {/* Active Status Checkbox */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.625rem', paddingTop: '0.5rem', borderTop: '1px solid var(--border-subtle)' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', paddingTop: '10px', borderTop: '1px solid #E2E8F0' }}>
             <input
               type="checkbox"
               id="isActiveToggle"
               checked={formData.isActive !== false}
               onChange={(e) => handleFieldChange('isActive', e.target.checked)}
-              style={{ width: '16px', height: '16px', cursor: 'pointer' }}
+              style={{ width: '16px', height: '16px', cursor: 'pointer', accentColor: '#006B8F' }}
             />
-            <label htmlFor="isActiveToggle" style={{ fontSize: '0.875rem', color: 'var(--text-primary)', cursor: 'pointer', fontWeight: 600 }}>
+            <label htmlFor="isActiveToggle" style={{ fontSize: '13px', color: '#0F172A', cursor: 'pointer', fontWeight: 600 }}>
               Active & Published on Public Website
             </label>
           </div>

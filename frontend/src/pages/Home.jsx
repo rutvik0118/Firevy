@@ -26,11 +26,31 @@ import RecentBlogsSection from '../components/home/RecentBlogsSection';
 import ClientReviewsDarkSection from '../components/home/ClientReviewsDarkSection';
 import FeaturedInLogosGrid from '../components/home/FeaturedInLogosGrid';
 import WorkTogetherNewsletterSection from '../components/home/WorkTogetherNewsletterSection';
+import AboutPreview from '../components/home/AboutPreview';
+import AwardsSection from '../components/home/AwardsSection';
+import CTASection from '../components/home/CTASection';
+import ConversionBanner from '../components/home/ConversionBanner';
+import FaqAccordion from '../components/home/FaqAccordion';
+import IndustriesGrid from '../components/home/IndustriesGrid';
+import ProcessTimeline from '../components/home/ProcessTimeline';
+import StatsSection from '../components/home/StatsSection';
+import TechEcosystem from '../components/home/TechEcosystem';
+import WhyChooseUs from '../components/home/WhyChooseUs';
 
 const SECTION_COMPONENTS = {
   hero: Hero,
   trustMarquee: TrustMarquee,
   aboutKeyMetrics: AboutKeyMetrics,
+  aboutPreview: AboutPreview,
+  awardsSection: AwardsSection,
+  ctaSection: CTASection,
+  conversionBanner: ConversionBanner,
+  faqAccordion: FaqAccordion,
+  industriesGrid: IndustriesGrid,
+  processTimeline: ProcessTimeline,
+  statsSection: StatsSection,
+  techEcosystem: TechEcosystem,
+  whyChooseUs: WhyChooseUs,
   brandLogoGrid: BrandLogoGrid,
   servicesSection: ServicesSection,
   conversionCalloutBanner: ConversionCalloutBanner,

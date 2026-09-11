@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Container from '../common/Container';
 
-export const BestAndroidAppCompanyShowcase = () => {
+export const BestAndroidAppCompanyShowcase = ({ title = 'Best Android App Development Company' }) => {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
 
   return (
@@ -17,7 +17,7 @@ export const BestAndroidAppCompanyShowcase = () => {
             className="font-[800] text-[#0B0F19] tracking-tight leading-tight"
             style={{ fontSize: '32px' }}
           >
-            Best Android App Development Company
+            {title}
           </h2>
         </div>
 

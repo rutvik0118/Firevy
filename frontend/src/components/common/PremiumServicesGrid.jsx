@@ -7,7 +7,7 @@ export const PremiumServicesGrid = ({ title, subtitle, companyName = "firevy.co"
   const rawDesc = subtitle || `As a certified IT company, ${companyName} helps organizations thrive digitally by offering innovative solutions using cutting-edge tools and frameworks.`;
   const displayDescription = rawDesc.includes('Contact us') ? rawDesc : `${rawDesc} Contact us to learn more!`;
 
-const defaultServices = [
+  const defaultServices = [
     {
       name: 'Mobile App Development',
       link: '/services/mobile-app-development',
@@ -91,7 +91,7 @@ const defaultServices = [
   ];
 
   return (
-    <section className="py-12 sm:py-14 lg:py-16 bg-[#005F96] text-white font-sans text-left relative overflow-hidden">
+    <section className="py-8 sm:py-10 lg:py-12 bg-[#005F96] text-white font-sans text-left relative overflow-hidden">
       <Container>
         {/* Section Heading & Subtitle */}
         <div className="text-center max-w-4xl mx-auto mb-8 sm:mb-10 space-y-2.5">
@@ -112,9 +112,9 @@ const defaultServices = [
               className="bg-white rounded-[15px] p-[15px] text-slate-900 shadow-md hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-between min-h-[66px] h-[68px] sm:h-[72px] text-left group cursor-pointer"
             >
               <div className="w-[45px] h-[45px] shrink-0 p-1 flex items-center justify-center overflow-hidden">
-                <img 
-                  src={item.image} 
-                  alt={item.name} 
+                <img
+                  src={item.image}
+                  alt={item.name}
                   className="w-full h-full object-contain"
                   style={{
                     animation: `sapphireHiThere 1.5s ease infinite`,

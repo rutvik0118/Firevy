@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
 
 const defaultTestimonials = [
   {
@@ -94,8 +95,9 @@ const defaultTestimonials = [
 ];
 
 const getEmbedUrl = (url) => {
-  if (!url) return '';
+  if (!url) return 'https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ';
   if (url.includes('youtube.com/embed/')) return url;
+  if (url.includes('youtube-nocookie.com/embed/')) return url;
   const match = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([\w-]{11})/);
   if (match && match[1]) {
     return `https://www.youtube-nocookie.com/embed/${match[1]}`;
@@ -160,12 +162,12 @@ export const VideoTestimonialsStory = ({ data }) => {
     }
   }, [total]);
 
-  // Auto-scroll every 3 seconds (pauses on hover)
+  // Auto-scroll every 3.5 seconds (pauses on hover)
   useEffect(() => {
     if (isHovered || total <= 1) return;
     const interval = setInterval(() => {
       handleNext();
-    }, 3000);
+    }, 3500);
 
     return () => clearInterval(interval);
   }, [isHovered, total, handleNext]);
@@ -295,22 +297,24 @@ export const VideoTestimonialsStory = ({ data }) => {
         </div>
 
         {/* Centered Navigation Arrows at the Bottom */}
-        <div className="flex items-center justify-center space-x-6 mt-4">
-          <button
-            onClick={handlePrev}
-            aria-label="Previous Slide"
-            className="w-10 h-10 rounded-full border border-slate-300 hover:border-slate-800 bg-white text-slate-700 hover:text-black hover:scale-110 active:scale-95 transition-all text-xl font-bold flex items-center justify-center cursor-pointer select-none shadow-sm"
-          >
-            ←
-          </button>
-          <button
-            onClick={handleNext}
-            aria-label="Next Slide"
-            className="w-10 h-10 rounded-full border border-slate-300 hover:border-slate-800 bg-white text-slate-700 hover:text-black hover:scale-110 active:scale-95 transition-all text-xl font-bold flex items-center justify-center cursor-pointer select-none shadow-sm"
-          >
-            →
-          </button>
-        </div>
+        {testimonials.length > 1 && (
+          <div className="flex items-center justify-center gap-4 mt-2">
+            <button
+              onClick={handlePrev}
+              className="w-10 h-10 rounded-full border border-slate-300 hover:border-slate-900 bg-white text-slate-800 hover:text-black flex items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 shadow-sm cursor-pointer"
+              aria-label="Previous Testimonial"
+            >
+              <ArrowLeft className="w-4 h-4 stroke-[2.5]" />
+            </button>
+            <button
+              onClick={handleNext}
+              className="w-10 h-10 rounded-full border border-slate-300 hover:border-slate-900 bg-white text-slate-800 hover:text-black flex items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 shadow-sm cursor-pointer"
+              aria-label="Next Testimonial"
+            >
+              <ArrowRight className="w-4 h-4 stroke-[2.5]" />
+            </button>
+          </div>
+        )}
       </div>
 
       {/* Interactive Video Popup Modal */}

@@ -253,7 +253,7 @@ export const SapphireFaqSection = ({
       <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-white rounded-[26px] sm:rounded-[32px] p-6 sm:p-9 lg:p-11 text-slate-900 shadow-[0_15px_50px_rgba(0,0,0,0.18)] border border-slate-100/90">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-11 items-start">
-            
+
             {/* Left Column: 8 Stat Pill Cards & 3 Review Laurel Badges */}
             <div className="lg:col-span-5 space-y-6">
               {/* 8 Stat Cards Grid (2 Columns x 4 Rows) */}
@@ -340,9 +340,8 @@ export const SapphireFaqSection = ({
                       className="w-full text-left flex items-start justify-between space-x-3 group cursor-pointer focus:outline-none"
                     >
                       <h3
-                        className={`text-[13.5px] sm:text-[14.5px] font-[700] leading-snug transition-colors ${
-                          isOpen ? 'text-[#005F96]' : 'text-[#0F172A] group-hover:text-[#005F96]'
-                        }`}
+                        className={`text-[13.5px] sm:text-[14.5px] font-[700] leading-snug transition-colors ${isOpen ? 'text-[#005F96]' : 'text-[#0F172A] group-hover:text-[#005F96]'
+                          }`}
                       >
                         {questionText}
                       </h3>

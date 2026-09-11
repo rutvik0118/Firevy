@@ -21,9 +21,12 @@ import VisitorManagementSystemService from '../components/services/VisitorManage
 import WarehouseManagementSystemService from '../components/services/WarehouseManagementSystemService';
 import CloverAppDevelopmentService from '../components/services/CloverAppDevelopmentService';
 import AndroidAppDevelopmentService from '../components/services/AndroidAppDevelopmentService';
+import ReactNativeAppDevelopmentService from '../components/services/ReactNativeAppDevelopmentService';
+import FlutterAppDevelopmentService from '../components/services/FlutterAppDevelopmentService';
 import HireCSharpDevelopersService from '../components/services/HireCSharpDevelopersService';
 import IWatchAppDevelopmentService from '../components/services/IWatchAppDevelopmentService';
 import IOSAppDevelopmentService from '../components/services/IOSAppDevelopmentService';
+import XamarinAppDevelopmentService from '../components/services/XamarinAppDevelopmentService';
 import WordPressDevelopmentService from '../components/services/WordPressDevelopmentService';
 import DrupalDevelopmentService from '../components/services/DrupalDevelopmentService';
 import UmbracoDevelopmentService from '../components/services/UmbracoDevelopmentService';
@@ -44,11 +47,11 @@ export const ServiceDetails = () => {
   const [error, setError] = useState(null);
   const [openFaq, setOpenFaq] = useState(0);
 
-  const isSitecore = currentSlug.includes('sitecore') ||
-    currentSlug.includes('hire-sitecore');
-
-  const isSitefinity = currentSlug.includes('sitefinity') ||
-    currentSlug.includes('hire-sitefinity');
+  const isXamarin = currentSlug.includes('xamarin');
+  const isReactNative = currentSlug.includes('react-native') || currentSlug.includes('reactnative');
+  const isFlutter = currentSlug.includes('flutter');
+  const isSitecore = currentSlug.includes('sitecore') || currentSlug.includes('hire-sitecore');
+  const isSitefinity = currentSlug.includes('sitefinity') || currentSlug.includes('hire-sitefinity');
 
   const isMagento = currentSlug.includes('magento') ||
     currentSlug.includes('adobe-commerce') ||
@@ -204,7 +207,7 @@ export const ServiceDetails = () => {
   };
 
   useEffect(() => {
-    if (!isAndroid && !isIOS && !isHealthcare && !isEducation && !isUber && !isSpotify && !isZomato && !isAmazon && !isVisitor && !isWarehouse && !isClover && !isCSharp && !isIWatch && !isWordpress && !isDrupal && !isUmbraco && !isSitecore && !isSitefinity && !isMagento && !isShopify) {
+    if (!isXamarin && !isAndroid && !isReactNative && !isFlutter && !isIOS && !isHealthcare && !isEducation && !isUber && !isSpotify && !isZomato && !isAmazon && !isVisitor && !isWarehouse && !isClover && !isCSharp && !isIWatch && !isWordpress && !isDrupal && !isUmbraco && !isSitecore && !isSitefinity && !isMagento && !isShopify) {
       fetchServiceDetails();
     } else {
       setLoading(false);
@@ -240,12 +243,24 @@ export const ServiceDetails = () => {
     return <WordPressDevelopmentService />;
   }
 
+  if (isXamarin) {
+    return <XamarinAppDevelopmentService />;
+  }
+
   if (isIOS) {
     return <IOSAppDevelopmentService />;
   }
 
   if (isAndroid) {
     return <AndroidAppDevelopmentService />;
+  }
+
+  if (isReactNative) {
+    return <ReactNativeAppDevelopmentService />;
+  }
+
+  if (isFlutter) {
+    return <FlutterAppDevelopmentService />;
   }
 
   if (isHealthcare) {

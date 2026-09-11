@@ -213,7 +213,7 @@ export const ModuleMasterDetailManager = ({
                             {it.title}
                           </div>
                           <div className="cms-card-slug">
-                            {it.slug || `${basePath}/${it.key}`}
+                            {`/${(it.slug || it.key).split('/').filter(Boolean).pop()}`}
                           </div>
                         </div>
                       </div>

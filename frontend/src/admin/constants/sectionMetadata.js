@@ -20,6 +20,16 @@ import RecentBlogsEditor from '../pages/HomePageAdmin/SectionEditors/RecentBlogs
 import ClientReviewsDarkEditor from '../pages/HomePageAdmin/SectionEditors/ClientReviewsDarkEditor';
 import FeaturedInLogosEditor from '../pages/HomePageAdmin/SectionEditors/FeaturedInLogosEditor';
 import WorkTogetherNewsletterEditor from '../pages/HomePageAdmin/SectionEditors/WorkTogetherNewsletterEditor';
+import AboutPreviewEditor from '../pages/HomePageAdmin/SectionEditors/AboutPreviewEditor';
+import AwardsSectionEditor from '../pages/HomePageAdmin/SectionEditors/AwardsSectionEditor';
+import CTASectionEditor from '../pages/HomePageAdmin/SectionEditors/CTASectionEditor';
+import ConversionBannerEditor from '../pages/HomePageAdmin/SectionEditors/ConversionBannerEditor';
+import FaqAccordionEditor from '../pages/HomePageAdmin/SectionEditors/FaqAccordionEditor';
+import IndustriesGridEditor from '../pages/HomePageAdmin/SectionEditors/IndustriesGridEditor';
+import ProcessTimelineEditor from '../pages/HomePageAdmin/SectionEditors/ProcessTimelineEditor';
+import StatsSectionEditor from '../pages/HomePageAdmin/SectionEditors/StatsSectionEditor';
+import TechEcosystemEditor from '../pages/HomePageAdmin/SectionEditors/TechEcosystemEditor';
+import WhyChooseUsEditor from '../pages/HomePageAdmin/SectionEditors/WhyChooseUsEditor';
 
 export const SECTION_METADATA = {
   hero: {
@@ -42,6 +52,86 @@ export const SECTION_METADATA = {
     category: 'About & Metrics',
     description: 'About us intro, high-res background texture, and 12 milestone & feature cards.',
     editor: AboutKeyMetricsEditor
+  },
+  aboutPreview: {
+    key: 'aboutPreview',
+    title: 'About Preview',
+    category: 'Company Profile',
+    slug: '/aboutPreview',
+    description: 'Company introduction overview with checklist points and team showcase image.',
+    editor: AboutPreviewEditor
+  },
+  awardsSection: {
+    key: 'awardsSection',
+    title: 'Awards & Accolades',
+    category: 'Social Proof',
+    slug: '/awardsSection',
+    description: 'Clutch Leader, ISO 9001, GoodFirms, and G2 enterprise badges grid.',
+    editor: AwardsSectionEditor
+  },
+  ctaSection: {
+    key: 'ctaSection',
+    title: 'Primary CTA Banner',
+    category: 'CTA & Action',
+    slug: '/ctaSection',
+    description: 'High-converting gradient banner with primary & secondary action buttons.',
+    editor: CTASectionEditor
+  },
+  conversionBanner: {
+    key: 'conversionBanner',
+    title: 'Light Conversion Banner',
+    category: 'CTA & Action',
+    slug: '/conversionBanner',
+    description: 'Clean white/cyan collaboration section headline and get in touch trigger.',
+    editor: ConversionBannerEditor
+  },
+  faqAccordion: {
+    key: 'faqAccordion',
+    title: 'FAQ Accordion',
+    category: 'FAQ',
+    slug: '/faqAccordion',
+    description: 'Interactive frequently asked questions expandable accordion list.',
+    editor: FaqAccordionEditor
+  },
+  industriesGrid: {
+    key: 'industriesGrid',
+    title: 'Industries Grid',
+    category: 'Domain Verticals',
+    slug: '/industriesGrid',
+    description: 'Tailored solutions for diverse domain verticals with icons and summaries.',
+    editor: IndustriesGridEditor
+  },
+  processTimeline: {
+    key: 'processTimeline',
+    title: 'Process Timeline',
+    category: 'Process',
+    slug: '/processTimeline',
+    description: 'Structured 8-step software engineering lifecycle timeline.',
+    editor: ProcessTimelineEditor
+  },
+  statsSection: {
+    key: 'statsSection',
+    title: 'Animated Key Stats',
+    category: 'Metrics',
+    slug: '/statsSection',
+    description: 'Animated numerical metric strip (retention, industries, clients, projects).',
+    editor: StatsSectionEditor
+  },
+  techEcosystem: {
+    key: 'techEcosystem',
+    title: 'Tech Ecosystem',
+    category: 'Tech Stack',
+    slug: '/techEcosystem',
+    description: 'Battle-tested tech stack & category tabbed framework showcase.',
+    editor: TechEcosystemEditor
+  },
+  whyChooseUs: {
+    key: 'whyChooseUs',
+    title: 'Why Choose Us',
+    category: 'Differentiators',
+    slug: '/whyChooseUs',
+    description: '8-pillar engineering partner value proposition grid.',
+    editor: WhyChooseUsEditor
   },
   brandLogoGrid: {
     key: 'brandLogoGrid',

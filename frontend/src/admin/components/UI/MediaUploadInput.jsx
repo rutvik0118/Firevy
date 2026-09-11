@@ -4,10 +4,10 @@ import {
   Image as ImageIcon,
   Video,
   FileText,
-  Check,
+  CheckCircle2,
   Loader2,
   RefreshCw,
-  Eye,
+  ExternalLink,
   Trash2
 } from 'lucide-react';
 import adminService from '../../services/adminService';
@@ -92,16 +92,29 @@ export const MediaUploadInput = ({
   };
 
   const getIcon = () => {
-    if (type === 'video') return <Video size={16} />;
-    if (type === 'pdf') return <FileText size={16} />;
-    return <ImageIcon size={16} />;
+    if (type === 'video') return <Video size={14} />;
+    if (type === 'pdf') return <FileText size={14} />;
+    return <ImageIcon size={14} />;
   };
 
+  const filename = value ? value.split('/').pop()?.split('?')[0] || value : '';
+
   return (
-    <div className="form-group" style={{ marginBottom: '16px' }}>
+    <div className="form-group" style={{ marginBottom: '12px' }}>
       {label && (
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '6px' }}>
-          <label className="form-label" style={{ margin: 0, display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', fontWeight: 600, color: 'var(--text-primary, #0F172A)' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '5px' }}>
+          <label
+            style={{
+              margin: 0,
+              display: 'flex',
+              alignItems: 'center',
+              gap: '6px',
+              fontSize: '12px',
+              fontWeight: 700,
+              color: '#0F172A',
+              fontFamily: 'Poppins, sans-serif'
+            }}
+          >
             {getIcon()}
             <span>{label}</span>
           </label>
@@ -124,13 +137,13 @@ export const MediaUploadInput = ({
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
           style={{
-            border: `2px dashed ${isHovered ? '#006B8F' : 'var(--border-color, #E2E8F0)'}`,
+            border: `2px dashed ${isHovered ? '#006B8F' : '#CBD5E1'}`,
             borderRadius: '8px',
-            padding: '20px 16px',
+            padding: '16px 14px',
             textAlign: 'center',
             cursor: uploading ? 'wait' : 'pointer',
-            backgroundColor: isHovered ? 'rgba(0, 107, 143, 0.04)' : 'var(--bg-secondary, #F8FAFC)',
-            transition: 'all 0.2s',
+            backgroundColor: isHovered ? 'rgba(0, 107, 143, 0.04)' : '#F8FAFC',
+            transition: 'all 0.15s ease',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
@@ -140,22 +153,35 @@ export const MediaUploadInput = ({
         >
           {uploading ? (
             <>
-              <Loader2 className="animate-spin" size={26} style={{ color: '#006B8F' }} />
-              <span style={{ fontSize: '13px', fontWeight: 600, color: '#006B8F' }}>Uploading {type}...</span>
+              <Loader2 className="animate-spin" size={24} style={{ color: '#006B8F' }} />
+              <span style={{ fontSize: '12.5px', fontWeight: 600, color: '#006B8F' }}>
+                Uploading {type}...
+              </span>
             </>
           ) : (
             <>
-              <div style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: 'rgba(0, 107, 143, 0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#006B8F' }}>
-                <Upload size={20} />
+              <div
+                style={{
+                  width: '36px',
+                  height: '36px',
+                  borderRadius: '50%',
+                  backgroundColor: 'rgba(0, 107, 143, 0.1)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: '#006B8F'
+                }}
+              >
+                <Upload size={18} />
               </div>
               <div>
-                <div style={{ fontSize: '13px', fontWeight: 700, color: 'var(--text-primary, #0F172A)' }}>
+                <div style={{ fontSize: '12.5px', fontWeight: 700, color: '#0F172A' }}>
                   Click to Upload {type === 'image' ? 'Image' : type === 'video' ? 'Video' : 'PDF Document'}
                 </div>
-                <div style={{ fontSize: '11px', color: 'var(--text-muted, #64748B)', marginTop: '2px' }}>
+                <div style={{ fontSize: '11px', color: '#64748B', marginTop: '2px' }}>
                   {type === 'image' && 'Supports PNG, JPG, WebP, SVG up to 10MB'}
                   {type === 'video' && 'Supports MP4, WebM up to 50MB'}
-                  {type === 'pdf' && 'Supports PDF brochure document up to 20MB'}
+                  {type === 'pdf' && 'Supports PDF document up to 20MB'}
                 </div>
               </div>
             </>
@@ -164,24 +190,36 @@ export const MediaUploadInput = ({
       ) : (
         <div
           style={{
-            border: '1px solid var(--border-color, #E2E8F0)',
+            border: '1px solid #E2E8F0',
             borderRadius: '8px',
             backgroundColor: '#FFFFFF',
-            padding: '12px 14px',
+            padding: '10px 14px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
-            gap: '14px',
+            gap: '12px',
             width: '100%',
             boxSizing: 'border-box',
-            boxShadow: '0 1px 3px rgba(0,0,0,0.05)',
-            overflow: 'hidden'
+            boxShadow: '0 1px 3px rgba(15, 23, 42, 0.04)'
           }}
         >
-          {/* Visual Thumbnail & Filename Info */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flex: 1, minWidth: 0, overflow: 'hidden' }}>
+          {/* Left: Thumbnail & Center: Filename + Active Status */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flex: 1, minWidth: 0 }}>
             {type === 'image' && (
-              <div style={{ width: '48px', height: '48px', borderRadius: '6px', overflow: 'hidden', backgroundColor: '#F1F5F9', border: '1px solid #E2E8F0', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <div
+                style={{
+                  width: '52px',
+                  height: '52px',
+                  borderRadius: '6px',
+                  overflow: 'hidden',
+                  backgroundColor: '#F1F5F9',
+                  border: '1px solid #E2E8F0',
+                  flexShrink: 0,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}
+              >
                 <img
                   src={value}
                   alt="Asset Preview"
@@ -193,40 +231,75 @@ export const MediaUploadInput = ({
               </div>
             )}
             {type === 'video' && (
-              <div style={{ width: '48px', height: '48px', borderRadius: '6px', backgroundColor: '#0F172A', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: '#38BDF8' }}>
+              <div
+                style={{
+                  width: '52px',
+                  height: '52px',
+                  borderRadius: '6px',
+                  backgroundColor: '#0F172A',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  flexShrink: 0,
+                  color: '#38BDF8'
+                }}
+              >
                 <Video size={22} />
               </div>
             )}
             {type === 'pdf' && (
-              <div style={{ width: '48px', height: '48px', borderRadius: '6px', backgroundColor: '#FEF2F2', border: '1px solid #FCA5A5', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, color: '#EF4444' }}>
+              <div
+                style={{
+                  width: '52px',
+                  height: '52px',
+                  borderRadius: '6px',
+                  backgroundColor: '#FEF2F2',
+                  border: '1px solid #FCA5A5',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  flexShrink: 0,
+                  color: '#EF4444'
+                }}
+              >
                 <FileText size={22} />
               </div>
             )}
 
-            <div style={{ flex: 1, minWidth: 0, overflow: 'hidden' }}>
+            <div style={{ flex: 1, minWidth: 0 }}>
               <div
                 style={{
-                  fontSize: '13px',
+                  fontSize: '12.5px',
                   fontWeight: 600,
                   color: '#0F172A',
                   overflow: 'hidden',
                   textOverflow: 'ellipsis',
                   whiteSpace: 'nowrap',
-                  display: 'block',
-                  maxWidth: '100%'
+                  lineHeight: 1.3
                 }}
-                title={value.split('/').pop() || 'Media Asset'}
+                title={filename}
               >
-                {value.split('/').pop() || 'Media Asset'}
+                {filename}
               </div>
-              <div style={{ fontSize: '11px', color: '#16A34A', display: 'flex', alignItems: 'center', gap: '4px', marginTop: '2px', fontWeight: 600 }}>
-                <Check size={12} /> Active Media Asset
+              <div
+                style={{
+                  fontSize: '11px',
+                  color: '#16A34A',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '4px',
+                  marginTop: '3px',
+                  fontWeight: 600
+                }}
+              >
+                <CheckCircle2 size={12} />
+                <span>Active Media Asset</span>
               </div>
             </div>
           </div>
 
-          {/* Action Buttons on Right: [ Replace ] [ 👁 ] [ 🗑 ] */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '6px', flexShrink: 0, marginLeft: '8px' }}>
+          {/* Right: Aligned Action Controls [ Replace ] [ 👁 ] [ 🗑 ] */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '6px', flexShrink: 0 }}>
             {uploading || deleting ? (
               <div style={{ display: 'flex', alignItems: 'center', gap: '6px', padding: '4px 8px' }}>
                 <Loader2 className="animate-spin" size={16} style={{ color: deleting ? '#DC2626' : '#006B8F' }} />
@@ -239,54 +312,74 @@ export const MediaUploadInput = ({
                 <button
                   type="button"
                   onClick={() => fileInputRef.current?.click()}
-                  className="btn btn-xs btn-secondary"
                   style={{
                     display: 'inline-flex',
                     alignItems: 'center',
                     gap: '4px',
-                    padding: '6px 10px',
-                    fontSize: '11px',
+                    height: '32px',
+                    padding: '0 10px',
+                    fontSize: '11.5px',
                     fontWeight: 600,
                     backgroundColor: '#F8FAFC',
                     border: '1px solid #CBD5E1',
                     color: '#334155',
-                    borderRadius: '6px'
+                    borderRadius: '6px',
+                    cursor: 'pointer',
+                    transition: 'all 0.15s ease'
+                  }}
+                  onMouseOver={(e) => {
+                    e.currentTarget.style.backgroundColor = '#F1F5F9';
+                    e.currentTarget.style.borderColor = '#94A3B8';
+                  }}
+                  onMouseOut={(e) => {
+                    e.currentTarget.style.backgroundColor = '#F8FAFC';
+                    e.currentTarget.style.borderColor = '#CBD5E1';
                   }}
                   title="Replace with another file"
                 >
-                  <RefreshCw size={12} /> Replace
+                  <RefreshCw size={12} />
+                  <span>Replace</span>
                 </button>
 
                 <a
                   href={value}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn btn-xs btn-ghost"
                   style={{
                     display: 'inline-flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    padding: '6px 8px',
-                    color: '#64748B',
-                    borderRadius: '6px'
+                    width: '32px',
+                    height: '32px',
+                    backgroundColor: '#F8FAFC',
+                    border: '1px solid #E2E8F0',
+                    color: '#475569',
+                    borderRadius: '6px',
+                    textDecoration: 'none',
+                    transition: 'all 0.15s ease'
+                  }}
+                  onMouseOver={(e) => {
+                    e.currentTarget.style.backgroundColor = '#F1F5F9';
+                    e.currentTarget.style.color = '#0F172A';
+                  }}
+                  onMouseOut={(e) => {
+                    e.currentTarget.style.backgroundColor = '#F8FAFC';
+                    e.currentTarget.style.color = '#475569';
                   }}
                   title="Preview in new tab"
                 >
-                  <Eye size={14} />
+                  <ExternalLink size={13} />
                 </a>
 
-                {/* 1-Click Square Red Danger Trash Icon Button */}
                 <button
                   type="button"
                   onClick={handleDelete}
-                  className="btn btn-xs btn-danger"
                   style={{
                     display: 'inline-flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    width: '30px',
-                    height: '30px',
-                    padding: 0,
+                    width: '32px',
+                    height: '32px',
                     backgroundColor: '#FEF2F2',
                     border: '1px solid #FECACA',
                     color: '#DC2626',
@@ -294,10 +387,18 @@ export const MediaUploadInput = ({
                     cursor: 'pointer',
                     transition: 'all 0.15s ease'
                   }}
+                  onMouseOver={(e) => {
+                    e.currentTarget.style.backgroundColor = '#FEE2E2';
+                    e.currentTarget.style.borderColor = '#FCA5A5';
+                  }}
+                  onMouseOut={(e) => {
+                    e.currentTarget.style.backgroundColor = '#FEF2F2';
+                    e.currentTarget.style.borderColor = '#FECACA';
+                  }}
                   title="Delete Media"
                   aria-label="Delete Media"
                 >
-                  <Trash2 size={14} />
+                  <Trash2 size={13} />
                 </button>
               </>
             )}
@@ -306,7 +407,7 @@ export const MediaUploadInput = ({
       )}
 
       {helperText && (
-        <span className="form-help" style={{ marginTop: '4px', display: 'block', fontSize: '11px', color: 'var(--text-muted, #64748B)' }}>
+        <span style={{ marginTop: '4px', display: 'block', fontSize: '11px', color: '#64748B', lineHeight: '1.3' }}>
           {helperText}
         </span>
       )}
@@ -315,3 +416,4 @@ export const MediaUploadInput = ({
 };
 
 export default MediaUploadInput;
+

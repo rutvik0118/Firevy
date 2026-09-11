@@ -1002,6 +1002,154 @@ export const initialHomePageData = {
       bannerButtonLink: '/contact',
       newsletterTitle: 'Subscribe us and Get the latest updates and news',
       newsletterButtonText: 'Subscribe'
+    },
+
+    // 23. About Preview
+    aboutPreview: {
+      isVisible: true,
+      order: 23,
+      badge: 'WHO WE ARE',
+      title: 'Technology Expertise. Business Thinking. Real Results.',
+      subtitle: 'At firevy.co, we bridge the gap between complex software engineering and strategic business growth. We help enterprises and high-growth scale-ups turn technological vision into high-throughput realities.',
+      points: [
+        'Digital Transformation & Legacy System Modernization',
+        'Enterprise Cloud-Native Microservices Architecture',
+        'Custom RAG Generative AI & Autonomous Agent Engineering',
+        'Agile Product Delivery with 2-Week Sprint Cadence',
+        'Strict SOC2 & ISO-27001 Security Standards'
+      ],
+      buttonText: 'Learn More About Us',
+      buttonLink: '/about',
+      imageUrl: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80',
+      floatingTitle: 'Engineering Excellence',
+      floatingSubtitle: '95% Long-term Client Retention Rate',
+      floatingBadge: 'TOP 1% TALENT'
+    },
+
+    // 24. Awards & Accolades
+    awardsSection: {
+      isVisible: true,
+      order: 24,
+      badge: 'RECOGNITION & EXCELLENCE',
+      title: 'Proud To Have Picked These Up Along The Way',
+      subtitle: 'Our commitment to technical rigor, innovation, and client success has earned top industry accolades.',
+      awards: [
+        { title: 'Clutch Top AI & Software Developer 2026', badge: 'CLUTCH LEADER', year: '2026', desc: 'Ranked #1 Global AI & Custom Software Engineering Firm.' },
+        { title: 'ISO 9001:2015 & SOC2 Type II Certified', badge: 'ENTERPRISE COMPLIANT', year: 'Certified', desc: 'Bank-grade cybersecurity & quality management standards.' },
+        { title: 'GoodFirms Top App Development Agency', badge: 'TOP DEVELOPER', year: '2025-2026', desc: 'Recognized for high-impact mobile & web product delivery.' },
+        { title: 'G2 High Performer Enterprise Software', badge: '5-STAR RATED', year: 'Top 1%', desc: 'Highest customer satisfaction rating across 300+ reviews.' }
+      ]
+    },
+
+    // 25. Primary CTA Section
+    ctaSection: {
+      isVisible: true,
+      order: 25,
+      badge: 'TRANSFORM YOUR VISION INTO SOFTWARE',
+      title: "Have an Idea? Let's Build It Together.",
+      subtitle: 'Whether you need to launch a new SaaS MVP, scale legacy microservices, or integrate private enterprise AI, our engineering team is ready.',
+      primaryButtonText: 'Start a Project',
+      primaryButtonLink: '/contact',
+      secondaryButtonText: 'Book a Consultation',
+      secondaryButtonLink: '/contact'
+    },
+
+    // 26. Light Conversion Banner
+    conversionBanner: {
+      isVisible: true,
+      order: 26,
+      badge: 'COLLABORATE WITH EXPERTS',
+      title: "Let's Start Something Big Together",
+      subtitle: 'Have an ambitious digital product in mind or scaling an enterprise platform? Partner with our engineers for custom product strategy, technical roadmap design, and rapid execution.',
+      buttonText: 'Get In Touch',
+      buttonLink: '/contact'
+    },
+
+    // 27. FAQ Accordion
+    faqAccordion: {
+      isVisible: true,
+      order: 27,
+      badge: 'FREQUENTLY ASKED QUESTIONS',
+      title: 'Everything You Need to Know Before Starting',
+      subtitle: 'Clear, honest answers to key technical and operational questions.',
+      faqs: [
+        { question: 'How much does a typical software development project cost?', answer: 'Project pricing depends on scope, complexity, tech stack, and timeline. Small-to-medium enterprise MVPs typically range from $15,000 to $45,000, while complex multi-platform platforms with custom AI microservices are scoped under fixed milestones or dedicated monthly retainers.' },
+        { question: 'What is your standard development timeline?', answer: 'Most custom web or mobile MVP applications are delivered within 6 to 12 weeks following 2-week agile sprint iterations. We provide a detailed sprint roadmap during our initial discovery phase.' },
+        { question: 'How do you select the right technology stack for our product?', answer: 'We analyze your target user concurrency, performance SLAs, security requirements, and long-term scalability needs. We typically recommend React/Next.js for frontend, Node.js or Python for APIs, and MongoDB or PostgreSQL for persistent databases.' },
+        { question: 'How quickly can dedicated developers join our project?', answer: 'Our pre-vetted senior full-stack engineers, cloud architects, and UI/UX designers can onboard into your Slack, GitHub, and daily standups within 48 to 72 hours.' },
+        { question: 'Are your AI & Machine Learning solutions secure for private enterprise data?', answer: 'Yes, 100%. We deploy private model instances with vector database isolation so your proprietary enterprise data is encrypted and never shared or trained publicly.' },
+        { question: 'Do you offer post-launch maintenance and 24/7 cloud support?', answer: 'Yes, we offer dedicated post-launch SLAs covering continuous infrastructure monitoring, automated security patch updates, feature enhancements, and 24/7 incident response.' }
+      ]
+    },
+
+    // 28. Industries Verticals
+    industriesGrid: {
+      isVisible: true,
+      order: 28,
+      badge: 'INDUSTRIES WE TRANSFORM',
+      title: 'Tailored Solutions for Diverse Domain Verticals',
+      subtitle: 'We bring deep domain expertise and compliance understanding across key industries worldwide.'
+    },
+
+    // 29. Process Timeline
+    processTimeline: {
+      isVisible: true,
+      order: 29,
+      badge: 'HOW WE WORK',
+      title: 'Process We Follow',
+      subtitle: 'A structured 8-step software engineering process designed to ensure transparent delivery and high quality outcomes.',
+      steps: [
+        { number: '01', title: 'Requirement Gathering', desc: 'In-depth discovery, business goals audit, and technical specification definition.' },
+        { number: '02', title: 'Designs, Wireframes, & Mockups', desc: 'Crafting responsive UI layout wireframes, design systems, and visual mockups.' },
+        { number: '03', title: 'Prototype Demo', desc: 'Interactive clickable prototype demonstration for early stakeholder feedback.' },
+        { number: '04', title: 'Changes And Confirmation', desc: 'Incorporating feedback, refining architecture scope, and locking design signoff.' },
+        { number: '05', title: 'Development', desc: 'Agile frontend & backend code engineering with clean modular architecture.' },
+        { number: '06', title: 'Deployment', desc: 'Automated CI/CD pipeline deployment to production cloud infrastructure.' },
+        { number: '07', title: 'Support And Maintenance', desc: '24/7 proactive monitoring, security updates, and performance optimizations.' },
+        { number: '08', title: 'SEO', desc: 'Search engine optimization, schema structured tags, and performance tuning.' }
+      ]
+    },
+
+    // 30. Animated Key Stats
+    statsSection: {
+      isVisible: true,
+      order: 30,
+      statsList: [
+        { value: '95%', label: 'Client Retention', numeric: 95, suffix: '%' },
+        { value: '18+', label: 'Industries Served', numeric: 18, suffix: '+' },
+        { value: '2800+', label: 'Satisfied Clients', numeric: 2800, suffix: '+' },
+        { value: '1500+', label: 'Projects Completed', numeric: 1500, suffix: '+' },
+        { value: '23+', label: 'Years of Experience', numeric: 23, suffix: '+' },
+        { value: '320+', label: '5-Star Reviews', numeric: 320, suffix: '+' }
+      ]
+    },
+
+    // 31. Tech Ecosystem Grid
+    techEcosystem: {
+      isVisible: true,
+      order: 31,
+      badge: 'OUR TECHNOLOGY ECOSYSTEM',
+      title: 'Battle-Tested Tech Stack & Modern Frameworks',
+      subtitle: 'We leverage enterprise-proven technologies and cutting-edge frameworks to build high-performance software systems that scale with confidence.'
+    },
+
+    // 32. Why Choose Us
+    whyChooseUs: {
+      isVisible: true,
+      order: 32,
+      badge: 'WHY FIREVY',
+      title: 'The Engineering Partner Built for Long-Term Growth',
+      subtitle: "We don't just write code—we design resilient digital infrastructure that accelerates business outcomes.",
+      pillars: [
+        { title: 'Experienced Developers', desc: 'Top 1% pre-vetted engineers with deep expertise in modern tech stacks.' },
+        { title: 'Agile Development', desc: 'Iterative 2-week sprints with full client visibility into code progress.' },
+        { title: 'Transparent Communication', desc: 'Direct Slack, Jira, and weekly video standups with zero middleman friction.' },
+        { title: 'Quality Assurance', desc: 'Automated E2E testing, code reviews, and zero-defect deployment standards.' },
+        { title: 'Scalable Architecture', desc: 'Microservices designed to handle millions of queries with zero downtime.' },
+        { title: 'Security First', desc: 'Bank-grade encryption, OWASP audits, and SOC2 / HIPAA compliance readiness.' },
+        { title: 'On-Time Delivery', desc: 'Strict milestone tracking and 99.4% on-time project completion record.' },
+        { title: 'Post-Launch Support', desc: 'Dedicated SLAs, 24/7 cloud monitoring, and continuous product updates.' }
+      ]
     }
   }
 };
