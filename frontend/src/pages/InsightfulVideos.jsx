@@ -265,10 +265,6 @@ export const InsightfulVideos = () => {
       <section className="py-16 md:py-24 bg-white text-slate-900 font-sans border-b border-slate-100">
         <Container>
           
-<<<<<<< HEAD
-          <div className="text-center max-w-4xl mx-auto mb-10">
-            <h2 className="text-[32px] sm:text-[42px] font-[800] text-slate-900 tracking-tight leading-tight mb-3 font-sans">
-=======
           <div className="text-center max-w-4xl mx-auto mb-8">
             <h2
               className="tracking-tight mb-3 font-sans text-slate-900"
@@ -280,7 +276,6 @@ export const InsightfulVideos = () => {
                 lineHeight: '41px'
               }}
             >
->>>>>>> 424022e15d674ae227b2674f3091a824143db712
               {sectionData?.contentSections?.[0]?.title || 'Unveiling Our Innovative Solution'}
             </h2>
             <p className="text-[15px] sm:text-[16px] text-slate-600 leading-relaxed font-sans font-[400] max-w-3xl mx-auto mb-6">
