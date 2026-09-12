@@ -750,7 +750,10 @@ export const AdminPageInfoSection = ({
           )}
         </AdminFormField>
 
-        <AdminFormField label="SLUG (URL PATH)">
+        <AdminFormField
+          label="SLUG (URL PATH)"
+          helperText={onSlugChange ? "URL slug identifier" : "Fixed system route (locked to protect website navigation)."}
+        >
           {onSlugChange ? (
             <input
               type="text"
@@ -761,13 +764,28 @@ export const AdminPageInfoSection = ({
               style={{ fontFamily: 'monospace' }}
             />
           ) : (
-            <input
-              type="text"
-              className="form-control"
-              value={publicRoute || `/${slug}`}
-              readOnly
-              style={{ backgroundColor: '#F8FAFC', color: '#475569', cursor: 'default', fontFamily: 'monospace' }}
-            />
+            <div style={{ position: 'relative' }}>
+              <input
+                type="text"
+                className="form-control"
+                value={publicRoute || `/${slug}`}
+                readOnly
+                style={{ backgroundColor: '#F8FAFC', color: '#475569', cursor: 'default', fontFamily: 'monospace', paddingRight: '30px' }}
+              />
+              <span
+                style={{
+                  position: 'absolute',
+                  right: '10px',
+                  top: '50%',
+                  transform: 'translateY(-50%)',
+                  color: '#94A3B8',
+                  fontSize: '11px'
+                }}
+                title="Fixed system route (Read-only)"
+              >
+                🔒
+              </span>
+            </div>
           )}
         </AdminFormField>
       </AdminFormGrid>

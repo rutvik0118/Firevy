@@ -330,12 +330,14 @@ export const AboutFirevyForm = ({
     <div className="cms-form-stack" style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
       {/* 1. PAGE INFORMATION */}
       <AdminPageInfoSection
-        title={subPageMeta?.title || 'About firevy.co'}
+        title={hero.title || subPageMeta?.title || 'About firevy.co'}
         slug={subPageMeta?.slug || 'about-firevy'}
         status={formData.status || 'published'}
         onChangeStatus={(st) => updateRootField('status', st)}
         publicRoute={subPageMeta?.publicRoute || '/company/about-firevy'}
         number={pageNumber}
+        isTitleEditable={true}
+        onTitleChange={(val) => updateSection('hero', 'title', val)}
       />
 
       {/* 2. SECTION 1: HERO BANNER */}
