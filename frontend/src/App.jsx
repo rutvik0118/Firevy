@@ -161,6 +161,57 @@ export function App() {
                 <Route path="/shopify-plus" element={<ServiceDetails />} />
                 <Route path="/hire-shopify-developers" element={<ServiceDetails />} />
                 <Route path="/iwatch-app-development" element={<ServiceDetails />} />
+                <Route path="/generative-ai-development-company" element={<ServiceDetails />} />
+                <Route path="/services/generative-ai-development-company" element={<ServiceDetails />} />
+                <Route path="/generative-ai" element={<ServiceDetails />} />
+                <Route path="/services/generative-ai" element={<ServiceDetails />} />
+                <Route path="/hire-generative-ai-developers" element={<ServiceDetails />} />
+                <Route path="/artificial-intelligence-development-company" element={<ServiceDetails />} />
+                <Route path="/services/artificial-intelligence-development-company" element={<ServiceDetails />} />
+                <Route path="/artificial-intelligence" element={<ServiceDetails />} />
+                <Route path="/services/artificial-intelligence" element={<ServiceDetails />} />
+                <Route path="/ai-ml" element={<ServiceDetails />} />
+                <Route path="/services/ai-ml" element={<ServiceDetails />} />
+                <Route path="/services/ai-ml-development" element={<ServiceDetails />} />
+                <Route path="/ai-ml-development" element={<ServiceDetails />} />
+                <Route path="/hire-ai-developers" element={<ServiceDetails />} />
+                <Route path="/blockchain-development-company" element={<ServiceDetails />} />
+                <Route path="/services/blockchain-development-company" element={<ServiceDetails />} />
+                <Route path="/blockchain" element={<ServiceDetails />} />
+                <Route path="/services/blockchain" element={<ServiceDetails />} />
+                <Route path="/hire-blockchain-developers" element={<ServiceDetails />} />
+                <Route path="/hire-blockchain-developer" element={<ServiceDetails />} />
+                <Route path="/full-stack-development-services" element={<ServiceDetails />} />
+                <Route path="/services/full-stack-development-services" element={<ServiceDetails />} />
+                <Route path="/full-stack" element={<ServiceDetails />} />
+                <Route path="/services/full-stack" element={<ServiceDetails />} />
+                <Route path="/fullstack" element={<ServiceDetails />} />
+                <Route path="/services/fullstack" element={<ServiceDetails />} />
+                <Route path="/full-stack-development" element={<ServiceDetails />} />
+                <Route path="/services/full-stack-development" element={<ServiceDetails />} />
+                <Route path="/hire-full-stack-developers" element={<ServiceDetails />} />
+                <Route path="/virtual-reality-app-development-company" element={<ServiceDetails />} />
+                <Route path="/services/virtual-reality-app-development-company" element={<ServiceDetails />} />
+                <Route path="/virtual-reality" element={<ServiceDetails />} />
+                <Route path="/services/virtual-reality" element={<ServiceDetails />} />
+                <Route path="/vr-ar" element={<ServiceDetails />} />
+                <Route path="/services/vr-ar" element={<ServiceDetails />} />
+                <Route path="/vr" element={<ServiceDetails />} />
+                <Route path="/services/vr" element={<ServiceDetails />} />
+                <Route path="/iot" element={<ServiceDetails />} />
+                <Route path="/services/iot" element={<ServiceDetails />} />
+                <Route path="/iot-app-development-services" element={<ServiceDetails />} />
+                <Route path="/services/iot-app-development-services" element={<ServiceDetails />} />
+                <Route path="/pwd" element={<ServiceDetails />} />
+                <Route path="/services/pwd" element={<ServiceDetails />} />
+                <Route path="/pwa" element={<ServiceDetails />} />
+                <Route path="/services/pwa" element={<ServiceDetails />} />
+                <Route path="/progressive-web-app-development" element={<ServiceDetails />} />
+                <Route path="/services/progressive-web-app-development" element={<ServiceDetails />} />
+                <Route path="/rpa" element={<ServiceDetails />} />
+                <Route path="/services/rpa" element={<ServiceDetails />} />
+                <Route path="/robotic-process-automation-services" element={<ServiceDetails />} />
+                <Route path="/services/robotic-process-automation-services" element={<ServiceDetails />} />
                 <Route path="/technologies" element={<Technologies />} />
                 <Route path="/portfolio" element={<Portfolio />} />
                 <Route path="/portfolio/:slug" element={<PortfolioDetails />} />

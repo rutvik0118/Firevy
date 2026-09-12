@@ -73,9 +73,24 @@ export const Hero = ({ data }) => {
     : (Array.isArray(data?.bullets) && data.bullets.length > 0 ? data.bullets : defaultSlide.bullets);
   const primaryCtaText = currentSlide.primaryCtaText ?? data?.primaryCtaText ?? defaultSlide.primaryCtaText;
   const primaryCtaLink = currentSlide.primaryCtaLink ?? data?.primaryCtaLink ?? defaultSlide.primaryCtaLink;
+  const getVideoUrl = (url) => {
+    if (!url) return '';
+    if (url.startsWith('http://') || url.startsWith('https://') || url.startsWith('blob:') || url.startsWith('data:')) {
+      return url;
+    }
+    if (url.startsWith('/uploads/') || url.startsWith('uploads/')) {
+      const backendBase = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
+      const cleanUrl = url.startsWith('/') ? url : `/${url}`;
+      return `${backendBase.replace(/\/$/, '')}${cleanUrl}`;
+    }
+    return url;
+  };
+
   const bgType = currentSlide.bgType || data?.bgType || (currentSlide.backgroundImageUrl ? 'image' : 'video');
   const backgroundVideoUrl = currentSlide.backgroundVideoUrl || data?.backgroundVideoUrl || defaultSlide.backgroundVideoUrl;
   const backgroundImageUrl = currentSlide.backgroundImageUrl || data?.backgroundImageUrl || '';
+
+  const resolvedVideoUrl = getVideoUrl(backgroundVideoUrl);
 
   return (
     <section className="relative min-h-[90vh] sm:min-h-[95vh] flex items-end pt-40 sm:pt-48 pb-12 sm:pb-16 overflow-hidden bg-[#011120] font-sans text-left">
@@ -89,8 +104,8 @@ export const Hero = ({ data }) => {
           />
         ) : (
           <video
-            key={backgroundVideoUrl}
-            src={backgroundVideoUrl}
+            key={resolvedVideoUrl}
+            src={resolvedVideoUrl}
             autoPlay
             loop
             muted

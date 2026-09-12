@@ -53,7 +53,11 @@ export const HomePageManager = () => {
       if (res && res.data) {
         setHomeData(res.data);
         const incomingSections = res.data.sections || {};
-        const clonedIncoming = JSON.parse(JSON.stringify(incomingSections));
+        const mergedSections = {
+          ...INITIAL_HOME_PAGE_DATA.sections,
+          ...incomingSections
+        };
+        const clonedIncoming = JSON.parse(JSON.stringify(mergedSections));
         setSavedSections(clonedIncoming);
 
         const currentKey = params.sectionKey || activeKey || 'hero';
@@ -72,12 +76,24 @@ export const HomePageManager = () => {
     fetchHomePage();
   }, []);
 
-  const sectionsOrder =
-    homeData?.sectionsOrder && Array.isArray(homeData.sectionsOrder) && homeData.sectionsOrder.length > 0
+  // Dynamically guarantee every section from initialSectionsOrder is present
+  const sectionsOrder = (() => {
+    const rawOrder = homeData?.sectionsOrder && Array.isArray(homeData.sectionsOrder) && homeData.sectionsOrder.length > 0
       ? homeData.sectionsOrder
       : initialSectionsOrder;
+    const merged = [...rawOrder];
+    initialSectionsOrder.forEach((key) => {
+      if (!merged.includes(key)) {
+        merged.push(key);
+      }
+    });
+    return merged;
+  })();
 
-  const sections = homeData?.sections || INITIAL_HOME_PAGE_DATA.sections;
+  const sections = {
+    ...INITIAL_HOME_PAGE_DATA.sections,
+    ...(homeData?.sections || {})
+  };
 
   // Resolve active section key from URL params or default to first ordered section
   useEffect(() => {
@@ -262,11 +278,8 @@ export const HomePageManager = () => {
   const isActiveSectionVisible =
     activeSectionData?.isVisible !== false && activeSectionData?.isEnabled !== false;
 
-  // Active section index number (1-based position in homepage order)
-  const activePositionIndex = sectionsOrder.indexOf(activeKey) + 1;
-
   return (
-    <div className="page-container animate-fade-in">
+    <div className="page-container">
       {/* Top Header matching Firevy Admin Design System Header Architecture */}
       <div className="page-top-bar" style={{ marginBottom: '20px', display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '1rem' }}>
         <div className="page-title-group" style={{ flex: '1 1 300px', minWidth: 0 }}>
@@ -371,23 +384,6 @@ export const HomePageManager = () => {
             {/* Section Header Bar matching Company Sub-Page Editor Layout */}
             <div className="cms-editor-header" style={{ marginBottom: '16px', paddingBottom: '14px' }}>
               <div className="cms-editor-header-left">
-                <div
-                  style={{
-                    width: '28px',
-                    height: '28px',
-                    borderRadius: '50%',
-                    backgroundColor: '#0F172A',
-                    color: '#FFFFFF',
-                    fontSize: '12.5px',
-                    fontWeight: 800,
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    flexShrink: 0
-                  }}
-                >
-                  {activePositionIndex || 1}
-                </div>
                 <div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
                     <h2 className="cms-editor-title" style={{ textTransform: 'uppercase', letterSpacing: '0.04em', fontSize: '15px' }}>

@@ -13,6 +13,19 @@ import {
 import adminService from '../../services/adminService';
 import { useToast } from '../../context/ToastContext';
 
+export const getMediaUrl = (url) => {
+  if (!url) return '';
+  if (url.startsWith('http://') || url.startsWith('https://') || url.startsWith('blob:') || url.startsWith('data:')) {
+    return url;
+  }
+  if (url.startsWith('/uploads/') || url.startsWith('uploads/')) {
+    const backendBase = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
+    const cleanUrl = url.startsWith('/') ? url : `/${url}`;
+    return `${backendBase.replace(/\/$/, '')}${cleanUrl}`;
+  }
+  return url;
+};
+
 export const MediaUploadInput = ({
   value,
   onChange,
@@ -30,18 +43,30 @@ export const MediaUploadInput = ({
     const file = e.target.files?.[0];
     if (!file) return;
 
-    // Validate type
-    if (type === 'image' && !file.type.startsWith('image/')) {
-      addToast('Please select a valid image file (JPG, PNG, WebP, SVG)', 'error');
-      return;
+    // Validate type cleanly with extension fallback for Windows MIME compatibility
+    if (type === 'image') {
+      const isMime = file.type.startsWith('image/');
+      const isExt = /\.(jpg|jpeg|png|webp|svg|gif|avif|bmp)$/i.test(file.name);
+      if (!isMime && !isExt) {
+        addToast('Please select a valid image file (JPG, PNG, WebP, SVG)', 'error');
+        return;
+      }
     }
-    if (type === 'video' && !file.type.startsWith('video/')) {
-      addToast('Please select a valid video file (MP4, WebM)', 'error');
-      return;
+    if (type === 'video') {
+      const isMime = file.type.startsWith('video/');
+      const isExt = /\.(mp4|webm|mov|mkv)$/i.test(file.name);
+      if (!isMime && !isExt) {
+        addToast('Please select a valid video file (MP4, WebM)', 'error');
+        return;
+      }
     }
-    if (type === 'pdf' && !file.type.includes('pdf')) {
-      addToast('Please select a valid PDF file', 'error');
-      return;
+    if (type === 'pdf') {
+      const isPdfMime = file.type.includes('pdf');
+      const isPdfExt = /\.pdf$/i.test(file.name);
+      if (!isPdfMime && !isPdfExt) {
+        addToast('Please select a valid PDF file', 'error');
+        return;
+      }
     }
 
     setUploading(true);
@@ -133,7 +158,13 @@ export const MediaUploadInput = ({
       {/* Upload Dropzone / Existing Asset Preview */}
       {!value ? (
         <div
-          onClick={() => !uploading && fileInputRef.current?.click()}
+          onClick={() => {
+            if (uploading) return;
+            if (fileInputRef.current) {
+              fileInputRef.current.value = '';
+            }
+            fileInputRef.current?.click();
+          }}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
           style={{
@@ -221,7 +252,7 @@ export const MediaUploadInput = ({
                 }}
               >
                 <img
-                  src={value}
+                  src={getMediaUrl(value)}
                   alt="Asset Preview"
                   style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                   onError={(e) => {
@@ -236,15 +267,31 @@ export const MediaUploadInput = ({
                   width: '52px',
                   height: '52px',
                   borderRadius: '6px',
+                  overflow: 'hidden',
                   backgroundColor: '#0F172A',
+                  border: '1px solid #1E293B',
+                  flexShrink: 0,
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  flexShrink: 0,
                   color: '#38BDF8'
                 }}
               >
-                <Video size={22} />
+                {value ? (
+                  <video
+                    src={getMediaUrl(value)}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                    }}
+                  />
+                ) : (
+                  <Video size={22} />
+                )}
               </div>
             )}
             {type === 'pdf' && (
@@ -311,7 +358,14 @@ export const MediaUploadInput = ({
               <>
                 <button
                   type="button"
-                  onClick={() => fileInputRef.current?.click()}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    if (fileInputRef.current) {
+                      fileInputRef.current.value = '';
+                    }
+                    fileInputRef.current?.click();
+                  }}
                   style={{
                     display: 'inline-flex',
                     alignItems: 'center',
@@ -342,7 +396,7 @@ export const MediaUploadInput = ({
                 </button>
 
                 <a
-                  href={value}
+                  href={getMediaUrl(value)}
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{
@@ -402,6 +456,53 @@ export const MediaUploadInput = ({
                 </button>
               </>
             )}
+          </div>
+        </div>
+      )}
+
+      {/* Video Live Preview Box */}
+      {type === 'video' && value && (
+        <div
+          style={{
+            marginTop: '10px',
+            borderRadius: '8px',
+            overflow: 'hidden',
+            backgroundColor: '#0F172A',
+            border: '1px solid #1E293B',
+            boxShadow: '0 2px 6px rgba(0, 0, 0, 0.15)'
+          }}
+        >
+          <div
+            style={{
+              padding: '6px 12px',
+              backgroundColor: '#1E293B',
+              borderBottom: '1px solid #334155',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              color: '#F8FAFC',
+              fontSize: '11px',
+              fontWeight: 600
+            }}
+          >
+            <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <Video size={13} style={{ color: '#38BDF8' }} />
+              Live Background Video Preview
+            </span>
+            <span style={{ fontSize: '10px', padding: '2px 6px', borderRadius: '4px', backgroundColor: 'rgba(56, 189, 248, 0.15)', color: '#38BDF8' }}>
+              Auto-playing & Muted
+            </span>
+          </div>
+          <div style={{ position: 'relative', width: '100%', maxHeight: '220px', backgroundColor: '#000000', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <video
+              src={getMediaUrl(value)}
+              autoPlay
+              loop
+              muted
+              playsInline
+              controls
+              style={{ width: '100%', maxHeight: '220px', objectFit: 'contain' }}
+            />
           </div>
         </div>
       )}

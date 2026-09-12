@@ -26,7 +26,9 @@ const homePageSchema = new mongoose.Schema(
         'recentBlogsSection',
         'clientReviewsDarkSection',
         'featuredInLogosGrid',
-        'workTogetherNewsletterSection'
+        'workTogetherNewsletterSection',
+        'subscribeNewsletterSection',
+        'footerSection'
       ]
     },
     sections: {
@@ -51,7 +53,9 @@ const homePageSchema = new mongoose.Schema(
       recentBlogsSection: { type: mongoose.Schema.Types.Mixed, default: {} },
       clientReviewsDarkSection: { type: mongoose.Schema.Types.Mixed, default: {} },
       featuredInLogosGrid: { type: mongoose.Schema.Types.Mixed, default: {} },
-      workTogetherNewsletterSection: { type: mongoose.Schema.Types.Mixed, default: {} }
+      workTogetherNewsletterSection: { type: mongoose.Schema.Types.Mixed, default: {} },
+      subscribeNewsletterSection: { type: mongoose.Schema.Types.Mixed, default: {} },
+      footerSection: { type: mongoose.Schema.Types.Mixed, default: {} }
     }
   },
   {

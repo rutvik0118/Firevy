@@ -25,7 +25,9 @@ export const initialSectionsOrder = [
   'recentBlogsSection',
   'clientReviewsDarkSection',
   'featuredInLogosGrid',
-  'workTogetherNewsletterSection'
+  'workTogetherNewsletterSection',
+  'subscribeNewsletterSection',
+  'footerSection'
 ];
 
 export const initialHomePageData = {
@@ -527,18 +529,18 @@ export const initialHomePageData = {
       isVisible: true,
       order: 12,
       title: 'Our Premium Services',
-      description: "We are a team of qualified Salesforce & Enterprise Development Professionals adept at expanding your current system's capabilities via the development and integration of Salesforce CRM.",
+      description: 'As a certified IT company, Sapphire helps organizations thrive digitally by offering innovative solutions using cutting-edge tools and frameworks. Contact us to learn more!',
       services: [
         { name: 'Mobile App Development', link: '/services/mobile-app-development', isActive: true },
         { name: 'Software Development', link: '/services/software-development', isActive: true },
         { name: 'Web Development', link: '/services/web-development', isActive: true },
         { name: '.NET Development', link: '/services/dot-net-development', isActive: true },
+        { name: 'Flutter App Development', link: '/services/flutter-app-development', isActive: true },
         { name: 'PHP Development', link: '/services/php-development', isActive: true },
-        { name: 'Laravel Development', link: '/services/laravel-development', isActive: true },
-        { name: 'Node.js Development', link: '/services/node-js-development', isActive: true },
-        { name: 'React Native App Development', link: '/services/react-native-development', isActive: true },
-        { name: 'Flutter App Development', link: '/services/flutter-development', isActive: true },
-        { name: 'Cross Platform App Development', link: '/services/cross-platform-development', isActive: true }
+        { name: 'Hire Dedicated Developers', link: '/hire-developers', isActive: true },
+        { name: 'Mern Stack Development', link: '/services/mern-stack-development', isActive: true },
+        { name: 'Full Stack Development', link: '/services/full-stack-development', isActive: true },
+        { name: 'Laravel Development', link: '/services/laravel-development', isActive: true }
       ]
     },
 
@@ -974,21 +976,27 @@ export const initialHomePageData = {
     featuredInLogosGrid: {
       isVisible: true,
       order: 21,
-      title: 'Featured In Leading Global Publications',
+      title: 'We Have Been Featured In',
       description: 'Our insights, architectures, and client achievements have been recognized across prominent media outlets worldwide.',
       logos: [
-        { id: 'microsoft', name: 'Microsoft', isActive: true },
-        { id: 'inc', name: 'Inc.', isActive: true },
-        { id: 'google-play', name: 'Google Play', isActive: true },
-        { id: 'app-store', name: 'App Store', isActive: true },
-        { id: 'forbes', name: 'Forbes', isActive: true },
-        { id: 'techcrunch', name: 'TechCrunch', isActive: true },
-        { id: 'bloomberg', name: 'Bloomberg', isActive: true },
-        { id: 'producthunt', name: 'Product Hunt', isActive: true },
-        { id: 'theverge', name: 'The Verge', isActive: true },
-        { id: 'reuters', name: 'Reuters', isActive: true },
-        { id: 'wired', name: 'Wired', isActive: true },
-        { id: 'venturebeat', name: 'VentureBeat', isActive: true }
+        { id: '1', name: 'Microsoft', image: '/images/1.svg', isActive: true },
+        { id: '2', name: 'Inc.', image: '/images/2.svg', isActive: true },
+        { id: '3', name: 'Google Play', image: '/images/3.svg', isActive: true },
+        { id: '4', name: 'App Store', image: '/images/4.svg', isActive: true },
+        { id: '5', name: 'Forbes', image: '/images/5.svg', isActive: true },
+        { id: '6', name: 'BBB', image: '/images/6.svg', isActive: true },
+        { id: '7', name: 'YOURSTORY', image: '/images/7.svg', isActive: true },
+        { id: '8', name: 'Wikipedia', image: '/images/8.svg', isActive: true },
+        { id: '9', name: 'Entrepreneur', image: '/images/9.svg', isActive: true },
+        { id: '10', name: 'Mashable', image: '/images/10.svg', isActive: true },
+        { id: '11', name: 'Capterra', image: '/images/11.svg', isActive: true },
+        { id: '12', name: 'c|net', image: '/images/12.svg', isActive: true },
+        { id: '13', name: 'The New York Times', image: '/images/13.svg', isActive: true },
+        { id: '14', name: 'TechCrunch', image: '/images/14.svg', isActive: true },
+        { id: '15', name: 'Clutch', image: '/images/15.svg', isActive: true },
+        { id: '16', name: 'PCMag', image: '/images/16.svg', isActive: true },
+        { id: '17', name: 'G2 Crowd', image: '/images/17.svg', isActive: true },
+        { id: '18', name: 'The Telegraph', image: '/images/18.svg', isActive: true }
       ]
     },
 
@@ -1002,6 +1010,92 @@ export const initialHomePageData = {
       bannerButtonLink: '/contact',
       newsletterTitle: 'Subscribe us and Get the latest updates and news',
       newsletterButtonText: 'Subscribe'
+    },
+
+    // 23. Standalone Subscribe Us / Newsletter Section
+    subscribeNewsletterSection: {
+      isVisible: true,
+      order: 23,
+      newsletterTitle: 'Subscribe us and Get the latest updates and news',
+      newsletterButtonText: 'Subscribe',
+      namePlaceholder: 'Your name *',
+      emailPlaceholder: 'Your Email ID *',
+      phonePlaceholder: 'Mobile Number *'
+    },
+
+    // 24. Global Footer Section
+    footerSection: {
+      isVisible: true,
+      order: 24,
+      salesContact: {
+        title: 'Contact For Sales',
+        email: 'contact@firevy.co',
+        phoneIndia: 'IN:+91-942-970-9662',
+        phoneUS: 'US:+1-754-258-7670'
+      },
+      careerContact: {
+        title: 'Contact for Career (Jobs)',
+        email: 'careers@firevy.co',
+        phone: '+91-909-997-6034'
+      },
+      ratings: {
+        googleScore: '5.0',
+        googleReviews: '900+ REVIEWS',
+        clutchScore: '5.0',
+        clutchReviews: '320+ REVIEWS',
+        goodFirmsScore: '5.0',
+        goodFirmsReviews: '200+ REVIEWS'
+      },
+      offices: [
+        {
+          id: 'office_in',
+          country: 'India(HQ)',
+          flag: '🇮🇳',
+          address: 'C/102-103, Ganesh Meridian, Opp. Kargil Petrol Pump, S.G. Highway, Ahmedabad - 380060, Gujarat, INDIA'
+        },
+        {
+          id: 'office_us',
+          country: 'USA',
+          flag: '🇺🇸',
+          address: '5004 NW 116th Ave Coral Springs, Florida, FL 33076'
+        },
+        {
+          id: 'office_ca',
+          country: 'Canada',
+          flag: '🇨🇦',
+          address: '111 Tarawood lane NE, unit#403 Calgary AB, T3J 0G8'
+        },
+        {
+          id: 'office_au',
+          country: 'Australia',
+          flag: '🇦🇺',
+          address: 'U 2B 305 Harborne Street, Glendalough 6016 WA'
+        },
+        {
+          id: 'office_uk',
+          country: 'UK',
+          flag: '🇬🇧',
+          address: '42 Audley Avenue, Gillingham, ME73AY United Kingdom'
+        },
+        {
+          id: 'office_ae',
+          country: 'UAE',
+          flag: '🇦🇪',
+          address: 'A-21, Building 21, Ghoroob, Mirdif Dubai, United Arab Emirates'
+        }
+      ],
+      socialLinks: {
+        facebook: 'https://facebook.com',
+        twitter: 'https://twitter.com',
+        linkedin: 'https://linkedin.com',
+        instagram: 'https://instagram.com',
+        youtube: 'https://youtube.com'
+      },
+      copyrightText: '© 2026 firevy.co. All rights reserved.',
+      privacyPolicyText: 'Privacy Policy',
+      privacyPolicyLink: '/privacy-policy',
+      termsOfUseText: 'Terms of Use',
+      termsOfUseLink: '/terms'
     },
 
     // 23. About Preview

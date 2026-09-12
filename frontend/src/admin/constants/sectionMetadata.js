@@ -20,6 +20,8 @@ import RecentBlogsEditor from '../pages/HomePageAdmin/SectionEditors/RecentBlogs
 import ClientReviewsDarkEditor from '../pages/HomePageAdmin/SectionEditors/ClientReviewsDarkEditor';
 import FeaturedInLogosEditor from '../pages/HomePageAdmin/SectionEditors/FeaturedInLogosEditor';
 import WorkTogetherNewsletterEditor from '../pages/HomePageAdmin/SectionEditors/WorkTogetherNewsletterEditor';
+import SubscribeNewsletterEditor from '../pages/HomePageAdmin/SectionEditors/SubscribeNewsletterEditor';
+import FooterSectionEditor from '../pages/HomePageAdmin/SectionEditors/FooterSectionEditor';
 import AboutPreviewEditor from '../pages/HomePageAdmin/SectionEditors/AboutPreviewEditor';
 import AwardsSectionEditor from '../pages/HomePageAdmin/SectionEditors/AwardsSectionEditor';
 import CTASectionEditor from '../pages/HomePageAdmin/SectionEditors/CTASectionEditor';
@@ -340,15 +342,41 @@ export const SECTION_METADATA = {
     key: 'workTogetherNewsletterSection',
     title: 'Work Together & Newsletter',
     category: 'Footer CTA',
-    description: 'Footer-preceding sapphire CTA ribbon and newsletter subscription bar.',
+    description: 'Footer-preceding sapphire CTA ribbon and newsletter subscription lead capture banner.',
+    slug: '/#work-together',
     editor: WorkTogetherNewsletterEditor
   },
   workTogetherNewsletter: {
-    key: 'workTogetherNewsletter',
+    key: 'workTogetherNewsletterSection',
     title: 'Work Together & Newsletter',
     category: 'Footer CTA',
-    description: 'Footer-preceding sapphire CTA ribbon and newsletter subscription bar.',
+    description: 'Footer-preceding sapphire CTA ribbon and newsletter subscription lead capture banner.',
+    slug: '/#work-together',
     editor: WorkTogetherNewsletterEditor
+  },
+  subscribeNewsletterSection: {
+    key: 'subscribeNewsletterSection',
+    title: 'Subscribe Us / Newsletter',
+    category: 'Lead Capture',
+    description: 'Standalone lead capture banner for newsletter and tech updates subscription.',
+    slug: '/#newsletter',
+    editor: SubscribeNewsletterEditor
+  },
+  footerSection: {
+    key: 'footerSection',
+    title: 'Website Footer & Locations',
+    category: 'Footer',
+    description: 'Manage sales & career contact cards, 6 global offices, rating badges, social links, and copyright.',
+    slug: '/#footer',
+    editor: FooterSectionEditor
+  },
+  footer: {
+    key: 'footerSection',
+    title: 'Website Footer & Locations',
+    category: 'Footer',
+    description: 'Manage sales & career contact cards, 6 global offices, rating badges, social links, and copyright.',
+    slug: '/#footer',
+    editor: FooterSectionEditor
   },
 
   // Aliases for Company sub-page slugs
@@ -742,7 +770,8 @@ export const HOME_PAGE_SECTIONS_LIST = [
   { key: 'recentBlogs', title: 'Recent Blogs', category: 'Articles', slug: '/#blog' },
   { key: 'clientReviews', title: 'Client Reviews', category: 'Testimonials', slug: '/#reviews' },
   { key: 'featuredInLogos', title: 'Featured In Logos', category: 'Media PR', slug: '/#featured-in' },
-  { key: 'workTogetherNewsletter', title: 'Work Together & Newsletter', category: 'Footer CTA', slug: '/#newsletter' }
+  { key: 'workTogetherNewsletterSection', title: 'Work Together & Newsletter', category: 'Footer CTA', slug: '/#work-together' },
+  { key: 'subscribeNewsletterSection', title: 'Subscribe Us / Newsletter', category: 'Lead Capture', slug: '/#newsletter' }
 ];
 
 export default SECTION_METADATA;

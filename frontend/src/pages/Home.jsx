@@ -26,6 +26,7 @@ import RecentBlogsSection from '../components/home/RecentBlogsSection';
 import ClientReviewsDarkSection from '../components/home/ClientReviewsDarkSection';
 import FeaturedInLogosGrid from '../components/home/FeaturedInLogosGrid';
 import WorkTogetherNewsletterSection from '../components/home/WorkTogetherNewsletterSection';
+import SubscribeNewsletterSection from '../components/home/SubscribeNewsletterSection';
 import AboutPreview from '../components/home/AboutPreview';
 import AwardsSection from '../components/home/AwardsSection';
 import CTASection from '../components/home/CTASection';
@@ -69,7 +70,8 @@ const SECTION_COMPONENTS = {
   recentBlogsSection: RecentBlogsSection,
   clientReviewsDarkSection: ClientReviewsDarkSection,
   featuredInLogosGrid: FeaturedInLogosGrid,
-  workTogetherNewsletterSection: WorkTogetherNewsletterSection
+  workTogetherNewsletterSection: WorkTogetherNewsletterSection,
+  subscribeNewsletterSection: SubscribeNewsletterSection
 };
 
 export const Home = () => {

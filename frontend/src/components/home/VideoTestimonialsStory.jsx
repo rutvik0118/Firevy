@@ -118,13 +118,14 @@ export const VideoTestimonialsStory = ({ data }) => {
     ? data.testimonials
     : defaultTestimonials;
 
+  // Filter and normalize items to ensure img and title exist
   const testimonials = rawTestimonials
     .filter((item) => item.isActive !== false)
     .map((item, idx) => ({
       id: item.id || idx + 1,
-      clientName: item.clientName || '',
+      clientName: item.clientName || item.name || '',
       company: item.company || '',
-      title: item.title || item.name || item.caption || `Client Testimonial ${idx + 1}`,
+      title: item.title || item.caption || `Client Testimonial ${idx + 1}`,
       img: item.img || item.avatar || item.image || defaultTestimonials[idx % defaultTestimonials.length].img,
       videoUrl: item.videoUrl || 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
     }));
@@ -132,38 +133,46 @@ export const VideoTestimonialsStory = ({ data }) => {
   const total = testimonials.length;
 
   const handlePrev = useCallback(() => {
-    if (total <= 1) return;
-    setCurrentIndex((prev) => (prev === 0 ? total - 1 : prev - 1));
+    if (scrollRef.current) {
+      const container = scrollRef.current;
+      const scrollDistance = 350 + 24;
+      if (container.scrollLeft <= 10) {
+        const maxScrollLeft = container.scrollWidth - container.clientWidth;
+        container.scrollTo({ left: maxScrollLeft, behavior: 'smooth' });
+        setCurrentIndex(total - 1);
+      } else {
+        container.scrollBy({ left: -scrollDistance, behavior: 'smooth' });
+        setCurrentIndex((prev) => (prev === 0 ? total - 1 : prev - 1));
+      }
+    }
   }, [total]);
 
   const handleNext = useCallback(() => {
-    if (total <= 1) return;
-    setCurrentIndex((prev) => (prev + 1) % total);
+    if (scrollRef.current) {
+      const container = scrollRef.current;
+      const maxScrollLeft = container.scrollWidth - container.clientWidth;
+      const scrollDistance = 350 + 24;
+      if (container.scrollLeft >= maxScrollLeft - 15) {
+        container.scrollTo({ left: 0, behavior: 'smooth' });
+        setCurrentIndex(0);
+      } else {
+        container.scrollBy({ left: scrollDistance, behavior: 'smooth' });
+        setCurrentIndex((prev) => (prev + 1) % total);
+      }
+    }
   }, [total]);
 
-  // Auto-scroll every 4 seconds when not hovered
+  // Auto-scroll every 3.5 seconds (pauses on hover)
   useEffect(() => {
     if (isHovered || total <= 1) return;
     const interval = setInterval(() => {
       handleNext();
-    }, 4000);
+    }, 3500);
+
     return () => clearInterval(interval);
   }, [isHovered, total, handleNext]);
 
-  // Sync horizontal scroll position
-  useEffect(() => {
-    if (scrollRef.current && total > 0) {
-      const cardWidth = 370;
-      scrollRef.current.scrollTo({
-        left: currentIndex * cardWidth,
-        behavior: 'smooth'
-      });
-    }
-  }, [currentIndex, total]);
-
-  if (total === 0) {
-    return null;
-  }
+  if (total === 0) return null;
 
   return (
     <section
@@ -193,11 +202,10 @@ export const VideoTestimonialsStory = ({ data }) => {
               <div
                 key={item.id || idx}
                 onClick={() => setActiveVideo(item)}
-                className="w-[290px] sm:w-[330px] lg:w-[350px] shrink-0 bg-white rounded-[16px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer flex flex-col group select-none border border-slate-200/80"
+                className="w-[290px] sm:w-[330px] lg:w-[350px] shrink-0 bg-white rounded-[16px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer flex flex-col justify-between group select-none border border-slate-200/80"
               >
-                {/* Upper: Video Banner with Yellow Waves & Large Centered Client Portrait */}
-                <div className="relative w-full h-[175px] sm:h-[195px] bg-gradient-to-br from-[#0086C6] via-[#007BB8] to-[#006093] flex items-center justify-center overflow-hidden">
-                  {/* Decorative Curves */}
+                {/* Upper: Video Banner with Curved Graphic & Large Centered Client Portrait */}
+                <div className="relative w-full h-[165px] sm:h-[185px] bg-gradient-to-br from-[#0086C6] via-[#007BB8] to-[#006093] flex items-center justify-center overflow-hidden">
                   <svg
                     className="absolute inset-0 w-full h-full pointer-events-none opacity-90"
                     viewBox="0 0 320 180"
@@ -213,19 +221,12 @@ export const VideoTestimonialsStory = ({ data }) => {
                       <circle cx="40" cy="40" r="1.5" fill="#fff" />
                       <circle cx="60" cy="40" r="1.5" fill="#fff" />
                       <circle cx="80" cy="40" r="1.5" fill="#fff" />
-                      <circle cx="20" cy="60" r="1.5" fill="#fff" />
-                      <circle cx="40" cy="60" r="1.5" fill="#fff" />
-                      <circle cx="60" cy="60" r="1.5" fill="#fff" />
-                      <circle cx="80" cy="60" r="1.5" fill="#fff" />
                       <circle cx="260" cy="110" r="1.5" fill="#fff" />
                       <circle cx="280" cy="110" r="1.5" fill="#fff" />
                       <circle cx="300" cy="110" r="1.5" fill="#fff" />
                       <circle cx="260" cy="130" r="1.5" fill="#fff" />
                       <circle cx="280" cy="130" r="1.5" fill="#fff" />
                       <circle cx="300" cy="130" r="1.5" fill="#fff" />
-                      <circle cx="260" cy="150" r="1.5" fill="#fff" />
-                      <circle cx="280" cy="150" r="1.5" fill="#fff" />
-                      <circle cx="300" cy="150" r="1.5" fill="#fff" />
                     </g>
                     <path
                       d="M -10 35 C 60 5, 130 65, 200 20 C 260 -15, 290 55, 340 15"
@@ -250,7 +251,7 @@ export const VideoTestimonialsStory = ({ data }) => {
                   </svg>
 
                   {/* Centered Circular Portrait */}
-                  <div className="relative z-10 w-28 h-28 sm:w-32 sm:h-32 rounded-full border-[4px] border-white overflow-hidden shadow-xl bg-white/10 shrink-0">
+                  <div className="relative z-10 w-26 h-26 sm:w-28 sm:h-28 rounded-full border-[3.5px] border-white overflow-hidden shadow-lg bg-white/10 shrink-0">
                     <img
                       src={item.img}
                       alt={item.title}
@@ -264,17 +265,18 @@ export const VideoTestimonialsStory = ({ data }) => {
                 </div>
 
                 {/* Lower: Title Text & Play Button */}
-                <div className="p-4 sm:p-5 bg-white flex items-center justify-between gap-3.5 min-h-[88px] sm:min-h-[96px] border-t border-slate-100">
+                <div className="p-4 bg-white flex items-center justify-between gap-3.5 min-h-[88px] sm:min-h-[96px] border-t border-slate-100">
                   <div className="flex-1 text-left">
                     {item.clientName && (
-                      <p className="text-[12px] font-bold text-[#006093] mb-0.5 uppercase tracking-wide">
+                      <p className="text-[11.5px] font-bold text-[#006093] mb-0.5 uppercase tracking-wide">
                         {item.clientName} {item.company ? `• ${item.company}` : ''}
                       </p>
                     )}
-                    <p className="text-[13px] sm:text-[13.5px] lg:text-[14px] font-[600] text-[#1E293B] leading-[1.4] line-clamp-2 font-sans group-hover:text-[#006093] transition-colors whitespace-pre-line">
+                    <p className="text-[13px] sm:text-[13.5px] font-[600] text-[#1E293B] leading-[1.38] line-clamp-2 font-sans group-hover:text-[#006093] transition-colors whitespace-pre-line">
                       {item.title}
                     </p>
                   </div>
+
                   <button
                     type="button"
                     onClick={(e) => {
