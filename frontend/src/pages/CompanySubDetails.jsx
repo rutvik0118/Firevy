@@ -1095,11 +1095,56 @@ export const CompanySubDetails = () => {
 
   // If this is the "CEO Message" / "ceo-message" page, render exact Sapphire CEO Message Layout
   if (pageKey === 'ceo-message') {
+    const heroTitle = dynamicSection?.title || dynamicSection?.content?.heroHeading || "Message From CEO";
+    const heroSubtitle = dynamicSection?.subtitle || dynamicSection?.content?.heroSubtitle || "In this message, our CEO shares insights on our mission, vision, and commitment to innovation. We are excited to continue growing with you, and we hope you find inspiration in the path we're forging together.";
+    const heroButtonText = dynamicSection?.ctaText || dynamicSection?.content?.heroButtonText || "Work With Us";
+    const heroButtonLink = dynamicSection?.ctaLink || dynamicSection?.content?.heroButtonLink || "/contact";
+    const ceoPhoto = dynamicSection?.heroImage || dynamicSection?.content?.ceoImage || "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=700&q=80";
+    const ceoName = dynamicSection?.content?.ceoName || "Kumaril Patel";
+    const ceoDesignation = dynamicSection?.content?.ceoDesignation || "- CEO";
+
+    // 2. Tenets & Quote Box
+    const defaultTenets = ["Integrity", "Excellence", "Innovation", "Leadership"];
+    const tenets = Array.isArray(dynamicSection?.content?.tenets) && dynamicSection.content.tenets.length > 0
+      ? dynamicSection.content.tenets
+      : defaultTenets;
+
+    const quote = dynamicSection?.content?.quote || "True leadership is not about holding power but igniting potential—in yourself, in your team, and in the world. Dream boldly, act fearlessly, and leave a legacy that inspires transformation.";
+    const quoteAuthor = dynamicSection?.content?.quoteAuthor || ceoName;
+    const quoteAuthorRole = dynamicSection?.content?.quoteAuthorRole || "CEO";
+    const quoteAuthorLinkedin = dynamicSection?.content?.quoteAuthorLinkedin || "https://linkedin.com";
+
+    // 3. Message Paragraphs
+    const defaultParagraphs = [
+      "Welcome to firevy.co—a hub where ingenuity meets ambition. As the CEO, I firmly believe that leadership transcends the act of managing. It is about inspiring every individual within the organization to dream, innovate, and achieve greatness. Leadership is a responsibility to guide not just a company, but a movement—one driven by a relentless pursuit of excellence and a passion to redefine what is possible.",
+      "At firevy.co, we are not mere participants in the ever-evolving tech landscape; we are architects of change. Our mission is to harness the transformative power of technology, crafting solutions that empower businesses, enrich lives, and shape the future. Every solution we build reflects a commitment to quality, creativity, and the unwavering belief that technology, when wielded wisely, can be a force for global progress.",
+      "This company is more than a business—it is a beacon of possibility. Our team, fueled by curiosity and resilience, dares to envision a world where ideas are not limited by boundaries but ignited by boldness. Each challenge we face becomes an opportunity to grow, to innovate, and to lead. We don't just adapt to change; we are the change.",
+      "I firmly believe that one revolutionary idea, one brilliant invention, has the potential to illuminate billions of lives. Technology has the power to bridge divides, solve pressing challenges, and transform societies. At firevy.co, we are not just creators of software—we are curators of dreams, building tools that unlock the infinite potential within every individual and organization we serve.",
+      "Nothing is impossible when you dare to dream, believe in your vision, and act with unwavering conviction. Together, we will embrace challenges, seize opportunities, and continue to push the boundaries of what technology can achieve. This is our journey—a journey fueled by bold ideas, limitless ambition, and an unyielding commitment to excellence.",
+      "Thank you for trusting us to be your partner in progress. Together, we are not just building software, mobile apps and websites; we are creating a legacy—a legacy of innovation, impact, and transformative power that will resonate for generations to come."
+    ];
+    const paragraphs = (Array.isArray(dynamicSection?.content?.messageParagraphs) && dynamicSection.content.messageParagraphs.length > 0)
+      ? dynamicSection.content.messageParagraphs
+      : defaultParagraphs;
+
+    // Sign-off
+    const signoffPrefix = dynamicSection?.content?.signoffPrefix || "Yours Sincerely,";
+    const signoffName = dynamicSection?.content?.signoffName || ceoName;
+    const signoffRole = dynamicSection?.content?.signoffRole || "CEO";
+    const signoffCompany = dynamicSection?.content?.signoffCompany || "firevy.co";
+
+    // 4. CTA
+    const cta = dynamicSection?.content?.cta || dynamicSection?.cta || {};
+    const ctaTitle = cta.title || "Let's Work Together On Your Next Digital Project";
+    const ctaSubtitle = cta.subtitle || "Have a project with us? Reach out today to learn more about how Firevy.co can help you unlock business solutions and drive your business strategy.";
+    const ctaButtonText = cta.buttonText || "Request A Free Quote";
+    const ctaButtonLink = cta.buttonLink || "/contact";
+
     return (
       <div className="bg-white min-h-screen text-slate-900 font-sans">
         <SEO
-          title={`Message From CEO | firevy.co`}
-          description="In this message, our CEO shares insights on our mission, vision, and commitment to innovation. We are excited to continue growing with you."
+          title={`${heroTitle} | firevy.co`}
+          description={heroSubtitle}
           canonical={`/company/${pageKey}`}
         />
 
@@ -1110,17 +1155,17 @@ export const CompanySubDetails = () => {
               {/* Left Text */}
               <div className="lg:col-span-7 space-y-6">
                 <h1 className="text-[34px] font-[800] text-slate-900 tracking-tight leading-tight font-sans page-hero-title">
-                  Message From CEO
+                  {heroTitle}
                 </h1>
                 <p className="text-[15px] text-slate-600 leading-relaxed font-[400] font-sans max-w-lg page-hero-desc">
-                  In this message, our CEO shares insights on our mission, vision, and commitment to innovation. We are excited to continue growing with you, and we hope you find inspiration in the path we're forging together.
+                  {heroSubtitle}
                 </p>
                 <div className="pt-2">
                   <Link
-                    to="/contact"
+                    to={heroButtonLink}
                     className="inline-flex items-center justify-center space-x-2 px-8 py-3.5 rounded-[6px] bg-[#006B8F] hover:bg-[#005478] text-white font-[700] text-[15px] transition-all shadow-md group font-sans"
                   >
-                    <span>Get In Touch</span>
+                    <span>{heroButtonText}</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </div>
@@ -1140,19 +1185,23 @@ export const CompanySubDetails = () => {
                   {/* CEO Portrait Cutout with White Border Outline Effect */}
                   <div className="relative z-10 w-[280px] h-[340px] flex items-end justify-center">
                     <img
-                      src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=700&q=80"
-                      alt="Kumaril Patel - CEO"
+                      src={getMediaUrl(ceoPhoto)}
+                      alt={`${ceoName} ${ceoDesignation}`}
                       className="w-full h-full object-cover object-top rounded-b-[40px] drop-shadow-[0_10px_20px_rgba(0,0,0,0.15)] [filter:drop-shadow(0_0_1px_#ffffff)_drop-shadow(0_0_3px_#ffffff)_drop-shadow(0_0_6px_#ffffff)]"
+                      onError={(e) => {
+                        e.target.onerror = null;
+                        e.target.src = 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=700&q=80';
+                      }}
                     />
                   </div>
 
                   {/* White Angled Trapezoid Name Plate (Exact Reference Shape) */}
                   <div className="relative z-20 -mt-6 w-[280px] sm:w-[300px] bg-white pt-3.5 pb-3 px-6 rounded-t-[10px] rounded-b-[16px] shadow-[0_12px_30px_rgba(0,0,0,0.12)] border border-slate-100/90 text-center">
                     <h3 className="text-[21px] font-[900] text-slate-900 font-sans tracking-tight leading-none">
-                      Kumaril Patel
+                      {ceoName}
                     </h3>
                     <div className="inline-block mt-2 px-5 py-0.5 rounded-[4px] bg-[#006B8F] text-white text-[12px] font-[800] tracking-wider shadow-sm">
-                      - CEO
+                      {ceoDesignation}
                     </div>
                   </div>
                 </div>
@@ -1168,10 +1217,14 @@ export const CompanySubDetails = () => {
               {/* Left Core Pillars with Alternating Blue / Slate Colors */}
               <div className="lg:col-span-5 space-y-1.5 select-none">
                 <div className="text-[44px] sm:text-[54px] lg:text-[58px] font-[900] italic leading-[1.15] tracking-tight">
-                  <div className="text-[#006B8F]">Integrity</div>
-                  <div className="text-[#1E293B]">Excellence</div>
-                  <div className="text-[#006B8F]">Innovation</div>
-                  <div className="text-[#1E293B]">Leadership</div>
+                  {tenets.map((tenet, tIdx) => (
+                    <div
+                      key={tIdx}
+                      className={tIdx % 2 === 0 ? "text-[#006B8F]" : "text-[#1E293B]"}
+                    >
+                      {tenet}
+                    </div>
+                  ))}
                 </div>
               </div>
 
@@ -1184,27 +1237,29 @@ export const CompanySubDetails = () => {
                   </svg>
 
                   <p className="text-[21px] sm:text-[23px] lg:text-[24px] font-[700] text-[#0B3B60] leading-[1.45] font-sans">
-                    True leadership is not about holding power but igniting potential—in yourself, in your team, and in the world. Dream boldly, act fearlessly, and leave a legacy that inspires transformation.
+                    {quote}
                   </p>
 
                   <div className="flex items-center space-x-3 pt-2">
                     <div>
                       <h4 className="text-[21px] font-[800] text-[#006B8F] leading-tight font-sans">
-                        Kumaril Patel
+                        {quoteAuthor}
                       </h4>
                       <p className="text-[15px] font-[800] text-slate-900 font-sans">
-                        CEO
+                        {quoteAuthorRole}
                       </p>
                     </div>
-                    <a
-                      href="https://linkedin.com"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="w-8 h-8 rounded-full bg-[#0077B5] hover:bg-[#005f93] text-white inline-flex items-center justify-center transition-colors shadow-sm ml-2"
-                      aria-label="LinkedIn"
-                    >
-                      <Linkedin className="w-4 h-4 fill-current" />
-                    </a>
+                    {quoteAuthorLinkedin && (
+                      <a
+                        href={quoteAuthorLinkedin}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="w-8 h-8 rounded-full bg-[#0077B5] hover:bg-[#005f93] text-white inline-flex items-center justify-center transition-colors shadow-sm ml-2"
+                        aria-label="LinkedIn"
+                      >
+                        <Linkedin className="w-4 h-4 fill-current" />
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>
@@ -1216,38 +1271,28 @@ export const CompanySubDetails = () => {
         <section className="py-16 bg-white text-left font-sans">
           <div className="max-w-[1360px] mx-auto px-4 sm:px-8">
             <div className="max-w-[940px] mx-auto space-y-6 text-[16px] sm:text-[16.5px] text-slate-700 leading-[1.85] font-[400]">
-              <p>
-                Welcome to firevy.co—a hub where ingenuity meets ambition. As the CEO, I firmly believe that leadership transcends the act of managing. It is about inspiring every individual within the organization to dream, innovate, and achieve greatness. Leadership is a responsibility to guide not just a company, but a movement—one driven by a relentless pursuit of excellence and a passion to redefine what is possible.
-              </p>
-              <p>
-                At firevy.co, we are not mere participants in the ever-evolving tech landscape; we are architects of change. Our mission is to harness the transformative power of technology, crafting solutions that empower businesses, enrich lives, and shape the future. Every solution we build reflects a commitment to quality, creativity, and the unwavering belief that technology, when wielded wisely, can be a force for global progress.
-              </p>
-              <p>
-                This company is more than a business—it is a beacon of possibility. Our team, fueled by curiosity and resilience, dares to envision a world where ideas are not limited by boundaries but ignited by boldness. Each challenge we face becomes an opportunity to grow, to innovate, and to lead. We don't just adapt to change; we are the change.
-              </p>
-              <p>
-                I firmly believe that one revolutionary idea, one brilliant invention, has the potential to illuminate billions of lives. Technology has the power to bridge divides, solve pressing challenges, and transform societies. At firevy.co, we are not just creators of software—we are curators of dreams, building tools that unlock the infinite potential within every individual and organization we serve.
-              </p>
-              <p>
-                Nothing is impossible when you dare to dream, believe in your vision, and act with unwavering conviction. Together, we will embrace challenges, seize opportunities, and continue to push the boundaries of what technology can achieve. This is our journey—a journey fueled by bold ideas, limitless ambition, and an unyielding commitment to excellence.
-              </p>
-              <p>
-                Thank you for trusting us to be your partner in progress. Together, we are not just building software, mobile app and websites; we are creating a legacy—a legacy of innovation, impact, and transformative power that will resonate for generations to come.
-              </p>
+              {paragraphs.map((p, pIdx) => (
+                <p key={pIdx}>{p}</p>
+              ))}
 
               {/* Sign-off Block */}
               <div className="pt-8 space-y-1 text-slate-800">
-                <p className="text-[15px] font-[500] text-slate-600">Your's Sincerely,</p>
-                <h4 className="text-[20px] font-[900] text-slate-900 tracking-tight">Kumaril Patel</h4>
-                <p className="text-[15px] font-[800] text-slate-800">CEO</p>
-                <p className="text-[14.5px] font-[600] text-slate-600">firevy.co</p>
+                <p className="text-[15px] font-[500] text-slate-600">{signoffPrefix}</p>
+                <h4 className="text-[20px] font-[900] text-slate-900 tracking-tight">{signoffName}</h4>
+                <p className="text-[15px] font-[800] text-slate-800">{signoffRole}</p>
+                <p className="text-[14.5px] font-[600] text-slate-600">{signoffCompany}</p>
               </div>
             </div>
           </div>
         </section>
 
         {/* 4. LET'S WORK TOGETHER & NEWSLETTER SUBSCRIPTION BANNER */}
-        <WorkTogetherNewsletterSection />
+        <WorkTogetherNewsletterSection
+          title={ctaTitle}
+          subtitle={ctaSubtitle}
+          buttonText={ctaButtonText}
+          buttonLink={ctaButtonLink}
+        />
       </div>
     );
   }
