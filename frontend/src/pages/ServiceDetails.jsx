@@ -34,6 +34,14 @@ import SitecoreDevelopmentService from '../components/services/SitecoreDevelopme
 import SitefinityDevelopmentService from '../components/services/SitefinityDevelopmentService';
 import MagentoDevelopmentService from '../components/services/MagentoDevelopmentService';
 import ShopifyDevelopmentService from '../components/services/ShopifyDevelopmentService';
+import GenerativeAiDevelopmentService from '../components/services/GenerativeAiDevelopmentService';
+import ArtificialIntelligenceDevelopmentService from '../components/services/ArtificialIntelligenceDevelopmentService';
+import BlockchainDevelopmentService from '../components/services/BlockchainDevelopmentService';
+import FullStackDevelopmentService from '../components/services/FullStackDevelopmentService';
+import VirtualRealityDevelopmentService from '../components/services/VirtualRealityDevelopmentService';
+import IotDevelopmentService from '../components/services/IotDevelopmentService';
+import PwaDevelopmentService from '../components/services/PwaDevelopmentService';
+import RpaDevelopmentService from '../components/services/RpaDevelopmentService';
 
 export const ServiceDetails = () => {
   const { slug } = useParams();
@@ -111,6 +119,49 @@ export const ServiceDetails = () => {
 
   const isIOS = currentSlug.includes('ios') ||
     currentSlug.includes('iphone');
+
+  const isGenerativeAi = currentSlug.includes('generative-ai') ||
+    currentSlug.includes('generativeai') ||
+    currentSlug.includes('genai') ||
+    currentSlug.includes('gen-ai');
+
+  const isArtificialIntelligence = !isGenerativeAi && (
+    currentSlug.includes('artificial-intelligence') ||
+    currentSlug.includes('ai-ml') ||
+    currentSlug.includes('ai-development') ||
+    currentSlug === 'ai' ||
+    currentSlug === 'ai-services' ||
+    currentSlug.includes('hire-ai-developers')
+  );
+
+  const isBlockchain = currentSlug.includes('blockchain') ||
+    currentSlug.includes('crypto') ||
+    currentSlug.includes('dapp') ||
+    currentSlug.includes('hire-blockchain');
+
+  const isFullStack = currentSlug.includes('full-stack') ||
+    currentSlug.includes('fullstack') ||
+    currentSlug.includes('hire-full-stack');
+
+  const isVR = currentSlug.includes('vr') ||
+    currentSlug.includes('virtual-reality') ||
+    currentSlug.includes('vr-ar') ||
+    currentSlug.includes('ar-vr') ||
+    currentSlug.includes('augmented-reality');
+
+  const isIot = currentSlug.includes('iot') ||
+    currentSlug.includes('internet-of-things') ||
+    currentSlug.includes('smart-devices');
+
+  const isPwa = currentSlug.includes('pwd') ||
+    currentSlug.includes('pwa') ||
+    currentSlug.includes('progressive-web') ||
+    currentSlug.includes('progressive-app');
+
+  const isRpa = currentSlug.includes('rpa') ||
+    currentSlug.includes('robotic-process') ||
+    currentSlug.includes('process-automation') ||
+    currentSlug.includes('robotic');
 
   const unslugify = (str) => {
     if (!str) return 'Enterprise Tech Solution';
@@ -207,13 +258,45 @@ export const ServiceDetails = () => {
   };
 
   useEffect(() => {
-    if (!isXamarin && !isAndroid && !isReactNative && !isFlutter && !isIOS && !isHealthcare && !isEducation && !isUber && !isSpotify && !isZomato && !isAmazon && !isVisitor && !isWarehouse && !isClover && !isCSharp && !isIWatch && !isWordpress && !isDrupal && !isUmbraco && !isSitecore && !isSitefinity && !isMagento && !isShopify) {
+    if (!isIot && !isPwa && !isRpa && !isVR && !isFullStack && !isBlockchain && !isArtificialIntelligence && !isGenerativeAi && !isXamarin && !isAndroid && !isReactNative && !isFlutter && !isIOS && !isHealthcare && !isEducation && !isUber && !isSpotify && !isZomato && !isAmazon && !isVisitor && !isWarehouse && !isClover && !isCSharp && !isIWatch && !isWordpress && !isDrupal && !isUmbraco && !isSitecore && !isSitefinity && !isMagento && !isShopify) {
       fetchServiceDetails();
     } else {
       setLoading(false);
     }
     window.scrollTo(0, 0);
   }, [currentSlug]);
+
+  if (isIot) {
+    return <IotDevelopmentService />;
+  }
+
+  if (isPwa) {
+    return <PwaDevelopmentService />;
+  }
+
+  if (isRpa) {
+    return <RpaDevelopmentService />;
+  }
+
+  if (isVR) {
+    return <VirtualRealityDevelopmentService />;
+  }
+
+  if (isFullStack) {
+    return <FullStackDevelopmentService />;
+  }
+
+  if (isBlockchain) {
+    return <BlockchainDevelopmentService />;
+  }
+
+  if (isArtificialIntelligence) {
+    return <ArtificialIntelligenceDevelopmentService />;
+  }
+
+  if (isGenerativeAi) {
+    return <GenerativeAiDevelopmentService />;
+  }
 
   if (isSitecore) {
     return <SitecoreDevelopmentService />;

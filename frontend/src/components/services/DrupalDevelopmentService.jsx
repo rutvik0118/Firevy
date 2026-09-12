@@ -6,6 +6,7 @@ import BRAND from '../../constants/brand';
 import BrandLogoMarquee from '../common/BrandLogoMarquee';
 import ClutchTopRatedBanner from '../common/ClutchTopRatedBanner';
 import PremiumServicesGrid from '../common/PremiumServicesGrid';
+import TechnologyStackGrid from '../common/TechnologyStackGrid';
 import {
   Check,
   ChevronDown,
@@ -1422,58 +1423,9 @@ export const DrupalDevelopmentService = () => {
       </section>
 
       {/* =========================================================================
-          8. SECTION: TECHNOLOGY STACK & TOOLS (Tabbed Category View)
+          8. SECTION: TECHNOLOGY STACK & TOOLS (Exact 1:1 Reference Match)
           ========================================================================= */}
-      <section className="py-16 sm:py-20 bg-[#F1F5F9] text-slate-900 relative font-sans border-b border-slate-200">
-        <Container>
-          <div className="text-center max-w-3xl mx-auto mb-10">
-            <h2 className="text-[28px] sm:text-[36px] font-[800] text-slate-950 tracking-tight leading-tight mb-3">
-              Technology Stack
-            </h2>
-            <p className="text-[14.5px] text-[#475569] leading-relaxed">
-              We employ cutting-edge technologies and tools to make sure your applications are built on the latest technology. Have a look at our tech stack:
-            </p>
-          </div>
-
-          {/* Tech Tabs */}
-          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10">
-            {[
-              { id: 'cms', label: 'Frameworks & CMS' },
-              { id: 'languages', label: 'Languages & Front End' },
-              { id: 'database', label: 'Database & Caching' },
-              { id: 'infrastructure', label: 'Deployment & Testing' }
-            ].map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTechTab(tab.id)}
-                className={`px-5 py-2.5 rounded-full text-[13.5px] font-[700] transition-all cursor-pointer ${
-                  activeTechTab === tab.id
-                    ? 'bg-[#005F96] text-white shadow-md'
-                    : 'bg-white text-slate-700 hover:bg-slate-200 border border-slate-200'
-                }`}
-              >
-                {tab.label}
-              </button>
-            ))}
-          </div>
-
-          {/* Tech Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {techStack[activeTechTab]?.map((item, idx) => (
-              <div
-                key={idx}
-                className="bg-white rounded-[12px] p-5 shadow-sm border border-slate-200 flex items-center space-x-4 hover:border-[#005F96] transition-all text-left"
-              >
-                <div className="text-3xl shrink-0">{item.icon}</div>
-                <div>
-                  <div className="text-[15px] font-[700] text-slate-900">{item.name}</div>
-                  <div className="text-[12px] text-slate-500">{item.desc}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
+      <TechnologyStackGrid />
 
       {/* =========================================================================
           9. SECTION: FREQUENTLY ASKED QUESTIONS (FAQ Accordion)

@@ -527,18 +527,18 @@ export const initialHomePageData = {
       isVisible: true,
       order: 12,
       title: 'Our Premium Services',
-      description: "We are a team of qualified Salesforce & Enterprise Development Professionals adept at expanding your current system's capabilities via the development and integration of Salesforce CRM.",
+      description: 'As a certified IT company, Sapphire helps organizations thrive digitally by offering innovative solutions using cutting-edge tools and frameworks. Contact us to learn more!',
       services: [
         { name: 'Mobile App Development', link: '/services/mobile-app-development', isActive: true },
         { name: 'Software Development', link: '/services/software-development', isActive: true },
         { name: 'Web Development', link: '/services/web-development', isActive: true },
         { name: '.NET Development', link: '/services/dot-net-development', isActive: true },
+        { name: 'Flutter App Development', link: '/services/flutter-app-development', isActive: true },
         { name: 'PHP Development', link: '/services/php-development', isActive: true },
-        { name: 'Laravel Development', link: '/services/laravel-development', isActive: true },
-        { name: 'Node.js Development', link: '/services/node-js-development', isActive: true },
-        { name: 'React Native App Development', link: '/services/react-native-development', isActive: true },
-        { name: 'Flutter App Development', link: '/services/flutter-development', isActive: true },
-        { name: 'Cross Platform App Development', link: '/services/cross-platform-development', isActive: true }
+        { name: 'Hire Dedicated Developers', link: '/hire-developers', isActive: true },
+        { name: 'Mern Stack Development', link: '/services/mern-stack-development', isActive: true },
+        { name: 'Full Stack Development', link: '/services/full-stack-development', isActive: true },
+        { name: 'Laravel Development', link: '/services/laravel-development', isActive: true }
       ]
     },
 
@@ -974,21 +974,27 @@ export const initialHomePageData = {
     featuredInLogosGrid: {
       isVisible: true,
       order: 21,
-      title: 'Featured In Leading Global Publications',
+      title: 'We Have Been Featured In',
       description: 'Our insights, architectures, and client achievements have been recognized across prominent media outlets worldwide.',
       logos: [
-        { id: 'microsoft', name: 'Microsoft', isActive: true },
-        { id: 'inc', name: 'Inc.', isActive: true },
-        { id: 'google-play', name: 'Google Play', isActive: true },
-        { id: 'app-store', name: 'App Store', isActive: true },
-        { id: 'forbes', name: 'Forbes', isActive: true },
-        { id: 'techcrunch', name: 'TechCrunch', isActive: true },
-        { id: 'bloomberg', name: 'Bloomberg', isActive: true },
-        { id: 'producthunt', name: 'Product Hunt', isActive: true },
-        { id: 'theverge', name: 'The Verge', isActive: true },
-        { id: 'reuters', name: 'Reuters', isActive: true },
-        { id: 'wired', name: 'Wired', isActive: true },
-        { id: 'venturebeat', name: 'VentureBeat', isActive: true }
+        { id: '1', name: 'Microsoft', image: '/images/1.svg', isActive: true },
+        { id: '2', name: 'Inc.', image: '/images/2.svg', isActive: true },
+        { id: '3', name: 'Google Play', image: '/images/3.svg', isActive: true },
+        { id: '4', name: 'App Store', image: '/images/4.svg', isActive: true },
+        { id: '5', name: 'Forbes', image: '/images/5.svg', isActive: true },
+        { id: '6', name: 'BBB', image: '/images/6.svg', isActive: true },
+        { id: '7', name: 'YOURSTORY', image: '/images/7.svg', isActive: true },
+        { id: '8', name: 'Wikipedia', image: '/images/8.svg', isActive: true },
+        { id: '9', name: 'Entrepreneur', image: '/images/9.svg', isActive: true },
+        { id: '10', name: 'Mashable', image: '/images/10.svg', isActive: true },
+        { id: '11', name: 'Capterra', image: '/images/11.svg', isActive: true },
+        { id: '12', name: 'c|net', image: '/images/12.svg', isActive: true },
+        { id: '13', name: 'The New York Times', image: '/images/13.svg', isActive: true },
+        { id: '14', name: 'TechCrunch', image: '/images/14.svg', isActive: true },
+        { id: '15', name: 'Clutch', image: '/images/15.svg', isActive: true },
+        { id: '16', name: 'PCMag', image: '/images/16.svg', isActive: true },
+        { id: '17', name: 'G2 Crowd', image: '/images/17.svg', isActive: true },
+        { id: '18', name: 'The Telegraph', image: '/images/18.svg', isActive: true }
       ]
     },
 
