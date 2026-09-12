@@ -1095,26 +1095,27 @@ export const CompanySubDetails = () => {
 
   // If this is the "CEO Message" / "ceo-message" page, render exact Sapphire CEO Message Layout
   if (pageKey === 'ceo-message') {
-    const heroTitle = dynamicSection?.title || dynamicSection?.content?.heroHeading || "Message From CEO";
-    const heroSubtitle = dynamicSection?.subtitle || dynamicSection?.content?.heroSubtitle || "In this message, our CEO shares insights on our mission, vision, and commitment to innovation. We are excited to continue growing with you, and we hope you find inspiration in the path we're forging together.";
-    const heroButtonText = dynamicSection?.ctaText || dynamicSection?.content?.heroButtonText || "Work With Us";
-    const heroButtonLink = dynamicSection?.ctaLink || dynamicSection?.content?.heroButtonLink || "/contact";
-    const ceoPhoto = dynamicSection?.heroImage || dynamicSection?.content?.ceoImage || "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=700&q=80";
+    const heroTitle = dynamicSection?.title || dynamicSection?.content?.heroHeading || dynamicSection?.hero?.title || "Message From CEO";
+    const heroSubtitle = dynamicSection?.subtitle || dynamicSection?.content?.heroSubtitle || dynamicSection?.hero?.subtitle || "In this message, our CEO shares insights on our mission, vision, and commitment to innovation. We are excited to continue growing with you, and we hope you find inspiration in the path we're forging together.";
+    const heroButtonText = dynamicSection?.ctaText || dynamicSection?.hero?.ctaText || dynamicSection?.content?.heroButtonText || "Work With Us";
+    const heroButtonLink = dynamicSection?.ctaLink || dynamicSection?.hero?.ctaLink || dynamicSection?.content?.heroButtonLink || "/contact";
+    const ceoPhoto = dynamicSection?.heroImage || dynamicSection?.hero?.heroImage || dynamicSection?.content?.ceoImage || "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=700&q=80";
     const ceoName = dynamicSection?.content?.ceoName || "Kumaril Patel";
-    const ceoDesignation = dynamicSection?.content?.ceoDesignation || "- CEO";
+    const ceoRole = dynamicSection?.content?.ceoDesignation || "- CEO";
 
-    // 2. Tenets & Quote Box
+    // Tenets
     const defaultTenets = ["Integrity", "Excellence", "Innovation", "Leadership"];
-    const tenets = Array.isArray(dynamicSection?.content?.tenets) && dynamicSection.content.tenets.length > 0
+    const tenets = (Array.isArray(dynamicSection?.content?.tenets) && dynamicSection.content.tenets.length === 4)
       ? dynamicSection.content.tenets
       : defaultTenets;
 
+    // Quote Box
     const quote = dynamicSection?.content?.quote || "True leadership is not about holding power but igniting potential—in yourself, in your team, and in the world. Dream boldly, act fearlessly, and leave a legacy that inspires transformation.";
     const quoteAuthor = dynamicSection?.content?.quoteAuthor || ceoName;
     const quoteAuthorRole = dynamicSection?.content?.quoteAuthorRole || "CEO";
     const quoteAuthorLinkedin = dynamicSection?.content?.quoteAuthorLinkedin || "https://linkedin.com";
 
-    // 3. Message Paragraphs
+    // Message Paragraphs
     const defaultParagraphs = [
       "Welcome to firevy.co—a hub where ingenuity meets ambition. As the CEO, I firmly believe that leadership transcends the act of managing. It is about inspiring every individual within the organization to dream, innovate, and achieve greatness. Leadership is a responsibility to guide not just a company, but a movement—one driven by a relentless pursuit of excellence and a passion to redefine what is possible.",
       "At firevy.co, we are not mere participants in the ever-evolving tech landscape; we are architects of change. Our mission is to harness the transformative power of technology, crafting solutions that empower businesses, enrich lives, and shape the future. Every solution we build reflects a commitment to quality, creativity, and the unwavering belief that technology, when wielded wisely, can be a force for global progress.",
@@ -1127,13 +1128,13 @@ export const CompanySubDetails = () => {
       ? dynamicSection.content.messageParagraphs
       : defaultParagraphs;
 
-    // Sign-off
+    // Sign-off Block
     const signoffPrefix = dynamicSection?.content?.signoffPrefix || "Yours Sincerely,";
     const signoffName = dynamicSection?.content?.signoffName || ceoName;
     const signoffRole = dynamicSection?.content?.signoffRole || "CEO";
     const signoffCompany = dynamicSection?.content?.signoffCompany || "firevy.co";
 
-    // 4. CTA
+    // Bottom CTA
     const cta = dynamicSection?.content?.cta || dynamicSection?.cta || {};
     const ctaTitle = cta.title || "Let's Work Together On Your Next Digital Project";
     const ctaSubtitle = cta.subtitle || "Have a project with us? Reach out today to learn more about how Firevy.co can help you unlock business solutions and drive your business strategy.";
@@ -1186,7 +1187,7 @@ export const CompanySubDetails = () => {
                   <div className="relative z-10 w-[280px] h-[340px] flex items-end justify-center">
                     <img
                       src={getMediaUrl(ceoPhoto)}
-                      alt={`${ceoName} ${ceoDesignation}`}
+                      alt={`${ceoName} - CEO`}
                       className="w-full h-full object-cover object-top rounded-b-[40px] drop-shadow-[0_10px_20px_rgba(0,0,0,0.15)] [filter:drop-shadow(0_0_1px_#ffffff)_drop-shadow(0_0_3px_#ffffff)_drop-shadow(0_0_6px_#ffffff)]"
                       onError={(e) => {
                         e.target.onerror = null;
@@ -1201,7 +1202,7 @@ export const CompanySubDetails = () => {
                       {ceoName}
                     </h3>
                     <div className="inline-block mt-2 px-5 py-0.5 rounded-[4px] bg-[#006B8F] text-white text-[12px] font-[800] tracking-wider shadow-sm">
-                      {ceoDesignation}
+                      {ceoRole}
                     </div>
                   </div>
                 </div>
@@ -1217,12 +1218,12 @@ export const CompanySubDetails = () => {
               {/* Left Core Pillars with Alternating Blue / Slate Colors */}
               <div className="lg:col-span-5 space-y-1.5 select-none">
                 <div className="text-[44px] sm:text-[54px] lg:text-[58px] font-[900] italic leading-[1.15] tracking-tight">
-                  {tenets.map((tenet, tIdx) => (
+                  {tenets.map((word, idx) => (
                     <div
-                      key={tIdx}
-                      className={tIdx % 2 === 0 ? "text-[#006B8F]" : "text-[#1E293B]"}
+                      key={idx}
+                      className={idx % 2 === 0 ? "text-[#006B8F]" : "text-[#1E293B]"}
                     >
-                      {tenet}
+                      {word}
                     </div>
                   ))}
                 </div>
@@ -1271,13 +1272,17 @@ export const CompanySubDetails = () => {
         <section className="py-16 bg-white text-left font-sans">
           <div className="max-w-[1360px] mx-auto px-4 sm:px-8">
             <div className="max-w-[940px] mx-auto space-y-6 text-[16px] sm:text-[16.5px] text-slate-700 leading-[1.85] font-[400]">
-              {paragraphs.map((p, pIdx) => (
-                <p key={pIdx}>{p}</p>
+              {paragraphs.map((pText, idx) => (
+                <p key={idx}>
+                  {pText}
+                </p>
               ))}
 
               {/* Sign-off Block */}
               <div className="pt-8 space-y-1 text-slate-800">
-                <p className="text-[15px] font-[500] text-slate-600">{signoffPrefix}</p>
+                {signoffPrefix && (
+                  <p className="text-[15px] font-[500] text-slate-600">{signoffPrefix}</p>
+                )}
                 <h4 className="text-[20px] font-[900] text-slate-900 tracking-tight">{signoffName}</h4>
                 <p className="text-[15px] font-[800] text-slate-800">{signoffRole}</p>
                 <p className="text-[14.5px] font-[600] text-slate-600">{signoffCompany}</p>
