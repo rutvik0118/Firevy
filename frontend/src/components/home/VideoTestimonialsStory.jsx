@@ -118,11 +118,7 @@ export const VideoTestimonialsStory = ({ data }) => {
     ? data.testimonials
     : defaultTestimonials;
 
-<<<<<<< HEAD
-  // Filter and normalize items
-=======
-  // Normalize items to ensure img and title exist
->>>>>>> 705478ecde757acc6aaa37b95025a9351eca47ab
+  // Filter and normalize items to ensure img and title exist
   const testimonials = rawTestimonials
     .filter((item) => item.isActive !== false)
     .map((item, idx) => ({
@@ -276,11 +272,7 @@ export const VideoTestimonialsStory = ({ data }) => {
                         {item.clientName} {item.company ? `• ${item.company}` : ''}
                       </p>
                     )}
-<<<<<<< HEAD
                     <p className="text-[13px] sm:text-[13.5px] font-[600] text-[#1E293B] leading-[1.38] line-clamp-2 font-sans group-hover:text-[#006093] transition-colors whitespace-pre-line">
-=======
-                    <p className="text-[13px] sm:text-[13.5px] font-[600] text-[#1E293B] leading-[1.38] line-clamp-2 font-sans group-hover:text-[#006093] transition-colors">
->>>>>>> 705478ecde757acc6aaa37b95025a9351eca47ab
                       {item.title}
                     </p>
                   </div>

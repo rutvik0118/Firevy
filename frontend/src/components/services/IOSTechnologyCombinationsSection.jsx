@@ -1,19 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Container from '../common/Container';
-<<<<<<< HEAD
-import {
-  Code as SiSwift,
-  Terminal as SiPython,
-  Zap as SiFirebase,
-  FileCode as SiPhp,
-  Cpu as SiGo,
-  Server as SiNodedotjs,
-  Globe as SiServerless,
-  Layers as SiGraphql,
-  Database as SiPostgresql,
-  Cloud as FaAws
-} from 'lucide-react';
-=======
 
 // Zero-dependency SVG Icons for iOS Technology Combinations
 const SwiftIcon = () => (
@@ -75,7 +61,6 @@ const PostgresIcon = () => (
     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 16.93V16h-2v2.93C7.05 18.44 4 15.08 4 11c0-4.41 3.59-8 8-8s8 3.59 8 8c0 4.08-3.05 7.44-7 7.93z" />
   </svg>
 );
->>>>>>> 705478ecde757acc6aaa37b95025a9351eca47ab
 
 export const IOSTechnologyCombinationsSection = () => {
   const carouselRef = useRef(null);

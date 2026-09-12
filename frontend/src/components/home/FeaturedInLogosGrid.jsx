@@ -41,50 +41,34 @@ export const FeaturedInLogosGrid = ({ data, title }) => {
           </h2>
         </div>
 
-<<<<<<< HEAD
-        {/* 6x3 Grid of 18 Exact Square White Cards (Matching Sapphire Reference Screenshot Image 1) */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-5 lg:gap-5 max-w-[1240px] mx-auto">
-          {logos.map((logo, idx) => (
-            <div
-              key={idx}
-              className="bg-white rounded-[14px] sm:rounded-[16px] shadow-[0_4px_18px_rgba(0,0,0,0.05)] border border-slate-100 hover:border-[#006B8F]/40 flex items-center justify-center p-4 aspect-square w-full transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group cursor-pointer"
-            >
-              {logo.image ? (
-                <img
-                  src={getMediaUrl(logo.image)}
-                  alt={logo.name}
-                  className="h-12 w-auto object-contain max-w-[85%]"
-                  onError={(e) => {
-                    e.target.style.display = 'none';
-                  }}
-                />
-              ) : (
-                <div className="flex items-center justify-center w-full h-full">
-                  {logo.content || <span className="text-base font-bold text-slate-800">{logo.name}</span>}
-                </div>
-              )}
-            </div>
-          ))}
-=======
         {/* 6x3 Grid of 18 Exact Square White Cards (Matching Reference Screenshot 1) */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-5 max-w-[1240px] mx-auto">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-5 lg:gap-5 max-w-[1240px] mx-auto">
           {logos.map((logo, idx) => {
-            const imgSrc = logo.image || defaultLogos[idx % defaultLogos.length]?.image || `/images/${(idx % 18) + 1}.svg`;
+            const rawSrc = logo.image || defaultLogos[idx % defaultLogos.length]?.image || `/images/${(idx % 18) + 1}.svg`;
+            const imgSrc = rawSrc ? getMediaUrl(rawSrc) : '';
 
             return (
               <div
                 key={idx}
-                className="bg-white rounded-[16px] shadow-[0_4px_22px_rgba(0,0,0,0.06)] border border-slate-100 hover:border-slate-200/90 flex items-center justify-center p-4 sm:p-5 aspect-[1.15/1] sm:aspect-square w-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1 group cursor-pointer"
+                className="bg-white rounded-[14px] sm:rounded-[16px] shadow-[0_4px_18px_rgba(0,0,0,0.05)] border border-slate-100 hover:border-[#006B8F]/40 flex items-center justify-center p-4 aspect-square w-full transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group cursor-pointer"
               >
-                <img 
-                  src={imgSrc} 
-                  alt={logo.name || `Publication Logo ${idx + 1}`} 
-                  className="max-h-[44px] sm:max-h-[50px] max-w-[82%] object-contain transition-transform duration-300 group-hover:scale-105" 
-                />
+                {imgSrc ? (
+                  <img
+                    src={imgSrc}
+                    alt={logo.name || `Publication Logo ${idx + 1}`}
+                    className="max-h-[44px] sm:max-h-[50px] max-w-[85%] object-contain transition-transform duration-300 group-hover:scale-105"
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                    }}
+                  />
+                ) : (
+                  <div className="flex items-center justify-center w-full h-full">
+                    {logo.content || <span className="text-base font-bold text-slate-800">{logo.name}</span>}
+                  </div>
+                )}
               </div>
             );
           })}
->>>>>>> 705478ecde757acc6aaa37b95025a9351eca47ab
         </div>
       </Container>
     </section>
