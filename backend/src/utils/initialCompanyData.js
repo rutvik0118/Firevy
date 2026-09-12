@@ -388,7 +388,9 @@ export const initialCompanySections = {
     title: 'About firevy.co',
     badge: 'COMPANY PROFILE',
     subtitle: 'firevy.co provides the solutions you need to innovate & accelerate business. We are a leading software development company with decade long expertise in creating innovative solutions.',
-    heroImage: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=80',
+    ctaText: 'Connect Now',
+    ctaLink: '/contact',
+    heroImage: '',
     heroVideo: '',
     content: {
       aboutHeading: 'About firevy.co',
@@ -396,7 +398,177 @@ export const initialCompanySections = {
       visionHeading: 'Our Vision',
       visionText: "It's our goal to empower our customers to achieve more and to be one of the best customer-centric company.",
       missionHeading: 'Our Mission',
-      missionText: 'To provide our customers with the precise services and solutions at the lowest possible cost with highest engineering standards.'
+      missionText: 'To provide our customers with the precise services and solutions the lowest possible cost.',
+      aboutCompany: {
+        heading: 'About firevy.co',
+        image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=80',
+        description: 'firevy.co is an ISO27001:2013 certified Web & Mobile App Development Company established in 2002. We offer a wide range of IT services and domain specific solutions to Enterprises, ISVs, Digital Agencies and Startups. Our devoted and passionate team delivers best industry practices combined with technology expertise and business domain knowledge to drive digital transformation. Our team having diverse skills with more than 23+ years of technology experience engaging with customers at deeper level to provide high-end technology solutions and innovations.',
+        buttonText: 'Get In Touch',
+        buttonLink: '/contact'
+      },
+      missionVision: {
+        heading: 'We Create, We Enhance, We Deliver',
+        subheading: "More Than Expected – That's firevy.co",
+        visionTitle: 'Our Vision',
+        visionText: "It's our goal to empower our customers to achieve more and to be one of the best customer-centric company.",
+        missionTitle: 'Our Mission',
+        missionText: 'To provide our customers with the precise services and solutions the lowest possible cost.'
+      },
+      metricsSection: {
+        title: 'ABOUT US',
+        description: 'Glance through our creations and presence across industries and borders',
+        cards: [
+          { metric: '23+', label: 'Years of Experience', image: '/images/first.webp' },
+          { metric: '1600+', label: 'Schools Digitalized Globally', image: '/images/homeinnovation/second.webp' },
+          { metric: '750+', label: 'Software & Mobile Apps Developed', image: '/images/third.webp' },
+          { metric: '100+', label: 'Countries Served Worldwide', image: '/images/fourth.webp' },
+          { metric: '2800+', label: 'Satisfied Enterprise Clients', image: '/images/fifth.webp' },
+          { metric: '95%', label: 'Client Retention Rate', image: '/images/sixth.webp' },
+          { metric: '200+', label: 'Skilled IT Professionals', image: '/images/awards/hdimages/client_seven.webp' },
+          { metric: '1500+', label: 'Completed Digital Projects', image: '/images/awards/hdimages/clienttestimonial3.webp' }
+        ]
+      },
+      coreValues: {
+        heading: 'Our Core Values',
+        subheading: 'Our values are the guiding ethics upon which we have founded and how we strive to conduct our business on a day-to-day basis.',
+        values: [
+          {
+            id: 1,
+            title: 'Transparency & Integrity',
+            desc: 'To be ethical, sincere and open in all our transactions, Trust is at the core of this responsibility.',
+            icon: 'ShieldCheck'
+          },
+          {
+            id: 2,
+            title: 'Professional Excellence',
+            desc: 'We strive to contribute our best to our customers while evoking others to do the same.',
+            icon: 'Star'
+          },
+          {
+            id: 3,
+            title: 'Customer Centricity',
+            desc: 'We closely work with our customer to deliver better solutions with added values.',
+            icon: 'Heart'
+          },
+          {
+            id: 4,
+            title: 'Quality & Cost Effectiveness',
+            desc: 'We set standards in our business and transactions, and be a model for the industry.',
+            icon: 'Award'
+          },
+          {
+            id: 5,
+            title: 'Global Exposure',
+            desc: 'Enabling enterprises worldwide with scalable, compliant digital engineering.',
+            icon: 'Globe'
+          },
+          {
+            id: 6,
+            title: 'We Accelerate Hiring',
+            desc: 'Dedicated engineering teams and agile talent to fast-track your roadmap.',
+            icon: 'Users'
+          }
+        ]
+      },
+      culture: {
+        heading: 'Our Culture',
+        paragraphs: [
+          'At firevy.co, we have nurtured a culture that inspires innovation and creativity. We believe that success of our company is directly relational to the success of each and every employee. We strive to create a young, fun-loving, open yet professional and hardworking environment.',
+          'We empower our team members to move forward professionally by taking ownership and learning from every project they work on. Coming to work and building amazing digital solutions should be fun.'
+        ],
+        buttonText: 'Explore Careers (Jobs)',
+        buttonLink: '/careers',
+        images: [
+          'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80',
+          'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=600&q=80',
+          'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=600&q=80',
+          'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=600&q=80'
+        ]
+      },
+      leadership: {
+        heading: 'Our Leadership',
+        subheading: 'The outlook, passion and experience of our leaders guides firevy.co.',
+        leaders: [
+          {
+            name: 'Mr. Kumaril Patel',
+            designation: 'CEO & Co-Founder',
+            image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80',
+            linkedin: 'https://linkedin.com'
+          },
+          {
+            name: 'Mr. Rajendra Patel',
+            designation: 'CTO & Co-Founder',
+            image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80',
+            linkedin: 'https://linkedin.com'
+          }
+        ]
+      },
+      products: {
+        heading: 'Our World Class Products',
+        subheading: 'Our proven excellence for product development',
+        items: [
+          {
+            name: 'Vidyalaya',
+            tagline: 'Digitizing Schools',
+            description: 'Efficient & Innovative School ERP known for its unmatched service since 22+ years. We digitalized 1600+ Schools globally.',
+            link: '/products'
+          },
+          {
+            name: 'OccuCare',
+            tagline: 'a healthier, more productive workforce',
+            description: 'OccuCare empower organizations to protect, maintain and promote the well-being of workers.',
+            link: '/products'
+          }
+        ]
+      },
+      trustedBrands: {
+        heading: 'Trusted By The World’s Leading Brands',
+        subheading: 'We are glad to be a digital technology and innovation partner with world’s leading brands. Building greater futures through innovation and collective knowledge.'
+      },
+      reviewsSection: {
+        title: 'What Our Clients Say'
+      },
+      insights: {
+        heading: 'Insights',
+        subheading: 'Based on boundless enthusiasm and challenging spirit, firevy.co is committed to deliver excellence.',
+        items: [
+          {
+            image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80',
+            caption: 'Corporate Headquarters'
+          },
+          {
+            image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80',
+            caption: 'Occucon Event'
+          },
+          {
+            image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80',
+            caption: 'Exhibition Booth'
+          },
+          {
+            image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80',
+            caption: 'Our Team Banquet'
+          },
+          {
+            image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80',
+            caption: 'Tech Showcase'
+          }
+        ]
+      },
+      csr: {
+        heading: 'Corporate Social Responsibility',
+        subheading: 'Business is an opportunity to help humanity',
+        quote: 'Our CSR Programs Accelerate Human Empowerment Among Underserved People And Their Communities Via Three Pillars: Education, Society And Conservation.',
+        image: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1000&q=80'
+      },
+      teamBanner: {
+        image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=2000&q=80'
+      },
+      cta: {
+        title: "Let's Work Together on Your Next Digital Project",
+        subtitle: 'We provide custom software development and technology solutions tailored to your brand goals.',
+        buttonText: 'Get In Touch',
+        buttonLink: '/contact'
+      }
     },
     gallery: [
       'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80',
@@ -411,10 +583,14 @@ export const initialCompanySections = {
       '24/7 Global Client Support & SLAs'
     ],
     stats: [
-      { label: 'Years Experience', value: '23+' },
-      { label: 'Satisfied Clients', value: '2800+' },
-      { label: 'Projects Completed', value: '1500+' },
-      { label: 'IT Professionals', value: '200+' }
+      { label: 'Years of Experience', value: '23+' },
+      { label: 'Schools Digitalized Globally', value: '1600+' },
+      { label: 'Software & Mobile Apps Developed', value: '750+' },
+      { label: 'Countries Served Worldwide', value: '100+' },
+      { label: 'Satisfied Enterprise Clients', value: '2800+' },
+      { label: 'Client Retention Rate', value: '95%' },
+      { label: 'Skilled IT Professionals', value: '200+' },
+      { label: 'Completed Digital Projects', value: '1500+' }
     ],
     items: [
       {
@@ -424,28 +600,28 @@ export const initialCompanySections = {
       },
       {
         id: 2,
-        title: 'Passion For Excellence',
+        title: 'Professional Excellence',
         desc: 'We strive to contribute our best to our customers while evoking others to do the same.'
       },
       {
         id: 3,
-        title: 'Customer Sovereignty',
+        title: 'Customer Centricity',
         desc: 'We closely work with our customer to deliver better solutions with added values.'
       },
       {
         id: 4,
-        title: 'Leadership By Examples',
+        title: 'Quality & Cost Effectiveness',
         desc: 'We set standards in our business and transactions, and be a model for the industry.'
       },
       {
         id: 5,
-        title: 'Responsibility',
-        desc: 'We take personal responsibility for our actions and we strive to exceed your expectations.'
+        title: 'Global Exposure',
+        desc: 'Enabling enterprises worldwide with scalable, compliant digital engineering.'
       },
       {
         id: 6,
-        title: 'Continuous Learning',
-        desc: 'We always upgrade our skills to successfully adapt to the changing technologies.'
+        title: 'We Accelerate Hiring',
+        desc: 'Dedicated engineering teams and agile talent to fast-track your roadmap.'
       }
     ],
     seo: {

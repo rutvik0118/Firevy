@@ -19,6 +19,7 @@ import ClientReviewsDarkSection from '../components/home/ClientReviewsDarkSectio
 import AwardsRecognitionPage from '../components/company/AwardsRecognitionPage';
 import InsightfulVideosPage from '../components/company/InsightfulVideosPage';
 import companyPublicService from '../services/companyPublicService';
+import { getMediaUrl } from '../utils/mediaUrl';
 import {
   Users, Award, Calendar, BookOpen, Heart, ShieldCheck, CheckCircle2,
   ArrowRight, FileText, Mic, Globe, Sparkles, MessageSquare, Star, Quote, ChevronRight, ChevronLeft, ChevronDown, Briefcase, Target, Linkedin, ThumbsUp, Camera
@@ -503,6 +504,154 @@ export const CompanySubDetails = () => {
 
   // If this is the "About firevy.co" / "about-firevy" page, render the exact Sapphire About Layout
   if (pageKey === 'about-firevy') {
+    const content = dynamicSection?.content || {};
+
+    // 1. About Company (Overview & Building)
+    const aboutCompany = content.aboutCompany || {
+      heading: content.aboutHeading || 'About firevy.co',
+      image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=80',
+      description: content.aboutText || "firevy.co is an ISO27001:2013 certified Web & Mobile App Development Company established in 2002. We offer a wide range of IT services and domain specific solutions to Enterprises, ISVs, Digital Agencies and Startups. Our devoted and passionate team delivers best industry practices combined with technology expertise and business domain knowledge to drive digital transformation. Our team having diverse skills with more than 23+ years of technology experience engaging with customers at deeper level to provide high-end technology solutions and innovations.",
+      buttonText: 'Get In Touch',
+      buttonLink: '/contact'
+    };
+
+    // 2. Vision & Mission
+    const missionVision = content.missionVision || {
+      heading: 'We Create, We Enhance, We Deliver',
+      subheading: "More Than Expected – That's firevy.co",
+      visionTitle: content.visionHeading || 'Our Vision',
+      visionText: content.visionText || "It's our goal to empower our customers to achieve more and to be one of the best customer-centric company.",
+      missionTitle: content.missionHeading || 'Our Mission',
+      missionText: content.missionText || 'To provide our customers with the precise services and solutions the lowest possible cost.'
+    };
+
+    // 3. Metrics Section
+    const metricsData = {
+      title: content.metricsSection?.title || 'ABOUT US',
+      description: content.metricsSection?.description || 'Glance through our creations and presence across industries and borders',
+      cards: content.metricsSection?.cards || dynamicSection?.stats || undefined
+    };
+
+    // 4. Core Values
+    const valuesList = (content.coreValues?.values && content.coreValues.values.length > 0)
+      ? content.coreValues.values
+      : (Array.isArray(dynamicSection?.items) && dynamicSection.items.length > 0 ? dynamicSection.items : coreValuesData);
+
+    const renderDynamicValueIcon = (iconKey, idx) => {
+      if (React.isValidElement(iconKey)) return iconKey;
+      const colors = [
+        'border-purple-500 text-purple-600',
+        'border-blue-500 text-blue-600',
+        'border-emerald-500 text-emerald-600',
+        'border-amber-500 text-amber-600',
+        'border-pink-500 text-pink-600',
+        'border-indigo-500 text-indigo-600'
+      ];
+      const colorClass = colors[idx % colors.length];
+
+      const iconMap = {
+        ShieldCheck: <ShieldCheck className="w-6 h-6" />,
+        Star: <Star className="w-6 h-6" />,
+        Heart: <Heart className="w-6 h-6" />,
+        Award: <Award className="w-6 h-6" />,
+        Globe: <Globe className="w-6 h-6" />,
+        Users: <Users className="w-6 h-6" />,
+        Sparkles: <Sparkles className="w-6 h-6" />
+      };
+
+      const IconComp = iconMap[iconKey] || <ShieldCheck className="w-6 h-6" />;
+      return (
+        <div className={`w-12 h-12 rounded-full border-2 ${colorClass} flex items-center justify-center mb-4`}>
+          {IconComp}
+        </div>
+      );
+    };
+
+    // 5. Culture
+    const culture = content.culture || {
+      heading: 'Our Culture',
+      paragraphs: [
+        'At firevy.co, we have nurtured a culture that inspires innovation and creativity. We believe that success of our company is directly relational to the success of each and every employee. We strive to create a young, fun-loving, open yet professional and hardworking environment.',
+        'We empower our team members to move forward professionally by taking ownership and learning from every project they work on. Coming to work and building amazing digital solutions should be fun.'
+      ],
+      buttonText: 'Explore Careers (Jobs)',
+      buttonLink: '/careers',
+      images: dynamicSection?.gallery?.length >= 4 ? dynamicSection.gallery : [
+        'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80',
+        'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=600&q=80',
+        'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=600&q=80',
+        'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=600&q=80'
+      ]
+    };
+
+    // 6. Leadership
+    const leadersList = (content.leadership?.leaders && content.leadership.leaders.length > 0)
+      ? content.leadership.leaders
+      : (dynamicTeam && dynamicTeam.length > 0 ? dynamicTeam : [
+          {
+            name: 'Mr. Kumaril Patel',
+            designation: 'CEO & Co-Founder',
+            image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80',
+            linkedin: 'https://linkedin.com'
+          },
+          {
+            name: 'Mr. Rajendra Patel',
+            designation: 'CTO & Co-Founder',
+            image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80',
+            linkedin: 'https://linkedin.com'
+          }
+        ]);
+
+    // 7. Products
+    const productsList = (content.products?.items && content.products.items.length > 0)
+      ? content.products.items
+      : [
+          {
+            name: 'Vidyalaya',
+            tagline: 'Digitizing Schools',
+            description: 'Efficient & Innovative School ERP known for its unmatched service since 22+ years. We digitalized 1600+ Schools globally.',
+            link: '/products'
+          },
+          {
+            name: 'OccuCare',
+            tagline: 'a healthier, more productive workforce',
+            description: 'OccuCare empower organizations to protect, maintain and promote the well-being of workers.',
+            link: '/products'
+          }
+        ];
+
+    // 8. Trusted Brands
+    const trustedBrands = content.trustedBrands || {
+      heading: 'Trusted By The World’s Leading Brands',
+      subheading: 'We are glad to be a digital technology and innovation partner with world’s leading brands. Building greater futures through innovation and collective knowledge.'
+    };
+
+    // 9. Insights
+    const insightsList = (content.insights?.items && content.insights.items.length > 0)
+      ? content.insights.items
+      : [
+          { image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80', caption: 'Corporate Headquarters' },
+          { image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80', caption: 'Occucon Event' },
+          { image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80', caption: 'Exhibition Booth' },
+          { image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80', caption: 'Our Team Banquet' },
+          { image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80', caption: 'Tech Showcase' }
+        ];
+
+    // 10. CSR
+    const csr = content.csr || {
+      heading: 'Corporate Social Responsibility',
+      subheading: 'Business is an opportunity to help humanity',
+      quote: 'Our CSR Programs Accelerate Human Empowerment Among Underserved People And Their Communities Via Three Pillars: Education, Society And Conservation.',
+      image: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1000&q=80'
+    };
+
+    // 11. Team Banner
+    const teamBanner = content.teamBanner || {
+      image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=2000&q=80'
+    };
+
+    const heroImage = dynamicSection?.heroImage;
+
     return (
       <div className="bg-white min-h-screen text-slate-900 font-sans">
         <SEO
@@ -511,69 +660,79 @@ export const CompanySubDetails = () => {
           canonical={`/company/${pageKey}`}
         />
 
-        {/* 1. HERO SECTION: "We Shape Digital Solutions" */}
+        {/* 1. HERO SECTION */}
         <section className="pt-32 pb-16 bg-white relative overflow-hidden text-left font-sans">
           <div className="max-w-[1360px] mx-auto px-4 sm:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
               <div className="lg:col-span-6 space-y-6">
                 <h1 className="text-[34px] font-[800] text-slate-900 tracking-tight leading-tight font-sans page-hero-title">
-                  {dynamicSection?.title || 'We Shape Digital Solutions'}
+                  {dynamicSection?.title || 'About firevy.co'}
                 </h1>
                 <p className="text-[15px] text-slate-600 leading-relaxed font-[400] font-sans max-w-xl page-hero-desc">
                   {dynamicSection?.subtitle || 'firevy.co provides the solutions you need to innovate & accelerate business. We are a leading software development company with decade long expertise in creating innovative solutions.'}
                 </p>
                 <div className="pt-2">
                   <Link
-                    to="/contact"
+                    to={dynamicSection?.ctaLink || '/contact'}
                     className="inline-flex items-center justify-center space-x-2 px-8 py-3.5 rounded-[6px] bg-[#006B8F] hover:bg-[#005478] text-white font-[700] text-[15px] transition-all shadow-md group font-sans"
                   >
-                    <span>Connect Now</span>
+                    <span>{dynamicSection?.ctaText || 'Connect Now'}</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </div>
               </div>
 
               <div className="lg:col-span-6 flex justify-center relative">
-                <div className="relative w-full max-w-[540px] h-[360px] flex items-center justify-center">
-                  <div className="absolute top-4 left-10 bg-white/95 backdrop-blur-xs px-3 py-1.5 rounded-[6px] shadow-md border border-slate-200 text-xs font-[800] text-blue-600 animate-bounce">
-                    JAVA
+                {heroImage ? (
+                  <div className="w-full max-w-[540px] h-[360px] flex items-center justify-center">
+                    <img
+                      src={getMediaUrl(heroImage)}
+                      alt={dynamicSection?.title || 'Hero'}
+                      className="w-full h-full object-contain drop-shadow-xl"
+                    />
                   </div>
-                  <div className="absolute top-2 left-36 bg-white/95 backdrop-blur-xs px-3 py-1.5 rounded-[6px] shadow-md border border-slate-200 text-xs font-[800] text-indigo-600">
-                    PHP
-                  </div>
-                  <div className="absolute top-8 left-2 bg-white/95 backdrop-blur-xs px-2.5 py-1 rounded-[6px] shadow-md border border-slate-200 text-[11px] font-[800] text-slate-700">
-                    C++
-                  </div>
-                  <div className="absolute top-20 left-0 bg-white/95 backdrop-blur-xs px-2.5 py-1 rounded-[6px] shadow-md border border-slate-200 text-[10.5px] font-[800] text-amber-600">
-                    JAVASCRIPT
-                  </div>
-                  <div className="absolute top-6 right-28 bg-white/95 backdrop-blur-xs px-3 py-1 rounded-[6px] shadow-md border border-slate-200 text-xs font-[800] text-slate-800">
-                    iOS
-                  </div>
-                  <div className="absolute top-14 right-12 bg-white/95 backdrop-blur-xs px-3 py-1 rounded-[6px] shadow-md border border-slate-200 text-xs font-[800] text-emerald-600">
-                    Android
-                  </div>
-                  <div className="absolute bottom-20 right-4 bg-white/95 backdrop-blur-xs px-3 py-1 rounded-[6px] shadow-md border border-slate-200 text-xs font-[800] text-purple-600">
-                    C#
-                  </div>
-                  <div className="absolute bottom-6 right-24 bg-white/95 backdrop-blur-xs px-3 py-1.5 rounded-[6px] shadow-md border border-slate-200 text-xs font-[800] text-[#006B8F]">
-                    .NET
-                  </div>
+                ) : (
+                  <div className="relative w-full max-w-[540px] h-[360px] flex items-center justify-center">
+                    <div className="absolute top-4 left-10 bg-white/95 backdrop-blur-xs px-3 py-1.5 rounded-[6px] shadow-md border border-slate-200 text-xs font-[800] text-blue-600 animate-bounce">
+                      JAVA
+                    </div>
+                    <div className="absolute top-2 left-36 bg-white/95 backdrop-blur-xs px-3 py-1.5 rounded-[6px] shadow-md border border-slate-200 text-xs font-[800] text-indigo-600">
+                      PHP
+                    </div>
+                    <div className="absolute top-8 left-2 bg-white/95 backdrop-blur-xs px-2.5 py-1 rounded-[6px] shadow-md border border-slate-200 text-[11px] font-[800] text-slate-700">
+                      C++
+                    </div>
+                    <div className="absolute top-20 left-0 bg-white/95 backdrop-blur-xs px-2.5 py-1 rounded-[6px] shadow-md border border-slate-200 text-[10.5px] font-[800] text-amber-600">
+                      JAVASCRIPT
+                    </div>
+                    <div className="absolute top-6 right-28 bg-white/95 backdrop-blur-xs px-3 py-1 rounded-[6px] shadow-md border border-slate-200 text-xs font-[800] text-slate-800">
+                      iOS
+                    </div>
+                    <div className="absolute top-14 right-12 bg-white/95 backdrop-blur-xs px-3 py-1 rounded-[6px] shadow-md border border-slate-200 text-xs font-[800] text-emerald-600">
+                      Android
+                    </div>
+                    <div className="absolute bottom-20 right-4 bg-white/95 backdrop-blur-xs px-3 py-1 rounded-[6px] shadow-md border border-slate-200 text-xs font-[800] text-purple-600">
+                      C#
+                    </div>
+                    <div className="absolute bottom-6 right-24 bg-white/95 backdrop-blur-xs px-3 py-1.5 rounded-[6px] shadow-md border border-slate-200 text-xs font-[800] text-[#006B8F]">
+                      .NET
+                    </div>
 
-                  <svg viewBox="0 0 500 360" className="w-full h-full drop-shadow-xl" fill="none">
-                    <path d="M250 20 L450 140 L250 260 L50 140 Z" fill="#E0F2FE" opacity="0.6" />
-                    <path d="M250 260 L450 140 L450 160 L250 280 L50 160 L50 140 Z" fill="#BAE6FD" opacity="0.7" />
-                    <polygon points="180,80 380,80 340,220 140,220" fill="#0284C7" />
-                    <polygon points="190,90 370,90 335,210 155,210" fill="#FFFFFF" />
-                    <rect x="180" y="105" width="130" height="12" rx="2" fill="#E2E8F0" />
-                    <rect x="180" y="125" width="80" height="8" rx="2" fill="#38BDF8" />
-                    <polygon points="140,220 340,220 400,280 200,280" fill="#0369A1" />
-                    <polygon points="150,225 330,225 385,275 205,275" fill="#0C4A6E" />
-                    <circle cx="160" cy="180" r="10" fill="#FED7AA" />
-                    <circle cx="340" cy="155" r="10" fill="#FED7AA" />
-                    <circle cx="250" cy="270" r="10" fill="#FED7AA" />
-                  </svg>
-                </div>
+                    <svg viewBox="0 0 500 360" className="w-full h-full drop-shadow-xl" fill="none">
+                      <path d="M250 20 L450 140 L250 260 L50 140 Z" fill="#E0F2FE" opacity="0.6" />
+                      <path d="M250 260 L450 140 L450 160 L250 280 L50 160 L50 140 Z" fill="#BAE6FD" opacity="0.7" />
+                      <polygon points="180,80 380,80 340,220 140,220" fill="#0284C7" />
+                      <polygon points="190,90 370,90 335,210 155,210" fill="#FFFFFF" />
+                      <rect x="180" y="105" width="130" height="12" rx="2" fill="#E2E8F0" />
+                      <rect x="180" y="125" width="80" height="8" rx="2" fill="#38BDF8" />
+                      <polygon points="140,220 340,220 400,280 200,280" fill="#0369A1" />
+                      <polygon points="150,225 330,225 385,275 205,275" fill="#0C4A6E" />
+                      <circle cx="160" cy="180" r="10" fill="#FED7AA" />
+                      <circle cx="340" cy="155" r="10" fill="#FED7AA" />
+                      <circle cx="250" cy="270" r="10" fill="#FED7AA" />
+                    </svg>
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -586,27 +745,25 @@ export const CompanySubDetails = () => {
               <div className="lg:col-span-5">
                 <div className="rounded-[14px] overflow-hidden border border-slate-200/90 shadow-sm bg-white">
                   <img
-                    src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=80"
-                    alt="firevy.co Corporate Building"
+                    src={getMediaUrl(aboutCompany.image)}
+                    alt={aboutCompany.heading || 'About firevy.co'}
                     className="w-full h-[330px] sm:h-[350px] object-cover hover:scale-105 transition-transform duration-500"
                   />
                 </div>
               </div>
               <div className="lg:col-span-7 space-y-4">
                 <h2 className="text-[40px] font-[800] text-slate-900 tracking-tight leading-tight font-sans section-content-title">
-                  About firevy.co
+                  {aboutCompany.heading || 'About firevy.co'}
                 </h2>
-                <div className="space-y-3.5 text-[15px] text-slate-600 leading-[1.8] font-[400] font-sans section-content-desc">
-                  <p>
-                    firevy.co is an ISO27001:2013 certified Web & Mobile App Development Company established in 2002. We offer a wide range of IT services and domain specific solutions to Enterprises, ISVs, Digital Agencies and Startups. Our devoted and passionate team delivers best industry practices combined with technology expertise and business domain knowledge to drive digital transformation. Our team having diverse skills with more than 23+ years of technology experience engaging with customers at deeper level to provide high-end technology solutions and innovations.
-                  </p>
+                <div className="space-y-3.5 text-[15px] text-slate-600 leading-[1.8] font-[400] font-sans section-content-desc whitespace-pre-line">
+                  <p>{aboutCompany.description}</p>
                 </div>
                 <div className="pt-2">
                   <Link
-                    to="/contact"
+                    to={aboutCompany.buttonLink || '/contact'}
                     className="inline-flex items-center justify-center px-8 py-3.5 rounded-[6px] bg-[#006B8F] hover:bg-[#005478] text-white font-[700] text-[15px] transition-all shadow-md font-sans"
                   >
-                    Get In Touch
+                    {aboutCompany.buttonText || 'Get In Touch'}
                   </Link>
                 </div>
               </div>
@@ -619,8 +776,8 @@ export const CompanySubDetails = () => {
           <div className="max-w-[1360px] mx-auto px-4 sm:px-8">
             <div className="text-center max-w-4xl mx-auto mb-14">
               <h2 className="text-[40px] font-[800] text-slate-900 tracking-tight leading-[1.2] font-sans section-content-title">
-                We Create, We Enhance, We Deliver<br />
-                More Than Expected – That's firevy.co
+                {missionVision.heading || 'We Create, We Enhance, We Deliver'}<br />
+                {missionVision.subheading || "More Than Expected – That's firevy.co"}
               </h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
@@ -630,45 +787,45 @@ export const CompanySubDetails = () => {
                     <path d="M19 22H5V20H19V22Z" />
                     <path d="M16.5 20C16.5 17 17.5 15.5 18 14C18.5 12.5 18 11 17 9.5C16 8 14.5 7.5 14.5 6C14.5 4.5 15.5 3 15.5 3C15.5 3 13.5 3 11 5C8.5 7 7.5 9.5 7.5 12C7.5 13 8 14 8.5 15C9 16 9.5 17.5 9.5 20" />
                   </svg>
-                  <h3 className="text-[26px] font-[800] text-slate-900 font-sans tracking-tight">Our Vision</h3>
+                  <h3 className="text-[26px] font-[800] text-slate-900 font-sans tracking-tight">{missionVision.visionTitle || 'Our Vision'}</h3>
                 </div>
                 <p className="text-[15px] sm:text-[15.5px] text-slate-600 leading-relaxed font-[400] font-sans">
-                  It's our goal to empower our customers to achieve more and to be one of the best customer-centric company.
+                  {missionVision.visionText}
                 </p>
               </div>
               <div className="bg-white rounded-[16px] border border-slate-200/90 shadow-[0px_6px_25px_rgba(0,0,0,0.04)] p-8 sm:p-9 text-left space-y-3.5 hover:shadow-lg transition-all">
                 <div className="flex items-center space-x-3.5">
                   <Target className="w-10 h-10 text-[#006B8F] shrink-0" strokeWidth={2.2} />
-                  <h3 className="text-[26px] font-[800] text-slate-900 font-sans tracking-tight">Our Mission</h3>
+                  <h3 className="text-[26px] font-[800] text-slate-900 font-sans tracking-tight">{missionVision.missionTitle || 'Our Mission'}</h3>
                 </div>
                 <p className="text-[15px] sm:text-[15.5px] text-slate-600 leading-relaxed font-[400] font-sans">
-                  To provide our customers with the precise services and solutions the lowest possible cost.
+                  {missionVision.missionText}
                 </p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* 4. "Glance through our creations and presence" */}
-        <AboutKeyMetrics />
+        {/* 4. "ABOUT US (Key Metrics & Presence)" */}
+        <AboutKeyMetrics data={metricsData} />
 
         {/* 5. "Our Core Values" */}
         <section className="py-20 bg-[#F8FAFC] border-b border-slate-200 text-slate-900 font-sans">
           <div className="max-w-[1360px] mx-auto px-4 sm:px-8">
             <div className="text-center max-w-4xl mx-auto mb-14">
               <h2 className="text-[36px] sm:text-[44px] font-[900] text-slate-900 tracking-tight leading-tight mb-4 font-sans">
-                Our Core Values
+                {content.coreValues?.heading || 'Our Core Values'}
               </h2>
               <p className="text-[15px] sm:text-[16px] text-slate-600 leading-relaxed max-w-3xl mx-auto font-[400] font-sans">
-                Our values are the guiding ethics upon which we have founded and how we strive to conduct our business on a day-to-day basis.
+                {content.coreValues?.subheading || 'Our values are the guiding ethics upon which we have founded and how we strive to conduct our business on a day-to-day basis.'}
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {coreValuesData.map((val) => (
-                <div key={val.id} className="bg-white rounded-[16px] border border-slate-200/90 shadow-[0px_6px_25px_rgba(0,0,0,0.04)] p-8 text-left space-y-2.5 hover:shadow-lg transition-all group">
-                  {val.icon}
+              {valuesList.map((val, idx) => (
+                <div key={val.id || idx} className="bg-white rounded-[16px] border border-slate-200/90 shadow-[0px_6px_25px_rgba(0,0,0,0.04)] p-8 text-left space-y-2.5 hover:shadow-lg transition-all group">
+                  {renderDynamicValueIcon(val.icon, idx)}
                   <h3 className="text-[20px] font-[800] text-slate-900 font-sans tracking-tight group-hover:text-[#006B8F] transition-colors">{val.title}</h3>
-                  <p className="text-[14.5px] text-slate-600 leading-relaxed font-[400] font-sans">{val.desc}</p>
+                  <p className="text-[14.5px] text-slate-600 leading-relaxed font-[400] font-sans">{val.desc || val.description}</p>
                 </div>
               ))}
             </div>
@@ -681,34 +838,31 @@ export const CompanySubDetails = () => {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
               <div className="lg:col-span-6 space-y-5">
                 <h2 className="text-[36px] sm:text-[42px] lg:text-[46px] font-[900] text-slate-900 tracking-tight leading-tight font-sans">
-                  Our Culture
+                  {culture.heading || 'Our Culture'}
                 </h2>
                 <div className="space-y-4 text-[15px] sm:text-[15.5px] text-slate-600 leading-[1.8] font-[400] font-sans">
-                  <p>
-                    At firevy.co, we have nurtured a culture that inspires innovation and creativity. We believe that success of our company is directly relational to the success of each and every employee. We strive to create a young, fun-loving, open yet professional and hardworking environment.
-                  </p>
-                  <p>
-                    We empower our team members to move forward professionally by taking ownership and learning from every project they work on. Coming to work and building amazing digital solutions should be fun.
-                  </p>
+                  {(culture.paragraphs || []).map((p, idx) => (
+                    <p key={idx}>{p}</p>
+                  ))}
                 </div>
                 <div className="pt-2">
-                  <Link to="/careers" className="inline-flex items-center justify-center px-8 py-3.5 rounded-[6px] bg-[#006B8F] hover:bg-[#005478] text-white font-[700] text-[15px] transition-all shadow-md font-sans">
-                    Explore Careers (Jobs)
+                  <Link to={culture.buttonLink || '/careers'} className="inline-flex items-center justify-center px-8 py-3.5 rounded-[6px] bg-[#006B8F] hover:bg-[#005478] text-white font-[700] text-[15px] transition-all shadow-md font-sans">
+                    {culture.buttonText || 'Explore Careers (Jobs)'}
                   </Link>
                 </div>
               </div>
               <div className="lg:col-span-6 grid grid-cols-2 gap-4">
                 <div className="rounded-[14px] overflow-hidden shadow-md border border-slate-200/90 h-[175px] bg-slate-100">
-                  <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80" alt="Team 1" className="w-full h-full object-cover" />
+                  <img src={getMediaUrl(culture.images?.[0] || 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80')} alt="Team 1" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
                 </div>
                 <div className="rounded-[14px] overflow-hidden shadow-md border border-slate-200/90 h-[175px] bg-slate-100">
-                  <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=600&q=80" alt="Team 2" className="w-full h-full object-cover" />
+                  <img src={getMediaUrl(culture.images?.[1] || 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=600&q=80')} alt="Team 2" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
                 </div>
                 <div className="rounded-[14px] overflow-hidden shadow-md border border-slate-200/90 h-[175px] bg-slate-100">
-                  <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=600&q=80" alt="Team 3" className="w-full h-full object-cover" />
+                  <img src={getMediaUrl(culture.images?.[2] || 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=600&q=80')} alt="Team 3" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
                 </div>
                 <div className="rounded-[14px] overflow-hidden shadow-md border border-slate-200/90 h-[175px] bg-slate-100">
-                  <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=600&q=80" alt="Team 4" className="w-full h-full object-cover" />
+                  <img src={getMediaUrl(culture.images?.[3] || 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=600&q=80')} alt="Team 4" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
                 </div>
               </div>
             </div>
@@ -720,33 +874,31 @@ export const CompanySubDetails = () => {
           <div className="max-w-[1360px] mx-auto px-4 sm:px-8">
             <div className="text-center max-w-4xl mx-auto mb-14">
               <h2 className="text-[36px] sm:text-[44px] font-[900] text-slate-900 tracking-tight leading-tight mb-3 font-sans">
-                Our Leadership
+                {content.leadership?.heading || 'Our Leadership'}
               </h2>
               <p className="text-[15px] sm:text-[16px] text-slate-600 leading-relaxed max-w-3xl mx-auto font-[400] font-sans">
-                The outlook, passion and experience of our leaders guides firevy.co.
+                {content.leadership?.subheading || 'The outlook, passion and experience of our leaders guides firevy.co.'}
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-              <div className="bg-white rounded-[16px] border border-slate-200/90 shadow-sm p-6 flex flex-col sm:flex-row items-center sm:items-start space-y-4 sm:space-y-0 sm:space-x-6">
-                <div className="w-[160px] h-[180px] rounded-[12px] overflow-hidden shrink-0 bg-slate-200">
-                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80" alt="Leader 1" className="w-full h-full object-cover" />
+              {leadersList.map((leader, idx) => (
+                <div key={idx} className="bg-white rounded-[16px] border border-slate-200/90 shadow-sm p-6 flex flex-col sm:flex-row items-center sm:items-start space-y-4 sm:space-y-0 sm:space-x-6 hover:shadow-md transition-all">
+                  <div className="w-[160px] h-[180px] rounded-[12px] overflow-hidden shrink-0 bg-slate-200">
+                    <img src={getMediaUrl(leader.image || 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80')} alt={leader.name} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+                  </div>
+                  <div className="space-y-2 text-left pt-2">
+                    <h3 className="text-[20px] font-[800] text-slate-900 font-sans">{leader.name}</h3>
+                    <p className="text-[14px] font-[600] text-slate-500 font-sans">{leader.designation}</p>
+                    {leader.linkedin && (
+                      <div className="pt-2">
+                        <a href={leader.linkedin} target="_blank" rel="noreferrer" className="w-8 h-8 rounded-full bg-[#0077B5] hover:bg-[#005f93] text-white inline-flex items-center justify-center shadow-sm transition-transform hover:scale-110">
+                          <Linkedin className="w-4 h-4 fill-current" />
+                        </a>
+                      </div>
+                    )}
+                  </div>
                 </div>
-                <div className="space-y-2 text-left pt-2">
-                  <h3 className="text-[20px] font-[800] text-slate-900 font-sans">Mr. Kumaril Patel</h3>
-                  <p className="text-[14px] font-[600] text-slate-500 font-sans">CEO & Co-Founder</p>
-                  <div className="pt-2"><a href="https://linkedin.com" target="_blank" rel="noreferrer" className="w-8 h-8 rounded-full bg-[#0077B5] hover:bg-[#005f93] text-white inline-flex items-center justify-center shadow-sm"><Linkedin className="w-4 h-4 fill-current" /></a></div>
-                </div>
-              </div>
-              <div className="bg-white rounded-[16px] border border-slate-200/90 shadow-sm p-6 flex flex-col sm:flex-row items-center sm:items-start space-y-4 sm:space-y-0 sm:space-x-6">
-                <div className="w-[160px] h-[180px] rounded-[12px] overflow-hidden shrink-0 bg-slate-200">
-                  <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80" alt="Leader 2" className="w-full h-full object-cover" />
-                </div>
-                <div className="space-y-2 text-left pt-2">
-                  <h3 className="text-[20px] font-[800] text-slate-900 font-sans">Mr. Rajendra Patel</h3>
-                  <p className="text-[14px] font-[600] text-slate-500 font-sans">CTO & Co-Founder</p>
-                  <div className="pt-2"><a href="https://linkedin.com" target="_blank" rel="noreferrer" className="w-8 h-8 rounded-full bg-[#0077B5] hover:bg-[#005f93] text-white inline-flex items-center justify-center shadow-sm"><Linkedin className="w-4 h-4 fill-current" /></a></div>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </section>
@@ -756,53 +908,38 @@ export const CompanySubDetails = () => {
           <div className="max-w-[1360px] mx-auto px-4 sm:px-8 relative z-10">
             <div className="text-center max-w-4xl mx-auto mb-14">
               <h2 className="text-[36px] sm:text-[44px] font-[900] text-slate-900 tracking-tight leading-tight mb-2 font-sans">
-                Our World Class Products
+                {content.products?.heading || 'Our World Class Products'}
               </h2>
               <p className="text-[15px] sm:text-[16px] text-slate-500 font-[400] font-sans">
-                Our proven excellence for product development
+                {content.products?.subheading || 'Our proven excellence for product development'}
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-              <div className="bg-white rounded-[16px] border border-slate-200/90 shadow-[0px_6px_25px_rgba(0,0,0,0.04)] p-8 sm:p-10 text-left space-y-4 hover:shadow-lg transition-all flex flex-col justify-between">
-                <div className="space-y-4">
-                  <div className="flex items-center space-x-2">
-                    <span className="text-[#FF6600] font-[900] text-3xl font-serif tracking-tight">VV</span>
-                    <div>
-                      <span className="text-[#FF6600] font-[900] text-2xl tracking-tight">Vidyalaya</span>
-                      <span className="text-[10px] text-slate-500 align-top">®</span>
-                      <div className="text-[11px] font-[700] text-amber-600 uppercase tracking-wider">Digitizing Schools</div>
+              {productsList.map((prod, idx) => (
+                <div key={idx} className="bg-white rounded-[16px] border border-slate-200/90 shadow-[0px_6px_25px_rgba(0,0,0,0.04)] p-8 sm:p-10 text-left space-y-4 hover:shadow-lg transition-all flex flex-col justify-between">
+                  <div className="space-y-4">
+                    <div className="flex items-center space-x-2">
+                      <span className="text-[#FF6600] font-[900] text-3xl font-serif tracking-tight">{prod.name?.slice(0, 2) || 'PR'}</span>
+                      <div>
+                        <span className="text-[#FF6600] font-[900] text-2xl tracking-tight">{prod.name}</span>
+                        <span className="text-[10px] text-slate-500 align-top">®</span>
+                        {prod.tagline && (
+                          <div className="text-[11px] font-[700] text-amber-600 uppercase tracking-wider">{prod.tagline}</div>
+                        )}
+                      </div>
                     </div>
+                    <p className="text-[14.5px] text-slate-600 leading-relaxed font-[400] font-sans">
+                      {prod.description}
+                    </p>
                   </div>
-                  <p className="text-[14.5px] text-slate-600 leading-relaxed font-[400] font-sans">
-                    Efficient & Innovative School ERP known for its unmatched service since 22+ years. We digitalized 1600+ Schools globally.
-                  </p>
-                </div>
-                <div className="pt-2">
-                  <Link to="/products" className="inline-flex items-center text-[14.5px] font-[700] text-[#006B8F] hover:text-[#004A75] space-x-1.5 font-sans">
-                    <span>Explore More</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </Link>
-                </div>
-              </div>
-              <div className="bg-white rounded-[16px] border border-slate-200/90 shadow-[0px_6px_25px_rgba(0,0,0,0.04)] p-8 sm:p-10 text-left space-y-4 hover:shadow-lg transition-all flex flex-col justify-between">
-                <div className="space-y-4">
-                  <div className="flex items-center space-x-2">
-                    <span className="text-[#008080] font-[900] text-3xl font-sans tracking-tight">Occu</span>
-                    <span className="text-[#006699] font-[900] text-3xl font-sans tracking-tight">Care</span>
-                    <span className="text-[10px] text-slate-500 align-top">™</span>
+                  <div className="pt-2">
+                    <Link to={prod.link || '/products'} className="inline-flex items-center text-[14.5px] font-[700] text-[#006B8F] hover:text-[#004A75] space-x-1.5 font-sans group">
+                      <span>Explore More</span>
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </Link>
                   </div>
-                  <div className="text-[11px] font-[600] text-slate-500">a healthier, more productive workforce</div>
-                  <p className="text-[14.5px] text-slate-600 leading-relaxed font-[400] font-sans">
-                    OccuCare empower organizations to protect, maintain and promote the well-being of workers.
-                  </p>
                 </div>
-                <div className="pt-2">
-                  <Link to="/products" className="inline-flex items-center text-[14.5px] font-[700] text-[#006B8F] hover:text-[#004A75] space-x-1.5 font-sans">
-                    <span>Explore More</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </Link>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </section>
@@ -812,10 +949,10 @@ export const CompanySubDetails = () => {
           <div className="max-w-[1360px] mx-auto px-4 sm:px-8">
             <div className="text-center max-w-4xl mx-auto mb-14">
               <h2 className="text-[36px] sm:text-[44px] font-[900] text-slate-900 tracking-tight leading-tight mb-3 font-sans">
-                Trusted By The World’s Leading Brands
+                {trustedBrands.heading || 'Trusted By The World’s Leading Brands'}
               </h2>
               <p className="text-[15px] sm:text-[16px] text-slate-600 leading-relaxed max-w-3xl mx-auto font-[400] font-sans">
-                We are glad to be a digital technology and innovation partner with world’s leading brands. Building greater futures through innovation and collective knowledge.
+                {trustedBrands.subheading || 'We are glad to be a digital technology and innovation partner with world’s leading brands. Building greater futures through innovation and collective knowledge.'}
               </p>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-5">
@@ -830,63 +967,64 @@ export const CompanySubDetails = () => {
           </div>
         </section>
 
-        {/* 10. "What Our Clients Say" (Exact Slider Carousel Matching Image 1) */}
-        <ClientReviewsDarkSection />
+        {/* 10. "What Our Clients Say" */}
+        <ClientReviewsDarkSection data={{ title: content.reviewsSection?.title || 'What Our Clients Say' }} />
 
         {/* 11. "Insights" */}
         <section className="py-20 bg-white border-b border-slate-100 text-slate-900 font-sans">
           <div className="max-w-[1360px] mx-auto px-4 sm:px-8">
             <div className="text-center max-w-4xl mx-auto mb-14">
               <h2 className="text-[36px] sm:text-[44px] font-[900] text-slate-900 tracking-tight leading-tight mb-3 font-sans">
-                Insights
+                {content.insights?.heading || 'Insights'}
               </h2>
               <p className="text-[15px] sm:text-[16px] text-slate-600 leading-relaxed max-w-3xl mx-auto font-[400] font-sans">
-                Based on boundless enthusiasm and challenging spirit, firevy.co is committed to deliver excellence.
+                {content.insights?.subheading || 'Based on boundless enthusiasm and challenging spirit, firevy.co is committed to deliver excellence.'}
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="rounded-[16px] overflow-hidden shadow-md border border-slate-200 h-[280px] bg-slate-100 group relative">
-                <img
-                  src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80"
-                  alt="Corporate Headquarters"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="rounded-[16px] overflow-hidden shadow-md border border-slate-200 h-[280px] bg-slate-100 group relative">
-                <img
-                  src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80"
-                  alt="Occucon Event"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute bottom-4 left-4 bg-slate-900/80 backdrop-blur-xs text-white px-3 py-1 rounded-[6px] text-xs font-[700]">
-                  Occucon Event
+              {insightsList.slice(0, 3).map((item, idx) => (
+                <div key={idx} className="rounded-[16px] overflow-hidden shadow-md border border-slate-200 h-[280px] bg-slate-100 group relative">
+                  <img
+                    src={getMediaUrl(item.image)}
+                    alt={item.caption || `Insight ${idx + 1}`}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  {item.caption && (
+                    <div className="absolute bottom-4 left-4 bg-slate-900/80 backdrop-blur-xs text-white px-3 py-1 rounded-[6px] text-xs font-[700]">
+                      {item.caption}
+                    </div>
+                  )}
                 </div>
-              </div>
-              <div className="rounded-[16px] overflow-hidden shadow-md border border-slate-200 h-[280px] bg-slate-100 group relative">
-                <img
-                  src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80"
-                  alt="Exhibition Booth"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="md:col-span-2 rounded-[16px] overflow-hidden shadow-md border border-slate-200 h-[300px] bg-slate-100 group relative">
-                <img
-                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80"
-                  alt="Our Team Banquet"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute bottom-4 left-4 bg-slate-900/80 backdrop-blur-xs text-white px-3 py-1 rounded-[6px] text-xs font-[700]">
-                  Our Team
+              ))}
+              {insightsList[3] && (
+                <div className="md:col-span-2 rounded-[16px] overflow-hidden shadow-md border border-slate-200 h-[300px] bg-slate-100 group relative">
+                  <img
+                    src={getMediaUrl(insightsList[3].image)}
+                    alt={insightsList[3].caption || 'Our Team'}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  {insightsList[3].caption && (
+                    <div className="absolute bottom-4 left-4 bg-slate-900/80 backdrop-blur-xs text-white px-3 py-1 rounded-[6px] text-xs font-[700]">
+                      {insightsList[3].caption}
+                    </div>
+                  )}
                 </div>
-              </div>
-              <div className="rounded-[16px] overflow-hidden shadow-md border border-slate-200 h-[300px] bg-slate-100 group relative">
-                <img
-                  src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80"
-                  alt="Tech Showcase"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
+              )}
+              {insightsList[4] && (
+                <div className="rounded-[16px] overflow-hidden shadow-md border border-slate-200 h-[300px] bg-slate-100 group relative">
+                  <img
+                    src={getMediaUrl(insightsList[4].image)}
+                    alt={insightsList[4].caption || 'Showcase'}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  {insightsList[4].caption && (
+                    <div className="absolute bottom-4 left-4 bg-slate-900/80 backdrop-blur-xs text-white px-3 py-1 rounded-[6px] text-xs font-[700]">
+                      {insightsList[4].caption}
+                    </div>
+                  )}
+                </div>
+              )}
             </div>
           </div>
         </section>
@@ -898,17 +1036,17 @@ export const CompanySubDetails = () => {
               <div className="lg:col-span-6 space-y-6">
                 <div>
                   <h2 className="text-[38px] sm:text-[46px] font-[900] text-slate-900 tracking-tight leading-tight mb-2 font-sans">
-                    Corporate Social<br />Responsibility
+                    {csr.heading || 'Corporate Social Responsibility'}
                   </h2>
                   <p className="text-[16px] text-slate-500 font-semibold font-sans">
-                    Business is an opportunity to help humanity
+                    {csr.subheading || 'Business is an opportunity to help humanity'}
                   </p>
                 </div>
 
                 <div className="space-y-4 pt-2">
                   <div className="text-[#006B8F] text-5xl font-serif leading-none">“</div>
                   <p className="text-[20px] sm:text-[23px] font-[800] text-[#006B8F] leading-snug font-sans max-w-xl">
-                    Our CSR Programs Accelerate Human Empowerment Among Underserved People And Their Communities Via Three Pillars: Education, Society And Conservation.
+                    {csr.quote}
                   </p>
                 </div>
               </div>
@@ -916,8 +1054,8 @@ export const CompanySubDetails = () => {
               <div className="lg:col-span-6">
                 <div className="rounded-[18px] overflow-hidden border border-slate-200 shadow-xl bg-white">
                   <img
-                    src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1000&q=80"
-                    alt="Corporate Social Responsibility"
+                    src={getMediaUrl(csr.image)}
+                    alt={csr.heading || 'Corporate Social Responsibility'}
                     className="w-full h-[380px] sm:h-[420px] object-cover hover:scale-105 transition-transform duration-500"
                   />
                 </div>
@@ -926,12 +1064,12 @@ export const CompanySubDetails = () => {
           </div>
         </section>
 
-        {/* 13. Full Panoramic Team Photo Banner with clean top & bottom spacing */}
+        {/* 13. Full Panoramic Team Photo Banner */}
         <section className="py-12 sm:py-16 bg-white">
           <div className="max-w-[1360px] mx-auto px-4 sm:px-8">
             <div className="w-full h-[360px] sm:h-[450px] rounded-[20px] overflow-hidden shadow-lg border border-slate-200 bg-slate-900 relative">
               <img
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=2000&q=80"
+                src={getMediaUrl(teamBanner.image)}
                 alt="firevy.co Whole Team"
                 className="w-full h-full object-cover opacity-95 hover:scale-105 transition-transform duration-700"
               />
