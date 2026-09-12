@@ -6,6 +6,8 @@ import BRAND from '../../constants/brand';
 import BrandLogoMarquee from '../common/BrandLogoMarquee';
 import ClutchTopRatedBanner from '../common/ClutchTopRatedBanner';
 import PremiumServicesGrid from '../common/PremiumServicesGrid';
+import TechnologyStackGrid from '../common/TechnologyStackGrid';
+import FeaturedInLogosGrid from '../home/FeaturedInLogosGrid';
 import {
   Check,
   ChevronDown,
@@ -622,52 +624,11 @@ export const SitefinityDevelopmentService = () => {
         </div>
       </section>
 
-      {/* Technology Stack Tabs */}
-      <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
-            <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
-              Our Sitefinity Technology Stack
-            </h2>
-            <p className="text-slate-600 text-base">
-              A modern enterprise .NET Core toolchain ensuring high speed, scalability, and robust cloud infrastructure.
-            </p>
-          </div>
+      {/* 5. Technology Stack (Exact 1:1 Match) */}
+      <TechnologyStackGrid />
 
-          <div className="flex justify-center gap-2 mb-10 overflow-x-auto pb-2">
-            {[
-              { id: 'cms', label: 'Sitefinity Ecosystem' },
-              { id: 'languages', label: 'Languages & Frameworks' },
-              { id: 'database', label: 'Data & Search' },
-              { id: 'infrastructure', label: 'Cloud & DevOps' }
-            ].map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTechTab(tab.id)}
-                className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold transition-all ${
-                  activeTechTab === tab.id
-                    ? 'bg-[#005F96] text-white shadow-md'
-                    : 'bg-slate-100 text-slate-600 hover:bg-slate-200'
-                }`}
-              >
-                {tab.label}
-              </button>
-            ))}
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {techStack[activeTechTab].map((item, idx) => (
-              <div key={idx} className="bg-slate-50 p-5 rounded-xl border border-slate-200/80 flex items-start gap-4">
-                <div className="text-2xl p-2 bg-white rounded-lg border border-slate-200 shrink-0">{item.icon}</div>
-                <div>
-                  <h4 className="text-sm font-bold text-slate-900">{item.name}</h4>
-                  <p className="text-xs text-slate-600 mt-0.5">{item.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* 6. We Have Been Featured In (Exact 1:1 Match) */}
+      <FeaturedInLogosGrid />
 
       {/* FAQ Accordion Section */}
       <section className="py-20 bg-slate-50 border-t border-slate-200/80">
