@@ -34,6 +34,10 @@ import SitecoreDevelopmentService from '../components/services/SitecoreDevelopme
 import SitefinityDevelopmentService from '../components/services/SitefinityDevelopmentService';
 import MagentoDevelopmentService from '../components/services/MagentoDevelopmentService';
 import ShopifyDevelopmentService from '../components/services/ShopifyDevelopmentService';
+import DotNetDevelopmentService from '../components/services/DotNetDevelopmentService';
+import PhpDevelopmentService from '../components/services/PhpDevelopmentService';
+import JavaDevelopmentService from '../components/services/JavaDevelopmentService';
+import NodeJsDevelopmentService from '../components/services/NodeJsDevelopmentService';
 
 export const ServiceDetails = () => {
   const { slug } = useParams();
@@ -111,6 +115,29 @@ export const ServiceDetails = () => {
 
   const isIOS = currentSlug.includes('ios') ||
     currentSlug.includes('iphone');
+
+  const isNet = currentSlug === 'net' ||
+    currentSlug.includes('dot-net') ||
+    currentSlug.includes('dotnet') ||
+    currentSlug.includes('net-development') ||
+    currentSlug.includes('microsoft-development');
+
+  const isPhp = currentSlug === 'php' ||
+    currentSlug.includes('php-development') ||
+    currentSlug.includes('hire-php');
+
+  const isJava = currentSlug === 'java' ||
+    currentSlug.includes('java-development') ||
+    currentSlug.includes('hire-java') ||
+    currentSlug.includes('java-software') ||
+    currentSlug.includes('java-web');
+
+  const isNodeJs = currentSlug === 'nodejs' ||
+    currentSlug === 'node-js' ||
+    currentSlug.includes('node-js') ||
+    currentSlug.includes('nodejs') ||
+    currentSlug.includes('hire-node') ||
+    currentSlug.includes('node-developer');
 
   const unslugify = (str) => {
     if (!str) return 'Enterprise Tech Solution';
@@ -207,13 +234,29 @@ export const ServiceDetails = () => {
   };
 
   useEffect(() => {
-    if (!isXamarin && !isAndroid && !isReactNative && !isFlutter && !isIOS && !isHealthcare && !isEducation && !isUber && !isSpotify && !isZomato && !isAmazon && !isVisitor && !isWarehouse && !isClover && !isCSharp && !isIWatch && !isWordpress && !isDrupal && !isUmbraco && !isSitecore && !isSitefinity && !isMagento && !isShopify) {
+    if (!isXamarin && !isNodeJs && !isJava && !isAndroid && !isReactNative && !isFlutter && !isIOS && !isHealthcare && !isEducation && !isUber && !isSpotify && !isZomato && !isAmazon && !isVisitor && !isWarehouse && !isClover && !isCSharp && !isIWatch && !isWordpress && !isDrupal && !isUmbraco && !isSitecore && !isSitefinity && !isMagento && !isShopify && !isNet && !isPhp) {
       fetchServiceDetails();
     } else {
       setLoading(false);
     }
     window.scrollTo(0, 0);
   }, [currentSlug]);
+
+  if (isNodeJs) {
+    return <NodeJsDevelopmentService />;
+  }
+
+  if (isJava) {
+    return <JavaDevelopmentService />;
+  }
+
+  if (isPhp) {
+    return <PhpDevelopmentService />;
+  }
+
+  if (isNet) {
+    return <DotNetDevelopmentService />;
+  }
 
   if (isSitecore) {
     return <SitecoreDevelopmentService />;

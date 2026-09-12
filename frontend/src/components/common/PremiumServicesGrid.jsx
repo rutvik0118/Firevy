@@ -57,36 +57,6 @@ export const PremiumServicesGrid = ({ title, subtitle, companyName = "firevy.co"
       name: 'Laravel Development',
       link: '/services/laravel-development',
       image: '/images/ourpremiumservice/ic_laravel.svg'
-    },
-    {
-      name: 'Drupal Development',
-      link: '/services/drupal',
-      image: '/images/ourpremiumservice/ic_drupal.svg'
-    },
-    {
-      name: 'Umbraco Development',
-      link: '/services/umbraco',
-      image: '/images/ourpremiumservice/ic_umbraco.svg'
-    },
-    {
-      name: 'Sitecore Development',
-      link: '/services/sitecore',
-      image: '/images/ourpremiumservice/ic_sitecore.svg'
-    },
-    {
-      name: 'Sitefinity Development',
-      link: '/services/sitefinity',
-      image: '/images/ourpremiumservice/ic_sitefinity.svg'
-    },
-    {
-      name: 'Magento Development',
-      link: '/services/magento',
-      image: '/images/ourpremiumservice/ic_magento.svg'
-    },
-    {
-      name: 'Shopify Development',
-      link: '/services/shopify',
-      image: '/images/ourpremiumservice/ic_shopify.svg'
     }
   ];
 

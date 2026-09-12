@@ -130,6 +130,25 @@ export function App() {
                 <Route path="/blog" element={<CompanySubDetails />} />
                 <Route path="/services" element={<Services />} />
                 <Route path="/services/:slug" element={<ServiceDetails />} />
+                <Route path="/services/php" element={<ServiceDetails />} />
+                <Route path="/php" element={<ServiceDetails />} />
+                <Route path="/php-development" element={<ServiceDetails />} />
+                <Route path="/hire-php-developers" element={<ServiceDetails />} />
+                <Route path="/services/java" element={<ServiceDetails />} />
+                <Route path="/java" element={<ServiceDetails />} />
+                <Route path="/java-development" element={<ServiceDetails />} />
+                <Route path="/hire-java-developers" element={<ServiceDetails />} />
+                <Route path="/services/nodejs" element={<ServiceDetails />} />
+                <Route path="/services/node-js" element={<ServiceDetails />} />
+                <Route path="/nodejs" element={<ServiceDetails />} />
+                <Route path="/node-js" element={<ServiceDetails />} />
+                <Route path="/nodejs-development" element={<ServiceDetails />} />
+                <Route path="/hire-nodejs-developers" element={<ServiceDetails />} />
+                <Route path="/services/net" element={<ServiceDetails />} />
+                <Route path="/net" element={<ServiceDetails />} />
+                <Route path="/dotnet" element={<ServiceDetails />} />
+                <Route path="/net-development" element={<ServiceDetails />} />
+                <Route path="/hire-dotnet-developers" element={<ServiceDetails />} />
                 <Route path="/services/wordpress" element={<ServiceDetails />} />
                 <Route path="/wordpress" element={<ServiceDetails />} />
                 <Route path="/wordpress-development" element={<ServiceDetails />} />
