@@ -561,6 +561,8 @@ export const GenericSubPageManager = ({
           />
         );
       case 'our-team':
+      case 'team':
+      case 'our-team-leadership':
         return (
           <OurTeamForm
             formData={formData}
