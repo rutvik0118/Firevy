@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { getMediaUrl } from '../../utils/mediaUrl';
 
 const defaultCards = [
   {
@@ -7,38 +8,38 @@ const defaultCards = [
     image: '/images/first.webp'
   },
   {
-    metric: '320+',
-    label: '5-Star Clutch Reviews',
+    metric: '600+',
+    label: 'Schools Digitalized Globally',
     image: '/images/homeinnovation/second.webp'
   },
   {
-    metric: '20+',
-    label: 'Fortunes 500 Companies',
+    metric: '750+',
+    label: 'Software & Mobile Apps Developed',
     image: '/images/third.webp'
   },
   {
-    metric: '200+',
-    label: 'IT Professional',
+    metric: '100+',
+    label: 'Countries Served Worldwide',
     image: '/images/fourth.webp'
   },
   {
-    metric: '95%',
-    label: 'Client Retention',
+    metric: '2800+',
+    label: 'Satisfied Enterprise Clients',
     image: '/images/fifth.webp'
   },
   {
-    metric: '18+',
-    label: 'Industry Served',
+    metric: '95%',
+    label: 'Client Retention Rate',
     image: '/images/sixth.webp'
   },
   {
-    metric: '2800+',
-    label: 'Satisfied Clients',
+    metric: '200+',
+    label: 'Skilled IT Professionals',
     image: '/images/awards/hdimages/client_seven.webp'
   },
   {
-    metric: '1500+',
-    label: 'Completed Projects',
+    metric: '1498+',
+    label: 'Completed Digital Projects',
     image: '/images/awards/hdimages/clienttestimonial3.webp'
   }
 ];
@@ -149,7 +150,7 @@ export const AboutKeyMetrics = ({ data }) => {
                 {/* Left Thumbnail Image */}
                 <div className="w-[78px] h-[88px] sm:w-[86px] sm:h-[96px] rounded-[14px] overflow-hidden shrink-0 bg-slate-100 shadow-inner flex items-center justify-center">
                   <img
-                    src={card.image}
+                    src={getMediaUrl(card.image)}
                     alt={card.label}
                     className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500"
                     loading="lazy"

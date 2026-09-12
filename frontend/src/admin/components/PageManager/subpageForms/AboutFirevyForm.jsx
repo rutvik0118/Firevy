@@ -1,5 +1,5 @@
 import React from 'react';
-import { Plus, Trash2, Building2, Eye, Shield, Users, Briefcase, Heart, Award, Star, Globe, Sparkles, RotateCcw, Image as ImageIcon } from 'lucide-react';
+import { Plus, Trash2, Building2, Eye, Shield, Users, Briefcase, Heart, Award, Star, Globe, Sparkles, RotateCcw, Image as ImageIcon, Upload } from 'lucide-react';
 import {
   AdminFormSection,
   AdminFormGrid,
@@ -9,6 +9,7 @@ import {
   AdminSeoSection
 } from '../../UI/AdminEditLayout';
 import { getMediaUrl } from '../../../../utils/mediaUrl';
+import adminService from '../../../services/adminService';
 
 /**
  * AboutFirevyForm
@@ -97,21 +98,30 @@ export const AboutFirevyForm = ({
   };
 
   // 4. Metrics Section (8 Cards) State
-  const metricsSection = formData.metricsSection || formData.content?.metricsSection || {
-    title: 'ABOUT US',
-    description: 'Glance through our creations and presence across industries and borders',
-    cards: Array.isArray(formData.stats) && formData.stats.length > 0
-      ? formData.stats
-      : [
-          { metric: '23+', label: 'Years of Experience', image: '/images/first.webp' },
-          { metric: '1600+', label: 'Schools Digitalized Globally', image: '/images/homeinnovation/second.webp' },
-          { metric: '750+', label: 'Software & Mobile Apps Developed', image: '/images/third.webp' },
-          { metric: '100+', label: 'Countries Served Worldwide', image: '/images/fourth.webp' },
-          { metric: '2800+', label: 'Satisfied Enterprise Clients', image: '/images/fifth.webp' },
-          { metric: '95%', label: 'Client Retention Rate', image: '/images/sixth.webp' },
-          { metric: '200+', label: 'Skilled IT Professionals', image: '/images/awards/hdimages/client_seven.webp' },
-          { metric: '1500+', label: 'Completed Digital Projects', image: '/images/awards/hdimages/clienttestimonial3.webp' }
-        ]
+  const defaultMetricCards = [
+    { metric: '23+', label: 'Years of Experience', image: '/images/first.webp' },
+    { metric: '600+', label: 'Schools Digitalized Globally', image: '/images/homeinnovation/second.webp' },
+    { metric: '750+', label: 'Software & Mobile Apps Developed', image: '/images/third.webp' },
+    { metric: '100+', label: 'Countries Served Worldwide', image: '/images/fourth.webp' },
+    { metric: '2800+', label: 'Satisfied Enterprise Clients', image: '/images/fifth.webp' },
+    { metric: '95%', label: 'Client Retention Rate', image: '/images/sixth.webp' },
+    { metric: '200+', label: 'Skilled IT Professionals', image: '/images/awards/hdimages/client_seven.webp' },
+    { metric: '1498+', label: 'Completed Digital Projects', image: '/images/awards/hdimages/clienttestimonial3.webp' }
+  ];
+
+  const rawMetricsSection = formData.metricsSection || formData.content?.metricsSection || {};
+  const rawCards = (Array.isArray(rawMetricsSection.cards) && rawMetricsSection.cards.length > 0)
+    ? rawMetricsSection.cards
+    : (Array.isArray(formData.stats) && formData.stats.length > 0 ? formData.stats : defaultMetricCards);
+
+  const metricsSection = {
+    title: rawMetricsSection.title || 'ABOUT US',
+    description: rawMetricsSection.description || 'Glance through our creations and presence across industries and borders',
+    cards: rawCards.map((c, idx) => ({
+      metric: c.metric || c.value || defaultMetricCards[idx % defaultMetricCards.length].metric,
+      label: c.label || defaultMetricCards[idx % defaultMetricCards.length].label,
+      image: c.image || defaultMetricCards[idx % defaultMetricCards.length].image
+    }))
   };
 
   // 5. Core Values State
@@ -241,21 +251,47 @@ export const AboutFirevyForm = ({
   const handleUpdateMetric = (idx, field, val) => {
     const cards = [...(metricsSection.cards || [])];
     cards[idx] = { ...cards[idx], [field]: val };
-    const updated = { ...metricsSection, cards };
-    updateContentSection('metricsSection', 'cards', cards);
-    updateRootField('stats', cards.map(c => ({ label: c.label, value: c.metric || c.value })));
+    const updatedMetrics = { ...metricsSection, cards };
+    const updatedStats = cards.map(c => ({ label: c.label, value: c.metric || c.value, image: c.image }));
+    onChange({
+      ...formData,
+      metricsSection: updatedMetrics,
+      stats: updatedStats,
+      content: {
+        ...(formData.content || {}),
+        metricsSection: updatedMetrics
+      }
+    });
   };
 
   const handleAddMetric = () => {
     const cards = [...(metricsSection.cards || []), { metric: '100+', label: 'New Milestone', image: '/images/first.webp' }];
-    updateContentSection('metricsSection', 'cards', cards);
-    updateRootField('stats', cards.map(c => ({ label: c.label, value: c.metric || c.value })));
+    const updatedMetrics = { ...metricsSection, cards };
+    const updatedStats = cards.map(c => ({ label: c.label, value: c.metric || c.value, image: c.image }));
+    onChange({
+      ...formData,
+      metricsSection: updatedMetrics,
+      stats: updatedStats,
+      content: {
+        ...(formData.content || {}),
+        metricsSection: updatedMetrics
+      }
+    });
   };
 
   const handleDeleteMetric = (idx) => {
-    const cards = metricsSection.cards.filter((_, i) => i !== idx);
-    updateContentSection('metricsSection', 'cards', cards);
-    updateRootField('stats', cards.map(c => ({ label: c.label, value: c.metric || c.value })));
+    const cards = (metricsSection.cards || []).filter((_, i) => i !== idx);
+    const updatedMetrics = { ...metricsSection, cards };
+    const updatedStats = cards.map(c => ({ label: c.label, value: c.metric || c.value, image: c.image }));
+    onChange({
+      ...formData,
+      metricsSection: updatedMetrics,
+      stats: updatedStats,
+      content: {
+        ...(formData.content || {}),
+        metricsSection: updatedMetrics
+      }
+    });
   };
 
   // Handlers for Core Values Repeater
@@ -660,30 +696,122 @@ export const AboutFirevyForm = ({
           </AdminFormField>
         </AdminFormGrid>
 
-        <div style={{ marginTop: '16px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+        <div style={{ marginTop: '16px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
           {(metricsSection.cards || []).map((card, idx) => (
             <div
               key={idx}
               style={{
                 display: 'flex',
-                gap: '12px',
+                gap: '14px',
                 alignItems: 'center',
-                padding: '12px 14px',
-                background: '#F8FAFC',
-                borderRadius: '8px',
-                border: '1px solid #E2E8F0'
+                padding: '12px 16px',
+                background: '#FFFFFF',
+                borderRadius: '10px',
+                border: '1px solid #E2E8F0',
+                boxShadow: '0 1px 3px rgba(15, 23, 42, 0.04)',
+                flexWrap: 'wrap'
               }}
             >
-              <div style={{ width: '130px', flexShrink: 0 }}>
+              {/* 1. Thumbnail Image Preview with Direct Upload trigger */}
+              <div
+                style={{
+                  position: 'relative',
+                  width: '56px',
+                  height: '62px',
+                  borderRadius: '8px',
+                  overflow: 'hidden',
+                  background: '#F1F5F9',
+                  border: '1px solid #CBD5E1',
+                  flexShrink: 0,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  cursor: 'pointer'
+                }}
+                onClick={() => {
+                  const input = document.getElementById(`metric-file-input-${idx}`);
+                  if (input) input.click();
+                }}
+                title="Click to upload or change image"
+              >
+                {card.image ? (
+                  <img
+                    src={getMediaUrl(card.image)}
+                    alt={card.label || 'Metric thumbnail'}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src = '/images/first.webp';
+                    }}
+                  />
+                ) : (
+                  <div style={{ color: '#94A3B8', fontSize: '11px', textAlign: 'center', padding: '2px' }}>
+                    <ImageIcon size={18} />
+                    <div>No Img</div>
+                  </div>
+                )}
+                <div
+                  style={{
+                    position: 'absolute',
+                    inset: 0,
+                    backgroundColor: 'rgba(0, 0, 0, 0.45)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    opacity: 0,
+                    transition: 'opacity 0.2s ease',
+                    color: '#FFFFFF'
+                  }}
+                  onMouseEnter={(e) => (e.currentTarget.style.opacity = '1')}
+                  onMouseLeave={(e) => (e.currentTarget.style.opacity = '0')}
+                >
+                  <Upload size={16} />
+                </div>
+              </div>
+
+              {/* Hidden file input for this card */}
+              <input
+                id={`metric-file-input-${idx}`}
+                type="file"
+                accept="image/*,.png,.jpg,.jpeg,.webp,.svg"
+                style={{ display: 'none' }}
+                onChange={async (e) => {
+                  const file = e.target.files?.[0];
+                  if (!file) return;
+                  try {
+                    const res = await adminService.uploadMedia(file, 'image');
+                    const url = res?.data?.url || res?.data?.fileUrl || res?.url;
+                    if (url) {
+                      handleUpdateMetric(idx, 'image', url);
+                    }
+                  } catch (err) {
+                    console.error('Failed to upload metric image:', err);
+                  } finally {
+                    e.target.value = '';
+                  }
+                }}
+              />
+
+              {/* 2. Metric Counter Value */}
+              <div style={{ width: '110px', flexShrink: 0 }}>
+                <label style={{ fontSize: '11px', fontWeight: 700, color: '#64748B', display: 'block', marginBottom: '3px' }}>
+                  STAT / VALUE
+                </label>
                 <input
                   type="text"
                   className="form-control"
                   placeholder="e.g. 23+"
                   value={card.metric || card.value || ''}
                   onChange={(e) => handleUpdateMetric(idx, 'metric', e.target.value)}
+                  style={{ fontWeight: 800, color: '#006B8F' }}
                 />
               </div>
-              <div style={{ flex: 1 }}>
+
+              {/* 3. Metric Label */}
+              <div style={{ flex: '1 1 200px', minWidth: '180px' }}>
+                <label style={{ fontSize: '11px', fontWeight: 700, color: '#64748B', display: 'block', marginBottom: '3px' }}>
+                  LABEL / TITLE
+                </label>
                 <input
                   type="text"
                   className="form-control"
@@ -692,24 +820,49 @@ export const AboutFirevyForm = ({
                   onChange={(e) => handleUpdateMetric(idx, 'label', e.target.value)}
                 />
               </div>
-              <div style={{ width: '200px', flexShrink: 0 }}>
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="Icon/Image: /images/1.svg"
-                  value={card.image || ''}
-                  onChange={(e) => handleUpdateMetric(idx, 'image', e.target.value)}
-                />
+
+              {/* 4. Image Path / Upload Button */}
+              <div style={{ flex: '1 1 220px', minWidth: '190px' }}>
+                <label style={{ fontSize: '11px', fontWeight: 700, color: '#64748B', display: 'block', marginBottom: '3px' }}>
+                  IMAGE PATH / URL
+                </label>
+                <div style={{ display: 'flex', gap: '6px' }}>
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="/images/... or https://..."
+                    value={card.image || ''}
+                    onChange={(e) => handleUpdateMetric(idx, 'image', e.target.value)}
+                    style={{ fontSize: '12px' }}
+                  />
+                  <button
+                    type="button"
+                    className="btn btn-sm btn-outline-secondary"
+                    onClick={() => {
+                      const input = document.getElementById(`metric-file-input-${idx}`);
+                      if (input) input.click();
+                    }}
+                    title="Upload image from computer"
+                    style={{ padding: '0 10px', display: 'inline-flex', alignItems: 'center', gap: '4px', flexShrink: 0 }}
+                  >
+                    <Upload size={13} />
+                    <span style={{ fontSize: '11px' }}>Upload</span>
+                  </button>
+                </div>
               </div>
-              <button
-                type="button"
-                onClick={() => handleDeleteMetric(idx)}
-                className="btn btn-ghost btn-icon-sm"
-                style={{ color: '#EF4444', flexShrink: 0 }}
-                title="Delete Metric"
-              >
-                <Trash2 size={15} />
-              </button>
+
+              {/* 5. Delete Action */}
+              <div style={{ paddingTop: '16px', flexShrink: 0 }}>
+                <button
+                  type="button"
+                  onClick={() => handleDeleteMetric(idx)}
+                  className="btn btn-ghost btn-icon-sm"
+                  style={{ color: '#EF4444' }}
+                  title="Delete Metric Card"
+                >
+                  <Trash2 size={16} />
+                </button>
+              </div>
             </div>
           ))}
         </div>
