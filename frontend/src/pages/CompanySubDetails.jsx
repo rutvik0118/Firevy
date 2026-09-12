@@ -689,6 +689,10 @@ export const CompanySubDetails = () => {
                       src={getMediaUrl(heroImage)}
                       alt={dynamicSection?.title || 'Hero'}
                       className="w-full h-full object-contain drop-shadow-xl"
+                      onError={(e) => {
+                        e.target.onerror = null;
+                        e.target.src = '/images/about-hero-laptop.svg';
+                      }}
                     />
                   </div>
                 ) : (

@@ -29,7 +29,10 @@ const __dirname = path.dirname(__filename);
 const app = express();
 
 // Security and Logging Middleware
-app.use(helmet({ contentSecurityPolicy: false }));
+app.use(helmet({
+  contentSecurityPolicy: false,
+  crossOriginResourcePolicy: { policy: 'cross-origin' }
+}));
 
 // Permissive CORS Configuration for local frontend ports (5173, 5174, 5175, etc.)
 const allowedOrigins = [
@@ -69,8 +72,16 @@ app.use(morgan(config.nodeEnv === 'development' ? 'dev' : 'combined'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Serve static uploads directory
-app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
+// Serve static uploads directory with permissive cross-origin access
+app.use(
+  '/uploads',
+  (req, res, next) => {
+    res.setHeader('Cross-Origin-Resource-Policy', 'cross-origin');
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    next();
+  },
+  express.static(path.join(__dirname, '../uploads'))
+);
 
 // Root API Health Check
 app.get('/api/v1/health', (req, res) => {
