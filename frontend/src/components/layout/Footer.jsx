@@ -78,8 +78,8 @@ export const Footer = () => {
         { name: 'Android Development', path: '/technologies' },
         { name: 'iOS Development', path: '/technologies' },
         { name: 'Flutter Development', path: '/technologies' },
-        { name: 'Angular Development', path: '/technologies' },
-        { name: 'React Development', path: '/technologies' },
+        { name: 'Angular Development', path: '/services/angular' },
+        { name: 'React Development', path: '/services/react' },
         { name: 'NodeJS Development', path: '/technologies' }
       ]
     },
@@ -91,9 +91,9 @@ export const Footer = () => {
         { name: 'Hire Software Developers', path: '/services/dedicated-developers' },
         { name: 'Hire AI Developers', path: '/services/dedicated-developers' },
         { name: 'Hire Flutter App Developers', path: '/services/dedicated-developers' },
-        { name: 'Hire Full Stack Developer', path: '/services/dedicated-developers' },
-        { name: 'Hire Android App Developers', path: '/services/dedicated-developers' },
-        { name: 'Hire React Js Developers', path: '/services/dedicated-developers' }
+        { name: 'Hire Full Stack Developer', path: '/services/full-stack' },
+        { name: 'Hire Android App Developers', path: '/services/android' },
+        { name: 'Hire React Js Developers', path: '/services/hire-react-developers' }
       ]
     },
     aiServices: {

@@ -42,6 +42,12 @@ import VirtualRealityDevelopmentService from '../components/services/VirtualReal
 import IotDevelopmentService from '../components/services/IotDevelopmentService';
 import PwaDevelopmentService from '../components/services/PwaDevelopmentService';
 import RpaDevelopmentService from '../components/services/RpaDevelopmentService';
+import AngularDevelopmentService from '../components/services/AngularDevelopmentService';
+import ReactJsDevelopmentService from '../components/services/ReactJsDevelopmentService';
+import VueJsDevelopmentService from '../components/services/VueJsDevelopmentService';
+import SharePointDevelopmentService from '../components/services/SharePointDevelopmentService';
+import PowerAppsDevelopmentService from '../components/services/PowerAppsDevelopmentService';
+import PowerAutomateDevelopmentService from '../components/services/PowerAutomateDevelopmentService';
 
 export const ServiceDetails = () => {
   const { slug } = useParams();
@@ -163,6 +169,39 @@ export const ServiceDetails = () => {
     currentSlug.includes('process-automation') ||
     currentSlug.includes('robotic');
 
+  const isAngular = currentSlug.includes('angular');
+
+  const isReact = !isReactNative && (
+    currentSlug.includes('react-js') ||
+    currentSlug.includes('reactjs') ||
+    currentSlug.includes('react-development') ||
+    currentSlug.includes('hire-react') ||
+    currentSlug === 'react' ||
+    currentSlug === 'services/react'
+  );
+
+  const isVue = currentSlug.includes('vue') ||
+    currentSlug.includes('vuejs') ||
+    currentSlug.includes('vue-js') ||
+    currentSlug.includes('hire-vue') ||
+    currentSlug.includes('nuxt');
+
+  const isSharePoint = currentSlug.includes('sharepoint') ||
+    currentSlug.includes('share-point') ||
+    currentSlug.includes('hire-sharepoint');
+
+  const isPowerApps = (currentSlug.includes('powerapps') ||
+    currentSlug.includes('power-apps') ||
+    currentSlug.includes('power-platform') ||
+    currentSlug.includes('hire-powerapps') ||
+    currentSlug.includes('hire-power-apps')) &&
+    !currentSlug.includes('automate');
+
+  const isPowerAutomate = currentSlug.includes('power-automate') ||
+    currentSlug.includes('powerautomate') ||
+    currentSlug.includes('hire-power-automate') ||
+    currentSlug.includes('hire-powerautomate');
+
   const unslugify = (str) => {
     if (!str) return 'Enterprise Tech Solution';
     return str
@@ -258,13 +297,37 @@ export const ServiceDetails = () => {
   };
 
   useEffect(() => {
-    if (!isIot && !isPwa && !isRpa && !isVR && !isFullStack && !isBlockchain && !isArtificialIntelligence && !isGenerativeAi && !isXamarin && !isAndroid && !isReactNative && !isFlutter && !isIOS && !isHealthcare && !isEducation && !isUber && !isSpotify && !isZomato && !isAmazon && !isVisitor && !isWarehouse && !isClover && !isCSharp && !isIWatch && !isWordpress && !isDrupal && !isUmbraco && !isSitecore && !isSitefinity && !isMagento && !isShopify) {
+    if (!isPowerAutomate && !isPowerApps && !isSharePoint && !isVue && !isReact && !isAngular && !isIot && !isPwa && !isRpa && !isVR && !isFullStack && !isBlockchain && !isArtificialIntelligence && !isGenerativeAi && !isXamarin && !isAndroid && !isReactNative && !isFlutter && !isIOS && !isHealthcare && !isEducation && !isUber && !isSpotify && !isZomato && !isAmazon && !isVisitor && !isWarehouse && !isClover && !isCSharp && !isIWatch && !isWordpress && !isDrupal && !isUmbraco && !isSitecore && !isSitefinity && !isMagento && !isShopify) {
       fetchServiceDetails();
     } else {
       setLoading(false);
     }
     window.scrollTo(0, 0);
   }, [currentSlug]);
+
+  if (isPowerAutomate) {
+    return <PowerAutomateDevelopmentService />;
+  }
+
+  if (isPowerApps) {
+    return <PowerAppsDevelopmentService />;
+  }
+
+  if (isSharePoint) {
+    return <SharePointDevelopmentService />;
+  }
+
+  if (isVue) {
+    return <VueJsDevelopmentService />;
+  }
+
+  if (isReact) {
+    return <ReactJsDevelopmentService />;
+  }
+
+  if (isAngular) {
+    return <AngularDevelopmentService />;
+  }
 
   if (isIot) {
     return <IotDevelopmentService />;

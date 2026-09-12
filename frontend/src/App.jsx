@@ -212,6 +212,74 @@ export function App() {
                 <Route path="/services/rpa" element={<ServiceDetails />} />
                 <Route path="/robotic-process-automation-services" element={<ServiceDetails />} />
                 <Route path="/services/robotic-process-automation-services" element={<ServiceDetails />} />
+                <Route path="/angular" element={<ServiceDetails />} />
+                <Route path="/services/angular" element={<ServiceDetails />} />
+                <Route path="/angular-development" element={<ServiceDetails />} />
+                <Route path="/services/angular-development" element={<ServiceDetails />} />
+                <Route path="/angular-development-company" element={<ServiceDetails />} />
+                <Route path="/services/angular-development-company" element={<ServiceDetails />} />
+                <Route path="/hire-angular-developers" element={<ServiceDetails />} />
+                <Route path="/services/hire-angular-developers" element={<ServiceDetails />} />
+                <Route path="/react" element={<ServiceDetails />} />
+                <Route path="/services/react" element={<ServiceDetails />} />
+                <Route path="/reactjs" element={<ServiceDetails />} />
+                <Route path="/services/reactjs" element={<ServiceDetails />} />
+                <Route path="/react-development" element={<ServiceDetails />} />
+                <Route path="/services/react-development" element={<ServiceDetails />} />
+                <Route path="/react-js-development" element={<ServiceDetails />} />
+                <Route path="/services/react-js-development" element={<ServiceDetails />} />
+                <Route path="/react-development-company" element={<ServiceDetails />} />
+                <Route path="/services/react-development-company" element={<ServiceDetails />} />
+                <Route path="/hire-react-developers" element={<ServiceDetails />} />
+                <Route path="/services/hire-react-developers" element={<ServiceDetails />} />
+                <Route path="/hire-reactjs-developers" element={<ServiceDetails />} />
+                <Route path="/services/hire-reactjs-developers" element={<ServiceDetails />} />
+                <Route path="/vue" element={<ServiceDetails />} />
+                <Route path="/services/vue" element={<ServiceDetails />} />
+                <Route path="/vuejs" element={<ServiceDetails />} />
+                <Route path="/services/vuejs" element={<ServiceDetails />} />
+                <Route path="/vue-js" element={<ServiceDetails />} />
+                <Route path="/services/vue-js" element={<ServiceDetails />} />
+                <Route path="/vue-development" element={<ServiceDetails />} />
+                <Route path="/services/vue-development" element={<ServiceDetails />} />
+                <Route path="/vue-js-development" element={<ServiceDetails />} />
+                <Route path="/services/vue-js-development" element={<ServiceDetails />} />
+                <Route path="/vue-development-company" element={<ServiceDetails />} />
+                <Route path="/services/vue-development-company" element={<ServiceDetails />} />
+                <Route path="/hire-vue-developers" element={<ServiceDetails />} />
+                <Route path="/services/hire-vue-developers" element={<ServiceDetails />} />
+                <Route path="/nuxt" element={<ServiceDetails />} />
+                <Route path="/services/nuxt" element={<ServiceDetails />} />
+                <Route path="/sharepoint" element={<ServiceDetails />} />
+                <Route path="/services/sharepoint" element={<ServiceDetails />} />
+                <Route path="/sharepoint-development" element={<ServiceDetails />} />
+                <Route path="/services/sharepoint-development" element={<ServiceDetails />} />
+                <Route path="/sharepoint-development-services" element={<ServiceDetails />} />
+                <Route path="/services/sharepoint-development-services" element={<ServiceDetails />} />
+                <Route path="/hire-sharepoint-developers" element={<ServiceDetails />} />
+                <Route path="/services/hire-sharepoint-developers" element={<ServiceDetails />} />
+                <Route path="/powerapps" element={<ServiceDetails />} />
+                <Route path="/services/powerapps" element={<ServiceDetails />} />
+                <Route path="/power-apps" element={<ServiceDetails />} />
+                <Route path="/services/power-apps" element={<ServiceDetails />} />
+                <Route path="/powerapps-development" element={<ServiceDetails />} />
+                <Route path="/services/powerapps-development" element={<ServiceDetails />} />
+                <Route path="/power-apps-development" element={<ServiceDetails />} />
+                <Route path="/services/power-apps-development" element={<ServiceDetails />} />
+                <Route path="/powerapps-development-company" element={<ServiceDetails />} />
+                <Route path="/services/powerapps-development-company" element={<ServiceDetails />} />
+                <Route path="/hire-powerapps-developers" element={<ServiceDetails />} />
+                <Route path="/services/hire-powerapps-developers" element={<ServiceDetails />} />
+                <Route path="/power-automate" element={<ServiceDetails />} />
+                <Route path="/services/power-automate" element={<ServiceDetails />} />
+                <Route path="/powerautomate" element={<ServiceDetails />} />
+                <Route path="/services/powerautomate" element={<ServiceDetails />} />
+                <Route path="/power-automate-services" element={<ServiceDetails />} />
+                <Route path="/services/power-automate-services" element={<ServiceDetails />} />
+                <Route path="/power-automate-development" element={<ServiceDetails />} />
+                <Route path="/services/power-automate-development" element={<ServiceDetails />} />
+                <Route path="/hire-power-automate-developers" element={<ServiceDetails />} />
+                <Route path="/services/hire-power-automate-developers" element={<ServiceDetails />} />
                 <Route path="/technologies" element={<Technologies />} />
                 <Route path="/portfolio" element={<Portfolio />} />
                 <Route path="/portfolio/:slug" element={<PortfolioDetails />} />

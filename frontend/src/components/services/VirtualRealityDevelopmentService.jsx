@@ -8,6 +8,7 @@ import TechnologyStackGrid from '../common/TechnologyStackGrid';
 import BrandLogoMarquee from '../common/BrandLogoMarquee';
 import FeaturedInLogosGrid from '../home/FeaturedInLogosGrid';
 import VideoTestimonialsStory from '../home/VideoTestimonialsStory';
+import SapphireFaqSection from '../common/SapphireFaqSection';
 import {
   Sparkles,
   ArrowRight,
@@ -435,47 +436,9 @@ export const VirtualRealityDevelopmentService = () => {
       <TechnologyStackGrid />
 
       {/* =========================================================================
-          10. FREQUENTLY ASKED QUESTIONS (Accordion)
+          10. FREQUENTLY ASKED QUESTIONS (2-Column Sapphire Layout)
           ========================================================================= */}
-      <section className="py-16 sm:py-20 bg-[#F8FAFC] border-t border-slate-200/80 font-sans text-left">
-        <Container>
-          <div className="text-center max-w-3xl mx-auto mb-12 space-y-2.5">
-            <h2 className="text-[28px] sm:text-[36px] font-[800] text-slate-950 tracking-tight">
-              Frequently Asked Questions
-            </h2>
-            <p className="text-[14.5px] text-[#475569] leading-relaxed">
-              We Listen To Queries And Provide Solutions That Captivate Users. Feel Free To Contact Us For Any Query.
-            </p>
-          </div>
-
-          <div className="max-w-4xl mx-auto space-y-3.5">
-            {faqs.map((faq, idx) => (
-              <div
-                key={idx}
-                className="bg-white rounded-[12px] border border-slate-200/90 overflow-hidden shadow-xs transition-all"
-              >
-                <button
-                  type="button"
-                  onClick={() => setOpenFaq(openFaq === idx ? -1 : idx)}
-                  className="w-full px-6 py-4.5 text-left flex items-center justify-between font-[700] text-[15px] sm:text-[16px] text-slate-900 hover:text-[#006B8F] transition-colors cursor-pointer"
-                >
-                  <span>{faq.q}</span>
-                  <ChevronDown
-                    className={`w-4 h-4 text-slate-500 transition-transform duration-300 shrink-0 ml-4 ${
-                      openFaq === idx ? 'rotate-180 text-[#006B8F]' : ''
-                    }`}
-                  />
-                </button>
-                {openFaq === idx && (
-                  <div className="px-6 pb-5 pt-1 text-[13.5px] sm:text-[14px] text-[#475569] leading-relaxed border-t border-slate-100 bg-slate-50/50">
-                    {faq.a}
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
+      <SapphireFaqSection faqList={faqs} />
 
       {/* =========================================================================
           11. WE HAVE BEEN FEATURED IN (Exact 18 Brand Logos Grid)
