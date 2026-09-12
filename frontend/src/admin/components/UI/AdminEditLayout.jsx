@@ -618,7 +618,8 @@ export const AdminPageInfoSection = ({
   number = 1,
   onTitleChange,
   onSlugChange,
-  isTitleEditable = false
+  isTitleEditable = false,
+  hideFields = false
 }) => {
   const isPub = status === 'published';
 
@@ -722,14 +723,15 @@ export const AdminPageInfoSection = ({
       </div>
 
       {/* Subtitle Description */}
-      <p style={{ margin: '0 0 16px 0', fontSize: '12.5px', color: '#64748B', lineHeight: 1.4 }}>
+      <p style={{ margin: hideFields ? '0' : '0 0 16px 0', fontSize: '12.5px', color: '#64748B', lineHeight: 1.4 }}>
         Manage and customize the content displayed on this live page (
         <span style={{ color: '#006B8F', fontFamily: 'monospace' }}>{publicRoute || `/${slug}`}</span>
         ).
       </p>
 
       {/* 2-Column Metadata Grid */}
-      <AdminFormGrid columns={2} gap="14px">
+      {!hideFields && (
+        <AdminFormGrid columns={2} gap="14px">
         <AdminFormField label="PAGE TITLE" required>
           {isTitleEditable ? (
             <input
@@ -789,6 +791,7 @@ export const AdminPageInfoSection = ({
           )}
         </AdminFormField>
       </AdminFormGrid>
+      )}
     </div>
   );
 };

@@ -336,8 +336,7 @@ export const AboutFirevyForm = ({
         onChangeStatus={(st) => updateRootField('status', st)}
         publicRoute={subPageMeta?.publicRoute || '/company/about-firevy'}
         number={pageNumber}
-        isTitleEditable={true}
-        onTitleChange={(val) => updateSection('hero', 'title', val)}
+        hideFields={true}
       />
 
       {/* 2. SECTION 1: HERO BANNER */}
