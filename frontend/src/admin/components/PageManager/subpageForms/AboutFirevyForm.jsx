@@ -58,9 +58,23 @@ export const AboutFirevyForm = ({
     });
   };
 
+  // Helper to atomically update both formData.heroImage and formData.hero.heroImage
+  const updateHeroImage = (val) => {
+    onChange({
+      ...formData,
+      heroImage: val,
+      hero: {
+        ...(formData.hero || {}),
+        heroImage: val
+      }
+    });
+  };
+
   // 1. Hero Banner State
   const hero = formData.hero || {};
-  const currentHeroImage = formData.heroImage || hero.heroImage || '/images/about-hero-laptop.svg';
+  const currentHeroImage = formData.heroImage !== undefined 
+    ? formData.heroImage 
+    : (hero.heroImage !== undefined ? hero.heroImage : '/images/about-hero-laptop.svg');
 
   // 2. About firevy.co (Building & Narrative) State
   const aboutCompany = formData.aboutCompany || formData.content?.aboutCompany || {
@@ -394,36 +408,61 @@ export const AboutFirevyForm = ({
                   Hero Side Visual / Graphic (3D Laptop & Floating Badges)
                 </h4>
                 <p style={{ margin: '2px 0 0', fontSize: '12px', color: '#64748b' }}>
-                  Right-side hero illustration. You can upload a custom graphic or reset to the default 3D laptop with badges.
+                  Right-side hero illustration. You can upload/replace with a new file, paste a custom URL, or restore the default laptop graphic.
                 </p>
               </div>
             </div>
-            <button
-              type="button"
-              className="btn btn-sm btn-outline-secondary"
-              onClick={() => {
-                updateRootField('heroImage', '/images/about-hero-laptop.svg');
-                updateSection('hero', 'heroImage', '/images/about-hero-laptop.svg');
-              }}
-              style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '12px', fontWeight: 600, padding: '4px 10px', borderRadius: '5px' }}
-              title="Reset to default 3D laptop graphic"
-            >
-              <RotateCcw size={13} />
-              Default Laptop Graphic
-            </button>
+            <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+              <button
+                type="button"
+                className="btn btn-sm btn-outline-secondary"
+                onClick={() => updateHeroImage('/images/about-hero-laptop.svg')}
+                style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '12px', fontWeight: 600, padding: '4px 10px', borderRadius: '5px' }}
+                title="Reset to default 3D laptop graphic"
+              >
+                <RotateCcw size={13} />
+                Default Laptop Graphic
+              </button>
+              {currentHeroImage && (
+                <button
+                  type="button"
+                  className="btn btn-sm btn-outline-danger"
+                  onClick={() => updateHeroImage('')}
+                  style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '12px', fontWeight: 600, padding: '4px 10px', borderRadius: '5px' }}
+                  title="Remove graphic"
+                >
+                  <Trash2 size={13} />
+                  Remove
+                </button>
+              )}
+            </div>
           </div>
 
           <AdminMediaField
-            label="Hero Side Graphic Asset"
+            label="Upload or Replace Graphic Asset"
             value={currentHeroImage}
-            onChange={(val) => {
-              updateRootField('heroImage', val);
-              updateSection('hero', 'heroImage', val);
-            }}
+            onChange={(val) => updateHeroImage(val)}
             folder="company/about"
             placeholder="/images/about-hero-laptop.svg"
-            helperText="Upload an image or SVG, or leave as default (/images/about-hero-laptop.svg)"
+            helperText="Click 'Replace' to upload a new JPG, PNG, WebP or SVG from your device, or click trash to remove."
           />
+
+          <div style={{ marginTop: '12px', background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '6px', padding: '10px 12px' }}>
+            <label style={{ fontSize: '12px', fontWeight: 600, color: '#334155', display: 'block', marginBottom: '4px' }}>
+              Direct Asset URL / File Path:
+            </label>
+            <input
+              type="text"
+              className="form-control"
+              value={currentHeroImage || ''}
+              onChange={(e) => updateHeroImage(e.target.value)}
+              placeholder="e.g. /images/about-hero-laptop.svg or /uploads/images/... or https://..."
+              style={{ fontSize: '12.5px' }}
+            />
+            <span style={{ fontSize: '11px', color: '#64748b', display: 'block', marginTop: '3px' }}>
+              You can also type or paste any local path or external image URL here directly.
+            </span>
+          </div>
 
           {currentHeroImage && (
             <div style={{ marginTop: '14px', background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '8px', padding: '12px', display: 'flex', alignItems: 'center', gap: '16px' }}>
