@@ -298,6 +298,7 @@ export const OurTeamForm = ({
   const teamworkHeading = rawContent.teamworkHeading || 'Teamwork Is The Only Way We Work';
   const teamworkButtonText = rawContent.teamworkButtonText || 'Join Our Team';
   const teamworkButtonLink = rawContent.teamworkButtonLink || '/careers';
+  const teamworkBannerImage = rawContent.teamworkBannerImage || '';
 
   // 5. Testimonial State
   const defaultFirevianSay = {
@@ -802,8 +803,8 @@ export const OurTeamForm = ({
       {/* ========================================================================= */}
       <AdminFormSection
         title="4. Teamwork Mosaic Banner"
-        subtitle="Edge-to-edge duotone team composite photo banner."
-        badge="Teamwork Banner"
+        subtitle="Edge-to-edge duotone team composite photo banner (Full 24-column x 6-row wall)."
+        badge="Teamwork Mosaic Wall"
       >
         <AdminFormGrid columns={3}>
           <AdminFormField label="Banner Heading" fullWidth>
@@ -813,6 +814,7 @@ export const OurTeamForm = ({
               value={teamworkHeading}
               onChange={(e) => updateContentField('teamworkHeading', e.target.value)}
               placeholder="e.g. Teamwork Is The Only Way We Work"
+              style={{ fontWeight: 700 }}
             />
           </AdminFormField>
 
@@ -835,7 +837,136 @@ export const OurTeamForm = ({
               placeholder="e.g. /careers"
             />
           </AdminFormField>
+
+          <AdminFormField label="Custom Composite Banner Image (Optional)" fullWidth>
+            <ImageThumbnailPicker
+              label="Custom Composite Banner Graphic"
+              value={teamworkBannerImage}
+              onChange={(url) => updateContentField('teamworkBannerImage', url)}
+              width="100px"
+              height="60px"
+              helperText="Leave empty to display the full 144-portrait interactive duotone wall grid automatically."
+            />
+          </AdminFormField>
         </AdminFormGrid>
+
+        {/* Live 144-Photo Mosaic Wall Preview (Exact Frontend Replica) */}
+        <div style={{ marginTop: '20px', borderRadius: '12px', overflow: 'hidden', border: '1px solid #CBD5E1' }}>
+          <div style={{ padding: '10px 14px', backgroundColor: '#F1F5F9', borderBottom: '1px solid #E2E8F0', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <span style={{ fontSize: '11px', fontWeight: 800, color: '#006B8F', textTransform: 'uppercase', letterSpacing: '0.04em' }}>
+              ● Live Wall Preview (Exact Frontend Replica)
+            </span>
+            <span style={{ fontSize: '11px', color: '#64748B', fontWeight: 600 }}>
+              Full 24 Columns × 6 Rows (144 faces edge-to-edge)
+            </span>
+          </div>
+
+          <div style={{ padding: '24px 16px', backgroundColor: '#FFFFFF', textAlign: 'center' }}>
+            <h3 style={{ fontSize: '24px', fontWeight: 900, color: '#0F172A', marginBottom: '16px', letterSpacing: '-0.02em' }}>
+              {teamworkHeading}
+            </h3>
+
+            {/* Edge-to-edge duotone grid */}
+            <div style={{ width: '100%', position: 'relative', overflow: 'hidden', backgroundColor: '#388BA8', borderRadius: '8px' }}>
+              {teamworkBannerImage ? (
+                <div style={{ position: 'relative', width: '100%', maxHeight: '280px', overflow: 'hidden' }}>
+                  <img
+                    src={getMediaUrl(teamworkBannerImage)}
+                    alt={teamworkHeading}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'grayscale(100%) contrast(125%) brightness(95%)', opacity: 0.85, mixBlendMode: 'multiply' }}
+                  />
+                  <div style={{ position: 'absolute', inset: 0, backgroundColor: 'rgba(53, 130, 157, 0.2)', pointerEvents: 'none' }} />
+                </div>
+              ) : (
+                <div
+                  style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(24, minmax(0, 1fr))',
+                    gap: '2px',
+                    opacity: 0.95
+                  }}
+                >
+                  {[
+                    'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80',
+                    'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80',
+                    'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80',
+                    'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=150&q=80',
+                    'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=150&q=80',
+                    'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=150&q=80',
+                    'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=150&q=80',
+                    'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=150&q=80',
+                    'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=150&q=80',
+                    'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=150&q=80',
+                    'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&q=80',
+                    'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80',
+                    'https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?auto=format&fit=crop&w=150&q=80',
+                    'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=150&q=80',
+                    'https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?auto=format&fit=crop&w=150&q=80',
+                    'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=150&q=80',
+                    'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=150&q=80',
+                    'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80',
+                    'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=150&q=80',
+                    'https://images.unsplash.com/photo-1566492031773-4f4e44671857?auto=format&fit=crop&w=150&q=80',
+                    'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=150&q=80',
+                    'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&fit=crop&w=150&q=80',
+                    'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80',
+                    'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80'
+                  ].concat(
+                    Array.from({ length: 120 }, (_, i) => [
+                      'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80',
+                      'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=150&q=80',
+                      'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80',
+                      'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=150&q=80',
+                      'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=150&q=80',
+                      'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=150&q=80',
+                      'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=150&q=80',
+                      'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=150&q=80',
+                      'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80',
+                      'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=150&q=80',
+                      'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&q=80',
+                      'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=150&q=80'
+                    ][i % 12])
+                  ).map((src, i) => (
+                    <div key={i} style={{ aspectRatio: '3/4', overflow: 'hidden', backgroundColor: '#2D7392' }}>
+                      <img
+                        src={src}
+                        alt=""
+                        style={{
+                          width: '100%',
+                          height: '100%',
+                          objectFit: 'cover',
+                          filter: 'grayscale(100%) contrast(125%) brightness(95%)',
+                          opacity: 0.8,
+                          mixBlendMode: 'multiply'
+                        }}
+                      />
+                    </div>
+                  ))}
+                </div>
+              )}
+              <div style={{ position: 'absolute', inset: 0, backgroundColor: 'rgba(53, 130, 157, 0.2)', pointerEvents: 'none' }} />
+            </div>
+
+            <div style={{ marginTop: '16px' }}>
+              <span
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  padding: '6px 20px',
+                  borderRadius: '4px',
+                  backgroundColor: '#006085',
+                  color: '#FFFFFF',
+                  fontWeight: 700,
+                  fontSize: '13px',
+                  boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+                }}
+              >
+                {teamworkButtonText || 'Join Our Team'}
+              </span>
+            </div>
+          </div>
+        </div>
       </AdminFormSection>
 
       {/* ========================================================================= */}
