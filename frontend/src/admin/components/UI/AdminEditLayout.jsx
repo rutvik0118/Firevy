@@ -618,7 +618,8 @@ export const AdminPageInfoSection = ({
   number = 1,
   onTitleChange,
   onSlugChange,
-  isTitleEditable = false
+  isTitleEditable = false,
+  hideFields = true
 }) => {
   const isPub = status === 'published';
 
@@ -722,14 +723,15 @@ export const AdminPageInfoSection = ({
       </div>
 
       {/* Subtitle Description */}
-      <p style={{ margin: '0 0 16px 0', fontSize: '12.5px', color: '#64748B', lineHeight: 1.4 }}>
+      <p style={{ margin: hideFields ? '0' : '0 0 16px 0', fontSize: '12.5px', color: '#64748B', lineHeight: 1.4 }}>
         Manage and customize the content displayed on this live page (
         <span style={{ color: '#006B8F', fontFamily: 'monospace' }}>{publicRoute || `/${slug}`}</span>
         ).
       </p>
 
       {/* 2-Column Metadata Grid */}
-      <AdminFormGrid columns={2} gap="14px">
+      {!hideFields && (isTitleEditable || onSlugChange) && (
+        <AdminFormGrid columns={2} gap="14px">
         <AdminFormField label="PAGE TITLE" required>
           {isTitleEditable ? (
             <input
@@ -750,7 +752,10 @@ export const AdminPageInfoSection = ({
           )}
         </AdminFormField>
 
-        <AdminFormField label="SLUG (URL PATH)">
+        <AdminFormField
+          label="SLUG (URL PATH)"
+          helperText={onSlugChange ? "URL slug identifier" : "Fixed system route (locked to protect website navigation)."}
+        >
           {onSlugChange ? (
             <input
               type="text"
@@ -761,16 +766,32 @@ export const AdminPageInfoSection = ({
               style={{ fontFamily: 'monospace' }}
             />
           ) : (
-            <input
-              type="text"
-              className="form-control"
-              value={publicRoute || `/${slug}`}
-              readOnly
-              style={{ backgroundColor: '#F8FAFC', color: '#475569', cursor: 'default', fontFamily: 'monospace' }}
-            />
+            <div style={{ position: 'relative' }}>
+              <input
+                type="text"
+                className="form-control"
+                value={publicRoute || `/${slug}`}
+                readOnly
+                style={{ backgroundColor: '#F8FAFC', color: '#475569', cursor: 'default', fontFamily: 'monospace', paddingRight: '30px' }}
+              />
+              <span
+                style={{
+                  position: 'absolute',
+                  right: '10px',
+                  top: '50%',
+                  transform: 'translateY(-50%)',
+                  color: '#94A3B8',
+                  fontSize: '11px'
+                }}
+                title="Fixed system route (Read-only)"
+              >
+                🔒
+              </span>
+            </div>
           )}
         </AdminFormField>
       </AdminFormGrid>
+      )}
     </div>
   );
 };
