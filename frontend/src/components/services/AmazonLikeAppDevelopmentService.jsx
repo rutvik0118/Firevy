@@ -10,6 +10,14 @@ import SuccessStoriesSection from '../common/SuccessStoriesSection';
 import PremiumServicesGrid from '../common/PremiumServicesGrid';
 import BrandLogoMarquee from '../common/BrandLogoMarquee';
 import SapphireLightHeroBanner from '../common/SapphireLightHeroBanner';
+import AndroidComparativeAnalysis from './AndroidComparativeAnalysis';
+import SapphireFaqSection from '../common/SapphireFaqSection';
+import AmazonQuoteOverview from '../common/AmazonQuoteOverview';
+import HealthcareChallengeCtaBanner from '../common/HealthcareChallengeCtaBanner';
+import NewsletterSubscribeBanner from '../common/NewsletterSubscribeBanner';
+import VideoTestimonialsStory from '../home/VideoTestimonialsStory';
+import InnovativeVideoSlider from '../common/InnovativeVideoSlider';
+import WhatOurClientsSaySection from './WhatOurClientsSaySection';
 import {
   ShoppingBag,
   ShoppingCart,
@@ -32,13 +40,93 @@ import {
   Tag,
   Check,
   Shield,
-  Layers
+  Layers,
+  LogIn,
+  Bell,
+  Map
 } from 'lucide-react';
 
 export const AmazonLikeAppDevelopmentService = () => {
+  const [principalTab, setPrincipalTab] = useState('customers');
   const [activePanelTab, setActivePanelTab] = useState('buyer');
   const [openFaq, setOpenFaq] = useState(0);
   const [formSubmitted, setFormSubmitted] = useState(false);
+
+  // Principal Features matching Sapphire Solutions 1:1 Reference
+  const principalFeatures = {
+    customers: {
+      left: [
+        {
+          title: 'Sign-Up & Authorization',
+          desc: "The registration or sign-up procedure allows users to use the app's services easily. People may register for the app by submitting information such as name, email, phone number, etc.",
+          icon: LogIn
+        },
+        {
+          title: 'Creating Profile',
+          desc: 'Users can build an interactive profile with all required information, including personal information, financial information, etc.',
+          icon: User
+        },
+        {
+          title: 'Product Catalog',
+          desc: 'This feature is vital since it allows users to see all available items on the app, organized by category. Users can examine product listings, images, pricing, and ratings.',
+          icon: Map
+        }
+      ],
+      right: [
+        {
+          title: 'Search Bar',
+          desc: 'The search bar increases customer satisfaction by giving enhanced search results despite misspellings.',
+          icon: Search
+        },
+        {
+          title: 'Shopping Cart',
+          desc: 'This allows customers to put all their desired, unavailable goods in one location. It might be for various reasons, including a shortage of stock or funds.',
+          icon: ShoppingCart
+        },
+        {
+          title: 'Push Notifications',
+          desc: 'The push notifications will let customers get immediate information on items, current promotions and offers, product delivery, and other topics.',
+          icon: Bell
+        }
+      ]
+    },
+    investors: {
+      left: [
+        {
+          title: 'Admin Dashboard & Control',
+          desc: 'Allows investors and platform managers to monitor gross sales revenue, daily active orders, commission ledgers, and marketplace metrics.',
+          icon: Sliders
+        },
+        {
+          title: 'Vendor Verification & KYC',
+          desc: 'A robust onboarding pipeline to verify vendor business licenses, tax IDs, catalog compliance, and storefront status.',
+          icon: CheckCircle2
+        },
+        {
+          title: 'Commission & Payout Ledger',
+          desc: 'Automated multi-vendor revenue split system managing category-based commissions, bank payouts, and tax invoice generation.',
+          icon: DollarSign
+        }
+      ],
+      right: [
+        {
+          title: 'Inventory & Stock Analytics',
+          desc: 'Real-time catalog stock synchronization preventing overselling across multi-warehouse fulfillment channels.',
+          icon: PackageCheck
+        },
+        {
+          title: 'Promotional Banner Manager',
+          desc: 'Monetize the app by scheduling homepage hero banners, vendor sponsored product ads, and festive flash sales.',
+          icon: Tag
+        },
+        {
+          title: 'Security & Anti-Fraud Suite',
+          desc: 'Enterprise PCI-DSS compliance, AI fraud detection on transactions, and automated review spam filtering.',
+          icon: Shield
+        }
+      ]
+    }
+  };
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -190,39 +278,42 @@ export const AmazonLikeAppDevelopmentService = () => {
     ]
   };
 
-  // Official Sapphire E-Commerce FAQs
+  // Official Sapphire E-Commerce FAQs matching Screenshot 1 1:1
   const sapphireFaqs = [
     {
-      q: '1. What is Amazon-like e-commerce app development?',
-      a: 'Amazon-like app development involves building a multi-vendor e-commerce marketplace platform connecting multiple independent sellers with online shoppers. It includes features like product catalog management, AI recommendation engines, secure payment gateways, vendor payout ledgers, and order shipment tracking.'
+      id: 1,
+      question: '1. Which technology do you specialize in?',
+      answer: 'We develop eCommerce mobile applications for retailers for Google Android, iOS, Windows, etc. Our mobile developers execute the most recent market trends using cutting-edge technologies such as Flutter, PhoneGap, React Native, AR/VR, AI, IoT, and others.'
     },
     {
-      q: '2. How does the vendor commission model work in an Amazon clone app?',
-      a: 'The platform administrator sets customized commission rates (e.g. 5% to 15%) per product category or vendor. When a buyer completes a order, the commission is automatically deducted before releasing payouts to the seller.'
+      id: 2,
+      question: '2. Can I examine the code throughout development?',
+      answer: 'Yes! We follow 100% transparent development practices and grant client access to code repositories (GitHub/GitLab) so you can review pull requests, examine code quality, and track sprint deliverables.'
     },
     {
-      q: '3. Do you provide complete source code and technical documentation?',
-      a: 'Yes, we provide 100% source code ownership, complete architectural blueprints, database schemas, and API documentation upon project delivery.'
+      id: 3,
+      question: '3. Which platform should my first mobile app be built on?',
+      answer: 'It depends on your target market demographics. For mass global adoption, launch on Android first. For higher average revenue per user in USA/Europe, launch on iOS. We also build cross-platform apps using Flutter or React Native to deploy on both App Store and Google Play simultaneously.'
     },
     {
-      q: '4. Do you sign Non-Disclosure Agreements (NDAs)?',
-      a: 'Yes, we sign a strict Non-Disclosure Agreement (NDA) before discussing your project to guarantee total confidentiality of your business model, catalog data, and unique app features.'
+      id: 4,
+      question: '4. How can you secure mobile app development projects?',
+      answer: 'We enforce bank-grade security protocols including PCI-DSS compliance, SSL pinning, end-to-end payload encryption, multi-factor authentication, biometric logins, ProGuard obfuscation, and automated vulnerability scanning.'
     },
     {
-      q: '5. Can the app support B2B Wholesale and B2C Retail simultaneously?',
-      a: 'Yes! Our custom e-commerce architecture can support dual B2B wholesale pricing tiers (bulk discounts, quote requests) alongside traditional B2C retail checkout.'
+      id: 5,
+      question: '5. What makes Sapphire Software Solutions a reliable provider of Amazon like app development services?',
+      answer: 'With 23+ years of IT experience, 320+ 5-star Clutch reviews, 1500+ completed projects, and 95% client retention, we deliver enterprise-grade multi-vendor e-commerce platforms tailored to your brand vision.'
     },
     {
-      q: '6. What post-launch SLA maintenance and support do you provide?',
-      a: 'We offer continuous 24/7 server health monitoring, OS compatibility updates, performance tuning, new feature rollouts, and payment gateway updates.'
+      id: 6,
+      question: '6. What features are included in Amazon like apps developed by Sapphire Software Solutions?',
+      answer: 'Our Amazon-like apps include buyer shopping apps, seller portals, automated vendor payouts, real-time GPS shipment tracking, AI recommendations, push notifications, and super admin dashboards.'
     },
     {
-      q: '7. How long does it take to develop a custom Amazon-like e-commerce app?',
-      a: 'We typically deliver a fully functional MVP within 10 to 12 weeks, and a complete multi-vendor global marketplace platform within 4 to 6 months.'
-    },
-    {
-      q: '8. What payment gateways can be integrated?',
-      a: 'We integrate Stripe, PayPal, Razorpay, Apple Pay, Google Pay, credit/debit cards, BNPL (Buy Now Pay Later), and Cash on Delivery (COD).'
+      id: 7,
+      question: '7. Does Sapphire Software Solutions build Amazon like apps for both web and mobile platforms?',
+      answer: 'Yes, we build fully integrated e-commerce ecosystems covering native iOS, native Android, cross-platform mobile apps, and progressive Next.js/React web storefronts.'
     }
   ];
 
@@ -236,8 +327,8 @@ export const AmazonLikeAppDevelopmentService = () => {
 
       {/* Sapphire Light Hero Banner */}
       <SapphireLightHeroBanner
-        title="E-Commerce App Development Services in USA"
-        subtitle="Rapidly transforming global retail, Custom Amazon-Like Multi-Vendor E-Commerce App Development Services empower marketplace owners and retail brands with AI predictive product recommendations, multi-vendor seller portals, and 1-click checkout."
+        title="Amazon Like App Development Services in USA"
+        subtitle="People have established strong faith in online shopping in the modern day. The majority of consumers prefer to purchase online since it is quick, reliable, and convenient. Choosing Amazon like app development services simplifies the user’s online shopping journey and ensures a seamless buying experience. Many entrepreneurial visionaries now want to build eCommerce app like Amazon to capture the growing digital marketplace. Partnering with an expert Amazon clone app development company allows businesses to launch scalable and feature-rich eCommerce platforms that replicate Amazon’s success while tailoring solutions to their brand identity."
         ctaText="Discuss Your Project"
         ctaLink="#quote-form"
         serviceCategory="amazon"
@@ -246,54 +337,62 @@ export const AmazonLikeAppDevelopmentService = () => {
       {/* Brand Logo Marquee Right Below Hero Banner */}
       <BrandLogoMarquee />
 
-      {/* Review & Ratings Bar */}
-      <section className="py-6 bg-[#F8FAFC] border-b border-slate-200 text-slate-900 font-sans">
-        <Container>
-          <div className="flex flex-wrap items-center justify-around gap-6 text-center">
-            <div className="space-y-0.5">
-              <div className="text-base sm:text-lg font-extrabold text-[#005F96] flex items-center justify-center space-x-1">
-                <span>900+ GOOGLE REVIEWS</span>
-                <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
-              </div>
-              <p className="text-xs text-slate-500 font-medium">4.9 / 5.0 Rating</p>
-            </div>
-
-            <div className="space-y-0.5">
-              <div className="text-base sm:text-lg font-extrabold text-[#005F96] flex items-center justify-center space-x-1">
-                <span>320+ CLUTCH REVIEWS</span>
-                <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
-              </div>
-              <p className="text-xs text-slate-500 font-medium">Top E-Commerce Developer</p>
-            </div>
-
-            <div className="space-y-0.5">
-              <div className="text-base sm:text-lg font-extrabold text-[#005F96] flex items-center justify-center space-x-1">
-                <span>200+ GOODFIRMS REVIEWS</span>
-                <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
-              </div>
-              <p className="text-xs text-slate-500 font-medium">Verified Marketplace Partner</p>
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      {/* Section 3: Get Amazon-Like E-Commerce App Development Services (1:1 Sapphire Dual Phone Mockup Layout) */}
+      {/* Section 3: Principal Features (1:1 Sapphire Reference Screenshot Match) */}
       <section id="features-section" className="py-20 bg-[#F0F8FA] border-b border-slate-200 text-left">
         <Container>
-          <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
-            <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
-              Get Amazon-Like E-Commerce App Development Services
+          {/* Section Heading & Subtitle */}
+          <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
+            <h2
+              className="text-slate-900 tracking-tight"
+              style={{
+                fontSize: '40px',
+                fontWeight: 800,
+                lineHeight: '48px'
+              }}
+            >
+              Principal Features
             </h2>
-            <p className="text-base sm:text-lg text-slate-600 font-normal">
-              We offer a comprehensive range of best e-commerce app development services to businesses of all types and sizes. Contact us now for mobile e-commerce app development services under budget.
-            </p>
+
+            {/* 2 Main Tab Buttons: For Customers / For Investors */}
+            <div className="flex justify-center items-center space-x-4 pt-4 max-w-md mx-auto">
+              <button
+                onClick={() => setPrincipalTab('customers')}
+                className={`px-8 py-3 rounded-lg transition-all border ${
+                  principalTab === 'customers'
+                    ? 'bg-[#005F96] text-white border-[#005F96] shadow-md'
+                    : 'bg-white text-[#005F96] border-[#005F96] hover:bg-cyan-50'
+                }`}
+                style={{
+                  fontSize: '16px',
+                  fontWeight: 600,
+                  lineHeight: '24px'
+                }}
+              >
+                For Customers
+              </button>
+              <button
+                onClick={() => setPrincipalTab('investors')}
+                className={`px-8 py-3 rounded-lg transition-all border ${
+                  principalTab === 'investors'
+                    ? 'bg-[#005F96] text-white border-[#005F96] shadow-md'
+                    : 'bg-white text-[#005F96] border-[#005F96] hover:bg-cyan-50'
+                }`}
+                style={{
+                  fontSize: '16px',
+                  fontWeight: 600,
+                  lineHeight: '24px'
+                }}
+              >
+                For Investors
+              </button>
+            </div>
           </div>
 
-          {/* 3-Column Layout: Left 3 Features + Center Dual "Clown Polska" E-Commerce Phone Mockup + Right 3 Features */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center max-w-6xl mx-auto mb-16">
+          {/* 3-Column Layout: Left 3 Features + Center Dual Phone Mockup (KepShop + Shopping App) + Right 3 Features */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center max-w-6xl mx-auto">
             {/* Left 3 Feature Items */}
             <div className="lg:col-span-4 space-y-8">
-              {ecommerceFeatures.slice(0, 3).map((item, idx) => {
+              {principalFeatures[principalTab].left.map((item, idx) => {
                 const IconComp = item.icon;
                 return (
                   <div key={idx} className="flex items-start space-x-4">
@@ -301,71 +400,110 @@ export const AmazonLikeAppDevelopmentService = () => {
                       <IconComp className="w-6 h-6" />
                     </div>
                     <div className="space-y-1">
-                      <h3 className="text-lg font-black text-slate-900">{item.title}</h3>
-                      <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">{item.desc}</p>
+                      <h3
+                        className="text-slate-900"
+                        style={{
+                          fontSize: '18px',
+                          fontWeight: 600,
+                          lineHeight: '22px'
+                        }}
+                      >
+                        {item.title}
+                      </h3>
+                      <p
+                        className="text-slate-600 font-normal"
+                        style={{
+                          fontSize: '15px',
+                          fontWeight: 400,
+                          lineHeight: '23px'
+                        }}
+                      >
+                        {item.desc}
+                      </p>
                     </div>
                   </div>
                 );
               })}
             </div>
 
-            {/* Center Dual Phone Mockup (E-Commerce Storefront + Cart Checkout 1:1 Match) */}
+            {/* Center Dual Phone Mockup (KepShop + Shopping App 1:1 Match) */}
             <div className="lg:col-span-4 flex items-center justify-center relative py-4">
               <div className="flex items-center -space-x-12">
-                {/* Front Phone: Product Storefront Screen */}
-                <div className="w-[200px] h-[410px] rounded-[36px] bg-slate-950 border-4 border-slate-800 p-2 shadow-2xl relative overflow-hidden text-left z-20">
-                  <div className="bg-white w-full h-full rounded-[28px] p-3 flex flex-col justify-between text-slate-900 text-[10px]">
-                    <div className="space-y-1.5">
-                      <div className="flex items-center justify-between text-[9px] font-bold text-slate-500">
-                        <span>9:41</span>
-                        <span className="text-amber-600 font-black">AMAZON CLONE</span>
-                      </div>
-                      <div className="bg-slate-100 p-1.5 rounded-lg text-[8px] text-slate-400 flex items-center space-x-1">
-                        <Search className="w-3 h-3 text-slate-400" />
-                        <span>Search Amazon...</span>
-                      </div>
-                    </div>
+                {/* Left Phone: KepShop Dark Navy Branding Screen */}
+                <div className="w-[195px] sm:w-[215px] h-[390px] sm:h-[420px] rounded-[36px] bg-[#1E2548] border-4 border-slate-800 shadow-2xl overflow-hidden flex flex-col justify-between text-white font-sans relative z-20">
+                  {/* Top iPhone Speaker Notch */}
+                  <div className="w-20 h-3.5 bg-slate-900 rounded-b-xl mx-auto border-b border-x border-slate-700/50" />
 
-                    <div className="my-2 space-y-1.5">
-                      <div className="p-2 rounded-lg bg-amber-50 border border-amber-200">
-                        <div className="text-[8px] font-black text-amber-700 uppercase">PRIME DEAL 50% OFF</div>
-                        <div className="font-extrabold text-slate-900 text-[10px] mt-0.5">Smart Watch Series 8</div>
-                        <div className="text-[8px] text-slate-500 font-bold mt-0.5">⭐ 4.9 • 2-Day Shipping</div>
-                        <div className="font-black text-slate-900 text-xs mt-1">$199.00 <span className="text-slate-400 line-through text-[9px] font-normal">$399.00</span></div>
-                      </div>
-
-                      <div className="p-1.5 rounded-lg bg-slate-50 border border-slate-200 flex items-center justify-between">
-                        <span className="font-bold text-slate-700 text-[9px]">Wireless Earbuds</span>
-                        <span className="font-black text-slate-900 text-[10px]">$49.99</span>
-                      </div>
-                    </div>
-
-                    <button className="w-full py-2 rounded-lg bg-amber-500 text-slate-950 font-black text-xs text-center shadow-md">
-                      Add to Shopping Cart
-                    </button>
+                  <div className="my-auto text-center space-y-1">
+                    <h3 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white font-sans">
+                      KepShop
+                    </h3>
                   </div>
+
+                  <div className="pb-3" />
                 </div>
 
-                {/* Back Phone: Cart Checkout & Track Order Screen */}
-                <div className="w-[190px] h-[390px] rounded-[34px] bg-slate-950 border-4 border-slate-800 p-2 shadow-xl relative overflow-hidden text-left z-10">
-                  <div className="bg-slate-900 w-full h-full rounded-[26px] p-3 flex flex-col justify-between text-white text-[9px]">
-                    <div className="text-center space-y-1">
-                      <span className="text-[9px] font-bold text-amber-400 uppercase">Order Shipment Tracker</span>
-                      <div className="text-xs font-black text-white">Shipped • Out for Delivery</div>
-                      <div className="text-[9px] text-emerald-400 font-bold">Arriving Tomorrow by 10 AM 🚚</div>
-                    </div>
-
-                    <div className="my-2 h-28 bg-slate-800 rounded-xl border border-slate-700 relative p-2 overflow-hidden flex flex-col justify-between">
-                      <div className="text-[8px] text-slate-300 font-bold">Package Tracking ID</div>
-                      <div className="font-mono text-cyan-300 text-[10px] font-bold">TBA-8492019482</div>
-                      <div className="w-full bg-emerald-500/20 text-emerald-300 text-center font-bold text-[8px] py-1 rounded border border-emerald-500/30">
-                        1-Click Easy Returns
+                {/* Right Phone: E-Commerce Storefront App Screen */}
+                <div className="w-[185px] sm:w-[205px] h-[380px] sm:h-[410px] rounded-[34px] bg-slate-950 border-4 border-slate-800 p-2 shadow-xl overflow-hidden flex flex-col justify-between text-slate-900 font-sans relative z-10 -ml-8 sm:-ml-10 transform translate-y-3 bg-white">
+                  <div>
+                    <div className="flex items-center justify-between text-[7px] text-slate-500 px-2 pt-1 font-semibold border-b border-slate-100 pb-1">
+                      <span>9:41</span>
+                      <div className="flex items-center space-x-1">
+                        <div className="w-1.5 h-1.5 rounded-full bg-slate-500" />
+                        <div className="w-2 h-1.5 border border-slate-500 rounded-sm" />
                       </div>
                     </div>
 
-                    <button className="w-full py-1.5 rounded-lg bg-[#005F96] text-white font-extrabold text-[10px] text-center shadow-sm">
-                      View Order Details
-                    </button>
+                    <div className="px-2 pt-1.5 space-y-1">
+                      <div className="flex justify-between items-center">
+                        <div>
+                          <p className="text-[7px] text-slate-400 font-bold leading-none">Welcome,</p>
+                          <h4 className="text-[10px] font-black text-slate-900 leading-tight">Martin Smith</h4>
+                        </div>
+                        <div className="w-5 h-5 rounded-full bg-amber-100 border border-amber-300 flex items-center justify-center text-[9px]">
+                          👤
+                        </div>
+                      </div>
+
+                      <div className="bg-slate-100 text-slate-400 rounded-md px-2 py-0.5 flex items-center text-[7.5px]">
+                        <span className="mr-1">🔍</span>
+                        <span>Search...</span>
+                      </div>
+                    </div>
+
+                    <div className="px-2 mt-1.5 space-y-1">
+                      <div className="bg-gradient-to-r from-blue-500 to-indigo-600 rounded-lg p-1.5 text-white space-y-0.5 shadow-sm">
+                        <span className="text-[6.5px] font-black bg-white/20 px-1 py-0.2 rounded uppercase">50% Off</span>
+                        <div className="text-[7.5px] font-extrabold leading-tight">On everything today</div>
+                        <div className="text-[6px] opacity-80">With code: ECOMMERCE</div>
+                      </div>
+                    </div>
+
+                    <div className="px-2 mt-1.5 space-y-1">
+                      <div className="flex justify-between items-center text-[7.5px]">
+                        <span className="font-extrabold text-slate-900">New Arrivals</span>
+                        <span className="text-[6.5px] text-[#005F96] font-bold">View all</span>
+                      </div>
+                      <div className="grid grid-cols-2 gap-1">
+                        <div className="bg-slate-50 border border-slate-200 rounded p-1 space-y-0.5">
+                          <div className="h-10 rounded bg-slate-200 flex items-center justify-center text-sm">👜</div>
+                          <div className="text-[7px] font-bold truncate">The Marc Jacobs</div>
+                          <div className="text-[6.5px] font-black">$185.00</div>
+                        </div>
+                        <div className="bg-slate-50 border border-slate-200 rounded p-1 space-y-0.5">
+                          <div className="h-10 rounded bg-slate-200 flex items-center justify-center text-sm">👟</div>
+                          <div className="text-[7px] font-bold truncate">Axel Arigato</div>
+                          <div className="text-[6.5px] font-black">$245.00</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-white border-t border-slate-100 -mx-2 -mb-2 p-1 flex items-center justify-around text-[7px] font-extrabold text-slate-400">
+                    <span className="text-[#005F96]">🏠</span>
+                    <span>🔍</span>
+                    <span>🛍️</span>
+                    <span>👤</span>
                   </div>
                 </div>
               </div>
@@ -373,7 +511,7 @@ export const AmazonLikeAppDevelopmentService = () => {
 
             {/* Right 3 Feature Items */}
             <div className="lg:col-span-4 space-y-8">
-              {ecommerceFeatures.slice(3, 6).map((item, idx) => {
+              {principalFeatures[principalTab].right.map((item, idx) => {
                 const IconComp = item.icon;
                 return (
                   <div key={idx} className="flex items-start space-x-4">
@@ -381,333 +519,270 @@ export const AmazonLikeAppDevelopmentService = () => {
                       <IconComp className="w-6 h-6" />
                     </div>
                     <div className="space-y-1">
-                      <h3 className="text-lg font-black text-slate-900">{item.title}</h3>
-                      <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">{item.desc}</p>
+                      <h3
+                        className="text-slate-900"
+                        style={{
+                          fontSize: '18px',
+                          fontWeight: 600,
+                          lineHeight: '22px'
+                        }}
+                      >
+                        {item.title}
+                      </h3>
+                      <p
+                        className="text-slate-600 font-normal"
+                        style={{
+                          fontSize: '15px',
+                          fontWeight: 400,
+                          lineHeight: '23px'
+                        }}
+                      >
+                        {item.desc}
+                      </p>
                     </div>
                   </div>
                 );
               })}
             </div>
           </div>
-
-          {/* Remaining 6 Features Grid Below */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-4 border-t border-slate-200/80">
-            {ecommerceFeatures.slice(6).map((item, idx) => {
-              const IconComp = item.icon;
-              return (
-                <div
-                  key={idx}
-                  className="p-6 rounded-2xl bg-white border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-[#005F96] transition-all space-y-3 flex flex-col justify-between group"
-                >
-                  <div>
-                    <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#005F96] flex items-center justify-center font-bold mb-3 group-hover:bg-[#005F96] group-hover:text-white transition-colors">
-                      <IconComp className="w-5 h-5" />
-                    </div>
-                    <h3 className="text-lg font-black text-slate-900 mb-1 group-hover:text-[#005F96] transition-colors">{item.title}</h3>
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">{item.desc}</p>
-                  </div>
-
-                  <div className="pt-3 border-t border-slate-200/60 text-[11px] font-semibold text-slate-400 flex items-center justify-between">
-                    <span>100% Custom Feature</span>
-                    <span className="text-[#005F96] font-bold">Included</span>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
         </Container>
       </section>
 
-      {/* Section 4: 3-in-1 Ecosystem Panels (Buyer App, Vendor Portal, Admin Dashboard) */}
-      <section id="panels-section" className="py-20 bg-white border-b border-slate-200 text-left">
-        <Container>
-          <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
-            <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
-              Multi-Vendor Marketplace Ecosystem
-            </h2>
-            <p className="text-base sm:text-lg text-slate-600 font-normal">
-              Empower shoppers with intuitive mobile apps while providing merchants and admins with total control over global store operations.
-            </p>
-
-            {/* 3 Main Panel Pill Tabs */}
-            <div className="flex justify-center space-x-4 pt-4 max-w-2xl mx-auto">
-              <button
-                onClick={() => setActivePanelTab('buyer')}
-                className={`flex-1 py-3 px-6 rounded-lg text-sm font-extrabold transition-all border ${
-                  activePanelTab === 'buyer'
-                    ? 'bg-[#005F96] text-white border-[#005F96] shadow-md'
-                    : 'bg-white text-[#005F96] border-[#005F96]/40 hover:bg-slate-50'
-                }`}
-              >
-                Buyer Shopping App
-              </button>
-              <button
-                onClick={() => setActivePanelTab('vendor')}
-                className={`flex-1 py-3 px-6 rounded-lg text-sm font-extrabold transition-all border ${
-                  activePanelTab === 'vendor'
-                    ? 'bg-[#005F96] text-white border-[#005F96] shadow-md'
-                    : 'bg-white text-[#005F96] border-[#005F96]/40 hover:bg-slate-50'
-                }`}
-              >
-                Vendor Merchant Portal
-              </button>
-              <button
-                onClick={() => setActivePanelTab('admin')}
-                className={`flex-1 py-3 px-6 rounded-lg text-sm font-extrabold transition-all border ${
-                  activePanelTab === 'admin'
-                    ? 'bg-[#005F96] text-white border-[#005F96] shadow-md'
-                    : 'bg-white text-[#005F96] border-[#005F96]/40 hover:bg-slate-50'
-                }`}
-              >
-                Super Admin Dashboard
-              </button>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-            {panelFeatures[activePanelTab].map((item, idx) => (
-              <div
-                key={idx}
-                className="p-6 rounded-2xl bg-[#F8FAFC] border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-[#005F96] transition-all space-y-3 flex flex-col justify-between group"
-              >
-                <div>
-                  <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#005F96] flex items-center justify-center font-bold text-sm mb-3 group-hover:bg-[#005F96] group-hover:text-white transition-colors">
-                    0{idx + 1}
-                  </div>
-                  <h3 className="text-lg font-black text-slate-900 mb-2 group-hover:text-[#005F96] transition-colors">{item.title}</h3>
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">{item.desc}</p>
-                </div>
-
-                <div className="pt-3 border-t border-slate-200/60 text-[11px] font-semibold text-slate-400 flex items-center justify-between">
-                  <span>100% White Label</span>
-                  <span className="text-[#005F96] font-bold">Included</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      {/* Success Stories & Stat Cards (E-Commerce Category Match) */}
-      <SuccessStoriesSection category="amazon" />
-
-      {/* Our Premium Services 10-Card Section */}
+      {/* Our Premium Services 10-Card Grid Section (1:1 Sapphire Reference Screenshot 1) */}
       <PremiumServicesGrid />
 
-      {/* Sapphire Success Matrix */}
-      <SuccessMatrix />
-
-      {/* Sapphire 6-Card Technology Stack Grid */}
-      <SapphireTechStackGrid domainName="e-commerce" richTechCategories={techCategories} />
-
-      {/* Process We Follow - Sapphire 8-Step Timeline */}
-      <ProcessWeFollow
-        title="Process We Follow"
-        subtitle="Process-oriented execution from initial blueprinting to UAT, deployment, and ongoing SLA maintenance."
-      />
-
-      {/* Trusted By World's Leading Brands & Featured In Media */}
-      <TrustedBrandsGrid />
-
-      {/* Official Sapphire E-Commerce FAQs */}
-      <section className="py-20 bg-white border-b border-slate-200 text-left">
-        <Container className="max-w-4xl">
-          <div className="text-center mb-12 space-y-3">
-            <span className="px-3.5 py-1 rounded-full text-xs font-extrabold bg-[#005F96]/10 text-[#005F96] uppercase tracking-wider">
-              FREQUENTLY ASKED QUESTIONS
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
-              Amazon Like App Development FAQs
+      {/* Advantages 6-Card Section (1:1 Sapphire Reference Screenshot 2) */}
+      <section className="py-20 bg-white border-b border-slate-200 text-left font-sans">
+        <Container>
+          <div className="text-center max-w-4xl mx-auto mb-14 space-y-3">
+            <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight font-sans">
+              Advantages
             </h2>
-            <p className="text-base text-slate-600">
-              Clear answers regarding vendor commission models, payment gateways, NDAs, source code ownership, and 24/7 SLA maintenance.
+            <p className="text-base sm:text-lg text-slate-600 font-normal leading-relaxed">
+              Whether you are looking to start a cloud kitchen business or need to launch your own cab booking app, our Amazon for on-demand businesses app will allow businesses to create a strong digital presence and stay engaged with their customers.
             </p>
           </div>
 
-          <div className="space-y-4">
-            {sapphireFaqs.map((faq, idx) => (
-              <div
-                key={idx}
-                className="rounded-xl border border-slate-200 overflow-hidden bg-white shadow-sm transition-all"
-              >
-                <button
-                  onClick={() => setOpenFaq(openFaq === idx ? -1 : idx)}
-                  className="w-full p-5 flex items-center justify-between text-left font-bold text-base text-slate-900 hover:text-[#005F96] transition-colors"
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {/* Card 1 */}
+            <div className="p-8 rounded-2xl bg-[#F8FAFC] border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-[#005F96] transition-all space-y-4 flex flex-col justify-between group">
+              <div className="space-y-3">
+                <div className="w-12 h-12 rounded-xl bg-blue-50 text-[#005F96] flex items-center justify-center group-hover:bg-[#005F96] group-hover:text-white transition-colors">
+                  <User className="w-6 h-6" />
+                </div>
+                <h3
+                  className="text-slate-900 group-hover:text-[#005F96] transition-colors"
+                  style={{
+                    fontFamily: "'Poppins', sans-serif",
+                    fontSize: '18px',
+                    fontWeight: 600,
+                    lineHeight: '22px'
+                  }}
                 >
-                  <span className="pr-4">{faq.q}</span>
-                  <ChevronDown
-                    className={`w-5 h-5 text-slate-400 shrink-0 transition-transform ${
-                      openFaq === idx ? 'rotate-180 text-[#005F96]' : ''
-                    }`}
-                  />
-                </button>
-                {openFaq === idx && (
-                  <div className="px-5 pb-5 pt-1 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100">
-                    {faq.a}
-                  </div>
-                )}
+                  Sign-Up & Authorization
+                </h3>
+                <p
+                  className="text-slate-600 font-normal"
+                  style={{
+                    fontFamily: "'Poppins', sans-serif",
+                    fontSize: '15px',
+                    fontWeight: 400,
+                    lineHeight: '23px'
+                  }}
+                >
+                  Like consumers, sellers or vendors can build a profile that includes their personal and financial information. Authorities must verify their profile to ensure their integrity.
+                </p>
               </div>
-            ))}
+            </div>
+
+            {/* Card 2 */}
+            <div className="p-8 rounded-2xl bg-[#F8FAFC] border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-[#005F96] transition-all space-y-4 flex flex-col justify-between group">
+              <div className="space-y-3">
+                <div className="w-12 h-12 rounded-xl bg-blue-50 text-[#005F96] flex items-center justify-center group-hover:bg-[#005F96] group-hover:text-white transition-colors">
+                  <PackageCheck className="w-6 h-6" />
+                </div>
+                <h3
+                  className="text-slate-900 group-hover:text-[#005F96] transition-colors"
+                  style={{
+                    fontFamily: "'Poppins', sans-serif",
+                    fontSize: '18px',
+                    fontWeight: 600,
+                    lineHeight: '22px'
+                  }}
+                >
+                  Managing Orders
+                </h3>
+                <p
+                  className="text-slate-600 font-normal"
+                  style={{
+                    fontFamily: "'Poppins', sans-serif",
+                    fontSize: '15px',
+                    fontWeight: 400,
+                    lineHeight: '23px'
+                  }}
+                >
+                  It will assist sellers in monitoring shipped and in-stock items. They have total control over the order method and can monitor and handle product deliveries.
+                </p>
+              </div>
+            </div>
+
+            {/* Card 3 */}
+            <div className="p-8 rounded-2xl bg-[#F8FAFC] border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-[#005F96] transition-all space-y-4 flex flex-col justify-between group">
+              <div className="space-y-3">
+                <div className="w-12 h-12 rounded-xl bg-blue-50 text-[#005F96] flex items-center justify-center group-hover:bg-[#005F96] group-hover:text-white transition-colors">
+                  <Shield className="w-6 h-6" />
+                </div>
+                <h3
+                  className="text-slate-900 group-hover:text-[#005F96] transition-colors"
+                  style={{
+                    fontFamily: "'Poppins', sans-serif",
+                    fontSize: '18px',
+                    fontWeight: 600,
+                    lineHeight: '22px'
+                  }}
+                >
+                  Managing Inventories
+                </h3>
+                <p
+                  className="text-slate-600 font-normal"
+                  style={{
+                    fontFamily: "'Poppins', sans-serif",
+                    fontSize: '15px',
+                    fontWeight: 400,
+                    lineHeight: '23px'
+                  }}
+                >
+                  Inventory management lets suppliers record the specifics of each product entering and exiting the stock.
+                </p>
+              </div>
+            </div>
+
+            {/* Card 4 */}
+            <div className="p-8 rounded-2xl bg-[#F8FAFC] border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-[#005F96] transition-all space-y-4 flex flex-col justify-between group">
+              <div className="space-y-3">
+                <div className="w-12 h-12 rounded-xl bg-blue-50 text-[#005F96] flex items-center justify-center group-hover:bg-[#005F96] group-hover:text-white transition-colors">
+                  <Sliders className="w-6 h-6" />
+                </div>
+                <h3
+                  className="text-slate-900 group-hover:text-[#005F96] transition-colors"
+                  style={{
+                    fontFamily: "'Poppins', sans-serif",
+                    fontSize: '18px',
+                    fontWeight: 600,
+                    lineHeight: '22px'
+                  }}
+                >
+                  Creating Reports And Analyzing Data
+                </h3>
+                <p
+                  className="text-slate-600 font-normal"
+                  style={{
+                    fontFamily: "'Poppins', sans-serif",
+                    fontSize: '15px',
+                    fontWeight: 400,
+                    lineHeight: '23px'
+                  }}
+                >
+                  These enable marketers to get comprehensive information on customer behavior and sales reports, which facilitates customized services to meet specific needs.
+                </p>
+              </div>
+            </div>
+
+            {/* Card 5 */}
+            <div className="p-8 rounded-2xl bg-[#F8FAFC] border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-[#005F96] transition-all space-y-4 flex flex-col justify-between group">
+              <div className="space-y-3">
+                <div className="w-12 h-12 rounded-xl bg-blue-50 text-[#005F96] flex items-center justify-center group-hover:bg-[#005F96] group-hover:text-white transition-colors">
+                  <CheckCircle2 className="w-6 h-6" />
+                </div>
+                <h3
+                  className="text-slate-900 group-hover:text-[#005F96] transition-colors"
+                  style={{
+                    fontFamily: "'Poppins', sans-serif",
+                    fontSize: '18px',
+                    fontWeight: 600,
+                    lineHeight: '22px'
+                  }}
+                >
+                  Order & Return Management
+                </h3>
+                <p
+                  className="text-slate-600 font-normal"
+                  style={{
+                    fontFamily: "'Poppins', sans-serif",
+                    fontSize: '15px',
+                    fontWeight: 400,
+                    lineHeight: '23px'
+                  }}
+                >
+                  This feature comprises the administration of an order's complete lifecycle, which includes tracking the order from its original delivery till the consumer demands its return.
+                </p>
+              </div>
+            </div>
+
+            {/* Card 6 */}
+            <div className="p-8 rounded-2xl bg-[#F8FAFC] border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-[#005F96] transition-all space-y-4 flex flex-col justify-between group">
+              <div className="space-y-3">
+                <div className="w-12 h-12 rounded-xl bg-blue-50 text-[#005F96] flex items-center justify-center group-hover:bg-[#005F96] group-hover:text-white transition-colors">
+                  <DollarSign className="w-6 h-6" />
+                </div>
+                <h3
+                  className="text-slate-900 group-hover:text-[#005F96] transition-colors"
+                  style={{
+                    fontFamily: "'Poppins', sans-serif",
+                    fontSize: '18px',
+                    fontWeight: 600,
+                    lineHeight: '22px'
+                  }}
+                >
+                  Discount Management
+                </h3>
+                <p
+                  className="text-slate-600 font-normal"
+                  style={{
+                    fontFamily: "'Poppins', sans-serif",
+                    fontSize: '15px',
+                    fontWeight: 400,
+                    lineHeight: '23px'
+                  }}
+                >
+                  These discounts, particularly on in-demand items and services, are used by vendors to attract audiences.
+                </p>
+              </div>
+            </div>
           </div>
         </Container>
       </section>
 
-      {/* Free Proposal & Project Quote Form Section */}
-      <section id="quote-form" className="py-20 bg-gradient-to-b from-[#005F96] via-[#004B77] to-[#003452] text-white text-left">
-        <Container className="max-w-5xl">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Left Content */}
-            <div className="lg:col-span-5 space-y-6">
-              <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full text-xs font-bold bg-white/10 text-cyan-300 border border-white/20">
-                <ShoppingBag className="w-3.5 h-3.5 text-cyan-300" />
-                <span>BUILD YOUR MARKETPLACE PLATFORM</span>
-              </div>
+      {/* Unveiling Our Innovative Solution Video Slider Section (1:1 Sapphire Reference) */}
+      <InnovativeVideoSlider />
 
-              <h2 className="text-3xl sm:text-4xl font-black text-white leading-tight">
-                Get Access to Senior E-Commerce Architects
-              </h2>
+      {/* Comparative Analysis Table (1:1 Sapphire Reference Image 1 & Image 2) */}
+      <AndroidComparativeAnalysis />
 
-              <p className="text-base text-blue-100 leading-relaxed font-normal">
-                Book a consultation with our e-commerce technology architects today to launch your Amazon-like multi-vendor marketplace app or retail store portal.
-              </p>
+      {/* Our Story, Their Words Video Testimonials Section */}
+      <VideoTestimonialsStory />
 
-              <div className="space-y-3 pt-2">
-                <div className="flex items-center space-x-3 text-sm text-cyan-200 font-semibold">
-                  <CheckCircle2 className="w-5 h-5 text-cyan-400 shrink-0" />
-                  <span>100% Source Code Ownership & Signed NDA</span>
-                </div>
-                <div className="flex items-center space-x-3 text-sm text-cyan-200 font-semibold">
-                  <CheckCircle2 className="w-5 h-5 text-cyan-400 shrink-0" />
-                  <span>Automated Multi-Vendor Payout Ledgers</span>
-                </div>
-                <div className="flex items-center space-x-3 text-sm text-cyan-200 font-semibold">
-                  <CheckCircle2 className="w-5 h-5 text-cyan-400 shrink-0" />
-                  <span>Elasticsearch Sub-Second Product Search</span>
-                </div>
-              </div>
-            </div>
+      {/* Frequently Asked Questions Section */}
+      <SapphireFaqSection faqList={sapphireFaqs} />
 
-            {/* Right Contact Form Card */}
-            <div className="lg:col-span-7">
-              <div className="bg-white text-slate-900 rounded-2xl p-8 shadow-2xl">
-                {formSubmitted ? (
-                  <div className="py-12 text-center space-y-4">
-                    <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto">
-                      <Check className="w-8 h-8" />
-                    </div>
-                    <h3 className="text-2xl font-black text-slate-900">Inquiry Received!</h3>
-                    <p className="text-sm text-slate-600 max-w-md mx-auto">
-                      Thank you for contacting Sapphire Software Solutions. Our e-commerce tech leads will review your project brief and respond within 2 business hours.
-                    </p>
-                    <button
-                      onClick={() => setFormSubmitted(false)}
-                      className="px-6 py-2.5 rounded-lg bg-[#005F96] text-white font-bold text-xs"
-                    >
-                      Submit Another Inquiry
-                    </button>
-                  </div>
-                ) : (
-                  <form onSubmit={handleSubmit} className="space-y-4">
-                    <h3 className="text-xl font-black text-slate-900 mb-2">Get A Free Project Quote</h3>
+      {/* Technology Stack Grid Section */}
+      <SapphireTechStackGrid domainName="Amazon Like App Development and process" />
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-xs font-bold text-slate-700 mb-1">Your Name *</label>
-                        <input
-                          type="text"
-                          name="name"
-                          required
-                          value={formData.name}
-                          onChange={handleInputChange}
-                          placeholder="e.g. Sarah Jenkins"
-                          className="w-full px-4 py-3 rounded-lg border border-slate-300 text-sm focus:ring-2 focus:ring-[#005F96] outline-none"
-                        />
-                      </div>
+      {/* What Our Clients Say Section (1:1 Sapphire Reference Image 1) */}
+      <WhatOurClientsSaySection />
 
-                      <div>
-                        <label className="block text-xs font-bold text-slate-700 mb-1">Business Email *</label>
-                        <input
-                          type="email"
-                          name="email"
-                          required
-                          value={formData.email}
-                          onChange={handleInputChange}
-                          placeholder="sarah@retailbrand.com"
-                          className="w-full px-4 py-3 rounded-lg border border-slate-300 text-sm focus:ring-2 focus:ring-[#005F96] outline-none"
-                        />
-                      </div>
-                    </div>
+      {/* Get Amazon-Like App Development With 100% Guaranteed Success Section */}
+      <AmazonQuoteOverview />
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-xs font-bold text-slate-700 mb-1">Phone Number</label>
-                        <input
-                          type="tel"
-                          name="phone"
-                          value={formData.phone}
-                          onChange={handleInputChange}
-                          placeholder="+1 (555) 000-0000"
-                          className="w-full px-4 py-3 rounded-lg border border-slate-300 text-sm focus:ring-2 focus:ring-[#005F96] outline-none"
-                        />
-                      </div>
+      {/* Have Amazon-Like App Development Challenge To Address Banner */}
+      <HealthcareChallengeCtaBanner
+        title="Have Amazon-Like App development Challenge To Address ?"
+        subtitle="Get access to top Amazon-Like App development to transform your ideas into a robust application."
+        buttonText="Hire Now"
+      />
 
-                      <div>
-                        <label className="block text-xs font-bold text-slate-700 mb-1">Preferred Hiring Model</label>
-                        <select
-                          name="model"
-                          value={formData.model}
-                          onChange={handleInputChange}
-                          className="w-full px-4 py-3 rounded-lg border border-slate-300 text-sm focus:ring-2 focus:ring-[#005F96] outline-none bg-white"
-                        >
-                          <option value="Dedicated Team">Dedicated Team</option>
-                          <option value="Fixed Price">Fixed Price Contract</option>
-                          <option value="Time & Material">Time & Material</option>
-                          <option value="Buckets Approach">Buckets Approach</option>
-                        </select>
-                      </div>
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-bold text-slate-700 mb-1">Estimated Budget</label>
-                      <select
-                        name="budget"
-                        value={formData.budget}
-                        onChange={handleInputChange}
-                        className="w-full px-4 py-3 rounded-lg border border-slate-300 text-sm focus:ring-2 focus:ring-[#005F96] outline-none bg-white"
-                      >
-                        <option value="$10,000 - $25,000">$10,000 - $25,000</option>
-                        <option value="$25,000 - $50,000">$25,000 - $50,000</option>
-                        <option value="$50,000 - $100,000">$50,000 - $100,000</option>
-                        <option value="$100,000+">$100,000+</option>
-                      </select>
-                    </div>
-
-                    <div>
-                      <label className="block text-xs font-bold text-slate-700 mb-1">Project Brief / Requirements</label>
-                      <textarea
-                        name="message"
-                        rows="3"
-                        value={formData.message}
-                        onChange={handleInputChange}
-                        placeholder="Tell us about multi-vendor marketplaces, wholesale B2B pricing, mobile apps, or cart features..."
-                        className="w-full px-4 py-3 rounded-lg border border-slate-300 text-sm focus:ring-2 focus:ring-[#005F96] outline-none resize-none"
-                      />
-                    </div>
-
-                    <button
-                      type="submit"
-                      className="w-full py-4 rounded-lg bg-[#005F96] hover:bg-[#004A75] text-white font-black text-sm tracking-wide transition-all shadow-lg hover:shadow-xl flex items-center justify-center space-x-2"
-                    >
-                      <span>Submit Project Brief & Get Proposal</span>
-                      <ArrowRight className="w-4 h-4" />
-                    </button>
-                  </form>
-                )}
-              </div>
-            </div>
-          </div>
-        </Container>
-      </section>
+      {/* Subscribe Us And Get The Latest Updates And News Footer Banner */}
+      <NewsletterSubscribeBanner />
     </div>
   );
 };

@@ -1,17 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import SEO from '../common/SEO';
 import Container from '../common/Container';
-import ProcessWeFollow from '../common/ProcessWeFollow';
-import SuccessMatrix from '../common/SuccessMatrix';
-import TrustedBrandsGrid from '../common/TrustedBrandsGrid';
-import SapphireTechStackGrid from '../common/SapphireTechStackGrid';
 import PremiumServicesGrid from '../common/PremiumServicesGrid';
 import BrandLogoMarquee from '../common/BrandLogoMarquee';
 import SapphireLightHeroBanner from '../common/SapphireLightHeroBanner';
-import SapphireFaqSection from '../common/SapphireFaqSection';
 import SectorsThrivingSection from './SectorsThrivingSection';
 import SuccessStories from './SuccessStories';
+import SuccessMatrixGrid from '../home/SuccessMatrixGrid';
+import InnovativeVideoSlider from '../common/InnovativeVideoSlider';
+import SapphireFaqSection from '../common/SapphireFaqSection';
+import ClientStoryVideoSlider from '../common/ClientStoryVideoSlider';
+import TransformativeImpactSection from './TransformativeImpactSection';
+import ClientReviewsDarkSection from '../home/ClientReviewsDarkSection';
+import HealthcareChallengeCtaBanner from '../common/HealthcareChallengeCtaBanner';
+import NewsletterSubscribeBanner from '../common/NewsletterSubscribeBanner';
 import {
   Utensils,
   ShoppingBag,
@@ -47,6 +50,73 @@ import {
   Layers
 } from 'lucide-react';
 
+// Mobile App Development Services Expertise List (Matching Sapphire Screenshot 1:1)
+const mobileAppExpertiseList = [
+  {
+    title: 'React Native Apps',
+    desc: 'With extensive experience in developing first-rate native apps, our React Native app development team will assist you in changing the face of your business.',
+    link: '/services/react-native-app-development'
+  },
+  {
+    title: 'Progressive Web Apps',
+    desc: 'Our PWAs make it simple to connect and install them, and they give your business solutions an engaging app-like feel.',
+    link: '/services/pwa-development'
+  },
+  {
+    title: 'Android App Development',
+    desc: 'Our android applications are well-known for their visually appealing User Interface (UI/UX), quick loading times, and consistent performance.',
+    link: '/services/android-app-development'
+  },
+  {
+    title: 'iPhone App Development',
+    desc: 'Our iOS apps are all about a fresh concept with a straightforward GUI, and our resourceful iPhone application development team is the right option for you.',
+    link: '/services/ios-app-development'
+  },
+  {
+    title: 'Flutter App Development',
+    desc: 'Our Flutter app development is best in the business to save your money, time and bring your ideas to life with visually stunning designs.',
+    link: '/services/flutter-app-development'
+  },
+  {
+    title: 'Cross Platform Apps',
+    desc: 'Build versatile applications that run seamlessly across multiple OS platforms while sharing core business logic.',
+  }
+];
+
+// Zomato Food Delivery App FAQs (Matching Sapphire Screenshot 1 & 2)
+const zomatoAppFaqList = [
+  {
+    id: 1,
+    question: '1. How to make an app like Zomato?',
+    answer: 'To build an app like Zomato with Sapphire, use its full-stack Swift capabilities to create seamless iOS interfaces and connect to a scalable backend. Integrate features like restaurant listings, geolocation, and real-time updates with Swift macros and Vapor server support.'
+  },
+  {
+    id: 2,
+    question: '2. In light of the present business state, do you think it would be wise to build an app for food delivery?',
+    answer: 'Yes! On-demand food delivery continues to grow rapidly. With expanding smartphone penetration, cloud kitchens, and daily meal subscription models, launching a feature-rich food delivery platform offers high revenue potential through commissions, delivery fees, and sponsored restaurant listings.'
+  },
+  {
+    id: 3,
+    question: '3. Can you advise me on the most up-to-date features my food delivery app should incorporate?',
+    answer: 'Essential modern features include real-time live GPS driver tracking, AI-driven restaurant and meal recommendations, multi-tier payment gateway integration, instant push notifications, digital food customization, and automated order dispatch engines.'
+  },
+  {
+    id: 4,
+    question: '4. Why to hire a on demand app development company?',
+    answer: 'Hiring a specialized on-demand app development company ensures expert architectural design, scalable cloud infrastructure, 100% source code ownership, pre-built domain modules, and rigorous quality assurance testing for seamless launch.'
+  },
+  {
+    id: 5,
+    question: '5. What does it take to build a delivery app?',
+    answer: 'Building a food delivery app requires a multi-tier ecosystem: a User Mobile App for ordering, a Restaurant Partner Portal for menu & order management, a Driver App for live GPS navigation, and a Master Admin Dashboard for commission & analytics control.'
+  },
+  {
+    id: 6,
+    question: '6. What makes Sapphire Software Solutions a reliable partner for building a food delivery app like Zomato?',
+    answer: 'With 23+ years of enterprise mobility experience, 2800+ satisfied global clients, end-to-end custom development, dedicated agile teams, and 4 months free post-launch support, Sapphire delivers robust, scalable food apps tailored to your business goals.'
+  }
+];
+
 export const ZomatoLikeAppDevelopmentService = () => {
   const [activePanelTab, setActivePanelTab] = useState('userApp');
   const [techCarouselIndex, setTechCarouselIndex] = useState(0);
@@ -54,6 +124,25 @@ export const ZomatoLikeAppDevelopmentService = () => {
   const [expertActiveCategory, setExpertActiveCategory] = useState('Trending');
   const [expertTabs, setExpertTabs] = useState({});
   const [expertCarouselIndex, setExpertCarouselIndex] = useState(0);
+  const [mobileExpertiseIndex, setMobileExpertiseIndex] = useState(0);
+  const [isMobileExpertiseHovered, setIsMobileExpertiseHovered] = useState(false);
+  const [foodZillaVideoActive, setFoodZillaVideoActive] = useState(false);
+  const [quoteFormState, setQuoteFormState] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    message: ''
+  });
+  const [quoteSubmitted, setQuoteSubmitted] = useState(false);
+
+  // Autoscroll for Mobile App Development Services Expertise (Section 11)
+  useEffect(() => {
+    if (isMobileExpertiseHovered) return;
+    const interval = setInterval(() => {
+      setMobileExpertiseIndex((prev) => (prev >= mobileAppExpertiseList.length - 3 ? 0 : prev + 1));
+    }, 3000);
+    return () => clearInterval(interval);
+  }, [isMobileExpertiseHovered, mobileAppExpertiseList.length]);
 
   // 3 Panel Features matching Sapphire 1:1 Reference (User App, Restaurant Owners, Admin)
   const panelFeatures = {
@@ -1044,23 +1133,589 @@ export const ZomatoLikeAppDevelopmentService = () => {
           ========================================================================= */}
       <SuccessStories />
 
-      {/* Process We Follow Section */}
-      <ProcessWeFollow
-        title="Process We Follow"
-        subtitle="Agile food delivery application development sprints from Figma wireframes to live dispatch engines and App Store / Play Store release."
+      {/* =========================================================================
+          SECTION 10: SUCCESS STORIES & 4 STAT COUNTER BLOCKS (SCREENSHOT 1)
+          ========================================================================= */}
+      <section className="py-14 sm:py-18 bg-[#E5F2F9] font-sans text-left border-b border-cyan-100">
+        <Container>
+          {/* Header */}
+          <div className="text-center max-w-4xl mx-auto mb-10 space-y-3">
+            <h2
+              className="text-[#0B0F19] tracking-tight font-sans"
+              style={{ fontSize: '34px', fontWeight: 800, lineHeight: '51px' }}
+            >
+              Success Stories
+            </h2>
+            <p
+              className="text-slate-600 font-sans max-w-3xl mx-auto"
+              style={{ fontSize: '18px', fontWeight: 400, lineHeight: '27px' }}
+            >
+              Know Sapphire journey from concept to success. Explore how we've brought ideas to life and achieved remarkable results for our clients.
+            </p>
+          </div>
+
+          {/* 3 Portfolio Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto mb-10">
+            {/* Card 1: Food Delivery App Development */}
+            <div className="bg-white rounded-[20px] overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group flex flex-col justify-between border border-slate-100">
+              <div className="relative bg-[#FF9800]/10 p-6 flex items-center justify-center min-h-[240px]">
+                <span className="absolute top-4 right-4 bg-[#64B5F6] text-white text-xs font-bold px-3 py-1 rounded-full shadow-xs">
+                  Case Study
+                </span>
+                <div className="flex items-center space-x-3">
+                  <div className="w-28 h-48 rounded-[24px] bg-slate-900 border-4 border-slate-800 p-1 overflow-hidden shadow-xl text-[6px] text-white bg-slate-800">
+                    <div className="bg-[#FF5722] p-1 rounded font-bold">FoodExpress</div>
+                    <div className="p-1 space-y-1">
+                      <div className="h-6 bg-slate-700 rounded"></div>
+                      <div className="h-4 bg-slate-700 rounded"></div>
+                      <div className="h-10 bg-slate-700 rounded"></div>
+                    </div>
+                  </div>
+                  <div className="text-center">
+                    <div className="w-20 h-20 rounded-full bg-amber-400 border-2 border-white shadow-md flex items-center justify-center text-3xl">
+                      👩‍🍳
+                    </div>
+                    <span className="text-[10px] font-bold text-slate-700 block mt-1">Delivery App</span>
+                  </div>
+                </div>
+              </div>
+              <div className="p-5 text-center bg-white border-t border-slate-100">
+                <h3 className="font-extrabold text-slate-900 text-base sm:text-lg group-hover:text-[#005F96] transition-colors">
+                  Food Delivery App Development
+                </h3>
+              </div>
+            </div>
+
+            {/* Card 2: Pizza Delivery App */}
+            <div className="bg-white rounded-[20px] overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group flex flex-col justify-between border border-slate-100">
+              <div className="relative bg-[#FFCC80]/20 p-6 flex items-center justify-center min-h-[240px]">
+                <div className="flex items-center justify-center space-x-2">
+                  <div className="w-28 h-48 rounded-[24px] bg-slate-950 border-4 border-slate-800 p-1.5 overflow-hidden shadow-xl text-[6px] bg-white text-slate-800">
+                    <div className="w-full h-14 bg-red-100 rounded-lg mb-1 flex items-center justify-center text-xl">🍕</div>
+                    <div className="font-bold text-[7px]">Double Cheese Margherita</div>
+                    <div className="text-[#FF5722] font-black">$22</div>
+                    <div className="bg-[#FF5722] text-white p-1 rounded text-center font-bold mt-2">Add to Cart</div>
+                  </div>
+                  <div className="w-24 h-40 rounded-[20px] bg-slate-900 border-2 border-slate-700 p-1 overflow-hidden shadow-lg text-[5px] text-white bg-slate-800">
+                    <div className="bg-amber-600 p-1 rounded font-bold">Pizza App</div>
+                    <div className="p-1 space-y-0.5">
+                      <div className="h-4 bg-slate-700 rounded"></div>
+                      <div className="h-4 bg-slate-700 rounded"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="p-5 text-center bg-white border-t border-slate-100">
+                <h3 className="font-extrabold text-slate-900 text-base sm:text-lg group-hover:text-[#005F96] transition-colors">
+                  Pizza Delivery App
+                </h3>
+              </div>
+            </div>
+
+            {/* Card 3: Tiffin Delivery App */}
+            <div className="bg-white rounded-[20px] overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group flex flex-col justify-between border border-slate-100">
+              <div className="relative bg-[#FF8A65]/20 p-6 flex items-center justify-center min-h-[240px]">
+                <div className="flex items-center justify-center space-x-2">
+                  <div className="w-28 h-48 rounded-[24px] bg-slate-950 border-4 border-slate-800 p-1.5 overflow-hidden shadow-xl text-[6px] bg-amber-50 text-slate-800">
+                    <div className="bg-[#E65100] text-white p-1 rounded font-bold text-center">Tiffin Delivery App</div>
+                    <div className="p-1 space-y-1">
+                      <div className="bg-white p-1 rounded border text-[6px] font-bold">Daily Tiffin Meal</div>
+                      <div className="bg-white p-1 rounded border text-[6px] font-bold">Monthly Plan</div>
+                    </div>
+                  </div>
+                  <div className="w-24 h-40 rounded-[20px] bg-slate-900 border-2 border-slate-700 p-1 overflow-hidden shadow-lg text-[5px] text-white bg-slate-800">
+                    <div className="bg-orange-600 p-1 rounded font-bold">Meal Box</div>
+                  </div>
+                </div>
+              </div>
+              <div className="p-5 text-center bg-white border-t border-slate-100">
+                <h3 className="font-extrabold text-slate-900 text-base sm:text-lg group-hover:text-[#005F96] transition-colors">
+                  Tiffin Delivery App
+                </h3>
+              </div>
+            </div>
+          </div>
+
+          {/* View All Portfolio CTA Button */}
+          <div className="text-center mb-12">
+            <Link
+              to="/portfolio"
+              className="inline-block px-8 py-3 bg-[#005F96] hover:bg-[#004D7A] text-white font-extrabold text-sm sm:text-base rounded-md shadow-md transition-all hover:scale-105"
+            >
+              View All Portfolio
+            </Link>
+          </div>
+
+          {/* 4 Stat Counter Blocks (Pastel Cards Matching Screenshot 1) */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl mx-auto">
+            {/* Stat 1: Pastel Purple */}
+            <div className="bg-[#D8D2FF] rounded-[16px] p-6 text-center flex flex-col justify-center items-center shadow-xs">
+              <span className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight mb-1">
+                23+
+              </span>
+              <span className="text-slate-700 font-extrabold text-sm sm:text-base">
+                Years Experience
+              </span>
+            </div>
+
+            {/* Stat 2: Mint Green */}
+            <div className="bg-[#B5F2E3] rounded-[16px] p-6 text-center flex flex-col justify-center items-center shadow-xs">
+              <span className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight mb-1">
+                320+
+              </span>
+              <span className="text-slate-700 font-extrabold text-sm sm:text-base">
+                5-Star Clutch Reviews
+              </span>
+            </div>
+
+            {/* Stat 3: Pastel Red/Salmon */}
+            <div className="bg-[#FFC5C5] rounded-[16px] p-6 text-center flex flex-col justify-center items-center shadow-xs">
+              <span className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight mb-1">
+                2800+
+              </span>
+              <span className="text-slate-700 font-extrabold text-sm sm:text-base">
+                Satisfied Clients
+              </span>
+            </div>
+
+            {/* Stat 4: Dark Teal CTA */}
+            <div className="bg-[#005F96] rounded-[16px] p-5 text-center flex flex-col justify-center items-center text-white shadow-md">
+              <h4 className="font-extrabold text-base sm:text-lg mb-3">
+                Want to start Projects
+              </h4>
+              <Link
+                to="/contact"
+                className="px-5 py-2.5 bg-white text-[#005F96] hover:bg-cyan-50 font-extrabold text-xs sm:text-sm rounded-md shadow transition-all hover:scale-105"
+              >
+                Get Estimation
+              </Link>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* =========================================================================
+          SECTION 11: OUR MOBILE APP DEVELOPMENT SERVICES EXPERTISE (SCREENSHOT 2)
+          ========================================================================= */}
+      <section className="py-14 sm:py-18 bg-white text-slate-900 font-sans text-left border-b border-slate-100">
+        <Container>
+          {/* Header */}
+          <div className="text-center max-w-4xl mx-auto mb-10 space-y-3">
+            <h2
+              className="text-[#0B0F19] tracking-tight font-sans"
+              style={{ fontSize: '34px', fontWeight: 800, lineHeight: '41px' }}
+            >
+              Our Mobile App Development Services Expertise Aligned with Your Business Dynamics
+            </h2>
+            <p
+              className="text-slate-600 font-sans max-w-3xl mx-auto"
+              style={{ fontSize: '16px', fontWeight: 500, lineHeight: '26px' }}
+            >
+              We are a conscientious team of tech visionaries committed to transforming groundbreaking technologies concepts into realities. We deliver cutting-edge digital solutions that drive our clients to achieve unparalleled success.
+            </p>
+          </div>
+
+          {/* Horizontal Card Slider Container */}
+          <div
+            className="relative overflow-hidden w-full max-w-[1280px] mx-auto pb-4"
+            onMouseEnter={() => setIsMobileExpertiseHovered(true)}
+            onMouseLeave={() => setIsMobileExpertiseHovered(false)}
+          >
+            <div
+              className="flex space-x-6 transition-transform duration-500 ease-in-out px-1"
+              style={{
+                transform: `translateX(-${mobileExpertiseIndex * 395}px)`
+              }}
+            >
+              {mobileAppExpertiseList.map((item, idx) => (
+                <div
+                  key={idx}
+                  className="w-[330px] sm:w-[370px] shrink-0 bg-[#EAF6FF] rounded-[16px] p-8 border border-[#D0E8FA] shadow-xs flex flex-col justify-between text-left min-h-[300px]"
+                >
+                  <div className="space-y-3.5">
+                    <h3
+                      className="text-[#0B0F19] font-sans"
+                      style={{ fontSize: '16px', fontWeight: 400, lineHeight: '24px' }}
+                    >
+                      {item.title}
+                    </h3>
+                    <p
+                      className="text-[#2D3748] font-sans"
+                      style={{ fontSize: '15px', fontWeight: 400, lineHeight: '23px' }}
+                    >
+                      {item.desc}
+                    </p>
+                  </div>
+                  <div className="pt-6">
+                    <Link
+                      to={item.link}
+                      className="inline-block px-6 py-2.5 bg-[#0084D1] hover:bg-[#006BB0] text-white font-[700] text-sm rounded-[6px] transition-all shadow-xs"
+                    >
+                      View More
+                    </Link>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Subtle Centered Navigation Controls */}
+            <div className="flex items-center justify-center space-x-6 mt-8">
+              <button
+                onClick={() => setMobileExpertiseIndex((prev) => Math.max(0, prev - 1))}
+                disabled={mobileExpertiseIndex === 0}
+                aria-label="Previous Slide"
+                className="text-slate-400 hover:text-slate-800 disabled:opacity-20 disabled:cursor-not-allowed transition-all text-xl font-bold cursor-pointer px-2 py-1"
+              >
+                ←
+              </button>
+              <button
+                onClick={() => setMobileExpertiseIndex((prev) => Math.min(prev + 1, mobileAppExpertiseList.length - 3))}
+                disabled={mobileExpertiseIndex >= mobileAppExpertiseList.length - 3}
+                aria-label="Next Slide"
+                className="text-slate-400 hover:text-slate-800 disabled:opacity-20 disabled:cursor-not-allowed transition-all text-xl font-bold cursor-pointer px-2 py-1"
+              >
+                →
+              </button>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* =========================================================================
+          SECTION 12: FOOD DELIVERY APP DEVELOPMENT (VIDEO SHOWCASE - SCREENSHOT 3)
+          ========================================================================= */}
+      <section className="py-14 sm:py-18 bg-white text-slate-900 font-sans text-left border-b border-slate-100">
+        <Container>
+          <div className="text-center max-w-4xl mx-auto mb-10">
+            <h2
+              className="text-[#0B0F19] tracking-tight font-sans"
+              style={{ fontSize: '34px', fontWeight: 800, lineHeight: '51px' }}
+            >
+              Food Delivery App Development
+            </h2>
+          </div>
+
+          {/* Featured Video Showcase Card with Background Accent Circles */}
+          <div className="relative max-w-4xl mx-auto py-6">
+            {/* Background Decorative Soft Circles */}
+            <div className="absolute top-0 left-4 w-44 h-44 rounded-full bg-cyan-100/60 blur-xl pointer-events-none" />
+            <div className="absolute bottom-0 right-4 w-44 h-44 rounded-full bg-rose-100/60 blur-xl pointer-events-none" />
+
+            <div
+              onClick={() => setFoodZillaVideoActive(true)}
+              className="relative z-10 w-full h-[320px] sm:h-[420px] md:h-[480px] bg-slate-950 rounded-[32px] overflow-hidden border-8 border-slate-100 shadow-2xl cursor-pointer group flex flex-col items-center justify-center text-center p-6"
+            >
+              {/* Featured Poster Branding */}
+              <div className="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-slate-900/90 to-slate-950 flex flex-col items-center justify-center p-8">
+                <div className="text-slate-400 font-extrabold text-sm tracking-widest uppercase mb-2">
+                  Sapphire Software Solutions
+                </div>
+                <div className="w-16 h-16 rounded-full bg-gradient-to-r from-red-500 to-rose-600 flex items-center justify-center text-white text-3xl shadow-lg mb-3 group-hover:scale-110 transition-transform">
+                  🍴
+                </div>
+                <h3 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight mb-2 font-sans">
+                  FoodZilla
+                </h3>
+                <p className="text-slate-300 font-medium text-sm sm:text-lg max-w-md mb-8 font-sans">
+                  Revolutionize Food Delivery with a Custom App
+                </p>
+
+                {/* Central Play Button */}
+                <div className="w-20 h-20 rounded-full bg-white/20 backdrop-blur-md border-2 border-white/60 text-white flex items-center justify-center shadow-2xl group-hover:scale-115 group-hover:bg-white group-hover:text-[#005F96] transition-all duration-300">
+                  <svg className="w-8 h-8 fill-current ml-1" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Video Modal Popup */}
+          {foodZillaVideoActive && (
+            <div
+              className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4"
+              onClick={() => setFoodZillaVideoActive(false)}
+            >
+              <div
+                className="relative w-full max-w-4xl bg-slate-900 rounded-2xl overflow-hidden shadow-2xl border border-white/20"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <div className="flex items-center justify-between px-6 py-4 bg-slate-800 text-white border-b border-slate-700">
+                  <h3 className="font-bold text-base sm:text-lg">FoodZilla - Food Delivery App Development</h3>
+                  <button
+                    onClick={() => setFoodZillaVideoActive(false)}
+                    className="w-8 h-8 rounded-full bg-slate-700 hover:bg-slate-600 text-white flex items-center justify-center font-bold text-sm"
+                  >
+                    ✕
+                  </button>
+                </div>
+                <div className="relative pt-[56.25%] bg-black">
+                  <iframe
+                    src="https://www.youtube.com/embed/L_LUpnjgPso?autoplay=1"
+                    title="FoodZilla App Showcase"
+                    className="absolute inset-0 w-full h-full"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+              </div>
+            </div>
+          )}
+        </Container>
+      </section>
+
+      {/* =========================================================================
+          SECTION 13: UNVEILING OUR INNOVATIVE SOLUTION (SCREENSHOT 4)
+          ========================================================================= */}
+      <InnovativeVideoSlider />
+
+      {/* =========================================================================
+          SECTION 14: SUCCESS MATRIX (MATCHING HOME PAGE 1:1)
+          ========================================================================= */}
+      <SuccessMatrixGrid />
+
+      {/* =========================================================================
+          SECTION 15: FREQUENTLY ASKED QUESTIONS (SCREENSHOT 1 & 2)
+          ========================================================================= */}
+      <SapphireFaqSection faqList={zomatoAppFaqList} />
+
+      {/* =========================================================================
+          SECTION 16: OUR STORY, THEIR WORDS - TESTIMONIAL VIDEO SLIDER (SCREENSHOT 3)
+          ========================================================================= */}
+      <ClientStoryVideoSlider />
+
+      {/* =========================================================================
+          SECTION 17: EXPLORE THE TRANSFORMATIVE IMPACT OF MOBILE APP (SCREENSHOT 4)
+          ========================================================================= */}
+      <TransformativeImpactSection />
+
+      {/* =========================================================================
+          SECTION 18: TECHNOLOGY STACK THAT SAPPHIRE MOBILE DEVELOPERS USE PROFICIENTLY (SCREENSHOT 5)
+          ========================================================================= */}
+      <section className="py-14 sm:py-18 bg-white text-slate-900 font-sans text-left border-b border-slate-100">
+        <Container>
+          <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-12 space-y-3">
+            <h2
+              className="text-[#0B0F19] tracking-tight font-sans"
+              style={{ fontSize: '34px', fontWeight: 800, lineHeight: '51px' }}
+            >
+              Technology Stack That Sapphire Mobile Developers Use Proficiently
+            </h2>
+          </div>
+
+          <div className="max-w-6xl mx-auto space-y-3.5">
+            {[
+              {
+                category: 'iOS',
+                skills: ['Swift', 'Objective-C', 'X-Code', 'SwiftUI']
+              },
+              {
+                category: 'Android',
+                skills: ['Java', 'Kotlin', 'Android Studio', 'Version control tools (Git, GitLab, Bit Bucket)']
+              },
+              {
+                category: 'Cross Platform',
+                skills: ['Flutter', 'React Native', 'Ionic', 'NativeScript']
+              },
+              {
+                category: 'Database',
+                skills: ['Firebase', 'Redis', 'PostgreSQL', 'MongoDB', 'MySQL', 'DynamoDB', 'SQLite']
+              },
+              {
+                category: 'Design Tool',
+                skills: ['Figma', 'Sketch', 'Adobe XD', 'Zeplin', 'Photoshop', 'Illustrator', 'After Effects', 'InVision']
+              }
+            ].map((row, idx) => (
+              <div
+                key={idx}
+                className="bg-[#EAF3F9] rounded-[8px] p-2 border border-[#D5E6F2] flex flex-col md:flex-row items-stretch md:items-center space-y-2 md:space-y-0 md:space-x-3 shadow-2xs"
+              >
+                {/* Left Dark Blue Category Pill */}
+                <div className="bg-[#005F96] text-white font-bold text-sm sm:text-base px-5 py-2.5 rounded-[6px] md:w-[240px] shrink-0 text-center flex items-center justify-center shadow-2xs">
+                  {row.category}
+                </div>
+
+                {/* Right Technology Skill Pills */}
+                <div className="flex flex-wrap gap-2 flex-1 p-0.5 items-center">
+                  {row.skills.map((skill, skillIdx) => (
+                    <span
+                      key={skillIdx}
+                      className="bg-white text-slate-800 font-bold text-xs sm:text-[13.5px] px-3.5 py-1.5 rounded-[6px] shadow-2xs border border-slate-100 hover:border-[#005F96] transition-colors"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Centered Action Button */}
+          <div className="text-center mt-10">
+            <Link
+              to="/contact"
+              className="inline-block px-8 py-3 bg-[#005F96] hover:bg-[#004D7A] text-white font-extrabold text-sm sm:text-base rounded-[6px] shadow-md transition-all hover:scale-105"
+            >
+              Share Your Requirement
+            </Link>
+          </div>
+        </Container>
+      </section>
+
+      {/* =========================================================================
+          SECTION 19: WHAT OUR CLIENTS SAY - CLUTCH REVIEWS DARK CAROUSEL (SCREENSHOT 1)
+          ========================================================================= */}
+      <ClientReviewsDarkSection />
+
+      {/* =========================================================================
+          SECTION 20: GET ZOMATO-LIKE APP DEVELOPMENT WITH 100% GUARANTEED SUCCESS (SCREENSHOT 2 & 3)
+          ========================================================================= */}
+      <section id="quote-form" className="py-16 sm:py-20 bg-white border-b border-slate-200 text-left font-sans">
+        <Container className="max-w-6xl">
+          <div className="text-center max-w-4xl mx-auto mb-12 space-y-3">
+            <h2
+              className="text-[#0B0F19] tracking-tight font-sans"
+              style={{ fontSize: '34px', fontWeight: 800, lineHeight: '41px' }}
+            >
+              Get Zomato-Like App Development With 100% Guaranteed Success
+            </h2>
+            <p
+              className="text-slate-600 font-sans max-w-3xl mx-auto"
+              style={{ fontSize: '15px', fontWeight: 400, lineHeight: '26px' }}
+            >
+              We create Zomato like apps to help you start a commission based business. The app allows cloud kitchen businesses to provide food delivery service online to a vast number of people. You can also hire on-demand app developers to create a Zomato like app in no time.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start max-w-6xl mx-auto pt-4">
+            {/* Left Column: 5 Feature Items */}
+            <div className="lg:col-span-6 space-y-5">
+              {[
+                {
+                  title: 'Flexible-Engagement-Models',
+                  desc: 'Total customized and customer-centric engagement models facilitating hourly or fixed rate hiring of developers.',
+                  icon: '🤝'
+                },
+                {
+                  title: '100% Transparency',
+                  desc: '100% transparency policy to keep our client and our team on the same page.',
+                  icon: '🔍'
+                },
+                {
+                  title: 'Experienced Developers',
+                  desc: 'Our team of capable and experienced developers handle your unique business needs efficiently and have working experience in versatile domains.',
+                  icon: '👨‍💻'
+                },
+                {
+                  title: 'Timely Delivery',
+                  desc: 'We value the time and are particular about timely deliveries by following the highest quality standards.',
+                  icon: '⏱️'
+                },
+                {
+                  title: 'Technical Support',
+                  desc: 'Ask any technical query and get it solved by our expert technical support staff! With fruitful interaction, get the best possible solutions for your problems from our consultation and support team.',
+                  icon: '⚙️'
+                }
+              ].map((item, idx) => (
+                <div key={idx} className="p-4 rounded-xl bg-slate-50 border border-slate-100 flex items-start space-x-4">
+                  <div className="w-12 h-12 rounded-xl bg-[#E0F2FE] border border-cyan-100 flex items-center justify-center text-xl shrink-0">
+                    {item.icon}
+                  </div>
+                  <div>
+                    <h3 className="text-base font-bold text-slate-900 mb-1 font-sans">{item.title}</h3>
+                    <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed font-normal font-sans">
+                      {item.desc}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Right Column: Contact Lead Form */}
+            <div className="lg:col-span-6">
+              <div className="bg-white rounded-2xl p-6 sm:p-8 border-2 border-slate-100 shadow-xl text-left relative overflow-hidden">
+                <div className="text-center mb-6">
+                  <h3 className="text-xl font-extrabold text-slate-900 font-sans">Let's Discuss</h3>
+                </div>
+
+                {quoteSubmitted ? (
+                  <div className="p-6 bg-emerald-50 border border-emerald-200 rounded-xl text-center space-y-2">
+                    <span className="text-3xl">✅</span>
+                    <h4 className="font-extrabold text-emerald-800 text-lg">Thank You!</h4>
+                    <p className="text-xs text-emerald-700">Your message has been sent successfully. Our team will contact you shortly.</p>
+                  </div>
+                ) : (
+                  <form onSubmit={(e) => { e.preventDefault(); setQuoteSubmitted(true); }} className="space-y-4">
+                    <div>
+                      <input
+                        type="text"
+                        placeholder="Your name *"
+                        required
+                        value={quoteFormState.name}
+                        onChange={(e) => setQuoteFormState({ ...quoteFormState, name: e.target.value })}
+                        className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 text-slate-800 text-sm focus:outline-none focus:border-[#005F96] focus:bg-white transition-all"
+                      />
+                    </div>
+                    <div>
+                      <input
+                        type="email"
+                        placeholder="Email ID *"
+                        required
+                        value={quoteFormState.email}
+                        onChange={(e) => setQuoteFormState({ ...quoteFormState, email: e.target.value })}
+                        className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 text-slate-800 text-sm focus:outline-none focus:border-[#005F96] focus:bg-white transition-all"
+                      />
+                    </div>
+                    <div className="flex space-x-2">
+                      <div className="px-3 py-3 rounded-lg bg-slate-100 border border-slate-200 text-slate-600 text-sm font-semibold shrink-0">
+                        +91 ▾
+                      </div>
+                      <input
+                        type="tel"
+                        placeholder="Mobile Number *"
+                        required
+                        value={quoteFormState.phone}
+                        onChange={(e) => setQuoteFormState({ ...quoteFormState, phone: e.target.value })}
+                        className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 text-slate-800 text-sm focus:outline-none focus:border-[#005F96] focus:bg-white transition-all"
+                      />
+                    </div>
+                    <div>
+                      <textarea
+                        rows={4}
+                        placeholder="Tell us more about your project *"
+                        required
+                        value={quoteFormState.message}
+                        onChange={(e) => setQuoteFormState({ ...quoteFormState, message: e.target.value })}
+                        className="w-full px-4 py-3 rounded-lg bg-slate-50 border border-slate-200 text-slate-800 text-sm focus:outline-none focus:border-[#005F96] focus:bg-white transition-all resize-none"
+                      />
+                    </div>
+                    <button
+                      type="submit"
+                      className="w-full py-3.5 bg-[#005F96] hover:bg-[#004D7A] text-white font-extrabold text-sm rounded-lg shadow-md transition-all hover:scale-[1.01]"
+                    >
+                      Send
+                    </button>
+                  </form>
+                )}
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* =========================================================================
+          SECTION 21: HAVE FOOD DELIVERY APP DEVELOPMENT COMPANY CHALLENGE TO ADDRESS ? (SCREENSHOT 3)
+          ========================================================================= */}
+      <HealthcareChallengeCtaBanner
+        title="Have Food Delivery App Development Company Challenge To Address ?"
+        subtitle="Get access to top Food Delivery App Development Company to transform your ideas into a robust application."
+        buttonText="Hire Now"
       />
 
-      {/* Tech Stack Grid */}
-      <SapphireTechStackGrid categories={techCategories} />
-
-      {/* Trusted Brands Grid */}
-      <TrustedBrandsGrid />
-
-      {/* Success Matrix */}
-      <SuccessMatrix />
-
-      {/* Sapphire Signature FAQ Section */}
-      <SapphireFaqSection faqs={sapphireFaqs} />
+      {/* =========================================================================
+          SECTION 22: SUBSCRIBE US AND GET THE LATEST UPDATES AND NEWS (SCREENSHOT 3)
+          ========================================================================= */}
+      <NewsletterSubscribeBanner />
     </div>
   );
 };
