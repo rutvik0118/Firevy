@@ -222,6 +222,9 @@ export const GenericSubPageManager = ({
             text: data.content?.aboutText || data.content?.overview?.text || data.contentSections?.[0]?.text || data.description || ''
           },
           missionVision: {
+            ...(data.content?.missionVision || {}),
+            heading: data.content?.missionVision?.heading || 'We Create, We Enhance, We Deliver',
+            subheading: data.content?.missionVision?.subheading || "More Than Expected – That's firevy.co",
             missionTitle: data.content?.missionHeading || data.content?.missionVision?.missionTitle || 'Our Mission',
             missionText: data.content?.missionText || data.content?.missionVision?.missionText || '',
             visionTitle: data.content?.visionHeading || data.content?.missionVision?.visionTitle || 'Our Vision',
@@ -239,6 +242,17 @@ export const GenericSubPageManager = ({
           items: data.items || data.cards || [],
           cards: data.cards || data.items || [],
           content: data.content || {},
+          aboutCompany: data.content?.aboutCompany || null,
+          culture: data.content?.culture || null,
+          leadership: data.content?.leadership || null,
+          products: data.content?.products || null,
+          trustedBrands: data.content?.trustedBrands || null,
+          insights: data.content?.insights || null,
+          csr: data.content?.csr || null,
+          teamBanner: data.content?.teamBanner || null,
+          metricsSection: data.content?.metricsSection || null,
+          coreValues: data.content?.coreValues || null,
+          reviewsSection: data.content?.reviewsSection || null,
           heroImage: data.heroImage || '',
           heroVideo: data.heroVideo || '',
           cta: {
@@ -347,8 +361,19 @@ export const GenericSubPageManager = ({
           ...formData.content,
           overview: formData.overview,
           missionVision: formData.missionVision,
-          aboutHeading: formData.overview?.title,
-          aboutText: formData.overview?.text,
+          aboutHeading: formData.overview?.title || formData.aboutCompany?.heading,
+          aboutText: formData.overview?.text || formData.aboutCompany?.description,
+          aboutCompany: formData.aboutCompany || formData.content?.aboutCompany,
+          culture: formData.culture || formData.content?.culture,
+          leadership: formData.leadership || formData.content?.leadership,
+          products: formData.products || formData.content?.products,
+          trustedBrands: formData.trustedBrands || formData.content?.trustedBrands,
+          insights: formData.insights || formData.content?.insights,
+          csr: formData.csr || formData.content?.csr,
+          teamBanner: formData.teamBanner || formData.content?.teamBanner,
+          metricsSection: formData.metricsSection || formData.content?.metricsSection,
+          coreValues: formData.coreValues || formData.content?.coreValues,
+          reviewsSection: formData.reviewsSection || formData.content?.reviewsSection,
           missionHeading: formData.missionVision?.missionTitle,
           missionText: formData.missionVision?.missionText,
           visionHeading: formData.missionVision?.visionTitle,
@@ -399,8 +424,19 @@ export const GenericSubPageManager = ({
           ...formData.content,
           overview: formData.overview,
           missionVision: formData.missionVision,
-          aboutHeading: formData.overview?.title,
-          aboutText: formData.overview?.text,
+          aboutHeading: formData.overview?.title || formData.aboutCompany?.heading,
+          aboutText: formData.overview?.text || formData.aboutCompany?.description,
+          aboutCompany: formData.aboutCompany || formData.content?.aboutCompany,
+          culture: formData.culture || formData.content?.culture,
+          leadership: formData.leadership || formData.content?.leadership,
+          products: formData.products || formData.content?.products,
+          trustedBrands: formData.trustedBrands || formData.content?.trustedBrands,
+          insights: formData.insights || formData.content?.insights,
+          csr: formData.csr || formData.content?.csr,
+          teamBanner: formData.teamBanner || formData.content?.teamBanner,
+          metricsSection: formData.metricsSection || formData.content?.metricsSection,
+          coreValues: formData.coreValues || formData.content?.coreValues,
+          reviewsSection: formData.reviewsSection || formData.content?.reviewsSection,
           missionHeading: formData.missionVision?.missionTitle,
           missionText: formData.missionVision?.missionText,
           visionHeading: formData.missionVision?.visionTitle,
@@ -525,6 +561,8 @@ export const GenericSubPageManager = ({
           />
         );
       case 'our-team':
+      case 'team':
+      case 'our-team-leadership':
         return (
           <OurTeamForm
             formData={formData}

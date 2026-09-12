@@ -100,20 +100,23 @@ export const MediaUploadInput = ({
 
     setDeleting(true);
     try {
-      await adminService.deleteMedia(value);
+      if (value.startsWith('/uploads/') || value.startsWith('uploads/')) {
+        await adminService.deleteMedia(value);
+      }
       onChange('');
-      addToast('Media deleted successfully.', 'success');
+      addToast('Media removed successfully.', 'success');
     } catch (err) {
-      addToast(`Failed to delete media: ${err.message || 'Server error'}`, 'error');
+      onChange('');
+      addToast('Media removed from field.', 'info');
     } finally {
       setDeleting(false);
     }
   };
 
   const getAcceptTypes = () => {
-    if (type === 'video') return 'video/mp4,video/webm';
-    if (type === 'pdf') return 'application/pdf';
-    return 'image/png,image/jpeg,image/webp,image/svg+xml,image/gif';
+    if (type === 'video') return 'video/*,.mp4,.webm,.mov,.mkv';
+    if (type === 'pdf') return 'application/pdf,.pdf';
+    return 'image/*,.png,.jpg,.jpeg,.webp,.svg,.gif,.avif';
   };
 
   const getIcon = () => {

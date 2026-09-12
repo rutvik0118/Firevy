@@ -52,7 +52,10 @@ const techStackData = [
   }
 ];
 
-export const FlutterTechStackSection = () => {
+export const FlutterTechStackSection = ({ title, data }) => {
+  const currentData = data || techStackData;
+  const currentTitle = title || 'Technology Stack We Use For Flutter App Development';
+
   return (
     <section className="pt-7 pb-5 sm:pt-9 sm:pb-6 bg-white font-sans text-left">
       <Container className="max-w-6xl">
@@ -62,13 +65,13 @@ export const FlutterTechStackSection = () => {
             className="font-[800] text-[#0B0F19] tracking-tight leading-tight text-center"
             style={{ fontSize: '30px' }}
           >
-            Technology Stack We Use For Flutter App Development
+            {currentTitle}
           </h2>
         </div>
 
         {/* Tech Stack Rows Container */}
         <div className="space-y-3 sm:space-y-3.5 max-w-5xl mx-auto mb-6 sm:mb-7">
-          {techStackData.map((row, idx) => (
+          {currentData.map((row, idx) => (
             <div
               key={idx}
               className="flex flex-col sm:flex-row items-stretch rounded-[8px] sm:rounded-[10px] overflow-hidden shadow-2xs border border-slate-200/60 transition-all hover:shadow-xs"

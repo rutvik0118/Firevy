@@ -1,8 +1,8 @@
 import React from 'react';
 import Container from '../common/Container';
 
-export const KeyReasonsChooseFlutter = () => {
-  const reasons = [
+export const KeyReasonsChooseFlutter = ({ title, subtitle, reasons: customReasons, items }) => {
+  const defaultReasons = [
     {
       id: 1,
       title: 'Cross-Platform Development',
@@ -35,6 +35,10 @@ export const KeyReasonsChooseFlutter = () => {
     }
   ];
 
+  const reasons = customReasons || items || defaultReasons;
+  const displayTitle = title || 'Key Reasons to Choose Flutter for App Development Services';
+  const displaySubtitle = subtitle || "With its full solution for creating natively built apps for desktop, web, and mobile devices from a single codebase, Google's Flutter UI toolkit has become a game-changer. Here are the key reasons to choose Flutter:";
+
   return (
     <section className="py-9 sm:py-11 lg:py-13 bg-[#005F96] text-white font-sans text-left relative overflow-hidden">
       <Container>
@@ -44,21 +48,21 @@ export const KeyReasonsChooseFlutter = () => {
             className="font-[800] text-white tracking-tight leading-tight"
             style={{ fontSize: '32px' }}
           >
-            Key Reasons to Choose Flutter for App Development Services
+            {displayTitle}
           </h2>
           <p
             className="text-white/90 font-normal max-w-4xl mx-auto"
             style={{ fontSize: '13.5px', lineHeight: '1.65' }}
           >
-            With its full solution for creating natively built apps for desktop, web, and mobile devices from a single codebase, Google's Flutter UI toolkit has become a game-changer. Here are the key reasons to choose Flutter:
+            {displaySubtitle}
           </p>
         </div>
 
         {/* 6 White Rounded Rectangular Reason Cards (3 Columns x 2 Rows) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 max-w-[1320px] mx-auto">
-          {reasons.map((item) => (
+          {reasons.map((item, idx) => (
             <div
-              key={item.id}
+              key={item.id || idx}
               className="bg-white rounded-[14px] p-6 sm:p-7 text-left shadow-md flex flex-col justify-start hover:shadow-xl hover:-translate-y-1 transition-all duration-200 border border-white/90 group"
             >
               {/* Card Title */}
@@ -71,7 +75,7 @@ export const KeyReasonsChooseFlutter = () => {
                 className="font-normal text-[#475569]"
                 style={{ fontSize: '13px', lineHeight: '1.65' }}
               >
-                {item.desc}
+                {item.desc || item.description}
               </p>
             </div>
           ))}
@@ -82,3 +86,4 @@ export const KeyReasonsChooseFlutter = () => {
 };
 
 export default KeyReasonsChooseFlutter;
+

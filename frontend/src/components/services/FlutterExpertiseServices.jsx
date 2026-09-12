@@ -31,7 +31,19 @@ const flutterExpertiseCards = [
   }
 ];
 
-export const FlutterExpertiseServices = () => {
+export const FlutterExpertiseServices = ({ title, subtitle, cards: customCards, items }) => {
+  const cards = customCards || items || flutterExpertiseCards;
+  const displayTitle = title || 'Flutter Application Development Services';
+  const displaySubtitle = subtitle || (
+    <>
+      We offer end-to-end Flutter app development services everything from a{' '}
+      <span className="font-bold text-[#005F96] hover:underline cursor-pointer">
+        cross platform app development services
+      </span>{' '}
+      business idea, deployment and support.
+    </>
+  );
+
   const [currentIndex, setCurrentIndex] = useState(1);
   const [isHovered, setIsHovered] = useState(false);
   const scrollContainerRef = useRef(null);
@@ -40,10 +52,10 @@ export const FlutterExpertiseServices = () => {
   useEffect(() => {
     if (isHovered) return;
     const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % flutterExpertiseCards.length);
+      setCurrentIndex((prev) => (prev + 1) % cards.length);
     }, 3000);
     return () => clearInterval(interval);
-  }, [isHovered]);
+  }, [isHovered, cards.length]);
 
   // Smooth scroll sync
   useEffect(() => {
@@ -68,14 +80,10 @@ export const FlutterExpertiseServices = () => {
           className="font-[800] text-[#0B0F19] tracking-tight leading-tight mb-3"
           style={{ fontSize: '32px' }}
         >
-          Flutter Application Development Services
+          {displayTitle}
         </h2>
         <p className="text-[13px] sm:text-[14px] text-[#475569] leading-relaxed max-w-2xl mx-auto font-normal">
-          We offer end-to-end Flutter app development services everything from a{' '}
-          <span className="font-bold text-[#005F96] hover:underline cursor-pointer">
-            cross platform app development services
-          </span>{' '}
-          business idea, deployment and support.
+          {displaySubtitle}
         </p>
       </div>
 
@@ -86,24 +94,24 @@ export const FlutterExpertiseServices = () => {
           className="flex gap-5 sm:gap-6 overflow-x-auto scrollbar-none py-2 px-6 sm:px-12 md:px-16 lg:px-24 scroll-smooth"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
-          {flutterExpertiseCards.map((card, idx) => (
+          {cards.map((card, idx) => (
             <div
               key={idx}
-              className="w-[310px] sm:w-[350px] lg:w-[380px] shrink-0 bg-[#DDF1FC] rounded-[16px] p-5 sm:p-6 flex flex-col justify-between shadow-2xs border border-[#D0EBFB] select-none h-[210px] sm:h-[220px] transition-all duration-300"
+              className="w-[310px] sm:w-[350px] lg:w-[380px] shrink-0 bg-[#DDF1FC] rounded-[10px] p-5 sm:p-6 flex flex-col justify-between shadow-2xs border border-[#CCE8F7] select-none min-h-[210px] sm:min-h-[220px] transition-all duration-300"
             >
               <div>
                 <h3 className="font-[800] text-[16px] sm:text-[17.5px] text-[#0B0F19] mb-2 text-left leading-snug tracking-tight">
                   {card.title}
                 </h3>
-                <p className="text-[12px] sm:text-[12.8px] text-[#334155] leading-[1.55] text-left font-normal line-clamp-3">
-                  {card.desc}
+                <p className="text-[12px] sm:text-[12.8px] text-[#334155] leading-[1.55] text-left font-normal">
+                  {card.desc || card.description}
                 </p>
               </div>
 
-              <div className="pt-2 text-left">
+              <div className="pt-3 text-left">
                 <a
                   href="#quote-form"
-                  className="inline-flex items-center justify-center px-4 py-1.5 sm:py-2 rounded-[5px] bg-[#005F96] hover:bg-[#004A75] text-white font-[700] text-[12px] sm:text-[12.5px] transition-all shadow-2xs cursor-pointer"
+                  className="inline-flex items-center justify-center px-4 py-1.5 sm:py-2 rounded-[4px] bg-[#0078D7] hover:bg-[#005F96] text-white font-[700] text-[12px] sm:text-[12.5px] transition-all shadow-2xs cursor-pointer"
                 >
                   View More
                 </a>

@@ -8,6 +8,7 @@ import TechnologyStackGrid from '../common/TechnologyStackGrid';
 import BrandLogoMarquee from '../common/BrandLogoMarquee';
 import FeaturedInLogosGrid from '../home/FeaturedInLogosGrid';
 import VideoTestimonialsStory from '../home/VideoTestimonialsStory';
+import SapphireFaqSection from '../common/SapphireFaqSection';
 import {
   Sparkles,
   ArrowRight,
@@ -396,49 +397,9 @@ export const IotDevelopmentService = () => {
       <TechnologyStackGrid />
 
       {/* =========================================================================
-          10. FREQUENTLY ASKED QUESTIONS (Accordion)
+          10. FREQUENTLY ASKED QUESTIONS (2-Column Sapphire Layout)
           ========================================================================= */}
-      <section className="py-14 sm:py-20 bg-[#F8FAFC] border-t border-slate-200/70">
-        <Container>
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <h2 className="text-[28px] sm:text-[36px] font-[900] text-[#0B0F19] tracking-tight mb-3">
-              Frequently Asked Questions
-            </h2>
-            <p className="text-[15px] text-[#64748B]">
-              Got questions about custom IoT application development? Find quick answers below.
-            </p>
-          </div>
-
-          <div className="max-w-3xl mx-auto space-y-4">
-            {faqs.map((faq, idx) => {
-              const isOpen = openFaq === idx;
-              return (
-                <div
-                  key={idx}
-                  className="bg-white border border-slate-200 rounded-[10px] overflow-hidden transition-all"
-                >
-                  <button
-                    onClick={() => setOpenFaq(isOpen ? -1 : idx)}
-                    className="w-full px-6 py-4.5 text-left font-[700] text-[15.5px] text-[#0B0F19] flex justify-between items-center hover:text-[#006B8F] transition-colors"
-                  >
-                    <span>{faq.q}</span>
-                    <ChevronDown
-                      className={`w-5 h-5 text-slate-400 transition-transform duration-300 ${
-                        isOpen ? 'rotate-180 text-[#006B8F]' : ''
-                      }`}
-                    />
-                  </button>
-                  {isOpen && (
-                    <div className="px-6 pb-5 pt-1 text-[14px] text-[#475569] leading-relaxed border-t border-slate-100 bg-slate-50/50">
-                      {faq.a}
-                    </div>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-        </Container>
-      </section>
+      <SapphireFaqSection faqList={faqs} />
 
       {/* =========================================================================
           11. FEATURED IN LOGOS GRID (18 Recognitions)

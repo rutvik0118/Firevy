@@ -19,6 +19,7 @@ import ClientReviewsDarkSection from '../components/home/ClientReviewsDarkSectio
 import AwardsRecognitionPage from '../components/company/AwardsRecognitionPage';
 import InsightfulVideosPage from '../components/company/InsightfulVideosPage';
 import companyPublicService from '../services/companyPublicService';
+import { getMediaUrl } from '../utils/mediaUrl';
 import {
   Users, Award, Calendar, BookOpen, Heart, ShieldCheck, CheckCircle2,
   ArrowRight, FileText, Mic, Globe, Sparkles, MessageSquare, Star, Quote, ChevronRight, ChevronLeft, ChevronDown, Briefcase, Target, Linkedin, ThumbsUp, Camera
@@ -503,6 +504,155 @@ export const CompanySubDetails = () => {
 
   // If this is the "About firevy.co" / "about-firevy" page, render the exact Sapphire About Layout
   if (pageKey === 'about-firevy') {
+    const content = dynamicSection?.content || {};
+
+    // 1. About Company (Overview & Building)
+    const aboutCompany = content.aboutCompany || {
+      heading: content.aboutHeading || 'About firevy.co',
+      image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=80',
+      description: content.aboutText || "firevy.co is an ISO27001:2013 certified Web & Mobile App Development Company established in 2002. We offer a wide range of IT services and domain specific solutions to Enterprises, ISVs, Digital Agencies and Startups. Our devoted and passionate team delivers best industry practices combined with technology expertise and business domain knowledge to drive digital transformation. Our team having diverse skills with more than 23+ years of technology experience engaging with customers at deeper level to provide high-end technology solutions and innovations.",
+      buttonText: 'Get In Touch',
+      buttonLink: '/contact'
+    };
+
+    // 2. Vision & Mission
+    const rawMV = content.missionVision || {};
+    const missionVision = {
+      heading: rawMV.heading || 'We Create, We Enhance, We Deliver',
+      subheading: rawMV.subheading || "More Than Expected – That's firevy.co",
+      visionTitle: rawMV.visionTitle || content.visionHeading || 'Our Vision',
+      visionText: rawMV.visionText || content.visionText || "It's our goal to empower our customers to achieve more and to be one of the best customer-centric company.",
+      missionTitle: rawMV.missionTitle || content.missionHeading || 'Our Mission',
+      missionText: rawMV.missionText || content.missionText || 'To provide our customers with the precise services and solutions the lowest possible cost.'
+    };
+
+    // 3. Metrics Section
+    const metricsData = {
+      title: content.metricsSection?.title || 'ABOUT US',
+      description: content.metricsSection?.description || 'Glance through our creations and presence across industries and borders',
+      cards: content.metricsSection?.cards || dynamicSection?.stats || undefined
+    };
+
+    // 4. Core Values
+    const valuesList = (content.coreValues?.values && content.coreValues.values.length > 0)
+      ? content.coreValues.values
+      : (Array.isArray(dynamicSection?.items) && dynamicSection.items.length > 0 ? dynamicSection.items : coreValuesData);
+
+    const renderDynamicValueIcon = (iconKey, idx) => {
+      if (React.isValidElement(iconKey)) return iconKey;
+      const colors = [
+        'border-purple-500 text-purple-600',
+        'border-blue-500 text-blue-600',
+        'border-emerald-500 text-emerald-600',
+        'border-amber-500 text-amber-600',
+        'border-pink-500 text-pink-600',
+        'border-indigo-500 text-indigo-600'
+      ];
+      const colorClass = colors[idx % colors.length];
+
+      const iconMap = {
+        ShieldCheck: <ShieldCheck className="w-6 h-6" />,
+        Star: <Star className="w-6 h-6" />,
+        Heart: <Heart className="w-6 h-6" />,
+        Award: <Award className="w-6 h-6" />,
+        Globe: <Globe className="w-6 h-6" />,
+        Users: <Users className="w-6 h-6" />,
+        Sparkles: <Sparkles className="w-6 h-6" />
+      };
+
+      const IconComp = iconMap[iconKey] || <ShieldCheck className="w-6 h-6" />;
+      return (
+        <div className={`w-12 h-12 rounded-full border-2 ${colorClass} flex items-center justify-center mb-4`}>
+          {IconComp}
+        </div>
+      );
+    };
+
+    // 5. Culture
+    const culture = content.culture || {
+      heading: 'Our Culture',
+      paragraphs: [
+        'At firevy.co, we have nurtured a culture that inspires innovation and creativity. We believe that success of our company is directly relational to the success of each and every employee. We strive to create a young, fun-loving, open yet professional and hardworking environment.',
+        'We empower our team members to move forward professionally by taking ownership and learning from every project they work on. Coming to work and building amazing digital solutions should be fun.'
+      ],
+      buttonText: 'Explore Careers (Jobs)',
+      buttonLink: '/careers',
+      images: dynamicSection?.gallery?.length >= 4 ? dynamicSection.gallery : [
+        'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80',
+        'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=600&q=80',
+        'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=600&q=80',
+        'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=600&q=80'
+      ]
+    };
+
+    // 6. Leadership
+    const leadersList = (content.leadership?.leaders && content.leadership.leaders.length > 0)
+      ? content.leadership.leaders
+      : (dynamicTeam && dynamicTeam.length > 0 ? dynamicTeam : [
+          {
+            name: 'Mr. Kumaril Patel',
+            designation: 'CEO & Co-Founder',
+            image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80',
+            linkedin: 'https://linkedin.com'
+          },
+          {
+            name: 'Mr. Rajendra Patel',
+            designation: 'CTO & Co-Founder',
+            image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80',
+            linkedin: 'https://linkedin.com'
+          }
+        ]);
+
+    // 7. Products
+    const productsList = (content.products?.items && content.products.items.length > 0)
+      ? content.products.items
+      : [
+          {
+            name: 'Vidyalaya',
+            tagline: 'Digitizing Schools',
+            description: 'Efficient & Innovative School ERP known for its unmatched service since 22+ years. We digitalized 1600+ Schools globally.',
+            link: '/products'
+          },
+          {
+            name: 'OccuCare',
+            tagline: 'a healthier, more productive workforce',
+            description: 'OccuCare empower organizations to protect, maintain and promote the well-being of workers.',
+            link: '/products'
+          }
+        ];
+
+    // 8. Trusted Brands
+    const trustedBrands = content.trustedBrands || {
+      heading: 'Trusted By The World’s Leading Brands',
+      subheading: 'We are glad to be a digital technology and innovation partner with world’s leading brands. Building greater futures through innovation and collective knowledge.'
+    };
+
+    // 9. Insights
+    const insightsList = (content.insights?.items && content.insights.items.length > 0)
+      ? content.insights.items
+      : [
+          { image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80', caption: 'Corporate Headquarters' },
+          { image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80', caption: 'Occucon Event' },
+          { image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80', caption: 'Exhibition Booth' },
+          { image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80', caption: 'Our Team Banquet' },
+          { image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80', caption: 'Tech Showcase' }
+        ];
+
+    // 10. CSR
+    const csr = content.csr || {
+      heading: 'Corporate Social Responsibility',
+      subheading: 'Business is an opportunity to help humanity',
+      quote: 'Our CSR Programs Accelerate Human Empowerment Among Underserved People And Their Communities Via Three Pillars: Education, Society And Conservation.',
+      image: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1000&q=80'
+    };
+
+    // 11. Team Banner
+    const teamBanner = content.teamBanner || {
+      image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=2000&q=80'
+    };
+
+    const heroImage = dynamicSection?.heroImage || '/images/about-hero-laptop.svg';
+
     return (
       <div className="bg-white min-h-screen text-slate-900 font-sans">
         <SEO
@@ -511,69 +661,88 @@ export const CompanySubDetails = () => {
           canonical={`/company/${pageKey}`}
         />
 
-        {/* 1. HERO SECTION: "We Shape Digital Solutions" */}
+        {/* 1. HERO SECTION */}
         <section className="pt-32 pb-16 bg-white relative overflow-hidden text-left font-sans">
           <div className="max-w-[1360px] mx-auto px-4 sm:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
               <div className="lg:col-span-6 space-y-6">
+                {dynamicSection?.badge && (
+                  <div className="inline-flex items-center px-3.5 py-1 rounded-full text-xs font-[700] bg-[#006B8F]/10 border border-[#006B8F]/20 text-[#006B8F] uppercase tracking-wider">
+                    {dynamicSection.badge}
+                  </div>
+                )}
                 <h1 className="text-[34px] font-[800] text-slate-900 tracking-tight leading-tight font-sans page-hero-title">
-                  {dynamicSection?.title || 'We Shape Digital Solutions'}
+                  {dynamicSection?.title || 'About firevy.co'}
                 </h1>
                 <p className="text-[15px] text-slate-600 leading-relaxed font-[400] font-sans max-w-xl page-hero-desc">
                   {dynamicSection?.subtitle || 'firevy.co provides the solutions you need to innovate & accelerate business. We are a leading software development company with decade long expertise in creating innovative solutions.'}
                 </p>
                 <div className="pt-2">
                   <Link
-                    to="/contact"
+                    to={dynamicSection?.ctaLink || '/contact'}
                     className="inline-flex items-center justify-center space-x-2 px-8 py-3.5 rounded-[6px] bg-[#006B8F] hover:bg-[#005478] text-white font-[700] text-[15px] transition-all shadow-md group font-sans"
                   >
-                    <span>Connect Now</span>
+                    <span>{dynamicSection?.ctaText || 'Connect Now'}</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </div>
               </div>
 
               <div className="lg:col-span-6 flex justify-center relative">
-                <div className="relative w-full max-w-[540px] h-[360px] flex items-center justify-center">
-                  <div className="absolute top-4 left-10 bg-white/95 backdrop-blur-xs px-3 py-1.5 rounded-[6px] shadow-md border border-slate-200 text-xs font-[800] text-blue-600 animate-bounce">
-                    JAVA
+                {heroImage ? (
+                  <div className="w-full max-w-[540px] h-[360px] flex items-center justify-center">
+                    <img
+                      src={getMediaUrl(heroImage)}
+                      alt={dynamicSection?.title || 'Hero'}
+                      className="w-full h-full object-contain drop-shadow-xl"
+                      onError={(e) => {
+                        e.target.onerror = null;
+                        e.target.src = '/images/about-hero-laptop.svg';
+                      }}
+                    />
                   </div>
-                  <div className="absolute top-2 left-36 bg-white/95 backdrop-blur-xs px-3 py-1.5 rounded-[6px] shadow-md border border-slate-200 text-xs font-[800] text-indigo-600">
-                    PHP
-                  </div>
-                  <div className="absolute top-8 left-2 bg-white/95 backdrop-blur-xs px-2.5 py-1 rounded-[6px] shadow-md border border-slate-200 text-[11px] font-[800] text-slate-700">
-                    C++
-                  </div>
-                  <div className="absolute top-20 left-0 bg-white/95 backdrop-blur-xs px-2.5 py-1 rounded-[6px] shadow-md border border-slate-200 text-[10.5px] font-[800] text-amber-600">
-                    JAVASCRIPT
-                  </div>
-                  <div className="absolute top-6 right-28 bg-white/95 backdrop-blur-xs px-3 py-1 rounded-[6px] shadow-md border border-slate-200 text-xs font-[800] text-slate-800">
-                    iOS
-                  </div>
-                  <div className="absolute top-14 right-12 bg-white/95 backdrop-blur-xs px-3 py-1 rounded-[6px] shadow-md border border-slate-200 text-xs font-[800] text-emerald-600">
-                    Android
-                  </div>
-                  <div className="absolute bottom-20 right-4 bg-white/95 backdrop-blur-xs px-3 py-1 rounded-[6px] shadow-md border border-slate-200 text-xs font-[800] text-purple-600">
-                    C#
-                  </div>
-                  <div className="absolute bottom-6 right-24 bg-white/95 backdrop-blur-xs px-3 py-1.5 rounded-[6px] shadow-md border border-slate-200 text-xs font-[800] text-[#006B8F]">
-                    .NET
-                  </div>
+                ) : (
+                  <div className="relative w-full max-w-[540px] h-[360px] flex items-center justify-center">
+                    <div className="absolute top-4 left-10 bg-white/95 backdrop-blur-xs px-3 py-1.5 rounded-[6px] shadow-md border border-slate-200 text-xs font-[800] text-blue-600 animate-bounce">
+                      JAVA
+                    </div>
+                    <div className="absolute top-2 left-36 bg-white/95 backdrop-blur-xs px-3 py-1.5 rounded-[6px] shadow-md border border-slate-200 text-xs font-[800] text-indigo-600">
+                      PHP
+                    </div>
+                    <div className="absolute top-8 left-2 bg-white/95 backdrop-blur-xs px-2.5 py-1 rounded-[6px] shadow-md border border-slate-200 text-[11px] font-[800] text-slate-700">
+                      C++
+                    </div>
+                    <div className="absolute top-20 left-0 bg-white/95 backdrop-blur-xs px-2.5 py-1 rounded-[6px] shadow-md border border-slate-200 text-[10.5px] font-[800] text-amber-600">
+                      JAVASCRIPT
+                    </div>
+                    <div className="absolute top-6 right-28 bg-white/95 backdrop-blur-xs px-3 py-1 rounded-[6px] shadow-md border border-slate-200 text-xs font-[800] text-slate-800">
+                      iOS
+                    </div>
+                    <div className="absolute top-14 right-12 bg-white/95 backdrop-blur-xs px-3 py-1 rounded-[6px] shadow-md border border-slate-200 text-xs font-[800] text-emerald-600">
+                      Android
+                    </div>
+                    <div className="absolute bottom-20 right-4 bg-white/95 backdrop-blur-xs px-3 py-1 rounded-[6px] shadow-md border border-slate-200 text-xs font-[800] text-purple-600">
+                      C#
+                    </div>
+                    <div className="absolute bottom-6 right-24 bg-white/95 backdrop-blur-xs px-3 py-1.5 rounded-[6px] shadow-md border border-slate-200 text-xs font-[800] text-[#006B8F]">
+                      .NET
+                    </div>
 
-                  <svg viewBox="0 0 500 360" className="w-full h-full drop-shadow-xl" fill="none">
-                    <path d="M250 20 L450 140 L250 260 L50 140 Z" fill="#E0F2FE" opacity="0.6" />
-                    <path d="M250 260 L450 140 L450 160 L250 280 L50 160 L50 140 Z" fill="#BAE6FD" opacity="0.7" />
-                    <polygon points="180,80 380,80 340,220 140,220" fill="#0284C7" />
-                    <polygon points="190,90 370,90 335,210 155,210" fill="#FFFFFF" />
-                    <rect x="180" y="105" width="130" height="12" rx="2" fill="#E2E8F0" />
-                    <rect x="180" y="125" width="80" height="8" rx="2" fill="#38BDF8" />
-                    <polygon points="140,220 340,220 400,280 200,280" fill="#0369A1" />
-                    <polygon points="150,225 330,225 385,275 205,275" fill="#0C4A6E" />
-                    <circle cx="160" cy="180" r="10" fill="#FED7AA" />
-                    <circle cx="340" cy="155" r="10" fill="#FED7AA" />
-                    <circle cx="250" cy="270" r="10" fill="#FED7AA" />
-                  </svg>
-                </div>
+                    <svg viewBox="0 0 500 360" className="w-full h-full drop-shadow-xl" fill="none">
+                      <path d="M250 20 L450 140 L250 260 L50 140 Z" fill="#E0F2FE" opacity="0.6" />
+                      <path d="M250 260 L450 140 L450 160 L250 280 L50 160 L50 140 Z" fill="#BAE6FD" opacity="0.7" />
+                      <polygon points="180,80 380,80 340,220 140,220" fill="#0284C7" />
+                      <polygon points="190,90 370,90 335,210 155,210" fill="#FFFFFF" />
+                      <rect x="180" y="105" width="130" height="12" rx="2" fill="#E2E8F0" />
+                      <rect x="180" y="125" width="80" height="8" rx="2" fill="#38BDF8" />
+                      <polygon points="140,220 340,220 400,280 200,280" fill="#0369A1" />
+                      <polygon points="150,225 330,225 385,275 205,275" fill="#0C4A6E" />
+                      <circle cx="160" cy="180" r="10" fill="#FED7AA" />
+                      <circle cx="340" cy="155" r="10" fill="#FED7AA" />
+                      <circle cx="250" cy="270" r="10" fill="#FED7AA" />
+                    </svg>
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -586,27 +755,25 @@ export const CompanySubDetails = () => {
               <div className="lg:col-span-5">
                 <div className="rounded-[14px] overflow-hidden border border-slate-200/90 shadow-sm bg-white">
                   <img
-                    src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=80"
-                    alt="firevy.co Corporate Building"
+                    src={getMediaUrl(aboutCompany.image)}
+                    alt={aboutCompany.heading || 'About firevy.co'}
                     className="w-full h-[330px] sm:h-[350px] object-cover hover:scale-105 transition-transform duration-500"
                   />
                 </div>
               </div>
               <div className="lg:col-span-7 space-y-4">
                 <h2 className="text-[40px] font-[800] text-slate-900 tracking-tight leading-tight font-sans section-content-title">
-                  About firevy.co
+                  {aboutCompany.heading || 'About firevy.co'}
                 </h2>
-                <div className="space-y-3.5 text-[15px] text-slate-600 leading-[1.8] font-[400] font-sans section-content-desc">
-                  <p>
-                    firevy.co is an ISO27001:2013 certified Web & Mobile App Development Company established in 2002. We offer a wide range of IT services and domain specific solutions to Enterprises, ISVs, Digital Agencies and Startups. Our devoted and passionate team delivers best industry practices combined with technology expertise and business domain knowledge to drive digital transformation. Our team having diverse skills with more than 23+ years of technology experience engaging with customers at deeper level to provide high-end technology solutions and innovations.
-                  </p>
+                <div className="space-y-3.5 text-[15px] text-slate-600 leading-[1.8] font-[400] font-sans section-content-desc whitespace-pre-line">
+                  <p>{aboutCompany.description}</p>
                 </div>
                 <div className="pt-2">
                   <Link
-                    to="/contact"
+                    to={aboutCompany.buttonLink || '/contact'}
                     className="inline-flex items-center justify-center px-8 py-3.5 rounded-[6px] bg-[#006B8F] hover:bg-[#005478] text-white font-[700] text-[15px] transition-all shadow-md font-sans"
                   >
-                    Get In Touch
+                    {aboutCompany.buttonText || 'Get In Touch'}
                   </Link>
                 </div>
               </div>
@@ -619,8 +786,8 @@ export const CompanySubDetails = () => {
           <div className="max-w-[1360px] mx-auto px-4 sm:px-8">
             <div className="text-center max-w-4xl mx-auto mb-14">
               <h2 className="text-[40px] font-[800] text-slate-900 tracking-tight leading-[1.2] font-sans section-content-title">
-                We Create, We Enhance, We Deliver<br />
-                More Than Expected – That's firevy.co
+                {missionVision.heading || 'We Create, We Enhance, We Deliver'}<br />
+                {missionVision.subheading || "More Than Expected – That's firevy.co"}
               </h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
@@ -630,45 +797,45 @@ export const CompanySubDetails = () => {
                     <path d="M19 22H5V20H19V22Z" />
                     <path d="M16.5 20C16.5 17 17.5 15.5 18 14C18.5 12.5 18 11 17 9.5C16 8 14.5 7.5 14.5 6C14.5 4.5 15.5 3 15.5 3C15.5 3 13.5 3 11 5C8.5 7 7.5 9.5 7.5 12C7.5 13 8 14 8.5 15C9 16 9.5 17.5 9.5 20" />
                   </svg>
-                  <h3 className="text-[26px] font-[800] text-slate-900 font-sans tracking-tight">Our Vision</h3>
+                  <h3 className="text-[26px] font-[800] text-slate-900 font-sans tracking-tight">{missionVision.visionTitle || 'Our Vision'}</h3>
                 </div>
                 <p className="text-[15px] sm:text-[15.5px] text-slate-600 leading-relaxed font-[400] font-sans">
-                  It's our goal to empower our customers to achieve more and to be one of the best customer-centric company.
+                  {missionVision.visionText}
                 </p>
               </div>
               <div className="bg-white rounded-[16px] border border-slate-200/90 shadow-[0px_6px_25px_rgba(0,0,0,0.04)] p-8 sm:p-9 text-left space-y-3.5 hover:shadow-lg transition-all">
                 <div className="flex items-center space-x-3.5">
                   <Target className="w-10 h-10 text-[#006B8F] shrink-0" strokeWidth={2.2} />
-                  <h3 className="text-[26px] font-[800] text-slate-900 font-sans tracking-tight">Our Mission</h3>
+                  <h3 className="text-[26px] font-[800] text-slate-900 font-sans tracking-tight">{missionVision.missionTitle || 'Our Mission'}</h3>
                 </div>
                 <p className="text-[15px] sm:text-[15.5px] text-slate-600 leading-relaxed font-[400] font-sans">
-                  To provide our customers with the precise services and solutions the lowest possible cost.
+                  {missionVision.missionText}
                 </p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* 4. "Glance through our creations and presence" */}
-        <AboutKeyMetrics />
+        {/* 4. "ABOUT US (Key Metrics & Presence)" */}
+        <AboutKeyMetrics data={metricsData} />
 
         {/* 5. "Our Core Values" */}
         <section className="py-20 bg-[#F8FAFC] border-b border-slate-200 text-slate-900 font-sans">
           <div className="max-w-[1360px] mx-auto px-4 sm:px-8">
             <div className="text-center max-w-4xl mx-auto mb-14">
               <h2 className="text-[36px] sm:text-[44px] font-[900] text-slate-900 tracking-tight leading-tight mb-4 font-sans">
-                Our Core Values
+                {content.coreValues?.heading || 'Our Core Values'}
               </h2>
               <p className="text-[15px] sm:text-[16px] text-slate-600 leading-relaxed max-w-3xl mx-auto font-[400] font-sans">
-                Our values are the guiding ethics upon which we have founded and how we strive to conduct our business on a day-to-day basis.
+                {content.coreValues?.subheading || 'Our values are the guiding ethics upon which we have founded and how we strive to conduct our business on a day-to-day basis.'}
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {coreValuesData.map((val) => (
-                <div key={val.id} className="bg-white rounded-[16px] border border-slate-200/90 shadow-[0px_6px_25px_rgba(0,0,0,0.04)] p-8 text-left space-y-2.5 hover:shadow-lg transition-all group">
-                  {val.icon}
+              {valuesList.map((val, idx) => (
+                <div key={val.id || idx} className="bg-white rounded-[16px] border border-slate-200/90 shadow-[0px_6px_25px_rgba(0,0,0,0.04)] p-8 text-left space-y-2.5 hover:shadow-lg transition-all group">
+                  {renderDynamicValueIcon(val.icon, idx)}
                   <h3 className="text-[20px] font-[800] text-slate-900 font-sans tracking-tight group-hover:text-[#006B8F] transition-colors">{val.title}</h3>
-                  <p className="text-[14.5px] text-slate-600 leading-relaxed font-[400] font-sans">{val.desc}</p>
+                  <p className="text-[14.5px] text-slate-600 leading-relaxed font-[400] font-sans">{val.desc || val.description}</p>
                 </div>
               ))}
             </div>
@@ -681,34 +848,31 @@ export const CompanySubDetails = () => {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
               <div className="lg:col-span-6 space-y-5">
                 <h2 className="text-[36px] sm:text-[42px] lg:text-[46px] font-[900] text-slate-900 tracking-tight leading-tight font-sans">
-                  Our Culture
+                  {culture.heading || 'Our Culture'}
                 </h2>
                 <div className="space-y-4 text-[15px] sm:text-[15.5px] text-slate-600 leading-[1.8] font-[400] font-sans">
-                  <p>
-                    At firevy.co, we have nurtured a culture that inspires innovation and creativity. We believe that success of our company is directly relational to the success of each and every employee. We strive to create a young, fun-loving, open yet professional and hardworking environment.
-                  </p>
-                  <p>
-                    We empower our team members to move forward professionally by taking ownership and learning from every project they work on. Coming to work and building amazing digital solutions should be fun.
-                  </p>
+                  {(culture.paragraphs || []).map((p, idx) => (
+                    <p key={idx}>{p}</p>
+                  ))}
                 </div>
                 <div className="pt-2">
-                  <Link to="/careers" className="inline-flex items-center justify-center px-8 py-3.5 rounded-[6px] bg-[#006B8F] hover:bg-[#005478] text-white font-[700] text-[15px] transition-all shadow-md font-sans">
-                    Explore Careers (Jobs)
+                  <Link to={culture.buttonLink || '/careers'} className="inline-flex items-center justify-center px-8 py-3.5 rounded-[6px] bg-[#006B8F] hover:bg-[#005478] text-white font-[700] text-[15px] transition-all shadow-md font-sans">
+                    {culture.buttonText || 'Explore Careers (Jobs)'}
                   </Link>
                 </div>
               </div>
               <div className="lg:col-span-6 grid grid-cols-2 gap-4">
                 <div className="rounded-[14px] overflow-hidden shadow-md border border-slate-200/90 h-[175px] bg-slate-100">
-                  <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80" alt="Team 1" className="w-full h-full object-cover" />
+                  <img src={getMediaUrl(culture.images?.[0] || 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80')} alt="Team 1" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
                 </div>
                 <div className="rounded-[14px] overflow-hidden shadow-md border border-slate-200/90 h-[175px] bg-slate-100">
-                  <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=600&q=80" alt="Team 2" className="w-full h-full object-cover" />
+                  <img src={getMediaUrl(culture.images?.[1] || 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=600&q=80')} alt="Team 2" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
                 </div>
                 <div className="rounded-[14px] overflow-hidden shadow-md border border-slate-200/90 h-[175px] bg-slate-100">
-                  <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=600&q=80" alt="Team 3" className="w-full h-full object-cover" />
+                  <img src={getMediaUrl(culture.images?.[2] || 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=600&q=80')} alt="Team 3" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
                 </div>
                 <div className="rounded-[14px] overflow-hidden shadow-md border border-slate-200/90 h-[175px] bg-slate-100">
-                  <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=600&q=80" alt="Team 4" className="w-full h-full object-cover" />
+                  <img src={getMediaUrl(culture.images?.[3] || 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=600&q=80')} alt="Team 4" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
                 </div>
               </div>
             </div>
@@ -720,33 +884,31 @@ export const CompanySubDetails = () => {
           <div className="max-w-[1360px] mx-auto px-4 sm:px-8">
             <div className="text-center max-w-4xl mx-auto mb-14">
               <h2 className="text-[36px] sm:text-[44px] font-[900] text-slate-900 tracking-tight leading-tight mb-3 font-sans">
-                Our Leadership
+                {content.leadership?.heading || 'Our Leadership'}
               </h2>
               <p className="text-[15px] sm:text-[16px] text-slate-600 leading-relaxed max-w-3xl mx-auto font-[400] font-sans">
-                The outlook, passion and experience of our leaders guides firevy.co.
+                {content.leadership?.subheading || 'The outlook, passion and experience of our leaders guides firevy.co.'}
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-              <div className="bg-white rounded-[16px] border border-slate-200/90 shadow-sm p-6 flex flex-col sm:flex-row items-center sm:items-start space-y-4 sm:space-y-0 sm:space-x-6">
-                <div className="w-[160px] h-[180px] rounded-[12px] overflow-hidden shrink-0 bg-slate-200">
-                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80" alt="Leader 1" className="w-full h-full object-cover" />
+              {leadersList.map((leader, idx) => (
+                <div key={idx} className="bg-white rounded-[16px] border border-slate-200/90 shadow-sm p-6 flex flex-col sm:flex-row items-center sm:items-start space-y-4 sm:space-y-0 sm:space-x-6 hover:shadow-md transition-all">
+                  <div className="w-[160px] h-[180px] rounded-[12px] overflow-hidden shrink-0 bg-slate-200">
+                    <img src={getMediaUrl(leader.image || 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80')} alt={leader.name} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
+                  </div>
+                  <div className="space-y-2 text-left pt-2">
+                    <h3 className="text-[20px] font-[800] text-slate-900 font-sans">{leader.name}</h3>
+                    <p className="text-[14px] font-[600] text-slate-500 font-sans">{leader.designation}</p>
+                    {leader.linkedin && (
+                      <div className="pt-2">
+                        <a href={leader.linkedin} target="_blank" rel="noreferrer" className="w-8 h-8 rounded-full bg-[#0077B5] hover:bg-[#005f93] text-white inline-flex items-center justify-center shadow-sm transition-transform hover:scale-110">
+                          <Linkedin className="w-4 h-4 fill-current" />
+                        </a>
+                      </div>
+                    )}
+                  </div>
                 </div>
-                <div className="space-y-2 text-left pt-2">
-                  <h3 className="text-[20px] font-[800] text-slate-900 font-sans">Mr. Kumaril Patel</h3>
-                  <p className="text-[14px] font-[600] text-slate-500 font-sans">CEO & Co-Founder</p>
-                  <div className="pt-2"><a href="https://linkedin.com" target="_blank" rel="noreferrer" className="w-8 h-8 rounded-full bg-[#0077B5] hover:bg-[#005f93] text-white inline-flex items-center justify-center shadow-sm"><Linkedin className="w-4 h-4 fill-current" /></a></div>
-                </div>
-              </div>
-              <div className="bg-white rounded-[16px] border border-slate-200/90 shadow-sm p-6 flex flex-col sm:flex-row items-center sm:items-start space-y-4 sm:space-y-0 sm:space-x-6">
-                <div className="w-[160px] h-[180px] rounded-[12px] overflow-hidden shrink-0 bg-slate-200">
-                  <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80" alt="Leader 2" className="w-full h-full object-cover" />
-                </div>
-                <div className="space-y-2 text-left pt-2">
-                  <h3 className="text-[20px] font-[800] text-slate-900 font-sans">Mr. Rajendra Patel</h3>
-                  <p className="text-[14px] font-[600] text-slate-500 font-sans">CTO & Co-Founder</p>
-                  <div className="pt-2"><a href="https://linkedin.com" target="_blank" rel="noreferrer" className="w-8 h-8 rounded-full bg-[#0077B5] hover:bg-[#005f93] text-white inline-flex items-center justify-center shadow-sm"><Linkedin className="w-4 h-4 fill-current" /></a></div>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </section>
@@ -756,53 +918,38 @@ export const CompanySubDetails = () => {
           <div className="max-w-[1360px] mx-auto px-4 sm:px-8 relative z-10">
             <div className="text-center max-w-4xl mx-auto mb-14">
               <h2 className="text-[36px] sm:text-[44px] font-[900] text-slate-900 tracking-tight leading-tight mb-2 font-sans">
-                Our World Class Products
+                {content.products?.heading || 'Our World Class Products'}
               </h2>
               <p className="text-[15px] sm:text-[16px] text-slate-500 font-[400] font-sans">
-                Our proven excellence for product development
+                {content.products?.subheading || 'Our proven excellence for product development'}
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-              <div className="bg-white rounded-[16px] border border-slate-200/90 shadow-[0px_6px_25px_rgba(0,0,0,0.04)] p-8 sm:p-10 text-left space-y-4 hover:shadow-lg transition-all flex flex-col justify-between">
-                <div className="space-y-4">
-                  <div className="flex items-center space-x-2">
-                    <span className="text-[#FF6600] font-[900] text-3xl font-serif tracking-tight">VV</span>
-                    <div>
-                      <span className="text-[#FF6600] font-[900] text-2xl tracking-tight">Vidyalaya</span>
-                      <span className="text-[10px] text-slate-500 align-top">®</span>
-                      <div className="text-[11px] font-[700] text-amber-600 uppercase tracking-wider">Digitizing Schools</div>
+              {productsList.map((prod, idx) => (
+                <div key={idx} className="bg-white rounded-[16px] border border-slate-200/90 shadow-[0px_6px_25px_rgba(0,0,0,0.04)] p-8 sm:p-10 text-left space-y-4 hover:shadow-lg transition-all flex flex-col justify-between">
+                  <div className="space-y-4">
+                    <div className="flex items-center space-x-2">
+                      <span className="text-[#FF6600] font-[900] text-3xl font-serif tracking-tight">{prod.name?.slice(0, 2) || 'PR'}</span>
+                      <div>
+                        <span className="text-[#FF6600] font-[900] text-2xl tracking-tight">{prod.name}</span>
+                        <span className="text-[10px] text-slate-500 align-top">®</span>
+                        {prod.tagline && (
+                          <div className="text-[11px] font-[700] text-amber-600 uppercase tracking-wider">{prod.tagline}</div>
+                        )}
+                      </div>
                     </div>
+                    <p className="text-[14.5px] text-slate-600 leading-relaxed font-[400] font-sans">
+                      {prod.description}
+                    </p>
                   </div>
-                  <p className="text-[14.5px] text-slate-600 leading-relaxed font-[400] font-sans">
-                    Efficient & Innovative School ERP known for its unmatched service since 22+ years. We digitalized 1600+ Schools globally.
-                  </p>
-                </div>
-                <div className="pt-2">
-                  <Link to="/products" className="inline-flex items-center text-[14.5px] font-[700] text-[#006B8F] hover:text-[#004A75] space-x-1.5 font-sans">
-                    <span>Explore More</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </Link>
-                </div>
-              </div>
-              <div className="bg-white rounded-[16px] border border-slate-200/90 shadow-[0px_6px_25px_rgba(0,0,0,0.04)] p-8 sm:p-10 text-left space-y-4 hover:shadow-lg transition-all flex flex-col justify-between">
-                <div className="space-y-4">
-                  <div className="flex items-center space-x-2">
-                    <span className="text-[#008080] font-[900] text-3xl font-sans tracking-tight">Occu</span>
-                    <span className="text-[#006699] font-[900] text-3xl font-sans tracking-tight">Care</span>
-                    <span className="text-[10px] text-slate-500 align-top">™</span>
+                  <div className="pt-2">
+                    <Link to={prod.link || '/products'} className="inline-flex items-center text-[14.5px] font-[700] text-[#006B8F] hover:text-[#004A75] space-x-1.5 font-sans group">
+                      <span>Explore More</span>
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </Link>
                   </div>
-                  <div className="text-[11px] font-[600] text-slate-500">a healthier, more productive workforce</div>
-                  <p className="text-[14.5px] text-slate-600 leading-relaxed font-[400] font-sans">
-                    OccuCare empower organizations to protect, maintain and promote the well-being of workers.
-                  </p>
                 </div>
-                <div className="pt-2">
-                  <Link to="/products" className="inline-flex items-center text-[14.5px] font-[700] text-[#006B8F] hover:text-[#004A75] space-x-1.5 font-sans">
-                    <span>Explore More</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </Link>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </section>
@@ -812,10 +959,10 @@ export const CompanySubDetails = () => {
           <div className="max-w-[1360px] mx-auto px-4 sm:px-8">
             <div className="text-center max-w-4xl mx-auto mb-14">
               <h2 className="text-[36px] sm:text-[44px] font-[900] text-slate-900 tracking-tight leading-tight mb-3 font-sans">
-                Trusted By The World’s Leading Brands
+                {trustedBrands.heading || 'Trusted By The World’s Leading Brands'}
               </h2>
               <p className="text-[15px] sm:text-[16px] text-slate-600 leading-relaxed max-w-3xl mx-auto font-[400] font-sans">
-                We are glad to be a digital technology and innovation partner with world’s leading brands. Building greater futures through innovation and collective knowledge.
+                {trustedBrands.subheading || 'We are glad to be a digital technology and innovation partner with world’s leading brands. Building greater futures through innovation and collective knowledge.'}
               </p>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-5">
@@ -830,63 +977,64 @@ export const CompanySubDetails = () => {
           </div>
         </section>
 
-        {/* 10. "What Our Clients Say" (Exact Slider Carousel Matching Image 1) */}
-        <ClientReviewsDarkSection />
+        {/* 10. "What Our Clients Say" */}
+        <ClientReviewsDarkSection data={{ title: content.reviewsSection?.title || 'What Our Clients Say' }} />
 
         {/* 11. "Insights" */}
         <section className="py-20 bg-white border-b border-slate-100 text-slate-900 font-sans">
           <div className="max-w-[1360px] mx-auto px-4 sm:px-8">
             <div className="text-center max-w-4xl mx-auto mb-14">
               <h2 className="text-[36px] sm:text-[44px] font-[900] text-slate-900 tracking-tight leading-tight mb-3 font-sans">
-                Insights
+                {content.insights?.heading || 'Insights'}
               </h2>
               <p className="text-[15px] sm:text-[16px] text-slate-600 leading-relaxed max-w-3xl mx-auto font-[400] font-sans">
-                Based on boundless enthusiasm and challenging spirit, firevy.co is committed to deliver excellence.
+                {content.insights?.subheading || 'Based on boundless enthusiasm and challenging spirit, firevy.co is committed to deliver excellence.'}
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="rounded-[16px] overflow-hidden shadow-md border border-slate-200 h-[280px] bg-slate-100 group relative">
-                <img
-                  src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80"
-                  alt="Corporate Headquarters"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="rounded-[16px] overflow-hidden shadow-md border border-slate-200 h-[280px] bg-slate-100 group relative">
-                <img
-                  src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80"
-                  alt="Occucon Event"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute bottom-4 left-4 bg-slate-900/80 backdrop-blur-xs text-white px-3 py-1 rounded-[6px] text-xs font-[700]">
-                  Occucon Event
+              {insightsList.slice(0, 3).map((item, idx) => (
+                <div key={idx} className="rounded-[16px] overflow-hidden shadow-md border border-slate-200 h-[280px] bg-slate-100 group relative">
+                  <img
+                    src={getMediaUrl(item.image)}
+                    alt={item.caption || `Insight ${idx + 1}`}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  {item.caption && (
+                    <div className="absolute bottom-4 left-4 bg-slate-900/80 backdrop-blur-xs text-white px-3 py-1 rounded-[6px] text-xs font-[700]">
+                      {item.caption}
+                    </div>
+                  )}
                 </div>
-              </div>
-              <div className="rounded-[16px] overflow-hidden shadow-md border border-slate-200 h-[280px] bg-slate-100 group relative">
-                <img
-                  src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80"
-                  alt="Exhibition Booth"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="md:col-span-2 rounded-[16px] overflow-hidden shadow-md border border-slate-200 h-[300px] bg-slate-100 group relative">
-                <img
-                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80"
-                  alt="Our Team Banquet"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute bottom-4 left-4 bg-slate-900/80 backdrop-blur-xs text-white px-3 py-1 rounded-[6px] text-xs font-[700]">
-                  Our Team
+              ))}
+              {insightsList[3] && (
+                <div className="md:col-span-2 rounded-[16px] overflow-hidden shadow-md border border-slate-200 h-[300px] bg-slate-100 group relative">
+                  <img
+                    src={getMediaUrl(insightsList[3].image)}
+                    alt={insightsList[3].caption || 'Our Team'}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  {insightsList[3].caption && (
+                    <div className="absolute bottom-4 left-4 bg-slate-900/80 backdrop-blur-xs text-white px-3 py-1 rounded-[6px] text-xs font-[700]">
+                      {insightsList[3].caption}
+                    </div>
+                  )}
                 </div>
-              </div>
-              <div className="rounded-[16px] overflow-hidden shadow-md border border-slate-200 h-[300px] bg-slate-100 group relative">
-                <img
-                  src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80"
-                  alt="Tech Showcase"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
+              )}
+              {insightsList[4] && (
+                <div className="rounded-[16px] overflow-hidden shadow-md border border-slate-200 h-[300px] bg-slate-100 group relative">
+                  <img
+                    src={getMediaUrl(insightsList[4].image)}
+                    alt={insightsList[4].caption || 'Showcase'}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  {insightsList[4].caption && (
+                    <div className="absolute bottom-4 left-4 bg-slate-900/80 backdrop-blur-xs text-white px-3 py-1 rounded-[6px] text-xs font-[700]">
+                      {insightsList[4].caption}
+                    </div>
+                  )}
+                </div>
+              )}
             </div>
           </div>
         </section>
@@ -898,17 +1046,17 @@ export const CompanySubDetails = () => {
               <div className="lg:col-span-6 space-y-6">
                 <div>
                   <h2 className="text-[38px] sm:text-[46px] font-[900] text-slate-900 tracking-tight leading-tight mb-2 font-sans">
-                    Corporate Social<br />Responsibility
+                    {csr.heading || 'Corporate Social Responsibility'}
                   </h2>
                   <p className="text-[16px] text-slate-500 font-semibold font-sans">
-                    Business is an opportunity to help humanity
+                    {csr.subheading || 'Business is an opportunity to help humanity'}
                   </p>
                 </div>
 
                 <div className="space-y-4 pt-2">
                   <div className="text-[#006B8F] text-5xl font-serif leading-none">“</div>
                   <p className="text-[20px] sm:text-[23px] font-[800] text-[#006B8F] leading-snug font-sans max-w-xl">
-                    Our CSR Programs Accelerate Human Empowerment Among Underserved People And Their Communities Via Three Pillars: Education, Society And Conservation.
+                    {csr.quote}
                   </p>
                 </div>
               </div>
@@ -916,8 +1064,8 @@ export const CompanySubDetails = () => {
               <div className="lg:col-span-6">
                 <div className="rounded-[18px] overflow-hidden border border-slate-200 shadow-xl bg-white">
                   <img
-                    src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=1000&q=80"
-                    alt="Corporate Social Responsibility"
+                    src={getMediaUrl(csr.image)}
+                    alt={csr.heading || 'Corporate Social Responsibility'}
                     className="w-full h-[380px] sm:h-[420px] object-cover hover:scale-105 transition-transform duration-500"
                   />
                 </div>
@@ -926,12 +1074,12 @@ export const CompanySubDetails = () => {
           </div>
         </section>
 
-        {/* 13. Full Panoramic Team Photo Banner with clean top & bottom spacing */}
+        {/* 13. Full Panoramic Team Photo Banner */}
         <section className="py-12 sm:py-16 bg-white">
           <div className="max-w-[1360px] mx-auto px-4 sm:px-8">
             <div className="w-full h-[360px] sm:h-[450px] rounded-[20px] overflow-hidden shadow-lg border border-slate-200 bg-slate-900 relative">
               <img
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=2000&q=80"
+                src={getMediaUrl(teamBanner.image)}
                 alt="firevy.co Whole Team"
                 className="w-full h-full object-cover opacity-95 hover:scale-105 transition-transform duration-700"
               />
@@ -947,11 +1095,57 @@ export const CompanySubDetails = () => {
 
   // If this is the "CEO Message" / "ceo-message" page, render exact Sapphire CEO Message Layout
   if (pageKey === 'ceo-message') {
+    const heroTitle = dynamicSection?.title || dynamicSection?.content?.heroHeading || dynamicSection?.hero?.title || "Message From CEO";
+    const heroSubtitle = dynamicSection?.subtitle || dynamicSection?.content?.heroSubtitle || dynamicSection?.hero?.subtitle || "In this message, our CEO shares insights on our mission, vision, and commitment to innovation. We are excited to continue growing with you, and we hope you find inspiration in the path we're forging together.";
+    const heroButtonText = dynamicSection?.ctaText || dynamicSection?.hero?.ctaText || dynamicSection?.content?.heroButtonText || "Work With Us";
+    const heroButtonLink = dynamicSection?.ctaLink || dynamicSection?.hero?.ctaLink || dynamicSection?.content?.heroButtonLink || "/contact";
+    const ceoPhoto = dynamicSection?.heroImage || dynamicSection?.hero?.heroImage || dynamicSection?.content?.ceoImage || "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=700&q=80";
+    const ceoName = dynamicSection?.content?.ceoName || "Kumaril Patel";
+    const ceoRole = dynamicSection?.content?.ceoDesignation || "- CEO";
+
+    // Tenets
+    const defaultTenets = ["Integrity", "Excellence", "Innovation", "Leadership"];
+    const tenets = (Array.isArray(dynamicSection?.content?.tenets) && dynamicSection.content.tenets.length === 4)
+      ? dynamicSection.content.tenets
+      : defaultTenets;
+
+    // Quote Box
+    const quote = dynamicSection?.content?.quote || "True leadership is not about holding power but igniting potential—in yourself, in your team, and in the world. Dream boldly, act fearlessly, and leave a legacy that inspires transformation.";
+    const quoteAuthor = dynamicSection?.content?.quoteAuthor || ceoName;
+    const quoteAuthorRole = dynamicSection?.content?.quoteAuthorRole || "CEO";
+    const quoteAuthorLinkedin = dynamicSection?.content?.quoteAuthorLinkedin || "https://linkedin.com";
+
+    // Message Paragraphs
+    const defaultParagraphs = [
+      "Welcome to firevy.co—a hub where ingenuity meets ambition. As the CEO, I firmly believe that leadership transcends the act of managing. It is about inspiring every individual within the organization to dream, innovate, and achieve greatness. Leadership is a responsibility to guide not just a company, but a movement—one driven by a relentless pursuit of excellence and a passion to redefine what is possible.",
+      "At firevy.co, we are not mere participants in the ever-evolving tech landscape; we are architects of change. Our mission is to harness the transformative power of technology, crafting solutions that empower businesses, enrich lives, and shape the future. Every solution we build reflects a commitment to quality, creativity, and the unwavering belief that technology, when wielded wisely, can be a force for global progress.",
+      "This company is more than a business—it is a beacon of possibility. Our team, fueled by curiosity and resilience, dares to envision a world where ideas are not limited by boundaries but ignited by boldness. Each challenge we face becomes an opportunity to grow, to innovate, and to lead. We don't just adapt to change; we are the change.",
+      "I firmly believe that one revolutionary idea, one brilliant invention, has the potential to illuminate billions of lives. Technology has the power to bridge divides, solve pressing challenges, and transform societies. At firevy.co, we are not just creators of software—we are curators of dreams, building tools that unlock the infinite potential within every individual and organization we serve.",
+      "Nothing is impossible when you dare to dream, believe in your vision, and act with unwavering conviction. Together, we will embrace challenges, seize opportunities, and continue to push the boundaries of what technology can achieve. This is our journey—a journey fueled by bold ideas, limitless ambition, and an unyielding commitment to excellence.",
+      "Thank you for trusting us to be your partner in progress. Together, we are not just building software, mobile apps and websites; we are creating a legacy—a legacy of innovation, impact, and transformative power that will resonate for generations to come."
+    ];
+    const paragraphs = (Array.isArray(dynamicSection?.content?.messageParagraphs) && dynamicSection.content.messageParagraphs.length > 0)
+      ? dynamicSection.content.messageParagraphs
+      : defaultParagraphs;
+
+    // Sign-off Block
+    const signoffPrefix = dynamicSection?.content?.signoffPrefix || "Yours Sincerely,";
+    const signoffName = dynamicSection?.content?.signoffName || ceoName;
+    const signoffRole = dynamicSection?.content?.signoffRole || "CEO";
+    const signoffCompany = dynamicSection?.content?.signoffCompany || "firevy.co";
+
+    // Bottom CTA
+    const cta = dynamicSection?.content?.cta || dynamicSection?.cta || {};
+    const ctaTitle = cta.title || "Let's Work Together On Your Next Digital Project";
+    const ctaSubtitle = cta.subtitle || "Have a project with us? Reach out today to learn more about how Firevy.co can help you unlock business solutions and drive your business strategy.";
+    const ctaButtonText = cta.buttonText || "Request A Free Quote";
+    const ctaButtonLink = cta.buttonLink || "/contact";
+
     return (
       <div className="bg-white min-h-screen text-slate-900 font-sans">
         <SEO
-          title={`Message From CEO | firevy.co`}
-          description="In this message, our CEO shares insights on our mission, vision, and commitment to innovation. We are excited to continue growing with you."
+          title={`${heroTitle} | firevy.co`}
+          description={heroSubtitle}
           canonical={`/company/${pageKey}`}
         />
 
@@ -962,17 +1156,17 @@ export const CompanySubDetails = () => {
               {/* Left Text */}
               <div className="lg:col-span-7 space-y-6">
                 <h1 className="text-[34px] font-[800] text-slate-900 tracking-tight leading-tight font-sans page-hero-title">
-                  Message From CEO
+                  {heroTitle}
                 </h1>
                 <p className="text-[15px] text-slate-600 leading-relaxed font-[400] font-sans max-w-lg page-hero-desc">
-                  In this message, our CEO shares insights on our mission, vision, and commitment to innovation. We are excited to continue growing with you, and we hope you find inspiration in the path we're forging together.
+                  {heroSubtitle}
                 </p>
                 <div className="pt-2">
                   <Link
-                    to="/contact"
+                    to={heroButtonLink}
                     className="inline-flex items-center justify-center space-x-2 px-8 py-3.5 rounded-[6px] bg-[#006B8F] hover:bg-[#005478] text-white font-[700] text-[15px] transition-all shadow-md group font-sans"
                   >
-                    <span>Get In Touch</span>
+                    <span>{heroButtonText}</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </div>
@@ -992,19 +1186,23 @@ export const CompanySubDetails = () => {
                   {/* CEO Portrait Cutout with White Border Outline Effect */}
                   <div className="relative z-10 w-[280px] h-[340px] flex items-end justify-center">
                     <img
-                      src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=700&q=80"
-                      alt="Kumaril Patel - CEO"
+                      src={getMediaUrl(ceoPhoto)}
+                      alt={`${ceoName} - CEO`}
                       className="w-full h-full object-cover object-top rounded-b-[40px] drop-shadow-[0_10px_20px_rgba(0,0,0,0.15)] [filter:drop-shadow(0_0_1px_#ffffff)_drop-shadow(0_0_3px_#ffffff)_drop-shadow(0_0_6px_#ffffff)]"
+                      onError={(e) => {
+                        e.target.onerror = null;
+                        e.target.src = 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=700&q=80';
+                      }}
                     />
                   </div>
 
                   {/* White Angled Trapezoid Name Plate (Exact Reference Shape) */}
                   <div className="relative z-20 -mt-6 w-[280px] sm:w-[300px] bg-white pt-3.5 pb-3 px-6 rounded-t-[10px] rounded-b-[16px] shadow-[0_12px_30px_rgba(0,0,0,0.12)] border border-slate-100/90 text-center">
                     <h3 className="text-[21px] font-[900] text-slate-900 font-sans tracking-tight leading-none">
-                      Kumaril Patel
+                      {ceoName}
                     </h3>
                     <div className="inline-block mt-2 px-5 py-0.5 rounded-[4px] bg-[#006B8F] text-white text-[12px] font-[800] tracking-wider shadow-sm">
-                      - CEO
+                      {ceoRole}
                     </div>
                   </div>
                 </div>
@@ -1020,10 +1218,14 @@ export const CompanySubDetails = () => {
               {/* Left Core Pillars with Alternating Blue / Slate Colors */}
               <div className="lg:col-span-5 space-y-1.5 select-none">
                 <div className="text-[44px] sm:text-[54px] lg:text-[58px] font-[900] italic leading-[1.15] tracking-tight">
-                  <div className="text-[#006B8F]">Integrity</div>
-                  <div className="text-[#1E293B]">Excellence</div>
-                  <div className="text-[#006B8F]">Innovation</div>
-                  <div className="text-[#1E293B]">Leadership</div>
+                  {tenets.map((word, idx) => (
+                    <div
+                      key={idx}
+                      className={idx % 2 === 0 ? "text-[#006B8F]" : "text-[#1E293B]"}
+                    >
+                      {word}
+                    </div>
+                  ))}
                 </div>
               </div>
 
@@ -1036,27 +1238,29 @@ export const CompanySubDetails = () => {
                   </svg>
 
                   <p className="text-[21px] sm:text-[23px] lg:text-[24px] font-[700] text-[#0B3B60] leading-[1.45] font-sans">
-                    True leadership is not about holding power but igniting potential—in yourself, in your team, and in the world. Dream boldly, act fearlessly, and leave a legacy that inspires transformation.
+                    {quote}
                   </p>
 
                   <div className="flex items-center space-x-3 pt-2">
                     <div>
                       <h4 className="text-[21px] font-[800] text-[#006B8F] leading-tight font-sans">
-                        Kumaril Patel
+                        {quoteAuthor}
                       </h4>
                       <p className="text-[15px] font-[800] text-slate-900 font-sans">
-                        CEO
+                        {quoteAuthorRole}
                       </p>
                     </div>
-                    <a
-                      href="https://linkedin.com"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="w-8 h-8 rounded-full bg-[#0077B5] hover:bg-[#005f93] text-white inline-flex items-center justify-center transition-colors shadow-sm ml-2"
-                      aria-label="LinkedIn"
-                    >
-                      <Linkedin className="w-4 h-4 fill-current" />
-                    </a>
+                    {quoteAuthorLinkedin && (
+                      <a
+                        href={quoteAuthorLinkedin}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="w-8 h-8 rounded-full bg-[#0077B5] hover:bg-[#005f93] text-white inline-flex items-center justify-center transition-colors shadow-sm ml-2"
+                        aria-label="LinkedIn"
+                      >
+                        <Linkedin className="w-4 h-4 fill-current" />
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>
@@ -1068,45 +1272,73 @@ export const CompanySubDetails = () => {
         <section className="py-16 bg-white text-left font-sans">
           <div className="max-w-[1360px] mx-auto px-4 sm:px-8">
             <div className="max-w-[940px] mx-auto space-y-6 text-[16px] sm:text-[16.5px] text-slate-700 leading-[1.85] font-[400]">
-              <p>
-                Welcome to firevy.co—a hub where ingenuity meets ambition. As the CEO, I firmly believe that leadership transcends the act of managing. It is about inspiring every individual within the organization to dream, innovate, and achieve greatness. Leadership is a responsibility to guide not just a company, but a movement—one driven by a relentless pursuit of excellence and a passion to redefine what is possible.
-              </p>
-              <p>
-                At firevy.co, we are not mere participants in the ever-evolving tech landscape; we are architects of change. Our mission is to harness the transformative power of technology, crafting solutions that empower businesses, enrich lives, and shape the future. Every solution we build reflects a commitment to quality, creativity, and the unwavering belief that technology, when wielded wisely, can be a force for global progress.
-              </p>
-              <p>
-                This company is more than a business—it is a beacon of possibility. Our team, fueled by curiosity and resilience, dares to envision a world where ideas are not limited by boundaries but ignited by boldness. Each challenge we face becomes an opportunity to grow, to innovate, and to lead. We don't just adapt to change; we are the change.
-              </p>
-              <p>
-                I firmly believe that one revolutionary idea, one brilliant invention, has the potential to illuminate billions of lives. Technology has the power to bridge divides, solve pressing challenges, and transform societies. At firevy.co, we are not just creators of software—we are curators of dreams, building tools that unlock the infinite potential within every individual and organization we serve.
-              </p>
-              <p>
-                Nothing is impossible when you dare to dream, believe in your vision, and act with unwavering conviction. Together, we will embrace challenges, seize opportunities, and continue to push the boundaries of what technology can achieve. This is our journey—a journey fueled by bold ideas, limitless ambition, and an unyielding commitment to excellence.
-              </p>
-              <p>
-                Thank you for trusting us to be your partner in progress. Together, we are not just building software, mobile app and websites; we are creating a legacy—a legacy of innovation, impact, and transformative power that will resonate for generations to come.
-              </p>
+              {paragraphs.map((pText, idx) => (
+                <p key={idx}>
+                  {pText}
+                </p>
+              ))}
 
               {/* Sign-off Block */}
               <div className="pt-8 space-y-1 text-slate-800">
-                <p className="text-[15px] font-[500] text-slate-600">Your's Sincerely,</p>
-                <h4 className="text-[20px] font-[900] text-slate-900 tracking-tight">Kumaril Patel</h4>
-                <p className="text-[15px] font-[800] text-slate-800">CEO</p>
-                <p className="text-[14.5px] font-[600] text-slate-600">firevy.co</p>
+                {signoffPrefix && (
+                  <p className="text-[15px] font-[500] text-slate-600">{signoffPrefix}</p>
+                )}
+                <h4 className="text-[20px] font-[900] text-slate-900 tracking-tight">{signoffName}</h4>
+                <p className="text-[15px] font-[800] text-slate-800">{signoffRole}</p>
+                <p className="text-[14.5px] font-[600] text-slate-600">{signoffCompany}</p>
               </div>
             </div>
           </div>
         </section>
 
         {/* 4. LET'S WORK TOGETHER & NEWSLETTER SUBSCRIPTION BANNER */}
-        <WorkTogetherNewsletterSection />
+        <WorkTogetherNewsletterSection
+          title={ctaTitle}
+          subtitle={ctaSubtitle}
+          buttonText={ctaButtonText}
+          buttonLink={ctaButtonLink}
+        />
       </div>
     );
   }
 
   // If this is the "Our Team" / "our-team" page, render exact Sapphire Our Team Layout
   if (pageKey === 'our-team') {
-    const businessHeads = [
+    const heroTitle = dynamicSection?.title || dynamicSection?.content?.heroTitle || dynamicSection?.hero?.title || "Our Team";
+    const heroSubtitle = dynamicSection?.subtitle || dynamicSection?.content?.heroSubtitle || dynamicSection?.hero?.subtitle || "Meet the team of innovative, driven and passionate individuals. We cultivate the diverse talents of our team and leverage their extraordinary perspectives and innovative ideas to make firevy.co the industry leader.";
+    const heroButtonText = dynamicSection?.ctaText || dynamicSection?.hero?.ctaText || dynamicSection?.content?.heroButtonText || "Connect Now";
+    const heroButtonLink = dynamicSection?.ctaLink || dynamicSection?.hero?.ctaLink || dynamicSection?.content?.heroButtonLink || "/contact";
+
+    // 2. Management Team
+    const mgmtHeading = dynamicSection?.content?.managementHeading || "Management Team";
+
+    const defaultCeo = {
+      name: 'Mr. Kumaril Patel',
+      role: 'CEO & Co-Founder',
+      image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80',
+      linkedin: 'https://linkedin.com',
+      messageHeading: 'CEO Message',
+      paragraphs: [
+        "Welcome to firevy.co— a hub where ingenuity meets ambition. As the CEO, I firmly believe that leadership is not just about steering the ship but about inspiring every hand on deck to innovate, dream, and achieve. Our success stems from a shared commitment to excellence, where each solution is crafted with purpose and passion. At firevy.co, we don't merely adapt to change; we define it. By blending cutting-edge technology with human ingenuity, we create software solutions that empower businesses and individuals alike. This is not just a company; it's a vision brought to life by a team that dares to dream bigger every day.",
+        "Never stop believing in the power of technology that can change the world. One Revolutionary idea... One brilliant Invention can enlighten billions of the Human lives. Nothing is Impossible when you Dream it & believe it you can Do it. Together, let us embrace the challenges and opportunities. Thank you for trusting us to be your partner in progress. Together, we are not just building software —we are creating a legacy of innovation and impact."
+      ]
+    };
+    const ceo = dynamicSection?.content?.ceo || defaultCeo;
+
+    const defaultCto = {
+      name: 'Mr. Rajendra Patel',
+      role: 'CTO & Co-Founder',
+      image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80',
+      linkedin: 'https://linkedin.com',
+      messageHeading: 'CTO Message',
+      paragraphs: [
+        "At firevy.co, technology is not just a means to an end—it's the essence of our identity and the foundation of our future. As the CTO, my mission is to push the boundaries of innovation, ensuring that every line of code we write and every solution we deliver drives meaningful impact. Our approach is simple yet profound: embrace challenges as opportunities and ideas as catalysts for change. By staying at the forefront of technological advancements and fostering a culture of continuous learning, we empower businesses to thrive in a dynamic digital landscape. Crafting success stories from startups to Fortune 500 stalwarts.",
+        "Our dedication to user-centric design and cutting-edge solutions has garnered prestigious accolades. Innovation is a journey, and at firevy.co, we walk that path with purpose and passion, transforming visions into reality and possibilities into achievements. Thank you for trusting us as your technology partner. Together, we are building a smarter, more connected happy world."
+      ]
+    };
+    const cto = dynamicSection?.content?.cto || defaultCto;
+
+    const defaultBusinessHeads = [
       {
         name: 'Nirav Patel',
         role: 'Business Head - Product',
@@ -1118,8 +1350,13 @@ export const CompanySubDetails = () => {
         image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80'
       }
     ];
+    const businessHeads = (Array.isArray(dynamicSection?.content?.businessHeads) && dynamicSection.content.businessHeads.length > 0)
+      ? dynamicSection.content.businessHeads
+      : defaultBusinessHeads;
 
-    const leadershipTeam = [
+    // 3. Leadership Team (15 Team Leads)
+    const leadershipHeading = dynamicSection?.content?.leadershipHeading || "Leadership Team";
+    const defaultLeadershipTeam = [
       { name: 'Ankit Gokani', role: 'HR Lead', image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=500&q=80' },
       { name: 'Ankit Morasiya', role: 'QA Lead', image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=500&q=80' },
       { name: 'Ashish Dubey', role: 'MERN Lead', image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=500&q=80' },
@@ -1136,12 +1373,69 @@ export const CompanySubDetails = () => {
       { name: 'Umang Barot', role: 'Project Lead', image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=500&q=80' },
       { name: 'Vipul Patel', role: '.NET Lead', image: 'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=500&q=80' }
     ];
+    const leadershipTeam = (Array.isArray(dynamicSection?.content?.leadershipTeam) && dynamicSection.content.leadershipTeam.length > 0)
+      ? dynamicSection.content.leadershipTeam
+      : defaultLeadershipTeam;
+
+    // 4. Teamwork Mosaic Wall
+    const teamworkHeading = dynamicSection?.content?.teamworkHeading || "Teamwork Is The Only Way We Work";
+    const teamworkButtonText = dynamicSection?.content?.teamworkButtonText || "Join Our Team";
+    const teamworkButtonLink = dynamicSection?.content?.teamworkButtonLink || "/careers";
+    const teamworkBannerImage = dynamicSection?.content?.teamworkBannerImage || "";
+
+    // 5. What Our Firevian Says (Employee Testimonial)
+    const defaultFirevianSay = {
+      heading: 'What Our Firevian Says',
+      name: 'Vipul Patel',
+      role: 'Team Lead',
+      image: 'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=400&q=80',
+      quote: "I am proud to be working for a company like firevy.co that values honesty and a fair attitude to all which has also contributed to a very valuable and delightful experience. The work culture and the integrity of the company's management are remarkable. In firevy.co, we get all the freedom to think out-of-the-box and take complete ownership of the work we do. Being a client-focused company, firevy.co makes us understand the clients' requirements easily so that the work can be coordinated effectively. There are always opportunities to learn and no limitations to scale new heights in this organization."
+    };
+    const firevianSay = dynamicSection?.content?.firevianSay || defaultFirevianSay;
+
+    // 6. Learning & Growth
+    const defaultLearningGrowth = {
+      heading: 'Learning & Growth',
+      paragraphs: [
+        "Learning and growth go hand-in-hand fundamentally, and so is the story at firevy.co. We offer ample amounts of training to each individual and help them to improve their skills with subject matter specialists from the industry and within the company. We always believe in continuous learning culture so it gives opportunity to achieve better be it, Business interactions, Design Thinking or Technology.",
+        "We want our team to grow and develop at firevy.co, meet your career goals and make the most of your potential, all while embracing your own exceptional talents.",
+        "That's why we are committed to helping you drive your career in a dynamic environment. Across all levels of our organization, we are nurturing a culture of trust and dialogue. We offer tools to support this culture such as 360 feedback, online coaching and a mutual mentoring program."
+      ],
+      buttonText: 'Join Our Team',
+      buttonLink: '/careers',
+      images: [
+        'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=700&q=80',
+        'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=700&q=80',
+        'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=700&q=80'
+      ]
+    };
+    const learningGrowth = dynamicSection?.content?.learningGrowth || defaultLearningGrowth;
+
+    // 7. Team @ firevy.co (2x2 Gallery)
+    const defaultLifeAtFirevy = {
+      heading: 'Team @ firevy.co',
+      description: 'At firevy.co, we have a friendly, inspiring and fun loving yet professional environment. We celebrate all the good moments in terms of our growth and accomplishments. Our closeness always makes us feel strengthened and energetic to improve our actions, to go stress-free, and to work untiringly as a team.',
+      images: [
+        'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80',
+        'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80',
+        'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80',
+        'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80'
+      ]
+    };
+    const lifeAtFirevy = dynamicSection?.content?.lifeAtFirevy || defaultLifeAtFirevy;
+
+    // 8. Bottom CTA Banner
+    const cta = dynamicSection?.content?.cta || dynamicSection?.cta || {};
+    const ctaTitle = cta.title || 'Ready To Take The Challenge?';
+    const ctaSubtitle = cta.subtitle || 'Join our team of passionate and bright technologists. Work in a collaborative environment which will provide you ample growth opportunities and shape the leader in you.';
+    const ctaButtonText = cta.buttonText || 'Join Our Team';
+    const ctaButtonLink = cta.buttonLink || '/careers';
 
     return (
       <div className="bg-white min-h-screen text-slate-900 font-sans">
         <SEO
-          title="Our Team | Innovative & Passionate Minds | firevy.co"
-          description="Meet the team of innovative, driven and passionate individuals at firevy.co. We cultivate diverse talents to make firevy.co the industry leader."
+          title={`${heroTitle} | Innovative & Passionate Minds | firevy.co`}
+          description={heroSubtitle}
           canonical={`/company/${pageKey}`}
         />
 
@@ -1152,17 +1446,17 @@ export const CompanySubDetails = () => {
               {/* Left Text */}
               <div className="lg:col-span-6 space-y-6">
                 <h1 className="text-[34px] font-[800] text-slate-900 tracking-tight leading-tight font-sans page-hero-title">
-                  Our Team
+                  {heroTitle}
                 </h1>
                 <p className="text-[15px] text-slate-600 leading-relaxed font-[400] font-sans max-w-lg page-hero-desc">
-                  Meet the team of innovative, driven and passionate individuals. We cultivate the diverse talents of our team and leverage their extraordinary perspectives and innovative ideas to make firevy.co the industry leader.
+                  {heroSubtitle}
                 </p>
                 <div className="pt-2">
                   <Link
-                    to="/contact"
+                    to={heroButtonLink}
                     className="inline-flex items-center justify-center space-x-2 px-8 py-3.5 rounded-[6px] bg-[#006B8F] hover:bg-[#005478] text-white font-[700] text-[15px] transition-all shadow-md group font-sans"
                   >
-                    <span>Connect Now</span>
+                    <span>{heroButtonText}</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </div>
@@ -1219,37 +1513,40 @@ export const CompanySubDetails = () => {
           <div className="max-w-[1360px] mx-auto px-4 sm:px-8">
             <div className="text-center max-w-4xl mx-auto mb-16">
               <h2 className="text-[38px] sm:text-[46px] font-[900] text-slate-900 tracking-tight leading-tight font-sans">
-                Management Team
+                {mgmtHeading}
               </h2>
             </div>
 
-            {/* CEO Message Card (Kumaril Patel) - Exact Reference Screenshot 2 Match */}
+            {/* CEO Message Card (Kumaril Patel) */}
             <div className="bg-[#F0F7FA] rounded-[24px] p-8 sm:p-10 border border-blue-100/70 shadow-sm max-w-5xl mx-auto mb-10">
               <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
                 {/* Photo & Name */}
                 <div className="md:col-span-4 flex flex-col items-center text-center">
                   <div className="w-[180px] h-[210px] rounded-[16px] overflow-hidden shadow-md bg-slate-200 mb-3 border border-slate-200">
                     <img
-                      src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80"
-                      alt="Kumaril Patel"
+                      src={getMediaUrl(ceo.image)}
+                      alt={ceo.name}
                       className="w-full h-full object-cover object-top"
+                      onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80'; }}
                     />
                   </div>
                   <h3 className="text-[20px] font-[800] text-slate-900 font-sans leading-tight">
-                    Kumaril Patel
+                    {ceo.name}
                   </h3>
                   <p className="text-[13.5px] font-[700] text-slate-600 font-sans mb-2">
-                    CEO & Co-Founder
+                    {ceo.role}
                   </p>
-                  <a
-                    href="https://linkedin.com"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="w-7 h-7 rounded-full bg-[#0077B5] hover:bg-[#005f93] text-white inline-flex items-center justify-center transition-colors shadow-sm"
-                    aria-label="LinkedIn"
-                  >
-                    <Linkedin className="w-3.5 h-3.5 fill-current" />
-                  </a>
+                  {ceo.linkedin && (
+                    <a
+                      href={ceo.linkedin}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="w-7 h-7 rounded-full bg-[#0077B5] hover:bg-[#005f93] text-white inline-flex items-center justify-center transition-colors shadow-sm"
+                      aria-label="LinkedIn"
+                    >
+                      <Linkedin className="w-3.5 h-3.5 fill-current" />
+                    </a>
+                  )}
                 </div>
 
                 {/* CEO Letter Text */}
@@ -1259,24 +1556,23 @@ export const CompanySubDetails = () => {
                       <path d="M12 0C5.37 0 0 5.37 0 12c0 6.63 5.37 12 12 12 1.1 0 2.16-.16 3.17-.44C13.56 28.3 9.4 32 4 32v4c8.84 0 16-7.16 16-16V0H12zm28 0c-6.63 0-12 5.37-12 12 0 6.63 5.37 12 12 12 1.1 0 2.16-.16 3.17-.44C41.56 28.3 37.4 32 32 32v4c8.84 0 16-7.16 16-16V0H40z" />
                     </svg>
                     <h4 className="text-[22px] font-[800] text-slate-900 font-sans tracking-tight">
-                      CEO Message
+                      {ceo.messageHeading || "CEO Message"}
                     </h4>
                     <div className="h-[2px] w-12 bg-slate-900/80 rounded-full" />
                   </div>
 
                   <div className="space-y-3 text-[14.5px] text-slate-700 leading-relaxed font-[400]">
-                    <p>
-                      Welcome to firevy.co— a hub where ingenuity meets ambition. As the CEO, I firmly believe that leadership is not just about steering the ship but about inspiring every hand on deck to innovate, dream, and achieve. Our success stems from a shared commitment to excellence, where each solution is crafted with purpose and passion. At firevy.co, we don't merely adapt to change; we define it. By blending cutting-edge technology with human ingenuity, we create software solutions that empower businesses and individuals alike. This is not just a company; it's a vision brought to life by a team that dares to dream bigger every day.
-                    </p>
-                    <p>
-                      Never stop believing in the power of technology that can change the world. One Revolutionary idea... One brilliant Invention can enlighten billions of the Human lives. Nothing is Impossible when you Dream it & believe it you can Do it. Together, let us embrace the challenges and opportunities. Thank you for trusting us to be your partner in progress. Together, we are not just building software —we are creating a legacy of innovation and impact.
-                    </p>
+                    {(ceo.paragraphs || []).map((pText, pIdx) => (
+                      <p key={pIdx}>
+                        {pText}
+                      </p>
+                    ))}
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* CTO Message Card (Mr. Rajendra Patel) - Exact Reference Screenshot 3 Match */}
+            {/* CTO Message Card (Mr. Rajendra Patel) */}
             <div className="bg-[#F0F7FA] rounded-[24px] p-8 sm:p-10 border border-blue-100/70 shadow-sm max-w-5xl mx-auto mb-16">
               <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
                 {/* CTO Letter Text */}
@@ -1286,18 +1582,17 @@ export const CompanySubDetails = () => {
                       <path d="M12 0C5.37 0 0 5.37 0 12c0 6.63 5.37 12 12 12 1.1 0 2.16-.16 3.17-.44C13.56 28.3 9.4 32 4 32v4c8.84 0 16-7.16 16-16V0H12zm28 0c-6.63 0-12 5.37-12 12 0 6.63 5.37 12 12 12 1.1 0 2.16-.16 3.17-.44C41.56 28.3 37.4 32 32 32v4c8.84 0 16-7.16 16-16V0H40z" />
                     </svg>
                     <h4 className="text-[22px] font-[800] text-slate-900 font-sans tracking-tight">
-                      CTO Message
+                      {cto.messageHeading || "CTO Message"}
                     </h4>
                     <div className="h-[2px] w-12 bg-slate-900/80 rounded-full" />
                   </div>
 
                   <div className="space-y-3 text-[14.5px] text-slate-700 leading-relaxed font-[400]">
-                    <p>
-                      At firevy.co, technology is not just a means to an end—it's the essence of our identity and the foundation of our future. As the CTO, my mission is to push the boundaries of innovation, ensuring that every line of code we write and every solution we deliver drives meaningful impact. Our approach is simple yet profound: embrace challenges as opportunities and ideas as catalysts for change. By staying at the forefront of technological advancements and fostering a culture of continuous learning, we empower businesses to thrive in a dynamic digital landscape. Crafting success stories from startups to Fortune 500 stalwarts.
-                    </p>
-                    <p>
-                      Our dedication to user-centric design and cutting-edge solutions has garnered prestigious accolades. Innovation is a journey, and at firevy.co, we walk that path with purpose and passion, transforming visions into reality and possibilities into achievements. Thank you for trusting us as your technology partner. Together, we are building a smarter, more connected happy world.
-                    </p>
+                    {(cto.paragraphs || []).map((pText, pIdx) => (
+                      <p key={pIdx}>
+                        {pText}
+                      </p>
+                    ))}
                   </div>
                 </div>
 
@@ -1305,39 +1600,43 @@ export const CompanySubDetails = () => {
                 <div className="md:col-span-4 flex flex-col items-center text-center order-1 md:order-2">
                   <div className="w-[180px] h-[210px] rounded-[16px] overflow-hidden shadow-md bg-slate-200 mb-3 border border-slate-200">
                     <img
-                      src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80"
-                      alt="Mr. Rajendra Patel"
+                      src={getMediaUrl(cto.image)}
+                      alt={cto.name}
                       className="w-full h-full object-cover object-top"
+                      onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80'; }}
                     />
                   </div>
                   <h3 className="text-[20px] font-[800] text-slate-900 font-sans leading-tight">
-                    Mr. Rajendra Patel
+                    {cto.name}
                   </h3>
                   <p className="text-[13.5px] font-[700] text-slate-600 font-sans mb-2">
-                    CTO & Co-Founder
+                    {cto.role}
                   </p>
-                  <a
-                    href="https://linkedin.com"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="w-7 h-7 rounded-full bg-[#0077B5] hover:bg-[#005f93] text-white inline-flex items-center justify-center transition-colors shadow-sm"
-                    aria-label="LinkedIn"
-                  >
-                    <Linkedin className="w-3.5 h-3.5 fill-current" />
-                  </a>
+                  {cto.linkedin && (
+                    <a
+                      href={cto.linkedin}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="w-7 h-7 rounded-full bg-[#0077B5] hover:bg-[#005f93] text-white inline-flex items-center justify-center transition-colors shadow-sm"
+                      aria-label="LinkedIn"
+                    >
+                      <Linkedin className="w-3.5 h-3.5 fill-current" />
+                    </a>
+                  )}
                 </div>
               </div>
             </div>
 
-            {/* 2 Business Heads Cards - Exact Reference Screenshot 4 Match */}
+            {/* 2 Business Heads Cards */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 max-w-3xl mx-auto">
               {businessHeads.map((head, idx) => (
                 <div key={idx} className="flex flex-col items-center text-center group">
                   <div className="w-[240px] sm:w-[260px] h-[260px] sm:h-[280px] rounded-[16px] overflow-hidden shadow-md border border-slate-200 bg-slate-200 mb-3.5">
                     <img
-                      src={head.image}
+                      src={getMediaUrl(head.image)}
                       alt={head.name}
                       className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                      onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80'; }}
                     />
                   </div>
                   <h3 className="text-[20px] font-[800] text-slate-900 font-sans leading-tight">
@@ -1352,24 +1651,25 @@ export const CompanySubDetails = () => {
           </div>
         </section>
 
-        {/* 3. "Leadership Team" SECTION (Exact Reference Screenshot 4 & 5 Match) */}
+        {/* 3. "Leadership Team" SECTION */}
         <section className="py-20 bg-[#F8FAFC] border-t border-slate-200 text-slate-900 font-sans">
           <div className="max-w-[1360px] mx-auto px-4 sm:px-8">
             <div className="text-center max-w-4xl mx-auto mb-16">
               <h2 className="text-[38px] sm:text-[46px] font-[900] text-slate-900 tracking-tight leading-tight font-sans">
-                Leadership Team
+                {leadershipHeading}
               </h2>
             </div>
 
-            {/* 15 Team Leads Grid */}
+            {/* Team Leads Grid */}
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 sm:gap-7">
               {leadershipTeam.map((member, idx) => (
                 <div key={idx} className="flex flex-col items-center text-center group">
                   <div className="w-[150px] sm:w-[165px] h-[170px] sm:h-[185px] rounded-[14px] overflow-hidden shadow-sm border border-slate-200 bg-slate-200 mb-3">
                     <img
-                      src={member.image}
+                      src={getMediaUrl(member.image)}
                       alt={member.name}
                       className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                      onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=500&q=80'; }}
                     />
                   </div>
                   <h4 className="text-[15.5px] font-[800] text-slate-900 font-sans leading-tight">
@@ -1384,236 +1684,144 @@ export const CompanySubDetails = () => {
           </div>
         </section>
 
-        {/* 4. "Teamwork Is The Only Way We Work" (Full-Bleed Mosaic Wall - Exact Reference Screenshot 1 Match) */}
+        {/* 4. "Teamwork Is The Only Way We Work" (Mosaic Wall) */}
         <section className="pt-20 pb-12 bg-white border-t border-slate-100 text-center font-sans overflow-hidden">
           <div className="max-w-[1360px] mx-auto px-4 sm:px-8 mb-10">
             <h2 className="text-[38px] sm:text-[46px] font-[900] text-slate-900 tracking-tight leading-tight font-sans">
-              Teamwork Is The Only Way We Work
+              {teamworkHeading}
             </h2>
           </div>
 
-          {/* Full-width Edge-to-Edge Blue Duotone Team Faces Wall (Exact 24-Column Portrait Aspect Ratio Match Image 1) */}
           <div className="w-full relative overflow-hidden bg-[#388BA8]">
-            <div
-              className="grid gap-[2px] opacity-95 grid-cols-[repeat(12,minmax(0,1fr))] sm:grid-cols-[repeat(18,minmax(0,1fr))] lg:grid-cols-[repeat(24,minmax(0,1fr))]"
-            >
-              {[
-                'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1566492031773-4f4e44671857?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80',
-                // Row 2
-                'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1566492031773-4f4e44671857?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80',
-                // Row 3
-                'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1566492031773-4f4e44671857?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=150&q=80',
-                // Row 4
-                'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1566492031773-4f4e44671857?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80',
-                // Row 5
-                'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1566492031773-4f4e44671857?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=150&q=80',
-                // Row 6
-                'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1566492031773-4f4e44671857?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=150&q=80',
-                'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=150&q=80'
-              ].slice(0, 144).map((src, i) => (
-                <div key={i} className="aspect-[3/4] overflow-hidden bg-[#2D7392]">
-                  <img
-                    src={src}
-                    alt={`Team member ${i + 1}`}
-                    className="w-full h-full object-cover grayscale contrast-125 brightness-95 opacity-80 mix-blend-multiply hover:opacity-100 hover:grayscale-0 hover:mix-blend-normal transition-all duration-300"
-                    loading="lazy"
-                  />
+            {teamworkBannerImage ? (
+              <div className="relative w-full overflow-hidden max-h-[380px] sm:max-h-[460px]">
+                <img
+                  src={getMediaUrl(teamworkBannerImage)}
+                  alt={teamworkHeading}
+                  className="w-full h-full object-cover object-center grayscale contrast-125 brightness-95 opacity-85 mix-blend-multiply"
+                />
+                <div className="absolute inset-0 bg-[#35829D]/20 pointer-events-none" />
+              </div>
+            ) : (
+              <>
+                <div
+                  className="grid gap-[2px] opacity-95 grid-cols-[repeat(12,minmax(0,1fr))] sm:grid-cols-[repeat(18,minmax(0,1fr))] lg:grid-cols-[repeat(24,minmax(0,1fr))]"
+                >
+                  {[
+                    'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80',
+                    'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80',
+                    'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80',
+                    'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=150&q=80',
+                    'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=150&q=80',
+                    'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=150&q=80',
+                    'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=150&q=80',
+                    'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=150&q=80',
+                    'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=150&q=80',
+                    'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=150&q=80',
+                    'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&q=80',
+                    'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80',
+                    'https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?auto=format&fit=crop&w=150&q=80',
+                    'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=150&q=80',
+                    'https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?auto=format&fit=crop&w=150&q=80',
+                    'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=150&q=80',
+                    'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=150&q=80',
+                    'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80',
+                    'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=150&q=80',
+                    'https://images.unsplash.com/photo-1566492031773-4f4e44671857?auto=format&fit=crop&w=150&q=80',
+                    'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=150&q=80',
+                    'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&fit=crop&w=150&q=80',
+                    'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80',
+                    'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80',
+                    'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80',
+                    'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=150&q=80',
+                    'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80',
+                    'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=150&q=80',
+                    'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=150&q=80',
+                    'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=150&q=80',
+                    'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=150&q=80',
+                    'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=150&q=80',
+                    'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80',
+                    'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=150&q=80',
+                    'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&q=80',
+                    'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=150&q=80'
+                  ].concat(
+                    Array.from({ length: 120 }, (_, i) => [
+                      'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80',
+                      'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=150&q=80',
+                      'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80',
+                      'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=150&q=80',
+                      'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=150&q=80',
+                      'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=150&q=80',
+                      'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=150&q=80',
+                      'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=150&q=80',
+                      'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80',
+                      'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=150&q=80',
+                      'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&q=80',
+                      'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=150&q=80'
+                    ][i % 12])
+                  ).map((src, i) => (
+                    <div key={i} className="aspect-[3/4] overflow-hidden bg-[#2D7392]">
+                      <img
+                        src={src}
+                        alt={`Team member ${i + 1}`}
+                        className="w-full h-full object-cover grayscale contrast-125 brightness-95 opacity-80 mix-blend-multiply hover:opacity-100 hover:grayscale-0 hover:mix-blend-normal transition-all duration-300"
+                        loading="lazy"
+                      />
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
 
-            {/* Subtle Blue Tone Overlay Gradient */}
-            <div className="absolute inset-0 bg-[#35829D]/20 pointer-events-none" />
+                <div className="absolute inset-0 bg-[#35829D]/20 pointer-events-none" />
+              </>
+            )}
           </div>
 
-          {/* Centered Join Our Team Button */}
           <div className="mt-8">
             <Link
-              to="/careers"
+              to={teamworkButtonLink}
               className="inline-flex items-center justify-center px-8 py-2.5 rounded-[4px] bg-[#006085] hover:bg-[#004d6b] text-white font-[700] text-[14px] transition-all shadow-sm font-sans"
             >
-              Join Our Team
+              {teamworkButtonText}
             </Link>
           </div>
         </section>
 
-        {/* 5. "What Our Firevian Says" (Exact Reference Screenshot 2 Match) */}
+        {/* 5. "What Our Firevian Says" */}
         <section className="py-20 bg-[#F8FAFC] border-t border-slate-200 text-slate-900 font-sans">
           <div className="max-w-[1360px] mx-auto px-4 sm:px-8">
             <div className="text-center max-w-4xl mx-auto mb-14">
               <h2 className="text-[38px] sm:text-[46px] font-[900] text-slate-900 tracking-tight leading-tight font-sans">
-                What Our Firevian Says
+                {firevianSay.heading || "What Our Firevian Says"}
               </h2>
             </div>
 
-            {/* Testimonial Card */}
             <div className="bg-white rounded-[24px] p-8 sm:p-12 border border-slate-200/90 shadow-[0_8px_30px_rgba(0,0,0,0.04)] max-w-5xl mx-auto relative flex flex-col md:flex-row items-center md:items-start gap-8">
-              {/* Member Photo */}
               <div className="flex flex-col items-center shrink-0 text-center">
                 <div className="w-[120px] h-[120px] rounded-full overflow-hidden shadow-md bg-slate-200 border-4 border-white mb-3 ring-4 ring-cyan-100">
                   <img
-                    src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=400&q=80"
-                    alt="Vipul Patel"
+                    src={getMediaUrl(firevianSay.image)}
+                    alt={firevianSay.name}
                     className="w-full h-full object-cover"
+                    onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=400&q=80'; }}
                   />
                 </div>
                 <h4 className="text-[19px] font-[800] text-slate-900 font-sans leading-tight">
-                  Vipul Patel
+                  {firevianSay.name}
                 </h4>
                 <p className="text-[13.5px] font-[600] text-slate-500 font-sans">
-                  Team Lead
+                  {firevianSay.role}
                 </p>
               </div>
 
-              {/* Quote Content */}
               <div className="flex-1 space-y-4 text-left">
-                {/* Top Quote Icon */}
                 <svg viewBox="0 0 48 36" className="w-10 h-7 fill-[#006B8F] shrink-0 select-none" aria-hidden="true">
                   <path d="M12 0C5.37 0 0 5.37 0 12c0 6.63 5.37 12 12 12 1.1 0 2.16-.16 3.17-.44C13.56 28.3 9.4 32 4 32v4c8.84 0 16-7.16 16-16V0H12zm28 0c-6.63 0-12 5.37-12 12 0 6.63 5.37 12 12 12 1.1 0 2.16-.16 3.17-.44C41.56 28.3 37.4 32 32 32v4c8.84 0 16-7.16 16-16V0H40z" />
                 </svg>
 
                 <p className="text-[15px] sm:text-[15.5px] text-slate-700 leading-[1.8] font-[400] font-sans">
-                  I am proud to be working for a company like firevy.co that values honesty and a fair attitude to all which has also contributed to a very valuable and delightful experience. The work culture and the integrity of the company's management are remarkable. In firevy.co, we get all the freedom to think out-of-the-box and take complete ownership of the work we do. Being a client-focused company, firevy.co makes us understand the clients' requirements easily so that the work can be coordinated effectively. There are always opportunities to learn and no limitations to scale new heights in this organization.
+                  {firevianSay.quote}
                 </p>
 
-                {/* Bottom Quote Icon */}
                 <div className="flex justify-end">
                   <svg viewBox="0 0 48 36" className="w-10 h-7 fill-[#006B8F] rotate-180 shrink-0 select-none" aria-hidden="true">
                     <path d="M12 0C5.37 0 0 5.37 0 12c0 6.63 5.37 12 12 12 1.1 0 2.16-.16 3.17-.44C13.56 28.3 9.4 32 4 32v4c8.84 0 16-7.16 16-16V0H12zm28 0c-6.63 0-12 5.37-12 12 0 6.63 5.37 12 12 12 1.1 0 2.16-.16 3.17-.44C41.56 28.3 37.4 32 32 32v4c8.84 0 16-7.16 16-16V0H40z" />
@@ -1621,77 +1829,59 @@ export const CompanySubDetails = () => {
                 </div>
               </div>
             </div>
-
-            {/* Slider Navigation Arrows */}
-            <div className="flex items-center justify-center space-x-4 mt-8">
-              <button
-                className="w-10 h-10 rounded-full border border-slate-300 hover:border-[#006B8F] text-slate-600 hover:text-[#006B8F] flex items-center justify-center transition-colors bg-white shadow-sm"
-                aria-label="Previous Testimonial"
-              >
-                <ChevronLeft className="w-5 h-5" />
-              </button>
-              <button
-                className="w-10 h-10 rounded-full border border-slate-300 hover:border-[#006B8F] text-slate-600 hover:text-[#006B8F] flex items-center justify-center transition-colors bg-white shadow-sm"
-                aria-label="Next Testimonial"
-              >
-                <ChevronRight className="w-5 h-5" />
-              </button>
-            </div>
           </div>
         </section>
 
-        {/* 6. "Learning & Growth" SECTION (Exact Reference Screenshot 3 Match) */}
+        {/* 6. "Learning & Growth" SECTION */}
         <section className="py-20 bg-white border-t border-slate-100 text-left font-sans">
           <div className="max-w-[1360px] mx-auto px-4 sm:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-              {/* Left Content */}
               <div className="lg:col-span-6 space-y-5">
                 <h2 className="text-[38px] sm:text-[46px] font-[900] text-slate-900 tracking-tight leading-tight font-sans">
-                  Learning & Growth
+                  {learningGrowth.heading || "Learning & Growth"}
                 </h2>
                 <div className="space-y-4 text-[15px] sm:text-[15.5px] text-slate-600 leading-[1.8] font-[400] font-sans">
-                  <p>
-                    Learning and growth go hand-in-hand fundamentally, and so is the story at firevy.co. We offer ample amounts of training to each individual and help them to improve their skills with subject matter specialists from the industry and within the company. We always believe in continuous learning culture so it gives opportunity to achieve better be it, Business interactions, Design Thinking or Technology.
-                  </p>
-                  <p>
-                    We want our team to grow and develop at firevy.co, meet your career goals and make the most of your potential, all while embracing your own exceptional talents.
-                  </p>
-                  <p>
-                    That's why we are committed to helping you drive your career in a dynamic environment. Across all levels of our organization, we are nurturing a culture of trust and dialogue. We offer tools to support this culture such as 360 feedback, online coaching and a mutual mentoring program.
-                  </p>
+                  {(learningGrowth.paragraphs || []).map((pText, pIdx) => (
+                    <p key={pIdx}>
+                      {pText}
+                    </p>
+                  ))}
                 </div>
                 <div className="pt-2">
                   <Link
-                    to="/careers"
+                    to={learningGrowth.buttonLink || "/careers"}
                     className="inline-flex items-center justify-center px-8 py-3.5 rounded-[6px] bg-[#006B8F] hover:bg-[#005478] text-white font-[700] text-[15px] transition-all shadow-md font-sans"
                   >
-                    Join Our Team
+                    {learningGrowth.buttonText || "Join Our Team"}
                   </Link>
                 </div>
               </div>
 
-              {/* Right Certificate Distribution Photos Grid */}
+              {/* 3 Photos Grid */}
               <div className="lg:col-span-6 grid grid-cols-2 gap-4 items-center">
                 <div className="rounded-[16px] overflow-hidden shadow-md border border-slate-200 h-[360px] bg-slate-100">
                   <img
-                    src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=700&q=80"
-                    alt="Certificate Ceremony"
+                    src={getMediaUrl(learningGrowth.images?.[0])}
+                    alt="Learning & Growth 1"
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                    onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=700&q=80'; }}
                   />
                 </div>
                 <div className="space-y-4">
                   <div className="rounded-[16px] overflow-hidden shadow-md border border-slate-200 h-[172px] bg-slate-100">
                     <img
-                      src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=700&q=80"
-                      alt="Award Distribution"
+                      src={getMediaUrl(learningGrowth.images?.[1])}
+                      alt="Learning & Growth 2"
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                      onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=700&q=80'; }}
                     />
                   </div>
                   <div className="rounded-[16px] overflow-hidden shadow-md border border-slate-200 h-[172px] bg-slate-100">
                     <img
-                      src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=700&q=80"
-                      alt="Team Recognition"
+                      src={getMediaUrl(learningGrowth.images?.[2])}
+                      alt="Learning & Growth 3"
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                      onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=700&q=80'; }}
                     />
                   </div>
                 </div>
@@ -1700,67 +1890,49 @@ export const CompanySubDetails = () => {
           </div>
         </section>
 
-        {/* 7. "Team @ firevy.co" SECTION (Exact Reference Screenshot 4 & 5 Match) */}
+        {/* 7. "Team @ firevy.co" SECTION */}
         <section className="py-20 bg-[#F8FAFC] border-t border-slate-200 text-slate-900 font-sans">
           <div className="max-w-[1360px] mx-auto px-4 sm:px-8">
             <div className="text-center max-w-4xl mx-auto mb-14">
               <h2 className="text-[38px] sm:text-[46px] font-[900] text-slate-900 tracking-tight leading-tight mb-3 font-sans">
-                Team @ firevy.co
+                {lifeAtFirevy.heading || "Team @ firevy.co"}
               </h2>
               <p className="text-[15px] sm:text-[16px] text-slate-600 leading-relaxed max-w-3xl mx-auto font-[400] font-sans">
-                At firevy.co, we have a friendly, inspiring and fun loving yet professional environment. We celebrate all the good moments in terms of our growth and accomplishments. Our closeness always makes us feel strengthened and energetic to improve our actions, to go stress-free, and to work untiringly as a team.
+                {lifeAtFirevy.description}
               </p>
             </div>
 
             {/* 2x2 Photo Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-              <div className="rounded-[18px] overflow-hidden shadow-md border border-slate-200 h-[280px] bg-slate-100">
-                <img
-                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80"
-                  alt="Milestone Celebration"
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="rounded-[18px] overflow-hidden shadow-md border border-slate-200 h-[280px] bg-slate-100">
-                <img
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80"
-                  alt="Executive Team"
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="rounded-[18px] overflow-hidden shadow-md border border-slate-200 h-[280px] bg-slate-100">
-                <img
-                  src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80"
-                  alt="Team Dinner"
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="rounded-[18px] overflow-hidden shadow-md border border-slate-200 h-[280px] bg-slate-100">
-                <img
-                  src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80"
-                  alt="Team Gathering"
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                />
-              </div>
+              {(lifeAtFirevy.images || []).map((imgUrl, idx) => (
+                <div key={idx} className="rounded-[18px] overflow-hidden shadow-md border border-slate-200 h-[280px] bg-slate-100">
+                  <img
+                    src={getMediaUrl(imgUrl)}
+                    alt={`Life at Firevy ${idx + 1}`}
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                    onError={(e) => { e.target.src = 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80'; }}
+                  />
+                </div>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* 8. "Ready To Take The Challenge?" CTA BANNER (Exact Reference Screenshot 5 Match) */}
+        {/* 8. "Ready To Take The Challenge?" CTA BANNER */}
         <section className="py-16 bg-[#005478] text-white text-center font-sans">
           <div className="max-w-[1360px] mx-auto px-4 sm:px-8 space-y-4">
             <h2 className="text-[34px] sm:text-[42px] font-[900] text-white tracking-tight leading-tight">
-              Ready To Take The Challenge?
+              {ctaTitle}
             </h2>
             <p className="text-[15.5px] sm:text-[16.5px] text-blue-100 max-w-3xl mx-auto leading-relaxed">
-              Join our team of passionate and bright technologists. Work in a collaborative environment which will provide you ample growth opportunities and shape the leader in you.
+              {ctaSubtitle}
             </p>
             <div className="pt-2">
               <Link
-                to="/careers"
+                to={ctaButtonLink}
                 className="inline-flex items-center justify-center px-8 py-3.5 rounded-[6px] bg-white text-[#005478] hover:bg-slate-100 font-[800] text-[15px] transition-all shadow-lg"
               >
-                Join Our Team
+                {ctaButtonText}
               </Link>
             </div>
           </div>

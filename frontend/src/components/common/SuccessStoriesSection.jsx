@@ -170,10 +170,10 @@ export const SuccessStoriesSection = ({
   const cards = category === 'education' ? educationCards : defaultCards;
 
   return (
-    <section className="py-14 sm:py-18 lg:py-20 bg-[#EDF5F9] text-slate-900 font-sans border-b border-slate-200/80 text-left">
+    <section className="py-8 sm:py-10 lg:py-12 bg-[#EDF5F9] text-slate-900 font-sans border-b border-slate-200/80 text-left">
       <Container>
         {/* Section Heading & Subtitle Matching Screenshot */}
-        <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-12 space-y-3">
+        <div className="text-center max-w-4xl mx-auto mb-6 sm:mb-8 space-y-2.5">
           <h2
             className="text-[#0B0F19] tracking-tight section-content-title"
             style={{
@@ -199,7 +199,7 @@ export const SuccessStoriesSection = ({
         </div>
 
         {/* 3 Showcase Portfolio Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-[1320px] mx-auto mb-10 sm:mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-[1320px] mx-auto mb-6 sm:mb-8">
           {cards.map((item) => (
             <div key={item.id} className="flex flex-col items-center group cursor-pointer w-full">
               {/* Large Rounded Image / UI Mockup Frame */}
@@ -225,7 +225,7 @@ export const SuccessStoriesSection = ({
         </div>
 
         {/* Centered View All Portfolio CTA Button */}
-        <div className="text-center mb-12 sm:mb-14">
+        <div className="text-center mb-8 sm:mb-10">
           <Link
             to="/portfolio"
             className="bg-[#005F96] hover:bg-[#004D7A] text-white text-xs sm:text-sm font-[800] rounded-[6px] px-8 py-3 inline-block transition-all shadow-xs"

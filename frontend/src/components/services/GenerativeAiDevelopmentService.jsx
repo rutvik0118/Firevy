@@ -7,6 +7,7 @@ import PremiumServicesGrid from '../common/PremiumServicesGrid';
 import TechnologyStackGrid from '../common/TechnologyStackGrid';
 import FeaturedInLogosGrid from '../home/FeaturedInLogosGrid';
 import VideoTestimonialsStory from '../home/VideoTestimonialsStory';
+import SapphireFaqSection from '../common/SapphireFaqSection';
 import {
   Sparkles,
   ArrowRight,
@@ -186,6 +187,49 @@ export const GenerativeAiDevelopmentService = () => {
       title: 'Technical Support',
       desc: 'Ask any technical query and get it solved by our expert technical support staff! With fruitful interaction, get the best possible solutions for your problems from our consultation and support team.',
       icon: <Headphones className="w-6 h-6 text-[#006B8F]" />
+    }
+  ];
+
+  const generativeAiFaqList = [
+    {
+      id: 1,
+      question: '1. What is Generative AI and how can it benefit my business?',
+      answer: 'Generative AI utilizes deep learning models (such as LLMs and diffusion models) to create new content, code, automated workflows, predictive insights, and conversational agents, drastically reducing operational overhead and accelerating digital innovation.'
+    },
+    {
+      id: 2,
+      question: '2. How do you ensure data privacy and security with Generative AI?',
+      answer: 'We implement strict enterprise security protocols including zero-data retention APIs, private LLM hosting on dedicated VPCs (AWS Bedrock, Azure OpenAI), end-to-end data encryption (AES-256), role-based access control, and GDPR/HIPAA compliance.'
+    },
+    {
+      id: 3,
+      question: '3. What Generative AI models and frameworks do you work with?',
+      answer: 'Our engineers specialize in OpenAI (GPT-4o, ChatGPT), Anthropic Claude, Meta Llama 3, Google Gemini, Mistral, LangChain, LlamaIndex, Pinecone, Milvus, and custom fine-tuning with LoRA/QLoRA.'
+    },
+    {
+      id: 4,
+      question: '4. Can Generative AI be integrated into our existing legacy systems?',
+      answer: 'Yes, we build robust REST and GraphQL API middleware, microservices, and custom connectors that integrate modern generative intelligence seamlessly into your existing ERP, CRM, database, or proprietary applications.'
+    },
+    {
+      id: 5,
+      question: '5. How much does custom Generative AI development cost?',
+      answer: 'The cost depends on project complexity, model selection, fine-tuning requirements, vector database integration, and cloud infrastructure scale. We provide transparent fixed-price and dedicated developer engagement models tailored to your budget.'
+    },
+    {
+      id: 6,
+      question: '6. What is the typical development timeline for a Generative AI project?',
+      answer: 'A functional proof-of-concept (PoC) or MVP can be delivered in 2 to 4 weeks. Full enterprise-grade implementations with custom RAG pipelines and integrations usually take 8 to 16 weeks.'
+    },
+    {
+      id: 7,
+      question: '7. What post-launch support and maintenance do you provide?',
+      answer: 'We offer 24/7 SLA maintenance, continuous model fine-tuning, latency optimization, hallucination monitoring, vector index updating, and prompt drift mitigation.'
+    },
+    {
+      id: 8,
+      question: '8. Why choose Firevy for Generative AI development?',
+      answer: 'We bring 23+ years of enterprise IT leadership, 320+ 5-star Clutch reviews, certified AI/ML architects, and a proven track record delivering scalable AI solutions trusted by global Fortune 500 enterprises.'
     }
   ];
 
@@ -606,7 +650,12 @@ export const GenerativeAiDevelopmentService = () => {
       </section>
 
       {/* =========================================================================
-          13. WE HAVE BEEN FEATURED IN (Exact 18 Brand Logos Grid)
+          13. FREQUENTLY ASKED QUESTIONS (2-Column Sapphire Layout)
+          ========================================================================= */}
+      <SapphireFaqSection faqList={generativeAiFaqList} />
+
+      {/* =========================================================================
+          14. WE HAVE BEEN FEATURED IN (Exact 18 Brand Logos Grid)
           ========================================================================= */}
       <FeaturedInLogosGrid />
 

@@ -79,7 +79,6 @@ export const PremiumServicesGrid = ({ title, subtitle, companyName = "Firevy.co"
     : (data?.services && Array.isArray(data.services) && data.services.filter(s => s.isActive !== false).length > 0)
     ? data.services.filter(s => s.isActive !== false)
     : defaultServices;
-
   return (
     <section className="py-12 sm:py-14 lg:py-16 bg-[#005F96] text-white font-sans text-left relative overflow-hidden">
       <Container>

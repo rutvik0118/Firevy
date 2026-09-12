@@ -35,6 +35,10 @@ import SitecoreDevelopmentService from '../components/services/SitecoreDevelopme
 import SitefinityDevelopmentService from '../components/services/SitefinityDevelopmentService';
 import MagentoDevelopmentService from '../components/services/MagentoDevelopmentService';
 import ShopifyDevelopmentService from '../components/services/ShopifyDevelopmentService';
+import DotNetDevelopmentService from '../components/services/DotNetDevelopmentService';
+import PhpDevelopmentService from '../components/services/PhpDevelopmentService';
+import JavaDevelopmentService from '../components/services/JavaDevelopmentService';
+import NodeJsDevelopmentService from '../components/services/NodeJsDevelopmentService';
 import GenerativeAiDevelopmentService from '../components/services/GenerativeAiDevelopmentService';
 import ArtificialIntelligenceDevelopmentService from '../components/services/ArtificialIntelligenceDevelopmentService';
 import BlockchainDevelopmentService from '../components/services/BlockchainDevelopmentService';
@@ -43,6 +47,12 @@ import VirtualRealityDevelopmentService from '../components/services/VirtualReal
 import IotDevelopmentService from '../components/services/IotDevelopmentService';
 import PwaDevelopmentService from '../components/services/PwaDevelopmentService';
 import RpaDevelopmentService from '../components/services/RpaDevelopmentService';
+import AngularDevelopmentService from '../components/services/AngularDevelopmentService';
+import ReactJsDevelopmentService from '../components/services/ReactJsDevelopmentService';
+import VueJsDevelopmentService from '../components/services/VueJsDevelopmentService';
+import SharePointDevelopmentService from '../components/services/SharePointDevelopmentService';
+import PowerAppsDevelopmentService from '../components/services/PowerAppsDevelopmentService';
+import PowerAutomateDevelopmentService from '../components/services/PowerAutomateDevelopmentService';
 
 export const ServiceDetails = () => {
   const { slug } = useParams();
@@ -125,6 +135,29 @@ export const ServiceDetails = () => {
   const isIOS = currentSlug.includes('ios') ||
     currentSlug.includes('iphone');
 
+  const isNet = currentSlug === 'net' ||
+    currentSlug.includes('dot-net') ||
+    currentSlug.includes('dotnet') ||
+    currentSlug.includes('net-development') ||
+    currentSlug.includes('microsoft-development');
+
+  const isPhp = currentSlug === 'php' ||
+    currentSlug.includes('php-development') ||
+    currentSlug.includes('hire-php');
+
+  const isJava = currentSlug === 'java' ||
+    currentSlug.includes('java-development') ||
+    currentSlug.includes('hire-java') ||
+    currentSlug.includes('java-software') ||
+    currentSlug.includes('java-web');
+
+  const isNodeJs = currentSlug === 'nodejs' ||
+    currentSlug === 'node-js' ||
+    currentSlug.includes('node-js') ||
+    currentSlug.includes('nodejs') ||
+    currentSlug.includes('hire-node') ||
+    currentSlug.includes('node-developer');
+
   const isGenerativeAi = currentSlug.includes('generative-ai') ||
     currentSlug.includes('generativeai') ||
     currentSlug.includes('genai') ||
@@ -167,6 +200,39 @@ export const ServiceDetails = () => {
     currentSlug.includes('robotic-process') ||
     currentSlug.includes('process-automation') ||
     currentSlug.includes('robotic');
+
+  const isAngular = currentSlug.includes('angular');
+
+  const isReact = !isReactNative && (
+    currentSlug.includes('react-js') ||
+    currentSlug.includes('reactjs') ||
+    currentSlug.includes('react-development') ||
+    currentSlug.includes('hire-react') ||
+    currentSlug === 'react' ||
+    currentSlug === 'services/react'
+  );
+
+  const isVue = currentSlug.includes('vue') ||
+    currentSlug.includes('vuejs') ||
+    currentSlug.includes('vue-js') ||
+    currentSlug.includes('hire-vue') ||
+    currentSlug.includes('nuxt');
+
+  const isSharePoint = currentSlug.includes('sharepoint') ||
+    currentSlug.includes('share-point') ||
+    currentSlug.includes('hire-sharepoint');
+
+  const isPowerApps = (currentSlug.includes('powerapps') ||
+    currentSlug.includes('power-apps') ||
+    currentSlug.includes('power-platform') ||
+    currentSlug.includes('hire-powerapps') ||
+    currentSlug.includes('hire-power-apps')) &&
+    !currentSlug.includes('automate');
+
+  const isPowerAutomate = currentSlug.includes('power-automate') ||
+    currentSlug.includes('powerautomate') ||
+    currentSlug.includes('hire-power-automate') ||
+    currentSlug.includes('hire-powerautomate');
 
   const unslugify = (str) => {
     if (!str) return 'Enterprise Tech Solution';
@@ -263,7 +329,7 @@ export const ServiceDetails = () => {
   };
 
   useEffect(() => {
-    if (!isBootstrap && !isIot && !isPwa && !isRpa && !isVR && !isFullStack && !isBlockchain && !isArtificialIntelligence && !isGenerativeAi && !isXamarin && !isAndroid && !isReactNative && !isFlutter && !isIOS && !isHealthcare && !isEducation && !isUber && !isSpotify && !isZomato && !isAmazon && !isVisitor && !isWarehouse && !isClover && !isCSharp && !isIWatch && !isWordpress && !isDrupal && !isUmbraco && !isSitecore && !isSitefinity && !isMagento && !isShopify) {
+    if (!isBootstrap && !isPowerAutomate && !isPowerApps && !isSharePoint && !isVue && !isReact && !isAngular && !isIot && !isPwa && !isRpa && !isVR && !isFullStack && !isBlockchain && !isArtificialIntelligence && !isGenerativeAi && !isNodeJs && !isJava && !isPhp && !isNet && !isXamarin && !isAndroid && !isReactNative && !isFlutter && !isIOS && !isHealthcare && !isEducation && !isUber && !isSpotify && !isZomato && !isAmazon && !isVisitor && !isWarehouse && !isClover && !isCSharp && !isIWatch && !isWordpress && !isDrupal && !isUmbraco && !isSitecore && !isSitefinity && !isMagento && !isShopify) {
       fetchServiceDetails();
     } else {
       setLoading(false);
@@ -273,6 +339,46 @@ export const ServiceDetails = () => {
 
   if (isBootstrap) {
     return <HireBootstrapDevelopersService />;
+  }
+
+  if (isNodeJs) {
+    return <NodeJsDevelopmentService />;
+  }
+
+  if (isJava) {
+    return <JavaDevelopmentService />;
+  }
+
+  if (isPhp) {
+    return <PhpDevelopmentService />;
+  }
+
+  if (isNet) {
+    return <DotNetDevelopmentService />;
+  }
+
+  if (isPowerAutomate) {
+    return <PowerAutomateDevelopmentService />;
+  }
+
+  if (isPowerApps) {
+    return <PowerAppsDevelopmentService />;
+  }
+
+  if (isSharePoint) {
+    return <SharePointDevelopmentService />;
+  }
+
+  if (isVue) {
+    return <VueJsDevelopmentService />;
+  }
+
+  if (isReact) {
+    return <ReactJsDevelopmentService />;
+  }
+
+  if (isAngular) {
+    return <AngularDevelopmentService />;
   }
 
   if (isIot) {

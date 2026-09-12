@@ -11,7 +11,10 @@ import {
   Star
 } from 'lucide-react';
 
-export const TransformativeImpactSection = () => {
+export const TransformativeImpactSection = ({
+  title = "Explore The Transformative Impact Of Web App On Your Business Success",
+  cards: customCards
+}) => {
   const carouselRef = useRef(null);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -23,8 +26,8 @@ export const TransformativeImpactSection = () => {
       if (carouselRef.current) {
         const container = carouselRef.current;
         const firstCard = container.querySelector('.impact-card');
-        const cardWidth = firstCard ? firstCard.offsetWidth : 480;
-        const gap = 24; // 1.5rem
+        const cardWidth = firstCard ? firstCard.offsetWidth : 430;
+        const gap = 24; // 1.5rem / 24px
         const scrollAmount = cardWidth + gap;
 
         if (container.scrollLeft + container.clientWidth >= container.scrollWidth - 25) {
@@ -38,7 +41,7 @@ export const TransformativeImpactSection = () => {
     return () => clearInterval(interval);
   }, [isHovered]);
 
-  const cards = [
+  const defaultCards = [
     {
       bgColor: 'bg-[#D9F5E5]',
       iconBg: 'bg-[#10B981]',
@@ -77,7 +80,7 @@ export const TransformativeImpactSection = () => {
     {
       bgColor: 'bg-[#D9F5E5]',
       iconBg: 'bg-[#10B981]',
-      icon: <ShieldCheck className="w-5 h-5 text-white" strokeWidth={2} />,
+      icon: <ShieldCheck className="w-5 h-5 text-white" strokeWidth={2.2} />,
       title: 'Ensure Security and Compliance',
       desc: 'Ensure Security and Compliance Using mobile apps, businesses can ensure that user data is never inadvertently disclosed to hackers or unscrupulous commercial vendors by employing secure analytics providers & executing advertising in ethical manner.'
     },
@@ -97,21 +100,23 @@ export const TransformativeImpactSection = () => {
     }
   ];
 
+  const cards = customCards || defaultCards;
+
   return (
     <section className="py-12 sm:py-16 bg-white text-slate-900 font-sans text-left relative overflow-hidden">
       <Container>
-        {/* Section Heading */}
-        <div className="text-center max-w-4xl mx-auto mb-8 sm:mb-10 space-y-2 px-4">
+        {/* Section Heading (1:1 Copy to Copy from Reference) */}
+        <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-12 space-y-2 px-4">
           <h2
             className="text-[#0B0F19] tracking-tight font-sans"
             style={{ fontSize: '34px', fontWeight: 800, lineHeight: '51px' }}
           >
-            Explore The Transformative Impact Of Mobile App On Your Business Success
+            {title}
           </h2>
         </div>
       </Container>
 
-      {/* Horizontal Pastel Value Cards Carousel with Auto-Scroll */}
+      {/* Horizontal Pastel Value Cards Carousel with 2.5s Auto-Scroll */}
       <div
         className="relative overflow-hidden w-full select-none pb-4"
         onMouseEnter={() => setIsHovered(true)}
@@ -125,22 +130,22 @@ export const TransformativeImpactSection = () => {
           {cards.map((card, idx) => (
             <div
               key={idx}
-              className={`impact-card ${card.bgColor} w-[340px] sm:w-[360px] lg:w-[370px] min-h-[250px] sm:min-h-[265px] rounded-[16px] p-6 sm:p-7 text-left flex flex-col justify-start shrink-0 shadow-xs border border-white/70 hover:shadow-md transition-shadow`}
+              className={`impact-card ${card.bgColor} w-[360px] sm:w-[420px] lg:w-[450px] min-h-[155px] sm:min-h-[165px] rounded-[16px] p-4 sm:p-5 text-left flex flex-col justify-start shrink-0 shadow-xs border border-white/70 hover:shadow-md transition-shadow`}
             >
               {/* Small Rounded Icon Box at Top-Left */}
-              <div className={`w-10 h-10 rounded-[10px] ${card.iconBg} flex items-center justify-center mb-4 shadow-xs shrink-0`}>
+              <div className={`w-8 h-8 sm:w-9 sm:h-9 rounded-[8px] ${card.iconBg} flex items-center justify-center mb-2.5 sm:mb-3 shadow-xs shrink-0`}>
                 {card.icon}
               </div>
 
               {/* Card Heading */}
-              <h4 className="font-extrabold text-[17px] sm:text-[18px] text-[#0B0F19] mb-2 leading-snug font-sans">
+              <h4 className="font-[800] text-[15px] sm:text-[16px] text-[#0B0F19] mb-1 sm:mb-1.5 leading-snug">
                 {card.title}
               </h4>
 
               {/* Description Text */}
               <p
-                className="font-normal text-[#334155] font-sans"
-                style={{ fontSize: '13.5px', lineHeight: '1.65' }}
+                className="font-normal text-[#334155]"
+                style={{ fontSize: '13px', lineHeight: '1.55' }}
               >
                 {card.desc}
               </p>
