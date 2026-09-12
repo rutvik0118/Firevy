@@ -217,6 +217,7 @@ export const OurTeamForm = ({
   const teamworkHeading = content.teamworkHeading || 'Teamwork Is The Only Way We Work';
   const teamworkButtonText = content.teamworkButtonText || 'Join Our Team';
   const teamworkButtonLink = content.teamworkButtonLink || '/careers';
+  const teamworkBannerImage = content.teamworkBannerImage || '';
 
   // 5. What Our Firevian Says (Employee Testimonial)
   const firevianSay = content.firevianSay || {
@@ -897,36 +898,255 @@ export const OurTeamForm = ({
       {/* 4. TEAMWORK MOSAIC WALL */}
       <AdminFormSection
         title="4. Teamwork Mosaic Wall Banner"
-        subtitle="Edge-to-edge duotone mosaic photo wall and recruitment callout."
-        badge="Teamwork Wall"
+        subtitle="Live preview and editor for the edge-to-edge team mosaic photo wall & recruitment banner."
+        badge="Teamwork Banner"
       >
-        <AdminFormGrid columns={3} gap="12px">
-          <AdminFormField label="Banner Headline" fullWidth>
-            <input
-              type="text"
-              className="form-control"
-              value={teamworkHeading}
-              onChange={(e) => updateContentField('teamworkHeading', e.target.value)}
-              style={{ fontWeight: 700 }}
-            />
-          </AdminFormField>
-          <AdminFormField label="Button Text">
-            <input
-              type="text"
-              className="form-control"
-              value={teamworkButtonText}
-              onChange={(e) => updateContentField('teamworkButtonText', e.target.value)}
-            />
-          </AdminFormField>
-          <AdminFormField label="Button Link">
-            <input
-              type="text"
-              className="form-control"
-              value={teamworkButtonLink}
-              onChange={(e) => updateContentField('teamworkButtonLink', e.target.value)}
-            />
-          </AdminFormField>
-        </AdminFormGrid>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+          {/* LIVE VISUAL PREVIEW of the section matching user's screenshot */}
+          <div
+            style={{
+              backgroundColor: '#FFFFFF',
+              border: '1px solid #CBD5E1',
+              borderRadius: '12px',
+              overflow: 'hidden',
+              boxShadow: '0 4px 12px rgba(0,0,0,0.05)'
+            }}
+          >
+            <div
+              style={{
+                backgroundColor: '#F8FAFC',
+                padding: '8px 16px',
+                borderBottom: '1px solid #E2E8F0',
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center'
+              }}
+            >
+              <span style={{ fontSize: '12px', fontWeight: 700, color: '#475569', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                Live Visual Preview (Website Display)
+              </span>
+              <span style={{ fontSize: '11px', color: '#64748B', backgroundColor: '#E2E8F0', padding: '2px 8px', borderRadius: '4px' }}>
+                {teamworkBannerImage ? 'Custom Banner Image Active' : 'Default 24-Col Mosaic Wall Active'}
+              </span>
+            </div>
+
+            <div style={{ padding: '32px 16px 24px', textAlign: 'center', backgroundColor: '#FFFFFF' }}>
+              {/* Heading */}
+              <h3
+                style={{
+                  fontSize: '24px',
+                  fontWeight: 900,
+                  color: '#0F172A',
+                  marginBottom: '20px',
+                  letterSpacing: '-0.02em'
+                }}
+              >
+                {teamworkHeading || 'Teamwork Is The Only Way We Work'}
+              </h3>
+
+              {/* Mosaic Wall / Banner Image Container */}
+              <div
+                style={{
+                  width: '100%',
+                  position: 'relative',
+                  overflow: 'hidden',
+                  backgroundColor: '#388BA8',
+                  borderRadius: '6px'
+                }}
+              >
+                {teamworkBannerImage ? (
+                  <div style={{ position: 'relative', width: '100%', maxHeight: '220px', overflow: 'hidden' }}>
+                    <img
+                      src={getMediaUrl(teamworkBannerImage)}
+                      alt={teamworkHeading}
+                      style={{ width: '100%', height: '220px', objectFit: 'cover' }}
+                    />
+                    <div style={{ position: 'absolute', inset: 0, backgroundColor: 'rgba(53, 130, 157, 0.15)', pointerEvents: 'none' }} />
+                  </div>
+                ) : (
+                  <div style={{ position: 'relative', overflow: 'hidden' }}>
+                    <div
+                      style={{
+                        display: 'grid',
+                        gap: '2px',
+                        gridTemplateColumns: 'repeat(18, 1fr)',
+                        opacity: 0.95
+                      }}
+                    >
+                      {[
+                        'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80',
+                        'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80',
+                        'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80',
+                        'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=150&q=80',
+                        'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=150&q=80',
+                        'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=150&q=80',
+                        'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=150&q=80',
+                        'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=150&q=80',
+                        'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=150&q=80',
+                        'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=150&q=80',
+                        'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&q=80',
+                        'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80',
+                        'https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?auto=format&fit=crop&w=150&q=80',
+                        'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=150&q=80',
+                        'https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?auto=format&fit=crop&w=150&q=80',
+                        'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=150&q=80',
+                        'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=150&q=80',
+                        'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80',
+                        'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=150&q=80',
+                        'https://images.unsplash.com/photo-1566492031773-4f4e44671857?auto=format&fit=crop&w=150&q=80',
+                        'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=150&q=80',
+                        'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&fit=crop&w=150&q=80',
+                        'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80',
+                        'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80',
+                        'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80',
+                        'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=150&q=80',
+                        'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80',
+                        'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=150&q=80',
+                        'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=150&q=80',
+                        'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=150&q=80',
+                        'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=150&q=80',
+                        'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=150&q=80',
+                        'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80',
+                        'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=150&q=80',
+                        'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&q=80',
+                        'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=150&q=80'
+                      ].map((src, i) => (
+                        <div key={i} style={{ aspectRatio: '3/4', overflow: 'hidden', backgroundColor: '#2D7392' }}>
+                          <img
+                            src={src}
+                            alt=""
+                            style={{
+                              width: '100%',
+                              height: '100%',
+                              objectFit: 'cover',
+                              filter: 'grayscale(100%) contrast(125%) brightness(95%)',
+                              opacity: 0.8,
+                              mixBlendMode: 'multiply'
+                            }}
+                          />
+                        </div>
+                      ))}
+                    </div>
+                    <div style={{ position: 'absolute', inset: 0, backgroundColor: 'rgba(53, 130, 157, 0.2)', pointerEvents: 'none' }} />
+                  </div>
+                )}
+              </div>
+
+              {/* Button Preview */}
+              <div style={{ marginTop: '20px' }}>
+                <span
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    padding: '8px 24px',
+                    borderRadius: '4px',
+                    backgroundColor: '#006085',
+                    color: '#FFFFFF',
+                    fontWeight: 700,
+                    fontSize: '13px',
+                    boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
+                  }}
+                >
+                  {teamworkButtonText || 'Join Our Team'}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* EDIT CONTROLS */}
+          <AdminFormGrid columns={2} gap="16px">
+            <AdminFormField label="Banner Headline">
+              <input
+                type="text"
+                className="form-control"
+                value={teamworkHeading}
+                onChange={(e) => updateContentField('teamworkHeading', e.target.value)}
+                placeholder="Teamwork Is The Only Way We Work"
+                style={{ fontWeight: 700 }}
+              />
+            </AdminFormField>
+
+            <AdminFormField label="Button Text">
+              <input
+                type="text"
+                className="form-control"
+                value={teamworkButtonText}
+                onChange={(e) => updateContentField('teamworkButtonText', e.target.value)}
+                placeholder="Join Our Team"
+              />
+            </AdminFormField>
+
+            <AdminFormField label="Button Target Link">
+              <input
+                type="text"
+                className="form-control"
+                value={teamworkButtonLink}
+                onChange={(e) => updateContentField('teamworkButtonLink', e.target.value)}
+                placeholder="/careers"
+              />
+            </AdminFormField>
+
+            {/* Banner Mosaic Image Upload */}
+            <AdminFormField label="Custom Mosaic Wall / Composite Banner Image">
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                <div style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Image URL or upload banner image..."
+                    value={teamworkBannerImage}
+                    onChange={(e) => updateContentField('teamworkBannerImage', e.target.value)}
+                  />
+                  <input
+                    id="teamwork-banner-upload"
+                    type="file"
+                    accept="image/*"
+                    style={{ display: 'none' }}
+                    onChange={async (e) => {
+                      const file = e.target.files?.[0];
+                      if (!file) return;
+                      try {
+                        const res = await adminService.uploadMedia(file, 'image');
+                        const url = res?.data?.url || res?.data?.fileUrl || res?.url;
+                        if (url) updateContentField('teamworkBannerImage', url);
+                      } catch (err) {
+                        console.error(err);
+                      } finally {
+                        e.target.value = '';
+                      }
+                    }}
+                  />
+                  <button
+                    type="button"
+                    className="btn btn-outline-primary"
+                    onClick={() => {
+                      const input = document.getElementById('teamwork-banner-upload');
+                      if (input) input.click();
+                    }}
+                    style={{ display: 'inline-flex', alignItems: 'center', gap: '4px', whiteSpace: 'nowrap' }}
+                  >
+                    <Upload size={14} />
+                    <span>Upload</span>
+                  </button>
+                  {teamworkBannerImage && (
+                    <button
+                      type="button"
+                      className="btn btn-outline-danger"
+                      onClick={() => updateContentField('teamworkBannerImage', '')}
+                      title="Reset to default interactive duotone face mosaic grid"
+                    >
+                      <Trash2 size={14} />
+                    </button>
+                  )}
+                </div>
+                <span style={{ fontSize: '11px', color: '#64748B' }}>
+                  Optional: Upload a single composite wide banner image (like the mosaic collage above) or leave blank to automatically display the 24-column duotone face collage.
+                </span>
+              </div>
+            </AdminFormField>
+          </AdminFormGrid>
+        </div>
       </AdminFormSection>
 
       {/* 5. WHAT OUR FIREVIAN SAYS */}
