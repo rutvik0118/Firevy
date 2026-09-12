@@ -43,18 +43,39 @@ export const TransformativeImpactSection = ({
 
   const defaultCards = [
     {
-      bgColor: 'bg-[#F8D3E3]',
-      iconBg: 'bg-[#DE5B8F]',
-      icon: <Award className="w-5 h-5 text-white" strokeWidth={2.2} />,
-      title: 'Competitive Advantage',
-      desc: 'Businesses can make a big competitive edge by using mobile apps. Apps offer the opportunity to optimize processes, significant data insights, and more direct and personalized client connections.'
+      bgColor: 'bg-[#D9F5E5]',
+      iconBg: 'bg-[#10B981]',
+      icon: <Award className="w-5 h-5 text-white" strokeWidth={2} />,
+      title: 'Increased Brand Visibility',
+      desc: 'By actively interacting with your audience across many channels, you can use social media platforms to raise brand awareness for your mobile application.'
     },
     {
-      bgColor: 'bg-[#FCE2CD]',
-      iconBg: 'bg-[#E67E3F]',
-      icon: <Star className="w-5 h-5 text-white" strokeWidth={2.2} />,
-      title: 'Innovate and Stay Competitive',
-      desc: 'Investigating flutter app development services can be a calculated move for companies looking to take advantage of the benefits of mobile applications to boost client engagement and productivity.'
+      bgColor: 'bg-[#D7EDFB]',
+      iconBg: 'bg-[#0284C7]',
+      icon: <Star className="w-5 h-5 text-white" strokeWidth={2} />,
+      title: 'Improve Customer Loyalty and Retention',
+      desc: 'Mobile apps aid in customer understanding and the creation of pleasurable shopping experiences. Customers are more loyal when they receive personalized recommendations and early access to promotions.'
+    },
+    {
+      bgColor: 'bg-[#E5DAF6]',
+      iconBg: 'bg-[#9867E9]',
+      icon: <BarChart3 className="w-5 h-5 text-white" strokeWidth={2} />,
+      title: 'Data Collection and Analytics',
+      desc: 'App analytics can help you learn more about your employer and make decisions that are appropriate, you can gather information on name, age, gender, location, interests, behavior, etc.'
+    },
+    {
+      bgColor: 'bg-[#D1F2EE]',
+      iconBg: 'bg-[#1EB1A8]',
+      icon: <TrendingUp className="w-5 h-5 text-white" strokeWidth={2} />,
+      title: 'Gather Valuable Customer Insights',
+      desc: 'You can interact with your customers using mobile apps, meet them where they are, ask them for ratings or feedback and get real-time analytics to act accordingly.'
+    },
+    {
+      bgColor: 'bg-[#FEF3C7]',
+      iconBg: 'bg-[#D97706]',
+      icon: <Users className="w-5 h-5 text-white" strokeWidth={2} />,
+      title: 'Enhanced Customer Engagement',
+      desc: 'Mobile application give businesses the ability to give their users a more immersive and engaging experience by giving them a direct and personalized communication channel.'
     },
     {
       bgColor: 'bg-[#D9F5E5]',
@@ -64,39 +85,18 @@ export const TransformativeImpactSection = ({
       desc: 'Ensure Security and Compliance Using mobile apps, businesses can ensure that user data is never inadvertently disclosed to hackers or unscrupulous commercial vendors by employing secure analytics providers & executing advertising in ethical manner.'
     },
     {
-      bgColor: 'bg-[#FEF3C7]',
-      iconBg: 'bg-[#D97706]',
-      icon: <Users className="w-5 h-5 text-white" strokeWidth={2.2} />,
-      title: 'Enhanced Customer Engagement',
-      desc: 'Mobile application give businesses the ability to give their users a more immersive and engaging experience by giving them a direct and personalized communication channel.'
+      bgColor: 'bg-[#F8D3E3]',
+      iconBg: 'bg-[#DE5B8F]',
+      icon: <ThumbsUp className="w-5 h-5 text-white" strokeWidth={2} />,
+      title: 'Competitive Advantage',
+      desc: 'Businesses can make a big competitive edge by using mobile apps. Apps offer the opportunity to optimize processes, significant data insights, and more direct and personalized client connections.'
     },
     {
-      bgColor: 'bg-[#D1F2EE]',
-      iconBg: 'bg-[#1EB1A8]',
-      icon: <Award className="w-5 h-5 text-white" strokeWidth={2.2} />,
-      title: 'Increased Brand Value & ROI',
-      desc: 'By actively interacting with users through specialized web and app interfaces, you can use high conversion rates and personalized notifications to boost your digital commerce and customer lifetime value.'
-    },
-    {
-      bgColor: 'bg-[#D7EDFB]',
-      iconBg: 'bg-[#0284C7]',
-      icon: <Smartphone className="w-5 h-5 text-white" strokeWidth={2.2} />,
-      title: 'Brand Recognition & Reach',
-      desc: "Mobile and web applications put your brand directly on users' screens, delivering 24/7 visibility, personalized engagement, and seamless brand accessibility."
-    },
-    {
-      bgColor: 'bg-[#E5DAF6]',
-      iconBg: 'bg-[#9867E9]',
-      icon: <BarChart3 className="w-5 h-5 text-white" strokeWidth={2.2} />,
-      title: 'Data Collection and Analytics',
-      desc: 'App analytics can help you learn more about your users and make decisions that are appropriate, you can gather information on name, age, gender, location, interests, behavior, etc.'
-    },
-    {
-      bgColor: 'bg-[#D1F2EE]',
-      iconBg: 'bg-[#1EB1A8]',
-      icon: <TrendingUp className="w-5 h-5 text-white" strokeWidth={2.2} />,
-      title: 'Gather Valuable Customer Insights',
-      desc: 'You can interact with your customers using mobile and web apps, meet them where they are, ask them for ratings or feedback and get real-time analytics to act accordingly.'
+      bgColor: 'bg-[#FCE2CD]',
+      iconBg: 'bg-[#E67E3F]',
+      icon: <Smartphone className="w-5 h-5 text-white" strokeWidth={2} />,
+      title: 'Innovate and Stay Competitive',
+      desc: 'Investigating react native app development services can be a calculated move for companies looking to take advantage of the benefits of mobile applications to boost client engagement and productivity.'
     }
   ];
 
@@ -108,8 +108,8 @@ export const TransformativeImpactSection = ({
         {/* Section Heading (1:1 Copy to Copy from Reference) */}
         <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-12 space-y-2 px-4">
           <h2
-            className="font-[800] text-[#0B0F19] tracking-tight leading-tight"
-            style={{ fontSize: '32px' }}
+            className="text-[#0B0F19] tracking-tight font-sans"
+            style={{ fontSize: '34px', fontWeight: 800, lineHeight: '51px' }}
           >
             {title}
           </h2>

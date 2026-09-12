@@ -38,6 +38,20 @@ import DotNetDevelopmentService from '../components/services/DotNetDevelopmentSe
 import PhpDevelopmentService from '../components/services/PhpDevelopmentService';
 import JavaDevelopmentService from '../components/services/JavaDevelopmentService';
 import NodeJsDevelopmentService from '../components/services/NodeJsDevelopmentService';
+import GenerativeAiDevelopmentService from '../components/services/GenerativeAiDevelopmentService';
+import ArtificialIntelligenceDevelopmentService from '../components/services/ArtificialIntelligenceDevelopmentService';
+import BlockchainDevelopmentService from '../components/services/BlockchainDevelopmentService';
+import FullStackDevelopmentService from '../components/services/FullStackDevelopmentService';
+import VirtualRealityDevelopmentService from '../components/services/VirtualRealityDevelopmentService';
+import IotDevelopmentService from '../components/services/IotDevelopmentService';
+import PwaDevelopmentService from '../components/services/PwaDevelopmentService';
+import RpaDevelopmentService from '../components/services/RpaDevelopmentService';
+import AngularDevelopmentService from '../components/services/AngularDevelopmentService';
+import ReactJsDevelopmentService from '../components/services/ReactJsDevelopmentService';
+import VueJsDevelopmentService from '../components/services/VueJsDevelopmentService';
+import SharePointDevelopmentService from '../components/services/SharePointDevelopmentService';
+import PowerAppsDevelopmentService from '../components/services/PowerAppsDevelopmentService';
+import PowerAutomateDevelopmentService from '../components/services/PowerAutomateDevelopmentService';
 
 export const ServiceDetails = () => {
   const { slug } = useParams();
@@ -139,6 +153,82 @@ export const ServiceDetails = () => {
     currentSlug.includes('hire-node') ||
     currentSlug.includes('node-developer');
 
+  const isGenerativeAi = currentSlug.includes('generative-ai') ||
+    currentSlug.includes('generativeai') ||
+    currentSlug.includes('genai') ||
+    currentSlug.includes('gen-ai');
+
+  const isArtificialIntelligence = !isGenerativeAi && (
+    currentSlug.includes('artificial-intelligence') ||
+    currentSlug.includes('ai-ml') ||
+    currentSlug.includes('ai-development') ||
+    currentSlug === 'ai' ||
+    currentSlug === 'ai-services' ||
+    currentSlug.includes('hire-ai-developers')
+  );
+
+  const isBlockchain = currentSlug.includes('blockchain') ||
+    currentSlug.includes('crypto') ||
+    currentSlug.includes('dapp') ||
+    currentSlug.includes('hire-blockchain');
+
+  const isFullStack = currentSlug.includes('full-stack') ||
+    currentSlug.includes('fullstack') ||
+    currentSlug.includes('hire-full-stack');
+
+  const isVR = currentSlug.includes('vr') ||
+    currentSlug.includes('virtual-reality') ||
+    currentSlug.includes('vr-ar') ||
+    currentSlug.includes('ar-vr') ||
+    currentSlug.includes('augmented-reality');
+
+  const isIot = currentSlug.includes('iot') ||
+    currentSlug.includes('internet-of-things') ||
+    currentSlug.includes('smart-devices');
+
+  const isPwa = currentSlug.includes('pwd') ||
+    currentSlug.includes('pwa') ||
+    currentSlug.includes('progressive-web') ||
+    currentSlug.includes('progressive-app');
+
+  const isRpa = currentSlug.includes('rpa') ||
+    currentSlug.includes('robotic-process') ||
+    currentSlug.includes('process-automation') ||
+    currentSlug.includes('robotic');
+
+  const isAngular = currentSlug.includes('angular');
+
+  const isReact = !isReactNative && (
+    currentSlug.includes('react-js') ||
+    currentSlug.includes('reactjs') ||
+    currentSlug.includes('react-development') ||
+    currentSlug.includes('hire-react') ||
+    currentSlug === 'react' ||
+    currentSlug === 'services/react'
+  );
+
+  const isVue = currentSlug.includes('vue') ||
+    currentSlug.includes('vuejs') ||
+    currentSlug.includes('vue-js') ||
+    currentSlug.includes('hire-vue') ||
+    currentSlug.includes('nuxt');
+
+  const isSharePoint = currentSlug.includes('sharepoint') ||
+    currentSlug.includes('share-point') ||
+    currentSlug.includes('hire-sharepoint');
+
+  const isPowerApps = (currentSlug.includes('powerapps') ||
+    currentSlug.includes('power-apps') ||
+    currentSlug.includes('power-platform') ||
+    currentSlug.includes('hire-powerapps') ||
+    currentSlug.includes('hire-power-apps')) &&
+    !currentSlug.includes('automate');
+
+  const isPowerAutomate = currentSlug.includes('power-automate') ||
+    currentSlug.includes('powerautomate') ||
+    currentSlug.includes('hire-power-automate') ||
+    currentSlug.includes('hire-powerautomate');
+
   const unslugify = (str) => {
     if (!str) return 'Enterprise Tech Solution';
     return str
@@ -234,7 +324,7 @@ export const ServiceDetails = () => {
   };
 
   useEffect(() => {
-    if (!isXamarin && !isNodeJs && !isJava && !isAndroid && !isReactNative && !isFlutter && !isIOS && !isHealthcare && !isEducation && !isUber && !isSpotify && !isZomato && !isAmazon && !isVisitor && !isWarehouse && !isClover && !isCSharp && !isIWatch && !isWordpress && !isDrupal && !isUmbraco && !isSitecore && !isSitefinity && !isMagento && !isShopify && !isNet && !isPhp) {
+    if (!isPowerAutomate && !isPowerApps && !isSharePoint && !isVue && !isReact && !isAngular && !isIot && !isPwa && !isRpa && !isVR && !isFullStack && !isBlockchain && !isArtificialIntelligence && !isGenerativeAi && !isNodeJs && !isJava && !isPhp && !isNet && !isXamarin && !isAndroid && !isReactNative && !isFlutter && !isIOS && !isHealthcare && !isEducation && !isUber && !isSpotify && !isZomato && !isAmazon && !isVisitor && !isWarehouse && !isClover && !isCSharp && !isIWatch && !isWordpress && !isDrupal && !isUmbraco && !isSitecore && !isSitefinity && !isMagento && !isShopify) {
       fetchServiceDetails();
     } else {
       setLoading(false);
@@ -256,6 +346,62 @@ export const ServiceDetails = () => {
 
   if (isNet) {
     return <DotNetDevelopmentService />;
+  }
+
+  if (isPowerAutomate) {
+    return <PowerAutomateDevelopmentService />;
+  }
+
+  if (isPowerApps) {
+    return <PowerAppsDevelopmentService />;
+  }
+
+  if (isSharePoint) {
+    return <SharePointDevelopmentService />;
+  }
+
+  if (isVue) {
+    return <VueJsDevelopmentService />;
+  }
+
+  if (isReact) {
+    return <ReactJsDevelopmentService />;
+  }
+
+  if (isAngular) {
+    return <AngularDevelopmentService />;
+  }
+
+  if (isIot) {
+    return <IotDevelopmentService />;
+  }
+
+  if (isPwa) {
+    return <PwaDevelopmentService />;
+  }
+
+  if (isRpa) {
+    return <RpaDevelopmentService />;
+  }
+
+  if (isVR) {
+    return <VirtualRealityDevelopmentService />;
+  }
+
+  if (isFullStack) {
+    return <FullStackDevelopmentService />;
+  }
+
+  if (isBlockchain) {
+    return <BlockchainDevelopmentService />;
+  }
+
+  if (isArtificialIntelligence) {
+    return <ArtificialIntelligenceDevelopmentService />;
+  }
+
+  if (isGenerativeAi) {
+    return <GenerativeAiDevelopmentService />;
   }
 
   if (isSitecore) {

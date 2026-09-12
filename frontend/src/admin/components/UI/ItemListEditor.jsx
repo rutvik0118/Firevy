@@ -19,7 +19,7 @@ import {
   Search,
   X
 } from 'lucide-react';
-import MediaUploadInput from './MediaUploadInput';
+import MediaUploadInput, { getMediaUrl } from './MediaUploadInput';
 
 export const ItemListEditor = ({
   items = [],
@@ -132,10 +132,10 @@ export const ItemListEditor = ({
     const media = item.image || item.icon || item.avatar || item.mockup || item.symbol || item.logo;
     const isStat = item.type === 'stat' || (item.metric && !item.icon);
 
-    if (typeof media === 'string' && (media.startsWith('http://') || media.startsWith('https://') || media.startsWith('data:') || media.startsWith('/'))) {
+    if (typeof media === 'string' && (media.startsWith('http://') || media.startsWith('https://') || media.startsWith('data:') || media.startsWith('/') || media.startsWith('uploads/'))) {
       return (
         <img
-          src={media}
+          src={getMediaUrl(media)}
           alt=""
           style={{ width: '100%', height: '100%', objectFit: 'contain' }}
           onError={(e) => {

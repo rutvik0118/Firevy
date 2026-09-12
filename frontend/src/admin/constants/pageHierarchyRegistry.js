@@ -171,20 +171,54 @@ export const PAGE_HIERARCHY_REGISTRY = {
             key: 'hero',
             title: 'Hero Banner',
             category: 'Hero',
-            description: 'Team directory headline, subheading, and culture badge.',
+            description: 'Team directory headline, subheading, and connect action.',
             type: 'hero'
           },
           {
-            key: 'teamMembers',
-            title: 'Team Members Directory',
-            category: 'Collection CRUD',
-            description: 'Manage executive leadership, engineering leads, designers, and team members.',
-            type: 'collection',
-            collectionType: 'team'
+            key: 'management',
+            title: 'Management Team',
+            category: 'Executive',
+            description: 'CEO message, CTO message, and Business Heads profiles.',
+            type: 'composite'
           },
           {
-            key: 'joinTeamCta',
-            title: 'Join Our Team CTA',
+            key: 'leadership',
+            title: 'Leadership Team',
+            category: 'Leadership',
+            description: '15 team lead designations and profiles.',
+            type: 'repeater'
+          },
+          {
+            key: 'teamwork',
+            title: 'Teamwork Mosaic',
+            category: 'Culture',
+            description: 'Teamwork headline and interactive 24-column photo mosaic wall.',
+            type: 'mosaic'
+          },
+          {
+            key: 'firevianSay',
+            title: 'What Our Firevian Says',
+            category: 'Testimonial',
+            description: 'Employee testimonial and quote spotlight.',
+            type: 'testimonial'
+          },
+          {
+            key: 'learningGrowth',
+            title: 'Learning & Growth',
+            category: 'Culture',
+            description: 'Training narrative, join button, and 3 ceremony photos.',
+            type: 'gallery'
+          },
+          {
+            key: 'lifeAtFirevy',
+            title: 'Team @ firevy.co',
+            category: 'Gallery',
+            description: 'Culture narrative and 4 team moments photos.',
+            type: 'gallery'
+          },
+          {
+            key: 'cta',
+            title: 'Ready To Take The Challenge CTA',
             category: 'Call to Action',
             description: 'Bottom recruitment banner linking to open career opportunities.',
             type: 'cta'

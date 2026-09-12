@@ -4,13 +4,25 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-html, body, #root {
+html {
   font-family: 'Poppins', sans-serif;
   background-color: #ffffff;
   color: #0f172a;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
+  overflow-x: clip;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #ffffff;
+  color: #0f172a;
+  overflow-x: clip;
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
 }
 
 *, ::before, ::after, input, button, select, textarea, optgroup, option {

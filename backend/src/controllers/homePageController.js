@@ -56,16 +56,25 @@ const getOrCreateConfig = async () => {
  * Format payload for API response with unified properties
  */
 const formatHomeResponse = (sectionsOrder, sections) => {
-  const order = Array.isArray(sectionsOrder) && sectionsOrder.length > 0
-    ? sectionsOrder
-    : initialSectionsOrder;
-  const secs = sections && typeof sections === 'object' && Object.keys(sections).length > 0
-    ? sections
-    : initialHomePageData.sections;
-  const list = buildSectionsList(order, secs);
+  const baseOrder = Array.isArray(sectionsOrder) && sectionsOrder.length > 0
+    ? [...sectionsOrder]
+    : [...initialSectionsOrder];
+
+  // Dynamically ensure every section from initialSectionsOrder is included
+  initialSectionsOrder.forEach((key) => {
+    if (!baseOrder.includes(key)) {
+      baseOrder.push(key);
+    }
+  });
+
+  const secs = {
+    ...initialHomePageData.sections,
+    ...(sections && typeof sections === 'object' ? sections : {})
+  };
+  const list = buildSectionsList(baseOrder, secs);
 
   return {
-    sectionsOrder: order,
+    sectionsOrder: baseOrder,
     sections: secs,
     sectionsList: list
   };

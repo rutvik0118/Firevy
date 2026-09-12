@@ -219,9 +219,12 @@ export const uberFaqList = [
 ];
 
 export const SapphireFaqSection = ({
-  faqList = androidFaqList,
+  faqList,
+  faqs,
+  title = "Frequently Asked Questions",
   subtitle = "We listen to query and provide solutions that captivate users. Feel free to contact us in case of any query which is not mention below."
 }) => {
+  const activeFaqs = faqList || faqs || androidFaqList;
   const [openId, setOpenId] = useState(1);
 
   const toggleFaq = (id) => {
@@ -242,7 +245,7 @@ export const SapphireFaqSection = ({
             color: '#FFFFFF'
           }}
         >
-          Frequently Asked Questions
+          {title}
         </h2>
         <p className="text-[13px] sm:text-[14px] text-blue-100 font-normal leading-relaxed max-w-2xl mx-auto opacity-95">
           {subtitle}
@@ -325,10 +328,13 @@ export const SapphireFaqSection = ({
 
             {/* Right Column: Interactive FAQ Accordion List */}
             <div className="lg:col-span-7 space-y-0 text-left font-sans">
-              {faqList.map((faq, index) => {
+              {activeFaqs.map((faq, index) => {
                 const id = faq.id || index + 1;
-                const questionText = faq.question || faq.q || '';
+                let questionText = faq.question || faq.q || '';
                 const answerText = faq.answer || faq.a || '';
+                if (questionText && !/^\s*\d+\./.test(questionText)) {
+                  questionText = `${index + 1}. ${questionText}`;
+                }
                 const isOpen = openId === id;
                 return (
                   <div
@@ -340,8 +346,9 @@ export const SapphireFaqSection = ({
                       className="w-full text-left flex items-start justify-between space-x-3 group cursor-pointer focus:outline-none"
                     >
                       <h3
-                        className={`text-[13.5px] sm:text-[14.5px] font-[700] leading-snug transition-colors ${isOpen ? 'text-[#005F96]' : 'text-[#0F172A] group-hover:text-[#005F96]'
-                          }`}
+                        className={`text-[13.5px] sm:text-[14.5px] font-[700] leading-snug transition-colors ${
+                          isOpen ? 'text-[#005F96]' : 'text-[#0F172A] group-hover:text-[#005F96]'
+                        }`}
                       >
                         {questionText}
                       </h3>

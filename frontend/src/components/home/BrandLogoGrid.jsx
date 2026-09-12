@@ -1,5 +1,6 @@
 import React from 'react';
 import Container from '../common/Container';
+import { getMediaUrl } from '../../utils/mediaUrl';
 
 const defaultBrandLogos = [
   // Row 1
@@ -64,7 +65,14 @@ export const BrandLogoGrid = ({ data }) => {
               className="bg-white rounded-[22px] p-5 h-28 sm:h-32 shadow-[0px_10px_30px_rgba(0,0,0,0.06)] border border-slate-200/80 hover:border-[#006B8F] flex flex-col items-center justify-center text-center space-y-1.5 transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5 group cursor-pointer"
             >
               {brand.image ? (
-                <img src={brand.image} alt={brand.name} className="h-8 w-auto object-contain max-w-[90%]" />
+                <img
+                  src={getMediaUrl(brand.image)}
+                  alt={brand.name}
+                  className="h-8 w-auto object-contain max-w-[90%]"
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                  }}
+                />
               ) : (
                 <span className="text-2xl group-hover:scale-110 transition-transform">{brand.symbol || '🏢'}</span>
               )}

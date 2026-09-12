@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { getMediaUrl } from '../../utils/mediaUrl';
+import { homePageService } from '../../services/homePageService';
 
 const defaultBrandLogos = [
   { name: 'adani', color: 'text-[#9B111E] font-serif lowercase tracking-normal text-2xl font-bold', symbol: '' },
@@ -14,8 +16,29 @@ const defaultBrandLogos = [
 ];
 
 export const TrustMarquee = ({ data }) => {
-  const brandLogos = (data?.logos && Array.isArray(data.logos) && data.logos.filter(l => l.isActive !== false).length > 0)
-    ? data.logos.filter(l => l.isActive !== false)
+  const [dynamicLogos, setDynamicLogos] = useState(data?.logos || null);
+
+  useEffect(() => {
+    if (data?.logos && Array.isArray(data.logos) && data.logos.length > 0) {
+      setDynamicLogos(data.logos);
+      return;
+    }
+    let isMounted = true;
+    homePageService.getHomePageData()
+      .then((res) => {
+        if (isMounted && res?.sections?.trustMarquee?.logos) {
+          setDynamicLogos(res.sections.trustMarquee.logos);
+        }
+      })
+      .catch(() => {});
+    return () => {
+      isMounted = false;
+    };
+  }, [data]);
+
+  const activeLogos = dynamicLogos || data?.logos || defaultBrandLogos;
+  const brandLogos = (Array.isArray(activeLogos) && activeLogos.filter((l) => l.isActive !== false).length > 0)
+    ? activeLogos.filter((l) => l.isActive !== false)
     : defaultBrandLogos;
 
   return (
@@ -30,16 +53,32 @@ export const TrustMarquee = ({ data }) => {
           {[...brandLogos, ...brandLogos, ...brandLogos, ...brandLogos].map((logo, idx) => (
             <div
               key={idx}
-              className="flex items-center space-x-3 mx-8 py-2 px-4 opacity-85 hover:opacity-100 transition-opacity duration-200 cursor-pointer shrink-0"
+              className="flex items-center space-x-3 mx-8 py-2 px-4 opacity-90 hover:opacity-100 transition-opacity duration-200 cursor-pointer shrink-0"
             >
               {logo.image ? (
-                <img src={logo.image} alt={logo.name} className="h-6 w-auto object-contain max-w-[100px]" />
-              ) : logo.symbol ? (
-                <span className="text-xl">{logo.symbol}</span>
-              ) : null}
-              <span className={`text-base sm:text-lg font-black tracking-wider ${logo.color || 'text-slate-900'} font-sans uppercase`}>
-                {logo.name}
-              </span>
+                <div className="flex items-center space-x-2.5">
+                  <img
+                    src={getMediaUrl(logo.image)}
+                    alt={logo.name || 'Brand Logo'}
+                    className="h-8 sm:h-9 w-auto object-contain max-w-[140px]"
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                    }}
+                  />
+                  {logo.name && (
+                    <span className={`text-base sm:text-lg font-black tracking-wider ${logo.color || 'text-slate-900'} font-sans uppercase`}>
+                      {logo.name}
+                    </span>
+                  )}
+                </div>
+              ) : (
+                <div className="flex items-center space-x-2.5">
+                  {logo.symbol && <span className="text-xl">{logo.symbol}</span>}
+                  <span className={`text-base sm:text-lg font-black tracking-wider ${logo.color || 'text-slate-900'} font-sans uppercase`}>
+                    {logo.name}
+                  </span>
+                </div>
+              )}
             </div>
           ))}
         </div>
@@ -49,3 +88,4 @@ export const TrustMarquee = ({ data }) => {
 };
 
 export default TrustMarquee;
+

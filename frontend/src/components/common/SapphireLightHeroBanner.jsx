@@ -50,6 +50,7 @@ export const SapphireLightHeroBanner = ({
   const isEducation = serviceCategory === 'education';
   const isSpotify = serviceCategory === 'spotify';
   const isZomato = serviceCategory === 'zomato' || serviceCategory === 'food';
+  const isAmazon = serviceCategory === 'amazon' || serviceCategory === 'ecommerce';
 
   const defaultZomatoStats = [
     { value: '80+', label: 'Mobile App Developers' },
@@ -497,6 +498,197 @@ export const SapphireLightHeroBanner = ({
                       <p className="text-[6.5px] font-medium opacity-80">You never look at the stars...</p>
                     </div>
 
+                  </div>
+
+                </div>
+              </div>
+            ) : isAmazon ? (
+              /* Amazon E-Commerce 1:1 Reference Dual Phone Mockup Layout */
+              <div className="relative w-full max-w-[540px] flex items-center justify-center min-h-[420px] py-4">
+                {/* Dark Blue Circle Blob Top-Left */}
+                <div className="absolute top-1 left-4 sm:left-8 w-36 h-36 sm:w-44 sm:h-44 rounded-full bg-[#1A237E] pointer-events-none opacity-90" />
+
+                {/* Soft Purple/Indigo Circle Blob Bottom-Right */}
+                <div className="absolute bottom-1 right-4 sm:right-8 w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-[#7C4DFF] pointer-events-none opacity-70" />
+
+                {/* Dual Overlapping Mobile Phones */}
+                <div className="relative flex items-center justify-center z-10">
+
+                  {/* LEFT PHONE: Amazon E-Commerce Shopping Catalog App Screen */}
+                  <div className="w-[200px] sm:w-[225px] h-[400px] sm:h-[440px] rounded-[36px] bg-slate-950 border-4 border-slate-800 p-2 shadow-2xl overflow-hidden flex flex-col justify-between text-slate-900 font-sans relative z-20 bg-white">
+                    <div>
+                      {/* Status Bar */}
+                      <div className="flex items-center justify-between text-[7px] text-slate-500 px-2 pt-1 font-semibold border-b border-slate-100 pb-1">
+                        <span>9:41</span>
+                        <div className="flex items-center space-x-1">
+                          <div className="w-1.5 h-1.5 rounded-full bg-slate-500" />
+                          <div className="w-2 h-1.5 border border-slate-500 rounded-sm" />
+                        </div>
+                      </div>
+
+                      {/* User Greeting & Search */}
+                      <div className="px-2 pt-2 space-y-1.5">
+                        <div className="flex justify-between items-center">
+                          <div>
+                            <p className="text-[7.5px] text-slate-400 font-bold leading-none">Welcome,</p>
+                            <h4 className="text-[11px] font-black text-slate-900 leading-tight">Martin Smith</h4>
+                          </div>
+                          <div className="w-6 h-6 rounded-full bg-amber-100 border border-amber-300 flex items-center justify-center text-[10px]">
+                            👤
+                          </div>
+                        </div>
+
+                        <div className="bg-slate-100 text-slate-400 rounded-lg px-2 py-1 flex items-center justify-between text-[8px]">
+                          <div className="flex items-center space-x-1">
+                            <span>🔍</span>
+                            <span>Search...</span>
+                          </div>
+                          <span>🎙️</span>
+                        </div>
+                      </div>
+
+                      {/* Promo Banners Horizontal Carousel */}
+                      <div className="px-2 mt-2 space-y-1">
+                        <div className="flex space-x-1.5 overflow-hidden">
+                          {/* Banner 1 */}
+                          <div className="w-[130px] shrink-0 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-xl p-2 text-white space-y-1 shadow-sm">
+                            <span className="text-[7px] font-black bg-white/20 px-1 py-0.5 rounded text-white uppercase">50% Off</span>
+                            <div className="text-[8.5px] font-extrabold leading-tight">On everything today</div>
+                            <div className="text-[6.5px] opacity-80">With code: ECOMMERCE</div>
+                            <button className="px-2 py-0.5 rounded bg-white text-indigo-700 font-extrabold text-[7px] shadow-sm">Get now</button>
+                          </div>
+                          {/* Banner 2 */}
+                          <div className="w-[120px] shrink-0 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl p-2 text-white space-y-1 opacity-90">
+                            <span className="text-[7px] font-black bg-white/20 px-1 py-0.5 rounded text-white uppercase">70% Off</span>
+                            <div className="text-[8.5px] font-extrabold leading-tight">On every order</div>
+                            <button className="px-2 py-0.5 rounded bg-white text-purple-700 font-extrabold text-[7px]">Explore</button>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* New Arrivals Grid */}
+                      <div className="px-2 mt-2 space-y-1">
+                        <div className="flex justify-between items-center text-[8px]">
+                          <span className="font-extrabold text-slate-900">New Arrivals</span>
+                          <span className="text-[7px] text-[#005F96] font-bold">See all</span>
+                        </div>
+                        <div className="grid grid-cols-2 gap-1.5">
+                          {/* Product Card 1 */}
+                          <div className="bg-slate-50 border border-slate-200/80 rounded-lg p-1.5 space-y-1">
+                            <div className="h-14 rounded-md bg-slate-200 flex items-center justify-center text-xl relative overflow-hidden">
+                              👜
+                              <span className="absolute top-1 right-1 text-[8px]">🤍</span>
+                            </div>
+                            <div className="text-[7.5px] font-extrabold text-slate-900 truncate">The Marc Jacobs</div>
+                            <div className="text-[6.5px] text-slate-500 font-semibold truncate">Traveler Tote</div>
+                            <div className="text-[7.5px] font-black text-slate-900">$185.00</div>
+                          </div>
+
+                          {/* Product Card 2 */}
+                          <div className="bg-slate-50 border border-slate-200/80 rounded-lg p-1.5 space-y-1">
+                            <div className="h-14 rounded-md bg-slate-200 flex items-center justify-center text-xl relative overflow-hidden">
+                              👟
+                              <span className="absolute top-1 right-1 text-[8px]">🤍</span>
+                            </div>
+                            <div className="text-[7.5px] font-extrabold text-slate-900 truncate">Axel Arigato</div>
+                            <div className="text-[6.5px] text-slate-500 font-semibold truncate">Clean 90 Sneakers</div>
+                            <div className="text-[7.5px] font-black text-slate-900">$245.00</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Bottom Nav Bar */}
+                    <div className="bg-white border-t border-slate-100 -mx-2 -mb-2 p-1.5 flex items-center justify-around text-[7.5px] font-extrabold text-slate-400">
+                      <div className="flex flex-col items-center text-[#005F96]">
+                        <span className="text-[10px] leading-none">🏠</span>
+                        <span className="mt-0.5">Home</span>
+                      </div>
+                      <div className="flex flex-col items-center">
+                        <span className="text-[10px] leading-none">🔍</span>
+                        <span className="mt-0.5">Search</span>
+                      </div>
+                      <div className="flex flex-col items-center">
+                        <span className="text-[10px] leading-none">🛍️</span>
+                        <span className="mt-0.5">Cart</span>
+                      </div>
+                      <div className="flex flex-col items-center">
+                        <span className="text-[10px] leading-none">👤</span>
+                        <span className="mt-0.5">Profile</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* RIGHT PHONE: Product Details Page */}
+                  <div className="w-[190px] sm:w-[215px] h-[390px] sm:h-[430px] rounded-[36px] bg-slate-950 border-4 border-slate-800 p-2 shadow-2xl overflow-hidden flex flex-col justify-between text-slate-900 font-sans relative z-10 -ml-8 sm:-ml-10 transform translate-y-3 hover:translate-y-0 transition-transform duration-300 bg-white">
+                    <div>
+                      {/* Status Bar */}
+                      <div className="flex items-center justify-between text-[7px] text-slate-500 px-2 pt-1 font-semibold border-b border-slate-100 pb-1">
+                        <span>9:41</span>
+                        <div className="flex items-center space-x-1">
+                          <div className="w-1.5 h-1.5 rounded-full bg-slate-500" />
+                          <div className="w-2 h-1.5 border border-slate-500 rounded-sm" />
+                        </div>
+                      </div>
+
+                      {/* Product Photo Header */}
+                      <div className="relative my-1 px-1">
+                        <div className="w-full h-32 rounded-xl bg-gradient-to-tr from-indigo-100 via-slate-100 to-purple-100 p-2 flex items-center justify-center relative overflow-hidden border border-slate-200">
+                          <span className="text-4xl">🧥</span>
+                          <div className="absolute top-1.5 left-1.5 w-5 h-5 rounded-full bg-white/80 flex items-center justify-center text-[10px] font-bold text-slate-700 shadow-sm">
+                            ‹
+                          </div>
+                          <div className="absolute top-1.5 right-1.5 w-5 h-5 rounded-full bg-white/80 flex items-center justify-center text-[10px] text-rose-500 shadow-sm">
+                            ♥
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Title & Price */}
+                      <div className="px-2 space-y-1">
+                        <div className="flex justify-between items-start">
+                          <div>
+                            <h4 className="text-[11px] font-black text-slate-900 leading-tight">Oiler Jacket</h4>
+                            <div className="flex items-center space-x-1 text-[7px] text-amber-500 font-bold mt-0.5">
+                              <span>⭐⭐⭐⭐⭐</span>
+                              <span className="text-slate-400">(120 reviews)</span>
+                            </div>
+                          </div>
+                          <div className="text-right">
+                            <span className="text-[7px] font-bold text-emerald-600 bg-emerald-50 px-1 py-0.5 rounded block">Available in stock</span>
+                            <span className="text-[11px] font-black text-slate-900 block mt-0.5">$250.00</span>
+                          </div>
+                        </div>
+
+                        {/* Size Pills */}
+                        <div className="pt-1 space-y-1">
+                          <span className="text-[7.5px] font-extrabold text-slate-700 block">Select Size</span>
+                          <div className="flex space-x-1">
+                            <span className="w-5 h-5 rounded border border-slate-300 text-slate-600 font-bold text-[7px] flex items-center justify-center">S</span>
+                            <span className="w-5 h-5 rounded border border-indigo-600 bg-indigo-600 text-white font-black text-[7px] flex items-center justify-center shadow-sm">M</span>
+                            <span className="w-5 h-5 rounded border border-slate-300 text-slate-600 font-bold text-[7px] flex items-center justify-center">L</span>
+                            <span className="w-5 h-5 rounded border border-slate-300 text-slate-600 font-bold text-[7px] flex items-center justify-center">XL</span>
+                            <span className="w-5 h-5 rounded border border-slate-300 text-slate-600 font-bold text-[7px] flex items-center justify-center">XXL</span>
+                          </div>
+                        </div>
+
+                        {/* Description */}
+                        <div className="pt-1 space-y-0.5">
+                          <span className="text-[7.5px] font-extrabold text-slate-700 block">Description</span>
+                          <p className="text-[6.5px] text-slate-500 leading-tight font-normal line-clamp-2">
+                            A trendy fit soft suede jacket features a spread collar, button front, side pockets & long sleeves.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Add To Cart CTA Button */}
+                    <div className="p-2">
+                      <button className="w-full py-2 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-extrabold text-[9px] text-center shadow-md flex items-center justify-center space-x-1">
+                        <span>🛍️</span>
+                        <span>Add to cart</span>
+                      </button>
+                    </div>
                   </div>
 
                 </div>
