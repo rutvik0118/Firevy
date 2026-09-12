@@ -86,7 +86,10 @@ const pillarList = [
   }
 ];
 
-export const WhatSetsUsApartSection = () => {
+export const WhatSetsUsApartSection = ({
+  title = "What Sets Us Apart As Healthcare App Development Company?",
+  subtitle = "Being unique is our quality! Sapphire Solutions believe in the things that give us an edge over our competitors. We are renowned software and mobile application development organization serving customers with end-to-end support. Our Idealization, feasibility assessment of the entire software development process stands us one level up the competitors."
+}) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -113,7 +116,7 @@ export const WhatSetsUsApartSection = () => {
             lineHeight: '41px'
           }}
         >
-          What Sets Us Apart As Healthcare App Development Company?
+          {title}
         </h2>
         <p
           className="text-slate-600 section-content-desc max-w-4xl mx-auto"

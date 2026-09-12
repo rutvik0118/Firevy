@@ -188,37 +188,6 @@ export const FullStackDevelopmentService = () => {
         canonical="/services/full-stack"
       />
 
-      {/* Floating Action Buttons (Phone & WhatsApp) - Matching User Screenshot Right Edge */}
-      <div className="fixed right-0 top-1/4 z-40 flex flex-col items-end gap-1.5 pointer-events-auto">
-        <a
-          href="tel:+15551234567"
-          title="Call Us Directly"
-          className="w-10 h-10 rounded-l-[8px] bg-[#005F96] hover:bg-[#004A75] text-white flex items-center justify-center shadow-lg transition-transform hover:-translate-x-1"
-        >
-          <Phone className="w-5 h-5" />
-        </a>
-        <a
-          href="https://api.whatsapp.com/send?phone=919429709662"
-          target="_blank"
-          rel="noopener noreferrer"
-          title="Chat on WhatsApp"
-          className="w-10 h-10 rounded-l-[8px] bg-[#005F96] hover:bg-[#004A75] text-white flex items-center justify-center shadow-lg transition-transform hover:-translate-x-1"
-        >
-          <MessageCircle className="w-5 h-5" />
-        </a>
-      </div>
-
-      {/* Floating Sapphire / Support Brand Bubble on Bottom-Right */}
-      <div className="fixed right-4 bottom-5 z-40">
-        <Link
-          to="/contact"
-          title="Contact Sapphire"
-          className="w-13 h-13 rounded-full bg-[#0086C6] hover:bg-[#0070A6] text-white flex items-center justify-center shadow-2xl transition-transform hover:scale-110"
-        >
-          <span className="font-[900] text-3xl font-serif select-none leading-none">S</span>
-        </Link>
-      </div>
-
       {/* =========================================================================
           1. HERO SECTION (1:1 Exact Match with Screenshot)
           ========================================================================= */}

@@ -412,7 +412,7 @@ export const MegaMenu = ({ type, onClose }) => {
                     CASE STUDY
                   </h4>
                   <Link
-                    to="/portfolio"
+                    to="/case-studies"
                     onClick={onClose}
                     className="group block p-6 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-[#005F96] hover:shadow-xl transition-all duration-300 h-[280px] flex flex-col justify-between"
                   >

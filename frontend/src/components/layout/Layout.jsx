@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import ScrollToTop from './ScrollToTop';
+import FloatingElements from '../common/FloatingElements';
 
 import { useLocation } from 'react-router-dom';
 
@@ -16,6 +17,7 @@ export const Layout = ({ children }) => {
       <main className={`flex-grow ${isHome ? 'pt-0' : 'pt-[115px]'}`}>
         {children}
       </main>
+      <FloatingElements />
       <Footer />
     </div>
   );

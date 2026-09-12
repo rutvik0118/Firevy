@@ -23,53 +23,102 @@ const educationCards = [
 const defaultCards = [
   {
     id: 1,
-    title: 'AI Recruitment Software',
-    renderGraphic: (
-      <div className="w-full h-full relative overflow-hidden bg-[#EEF5FC] flex items-center justify-center">
-        <img
-          src="/images/talenti_qube.png"
-          alt="AI Recruitment Software - Talenti Qube"
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 select-none"
-          loading="lazy"
-        />
+    title: 'Employee Health Tracker App Development',
+    renderGraphic: () => (
+      <div className="w-full h-full relative overflow-hidden bg-white flex font-sans select-none border border-slate-200/60">
+        {/* Top Right "Case Study" Badge */}
+        <div className="absolute top-2 right-2 z-20 bg-[#0F2942] text-cyan-300 font-bold text-[9.5px] px-2.5 py-1 rounded shadow">
+          Case Study
+        </div>
+
+        {/* Left Side: Outcome & Metrics */}
+        <div className="w-1/2 p-3 bg-slate-50 flex flex-col justify-between border-r border-slate-200 text-left">
+          <div>
+            <span className="text-rose-600 font-black text-xs tracking-tight">Outcome</span>
+            <div className="mt-2.5 grid grid-cols-3 gap-1 text-[7.5px] font-bold text-center text-slate-700">
+              <div className="bg-white p-1 rounded shadow-xs border border-slate-100">
+                <div className="text-slate-900 font-extrabold text-[9.5px]">60+</div>
+                <div>Audits</div>
+              </div>
+              <div className="bg-white p-1 rounded shadow-xs border border-slate-100">
+                <div className="text-slate-900 font-extrabold text-[9.5px]">170</div>
+                <div>Acre</div>
+              </div>
+              <div className="bg-white p-1 rounded shadow-xs border border-slate-100">
+                <div className="text-slate-900 font-extrabold text-[9.5px]">100%</div>
+                <div>Sync</div>
+              </div>
+            </div>
+          </div>
+          {/* Car & Technician Illustration */}
+          <div className="pt-1">
+            <div className="bg-blue-700 text-white rounded-md p-1 text-[7.5px] font-bold shadow-xs flex items-center space-x-1 justify-center">
+              <span>🚗 MG Motor OPD</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Right Side: MG Dark Red Card */}
+        <div className="w-1/2 bg-[#7A1A1A] p-3 text-white flex flex-col justify-between text-left">
+          <div className="flex items-center justify-between border-b border-rose-400/30 pb-1.5">
+            <div className="w-6 h-6 rounded-full bg-white text-[#7A1A1A] font-black text-[9.5px] flex items-center justify-center border border-white">
+              MG
+            </div>
+            <span className="text-[7.5px] text-rose-200 font-bold tracking-wider">SAIC MOTOR</span>
+          </div>
+          <p className="text-[8.5px] text-rose-100 font-medium leading-tight">
+            Digitization of Occupational Health processes for subsidiary of SAIC Motor.
+          </p>
+          <div className="text-[7.5px] bg-rose-900/60 p-1 rounded text-rose-200 font-semibold text-center">
+            Health Check & OPD Logs
+          </div>
+        </div>
       </div>
     )
   },
   {
     id: 2,
     title: 'Navigation App Development',
-    renderGraphic: (
-      <div className="w-full h-full bg-[#525B42] p-3 sm:p-4 flex items-center justify-between relative overflow-hidden select-none">
-        <div className="flex flex-col justify-between h-full z-10 text-left max-w-[110px] sm:max-w-[130px]">
-          <div className="w-7 h-7 rounded-[7px] bg-[#EAB308] flex items-center justify-center text-slate-950 text-xs font-black shadow-xs">
+    renderGraphic: () => (
+      <div className="w-full h-full relative overflow-hidden bg-[#454E35] p-3 flex items-center justify-between font-sans select-none">
+        {/* Left Side Title Badge */}
+        <div className="z-10 text-left space-y-1 max-w-[125px]">
+          <div className="w-7 h-7 rounded-lg bg-[#F59E0B] flex items-center justify-center text-slate-950 font-black text-xs shadow-md">
             📍
           </div>
-          <div className="text-white space-y-0.5 my-auto">
-            <div className="text-[12px] sm:text-[13px] font-[900] leading-tight text-white drop-shadow-sm">MyliveGps</div>
-            <div className="text-[7.5px] sm:text-[8px] text-white/80 font-[600] leading-tight">Navigation<br />Application</div>
+          <div className="text-white">
+            <h4 className="text-xs font-black text-amber-400 tracking-tight leading-tight">MyliveGps</h4>
+            <p className="text-[9px] text-slate-200 font-semibold leading-tight">Navigation Application</p>
           </div>
-          <span className="text-[7px] text-[#EAB308] font-bold">● GPS Live</span>
+          <span className="inline-block text-[8px] bg-amber-400/20 text-amber-300 px-1.5 py-0.5 rounded font-bold">
+            ● GPS Active
+          </span>
         </div>
-        <div className="relative flex items-center space-x-2 z-10 pr-1">
-          <div className="w-[78px] sm:w-[85px] h-[135px] sm:h-[145px] rounded-[16px] bg-white border-[2.5px] border-slate-900 p-1 shadow-2xl flex flex-col items-center justify-center shrink-0">
-            <div className="w-5 h-1 rounded-full bg-slate-200 mb-4" />
-            <div className="w-7 h-7 rounded-[7px] bg-[#EAB308] flex items-center justify-center text-slate-950 text-xs font-black mb-1">
-              📍
+
+        {/* Right Side Angled Phones */}
+        <div className="relative flex items-center space-x-2 z-10 pr-2">
+          {/* Phone 1 */}
+          <div className="w-20 h-36 bg-slate-900 rounded-xl p-1 border-2 border-slate-700 shadow-2xl flex flex-col justify-between text-white text-[7px]">
+            <div className="w-4 h-0.5 bg-slate-600 rounded-full mx-auto" />
+            <div className="bg-amber-500 text-slate-950 p-1 rounded font-black text-center text-[7px]">
+              MyliveGps
             </div>
-            <span className="text-[6.5px] font-[900] text-slate-800">MyliveGps</span>
+            <div className="bg-slate-800 p-1 rounded space-y-0.5 text-slate-300">
+              <div>Route: 12 km</div>
+              <div className="text-emerald-400">ETA: 18 min</div>
+            </div>
           </div>
-          <div className="w-[78px] sm:w-[85px] h-[135px] sm:h-[145px] rounded-[16px] bg-white border-[2.5px] border-slate-900 p-1 shadow-2xl flex flex-col justify-between shrink-0">
-            <div className="w-5 h-1 rounded-full bg-slate-200 mx-auto" />
-            <div className="bg-slate-100 rounded-[8px] h-16 relative overflow-hidden my-1 border border-slate-200">
-              <svg viewBox="0 0 80 60" className="w-full h-full">
-                <path d="M10 15 L35 30 L35 48 L65 52" fill="none" stroke="#EAB308" strokeWidth="3" strokeLinecap="round" />
-                <circle cx="10" cy="15" r="3" fill="#10B981" />
-                <circle cx="65" cy="52" r="3" fill="#EF4444" />
+          {/* Phone 2 */}
+          <div className="w-20 h-36 bg-slate-900 rounded-xl p-1 border-2 border-slate-700 shadow-2xl flex flex-col justify-between text-white text-[7px] -ml-4 -mb-2">
+            <div className="w-4 h-0.5 bg-slate-600 rounded-full mx-auto" />
+            <div className="bg-slate-800 rounded p-1 h-14 border border-slate-700 relative flex items-center justify-center">
+              <svg viewBox="0 0 60 40" className="w-full h-full">
+                <path d="M5 30 Q 25 5, 55 20" fill="none" stroke="#F59E0B" strokeWidth="2.5" />
+                <circle cx="55" cy="20" r="3" fill="#10B981" />
               </svg>
             </div>
-            <div className="bg-slate-50 rounded p-1 border border-slate-200 text-[5px] text-slate-800 font-bold flex justify-between items-center">
-              <span>Turn Right 200m</span>
-              <span className="text-[#EAB308]">8 min</span>
+            <div className="bg-emerald-600 text-white p-1 rounded font-bold text-center text-[6.5px]">
+              Turn Right 150m
             </div>
           </div>
         </div>
@@ -78,37 +127,35 @@ const defaultCards = [
   },
   {
     id: 3,
-    title: 'Dropshipping App Development',
-    renderGraphic: (
-      <div className="w-full h-full bg-[#18353A] p-3 sm:p-4 flex items-center justify-center space-x-2.5 relative overflow-hidden select-none">
-        <div className="w-[82px] sm:w-[90px] h-[135px] sm:h-[145px] rounded-[16px] bg-[#0E2024] border-[2.5px] border-slate-800 p-1 shadow-2xl flex flex-col justify-between shrink-0 text-white">
-          <div className="w-5 h-0.5 rounded-full bg-slate-600 mx-auto" />
-          <div className="bg-white/10 rounded p-1 text-[5px]">
-            <div className="text-slate-400">Total price:</div>
-            <div className="font-bold text-amber-400">$45.20</div>
+    title: 'Claim Management App',
+    renderGraphic: () => (
+      <div className="w-full h-full relative overflow-hidden bg-[#D4E5FA] p-3 flex items-center justify-between font-sans select-none">
+        {/* Left Side Claim Management Title Graphics */}
+        <div className="z-10 text-left space-y-1.5 max-w-[130px]">
+          <div className="bg-white/90 backdrop-blur-md p-2.5 rounded-xl border border-blue-200 shadow-sm space-y-1">
+            <div className="text-sm font-black text-blue-700 leading-tight">Claim</div>
+            <div className="text-[10px] font-bold text-slate-700 leading-tight">Management App</div>
           </div>
-          <div className="w-full bg-[#F97316] text-white rounded py-1 text-center text-[5.5px] font-bold">
-            Checkout
+          <span className="inline-block text-[8px] bg-blue-600 text-white px-2 py-0.5 rounded-full font-bold shadow">
+            Auto Insurance
+          </span>
+        </div>
+
+        {/* Right Side Smartphone Mockup */}
+        <div className="w-24 h-40 bg-slate-900 rounded-2xl p-1.5 border-2 border-slate-800 shadow-2xl flex flex-col justify-between text-white text-[7.5px] z-10">
+          <div className="w-5 h-0.5 bg-slate-600 rounded-full mx-auto mb-1" />
+          <div className="bg-blue-600 p-1.5 rounded-lg text-center font-bold flex items-center justify-center space-x-1">
+            <span>🛡️ CareClaim</span>
           </div>
-          <div className="bg-white/5 rounded p-1 space-y-0.5">
-            <div className="text-[5px] text-slate-300">Your Order:</div>
-            <div className="flex space-x-1">
-              <span className="w-3 h-3 rounded bg-amber-400/20 text-[6px] flex items-center justify-center">🍔</span>
-              <span className="w-3 h-3 rounded bg-emerald-400/20 text-[6px] flex items-center justify-center">🥗</span>
+          <div className="bg-slate-800 p-1.5 rounded-lg space-y-1 border border-slate-700">
+            <div className="text-slate-300 font-semibold">Select Service</div>
+            <div className="grid grid-cols-2 gap-1 text-[6.5px] text-center font-bold">
+              <div className="bg-blue-500/30 text-blue-200 p-0.5 rounded">Health</div>
+              <div className="bg-emerald-500/30 text-emerald-200 p-0.5 rounded">Auto</div>
             </div>
           </div>
-        </div>
-        <div className="w-[82px] sm:w-[90px] h-[135px] sm:h-[145px] rounded-[16px] bg-white border-[2.5px] border-slate-900 p-1 shadow-2xl flex flex-col justify-between shrink-0">
-          <div className="w-5 h-0.5 rounded-full bg-slate-200 mx-auto" />
-          <div className="bg-amber-100 rounded-[8px] h-14 flex items-center justify-center text-lg">
-            📦
-          </div>
-          <div className="space-y-0.5 text-left">
-            <div className="text-[6px] font-bold text-slate-800">Live Tracking</div>
-            <div className="text-[5px] text-emerald-600">Rider on the way • 12 mins</div>
-          </div>
-          <div className="w-full bg-[#005F96] text-white rounded py-0.5 text-center text-[5.5px] font-bold">
-            Contact Courier
+          <div className="bg-emerald-500 text-slate-950 p-1 rounded font-extrabold text-center text-[7px]">
+            Claim Approved $1,450
           </div>
         </div>
       </div>
@@ -154,23 +201,23 @@ export const SuccessStoriesSection = ({
         {/* 3 Showcase Portfolio Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-[1320px] mx-auto mb-10 sm:mb-12">
           {cards.map((item) => (
-            <div key={item.id} className="flex flex-col items-center group cursor-pointer">
+            <div key={item.id} className="flex flex-col items-center group cursor-pointer w-full">
               {/* Large Rounded Image / UI Mockup Frame */}
               <div className="w-full h-[220px] sm:h-[240px] rounded-[16px] overflow-hidden shadow-sm border border-slate-200/80 group-hover:shadow-md transition-shadow duration-200 relative bg-white">
                 {item.image ? (
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 select-none"
+                    className="w-full h-full object-cover group-hover:scale-[1.04] transition-transform duration-500 select-none"
                     loading="lazy"
                   />
                 ) : (
-                  item.renderGraphic
+                  typeof item.renderGraphic === 'function' ? item.renderGraphic() : item.renderGraphic
                 )}
               </div>
 
               {/* Title Below Card */}
-              <h3 className="font-[800] text-[16px] sm:text-[17.5px] text-[#0B0F19] mt-3.5 text-center group-hover:text-[#005F96] transition-colors font-sans">
+              <h3 className="font-[800] text-[16px] sm:text-[17.5px] text-[#0B0F19] mt-3.5 text-center group-hover:text-[#005F96] transition-colors font-sans w-full">
                 {item.title}
               </h3>
             </div>

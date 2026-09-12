@@ -144,25 +144,6 @@ export const DrupalDevelopmentService = () => {
           ========================================================================= */}
       <section className="relative bg-[#F0F7FB] text-slate-900 pt-14 pb-16 sm:pt-18 sm:pb-20 lg:pt-20 lg:pb-24 overflow-hidden font-sans border-b border-slate-200/80">
         
-        {/* Floating Right Utility Widgets (Phone & WhatsApp) */}
-        <div className="fixed right-0 top-1/3 z-50 flex flex-col space-y-2 select-none">
-          <a
-            href="tel:+919429709662"
-            className="w-10 h-10 bg-[#005F96] hover:bg-[#004A75] text-white flex items-center justify-center rounded-l-[6px] shadow-lg transition-all hover:scale-105"
-            title="Call Us"
-          >
-            <Phone className="w-5 h-5" />
-          </a>
-          <a
-            href="https://api.whatsapp.com/send?phone=919429709662"
-            target="_blank"
-            rel="noreferrer"
-            className="w-10 h-10 bg-[#005F96] hover:bg-[#004A75] text-white flex items-center justify-center rounded-l-[6px] shadow-lg transition-all hover:scale-105"
-            title="WhatsApp"
-          >
-            <MessageSquare className="w-5 h-5" />
-          </a>
-        </div>
 
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">

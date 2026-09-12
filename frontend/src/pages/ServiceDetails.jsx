@@ -24,6 +24,7 @@ import AndroidAppDevelopmentService from '../components/services/AndroidAppDevel
 import ReactNativeAppDevelopmentService from '../components/services/ReactNativeAppDevelopmentService';
 import FlutterAppDevelopmentService from '../components/services/FlutterAppDevelopmentService';
 import HireCSharpDevelopersService from '../components/services/HireCSharpDevelopersService';
+import HireBootstrapDevelopersService from '../components/services/HireBootstrapDevelopersService';
 import IWatchAppDevelopmentService from '../components/services/IWatchAppDevelopmentService';
 import IOSAppDevelopmentService from '../components/services/IOSAppDevelopmentService';
 import XamarinAppDevelopmentService from '../components/services/XamarinAppDevelopmentService';
@@ -48,7 +49,8 @@ export const ServiceDetails = () => {
   const location = useLocation();
   const pathSegments = location.pathname.toLowerCase().split('/').filter(Boolean);
   const pathSlug = pathSegments.length > 1 ? pathSegments[pathSegments.length - 1] : pathSegments[0] || '';
-  const currentSlug = (slug || pathSlug || '').toLowerCase();
+  const rawSlug = slug || pathSlug || '';
+  const currentSlug = decodeURIComponent(rawSlug).toLowerCase();
 
   const [service, setService] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -113,6 +115,9 @@ export const ServiceDetails = () => {
     currentSlug.includes('csharp') ||
     currentSlug.includes('hire-c-sharp');
 
+  const isBootstrap = currentSlug.includes('bootstrap') ||
+    currentSlug.includes('hire-bootstrap');
+
   const isIWatch = currentSlug.includes('iwatch') ||
     currentSlug.includes('apple-watch') ||
     currentSlug.includes('watchos');
@@ -174,7 +179,7 @@ export const ServiceDetails = () => {
   const generateFallbackService = (serviceSlug) => {
     const formattedTitle = unslugify(serviceSlug);
     const isHire = serviceSlug.toLowerCase().includes('hire');
-    
+
     return {
       title: formattedTitle,
       slug: serviceSlug,
@@ -258,13 +263,17 @@ export const ServiceDetails = () => {
   };
 
   useEffect(() => {
-    if (!isIot && !isPwa && !isRpa && !isVR && !isFullStack && !isBlockchain && !isArtificialIntelligence && !isGenerativeAi && !isXamarin && !isAndroid && !isReactNative && !isFlutter && !isIOS && !isHealthcare && !isEducation && !isUber && !isSpotify && !isZomato && !isAmazon && !isVisitor && !isWarehouse && !isClover && !isCSharp && !isIWatch && !isWordpress && !isDrupal && !isUmbraco && !isSitecore && !isSitefinity && !isMagento && !isShopify) {
+    if (!isBootstrap && !isIot && !isPwa && !isRpa && !isVR && !isFullStack && !isBlockchain && !isArtificialIntelligence && !isGenerativeAi && !isXamarin && !isAndroid && !isReactNative && !isFlutter && !isIOS && !isHealthcare && !isEducation && !isUber && !isSpotify && !isZomato && !isAmazon && !isVisitor && !isWarehouse && !isClover && !isCSharp && !isIWatch && !isWordpress && !isDrupal && !isUmbraco && !isSitecore && !isSitefinity && !isMagento && !isShopify) {
       fetchServiceDetails();
     } else {
       setLoading(false);
     }
     window.scrollTo(0, 0);
   }, [currentSlug]);
+
+  if (isBootstrap) {
+    return <HireBootstrapDevelopersService />;
+  }
 
   if (isIot) {
     return <IotDevelopmentService />;

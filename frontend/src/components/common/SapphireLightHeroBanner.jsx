@@ -51,6 +51,9 @@ export const SapphireLightHeroBanner = ({
   const isSpotify = serviceCategory === 'spotify';
   const isZomato = serviceCategory === 'zomato' || serviceCategory === 'food';
   const isAmazon = serviceCategory === 'amazon' || serviceCategory === 'ecommerce';
+  const isVisitor = serviceCategory === 'visitor' || serviceCategory === 'vms' || serviceCategory === 'gatepass';
+  const isWarehouse = serviceCategory === 'warehouse' || serviceCategory === 'wms' || serviceCategory === 'inventory';
+  const isClover = serviceCategory === 'clover' || serviceCategory === 'pos';
 
   const defaultZomatoStats = [
     { value: '80+', label: 'Mobile App Developers' },
@@ -59,7 +62,14 @@ export const SapphireLightHeroBanner = ({
     { value: '320+', label: '5-Star Clutch Reviews' }
   ];
 
-  const activeStats = stats || (isZomato ? defaultZomatoStats : null);
+  const defaultCloverStats = [
+    { value: '80+', label: 'Mobile App Developers' },
+    { value: '20+', label: 'Fortunes 500 Companies' },
+    { value: '800+', label: 'Project Completed in Mobile Technology' },
+    { value: '320+', label: '5-Star Clutch Reviews' }
+  ];
+
+  const activeStats = stats || (isZomato ? defaultZomatoStats : isClover ? defaultCloverStats : null);
 
   return (
     <section className="pt-20 sm:pt-24 pb-8 sm:pb-12 bg-[#EEF5FB] text-slate-900 relative overflow-hidden text-left font-sans border-b border-slate-200/60">
@@ -691,6 +701,234 @@ export const SapphireLightHeroBanner = ({
                     </div>
                   </div>
 
+                </div>
+              </div>
+            ) : isClover ? (
+              /* Clover App Development 1:1 Reference Vector Graphic matching Sapphire Screenshot 1 */
+              <div className="relative w-full max-w-[540px] flex items-center justify-center min-h-[400px] py-4 select-none">
+                {/* Light Blue Wavy Background Cloud Shape */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[#D9EBFA] via-[#E6F3FC] to-[#CFE6F8] rounded-[50px] transform -rotate-1 shadow-inner border border-blue-100/80 overflow-hidden">
+                  <svg className="absolute inset-0 w-full h-full opacity-25 text-[#005F96]" viewBox="0 0 500 400" fill="none">
+                    <path d="M 0 100 Q 150 50 300 120 T 500 80 V 400 H 0 Z" fill="currentColor" />
+                  </svg>
+                </div>
+
+                {/* Floating Elements: Gear wheels, Clock, Code Badges */}
+                <div className="absolute top-10 left-10 opacity-30 text-[#005F96]">
+                  <svg className="w-16 h-16" viewBox="0 0 40 40" fill="none" stroke="currentColor" strokeWidth="2">
+                    <circle cx="20" cy="20" r="8" />
+                    <path d="M 20 4 V 10 M 20 30 V 36 M 4 20 H 10 M 30 20 H 36" />
+                  </svg>
+                </div>
+
+                <div className="absolute top-8 right-16 opacity-40 text-[#005F96]">
+                  <svg className="w-12 h-12" viewBox="0 0 40 40" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <circle cx="20" cy="20" r="14" />
+                    <path d="M 20 10 V 20 L 26 24" />
+                  </svg>
+                </div>
+
+                <div className="absolute top-28 left-8 bg-[#38BDF8] text-white px-3 py-1.5 rounded-xl text-sm font-mono font-black shadow-md z-20">
+                  &#123; &#125;
+                </div>
+
+                <div className="absolute bottom-28 right-8 bg-[#38BDF8] text-white px-3 py-1.5 rounded-xl text-sm font-mono font-black shadow-md z-20">
+                  &#123; &#125;
+                </div>
+                <div className="absolute bottom-12 right-12 bg-[#38BDF8] text-white px-3 py-1.5 rounded-xl text-sm font-mono font-black shadow-md z-20">
+                  &#123; &#125;
+                </div>
+
+                <div className="absolute bottom-12 left-10 bg-[#38BDF8] text-white w-9 h-9 rounded-xl flex items-center justify-center shadow-md z-20">
+                  <span className="text-sm font-black">▶</span>
+                </div>
+
+                {/* Vector SVG Scene: Smartphone Frame, Kneeling Worker with Clover Logo, Sitting Worker with Laptop */}
+                <div className="relative z-10 w-full px-4 flex justify-center items-end h-[340px]">
+                  <svg className="w-full h-full max-h-[320px]" viewBox="0 0 520 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    {/* Smartphone Outer Frame */}
+                    <rect x="220" y="20" width="140" height="260" rx="20" fill="#0284C7" />
+                    <rect x="225" y="25" width="130" height="250" rx="16" fill="white" />
+                    <rect x="260" y="30" width="60" height="6" rx="3" fill="#E2E8F0" />
+
+                    {/* Screen Top Banner with </ > Badge */}
+                    <rect x="235" y="45" width="110" height="40" rx="6" fill="#0284C7" />
+                    <rect x="245" y="55" width="30" height="20" rx="4" fill="#38BDF8" />
+                    <text x="252" y="69" fill="white" fontSize="11" fontFamily="monospace" fontWeight="bold">&lt;/&gt;</text>
+
+                    {/* Phone Screen App Graphic with Clover Icon */}
+                    <rect x="235" y="95" width="110" height="75" rx="6" fill="#E0F2FE" />
+                    <g transform="translate(275, 115)">
+                      <circle cx="0" cy="-7" r="7" fill="#005F96" />
+                      <circle cx="7" cy="0" r="7" fill="#005F96" />
+                      <circle cx="0" cy="7" r="7" fill="#005F96" />
+                      <circle cx="-7" cy="0" r="7" fill="#005F96" />
+                      <circle cx="0" cy="0" r="3" fill="white" />
+                    </g>
+                    <line x1="245" y1="145" x2="335" y2="145" stroke="#0284C7" strokeWidth="3" strokeLinecap="round" />
+                    <line x1="245" y1="155" x2="315" y2="155" stroke="#38BDF8" strokeWidth="3" strokeLinecap="round" />
+
+                    {/* Screen Bottom Menu Placeholders */}
+                    <rect x="235" y="180" width="110" height="45" rx="4" fill="#F1F5F9" />
+                    <line x1="245" y1="195" x2="325" y2="195" stroke="#CBD5E1" strokeWidth="2.5" />
+                    <line x1="245" y1="208" x2="295" y2="208" stroke="#CBD5E1" strokeWidth="2.5" />
+
+                    {/* Left Kneeling Developer holding Clover Leaf Badge */}
+                    <circle cx="170" cy="170" r="12" fill="#FDBA74" />
+                    <path d="M 158 165 C 158 153 182 153 182 165 Z" fill="#0F172A" />
+                    <path d="M 155 190 C 155 182 162 180 170 180 C 178 180 185 182 185 190 V 225 H 155 Z" fill="#0284C7" />
+                    <path d="M 155 225 L 140 250 L 160 250 H 185 L 180 225 Z" fill="#0F172A" />
+                    <rect x="180" y="185" width="28" height="28" rx="6" fill="white" stroke="#38BDF8" strokeWidth="2" />
+                    <g transform="translate(194, 199)">
+                      <circle cx="0" cy="-4" r="4" fill="#005F96" />
+                      <circle cx="4" cy="0" r="4" fill="#005F96" />
+                      <circle cx="0" cy="4" r="4" fill="#005F96" />
+                      <circle cx="-4" cy="0" r="4" fill="#005F96" />
+                    </g>
+
+                    {/* Right Developer Sitting on Box with Laptop */}
+                    <rect x="365" y="210" width="45" height="55" rx="6" fill="#0284C7" />
+                    <circle cx="380" cy="140" r="12" fill="#FDBA74" />
+                    <path d="M 368 135 C 368 123 392 123 392 135 Z" fill="#0F172A" />
+                    <path d="M 365 160 C 365 152 372 150 380 150 C 388 150 395 152 395 160 V 210 H 365 Z" fill="#EAB308" />
+                    <path d="M 365 210 H 395 V 265 H 380 V 230 H 365 Z" fill="#0F172A" />
+                    <rect x="345" y="185" width="30" height="20" rx="2" fill="#94A3B8" />
+                    <rect x="348" y="188" width="24" height="14" rx="1" fill="#38BDF8" />
+                    <rect x="340" y="205" width="40" height="3" rx="1" fill="#64748B" />
+                  </svg>
+                </div>
+              </div>
+            ) : isWarehouse ? (
+              /* Warehouse Management 1:1 Reference Vector Graphic matching Sapphire Screenshot */
+              <div className="relative w-full max-w-[540px] flex items-center justify-center min-h-[400px] py-4 select-none">
+                {/* Light Blue Wavy Background Cloud Shape */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[#D9EBFA] via-[#E6F3FC] to-[#CFE6F8] rounded-[50px] transform -rotate-1 shadow-inner border border-blue-100/80 overflow-hidden">
+                  <svg className="absolute inset-0 w-full h-full opacity-25 text-[#005F96]" viewBox="0 0 500 400" fill="none">
+                    <path d="M 0 100 Q 150 50 300 120 T 500 80 V 400 H 0 Z" fill="currentColor" />
+                  </svg>
+                </div>
+
+                {/* Vector SVG Scene: Warehouse Racks, Worker in Blue Overalls, Trolley, Laptop Person */}
+                <div className="relative z-10 w-full px-4 flex justify-center items-end h-[340px]">
+                  <svg className="w-full h-full max-h-[320px]" viewBox="0 0 520 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    {/* Background Shelves / Racks */}
+                    <rect x="240" y="40" width="120" height="210" fill="#E2E8F0" rx="4" />
+                    <rect x="245" y="45" width="110" height="200" fill="none" stroke="#94A3B8" strokeWidth="3" />
+                    <line x1="245" y1="95" x2="355" y2="95" stroke="#94A3B8" strokeWidth="3" />
+                    <line x1="245" y1="145" x2="355" y2="145" stroke="#94A3B8" strokeWidth="3" />
+                    <line x1="245" y1="195" x2="355" y2="195" stroke="#94A3B8" strokeWidth="3" />
+
+                    {/* Inventory Boxes on Shelves */}
+                    <rect x="255" y="55" width="38" height="35" fill="#38BDF8" rx="3" />
+                    <rect x="302" y="60" width="38" height="30" fill="#60A5FA" rx="3" />
+                    <rect x="255" y="105" width="48" height="35" fill="#0284C7" rx="3" />
+                    <rect x="260" y="155" width="42" height="35" fill="#38BDF8" rx="3" />
+                    <rect x="308" y="160" width="35" height="30" fill="#93C5FD" rx="3" />
+
+                    {/* Stack of Boxes on Floor */}
+                    <rect x="190" y="200" width="45" height="45" fill="#0284C7" rx="4" />
+                    <rect x="150" y="215" width="40" height="30" fill="#38BDF8" rx="3" />
+
+                    {/* Left Person Sitting on Chair with Laptop */}
+                    <ellipse cx="110" cy="245" rx="35" ry="12" fill="#CBD5E1" />
+                    {/* Chair Legs */}
+                    <path d="M 90 200 L 95 255 M 125 200 L 120 255" stroke="#475569" strokeWidth="4" />
+                    <circle cx="108" cy="145" r="14" fill="#FDBA74" />
+                    <path d="M 96 140 Q 108 130 120 140 Z" fill="#1E293B" />
+                    <path d="M 92 168 C 92 160 100 158 108 158 C 116 158 124 160 124 168 V 215 L 118 260 H 108 L 100 215 Z" fill="#EAB308" />
+                    <path d="M 98 215 V 260 H 108 V 215 Z" fill="#1E293B" />
+                    <path d="M 110 215 V 260 H 120 V 215 Z" fill="#1E293B" />
+                    {/* Laptop */}
+                    <rect x="105" y="180" width="32" height="22" rx="2" fill="#0284C7" />
+                    <rect x="100" y="200" width="42" height="4" rx="1" fill="#94A3B8" />
+
+                    {/* Pallet Trolley Hand Jack */}
+                    <path d="M 210 255 H 270 V 190 H 275" stroke="#0284C7" strokeWidth="5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+                    <circle cx="218" cy="257" r="7" fill="#1E293B" />
+                    <circle cx="262" cy="257" r="7" fill="#1E293B" />
+
+                    {/* Right Warehouse Worker Standing in Blue Uniform */}
+                    <circle cx="410" cy="115" r="14" fill="#FDBA74" />
+                    {/* Blue Helmet */}
+                    <path d="M 394 110 C 394 98 426 98 426 110 Z" fill="#0284C7" />
+                    <rect x="390" y="109" width="40" height="4" rx="2" fill="#0284C7" />
+                    {/* Blue Overalls / Uniform */}
+                    <path d="M 393 135 C 393 126 401 124 410 124 C 419 124 427 126 427 135 V 200 L 421 270 H 411 L 405 200 Z" fill="#1E3A8A" />
+                    <path d="M 401 200 V 270 H 411 V 200 Z" fill="#1E293B" />
+                    <path d="M 413 200 V 270 H 423 V 200 Z" fill="#1E293B" />
+                    <rect x="399" y="267" width="15" height="6" rx="2" fill="#EF4444" />
+                    <rect x="411" y="267" width="15" height="6" rx="2" fill="#EF4444" />
+                  </svg>
+                </div>
+              </div>
+            ) : isVisitor ? (
+              /* Visitor Management 1:1 Reference Vector Graphic matching Sapphire Screenshot 1 */
+              <div className="relative w-full max-w-[540px] flex items-center justify-center min-h-[400px] py-4 select-none">
+                {/* Light Blue Wavy Background Cloud Shape */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[#D9EBFA] via-[#E6F3FC] to-[#CFE6F8] rounded-[50px] transform -rotate-1 shadow-inner border border-blue-100/80 overflow-hidden">
+                  <svg className="absolute inset-0 w-full h-full opacity-25 text-[#005F96]" viewBox="0 0 500 400" fill="none">
+                    <path d="M 0 100 Q 150 50 300 120 T 500 80 V 400 H 0 Z" fill="currentColor" />
+                  </svg>
+                </div>
+
+                {/* Floating Step Badges Top */}
+                <div className="absolute top-8 left-1/3 -translate-x-12 z-20 flex items-center space-x-1 bg-[#005F96] text-white px-3.5 py-1 rounded-md text-[12px] font-black shadow-md">
+                  <span>1</span>
+                  <span className="text-[10px] opacity-75">≡</span>
+                </div>
+
+                <div className="absolute top-10 right-1/3 translate-x-8 z-20 flex items-center space-x-1 bg-[#005F96] text-white px-3.5 py-1 rounded-md text-[12px] font-black shadow-md">
+                  <span>3</span>
+                  <span className="text-[10px] opacity-75">≡</span>
+                </div>
+
+                {/* Vector SVG Scene: Reception Counter with 3 Staff & 1 Visitor */}
+                <div className="relative z-10 w-full px-4 flex justify-center items-end h-[340px]">
+                  <svg className="w-full h-full max-h-[320px]" viewBox="0 0 520 320" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    {/* Reception Counter Desk */}
+                    <rect x="60" y="180" width="340" height="90" rx="14" fill="#005F96" />
+                    <rect x="65" y="185" width="330" height="80" rx="10" fill="#006C9A" />
+                    <rect x="70" y="170" width="320" height="15" rx="4" fill="#004A75" />
+
+                    {/* Laptop 1 (Left Receptionist) */}
+                    <rect x="110" y="145" width="35" height="22" rx="2" fill="#1E293B" />
+                    <rect x="113" y="148" width="29" height="16" rx="1" fill="#38BDF8" />
+                    <path d="M 102 167 H 153 L 157 170 H 98 Z" fill="#64748B" />
+
+                    {/* Laptop 2 (Center Receptionist) */}
+                    <rect x="230" y="145" width="35" height="22" rx="2" fill="#1E293B" />
+                    <rect x="233" y="148" width="29" height="16" rx="1" fill="#38BDF8" />
+                    <path d="M 222 167 H 273 L 277 170 H 218 Z" fill="#64748B" />
+
+                    {/* Laptop 3 (Right Receptionist) */}
+                    <rect x="330" y="145" width="35" height="22" rx="2" fill="#1E293B" />
+                    <rect x="333" y="148" width="29" height="16" rx="1" fill="#38BDF8" />
+                    <path d="M 322 167 H 373 L 377 170 H 318 Z" fill="#64748B" />
+
+                    {/* Staff 1 (Left - Woman sitting) */}
+                    <circle cx="127" cy="105" r="14" fill="#FCA5A5" />
+                    <path d="M 113 102 C 113 90 141 90 141 102 C 141 85 113 85 113 102 Z" fill="#1E1B4B" />
+                    <path d="M 110 125 C 110 120 117 118 127 118 C 137 118 144 120 144 125 V 170 H 110 Z" fill="#004A75" />
+
+                    {/* Staff 2 (Center - Woman standing/sitting, blue top) */}
+                    <circle cx="247" cy="108" r="14" fill="#FDBA74" />
+                    <path d="M 233 105 C 233 92 261 92 261 105 Z" fill="#0F172A" />
+                    <path d="M 230 128 C 230 122 237 120 247 120 C 257 120 264 122 264 128 V 170 H 230 Z" fill="#004A75" />
+
+                    {/* Staff 3 (Right - Woman receptionist) */}
+                    <circle cx="347" cy="105" r="14" fill="#FED7AA" />
+                    <path d="M 333 100 C 333 88 361 88 361 100 Z" fill="#451A03" />
+                    <path d="M 330 125 C 330 120 337 118 347 118 C 357 118 364 120 364 125 V 170 H 330 Z" fill="#004A75" />
+
+                    {/* Visitor Standing on Right (Man in Mustard Yellow/Brown Jacket checking in) */}
+                    <circle cx="435" cy="100" r="15" fill="#FDBA74" />
+                    <path d="M 420 95 C 420 85 450 85 450 95 Z" fill="#1E293B" />
+                    <path d="M 425 105 Q 435 118 445 105 Z" fill="#1E293B" />
+                    <path d="M 415 122 C 415 115 425 112 435 112 C 445 112 455 115 455 122 V 210 L 442 270 H 428 L 415 210 Z" fill="#D97706" />
+                    <path d="M 422 210 V 285 H 433 V 210 Z" fill="#1E293B" />
+                    <path d="M 437 210 V 285 H 448 V 210 Z" fill="#1E293B" />
+                    <line x1="452" y1="130" x2="458" y2="285" stroke="#475569" strokeWidth="4" strokeLinecap="round" />
+                  </svg>
                 </div>
               </div>
             ) : (
