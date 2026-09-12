@@ -650,7 +650,7 @@ export const CompanySubDetails = () => {
       image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=2000&q=80'
     };
 
-    const heroImage = dynamicSection?.heroImage;
+    const heroImage = dynamicSection?.heroImage || '/images/about-hero-laptop.svg';
 
     return (
       <div className="bg-white min-h-screen text-slate-900 font-sans">

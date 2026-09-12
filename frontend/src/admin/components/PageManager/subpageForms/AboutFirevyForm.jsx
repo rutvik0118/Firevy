@@ -1,5 +1,5 @@
 import React from 'react';
-import { Plus, Trash2, Building2, Eye, Shield, Users, Briefcase, Heart, Award, Star, Globe, Sparkles } from 'lucide-react';
+import { Plus, Trash2, Building2, Eye, Shield, Users, Briefcase, Heart, Award, Star, Globe, Sparkles, RotateCcw, Image as ImageIcon } from 'lucide-react';
 import {
   AdminFormSection,
   AdminFormGrid,
@@ -8,6 +8,7 @@ import {
   AdminPageInfoSection,
   AdminSeoSection
 } from '../../UI/AdminEditLayout';
+import { getMediaUrl } from '../../../../utils/mediaUrl';
 
 /**
  * AboutFirevyForm
@@ -59,6 +60,7 @@ export const AboutFirevyForm = ({
 
   // 1. Hero Banner State
   const hero = formData.hero || {};
+  const currentHeroImage = formData.heroImage || hero.heroImage || '/images/about-hero-laptop.svg';
 
   // 2. About firevy.co (Building & Narrative) State
   const aboutCompany = formData.aboutCompany || formData.content?.aboutCompany || {
@@ -381,18 +383,74 @@ export const AboutFirevyForm = ({
           </AdminFormField>
         </AdminFormGrid>
 
-        <div style={{ marginTop: '14px' }}>
+        <div style={{ marginTop: '16px', background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '8px', padding: '16px' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px', flexWrap: 'wrap', gap: '8px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <div style={{ width: '32px', height: '32px', borderRadius: '6px', background: '#eff6ff', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#0284c7' }}>
+                <ImageIcon size={18} />
+              </div>
+              <div>
+                <h4 style={{ margin: 0, fontSize: '14px', fontWeight: 700, color: '#0f172a' }}>
+                  Hero Side Visual / Graphic (3D Laptop & Floating Badges)
+                </h4>
+                <p style={{ margin: '2px 0 0', fontSize: '12px', color: '#64748b' }}>
+                  Right-side hero illustration. You can upload a custom graphic or reset to the default 3D laptop with badges.
+                </p>
+              </div>
+            </div>
+            <button
+              type="button"
+              className="btn btn-sm btn-outline-secondary"
+              onClick={() => {
+                updateRootField('heroImage', '/images/about-hero-laptop.svg');
+                updateSection('hero', 'heroImage', '/images/about-hero-laptop.svg');
+              }}
+              style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '12px', fontWeight: 600, padding: '4px 10px', borderRadius: '5px' }}
+              title="Reset to default 3D laptop graphic"
+            >
+              <RotateCcw size={13} />
+              Default Laptop Graphic
+            </button>
+          </div>
+
           <AdminMediaField
-            label="Hero Cover Asset / Custom Illustration (Optional)"
-            value={formData.heroImage || hero.heroImage || ''}
+            label="Hero Side Graphic Asset"
+            value={currentHeroImage}
             onChange={(val) => {
               updateRootField('heroImage', val);
               updateSection('hero', 'heroImage', val);
             }}
             folder="company/about"
-            placeholder="https://... or /images/... (leave blank for animated tech stack)"
-            helperText="Upload or enter custom visual asset. If empty, the default interactive tech stack graphic is displayed."
+            placeholder="/images/about-hero-laptop.svg"
+            helperText="Upload an image or SVG, or leave as default (/images/about-hero-laptop.svg)"
           />
+
+          {currentHeroImage && (
+            <div style={{ marginTop: '14px', background: '#ffffff', border: '1px solid #e2e8f0', borderRadius: '8px', padding: '12px', display: 'flex', alignItems: 'center', gap: '16px' }}>
+              <div style={{ width: '130px', height: '90px', background: '#f8fafc', borderRadius: '6px', border: '1px solid #cbd5e1', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', padding: '4px', flexShrink: 0 }}>
+                <img
+                  src={getMediaUrl(currentHeroImage)}
+                  alt="Hero Graphic Preview"
+                  style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }}
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src = '/images/about-hero-laptop.svg';
+                  }}
+                />
+              </div>
+              <div style={{ overflow: 'hidden' }}>
+                <span style={{ display: 'inline-block', padding: '2px 8px', borderRadius: '12px', background: '#e0f2fe', color: '#0369a1', fontSize: '11px', fontWeight: 700, marginBottom: '4px' }}>
+                  Active Preview
+                </span>
+                <p style={{ margin: 0, fontSize: '12px', fontWeight: 600, color: '#1e293b' }}>
+                  Current Graphic Displaying on Live Page
+                </p>
+                <p style={{ margin: '2px 0 0', fontSize: '11px', color: '#64748b', wordBreak: 'break-all' }}>
+                  {currentHeroImage}
+                </p>
+              </div>
+            </div>
+          )}
         </div>
       </AdminFormSection>
 

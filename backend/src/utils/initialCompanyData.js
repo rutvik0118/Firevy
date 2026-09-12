@@ -390,7 +390,7 @@ export const initialCompanySections = {
     subtitle: 'firevy.co provides the solutions you need to innovate & accelerate business. We are a leading software development company with decade long expertise in creating innovative solutions.',
     ctaText: 'Connect Now',
     ctaLink: '/contact',
-    heroImage: '',
+    heroImage: '/images/about-hero-laptop.svg',
     heroVideo: '',
     content: {
       aboutHeading: 'About firevy.co',
