@@ -665,6 +665,11 @@ export const CompanySubDetails = () => {
           <div className="max-w-[1360px] mx-auto px-4 sm:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
               <div className="lg:col-span-6 space-y-6">
+                {dynamicSection?.badge && (
+                  <div className="inline-flex items-center px-3.5 py-1 rounded-full text-xs font-[700] bg-[#006B8F]/10 border border-[#006B8F]/20 text-[#006B8F] uppercase tracking-wider">
+                    {dynamicSection.badge}
+                  </div>
+                )}
                 <h1 className="text-[34px] font-[800] text-slate-900 tracking-tight leading-tight font-sans page-hero-title">
                   {dynamicSection?.title || 'About firevy.co'}
                 </h1>
