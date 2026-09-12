@@ -1107,197 +1107,195 @@ export const AndroidAppDevelopmentService = () => {
       </section>
 
       {/* =========================================================================
-          CUTTING EDGE TECHNOLOGY CAROUSEL SECTION (EXACT 1:1 MATCH)
+          CUTTING EDGE TECHNOLOGY CAROUSEL SECTION (FULL WIDTH & REAL ICONS)
           ========================================================================= */}
-      <section className="py-9 sm:py-12 bg-white text-slate-900 font-sans overflow-hidden text-left">
-        <div className="w-full max-w-[1380px] mx-auto px-4 sm:px-6 lg:px-8">
-
-          {/* Centered Heading */}
-          <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-14">
-            <h2
-              className="font-[800] text-[#0B0F19] tracking-tight leading-[1.25]"
-              style={{ fontSize: '32px' }}
-            >
-              Cutting Edge Technology Sapphire Use For Android App Development
-            </h2>
-          </div>
-
-          {/* Carousel Track Container with Auto-Scroll & Hover Pause */}
-          <div
-            className="relative overflow-hidden w-full py-2"
-            onMouseEnter={() => setIsTechHovered(true)}
-            onMouseLeave={() => setIsTechHovered(false)}
+      <section className="py-10 sm:py-14 bg-white text-slate-900 font-sans overflow-hidden text-left w-full">
+        {/* Centered Heading */}
+        <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-12 px-4">
+          <h2
+            className="font-[800] text-[#0B0F19] tracking-tight leading-[1.25]"
+            style={{ fontSize: '32px' }}
           >
-            <div
-              className="flex space-x-6 sm:space-x-7 transition-transform duration-500 ease-in-out"
-              style={{
-                transform: `translateX(-${techCarouselIndex * 410}px)`
-              }}
-            >
-              {[
-                {
-                  title: 'Android Studio',
-                  desc: "Android Studio's sophisticated debugging, testing, and code-refactoring features speed development. We use Android Studio to create high-quality, responsive, and optimized apps for numerous Android devices.",
-                  icon: (
-                    <svg viewBox="0 0 44 44" className="w-11 h-11 text-[#0084D1] fill-none stroke-current stroke-[1.8]">
-                      {/* Phone frame */}
-                      <rect x="8" y="4" width="22" height="34" rx="3.5" />
-                      <circle cx="19" cy="8" r="1" fill="currentColor" />
-                      <line x1="14" y1="34" x2="24" y2="34" />
-                      {/* Developer badge on right */}
-                      <circle cx="28" cy="22" r="8" fill="#DDF1FC" stroke="currentColor" strokeWidth="1.8" />
-                      <circle cx="28" cy="20" r="2.8" />
-                      <path d="M23 27 C23 24.5, 25.5 24, 28 24 C30.5 24, 33 24.5, 33 27" />
-                      {/* Gear notches on badge */}
-                      <path d="M28 12.5 L28 14 M28 30 L28 31.5 M18.5 22 L20 22 M36 22 L37.5 22" />
-                    </svg>
-                  )
-                },
-                {
-                  title: 'Firebase',
-                  desc: "Firebase is a robust Backend-as-a-Service (BaaS) platform that provides real-time databases, authentication, analytics, and cloud messaging for app development. Our Firebase integration adds push alerts, user engagement tracking, and data storage to your app.",
-                  icon: (
-                    <svg viewBox="0 0 44 44" className="w-11 h-11 text-[#0084D1] fill-none stroke-current stroke-[1.8]">
-                      {/* Server box left */}
-                      <rect x="4" y="8" width="16" height="12" rx="2" />
-                      <circle cx="8" cy="12" r="1" fill="currentColor" />
-                      <circle cx="12" cy="12" r="1" fill="currentColor" />
-                      <line x1="8" y1="16" x2="16" y2="16" />
-                      {/* Stacked database disks right */}
-                      <ellipse cx="28" cy="12" rx="10" ry="4.5" />
-                      <path d="M18 12 L18 19 C18 22.5, 38 22.5, 38 19 L38 12" />
-                      <path d="M18 19 L18 26 C18 29.5, 38 29.5, 38 26 L38 19" />
-                      <path d="M18 26 L18 33 C18 36.5, 38 36.5, 38 33 L38 26" />
-                    </svg>
-                  )
-                },
-                {
-                  title: 'XML',
-                  desc: "XML is needed to develop Android app layouts and UI components. Our team creates attractive, intuitive layouts that work across screen sizes and resolutions. We optimize XML files to make your app's UI lightweight, quick, and user-friendly.",
-                  icon: (
-                    <svg viewBox="0 0 44 44" className="w-11 h-11 text-[#0084D1] fill-none stroke-current stroke-[1.8]">
-                      {/* Document outline */}
-                      <path d="M10 6 L26 6 L34 14 L34 38 L10 38 Z" />
-                      <path d="M26 6 L26 14 L34 14" />
-                      <line x1="15" y1="12" x2="21" y2="12" />
-                      {/* XML Badge */}
-                      <rect x="14" y="21" width="16" height="11" rx="2" />
-                      <text x="22" y="29.2" fill="#0084D1" fontSize="6.5" fontWeight="900" textAnchor="middle" stroke="none" fontFamily="sans-serif">XML</text>
-                    </svg>
-                  )
-                },
-                {
-                  title: 'Retrofit',
-                  desc: "Our team optimizes Retrofit for data processing, error handling, and API call management to keep your app responsive under pressure. Optimizing network performance gives apps smooth data synchronization and real-time updates.",
-                  icon: (
-                    <svg viewBox="0 0 44 44" className="w-11 h-11 text-[#0084D1] fill-none stroke-current stroke-[1.8]">
-                      {/* Crossed Wrench and Screwdriver */}
-                      <path d="M11 31 L23 19 M20 16 L24 12 C26 10, 29 10, 31 12 C33 14, 33 17, 31 19 L27 23 L24 20" />
-                      <path d="M11 31 L8 34 C7 35, 6 36, 7 37 C8 38, 9 37, 10 36 L13 33" />
-                      {/* Screwdriver */}
-                      <path d="M31 31 L19 19 M16 16 L12 12 C10 10, 10 7, 12 5 C14 3, 17 3, 19 5 L23 9 L20 12" />
-                      <path d="M31 31 L34 34 C35 35, 36 36, 37 35 C38 34, 37 33, 36 32 L33 29" />
-                    </svg>
-                  )
-                },
-                {
-                  title: 'Kotlin',
-                  desc: "Modern features, concise syntax, and seamless Java interoperability make Kotlin our team's preferred language for Android development. We build Kotlin-based solutions to improve code quality, developer productivity, and app performance.",
-                  icon: (
-                    <svg viewBox="0 0 44 44" className="w-11 h-11 text-[#0084D1] fill-none stroke-current stroke-[1.8]">
-                      {/* Document outline */}
-                      <path d="M10 6 L26 6 L34 14 L34 38 L10 38 Z" />
-                      <path d="M26 6 L26 14 L34 14" />
-                      <line x1="15" y1="12" x2="21" y2="12" />
-                      {/* KT Badge */}
-                      <rect x="15" y="21" width="14" height="11" rx="2" />
-                      <text x="22" y="29.2" fill="#0084D1" fontSize="7" fontWeight="900" textAnchor="middle" stroke="none" fontFamily="sans-serif">KT</text>
-                    </svg>
-                  )
-                },
-                {
-                  title: 'Java',
-                  desc: "Android app development has relied on Java's reliability and community support for years. Java's numerous libraries and tools let us build apps with smooth functionality and broad device compatibility.",
-                  icon: (
-                    <svg viewBox="0 0 44 44" className="w-11 h-11 text-[#0084D1] fill-none stroke-current stroke-[1.8]">
-                      <rect x="6" y="7" width="32" height="23" rx="3" />
-                      <path d="M15 30 L29 30" />
-                      <path d="M22 30 L22 37" />
-                      <path d="M14 37 L30 37" />
-                      <rect x="11" y="12" width="22" height="12" rx="1.5" />
-                      <text x="22" y="21" fill="#0084D1" fontSize="6.5" fontWeight="900" textAnchor="middle" stroke="none" fontFamily="sans-serif">&lt;JAVA&gt;</text>
-                    </svg>
-                  )
-                },
-                {
-                  title: 'Jetpack Compose',
-                  desc: "Jetpack Compose simplifies and accelerates UI development on Android. Our developers use its declarative approach and intuitive Kotlin APIs to build reactive, robust, and visually stunning Android apps.",
-                  icon: (
-                    <svg viewBox="0 0 44 44" className="w-11 h-11 text-[#0084D1] fill-none stroke-current stroke-[1.8]">
-                      <polygon points="22,5 36,13 36,29 22,37 8,29 8,13" />
-                      <polyline points="22,5 22,37" />
-                      <polyline points="8,13 22,21 36,13" />
-                    </svg>
-                  )
-                },
-                {
-                  title: 'Room & SQLite',
-                  desc: "Room provides an abstraction layer over SQLite to allow fluent database access while harnessing the full power of SQLite. We build robust offline-first Android apps with persistent caching.",
-                  icon: (
-                    <svg viewBox="0 0 44 44" className="w-11 h-11 text-[#0084D1] fill-none stroke-current stroke-[1.8]">
-                      <ellipse cx="22" cy="11" rx="15" ry="5.5" />
-                      <path d="M7 11 L7 21 C7 26.5, 37 26.5, 37 21 L37 11" />
-                      <path d="M7 21 L7 31 C7 36.5, 37 36.5, 37 31 L37 21" />
-                    </svg>
-                  )
-                }
-              ].map((tech, idx) => (
-                <div
-                  key={idx}
-                  className="w-[330px] sm:w-[370px] lg:w-[390px] shrink-0 rounded-[8px] bg-[#DDF1FC] p-8 sm:p-9 min-h-[300px] flex flex-col justify-start text-left select-none transition-all hover:shadow-sm"
-                >
-                  {/* Top Icon */}
-                  <div className="mb-6">
-                    {tech.icon}
-                  </div>
+            Cutting Edge Technology Sapphire Use For Android App Development
+          </h2>
+        </div>
 
-                  {/* Tech Title */}
-                  <h3 className="font-[800] text-[19px] sm:text-[20px] text-[#0B0F19] mb-3">
-                    {tech.title}
-                  </h3>
-
-                  {/* Tech Description */}
-                  <p
-                    className="font-normal text-[#2D3748]"
-                    style={{ fontSize: '13.5px', lineHeight: '1.68' }}
-                  >
-                    {tech.desc}
-                  </p>
+        {/* Full-Width Carousel Track with Edge-to-Edge Bleed & Hover Pause */}
+        <div
+          className="relative overflow-hidden w-full py-2 select-none"
+          onMouseEnter={() => setIsTechHovered(true)}
+          onMouseLeave={() => setIsTechHovered(false)}
+        >
+          <div
+            className="flex space-x-6 sm:space-x-8 px-4 sm:px-8 lg:px-12 transition-transform duration-500 ease-in-out"
+            style={{
+              transform: `translateX(-${techCarouselIndex * 490}px)`
+            }}
+          >
+            {[
+              {
+                title: 'Android Studio',
+                desc: "Android Studio's sophisticated debugging, testing, and code-refactoring features speed development. We use Android Studio to create high-quality, responsive, and optimized apps for numerous Android devices.",
+                icon: (
+                  <svg viewBox="0 0 44 44" className="w-12 h-12 text-[#0084D1] fill-none stroke-current stroke-[1.8] stroke-linecap-round stroke-linejoin-round">
+                    {/* Smartphone outline */}
+                    <rect x="7" y="5" width="22" height="34" rx="3.5" strokeWidth="1.9" />
+                    <circle cx="18" cy="9" r="1" fill="#0084D1" stroke="none" />
+                    <line x1="13" y1="34" x2="23" y2="34" strokeWidth="1.6" />
+                    {/* Top Right Developer Profile Badge */}
+                    <circle cx="29" cy="20" r="9" fill="#DDF1FC" stroke="#0084D1" strokeWidth="1.9" />
+                    <circle cx="29" cy="18" r="2.8" strokeWidth="1.6" />
+                    <path d="M23.5 25 C24 22.8, 26.5 22, 29 22 C31.5 22, 34 22.8, 34.5 25" strokeWidth="1.6" />
+                    {/* Gear Teeth Accent on Badge */}
+                    <path d="M29 9.5 L29 11 M29 29 L29 30.5 M18.5 20 L20 20 M38 20 L39.5 20" strokeWidth="1.6" />
+                  </svg>
+                )
+              },
+              {
+                title: 'Firebase',
+                desc: "Firebase is a robust Backend-as-a-Service (BaaS) platform that provides real-time databases, authentication, analytics, and cloud messaging for app development. Our Firebase integration adds push alerts, user engagement tracking, and data storage to your app.",
+                icon: (
+                  <svg viewBox="0 0 44 44" className="w-12 h-12 text-[#0084D1] fill-none stroke-current stroke-[1.8] stroke-linecap-round stroke-linejoin-round">
+                    {/* Server Rack Box on Left */}
+                    <rect x="4" y="9" width="16" height="26" rx="2" strokeWidth="1.8" />
+                    <circle cx="8" cy="14" r="1" fill="#0084D1" stroke="none" />
+                    <circle cx="12" cy="14" r="1" fill="#0084D1" stroke="none" />
+                    <line x1="8" y1="18" x2="16" y2="18" strokeWidth="1.4" />
+                    <circle cx="8" cy="23" r="1" fill="#0084D1" stroke="none" />
+                    <circle cx="12" cy="23" r="1" fill="#0084D1" stroke="none" />
+                    <line x1="8" y1="27" x2="16" y2="27" strokeWidth="1.4" />
+                    {/* Stacked Database Disks on Right */}
+                    <ellipse cx="30" cy="13" rx="10" ry="4.5" strokeWidth="1.8" />
+                    <path d="M20 13 L20 21 C20 24.5, 40 24.5, 40 21 L40 13" strokeWidth="1.8" />
+                    <path d="M20 21 L20 29 C20 32.5, 40 32.5, 40 29 L40 21" strokeWidth="1.8" />
+                    <path d="M20 29 L20 35 C20 38.5, 40 38.5, 40 35 L40 29" strokeWidth="1.8" />
+                  </svg>
+                )
+              },
+              {
+                title: 'XML',
+                desc: "XML is needed to develop Android app layouts and UI components. Our team creates attractive, intuitive layouts that work across screen sizes and resolutions. We optimize XML files to make your app's UI lightweight, quick, and user-friendly.",
+                icon: (
+                  <svg viewBox="0 0 44 44" className="w-12 h-12 text-[#0084D1] fill-none stroke-current stroke-[1.8] stroke-linecap-round stroke-linejoin-round">
+                    {/* Document outline with folded corner */}
+                    <path d="M9 5 L25 5 L35 15 L35 39 L9 39 Z" strokeWidth="1.9" />
+                    <path d="M25 5 L25 15 L35 15" strokeWidth="1.8" />
+                    <line x1="14" y1="12" x2="20" y2="12" strokeWidth="1.4" />
+                    {/* XML Badge in Center */}
+                    <rect x="13" y="21" width="18" height="12" rx="2" strokeWidth="1.6" />
+                    <text x="22" y="29.5" fill="#0084D1" fontSize="7" fontWeight="900" textAnchor="middle" stroke="none" fontFamily="sans-serif">XML</text>
+                  </svg>
+                )
+              },
+              {
+                title: 'Retrofit',
+                desc: "Our team optimizes Retrofit for data processing, error handling, and API call management to keep your app responsive under pressure. Optimizing network performance gives apps smooth data synchronization and real-time updates.",
+                icon: (
+                  <svg viewBox="0 0 44 44" className="w-12 h-12 text-[#0084D1] fill-none stroke-current stroke-[1.8] stroke-linecap-round stroke-linejoin-round">
+                    {/* Crossed Wrench and Screwdriver */}
+                    <path d="M10 32 L22 20 M19 17 L23 13 C25 11, 28 11, 30 13 C32 15, 32 18, 30 20 L26 24 L23 21" strokeWidth="1.9" />
+                    <path d="M10 32 L7 35 C6 36, 5 37, 6 38 C7 39, 8 38, 9 37 L12 34" strokeWidth="1.9" />
+                    {/* Screwdriver */}
+                    <path d="M32 32 L20 20 M17 17 L13 13 C11 11, 11 8, 13 6 C15 4, 18 4, 20 6 L24 10 L21 13" strokeWidth="1.9" />
+                    <path d="M32 32 L35 35 C36 36, 37 37, 38 36 C39 35, 38 34, 37 33 L34 30" strokeWidth="1.9" />
+                  </svg>
+                )
+              },
+              {
+                title: 'Kotlin',
+                desc: "Modern features, concise syntax, and seamless Java interoperability make Kotlin our team's preferred language for Android development. We build Kotlin-based solutions to improve code quality, developer productivity, and app performance.",
+                icon: (
+                  <svg viewBox="0 0 44 44" className="w-12 h-12 text-[#0084D1] fill-none stroke-current stroke-[1.8] stroke-linecap-round stroke-linejoin-round">
+                    {/* Document outline */}
+                    <path d="M9 5 L25 5 L35 15 L35 39 L9 39 Z" strokeWidth="1.9" />
+                    <path d="M25 5 L25 15 L35 15" strokeWidth="1.8" />
+                    <line x1="14" y1="12" x2="20" y2="12" strokeWidth="1.4" />
+                    {/* KT Badge */}
+                    <rect x="14" y="21" width="16" height="12" rx="2" strokeWidth="1.6" />
+                    <text x="22" y="29.5" fill="#0084D1" fontSize="7" fontWeight="900" textAnchor="middle" stroke="none" fontFamily="sans-serif">KT</text>
+                  </svg>
+                )
+              },
+              {
+                title: 'Java',
+                desc: "Android app development has relied on Java's reliability and community support for years. Java's numerous libraries and tools let us build apps with smooth functionality and broad device compatibility.",
+                icon: (
+                  <svg viewBox="0 0 44 44" className="w-12 h-12 text-[#0084D1] fill-none stroke-current stroke-[1.8] stroke-linecap-round stroke-linejoin-round">
+                    <rect x="6" y="6" width="32" height="24" rx="3" strokeWidth="1.9" />
+                    <path d="M15 30 L29 30" strokeWidth="1.8" />
+                    <path d="M22 30 L22 37" strokeWidth="1.8" />
+                    <path d="M14 37 L30 37" strokeWidth="1.8" />
+                    <rect x="10" y="11" width="24" height="14" rx="1.5" strokeWidth="1.4" />
+                    <text x="22" y="20.5" fill="#0084D1" fontSize="6.5" fontWeight="900" textAnchor="middle" stroke="none" fontFamily="sans-serif">&lt;JAVA&gt;</text>
+                  </svg>
+                )
+              },
+              {
+                title: 'Jetpack Compose',
+                desc: "Jetpack Compose simplifies and accelerates UI development on Android. Our developers use its declarative approach and intuitive Kotlin APIs to build reactive, robust, and visually stunning Android apps.",
+                icon: (
+                  <svg viewBox="0 0 44 44" className="w-12 h-12 text-[#0084D1] fill-none stroke-current stroke-[1.8] stroke-linecap-round stroke-linejoin-round">
+                    <polygon points="22,5 36,13 36,29 22,37 8,29 8,13" strokeWidth="1.9" />
+                    <polyline points="22,5 22,37" strokeWidth="1.8" />
+                    <polyline points="8,13 22,21 36,13" strokeWidth="1.8" />
+                  </svg>
+                )
+              },
+              {
+                title: 'Room & SQLite',
+                desc: "Room provides an abstraction layer over SQLite to allow fluent database access while harnessing the full power of SQLite. We build robust offline-first Android apps with persistent caching.",
+                icon: (
+                  <svg viewBox="0 0 44 44" className="w-12 h-12 text-[#0084D1] fill-none stroke-current stroke-[1.8] stroke-linecap-round stroke-linejoin-round">
+                    <ellipse cx="22" cy="11" rx="15" ry="5.5" strokeWidth="1.9" />
+                    <path d="M7 11 L7 21 C7 26.5, 37 26.5, 37 21 L37 11" strokeWidth="1.8" />
+                    <path d="M7 21 L7 31 C7 36.5, 37 36.5, 37 31 L37 21" strokeWidth="1.8" />
+                  </svg>
+                )
+              }
+            ].map((tech, idx) => (
+              <div
+                key={idx}
+                className="w-[370px] sm:w-[420px] lg:w-[450px] shrink-0 rounded-[16px] bg-[#DDF1FC] p-8 sm:p-9 min-h-[300px] sm:min-h-[320px] flex flex-col justify-start text-left select-none transition-all duration-300 hover:shadow-lg hover:bg-[#D5EEFB] border border-[#CCE8F8]"
+              >
+                {/* Top Icon */}
+                <div className="mb-6">
+                  {tech.icon}
                 </div>
-              ))}
-            </div>
-          </div>
 
-          {/* Bottom Center Arrow Controls */}
-          <div className="flex items-center justify-center space-x-6 mt-8 sm:mt-10">
-            <button
-              onClick={() => setTechCarouselIndex((prev) => Math.max(0, prev - 1))}
-              disabled={techCarouselIndex === 0}
-              aria-label="Previous Slide"
-              className="w-10 h-10 flex items-center justify-center text-slate-800 hover:text-[#005F96] disabled:opacity-25 disabled:cursor-not-allowed transition-all text-2xl font-bold cursor-pointer"
-            >
-              ←
-            </button>
-            <button
-              onClick={() => setTechCarouselIndex((prev) => Math.min(prev + 1, 5))}
-              disabled={techCarouselIndex >= 5}
-              aria-label="Next Slide"
-              className="w-10 h-10 flex items-center justify-center text-slate-800 hover:text-[#005F96] disabled:opacity-25 disabled:cursor-not-allowed transition-all text-2xl font-bold cursor-pointer"
-            >
-              →
-            </button>
-          </div>
+                {/* Tech Title */}
+                <h3 className="font-[800] text-[19px] sm:text-[20px] text-[#0B0F19] mb-3.5 leading-snug tracking-tight">
+                  {tech.title}
+                </h3>
 
+                {/* Tech Description */}
+                <p
+                  className="font-normal text-[#334155] text-[13px] sm:text-[13.5px] leading-[1.7]"
+                >
+                  {tech.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Bottom Center Arrow Controls */}
+        <div className="flex items-center justify-center space-x-6 mt-9 sm:mt-11">
+          <button
+            onClick={() => setTechCarouselIndex((prev) => Math.max(0, prev - 1))}
+            disabled={techCarouselIndex === 0}
+            aria-label="Previous Slide"
+            className="w-10 h-10 flex items-center justify-center text-slate-800 hover:text-[#005F96] disabled:opacity-25 disabled:cursor-not-allowed transition-all text-2xl font-bold cursor-pointer"
+          >
+            ←
+          </button>
+          <button
+            onClick={() => setTechCarouselIndex((prev) => Math.min(prev + 1, 4))}
+            disabled={techCarouselIndex >= 4}
+            aria-label="Next Slide"
+            className="w-10 h-10 flex items-center justify-center text-slate-800 hover:text-[#005F96] disabled:opacity-25 disabled:cursor-not-allowed transition-all text-2xl font-bold cursor-pointer"
+          >
+            →
+          </button>
         </div>
       </section>
 
@@ -1476,9 +1474,9 @@ export const AndroidAppDevelopmentService = () => {
       <KeyReasonsChooseAndroid />
       <BestAndroidAppCompanyShowcase />
       <AndroidTechStackSection />
-      <AndroidExpertiseServices />
       <ProudAwardsBanner />
       <AndroidCompanyBenefits />
+      <AndroidExpertiseServices />
       <AndroidHiringModels />
       <AndroidComparativeAnalysis />
       <InnovativeSolutionsVideoSection />

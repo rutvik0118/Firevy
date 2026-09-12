@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 
 const defaultTestimonials = [
@@ -85,10 +85,10 @@ const defaultTestimonials = [
   },
   {
     id: 10,
-    clientName: 'Pravin',
-    company: 'Software Solutions Partner',
-    title: 'Hear what Pravin has got to say about working with firevy.co',
-    img: '/images/awards/hdimages/clienttestimonial1.webp',
+    clientName: 'Education Client',
+    company: 'Vision Education Platform',
+    title: "From Vision to Education | Client's Success Story with firevy.co Solutions",
+    img: '/images/awards/hdimages/vision_client.webp',
     videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
     isActive: true
   }
@@ -132,44 +132,24 @@ export const VideoTestimonialsStory = ({ data }) => {
 
   const total = testimonials.length;
 
-  const handlePrev = () => {
-    if (scrollRef.current) {
-      const container = scrollRef.current;
-      const scrollDistance = 350 + 24;
-      if (container.scrollLeft <= 10) {
-        const maxScrollLeft = container.scrollWidth - container.clientWidth;
-        container.scrollTo({ left: maxScrollLeft, behavior: 'smooth' });
-        setCurrentIndex(testimonials.length - 1);
-      } else {
-        container.scrollBy({ left: -scrollDistance, behavior: 'smooth' });
-        setCurrentIndex((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
-      }
-    }
-  };
+  const handlePrev = useCallback(() => {
+    if (total <= 1) return;
+    setCurrentIndex((prev) => (prev === 0 ? total - 1 : prev - 1));
+  }, [total]);
 
-  const handleNext = () => {
-    if (scrollRef.current) {
-      const container = scrollRef.current;
-      const maxScrollLeft = container.scrollWidth - container.clientWidth;
-      const scrollDistance = 350 + 24;
-      if (container.scrollLeft >= maxScrollLeft - 15) {
-        container.scrollTo({ left: 0, behavior: 'smooth' });
-        setCurrentIndex(0);
-      } else {
-        container.scrollBy({ left: scrollDistance, behavior: 'smooth' });
-        setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-      }
-    }
-  };
+  const handleNext = useCallback(() => {
+    if (total <= 1) return;
+    setCurrentIndex((prev) => (prev + 1) % total);
+  }, [total]);
 
-  // Auto-scroll every 4s when not hovered
+  // Auto-scroll every 4 seconds when not hovered
   useEffect(() => {
     if (isHovered || total <= 1) return;
     const interval = setInterval(() => {
       handleNext();
     }, 4000);
     return () => clearInterval(interval);
-  }, [isHovered, total]);
+  }, [isHovered, total, handleNext]);
 
   // Sync horizontal scroll position
   useEffect(() => {
@@ -216,28 +196,37 @@ export const VideoTestimonialsStory = ({ data }) => {
                 onClick={() => setActiveVideo(item)}
                 className="w-[290px] sm:w-[330px] lg:w-[350px] shrink-0 bg-white rounded-[16px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer flex flex-col group select-none border border-slate-200/80"
               >
-                {/* Upper: Ocean Blue Banner with Decorative Yellow Waves & Center Avatar */}
-                <div className="relative w-full h-[160px] sm:h-[175px] bg-gradient-to-br from-[#0086C6] via-[#007BB8] to-[#005E90] flex items-center justify-center overflow-hidden">
-                  {/* Decorative Yellow & Cyan Graphic Curves */}
+                {/* Upper: Video Banner with Yellow Waves & Large Centered Client Portrait */}
+                <div className="relative w-full h-[175px] sm:h-[195px] bg-gradient-to-br from-[#0086C6] via-[#007BB8] to-[#006093] flex items-center justify-center overflow-hidden">
+                  {/* Decorative Curves */}
                   <svg
                     className="absolute inset-0 w-full h-full pointer-events-none opacity-90"
                     viewBox="0 0 320 180"
                     preserveAspectRatio="none"
                     fill="none"
                   >
-                    <g opacity="0.2">
-                      <circle cx="15" cy="15" r="1.5" fill="#fff" />
-                      <circle cx="30" cy="15" r="1.5" fill="#fff" />
-                      <circle cx="45" cy="15" r="1.5" fill="#fff" />
-                      <circle cx="15" cy="30" r="1.5" fill="#fff" />
-                      <circle cx="30" cy="30" r="1.5" fill="#fff" />
-                      <circle cx="45" cy="30" r="1.5" fill="#fff" />
-                      <circle cx="275" cy="145" r="1.5" fill="#fff" />
-                      <circle cx="290" cy="145" r="1.5" fill="#fff" />
-                      <circle cx="305" cy="145" r="1.5" fill="#fff" />
-                      <circle cx="275" cy="160" r="1.5" fill="#fff" />
-                      <circle cx="290" cy="160" r="1.5" fill="#fff" />
-                      <circle cx="305" cy="160" r="1.5" fill="#fff" />
+                    <g opacity="0.18">
+                      <circle cx="20" cy="20" r="1.5" fill="#fff" />
+                      <circle cx="40" cy="20" r="1.5" fill="#fff" />
+                      <circle cx="60" cy="20" r="1.5" fill="#fff" />
+                      <circle cx="80" cy="20" r="1.5" fill="#fff" />
+                      <circle cx="20" cy="40" r="1.5" fill="#fff" />
+                      <circle cx="40" cy="40" r="1.5" fill="#fff" />
+                      <circle cx="60" cy="40" r="1.5" fill="#fff" />
+                      <circle cx="80" cy="40" r="1.5" fill="#fff" />
+                      <circle cx="20" cy="60" r="1.5" fill="#fff" />
+                      <circle cx="40" cy="60" r="1.5" fill="#fff" />
+                      <circle cx="60" cy="60" r="1.5" fill="#fff" />
+                      <circle cx="80" cy="60" r="1.5" fill="#fff" />
+                      <circle cx="260" cy="110" r="1.5" fill="#fff" />
+                      <circle cx="280" cy="110" r="1.5" fill="#fff" />
+                      <circle cx="300" cy="110" r="1.5" fill="#fff" />
+                      <circle cx="260" cy="130" r="1.5" fill="#fff" />
+                      <circle cx="280" cy="130" r="1.5" fill="#fff" />
+                      <circle cx="300" cy="130" r="1.5" fill="#fff" />
+                      <circle cx="260" cy="150" r="1.5" fill="#fff" />
+                      <circle cx="280" cy="150" r="1.5" fill="#fff" />
+                      <circle cx="300" cy="150" r="1.5" fill="#fff" />
                     </g>
                     <path
                       d="M -10 35 C 60 5, 130 65, 200 20 C 260 -15, 290 55, 340 15"
@@ -261,8 +250,8 @@ export const VideoTestimonialsStory = ({ data }) => {
                     />
                   </svg>
 
-                  {/* Centered Circular Portrait Headshot */}
-                  <div className="relative z-10 w-26 h-26 sm:w-28 sm:h-28 rounded-full border-[3.5px] border-white overflow-hidden shadow-lg bg-white/10 shrink-0">
+                  {/* Centered Circular Portrait */}
+                  <div className="relative z-10 w-28 h-28 sm:w-32 sm:h-32 rounded-full border-[4px] border-white overflow-hidden shadow-xl bg-white/10 shrink-0">
                     <img
                       src={item.img}
                       alt={item.title}
@@ -275,8 +264,8 @@ export const VideoTestimonialsStory = ({ data }) => {
                   </div>
                 </div>
 
-                {/* Lower: White Caption Strip with Title & Blue Circular Play Button */}
-                <div className="p-4 bg-white flex items-center justify-between gap-3 min-h-[86px] sm:min-h-[92px] border-t border-slate-100">
+                {/* Lower: Title Text & Play Button */}
+                <div className="p-4 sm:p-5 bg-white flex items-center justify-between gap-3.5 min-h-[88px] sm:min-h-[96px] border-t border-slate-100">
                   <div className="flex-1 text-left">
                     {item.clientName && (
                       <p className="text-[12px] font-bold text-[#006093] mb-0.5 uppercase tracking-wide">
@@ -287,7 +276,6 @@ export const VideoTestimonialsStory = ({ data }) => {
                       {item.title}
                     </p>
                   </div>
-
                   <button
                     type="button"
                     onClick={(e) => {

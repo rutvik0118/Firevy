@@ -1,5 +1,6 @@
 import React from 'react';
 import Container from '../common/Container';
+import { getMediaUrl } from '../../utils/mediaUrl';
 
 const defaultLogos = [
   // Row 1
@@ -223,7 +224,14 @@ export const FeaturedInLogosGrid = ({ data }) => {
               className="bg-white rounded-[14px] sm:rounded-[16px] shadow-[0_4px_18px_rgba(0,0,0,0.05)] border border-slate-100 hover:border-[#006B8F]/40 flex items-center justify-center p-4 aspect-square w-full transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group cursor-pointer"
             >
               {logo.image ? (
-                <img src={logo.image} alt={logo.name} className="h-12 w-auto object-contain max-w-[85%]" />
+                <img
+                  src={getMediaUrl(logo.image)}
+                  alt={logo.name}
+                  className="h-12 w-auto object-contain max-w-[85%]"
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                  }}
+                />
               ) : (
                 <div className="flex items-center justify-center w-full h-full">
                   {logo.content || <span className="text-base font-bold text-slate-800">{logo.name}</span>}

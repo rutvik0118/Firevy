@@ -1221,8 +1221,8 @@
 
 /* Animations */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(4px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 @keyframes spin {
@@ -1230,7 +1230,7 @@
 }
 
 .animate-fade-in {
-  animation: fadeIn 0.2s ease forwards;
+  animation: fadeIn 0.15s ease forwards;
 }
 
 .animate-spin {
@@ -1276,11 +1276,13 @@
 /* ==========================================================================
    2-Column Section Item List Editor (Compact Metric Cards & Sticky Form)
    ========================================================================== */
+/* ==========================================================================
+   2-Column Section Item List Editor (Compact Metric Cards & Sticky Form)
+   ========================================================================== */
 .item-list-editor-grid {
   display: grid;
-  grid-template-columns: 33% 67%;
+  grid-template-columns: 320px 1fr;
   gap: 1.25rem;
-  align-items: start;
   width: 100%;
   box-sizing: border-box;
 }
@@ -1297,6 +1299,9 @@
   width: 100%;
   box-sizing: border-box;
   min-width: 0;
+  position: sticky;
+  top: calc(var(--header-height, 68px) + 20px);
+  height: calc(100vh - 128px);
 }
 
 .item-list-scroll-area {
@@ -1305,7 +1310,8 @@
   gap: 0.625rem;
   width: 100%;
   box-sizing: border-box;
-  max-height: 640px;
+  flex: 1;
+  min-height: 0;
   overflow-y: auto;
   padding: 2px 4px 6px 2px;
 }
@@ -1367,8 +1373,7 @@
   width: 100%;
   box-sizing: border-box;
   min-width: 0;
-  position: sticky;
-  top: calc(var(--header-height, 68px) + 16px);
+  align-self: start;
 }
 
 @media (max-width: 1024px) {
@@ -1398,19 +1403,14 @@
   display: grid;
   grid-template-columns: 340px minmax(0, 1fr);
   gap: 20px;
-  align-items: stretch;
   width: 100%;
   box-sizing: border-box;
-  height: calc(100vh - var(--header-height, 68px) - 130px);
-  min-height: 520px;
-  overflow: hidden;
 }
 
 @media (max-width: 1200px) {
   .cms-builder-workspace {
     grid-template-columns: 300px minmax(0, 1fr);
     gap: 16px;
-    height: calc(100vh - var(--header-height, 68px) - 130px);
   }
 }
 
@@ -1418,9 +1418,6 @@
   .cms-builder-workspace {
     grid-template-columns: 1fr;
     gap: 20px;
-    height: auto;
-    min-height: auto;
-    overflow: visible;
   }
 }
 
@@ -1431,12 +1428,14 @@
   border-radius: var(--radius-md, 10px);
   padding: 16px;
   box-shadow: var(--shadow-sm, 0 1px 3px rgba(15, 23, 42, 0.04));
-  height: 100%;
-  max-height: 100%;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
   box-sizing: border-box;
+  position: sticky;
+  top: calc(var(--header-height, 68px) + 20px);
+  height: calc(100vh - 128px);
+  align-self: start;
+  z-index: 20;
 }
 
 @media (max-width: 960px) {
@@ -1774,11 +1773,7 @@
   min-width: 0;
   width: 100%;
   box-sizing: border-box;
-  height: 100%;
-  max-height: 100%;
-  overflow-y: auto;
-  overflow-x: hidden;
-  scroll-behavior: smooth;
+  align-self: start;
 }
 
 .cms-editor-pane::-webkit-scrollbar {
@@ -1997,6 +1992,3 @@ textarea.form-control,
     transform: translateY(0) scale(1);
   }
 }
-
-
-

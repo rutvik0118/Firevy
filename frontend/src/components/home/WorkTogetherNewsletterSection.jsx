@@ -15,15 +15,17 @@ export const WorkTogetherNewsletterSection = ({
   const bannerTitle =
     title ||
     data?.bannerTitle ||
-    "Have Sapphire Mobile App Development Challenge To Address ?";
+    "Let's Work Together On Your Next Digital Project";
   const bannerDescription =
     subtitle ||
     data?.bannerDescription ||
-    "Get access to top Sapphire Mobile App Development to transform your ideas into a robust application.";
-  const bannerButtonText = buttonText || data?.bannerButtonText || "Hire Now";
+    "Book a meeting with our specialists today to learn more about how firevy.co can help you unlock technology visions and drive your product strategy.";
+  const bannerButtonText = buttonText || data?.bannerButtonText || "Request A Free Quote";
   const bannerButtonLink = buttonLink || data?.bannerButtonLink || "/contact";
   const newsletterTitle =
     data?.newsletterTitle || "Subscribe us and Get the latest updates and news";
+  const newsletterButtonText =
+    data?.newsletterButtonText || "Subscribe";
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -160,7 +162,7 @@ export const WorkTogetherNewsletterSection = ({
                   type="submit"
                   className="w-full lg:w-auto h-[48px] px-8 rounded-[4px] bg-[#006085] hover:bg-[#004d6b] text-white font-[700] text-[14.5px] transition-all shadow-sm font-sans shrink-0"
                 >
-                  Subscribe
+                  {newsletterButtonText}
                 </button>
               </div>
             </form>

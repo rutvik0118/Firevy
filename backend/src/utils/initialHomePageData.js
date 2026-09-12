@@ -25,7 +25,9 @@ export const initialSectionsOrder = [
   'recentBlogsSection',
   'clientReviewsDarkSection',
   'featuredInLogosGrid',
-  'workTogetherNewsletterSection'
+  'workTogetherNewsletterSection',
+  'subscribeNewsletterSection',
+  'footerSection'
 ];
 
 export const initialHomePageData = {
@@ -1002,6 +1004,92 @@ export const initialHomePageData = {
       bannerButtonLink: '/contact',
       newsletterTitle: 'Subscribe us and Get the latest updates and news',
       newsletterButtonText: 'Subscribe'
+    },
+
+    // 23. Standalone Subscribe Us / Newsletter Section
+    subscribeNewsletterSection: {
+      isVisible: true,
+      order: 23,
+      newsletterTitle: 'Subscribe us and Get the latest updates and news',
+      newsletterButtonText: 'Subscribe',
+      namePlaceholder: 'Your name *',
+      emailPlaceholder: 'Your Email ID *',
+      phonePlaceholder: 'Mobile Number *'
+    },
+
+    // 24. Global Footer Section
+    footerSection: {
+      isVisible: true,
+      order: 24,
+      salesContact: {
+        title: 'Contact For Sales',
+        email: 'contact@firevy.co',
+        phoneIndia: 'IN:+91-942-970-9662',
+        phoneUS: 'US:+1-754-258-7670'
+      },
+      careerContact: {
+        title: 'Contact for Career (Jobs)',
+        email: 'careers@firevy.co',
+        phone: '+91-909-997-6034'
+      },
+      ratings: {
+        googleScore: '5.0',
+        googleReviews: '900+ REVIEWS',
+        clutchScore: '5.0',
+        clutchReviews: '320+ REVIEWS',
+        goodFirmsScore: '5.0',
+        goodFirmsReviews: '200+ REVIEWS'
+      },
+      offices: [
+        {
+          id: 'office_in',
+          country: 'India(HQ)',
+          flag: '🇮🇳',
+          address: 'C/102-103, Ganesh Meridian, Opp. Kargil Petrol Pump, S.G. Highway, Ahmedabad - 380060, Gujarat, INDIA'
+        },
+        {
+          id: 'office_us',
+          country: 'USA',
+          flag: '🇺🇸',
+          address: '5004 NW 116th Ave Coral Springs, Florida, FL 33076'
+        },
+        {
+          id: 'office_ca',
+          country: 'Canada',
+          flag: '🇨🇦',
+          address: '111 Tarawood lane NE, unit#403 Calgary AB, T3J 0G8'
+        },
+        {
+          id: 'office_au',
+          country: 'Australia',
+          flag: '🇦🇺',
+          address: 'U 2B 305 Harborne Street, Glendalough 6016 WA'
+        },
+        {
+          id: 'office_uk',
+          country: 'UK',
+          flag: '🇬🇧',
+          address: '42 Audley Avenue, Gillingham, ME73AY United Kingdom'
+        },
+        {
+          id: 'office_ae',
+          country: 'UAE',
+          flag: '🇦🇪',
+          address: 'A-21, Building 21, Ghoroob, Mirdif Dubai, United Arab Emirates'
+        }
+      ],
+      socialLinks: {
+        facebook: 'https://facebook.com',
+        twitter: 'https://twitter.com',
+        linkedin: 'https://linkedin.com',
+        instagram: 'https://instagram.com',
+        youtube: 'https://youtube.com'
+      },
+      copyrightText: '© 2026 firevy.co. All rights reserved.',
+      privacyPolicyText: 'Privacy Policy',
+      privacyPolicyLink: '/privacy-policy',
+      termsOfUseText: 'Terms of Use',
+      termsOfUseLink: '/terms'
     },
 
     // 23. About Preview

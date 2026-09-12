@@ -644,25 +644,6 @@ export const AdminPageInfoSection = ({
         }}
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-          {/* Solid Dark Circular Number Badge */}
-          <div
-            style={{
-              width: '28px',
-              height: '28px',
-              borderRadius: '50%',
-              backgroundColor: '#0F172A',
-              color: '#FFFFFF',
-              fontSize: '12.5px',
-              fontWeight: 800,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              flexShrink: 0
-            }}
-          >
-            {number}
-          </div>
-
           <h2
             style={{
               margin: 0,
