@@ -86,13 +86,14 @@ export const AboutFirevyForm = ({
   };
 
   // 3. Vision & Mission State
-  const missionVision = formData.missionVision || formData.content?.missionVision || {
-    heading: 'We Create, We Enhance, We Deliver',
-    subheading: "More Than Expected – That's firevy.co",
-    visionTitle: 'Our Vision',
-    visionText: "It's our goal to empower our customers to achieve more and to be one of the best customer-centric company.",
-    missionTitle: 'Our Mission',
-    missionText: 'To provide our customers with the precise services and solutions the lowest possible cost.'
+  const rawMissionVision = formData.missionVision || formData.content?.missionVision || {};
+  const missionVision = {
+    heading: rawMissionVision.heading || 'We Create, We Enhance, We Deliver',
+    subheading: rawMissionVision.subheading || "More Than Expected – That's firevy.co",
+    visionTitle: rawMissionVision.visionTitle || formData.content?.visionHeading || 'Our Vision',
+    visionText: rawMissionVision.visionText || formData.content?.visionText || "It's our goal to empower our customers to achieve more and to be one of the best customer-centric company.",
+    missionTitle: rawMissionVision.missionTitle || formData.content?.missionHeading || 'Our Mission',
+    missionText: rawMissionVision.missionText || formData.content?.missionText || 'To provide our customers with the precise services and solutions the lowest possible cost.'
   };
 
   // 4. Metrics Section (8 Cards) State

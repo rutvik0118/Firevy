@@ -222,6 +222,9 @@ export const GenericSubPageManager = ({
             text: data.content?.aboutText || data.content?.overview?.text || data.contentSections?.[0]?.text || data.description || ''
           },
           missionVision: {
+            ...(data.content?.missionVision || {}),
+            heading: data.content?.missionVision?.heading || 'We Create, We Enhance, We Deliver',
+            subheading: data.content?.missionVision?.subheading || "More Than Expected – That's firevy.co",
             missionTitle: data.content?.missionHeading || data.content?.missionVision?.missionTitle || 'Our Mission',
             missionText: data.content?.missionText || data.content?.missionVision?.missionText || '',
             visionTitle: data.content?.visionHeading || data.content?.missionVision?.visionTitle || 'Our Vision',

@@ -516,13 +516,14 @@ export const CompanySubDetails = () => {
     };
 
     // 2. Vision & Mission
-    const missionVision = content.missionVision || {
-      heading: 'We Create, We Enhance, We Deliver',
-      subheading: "More Than Expected – That's firevy.co",
-      visionTitle: content.visionHeading || 'Our Vision',
-      visionText: content.visionText || "It's our goal to empower our customers to achieve more and to be one of the best customer-centric company.",
-      missionTitle: content.missionHeading || 'Our Mission',
-      missionText: content.missionText || 'To provide our customers with the precise services and solutions the lowest possible cost.'
+    const rawMV = content.missionVision || {};
+    const missionVision = {
+      heading: rawMV.heading || 'We Create, We Enhance, We Deliver',
+      subheading: rawMV.subheading || "More Than Expected – That's firevy.co",
+      visionTitle: rawMV.visionTitle || content.visionHeading || 'Our Vision',
+      visionText: rawMV.visionText || content.visionText || "It's our goal to empower our customers to achieve more and to be one of the best customer-centric company.",
+      missionTitle: rawMV.missionTitle || content.missionHeading || 'Our Mission',
+      missionText: rawMV.missionText || content.missionText || 'To provide our customers with the precise services and solutions the lowest possible cost.'
     };
 
     // 3. Metrics Section
