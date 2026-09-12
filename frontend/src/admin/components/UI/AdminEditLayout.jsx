@@ -619,7 +619,7 @@ export const AdminPageInfoSection = ({
   onTitleChange,
   onSlugChange,
   isTitleEditable = false,
-  hideFields = false
+  hideFields = true
 }) => {
   const isPub = status === 'published';
 
@@ -730,7 +730,7 @@ export const AdminPageInfoSection = ({
       </p>
 
       {/* 2-Column Metadata Grid */}
-      {!hideFields && (
+      {!hideFields && (isTitleEditable || onSlugChange) && (
         <AdminFormGrid columns={2} gap="14px">
         <AdminFormField label="PAGE TITLE" required>
           {isTitleEditable ? (
