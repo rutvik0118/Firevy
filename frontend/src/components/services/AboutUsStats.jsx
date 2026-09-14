@@ -1,7 +1,7 @@
 import React from 'react';
 import Container from '../common/Container';
 
-export const AboutUsStats = () => {
+export const AboutUsStats = ({ companyName = "Sapphire" }) => {
   const stats = [
     {
       number: '23+',
@@ -68,7 +68,7 @@ export const AboutUsStats = () => {
             className="font-normal text-white/90"
             style={{ fontSize: '14px' }}
           >
-            Firevy delivers cutting-edge digital solutions that drive our clients to achieve unparalleled success
+            {companyName} delivers cutting-edge digital solutions that drive our clients to achieve unparalleled success
           </p>
         </div>
 
