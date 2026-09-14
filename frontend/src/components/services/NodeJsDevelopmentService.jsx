@@ -16,8 +16,16 @@ import AndroidRecentBlogsSection from './AndroidRecentBlogsSection';
 import AndroidWhatSetsUsApartSection from './AndroidWhatSetsUsApartSection';
 import AndroidChallengeCtaBanner from './AndroidChallengeCtaBanner';
 import PremiumServicesGrid from '../common/PremiumServicesGrid';
+import SapphireSeasonedExpertsSection from './SapphireSeasonedExpertsSection';
+import IndustryFocusedInsightsSection from './IndustryFocusedInsightsSection';
+import TransformativeImpactSection from './TransformativeImpactSection';
+import AboutUsStats from './AboutUsStats';
+import SectorsThrivingSection from './SectorsThrivingSection';
 import JavaSuccessStoriesSection from './JavaSuccessStoriesSection';
-import NodeJsApplicationServicesSection from './NodeJsApplicationServicesSection';
+import PioneeringTechnologiesSection from './PioneeringTechnologiesSection';
+import NodeJsVideoShowcaseSection from './NodeJsVideoShowcaseSection';
+import SapphireTechExpertiseSection from './SapphireTechExpertiseSection';
+import OurNodeJsServicesSliderSection from './OurNodeJsServicesSliderSection';
 import NodeJsBenefitsSection from './NodeJsBenefitsSection';
 import NodeJsTechStackSection from './NodeJsTechStackSection';
 import NodeJsExceptionalProcessSection from './NodeJsExceptionalProcessSection';
@@ -45,7 +53,12 @@ import {
   Boxes,
   Brain,
   Cloud,
-  Radio
+  Radio,
+  TrendingUp,
+  ThumbsUp,
+  Award,
+  BarChart3,
+  Users
 } from 'lucide-react';
 
 export const NodeJsDevelopmentService = () => {
@@ -262,14 +275,114 @@ export const NodeJsDevelopmentService = () => {
       <PremiumServicesGrid companyName="Firevy.co" />
 
       {/* =========================================================================
+          MEET SAPPHIRE'S EXCEPTIONAL TEAM OF SEASONED EXPERTS (EXACT 1:1 MATCH)
+          ========================================================================= */}
+      <SapphireSeasonedExpertsSection />
+
+      {/* =========================================================================
+          INDUSTRY-FOCUSED INSIGHTS TO ELEVATE YOUR BUSINESS (EXACT 1:1 MATCH)
+          ========================================================================= */}
+      <IndustryFocusedInsightsSection />
+
+      {/* =========================================================================
+          EXPLORE THE TRANSFORMATIVE IMPACT OF WEB DEVELOPMENT (EXACT 1:1 MATCH)
+          ========================================================================= */}
+      <TransformativeImpactSection
+        title="Explore The Transformative Impact Of Web Development On Your Business Success"
+        cards={[
+          {
+            bgColor: 'bg-[#D1F2EE]',
+            iconBg: 'bg-[#1EB1A8]',
+            icon: <TrendingUp className="w-5 h-5 text-white" strokeWidth={2} />,
+            title: 'Gather Valuable Customer Insights',
+            desc: 'You can interact with your customers using mobile apps, meet them where they are, ask them for ratings or feedback and get real-time analytics to act accordingly.'
+          },
+          {
+            bgColor: 'bg-[#F8D3E3]',
+            iconBg: 'bg-[#DE5B8F]',
+            icon: <ThumbsUp className="w-5 h-5 text-white" strokeWidth={2} />,
+            title: 'Competitive Advantage',
+            desc: 'Businesses can make a big competitive edge by using mobile apps. Apps offer the opportunity to optimize processes, significant data insights, and more direct and personalized client connections.'
+          },
+          {
+            bgColor: 'bg-[#FCE2CD]',
+            iconBg: 'bg-[#E67E3F]',
+            icon: <Smartphone className="w-5 h-5 text-white" strokeWidth={2} />,
+            title: 'Innovate and Stay Competitive',
+            desc: 'Investigating flutter app development services can be a calculated move for companies looking to take advantage of the benefits of mobile applications to boost client engagement and productivity.'
+          },
+          {
+            bgColor: 'bg-[#D9F5E5]',
+            iconBg: 'bg-[#10B981]',
+            icon: <ShieldCheck className="w-5 h-5 text-white" strokeWidth={2.2} />,
+            title: 'Ensure Security and Compliance',
+            desc: 'Ensure Security and Compliance Using mobile apps, businesses can ensure that user data is never inadvertently disclosed to hackers or unscrupulous commercial vendors by employing secure analytics providers & executing advertising in ethical manner.'
+          },
+          {
+            bgColor: 'bg-[#D9F5E5]',
+            iconBg: 'bg-[#10B981]',
+            icon: <Award className="w-5 h-5 text-white" strokeWidth={2} />,
+            title: 'Increased Brand Visibility',
+            desc: 'By actively interacting with your audience across many channels, you can use social media platforms to raise brand awareness for your mobile application.'
+          },
+          {
+            bgColor: 'bg-[#D7EDFB]',
+            iconBg: 'bg-[#0284C7]',
+            icon: <Star className="w-5 h-5 text-white" strokeWidth={2} />,
+            title: 'Improve Customer Loyalty and Retention',
+            desc: 'Mobile apps aid in customer understanding and the creation of pleasurable shopping experiences. Customers are more loyal when they receive personalized recommendations and early access to promotions.'
+          },
+          {
+            bgColor: 'bg-[#E5DAF6]',
+            iconBg: 'bg-[#9867E9]',
+            icon: <BarChart3 className="w-5 h-5 text-white" strokeWidth={2} />,
+            title: 'Data Collection and Analytics',
+            desc: 'App analytics can help you learn more about your employer and make decisions that are appropriate, you can gather information on name, age, gender, location, interests, behavior, etc.'
+          },
+          {
+            bgColor: 'bg-[#FEF3C7]',
+            iconBg: 'bg-[#D97706]',
+            icon: <Users className="w-5 h-5 text-white" strokeWidth={2} />,
+            title: 'Enhanced Customer Engagement',
+            desc: 'Mobile application give businesses the ability to give their users a more immersive and engaging experience by giving them a direct and personalized communication channel.'
+          }
+        ]}
+      />
+
+      {/* =========================================================================
+          ABOUT US STATS (EXACT 1:1 MATCH)
+          ========================================================================= */}
+      <AboutUsStats companyName="Sapphire" />
+
+      {/* =========================================================================
+          SECTORS THRIVING THROUGH SAPPHIRE'S BESPOKE WEB DEVELOPMENT SERVICES (EXACT 1:1 MATCH)
+          ========================================================================= */}
+      <SectorsThrivingSection title="Sectors Thriving Through Sapphire’s Bespoke Web Development Services" />
+
+      {/* =========================================================================
           SUCCESS STORIES (EXACT 1:1 MATCH)
           ========================================================================= */}
       <JavaSuccessStoriesSection />
 
       {/* =========================================================================
-          NODE.JS APPLICATION DEVELOPMENT SERVICES (9 CARDS WITH HOVER FILL & ANIMATED BORDERS)
+          PIONEERING TECHNOLOGIES FUELING SAPPHIRE WEB DEVELOPMENT (EXACT 1:1 MATCH)
           ========================================================================= */}
-      <NodeJsApplicationServicesSection />
+      <PioneeringTechnologiesSection />
+
+      {/* =========================================================================
+          NODE JS DEVELOPMENT SERVICES VIDEO SHOWCASE (EXACT 1:1 MATCH)
+          ========================================================================= */}
+      <NodeJsVideoShowcaseSection />
+
+      {/* =========================================================================
+          THE EXCEPTIONAL TECHNOLOGICAL EXPERTISE OF SAPPHIRE WEB DEVELOPMENT TEAM (EXACT 1:1 MATCH)
+          ========================================================================= */}
+      <SapphireTechExpertiseSection />
+
+      {/* =========================================================================
+          OUR NODE.JS DEVELOPMENT SERVICES (EXACT 1:1 MATCH)
+          ========================================================================= */}
+      <OurNodeJsServicesSliderSection />
 
       {/* =========================================================================
           PROUD TO HAVE PICKED THESE UP ALONG THE WAY (EXACT 1:1 MATCH)
