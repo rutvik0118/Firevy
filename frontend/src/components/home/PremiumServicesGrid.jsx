@@ -69,7 +69,7 @@ const defaultPremiumServices = [
   }
 ];
 
-export const PremiumServicesGrid = ({ data, title, subtitle, companyName = "Sapphire" }) => {
+export const PremiumServicesGrid = ({ data, title, subtitle, companyName = "Firevy.co" }) => {
   const displayTitle = data?.title || title || 'Our Premium Services';
   const defaultDesc = `As a certified IT company, ${companyName} helps organizations thrive digitally by offering innovative solutions using cutting-edge tools and frameworks. Contact us to learn more!`;
   const rawDesc = data?.description || subtitle || defaultDesc;

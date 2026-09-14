@@ -68,11 +68,17 @@ const defaultServices = [
   }
 ];
 
-export const PremiumServicesGrid = ({ title, subtitle, companyName = "Sapphire" }) => {
-  const displayTitle = title || 'Our Premium Services';
+export const PremiumServicesGrid = ({ title, subtitle, companyName = "Firevy.co", data, services: customServices }) => {
+  const displayTitle = data?.title || title || 'Our Premium Services';
   const defaultDesc = `As a certified IT company, ${companyName} helps organizations thrive digitally by offering innovative solutions using cutting-edge tools and frameworks. Contact us to learn more!`;
-  const rawDesc = subtitle || defaultDesc;
+  const rawDesc = data?.description || subtitle || defaultDesc;
   const displayDescription = rawDesc.includes('Contact us') ? rawDesc : `${rawDesc} Contact us to learn more!`;
+
+  const servicesList = (customServices && Array.isArray(customServices) && customServices.length > 0)
+    ? customServices
+    : (data?.services && Array.isArray(data.services) && data.services.filter(s => s.isActive !== false).length > 0)
+    ? data.services.filter(s => s.isActive !== false)
+    : defaultServices;
   return (
     <section className="py-12 sm:py-14 lg:py-16 bg-[#005F96] text-white font-sans text-left relative overflow-hidden">
       <Container>
@@ -88,18 +94,21 @@ export const PremiumServicesGrid = ({ title, subtitle, companyName = "Sapphire" 
 
         {/* 10 White Rounded Service Cards (5 columns x 2 rows on desktop) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3.5 sm:gap-4 max-w-[1240px] mx-auto">
-          {defaultServices.map((item, idx) => {
-            const iconSrc = serviceIconMap[item.name] || item.image;
+          {servicesList.map((item, idx) => {
+            const serviceName = item.name || item.title || '';
+            const iconSrc = serviceIconMap[serviceName] || item.image || defaultServices[idx % defaultServices.length]?.image;
+            const targetLink = item.link || item.slug || '/services';
+
             return (
               <Link
                 key={idx}
-                to={item.link}
+                to={targetLink}
                 className="bg-white rounded-[16px] p-3 sm:p-3.5 text-slate-900 shadow-md hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-between min-h-[66px] h-[68px] sm:h-[72px] text-left group cursor-pointer"
               >
                 <div className="w-[44px] h-[44px] shrink-0 p-1 flex items-center justify-center overflow-hidden">
                   <img
                     src={iconSrc}
-                    alt={item.name}
+                    alt={serviceName}
                     className="w-full h-full object-contain"
                     style={{
                       animation: `sapphireHiThere 1.5s ease infinite`,
@@ -108,7 +117,7 @@ export const PremiumServicesGrid = ({ title, subtitle, companyName = "Sapphire" 
                   />
                 </div>
                 <span className="w-[calc(100%-52px)] font-[700] text-[#333333] text-[13px] sm:text-[13.5px] leading-[1.25] tracking-tight group-hover:text-[#005F96] transition-colors pl-1">
-                  {item.name}
+                  {serviceName}
                 </span>
               </Link>
             );

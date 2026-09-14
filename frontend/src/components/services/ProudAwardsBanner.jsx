@@ -123,8 +123,8 @@ export const ProudAwardsBanner = () => {
           {/* Blue Ribbon Banner */}
           <path d="M16 56 L26 56 L30 52 L70 52 L74 56 L84 56 L79 66 L84 76 L74 76 L70 72 L30 72 L26 76 L16 76 L21 66 Z" fill="#3B82F6" />
           
-          <text x="50" y="65" fill="#FFFFFF" fontSize="6" fontWeight="900" textAnchor="middle">
-            TOP APP PROFILE
+          <text x="50" y="65" fill="#FFFFFF" fontSize="5.5" fontWeight="900" textAnchor="middle">
+            VIEW OUR PROFILE
           </text>
           
           <text x="50" y="84" fill="#64748B" fontSize="4.5" fontWeight="700" textAnchor="middle">

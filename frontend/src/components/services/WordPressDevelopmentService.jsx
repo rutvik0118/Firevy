@@ -186,26 +186,6 @@ export const WordPressDevelopmentService = () => {
         canonical="/services/wordpress"
       />
 
-      {/* Floating Action Buttons (Phone & WhatsApp) - Matching User Screenshot Right Edge */}
-      <div className="fixed right-0 top-1/2 -translate-y-1/2 z-40 flex flex-col items-center gap-2 pr-1 sm:pr-2">
-        <a
-          href="tel:+15551234567"
-          title="Call Us Directly"
-          className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#005F96] hover:bg-[#004A75] text-white flex items-center justify-center shadow-lg transition-transform hover:scale-110"
-        >
-          <Phone className="w-5 h-5" />
-        </a>
-        <a
-          href="https://wa.me/15551234567"
-          target="_blank"
-          rel="noopener noreferrer"
-          title="Chat on WhatsApp"
-          className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#0086C6] hover:bg-[#0070A6] text-white flex items-center justify-center shadow-lg transition-transform hover:scale-110"
-        >
-          <MessageCircle className="w-5 h-5" />
-        </a>
-      </div>
-
       {/* =========================================================================
           1. HERO SECTION (Exact 1:1 match to screenshot)
           ========================================================================= */}

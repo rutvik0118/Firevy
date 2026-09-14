@@ -140,25 +140,6 @@ export const ShopifyDevelopmentService = () => {
         description="Firevy.co is a premier Shopify development company in USA. Certified Shopify Plus experts specializing in custom theme design, app development, headless Hydrogen, and store migrations."
       />
 
-      {/* Floating Quick Action Buttons */}
-      <div className="fixed right-0 top-1/2 -translate-y-1/2 z-50 flex flex-col items-end gap-2 pr-2 pointer-events-auto">
-        <a
-          href="tel:+1234567890"
-          className="w-11 h-11 bg-[#006699] hover:bg-[#004d73] text-white rounded-l-md flex items-center justify-center shadow-lg transition-all transform hover:-translate-x-1"
-          title="Call Us"
-        >
-          <Phone className="w-5 h-5" />
-        </a>
-        <a
-          href="https://wa.me/1234567890"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="w-11 h-11 bg-[#25D366] hover:bg-[#1ebd59] text-white rounded-l-md flex items-center justify-center shadow-lg transition-all transform hover:-translate-x-1"
-          title="Chat on WhatsApp"
-        >
-          <MessageSquare className="w-5 h-5" />
-        </a>
-      </div>
 
       {/* Hero Section */}
       <section className="relative bg-[#F5F9FD] pt-16 pb-20 md:pt-20 md:pb-28 border-b border-slate-200/80 font-sans">

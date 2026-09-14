@@ -58,6 +58,7 @@ const InsightfulVideos = lazy(() => import('./pages/InsightfulVideos'));
 const Technologies = lazy(() => import('./pages/Technologies'));
 const Portfolio = lazy(() => import('./pages/Portfolio'));
 const PortfolioDetails = lazy(() => import('./pages/PortfolioDetails'));
+const CaseStudies = lazy(() => import('./pages/CaseStudies'));
 const Industries = lazy(() => import('./pages/Industries'));
 const Process = lazy(() => import('./pages/Process'));
 const Careers = lazy(() => import('./pages/Careers'));
@@ -130,6 +131,33 @@ export function App() {
                 <Route path="/blog" element={<CompanySubDetails />} />
                 <Route path="/services" element={<Services />} />
                 <Route path="/services/:slug" element={<ServiceDetails />} />
+                <Route path="/services/hire-bootstrap-developers" element={<ServiceDetails />} />
+                <Route path="/services/hire-bootstrap-developer" element={<ServiceDetails />} />
+                <Route path="/hire-bootstrap-developers" element={<ServiceDetails />} />
+                <Route path="/hire-bootstrap-developer" element={<ServiceDetails />} />
+                <Route path="/services/warehouse-management-system" element={<ServiceDetails />} />
+                <Route path="/warehouse-management-system" element={<ServiceDetails />} />
+                <Route path="/services/visitor-management-system" element={<ServiceDetails />} />
+                <Route path="/visitor-management-system" element={<ServiceDetails />} />
+                <Route path="/services/php" element={<ServiceDetails />} />
+                <Route path="/php" element={<ServiceDetails />} />
+                <Route path="/php-development" element={<ServiceDetails />} />
+                <Route path="/hire-php-developers" element={<ServiceDetails />} />
+                <Route path="/services/java" element={<ServiceDetails />} />
+                <Route path="/java" element={<ServiceDetails />} />
+                <Route path="/java-development" element={<ServiceDetails />} />
+                <Route path="/hire-java-developers" element={<ServiceDetails />} />
+                <Route path="/services/nodejs" element={<ServiceDetails />} />
+                <Route path="/services/node-js" element={<ServiceDetails />} />
+                <Route path="/nodejs" element={<ServiceDetails />} />
+                <Route path="/node-js" element={<ServiceDetails />} />
+                <Route path="/nodejs-development" element={<ServiceDetails />} />
+                <Route path="/hire-nodejs-developers" element={<ServiceDetails />} />
+                <Route path="/services/net" element={<ServiceDetails />} />
+                <Route path="/net" element={<ServiceDetails />} />
+                <Route path="/dotnet" element={<ServiceDetails />} />
+                <Route path="/net-development" element={<ServiceDetails />} />
+                <Route path="/hire-dotnet-developers" element={<ServiceDetails />} />
                 <Route path="/services/wordpress" element={<ServiceDetails />} />
                 <Route path="/wordpress" element={<ServiceDetails />} />
                 <Route path="/wordpress-development" element={<ServiceDetails />} />
@@ -283,6 +311,8 @@ export function App() {
                 <Route path="/technologies" element={<Technologies />} />
                 <Route path="/portfolio" element={<Portfolio />} />
                 <Route path="/portfolio/:slug" element={<PortfolioDetails />} />
+                <Route path="/case-studies" element={<CaseStudies />} />
+                <Route path="/case-study" element={<CaseStudies />} />
                 <Route path="/industries" element={<Industries />} />
                 <Route path="/process" element={<Process />} />
                 <Route path="/careers" element={<Careers />} />

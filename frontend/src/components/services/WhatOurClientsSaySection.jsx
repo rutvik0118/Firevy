@@ -108,16 +108,16 @@ const StarRating = () => (
 );
 
 export const WhatOurClientsSaySection = () => {
-  const [currentIndex, setCurrentIndex] = useState(1);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const scrollRef = useRef(null);
 
-  // Auto-scroll every 2.5 seconds (pauses on hover)
+  // Auto-scroll every 6 seconds (pauses on hover)
   useEffect(() => {
     if (isHovered) return;
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % clientReviews.length);
-    }, 2500);
+    }, 6000);
     return () => clearInterval(interval);
   }, [isHovered]);
 

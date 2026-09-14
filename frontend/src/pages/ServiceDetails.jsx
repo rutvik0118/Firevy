@@ -24,6 +24,7 @@ import AndroidAppDevelopmentService from '../components/services/AndroidAppDevel
 import ReactNativeAppDevelopmentService from '../components/services/ReactNativeAppDevelopmentService';
 import FlutterAppDevelopmentService from '../components/services/FlutterAppDevelopmentService';
 import HireCSharpDevelopersService from '../components/services/HireCSharpDevelopersService';
+import HireBootstrapDevelopersService from '../components/services/HireBootstrapDevelopersService';
 import IWatchAppDevelopmentService from '../components/services/IWatchAppDevelopmentService';
 import IOSAppDevelopmentService from '../components/services/IOSAppDevelopmentService';
 import XamarinAppDevelopmentService from '../components/services/XamarinAppDevelopmentService';
@@ -34,6 +35,10 @@ import SitecoreDevelopmentService from '../components/services/SitecoreDevelopme
 import SitefinityDevelopmentService from '../components/services/SitefinityDevelopmentService';
 import MagentoDevelopmentService from '../components/services/MagentoDevelopmentService';
 import ShopifyDevelopmentService from '../components/services/ShopifyDevelopmentService';
+import DotNetDevelopmentService from '../components/services/DotNetDevelopmentService';
+import PhpDevelopmentService from '../components/services/PhpDevelopmentService';
+import JavaDevelopmentService from '../components/services/JavaDevelopmentService';
+import NodeJsDevelopmentService from '../components/services/NodeJsDevelopmentService';
 import GenerativeAiDevelopmentService from '../components/services/GenerativeAiDevelopmentService';
 import ArtificialIntelligenceDevelopmentService from '../components/services/ArtificialIntelligenceDevelopmentService';
 import BlockchainDevelopmentService from '../components/services/BlockchainDevelopmentService';
@@ -54,7 +59,8 @@ export const ServiceDetails = () => {
   const location = useLocation();
   const pathSegments = location.pathname.toLowerCase().split('/').filter(Boolean);
   const pathSlug = pathSegments.length > 1 ? pathSegments[pathSegments.length - 1] : pathSegments[0] || '';
-  const currentSlug = (slug || pathSlug || '').toLowerCase();
+  const rawSlug = slug || pathSlug || '';
+  const currentSlug = decodeURIComponent(rawSlug).toLowerCase();
 
   const [service, setService] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -119,12 +125,38 @@ export const ServiceDetails = () => {
     currentSlug.includes('csharp') ||
     currentSlug.includes('hire-c-sharp');
 
+  const isBootstrap = currentSlug.includes('bootstrap') ||
+    currentSlug.includes('hire-bootstrap');
+
   const isIWatch = currentSlug.includes('iwatch') ||
     currentSlug.includes('apple-watch') ||
     currentSlug.includes('watchos');
 
   const isIOS = currentSlug.includes('ios') ||
     currentSlug.includes('iphone');
+
+  const isNet = currentSlug === 'net' ||
+    currentSlug.includes('dot-net') ||
+    currentSlug.includes('dotnet') ||
+    currentSlug.includes('net-development') ||
+    currentSlug.includes('microsoft-development');
+
+  const isPhp = currentSlug === 'php' ||
+    currentSlug.includes('php-development') ||
+    currentSlug.includes('hire-php');
+
+  const isJava = currentSlug === 'java' ||
+    currentSlug.includes('java-development') ||
+    currentSlug.includes('hire-java') ||
+    currentSlug.includes('java-software') ||
+    currentSlug.includes('java-web');
+
+  const isNodeJs = currentSlug === 'nodejs' ||
+    currentSlug === 'node-js' ||
+    currentSlug.includes('node-js') ||
+    currentSlug.includes('nodejs') ||
+    currentSlug.includes('hire-node') ||
+    currentSlug.includes('node-developer');
 
   const isGenerativeAi = currentSlug.includes('generative-ai') ||
     currentSlug.includes('generativeai') ||
@@ -213,7 +245,7 @@ export const ServiceDetails = () => {
   const generateFallbackService = (serviceSlug) => {
     const formattedTitle = unslugify(serviceSlug);
     const isHire = serviceSlug.toLowerCase().includes('hire');
-    
+
     return {
       title: formattedTitle,
       slug: serviceSlug,
@@ -297,13 +329,33 @@ export const ServiceDetails = () => {
   };
 
   useEffect(() => {
-    if (!isPowerAutomate && !isPowerApps && !isSharePoint && !isVue && !isReact && !isAngular && !isIot && !isPwa && !isRpa && !isVR && !isFullStack && !isBlockchain && !isArtificialIntelligence && !isGenerativeAi && !isXamarin && !isAndroid && !isReactNative && !isFlutter && !isIOS && !isHealthcare && !isEducation && !isUber && !isSpotify && !isZomato && !isAmazon && !isVisitor && !isWarehouse && !isClover && !isCSharp && !isIWatch && !isWordpress && !isDrupal && !isUmbraco && !isSitecore && !isSitefinity && !isMagento && !isShopify) {
+    if (!isBootstrap && !isPowerAutomate && !isPowerApps && !isSharePoint && !isVue && !isReact && !isAngular && !isIot && !isPwa && !isRpa && !isVR && !isFullStack && !isBlockchain && !isArtificialIntelligence && !isGenerativeAi && !isNodeJs && !isJava && !isPhp && !isNet && !isXamarin && !isAndroid && !isReactNative && !isFlutter && !isIOS && !isHealthcare && !isEducation && !isUber && !isSpotify && !isZomato && !isAmazon && !isVisitor && !isWarehouse && !isClover && !isCSharp && !isIWatch && !isWordpress && !isDrupal && !isUmbraco && !isSitecore && !isSitefinity && !isMagento && !isShopify) {
       fetchServiceDetails();
     } else {
       setLoading(false);
     }
     window.scrollTo(0, 0);
   }, [currentSlug]);
+
+  if (isBootstrap) {
+    return <HireBootstrapDevelopersService />;
+  }
+
+  if (isNodeJs) {
+    return <NodeJsDevelopmentService />;
+  }
+
+  if (isJava) {
+    return <JavaDevelopmentService />;
+  }
+
+  if (isPhp) {
+    return <PhpDevelopmentService />;
+  }
+
+  if (isNet) {
+    return <DotNetDevelopmentService />;
+  }
 
   if (isPowerAutomate) {
     return <PowerAutomateDevelopmentService />;
