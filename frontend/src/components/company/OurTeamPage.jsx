@@ -12,13 +12,15 @@ import { getMediaUrl } from '../../utils/mediaUrl';
 
 export const OurTeamPage = ({ dynamicSection, pageKey = 'our-team' }) => {
   // 1. Hero Content
-  const heroHeading = dynamicSection?.content?.heroHeading || dynamicSection?.title || 'Our Team';
+  const heroHeading = dynamicSection?.content?.heroHeading || dynamicSection?.hero?.title || dynamicSection?.title || 'Our Team';
   const heroSubtitle =
     dynamicSection?.content?.heroSubtitle ||
+    dynamicSection?.hero?.subtitle ||
     dynamicSection?.subtitle ||
-    'Meet the team of innovative, driven and passionate individuals. We cultivate the diverse talents of our team and leverage their extraordinary perspectives and innovative ideas to make firevy.co the industry leader.';
-  const heroButtonText = dynamicSection?.content?.heroButtonText || dynamicSection?.ctaText || 'Connect Now';
-  const heroButtonLink = dynamicSection?.content?.heroButtonLink || dynamicSection?.ctaLink || '/contact';
+    'Behind every success of Firevy is our team of 100+ passionate engineers, designers, and innovators building future-ready enterprise solutions across the globe.';
+  const heroButtonText = dynamicSection?.content?.heroButtonText || dynamicSection?.hero?.ctaText || dynamicSection?.ctaText || 'Connect Now';
+  const heroButtonLink = dynamicSection?.content?.heroButtonLink || dynamicSection?.hero?.ctaLink || dynamicSection?.ctaLink || '/contact';
+  const heroImage = dynamicSection?.hero?.image || dynamicSection?.content?.heroImage || '/images/our-team-hero.svg';
 
   // 2. Management Team
   const managementHeading = dynamicSection?.content?.managementHeading || 'Management Team';
@@ -221,33 +223,45 @@ export const OurTeamPage = ({ dynamicSection, pageKey = 'our-team' }) => {
             {/* Right 3D Isometric Team Illustration */}
             <div className="lg:col-span-6 flex justify-center relative">
               <div className="relative w-full max-w-[500px] h-[340px] flex items-center justify-center">
-                <svg viewBox="0 0 500 360" className="w-full h-full drop-shadow-xl" fill="none">
-                  <polygon points="250,90 440,190 250,290 60,190" fill="#E0F2FE" />
-                  <polygon points="250,290 440,190 440,205 250,305 60,205 60,190" fill="#BAE6FD" />
-                  <rect x="220" y="150" width="60" height="35" rx="3" fill="#0284C7" transform="rotate(-15 250 167)" />
-                  <rect x="225" y="155" width="50" height="25" rx="2" fill="#FFFFFF" transform="rotate(-15 250 167)" />
-                  <rect x="340" y="50" width="90" height="65" rx="4" fill="#FFFFFF" stroke="#006B8F" strokeWidth="3" />
-                  <line x1="355" y1="70" x2="415" y2="70" stroke="#38BDF8" strokeWidth="3" strokeLinecap="round" />
-                  <line x1="355" y1="85" x2="395" y2="85" stroke="#F59E0B" strokeWidth="3" strokeLinecap="round" />
-                  <line x1="355" y1="100" x2="405" y2="100" stroke="#10B981" strokeWidth="3" strokeLinecap="round" />
+                {heroImage ? (
+                  <img
+                    src={getMediaUrl(heroImage)}
+                    alt={heroHeading}
+                    className="w-full h-full object-contain drop-shadow-xl"
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src = '/images/our-team-hero.svg';
+                    }}
+                  />
+                ) : (
+                  <svg viewBox="0 0 500 360" className="w-full h-full drop-shadow-xl" fill="none">
+                    <polygon points="250,90 440,190 250,290 60,190" fill="#E0F2FE" />
+                    <polygon points="250,290 440,190 440,205 250,305 60,205 60,190" fill="#BAE6FD" />
+                    <rect x="220" y="150" width="60" height="35" rx="3" fill="#0284C7" transform="rotate(-15 250 167)" />
+                    <rect x="225" y="155" width="50" height="25" rx="2" fill="#FFFFFF" transform="rotate(-15 250 167)" />
+                    <rect x="340" y="50" width="90" height="65" rx="4" fill="#FFFFFF" stroke="#006B8F" strokeWidth="3" />
+                    <line x1="355" y1="70" x2="415" y2="70" stroke="#38BDF8" strokeWidth="3" strokeLinecap="round" />
+                    <line x1="355" y1="85" x2="395" y2="85" stroke="#F59E0B" strokeWidth="3" strokeLinecap="round" />
+                    <line x1="355" y1="100" x2="405" y2="100" stroke="#10B981" strokeWidth="3" strokeLinecap="round" />
 
-                  {/* Team Characters */}
-                  <circle cx="150" cy="110" r="14" fill="#FED7AA" />
-                  <path d="M135 125 C135 120 165 120 165 125 L168 155 L132 155 Z" fill="#0284C7" />
-                  <polygon points="125,145 175,145 165,185 135,185" fill="#3B82F6" opacity="0.4" />
+                    {/* Team Characters */}
+                    <circle cx="150" cy="110" r="14" fill="#FED7AA" />
+                    <path d="M135 125 C135 120 165 120 165 125 L168 155 L132 155 Z" fill="#0284C7" />
+                    <polygon points="125,145 175,145 165,185 135,185" fill="#3B82F6" opacity="0.4" />
 
-                  <circle cx="360" cy="110" r="14" fill="#FED7AA" />
-                  <path d="M345 125 C345 120 375 120 375 125 L378 155 L342 155 Z" fill="#10B981" />
+                    <circle cx="360" cy="110" r="14" fill="#FED7AA" />
+                    <path d="M345 125 C345 120 375 120 375 125 L378 155 L342 155 Z" fill="#10B981" />
 
-                  <circle cx="130" cy="230" r="14" fill="#FED7AA" />
-                  <path d="M115 245 C115 240 145 240 145 245 L148 285 L112 285 Z" fill="#F59E0B" />
+                    <circle cx="130" cy="230" r="14" fill="#FED7AA" />
+                    <path d="M115 245 C115 240 145 240 145 245 L148 285 L112 285 Z" fill="#F59E0B" />
 
-                  <circle cx="370" cy="230" r="14" fill="#FED7AA" />
-                  <path d="M355 245 C355 240 385 240 385 245 L388 285 L352 285 Z" fill="#EC4899" />
+                    <circle cx="370" cy="230" r="14" fill="#FED7AA" />
+                    <path d="M355 245 C355 240 385 240 385 245 L388 285 L352 285 Z" fill="#EC4899" />
 
-                  <circle cx="250" cy="260" r="15" fill="#FED7AA" />
-                  <path d="M232 277 C232 272 268 272 268 277 L272 320 L228 320 Z" fill="#006B8F" />
-                </svg>
+                    <circle cx="250" cy="260" r="15" fill="#FED7AA" />
+                    <path d="M232 277 C232 272 268 272 268 277 L272 320 L228 320 Z" fill="#006B8F" />
+                  </svg>
+                )}
               </div>
             </div>
           </div>
@@ -455,7 +469,7 @@ export const OurTeamPage = ({ dynamicSection, pageKey = 'our-team' }) => {
             <div
               className="grid gap-[2px] opacity-95 grid-cols-[repeat(12,minmax(0,1fr))] sm:grid-cols-[repeat(18,minmax(0,1fr))] lg:grid-cols-[repeat(24,minmax(0,1fr))]"
             >
-              {[
+              {Array.from({ length: 144 }, (_, i) => [
                 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80',
                 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80',
                 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80',
@@ -480,22 +494,7 @@ export const OurTeamPage = ({ dynamicSection, pageKey = 'our-team' }) => {
                 'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&fit=crop&w=150&q=80',
                 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80',
                 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80'
-              ].concat(
-                Array.from({ length: 120 }, (_, i) => [
-                  'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80',
-                  'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=150&q=80',
-                  'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80',
-                  'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=150&q=80',
-                  'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=150&q=80',
-                  'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=150&q=80',
-                  'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=150&q=80',
-                  'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=150&q=80',
-                  'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80',
-                  'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=150&q=80',
-                  'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&q=80',
-                  'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=150&q=80'
-                ][i % 12])
-              ).map((src, i) => (
+              ][i % 24]).map((src, i) => (
                 <div key={i} className="aspect-[3/4] overflow-hidden bg-[#2D7392]">
                   <img
                     src={src}

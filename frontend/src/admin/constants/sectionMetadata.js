@@ -340,17 +340,17 @@ export const SECTION_METADATA = {
   },
   workTogetherNewsletterSection: {
     key: 'workTogetherNewsletterSection',
-    title: 'Work Together & Newsletter',
+    title: 'Work Together CTA Banner',
     category: 'Footer CTA',
-    description: 'Footer-preceding sapphire CTA ribbon and newsletter subscription lead capture banner.',
+    description: 'Footer-preceding sapphire CTA banner ("Let\'s Work Together On Your Next Digital Project").',
     slug: '/#work-together',
     editor: WorkTogetherNewsletterEditor
   },
   workTogetherNewsletter: {
     key: 'workTogetherNewsletterSection',
-    title: 'Work Together & Newsletter',
+    title: 'Work Together CTA Banner',
     category: 'Footer CTA',
-    description: 'Footer-preceding sapphire CTA ribbon and newsletter subscription lead capture banner.',
+    description: 'Footer-preceding sapphire CTA banner ("Let\'s Work Together On Your Next Digital Project").',
     slug: '/#work-together',
     editor: WorkTogetherNewsletterEditor
   },
@@ -770,7 +770,7 @@ export const HOME_PAGE_SECTIONS_LIST = [
   { key: 'recentBlogs', title: 'Recent Blogs', category: 'Articles', slug: '/#blog' },
   { key: 'clientReviews', title: 'Client Reviews', category: 'Testimonials', slug: '/#reviews' },
   { key: 'featuredInLogos', title: 'Featured In Logos', category: 'Media PR', slug: '/#featured-in' },
-  { key: 'workTogetherNewsletterSection', title: 'Work Together & Newsletter', category: 'Footer CTA', slug: '/#work-together' },
+  { key: 'workTogetherNewsletterSection', title: 'Work Together CTA Banner', category: 'Footer CTA', slug: '/#work-together' },
   { key: 'subscribeNewsletterSection', title: 'Subscribe Us / Newsletter', category: 'Lead Capture', slug: '/#newsletter' }
 ];
 

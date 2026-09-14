@@ -1,0 +1,37 @@
+<svg viewBox="0 0 500 360" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <!-- Isometric Meeting Table -->
+  <polygon points="250,90 440,190 250,290 60,190" fill="#E0F2FE" />
+  <polygon points="250,290 440,190 440,205 250,305 60,205 60,190" fill="#BAE6FD" />
+
+  <!-- Laptop Screen & Charts -->
+  <rect x="220" y="150" width="60" height="35" rx="3" fill="#0284C7" transform="rotate(-15 250 167)" />
+  <rect x="225" y="155" width="50" height="25" rx="2" fill="#FFFFFF" transform="rotate(-15 250 167)" />
+
+  <!-- Whiteboard in backdrop -->
+  <rect x="340" y="50" width="90" height="65" rx="4" fill="#FFFFFF" stroke="#006B8F" stroke-width="3" />
+  <line x1="355" y1="70" x2="415" y2="70" stroke="#38BDF8" stroke-width="3" stroke-linecap="round" />
+  <line x1="355" y1="85" x2="395" y2="85" stroke="#F59E0B" stroke-width="3" stroke-linecap="round" />
+  <line x1="355" y1="100" x2="405" y2="100" stroke="#10B981" stroke-width="3" stroke-linecap="round" />
+
+  <!-- Team Characters -->
+  <!-- Person 1 (Top Left) -->
+  <circle cx="150" cy="110" r="14" fill="#FED7AA" />
+  <path d="M135 125 C135 120 165 120 165 125 L168 155 L132 155 Z" fill="#0284C7" />
+  <polygon points="125,145 175,145 165,185 135,185" fill="#3B82F6" opacity="0.4" />
+
+  <!-- Person 2 (Top Right) -->
+  <circle cx="360" cy="110" r="14" fill="#FED7AA" />
+  <path d="M345 125 C345 120 375 120 375 125 L378 155 L342 155 Z" fill="#10B981" />
+
+  <!-- Person 3 (Bottom Left) -->
+  <circle cx="130" cy="230" r="14" fill="#FED7AA" />
+  <path d="M115 245 C115 240 145 240 145 245 L148 285 L112 285 Z" fill="#F59E0B" />
+
+  <!-- Person 4 (Bottom Right) -->
+  <circle cx="370" cy="230" r="14" fill="#FED7AA" />
+  <path d="M355 245 C355 240 385 240 385 245 L388 285 L352 285 Z" fill="#EC4899" />
+
+  <!-- Person 5 (Bottom Center) -->
+  <circle cx="250" cy="260" r="15" fill="#FED7AA" />
+  <path d="M232 277 C232 272 268 272 268 277 L272 320 L228 320 Z" fill="#006B8F" />
+</svg>

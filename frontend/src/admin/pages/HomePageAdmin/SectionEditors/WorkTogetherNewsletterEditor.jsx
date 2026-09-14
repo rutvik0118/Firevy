@@ -13,15 +13,15 @@ export const WorkTogetherNewsletterEditor = ({ data, onChange }) => {
     <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
       <div style={{ paddingBottom: '14px', borderBottom: '1px solid #E2E8F0' }}>
         <h4 style={{ margin: 0, fontSize: '16px', fontWeight: 800, color: '#0F172A', fontFamily: 'Poppins, sans-serif' }}>
-          Let's Work Together & Newsletter Banners
+          Work Together CTA Banner
         </h4>
         <p style={{ margin: '2px 0 0 0', fontSize: '12px', color: '#64748B' }}>
-          Footer-preceding sapphire CTA ribbon and newsletter subscription lead capture banner.
+          Footer-preceding sapphire CTA banner ("Let's Work Together On Your Next Digital Project"). The Newsletter subscription banner is separately managed in Section 23 (Subscribe Us / Newsletter).
         </p>
       </div>
 
       {/* 1. Work Together Banner */}
-      <AdminFormSection title="1. Work Together CTA Banner">
+      <AdminFormSection title="1. Work Together CTA Banner Settings">
         <AdminFormGrid columns={2}>
           <AdminFormField label="Main Heading" required fullWidth>
             <input

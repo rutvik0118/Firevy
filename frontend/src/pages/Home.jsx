@@ -123,6 +123,12 @@ export const Home = () => {
           return null;
         }
 
+        // On Home, hide the duplicate newsletter inside workTogetherNewsletterSection
+        // because subscribeNewsletterSection renders the newsletter banner independently
+        if (sectionKey === 'workTogetherNewsletterSection') {
+          return <Component key={sectionKey} data={sectionData} hideNewsletter={true} />;
+        }
+
         return <Component key={sectionKey} data={sectionData} />;
       })}
     </>

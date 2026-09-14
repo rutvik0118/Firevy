@@ -1304,10 +1304,11 @@ export const CompanySubDetails = () => {
 
   // If this is the "Our Team" / "our-team" page, render exact Sapphire Our Team Layout
   if (pageKey === 'our-team') {
-    const heroTitle = dynamicSection?.title || dynamicSection?.content?.heroTitle || dynamicSection?.hero?.title || "Our Team";
-    const heroSubtitle = dynamicSection?.subtitle || dynamicSection?.content?.heroSubtitle || dynamicSection?.hero?.subtitle || "Meet the team of innovative, driven and passionate individuals. We cultivate the diverse talents of our team and leverage their extraordinary perspectives and innovative ideas to make firevy.co the industry leader.";
+    const heroTitle = dynamicSection?.title || dynamicSection?.content?.heroTitle || dynamicSection?.hero?.title || dynamicSection?.content?.heroHeading || "Our Team";
+    const heroSubtitle = dynamicSection?.subtitle || dynamicSection?.content?.heroSubtitle || dynamicSection?.hero?.subtitle || "Behind every success of Firevy is our team of 100+ passionate engineers, designers, and innovators building future-ready enterprise solutions across the globe.";
     const heroButtonText = dynamicSection?.ctaText || dynamicSection?.hero?.ctaText || dynamicSection?.content?.heroButtonText || "Connect Now";
     const heroButtonLink = dynamicSection?.ctaLink || dynamicSection?.hero?.ctaLink || dynamicSection?.content?.heroButtonLink || "/contact";
+    const heroImage = dynamicSection?.hero?.image || dynamicSection?.content?.heroImage || '/images/our-team-hero.svg';
 
     // 2. Management Team
     const mgmtHeading = dynamicSection?.content?.managementHeading || "Management Team";
@@ -1465,43 +1466,55 @@ export const CompanySubDetails = () => {
               {/* Right 3D Isometric Team Illustration */}
               <div className="lg:col-span-6 flex justify-center relative">
                 <div className="relative w-full max-w-[500px] h-[340px] flex items-center justify-center">
-                  <svg viewBox="0 0 500 360" className="w-full h-full drop-shadow-xl" fill="none">
-                    {/* Isometric Meeting Table */}
-                    <polygon points="250,90 440,190 250,290 60,190" fill="#E0F2FE" />
-                    <polygon points="250,290 440,190 440,205 250,305 60,205 60,190" fill="#BAE6FD" />
+                  {heroImage ? (
+                    <img
+                      src={getMediaUrl(heroImage)}
+                      alt={heroTitle}
+                      className="w-full h-full object-contain drop-shadow-xl"
+                      onError={(e) => {
+                        e.target.onerror = null;
+                        e.target.src = '/images/our-team-hero.svg';
+                      }}
+                    />
+                  ) : (
+                    <svg viewBox="0 0 500 360" className="w-full h-full drop-shadow-xl" fill="none">
+                      {/* Isometric Meeting Table */}
+                      <polygon points="250,90 440,190 250,290 60,190" fill="#E0F2FE" />
+                      <polygon points="250,290 440,190 440,205 250,305 60,205 60,190" fill="#BAE6FD" />
 
-                    {/* Laptop Screen & Charts */}
-                    <rect x="220" y="150" width="60" height="35" rx="3" fill="#0284C7" transform="rotate(-15 250 167)" />
-                    <rect x="225" y="155" width="50" height="25" rx="2" fill="#FFFFFF" transform="rotate(-15 250 167)" />
+                      {/* Laptop Screen & Charts */}
+                      <rect x="220" y="150" width="60" height="35" rx="3" fill="#0284C7" transform="rotate(-15 250 167)" />
+                      <rect x="225" y="155" width="50" height="25" rx="2" fill="#FFFFFF" transform="rotate(-15 250 167)" />
 
-                    {/* Whiteboard in backdrop */}
-                    <rect x="340" y="50" width="90" height="65" rx="4" fill="#FFFFFF" stroke="#006B8F" strokeWidth="3" />
-                    <line x1="355" y1="70" x2="415" y2="70" stroke="#38BDF8" strokeWidth="3" strokeLinecap="round" />
-                    <line x1="355" y1="85" x2="395" y2="85" stroke="#F59E0B" strokeWidth="3" strokeLinecap="round" />
-                    <line x1="355" y1="100" x2="405" y2="100" stroke="#10B981" strokeWidth="3" strokeLinecap="round" />
+                      {/* Whiteboard in backdrop */}
+                      <rect x="340" y="50" width="90" height="65" rx="4" fill="#FFFFFF" stroke="#006B8F" strokeWidth="3" />
+                      <line x1="355" y1="70" x2="415" y2="70" stroke="#38BDF8" strokeWidth="3" strokeLinecap="round" />
+                      <line x1="355" y1="85" x2="395" y2="85" stroke="#F59E0B" strokeWidth="3" strokeLinecap="round" />
+                      <line x1="355" y1="100" x2="405" y2="100" stroke="#10B981" strokeWidth="3" strokeLinecap="round" />
 
-                    {/* Team Characters */}
-                    {/* Person 1 (Top Left) */}
-                    <circle cx="150" cy="110" r="14" fill="#FED7AA" />
-                    <path d="M135 125 C135 120 165 120 165 125 L168 155 L132 155 Z" fill="#0284C7" />
-                    <polygon points="125,145 175,145 165,185 135,185" fill="#3B82F6" opacity="0.4" />
+                      {/* Team Characters */}
+                      {/* Person 1 (Top Left) */}
+                      <circle cx="150" cy="110" r="14" fill="#FED7AA" />
+                      <path d="M135 125 C135 120 165 120 165 125 L168 155 L132 155 Z" fill="#0284C7" />
+                      <polygon points="125,145 175,145 165,185 135,185" fill="#3B82F6" opacity="0.4" />
 
-                    {/* Person 2 (Top Right) */}
-                    <circle cx="360" cy="110" r="14" fill="#FED7AA" />
-                    <path d="M345 125 C345 120 375 120 375 125 L378 155 L342 155 Z" fill="#10B981" />
+                      {/* Person 2 (Top Right) */}
+                      <circle cx="360" cy="110" r="14" fill="#FED7AA" />
+                      <path d="M345 125 C345 120 375 120 375 125 L378 155 L342 155 Z" fill="#10B981" />
 
-                    {/* Person 3 (Bottom Left) */}
-                    <circle cx="130" cy="230" r="14" fill="#FED7AA" />
-                    <path d="M115 245 C115 240 145 240 145 245 L148 285 L112 285 Z" fill="#F59E0B" />
+                      {/* Person 3 (Bottom Left) */}
+                      <circle cx="130" cy="230" r="14" fill="#FED7AA" />
+                      <path d="M115 245 C115 240 145 240 145 245 L148 285 L112 285 Z" fill="#F59E0B" />
 
-                    {/* Person 4 (Bottom Right) */}
-                    <circle cx="370" cy="230" r="14" fill="#FED7AA" />
-                    <path d="M355 245 C355 240 385 240 385 245 L388 285 L352 285 Z" fill="#EC4899" />
+                      {/* Person 4 (Bottom Right) */}
+                      <circle cx="370" cy="230" r="14" fill="#FED7AA" />
+                      <path d="M355 245 C355 240 385 240 385 245 L388 285 L352 285 Z" fill="#EC4899" />
 
-                    {/* Person 5 (Bottom Center) */}
-                    <circle cx="250" cy="260" r="15" fill="#FED7AA" />
-                    <path d="M232 277 C232 272 268 272 268 277 L272 320 L228 320 Z" fill="#006B8F" />
-                  </svg>
+                      {/* Person 5 (Bottom Center) */}
+                      <circle cx="250" cy="260" r="15" fill="#FED7AA" />
+                      <path d="M232 277 C232 272 268 272 268 277 L272 320 L228 320 Z" fill="#006B8F" />
+                    </svg>
+                  )}
                 </div>
               </div>
             </div>
@@ -1707,7 +1720,7 @@ export const CompanySubDetails = () => {
                 <div
                   className="grid gap-[2px] opacity-95 grid-cols-[repeat(12,minmax(0,1fr))] sm:grid-cols-[repeat(18,minmax(0,1fr))] lg:grid-cols-[repeat(24,minmax(0,1fr))]"
                 >
-                  {[
+                  {Array.from({ length: 144 }, (_, i) => [
                     'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80',
                     'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80',
                     'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80',
@@ -1731,35 +1744,8 @@ export const CompanySubDetails = () => {
                     'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=150&q=80',
                     'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&fit=crop&w=150&q=80',
                     'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80',
-                    'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80',
-                    'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80',
-                    'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=150&q=80',
-                    'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80',
-                    'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=150&q=80',
-                    'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=150&q=80',
-                    'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=150&q=80',
-                    'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=150&q=80',
-                    'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=150&q=80',
-                    'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80',
-                    'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=150&q=80',
-                    'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&q=80',
-                    'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=150&q=80'
-                  ].concat(
-                    Array.from({ length: 120 }, (_, i) => [
-                      'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80',
-                      'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=150&q=80',
-                      'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80',
-                      'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=150&q=80',
-                      'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=150&q=80',
-                      'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=150&q=80',
-                      'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=150&q=80',
-                      'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=150&q=80',
-                      'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80',
-                      'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=150&q=80',
-                      'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&q=80',
-                      'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=150&q=80'
-                    ][i % 12])
-                  ).map((src, i) => (
+                    'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80'
+                  ][i % 24]).map((src, i) => (
                     <div key={i} className="aspect-[3/4] overflow-hidden bg-[#2D7392]">
                       <img
                         src={src}
@@ -1946,21 +1932,32 @@ export const CompanySubDetails = () => {
 
   // If this is the "Events & Activities" / "events-activities" page, render exact Sapphire Events & Activities Layout
   if (pageKey === 'events-activities') {
-    const yearsRow1 = ['2026', '2025', '2024', '2023', '2022', '2021'];
-    const yearsRow2 = ['2020', '2019', '2018', '2017', '2016', '2015'];
+    const heroTitle = dynamicSection?.content?.heroHeading || dynamicSection?.hero?.title || dynamicSection?.title || "Events & Celebrations";
+    const heroSubtitle = dynamicSection?.content?.heroSubtitle || dynamicSection?.hero?.subtitle || dynamicSection?.subtitle || "At Firevy.co, we believe that celebrating success is just as important as achieving it. From casual dress-down days and monthly celebrations enjoy the celebration.";
+    const heroButtonText = dynamicSection?.content?.heroButtonText || dynamicSection?.hero?.ctaText || dynamicSection?.ctaText || "Let's Talk";
+    const heroButtonLink = dynamicSection?.content?.heroButtonLink || dynamicSection?.hero?.ctaLink || dynamicSection?.ctaLink || "/contact";
+    const heroImage = dynamicSection?.hero?.image || dynamicSection?.content?.heroImage || '/images/events-hero.svg';
 
-    const eventGalleryData = {
+    const lifeHeading = dynamicSection?.content?.lifeHeading || "Life @firevy.co";
+    const lifeDescription = dynamicSection?.content?.lifeDescription || "At firevy.co, we constantly try new ways to make our work environment, enjoyable and inspiring. From company outings to birthdays, we just need a reason to celebrate. Have a glimpse at life and culture @firevy.co!";
+
+    const defaultYears = ['2026', '2025', '2024', '2023', '2022', '2021', '2020', '2019', '2018', '2017', '2016', '2015'];
+    const dynamicYears = (Array.isArray(dynamicSection?.content?.years) && dynamicSection.content.years.length > 0)
+      ? dynamicSection.content.years
+      : defaultYears;
+
+    const defaultEventGalleryData = {
       '2026': [
-        { id: 1, title: 'Leadership Felicitation & Recognition', img: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80' },
-        { id: 2, title: 'Annual Tech Team Summit', img: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80' },
-        { id: 3, title: 'Excellence Award Ceremony', img: 'https://images.unsplash.com/photo-1579389083078-4e7018379f7e?auto=format&fit=crop&w=800&q=80' },
-        { id: 4, title: 'Sports & Cricket League Winners', img: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80' },
-        { id: 5, title: 'Office Cultural Fest', img: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80' },
-        { id: 6, title: 'Birthday & Milestone Celebration', img: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=800&q=80' },
-        { id: 7, title: 'Executive Directors Gathering', img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80' },
-        { id: 8, title: 'Cake Cutting & Team Party', img: 'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=800&q=80' },
-        { id: 9, title: 'Women\'s Day Celebration', img: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80' },
-        { id: 10, title: 'Community CSR Initiative', img: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=800&q=80' },
+        { id: 1, title: 'Office Tech Team at Work', img: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80' },
+        { id: 2, title: 'Team Meeting & Brainstorming', img: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80' },
+        { id: 3, title: 'Hands on Laptop Meeting', img: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80' },
+        { id: 4, title: 'Large Conference & Seminar Hall', img: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80' },
+        { id: 5, title: 'Office Lounge Presentation', img: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80' },
+        { id: 6, title: 'Balloons & Party Celebrations', img: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=800&q=80' },
+        { id: 7, title: 'Smiling Colleague Portrait', img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80' },
+        { id: 8, title: 'Decorated Celebration Banquet', img: 'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=800&q=80' },
+        { id: 9, title: 'Team Outdoor Retreat by Water', img: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80' },
+        { id: 10, title: 'Community & Smiles Outreach', img: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=800&q=80' }
       ],
       '2025': [
         { id: 1, title: 'Annual Tech Team Summit', img: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80' },
@@ -1970,23 +1967,97 @@ export const CompanySubDetails = () => {
         { id: 5, title: 'Birthday & Milestone Celebration', img: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=800&q=80' },
         { id: 6, title: 'Leadership Felicitation & Recognition', img: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80' },
         { id: 7, title: 'Cake Cutting & Team Party', img: 'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=800&q=80' },
-        { id: 8, title: 'Executive Directors Gathering', img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80' },
+        { id: 8, title: 'Executive Directors Gathering', img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80' }
       ],
       '2024': [
         { id: 1, title: 'Annual Outing & Resort Retreat', img: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80' },
         { id: 2, title: 'Global AI Hackathon Champions', img: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80' },
         { id: 3, title: 'Diwali & Festival Celebrations', img: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80' },
-        { id: 4, title: 'Team Appreciation Awards', img: 'https://images.unsplash.com/photo-1579389083078-4e7018379f7e?auto=format&fit=crop&w=800&q=80' },
+        { id: 4, title: 'Team Appreciation Awards', img: 'https://images.unsplash.com/photo-1579389083078-4e7018379f7e?auto=format&fit=crop&w=800&q=80' }
+      ],
+      '2023': [
+        { id: 1, title: 'Annual Gala & Foundation Day', img: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80' },
+        { id: 2, title: 'Tech Hackathon 2023 Showcase', img: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80' },
+        { id: 3, title: 'Client Appreciation & Meet', img: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80' },
+        { id: 4, title: 'Office Diwali Lights & Festivity', img: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=800&q=80' },
+        { id: 5, title: 'Mountain Trekking & Team Camp', img: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80' },
+        { id: 6, title: 'Company Milestone Celebration', img: 'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=800&q=80' }
+      ],
+      '2022': [
+        { id: 1, title: 'Grand Welcome Back & Reconnect', img: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80' },
+        { id: 2, title: 'Annual Sports League & Cricket', img: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80' },
+        { id: 3, title: 'Innovators & Coders Meetup', img: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80' },
+        { id: 4, title: 'Cultural Day & Traditional Attire', img: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=800&q=80' },
+        { id: 5, title: 'Year End Holiday Celebration Dinner', img: 'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=800&q=80' },
+        { id: 6, title: 'Team Lunch & Fun Games', img: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80' }
+      ],
+      '2021': [
+        { id: 1, title: 'Virtual & Hybrid Global Summit', img: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80' },
+        { id: 2, title: 'Project Milestone Delivery Party', img: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80' },
+        { id: 3, title: 'Independence Day Flag Hoisting', img: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80' },
+        { id: 4, title: 'Diwali Celebration & Team Gifts', img: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=800&q=80' },
+        { id: 5, title: 'Team Bonding & Skill Workshop', img: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80' },
+        { id: 6, title: 'Annual Recognition Awards 2021', img: 'https://images.unsplash.com/photo-1579389083078-4e7018379f7e?auto=format&fit=crop&w=800&q=80' }
+      ],
+      '2020': [
+        { id: 1, title: 'Annual Kickoff & Vision 2020', img: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80' },
+        { id: 2, title: 'Work From Anywhere Meetup', img: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80' },
+        { id: 3, title: 'Festival Celebrations & Treats', img: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=800&q=80' },
+        { id: 4, title: 'New Office Expansion Celebration', img: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80' }
+      ],
+      '2019': [
+        { id: 1, title: '5-Year Foundation Anniversary', img: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80' },
+        { id: 2, title: 'Goa Annual Company Trip & Beach Retreat', img: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80' },
+        { id: 3, title: 'Christmas & New Year Celebration', img: 'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=800&q=80' },
+        { id: 4, title: 'Team Bowling & Gaming Night', img: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80' }
+      ],
+      '2018': [
+        { id: 1, title: 'Excellence in Tech Awards 2018', img: 'https://images.unsplash.com/photo-1579389083078-4e7018379f7e?auto=format&fit=crop&w=800&q=80' },
+        { id: 2, title: 'Summer Outdoor Picnic', img: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80' },
+        { id: 3, title: 'Diwali Lights & Music Fest', img: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=800&q=80' },
+        { id: 4, title: 'Annual Developers Conference', img: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80' }
+      ],
+      '2017': [
+        { id: 1, title: 'Team Growth & New Wing Opening', img: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=800&q=80' },
+        { id: 2, title: 'Outdoor Adventure Camp', img: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80' },
+        { id: 3, title: 'Festival of Colors Holi Party', img: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=800&q=80' },
+        { id: 4, title: 'Annual Day Celebrations 2017', img: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80' }
+      ],
+      '2016': [
+        { id: 1, title: 'First Big Milestone Party', img: 'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?auto=format&fit=crop&w=800&q=80' },
+        { id: 2, title: 'Office Inauguration & Puja', img: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80' },
+        { id: 3, title: 'Hackathon & Pizza Night', img: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80' },
+        { id: 4, title: 'Year End Gala Dinner 2016', img: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80' }
+      ],
+      '2015': [
+        { id: 1, title: 'Company Founding Day & Journey Begins', img: 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80' },
+        { id: 2, title: 'First Team Gathering & Coffee', img: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80' },
+        { id: 3, title: 'Initial Product Launch Celebration', img: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=800&q=80' },
+        { id: 4, title: 'Celebration with Early Believers', img: 'https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=800&q=80' }
       ]
     };
 
-    const currentPhotos = eventGalleryData[selectedYear] || eventGalleryData['2026'];
+    const eventGalleryData = (dynamicSection?.content?.eventGalleryData && Object.keys(dynamicSection.content.eventGalleryData).length > 0)
+      ? dynamicSection.content.eventGalleryData
+      : defaultEventGalleryData;
+
+    const effectiveSelectedYear = dynamicYears.includes(selectedYear)
+      ? selectedYear
+      : (dynamicYears[0] || '2026');
+
+    const currentPhotos = eventGalleryData[effectiveSelectedYear] || defaultEventGalleryData[effectiveSelectedYear] || defaultEventGalleryData['2026'] || [];
+
+    const cta = dynamicSection?.content?.cta || dynamicSection?.cta || {};
+    const ctaTitle = cta.title || dynamicSection?.content?.ctaTitle || 'Ready To Get Started?';
+    const ctaSubtitle = cta.subtitle || dynamicSection?.content?.ctaSubtitle || 'With 20+ years of domain expertise, 700+ successful projects, & 1500+ happy customers, we have carved a niche in the software development industry.';
+    const ctaButtonText = cta.buttonText || dynamicSection?.content?.ctaButtonText || 'Request A Free Quote';
+    const ctaButtonLink = cta.buttonLink || dynamicSection?.content?.ctaButtonLink || '/contact';
 
     return (
       <div className="bg-white min-h-screen text-slate-900 font-sans">
         <SEO
-          title="Events & Celebrations | Life @ firevy.co | firevy.co"
-          description="At firevy.co, we believe that celebrating success is just as important as achieving it. Have a glimpse at life and culture @ firevy.co!"
+          title={`${heroTitle} | Life @ firevy.co | firevy.co`}
+          description={heroSubtitle}
           canonical={`/company/${pageKey}`}
         />
 
@@ -1997,82 +2068,89 @@ export const CompanySubDetails = () => {
               {/* Left Text */}
               <div className="lg:col-span-6 space-y-6">
                 <h1 className="text-[34px] font-[800] text-slate-900 tracking-tight leading-tight font-sans page-hero-title">
-                  Events & Celebrations
+                  {heroTitle}
                 </h1>
                 <p className="text-[15px] text-slate-600 leading-relaxed font-[400] font-sans max-w-xl page-hero-desc">
-                  At firevy.co, we believe that celebrating success is just as important as achieving it. Our culture thrives on a balanced blend of dedication and joyful celebration.
+                  {heroSubtitle}
                 </p>
                 <div className="pt-2">
                   <Link
-                    to="/contact"
+                    to={heroButtonLink}
                     className="inline-flex items-center justify-center space-x-2 px-8 py-3.5 rounded-[6px] bg-[#00668C] hover:bg-[#004E6C] text-white font-[700] text-[15px] transition-all shadow-md group font-sans"
                   >
-                    <span>Let's Talk</span>
+                    <span>{heroButtonText}</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </div>
               </div>
 
-              {/* Right Isometric Graphic Vector Illustration (Exact Reference Screenshot 0 Match) */}
+              {/* Right Isometric Graphic Vector Illustration (Exact Reference Screenshot Match) */}
               <div className="lg:col-span-6 flex justify-center relative select-none">
                 <div className="relative w-full max-w-[540px] h-[360px] flex items-center justify-center">
-                  <svg viewBox="0 0 540 360" className="w-full h-full drop-shadow-xl" fill="none">
-                    {/* Isometric Base Platform (Light Blue Cyan) */}
-                    <polygon points="270,70 510,190 270,310 30,190" fill="#E6F2FC" opacity="0.9" />
-                    <polygon points="270,310 510,190 510,205 270,325 30,205 30,190" fill="#BAE1F9" />
+                  {heroImage ? (
+                    <img
+                      src={getMediaUrl(heroImage)}
+                      alt={heroTitle}
+                      className="w-full h-full object-contain drop-shadow-xl"
+                      onError={(e) => {
+                        e.target.onerror = null;
+                        e.target.src = '/images/events-hero.svg';
+                      }}
+                    />
+                  ) : (
+                    <svg viewBox="0 0 540 360" className="w-full h-full drop-shadow-xl" fill="none">
+                      {/* Isometric Base Platform (Light Blue Cyan) */}
+                      <polygon points="270,70 510,190 270,310 30,190" fill="#E6F2FC" opacity="0.9" />
+                      <polygon points="270,310 510,190 510,205 270,325 30,205 30,190" fill="#BAE1F9" />
 
-                    {/* Isometric Laptop Base & Screen */}
-                    <polygon points="230,120 410,120 370,240 190,240" fill="#2B80C5" />
-                    <polygon points="238,128 402,128 365,232 201,232" fill="#FFFFFF" />
+                      {/* Isometric Laptop Base & Screen */}
+                      <polygon points="230,120 410,120 370,240 190,240" fill="#2B80C5" />
+                      <polygon points="238,128 402,128 365,232 201,232" fill="#FFFFFF" />
 
-                    {/* Laptop Screen Content / Charts & Lines */}
-                    <rect x="230" y="142" width="120" height="8" rx="2" fill="#38BDF8" />
-                    <path d="M220 200 Q250 160 280 180 T340 150" stroke="#0284C7" strokeWidth="4" fill="none" strokeLinecap="round" />
-                    <path d="M220 215 Q260 185 300 205 T350 175" stroke="#38BDF8" strokeWidth="3" fill="none" strokeLinecap="round" />
+                      {/* Laptop Screen Content / Charts & Lines */}
+                      <rect x="230" y="142" width="120" height="8" rx="2" fill="#38BDF8" />
+                      <path d="M220 200 Q250 160 280 180 T340 150" stroke="#0284C7" strokeWidth="4" fill="none" strokeLinecap="round" />
+                      <path d="M220 215 Q260 185 300 205 T350 175" stroke="#38BDF8" strokeWidth="3" fill="none" strokeLinecap="round" />
 
-                    {/* Isometric Keyboard Stand */}
-                    <polygon points="190,240 370,240 430,290 250,290" fill="#1E5C91" />
-                    <polygon points="200,245 360,245 415,285 255,285" fill="#0F385C" />
+                      {/* Isometric Keyboard Stand */}
+                      <polygon points="190,240 370,240 430,290 250,290" fill="#1E5C91" />
+                      <polygon points="200,245 360,245 415,285 255,285" fill="#0F385C" />
 
-                    {/* Isometric Floating Bar Chart Pillars (Cyan, Yellow, Purple) */}
-                    {/* Pillar 1 (Yellow) */}
-                    <polygon points="90,190 120,175 150,190 120,205" fill="#FBBF24" />
-                    <polygon points="90,190 120,205 120,245 90,230" fill="#D97706" />
-                    <polygon points="120,205 150,190 150,230 120,245" fill="#F59E0B" />
+                      {/* Isometric Floating Bar Chart Pillars (Cyan, Yellow, Purple) */}
+                      <polygon points="90,190 120,175 150,190 120,205" fill="#FBBF24" />
+                      <polygon points="90,190 120,205 120,245 90,230" fill="#D97706" />
+                      <polygon points="120,205 150,190 150,230 120,245" fill="#F59E0B" />
 
-                    {/* Pillar 2 (Cyan) */}
-                    <polygon points="125,160 155,145 185,160 155,175" fill="#38BDF8" />
-                    <polygon points="125,160 155,175 155,225 125,210" fill="#0284C7" />
-                    <polygon points="155,175 185,160 185,210 155,225" fill="#0369A1" />
+                      <polygon points="125,160 155,145 185,160 155,175" fill="#38BDF8" />
+                      <polygon points="125,160 155,175 155,225 125,210" fill="#0284C7" />
+                      <polygon points="155,175 185,160 185,210 155,225" fill="#0369A1" />
 
-                    {/* Pillar 3 (Purple/Pink) */}
-                    <polygon points="160,185 190,170 220,185 190,200" fill="#C084FC" />
-                    <polygon points="160,185 190,200 190,245 160,230" fill="#9333EA" />
-                    <polygon points="190,200 220,185 220,230 190,245" fill="#A855F7" />
+                      <polygon points="160,185 190,170 220,185 190,200" fill="#C084FC" />
+                      <polygon points="160,185 190,200 190,245 160,230" fill="#9333EA" />
+                      <polygon points="190,200 220,185 220,230 190,245" fill="#A855F7" />
 
-                    {/* Server Tower Unit in Front Right */}
-                    <polygon points="380,260 410,245 440,260 410,275" fill="#38BDF8" />
-                    <polygon points="380,260 410,275 410,315 380,300" fill="#0284C7" />
-                    <polygon points="410,275 440,260 440,300 410,315" fill="#0369A1" />
-                    <line x1="390" y1="275" x2="400" y2="280" stroke="#E0F2FE" strokeWidth="2" strokeLinecap="round" />
-                    <line x1="390" y1="285" x2="400" y2="290" stroke="#E0F2FE" strokeWidth="2" strokeLinecap="round" />
+                      {/* Server Tower Unit in Front Right */}
+                      <polygon points="380,260 410,245 440,260 410,275" fill="#38BDF8" />
+                      <polygon points="380,260 410,275 410,315 380,300" fill="#0284C7" />
+                      <polygon points="410,275 440,260 440,300 410,315" fill="#0369A1" />
+                      <line x1="390" y1="275" x2="400" y2="280" stroke="#E0F2FE" strokeWidth="2" strokeLinecap="round" />
+                      <line x1="390" y1="285" x2="400" y2="290" stroke="#E0F2FE" strokeWidth="2" strokeLinecap="round" />
 
-                    {/* Character 1 (Standing near bars) */}
-                    <circle cx="95" cy="140" r="10" fill="#FED7AA" />
-                    <path d="M85 152 C85 148 105 148 105 152 L107 180 L83 180 Z" fill="#3B82F6" />
+                      {/* Characters */}
+                      <circle cx="95" cy="140" r="10" fill="#FED7AA" />
+                      <path d="M85 152 C85 148 105 148 105 152 L107 180 L83 180 Z" fill="#3B82F6" />
 
-                    {/* Character 2 (Sitting on platform corner) */}
-                    <circle cx="308" cy="195" r="10" fill="#FED7AA" />
-                    <path d="M298 207 C298 203 318 203 318 207 L320 230 L296 230 Z" fill="#EF4444" />
+                      <circle cx="308" cy="195" r="10" fill="#FED7AA" />
+                      <path d="M298 207 C298 203 318 203 318 207 L320 230 L296 230 Z" fill="#EF4444" />
 
-                    {/* Character 3 (Sitting at bottom right) */}
-                    <circle cx="410" cy="180" r="10" fill="#FED7AA" />
-                    <path d="M400 192 C400 188 420 188 420 192 L422 220 L398 220 Z" fill="#10B981" />
+                      <circle cx="410" cy="180" r="10" fill="#FED7AA" />
+                      <path d="M400 192 C400 188 420 188 420 192 L422 220 L398 220 Z" fill="#10B981" />
 
-                    {/* Floating Tech Widgets */}
-                    <rect x="420" y="200" width="40" height="60" rx="6" fill="#60A5FA" stroke="#FFFFFF" strokeWidth="2" />
-                    <rect x="426" y="210" width="28" height="40" rx="3" fill="#FFFFFF" />
-                  </svg>
+                      {/* Floating Tech Widgets */}
+                      <rect x="420" y="200" width="40" height="60" rx="6" fill="#60A5FA" stroke="#FFFFFF" strokeWidth="2" />
+                      <rect x="426" y="210" width="28" height="40" rx="3" fill="#FFFFFF" />
+                    </svg>
+                  )}
                 </div>
               </div>
             </div>
@@ -2083,37 +2161,20 @@ export const CompanySubDetails = () => {
         <section className="py-20 bg-white border-t border-slate-100 text-center font-sans">
           <div className="max-w-[1360px] mx-auto px-4 sm:px-8">
             <h2 className="text-[40px] font-[800] text-slate-900 tracking-tight leading-tight mb-4 font-sans section-content-title">
-              Life @firevy.co
+              {lifeHeading}
             </h2>
             <p className="text-[15px] text-slate-600 max-w-3xl mx-auto leading-relaxed font-[400] mb-12 font-sans section-content-desc">
-              At firevy.co, we constantly try new ways to make our work environment, enjoyable and inspiring. From company outings to birthdays, we just need a reason to celebrate. Have a glimpse at life and culture @firevy.co!
+              {lifeDescription}
             </p>
 
-            {/* Year Selector Tabs (Exact 2 Rows Match Reference Screenshots 0 & 1) */}
-            <div className="space-y-6 max-w-4xl mx-auto mb-14">
-              {/* Row 1 */}
-              <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-12 md:gap-16">
-                {yearsRow1.map((year) => (
+            {/* Year Selector Tabs (Responsive Dynamic Layout) */}
+            <div className="max-w-4xl mx-auto mb-14">
+              <div className="flex flex-wrap items-center justify-center gap-x-8 sm:gap-x-12 md:gap-x-14 gap-y-4">
+                {dynamicYears.map((year) => (
                   <button
                     key={year}
                     onClick={() => setSelectedYear(year)}
-                    className={`text-[19px] sm:text-[21px] pb-1.5 transition-all cursor-pointer font-sans ${selectedYear === year
-                      ? 'border-b-[3px] border-[#0099CC] text-[#0099CC] font-[900]'
-                      : 'text-slate-800 hover:text-[#0099CC] font-[700]'
-                      }`}
-                  >
-                    {year}
-                  </button>
-                ))}
-              </div>
-
-              {/* Row 2 */}
-              <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-12 md:gap-16 pt-2">
-                {yearsRow2.map((year) => (
-                  <button
-                    key={year}
-                    onClick={() => setSelectedYear(year)}
-                    className={`text-[19px] sm:text-[21px] pb-1.5 transition-all cursor-pointer font-sans ${selectedYear === year
+                    className={`text-[19px] sm:text-[21px] pb-1.5 transition-all cursor-pointer font-sans ${effectiveSelectedYear === year
                       ? 'border-b-[3px] border-[#0099CC] text-[#0099CC] font-[900]'
                       : 'text-slate-800 hover:text-[#0099CC] font-[700]'
                       }`}
@@ -2124,41 +2185,51 @@ export const CompanySubDetails = () => {
               </div>
             </div>
 
-            {/* Photo Grid (4 Columns - Exact Reference Screenshot 1 & 2 Match) */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-7">
-              {currentPhotos.map((item) => (
-                <div
-                  key={item.id}
-                  className="bg-white rounded-[12px] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.06)] border border-slate-200/90 group hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer"
-                >
-                  <div className="h-[210px] sm:h-[220px] w-full overflow-hidden bg-slate-100">
-                    <img
-                      src={item.img}
-                      alt={item.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
+            {/* Photo Grid (4 Columns - Responsive with Empty State Handling) */}
+            {currentPhotos.length > 0 ? (
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-7">
+                {currentPhotos.map((item, idx) => (
+                  <div
+                    key={item.id || idx}
+                    className="bg-white rounded-[12px] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.06)] border border-slate-200/90 group hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer"
+                  >
+                    <div className="h-[210px] sm:h-[220px] w-full overflow-hidden bg-slate-100">
+                      <img
+                        src={getMediaUrl(item.img)}
+                        alt={item.title || 'Event Photo'}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        onError={(e) => {
+                          e.target.onerror = null;
+                          e.target.src = 'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=800&q=80';
+                        }}
+                      />
+                    </div>
                   </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            ) : (
+              <div className="py-16 text-center text-slate-400 font-sans">
+                <p className="text-[16px] font-[600]">No photos available for {effectiveSelectedYear} yet.</p>
+              </div>
+            )}
           </div>
         </section>
 
-        {/* 3. "Ready To Get Started?" CTA BANNER (Exact Reference Screenshot 2 Match) */}
+        {/* 3. "Ready To Get Started?" CTA BANNER (Exact Reference Screenshot Match) */}
         <section className="py-16 bg-[#00668C] text-white text-center font-sans relative overflow-hidden">
           <div className="max-w-[1360px] mx-auto px-4 sm:px-8 space-y-4 relative z-10">
             <h2 className="text-[40px] font-[800] text-white tracking-tight leading-tight font-sans section-content-title">
-              Ready To Get Started?
+              {ctaTitle}
             </h2>
             <p className="text-[15px] text-blue-100 max-w-3xl mx-auto leading-relaxed font-[400] font-sans section-content-desc">
-              With 23+ years of domain expertise, 700+ successful projects, & 1500+ happy customers, we have carved a niche in the software development industry.
+              {ctaSubtitle}
             </p>
             <div className="pt-4">
               <Link
-                to="/contact"
+                to={ctaButtonLink}
                 className="inline-flex items-center justify-center px-9 py-3.5 rounded-[6px] bg-white text-[#00668C] hover:bg-slate-100 font-[800] text-[15px] transition-all shadow-lg font-sans"
               >
-                Request A Free Quote
+                {ctaButtonText}
               </Link>
             </div>
           </div>

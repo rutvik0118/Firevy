@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { Plus, Trash2, Upload, Linkedin, Users, Image as ImageIcon, Loader2 } from 'lucide-react';
+import { Plus, Trash2, Upload, Linkedin, Users, Image as ImageIcon, Loader2, RotateCcw } from 'lucide-react';
 import { adminService } from '../../../services/adminService';
 import { getMediaUrl } from '../../../../utils/mediaUrl';
 import {
@@ -201,9 +201,10 @@ export const OurTeamForm = ({
   // 1. Hero State
   const hero = {
     title: formData.hero?.title || rawContent.heroHeading || 'Our Team',
-    subtitle: formData.hero?.subtitle || rawContent.heroSubtitle || 'Meet the team of innovative, driven and passionate individuals. We cultivate the diverse talents of our team and leverage their extraordinary perspectives and innovative ideas to make firevy.co the industry leader.',
-    ctaText: formData.hero?.ctaText || rawContent.heroButtonText || 'Meet our Team',
-    ctaLink: formData.hero?.ctaLink || rawContent.heroButtonLink || '/contact'
+    subtitle: formData.hero?.subtitle || rawContent.heroSubtitle || 'Behind every success of Firevy is our team of 100+ passionate engineers, designers, and innovators building future-ready enterprise solutions across the globe.',
+    ctaText: formData.hero?.ctaText || rawContent.heroButtonText || 'Connect Now',
+    ctaLink: formData.hero?.ctaLink || rawContent.heroButtonLink || '/contact',
+    image: formData.hero?.image ?? rawContent.heroImage ?? '/images/our-team-hero.svg'
   };
 
   // 2. Management Team State
@@ -365,7 +366,7 @@ export const OurTeamForm = ({
       {/* ========================================================================= */}
       <AdminFormSection
         title="1. Hero Section & Introduction"
-        subtitle="Team directory headline, subheading, and action button."
+        subtitle="Team directory headline, subheading, action button, and hero meeting graphic."
         badge="Hero Banner"
       >
         <AdminFormGrid columns={2}>
@@ -391,7 +392,7 @@ export const OurTeamForm = ({
                 updateRootSection('hero', 'ctaText', e.target.value);
                 updateContentField('heroButtonText', e.target.value);
               }}
-              placeholder="e.g. Meet our Team"
+              placeholder="e.g. Connect Now"
             />
           </AdminFormField>
 
@@ -404,7 +405,7 @@ export const OurTeamForm = ({
                 updateRootSection('hero', 'subtitle', e.target.value);
                 updateContentField('heroSubtitle', e.target.value);
               }}
-              placeholder="Enter team introduction narrative..."
+              placeholder="Behind every success of Firevy is our team of 100+ passionate engineers..."
             />
           </AdminFormField>
 
@@ -421,6 +422,103 @@ export const OurTeamForm = ({
             />
           </AdminFormField>
         </AdminFormGrid>
+
+        {/* Hero Side Image / Meeting Illustration Card */}
+        <div
+          style={{
+            marginTop: '18px',
+            backgroundColor: '#F8FAFC',
+            border: '1px solid #E2E8F0',
+            borderRadius: '12px',
+            padding: '16px'
+          }}
+        >
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '14px', flexWrap: 'wrap', gap: '8px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+              <div style={{ width: '32px', height: '32px', borderRadius: '6px', background: '#E0F2FE', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#0284C7' }}>
+                <ImageIcon size={18} />
+              </div>
+              <div>
+                <h4 style={{ margin: 0, fontSize: '13px', fontWeight: 800, color: '#006B8F', textTransform: 'uppercase' }}>
+                  ★ Hero Side Visual / Graphic (Team Meeting Illustration)
+                </h4>
+                <p style={{ margin: '2px 0 0', fontSize: '12px', color: '#64748B' }}>
+                  Right-side hero illustration next to the text. You can upload a new image, enter a custom URL, or restore the default illustration.
+                </p>
+              </div>
+            </div>
+
+            <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+              <button
+                type="button"
+                className="btn btn-sm btn-outline-secondary"
+                onClick={() => {
+                  updateRootSection('hero', 'image', '/images/our-team-hero.svg');
+                  updateContentField('heroImage', '/images/our-team-hero.svg');
+                }}
+                style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '11px', fontWeight: 600, padding: '4px 10px' }}
+                title="Reset to default team meeting illustration"
+              >
+                <RotateCcw size={13} />
+                Default Illustration
+              </button>
+              {hero.image && (
+                <button
+                  type="button"
+                  className="btn btn-sm btn-outline-danger"
+                  onClick={() => {
+                    updateRootSection('hero', 'image', '');
+                    updateContentField('heroImage', '');
+                  }}
+                  style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '11px', fontWeight: 600, padding: '4px 10px' }}
+                  title="Remove image"
+                >
+                  <Trash2 size={13} />
+                  Remove
+                </button>
+              )}
+            </div>
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '14px', alignItems: 'center' }}>
+            <ImageThumbnailPicker
+              label="Upload / Replace Hero Graphic"
+              value={hero.image}
+              onChange={(url) => {
+                updateRootSection('hero', 'image', url);
+                updateContentField('heroImage', url);
+              }}
+              width="140px"
+              height="100px"
+              shape="rect"
+              helperText="Upload any PNG, JPG, SVG or WebP from your device, or paste a link."
+            />
+
+            {hero.image && (
+              <div style={{ background: '#FFFFFF', border: '1px solid #E2E8F0', borderRadius: '8px', padding: '10px 14px', display: 'flex', alignItems: 'center', gap: '14px' }}>
+                <div style={{ width: '100px', height: '70px', background: '#F0F9FF', borderRadius: '6px', border: '1px solid #BAE6FD', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden', padding: '4px' }}>
+                  <img
+                    src={getMediaUrl(hero.image)}
+                    alt="Active Hero Preview"
+                    style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }}
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src = '/images/our-team-hero.svg';
+                    }}
+                  />
+                </div>
+                <div>
+                  <span style={{ display: 'inline-block', padding: '2px 8px', borderRadius: '12px', background: '#E0F2FE', color: '#0369A1', fontSize: '11px', fontWeight: 700, marginBottom: '2px' }}>
+                    Active Preview
+                  </span>
+                  <div style={{ fontSize: '11.5px', color: '#64748B', wordBreak: 'break-all' }}>
+                    {hero.image}
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
       </AdminFormSection>
 
       {/* ========================================================================= */}
@@ -886,7 +984,7 @@ export const OurTeamForm = ({
                     opacity: 0.95
                   }}
                 >
-                  {[
+                  {Array.from({ length: 144 }, (_, i) => [
                     'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80',
                     'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80',
                     'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80',
@@ -911,22 +1009,7 @@ export const OurTeamForm = ({
                     'https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&fit=crop&w=150&q=80',
                     'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80',
                     'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80'
-                  ].concat(
-                    Array.from({ length: 120 }, (_, i) => [
-                      'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80',
-                      'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=150&q=80',
-                      'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80',
-                      'https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=150&q=80',
-                      'https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?auto=format&fit=crop&w=150&q=80',
-                      'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=150&q=80',
-                      'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=150&q=80',
-                      'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=150&q=80',
-                      'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80',
-                      'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=150&q=80',
-                      'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&q=80',
-                      'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=150&q=80'
-                    ][i % 12])
-                  ).map((src, i) => (
+                  ][i % 24]).map((src, i) => (
                     <div key={i} style={{ aspectRatio: '3/4', overflow: 'hidden', backgroundColor: '#2D7392' }}>
                       <img
                         src={src}
