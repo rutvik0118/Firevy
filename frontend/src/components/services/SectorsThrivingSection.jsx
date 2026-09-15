@@ -50,7 +50,19 @@ import {
   QrCode,
   Warehouse,
   View,
-  FileCheck
+  FileCheck,
+  Plane,
+  Sprout,
+  Ticket,
+  Star,
+  Package,
+  MapPin,
+  Calendar,
+  Sparkles,
+  Share2,
+  CheckCircle2,
+  HeartPulse,
+  Camera
 } from 'lucide-react';
 
 export const SectorsThrivingSection = ({ title }) => {
@@ -81,6 +93,236 @@ export const SectorsThrivingSection = ({ title }) => {
   }, [isHovered]);
 
   const sectors = [
+    {
+      id: 'healthcare',
+      icon: <Stethoscope className="w-5 h-5 text-white" strokeWidth={2} />,
+      title: 'Healthcare App Development Services',
+      desc: 'Through custom web and mobile apps, business, health centers and clinics optimize healthcare management. The solutions streamline patient care and every aspect of medical operations so that organizations continue to grow.',
+      featuresLeft: [
+        {
+          name: 'EHR / EMR Integration',
+          bg: 'bg-[#EDE9FE]',
+          iconColor: 'text-[#7C3AED]',
+          icon: <FileText className="w-3.5 h-3.5" strokeWidth={2} />
+        },
+        {
+          name: 'Telemedicine Video',
+          bg: 'bg-[#FFEDD5]',
+          iconColor: 'text-[#EA580C]',
+          icon: <Video className="w-3.5 h-3.5" strokeWidth={2} />
+        },
+        {
+          name: 'Appointment Scheduling',
+          bg: 'bg-[#FCE7F3]',
+          iconColor: 'text-[#DB2777]',
+          icon: <Calendar className="w-3.5 h-3.5" strokeWidth={2} />
+        }
+      ],
+      featuresRight: [
+        {
+          name: 'HIPAA Compliance',
+          bg: 'bg-[#DCFCE7]',
+          iconColor: 'text-[#16A34A]',
+          icon: <Lock className="w-3.5 h-3.5" strokeWidth={2} />
+        },
+        {
+          name: 'Prescription Refills',
+          bg: 'bg-[#FEF9C3]',
+          iconColor: 'text-[#CA8A04]',
+          icon: <Pill className="w-3.5 h-3.5" strokeWidth={2} />
+        },
+        {
+          name: 'Wearable Device Sync',
+          bg: 'bg-[#CFFAFE]',
+          iconColor: 'text-[#0891B2]',
+          icon: <Activity className="w-3.5 h-3.5" strokeWidth={2} />
+        }
+      ]
+    },
+    {
+      id: 'logistics',
+      icon: <Truck className="w-5 h-5 text-white" strokeWidth={2} />,
+      title: 'Logistics App Development Company',
+      desc: 'Enterprise mobility is the most acceptable way to deliver something distinctive compared to other businesses in the same industry as you.',
+      featuresLeft: [
+        {
+          name: 'Last-Mile Delivery',
+          bg: 'bg-[#EDE9FE]',
+          iconColor: 'text-[#7C3AED]',
+          icon: <Truck className="w-3.5 h-3.5" strokeWidth={2} />
+        },
+        {
+          name: 'On-Demand Delivery',
+          bg: 'bg-[#FFEDD5]',
+          iconColor: 'text-[#EA580C]',
+          icon: <Zap className="w-3.5 h-3.5" strokeWidth={2} />
+        },
+        {
+          name: 'Fleet Management',
+          bg: 'bg-[#FCE7F3]',
+          iconColor: 'text-[#DB2777]',
+          icon: <Navigation className="w-3.5 h-3.5" strokeWidth={2} />
+        }
+      ],
+      featuresRight: [
+        {
+          name: 'On-Field Workforce',
+          bg: 'bg-[#DCFCE7]',
+          iconColor: 'text-[#16A34A]',
+          icon: <Users className="w-3.5 h-3.5" strokeWidth={2} />
+        },
+        {
+          name: 'On-Demand Delivery',
+          bg: 'bg-[#FEF9C3]',
+          iconColor: 'text-[#CA8A04]',
+          icon: <CheckCircle2 className="w-3.5 h-3.5" strokeWidth={2} />
+        },
+        {
+          name: 'Delivery Management',
+          bg: 'bg-[#CFFAFE]',
+          iconColor: 'text-[#0891B2]',
+          icon: <MapPin className="w-3.5 h-3.5" strokeWidth={2} />
+        }
+      ]
+    },
+    {
+      id: 'ecommerce',
+      icon: <Store className="w-5 h-5 text-white" strokeWidth={2} />,
+      title: 'E-commerce Website Development Services',
+      desc: 'As a top ecommerce Website Development Company, we assist B2B and B2C businesses in increasing client fulfillment, traffic growth, and lead generation. Our client-centric approach help businesses reimagine the digital commerce. Contact us now!',
+      featuresLeft: [
+        {
+          name: 'Customer Testimonials',
+          bg: 'bg-[#EDE9FE]',
+          iconColor: 'text-[#7C3AED]',
+          icon: <Star className="w-3.5 h-3.5" strokeWidth={2} />
+        },
+        {
+          name: 'Dashboard In Real-Time',
+          bg: 'bg-[#FFEDD5]',
+          iconColor: 'text-[#EA580C]',
+          icon: <BarChart className="w-3.5 h-3.5" strokeWidth={2} />
+        },
+        {
+          name: 'Catalog Administration',
+          bg: 'bg-[#FCE7F3]',
+          iconColor: 'text-[#DB2777]',
+          icon: <ShoppingCart className="w-3.5 h-3.5" strokeWidth={2} />
+        }
+      ],
+      featuresRight: [
+        {
+          name: 'Login To Social Media',
+          bg: 'bg-[#DCFCE7]',
+          iconColor: 'text-[#16A34A]',
+          icon: <Share2 className="w-3.5 h-3.5" strokeWidth={2} />
+        },
+        {
+          name: 'Management Of Stores',
+          bg: 'bg-[#FEF9C3]',
+          iconColor: 'text-[#CA8A04]',
+          icon: <Store className="w-3.5 h-3.5" strokeWidth={2} />
+        },
+        {
+          name: 'Order Monitoring',
+          bg: 'bg-[#CFFAFE]',
+          iconColor: 'text-[#0891B2]',
+          icon: <Package className="w-3.5 h-3.5" strokeWidth={2} />
+        }
+      ]
+    },
+    {
+      id: 'tourism',
+      icon: <Compass className="w-5 h-5 text-white" strokeWidth={2} />,
+      title: 'Tourism App Development',
+      desc: 'Because of the continued expansion of the e-commerce industry, every company now needs tourism website development.',
+      featuresLeft: [
+        {
+          name: 'Ticket, Hotel Bookings',
+          bg: 'bg-[#EDE9FE]',
+          iconColor: 'text-[#7C3AED]',
+          icon: <Ticket className="w-3.5 h-3.5" strokeWidth={2} />
+        },
+        {
+          name: 'Car Booking',
+          bg: 'bg-[#FFEDD5]',
+          iconColor: 'text-[#EA580C]',
+          icon: <Car className="w-3.5 h-3.5" strokeWidth={2} />
+        },
+        {
+          name: 'Ad-Hoc Services',
+          bg: 'bg-[#FCE7F3]',
+          iconColor: 'text-[#DB2777]',
+          icon: <Sparkles className="w-3.5 h-3.5" strokeWidth={2} />
+        }
+      ],
+      featuresRight: [
+        {
+          name: 'Travel Planning',
+          bg: 'bg-[#DCFCE7]',
+          iconColor: 'text-[#16A34A]',
+          icon: <MapPin className="w-3.5 h-3.5" strokeWidth={2} />
+        },
+        {
+          name: 'CRM Platform',
+          bg: 'bg-[#FEF9C3]',
+          iconColor: 'text-[#CA8A04]',
+          icon: <Users className="w-3.5 h-3.5" strokeWidth={2} />
+        },
+        {
+          name: 'Virtual Reality',
+          bg: 'bg-[#CFFAFE]',
+          iconColor: 'text-[#0891B2]',
+          icon: <Glasses className="w-3.5 h-3.5" strokeWidth={2} />
+        }
+      ]
+    },
+    {
+      id: 'agriculture',
+      icon: <Sprout className="w-5 h-5 text-white" strokeWidth={2} />,
+      title: 'Agriculture App Development',
+      desc: 'The progression of agriculture technology has been rapid in recent years. Retaining conventional methods does almost nothing to increase harvest and efficiency in this day and age.',
+      featuresLeft: [
+        {
+          name: 'Analytics',
+          bg: 'bg-[#EDE9FE]',
+          iconColor: 'text-[#7C3AED]',
+          icon: <BarChart className="w-3.5 h-3.5" strokeWidth={2} />
+        },
+        {
+          name: 'List Of Diseases And Treatment',
+          bg: 'bg-[#FFEDD5]',
+          iconColor: 'text-[#EA580C]',
+          icon: <FileText className="w-3.5 h-3.5" strokeWidth={2} />
+        },
+        {
+          name: 'Camera And Machine Vision',
+          bg: 'bg-[#FCE7F3]',
+          iconColor: 'text-[#DB2777]',
+          icon: <Camera className="w-3.5 h-3.5" strokeWidth={2} />
+        }
+      ],
+      featuresRight: [
+        {
+          name: 'Weather Forecast & Alerts',
+          bg: 'bg-[#DCFCE7]',
+          iconColor: 'text-[#16A34A]',
+          icon: <Wifi className="w-3.5 h-3.5" strokeWidth={2} />
+        },
+        {
+          name: 'Soil Health Monitoring',
+          bg: 'bg-[#FEF9C3]',
+          iconColor: 'text-[#CA8A04]',
+          icon: <Activity className="w-3.5 h-3.5" strokeWidth={2} />
+        },
+        {
+          name: 'Market Price Live Index',
+          bg: 'bg-[#CFFAFE]',
+          iconColor: 'text-[#0891B2]',
+          icon: <Coins className="w-3.5 h-3.5" strokeWidth={2} />
+        }
+      ]
+    },
     {
       id: 'retail',
       icon: <ShoppingBag className="w-5 h-5 text-white" strokeWidth={2} />,
