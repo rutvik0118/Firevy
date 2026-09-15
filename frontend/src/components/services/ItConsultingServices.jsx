@@ -4,6 +4,7 @@ import SEO from '../common/SEO';
 import Container from '../common/Container';
 import BrandLogoMarquee from '../common/BrandLogoMarquee';
 import ClutchTopRatedBanner from '../common/ClutchTopRatedBanner';
+import PremiumServicesGrid from '../common/PremiumServicesGrid';
 import {
   ShieldCheck,
   Zap,
@@ -959,61 +960,9 @@ export const ItConsultingServices = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* 5. CORE IT CONSULTING CAPABILITIES (DARK BLUE THEME) */}
+      {/* 5. OUR PREMIUM SERVICES (MATCHING FIRST IMAGE) */}
       {/* ========================================================================= */}
-      <section id="core-capabilities" className="py-20 bg-[#003859] text-white relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
-
-        <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            {/* Left Callout Box */}
-            <div className="lg:col-span-4 bg-gradient-to-br from-[#004A75] to-[#005F96] p-8 rounded-2xl border border-blue-400/30 shadow-xl space-y-6">
-              <span className="text-xs font-extrabold uppercase tracking-widest text-cyan-300 block">
-                Comprehensive Capabilities
-              </span>
-              <h2 className="text-2xl sm:text-3xl font-black text-white leading-tight">
-                Our Core IT Consulting Services
-              </h2>
-              <p className="text-sm text-slate-200 leading-relaxed">
-                From strategic technology planning to enterprise architecture and infrastructure optimization, we empower organizations with high-velocity advisory and execution.
-              </p>
-              <div className="pt-4 border-t border-white/20">
-                <a
-                  href="#consultation-form"
-                  className="inline-flex items-center justify-center w-full px-5 py-3 rounded-lg bg-white text-[#004A75] font-bold text-sm hover:bg-cyan-50 transition-colors shadow-md"
-                >
-                  <span>Request IT Audit</span>
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </a>
-              </div>
-            </div>
-
-            {/* Right Cards Grid */}
-            <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-5">
-              {coreServices.map((srv, idx) => {
-                const IconComponent = srv.icon;
-                return (
-                  <div
-                    key={idx}
-                    className="bg-white text-slate-800 p-6 rounded-2xl shadow-md border border-slate-100 hover:shadow-xl hover:border-blue-200 transition-all group"
-                  >
-                    <div className="w-12 h-12 rounded-xl bg-blue-50 text-[#005F96] flex items-center justify-center mb-4 group-hover:bg-[#005F96] group-hover:text-white transition-colors">
-                      <IconComponent className="w-6 h-6" />
-                    </div>
-                    <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-2 group-hover:text-[#005F96] transition-colors">
-                      {srv.title}
-                    </h3>
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                      {srv.desc}
-                    </p>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </Container>
-      </section>
+      <PremiumServicesGrid companyName="Firevy" />
 
       {/* ========================================================================= */}
       {/* 6. WHY CHOOSE FIREVY FOR IT CONSULTING SERVICES */}
