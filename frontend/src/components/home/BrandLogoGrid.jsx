@@ -28,6 +28,9 @@ const defaultBrandLogos = [
   { name: 'Cummins', image: '/images/ncummins.png' },
 
   // Row 4
+  { name: 'TATVAM OVERSEAS', image: '/images/tatvam_overseas.jpg' },
+  { name: 'DH', image: '/images/dh_logo.jpg' },
+  { name: 'SEASWORTH JEWELS', image: '/images/seasworth_jewels.png' },
   { name: 'TDSG', image: '/images/logo_tdsg.png' },
   { name: "L'ORÉAL", image: '/images/logo_loreal.png' },
   { name: 'ASTRAL PIPES', image: '/images/logo_astral.png' },
@@ -62,21 +65,24 @@ export const BrandLogoGrid = ({ data }) => {
           {brandLogos.map((brand, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-[22px] p-5 h-28 sm:h-32 shadow-[0px_10px_30px_rgba(0,0,0,0.06)] border border-slate-200/80 hover:border-[#006B8F] flex flex-col items-center justify-center text-center space-y-1.5 transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5 group cursor-pointer"
+              className="bg-white rounded-[22px] p-4 sm:p-5 h-24 sm:h-28 shadow-[0px_10px_30px_rgba(0,0,0,0.06)] border border-slate-200/80 hover:border-[#006B8F] flex items-center justify-center text-center transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5 group cursor-pointer"
             >
               {brand.image ? (
                 <img
                   src={getMediaUrl(brand.image)}
                   alt={brand.name}
-                  className="h-8 w-auto object-contain max-w-[90%]"
+                  className="max-h-9 sm:max-h-11 w-auto max-w-[85%] object-contain transition-transform duration-200 group-hover:scale-105"
                   onError={(e) => {
                     e.target.style.display = 'none';
+                    if (e.target.nextElementSibling) {
+                      e.target.nextElementSibling.classList.remove('hidden');
+                    }
                   }}
                 />
               ) : (
                 <span className="text-2xl group-hover:scale-110 transition-transform">{brand.symbol || '🏢'}</span>
               )}
-              <span className={`${brand.color || 'text-slate-900'} ${brand.font || 'font-extrabold text-xs sm:text-sm'} font-sans uppercase leading-tight`}>
+              <span className={`${brand.image ? 'hidden' : 'inline-block'} ${brand.color || 'text-slate-900'} ${brand.font || 'font-extrabold text-xs sm:text-sm'} font-sans uppercase leading-tight`}>
                 {brand.name}
               </span>
             </div>

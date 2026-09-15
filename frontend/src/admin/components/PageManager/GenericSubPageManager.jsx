@@ -253,6 +253,14 @@ export const GenericSubPageManager = ({
           metricsSection: data.content?.metricsSection || null,
           coreValues: data.content?.coreValues || null,
           reviewsSection: data.content?.reviewsSection || null,
+          heroFeatured: data.content?.heroFeatured || null,
+          secondaryFeatured: data.content?.secondaryFeatured || null,
+          sidebar: data.content?.sidebar || null,
+          ctaBanner: data.content?.ctaBanner || null,
+          newsletter: data.content?.newsletter || null,
+          downloadableInfo: data.content?.downloadableInfo || null,
+          brochureForm: data.content?.brochureForm || null,
+          brochurePdf: data.content?.brochurePdf || data.brochurePdf || '',
           heroImage: data.heroImage || '',
           heroVideo: data.heroVideo || '',
           cta: {
@@ -374,6 +382,14 @@ export const GenericSubPageManager = ({
           metricsSection: formData.metricsSection || formData.content?.metricsSection,
           coreValues: formData.coreValues || formData.content?.coreValues,
           reviewsSection: formData.reviewsSection || formData.content?.reviewsSection,
+          heroFeatured: formData.heroFeatured || formData.content?.heroFeatured,
+          secondaryFeatured: formData.secondaryFeatured || formData.content?.secondaryFeatured,
+          sidebar: formData.sidebar || formData.content?.sidebar,
+          ctaBanner: formData.ctaBanner || formData.content?.ctaBanner,
+          newsletter: formData.newsletter || formData.content?.newsletter,
+          downloadableInfo: formData.downloadableInfo || formData.content?.downloadableInfo,
+          brochureForm: formData.brochureForm || formData.content?.brochureForm,
+          brochurePdf: formData.brochurePdf || formData.content?.brochurePdf,
           missionHeading: formData.missionVision?.missionTitle,
           missionText: formData.missionVision?.missionText,
           visionHeading: formData.missionVision?.visionTitle,
@@ -437,6 +453,14 @@ export const GenericSubPageManager = ({
           metricsSection: formData.metricsSection || formData.content?.metricsSection,
           coreValues: formData.coreValues || formData.content?.coreValues,
           reviewsSection: formData.reviewsSection || formData.content?.reviewsSection,
+          heroFeatured: formData.heroFeatured || formData.content?.heroFeatured,
+          secondaryFeatured: formData.secondaryFeatured || formData.content?.secondaryFeatured,
+          sidebar: formData.sidebar || formData.content?.sidebar,
+          ctaBanner: formData.ctaBanner || formData.content?.ctaBanner,
+          newsletter: formData.newsletter || formData.content?.newsletter,
+          downloadableInfo: formData.downloadableInfo || formData.content?.downloadableInfo,
+          brochureForm: formData.brochureForm || formData.content?.brochureForm,
+          brochurePdf: formData.brochurePdf || formData.content?.brochurePdf,
           missionHeading: formData.missionVision?.missionTitle,
           missionText: formData.missionVision?.missionText,
           visionHeading: formData.missionVision?.visionTitle,
@@ -581,6 +605,8 @@ export const GenericSubPageManager = ({
           />
         );
       case 'download-brochure':
+      case 'brochure':
+      case 'corporate-brochure':
         return (
           <BrochureForm
             formData={formData}

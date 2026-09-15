@@ -125,6 +125,11 @@ export function App() {
                 <Route path="/insightful-videos" element={<InsightfulVideos />} />
                 <Route path="/insightful-video" element={<InsightfulVideos />} />
                 <Route path="/company/:slug" element={<CompanySubDetails />} />
+                <Route path="/company/brochure" element={<CompanySubDetails />} />
+                <Route path="/company/download-brochure" element={<CompanySubDetails />} />
+                <Route path="/company/corporate-brochure" element={<CompanySubDetails />} />
+                <Route path="/download-brochure" element={<CompanySubDetails />} />
+                <Route path="/corporate-brochure" element={<CompanySubDetails />} />
                 <Route path="/awards-and-recognition" element={<CompanySubDetails />} />
                 <Route path="/awards-recognition" element={<CompanySubDetails />} />
                 <Route path="/insightful-videos" element={<CompanySubDetails />} />

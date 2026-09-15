@@ -22,6 +22,8 @@ import contactApi from '../services/contactApi';
 import NewsletterSubscribeBanner from '../components/common/NewsletterSubscribeBanner';
 import SuccessMatrixGrid from '../components/home/SuccessMatrixGrid';
 import ProcessWeFollowPillStages from '../components/common/ProcessWeFollowPillStages';
+import { BrandLogoMarquee } from '../components/common/BrandLogoMarquee';
+import InnovativeSolutionVideo from '../components/home/InnovativeSolutionVideo';
 
 export const Contact = () => {
   // Form State
@@ -614,67 +616,139 @@ export const Contact = () => {
         </Container>
       </section>
 
-      {/* Global Locations / Office Details Section */}
-      <section className="py-14 sm:py-16 bg-white border-t border-slate-200/80 text-left font-sans">
+
+      {/* ========================================================= */}
+      {/* "You Can Also Contact Us By" — Sales / Careers / Product  */}
+      {/* ========================================================= */}
+      <section className="py-14 sm:py-16 bg-[#F0F6FA] text-left font-sans">
         <Container className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-10 text-center max-w-2xl mx-auto">
-            <h3 className="text-[26px] sm:text-[32px] font-[800] text-slate-900 tracking-tight">
-              Our Global Presence
-            </h3>
-            <p className="text-[14px] text-slate-600 mt-2 font-normal">
-              Serving Fortune 500 enterprises and hyper-growth startups across 6 international office locations.
-            </p>
-          </div>
+          <h3 className="text-[26px] sm:text-[32px] font-[800] text-slate-900 tracking-tight text-center mb-10">
+            You Can Also Contact Us By
+          </h3>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            
-            {/* India HQ */}
-            <div className="p-6 rounded-[12px] bg-[#F8FAFC] border border-slate-200/80 hover:border-blue-300 transition-colors space-y-3">
-              <div className="flex items-center space-x-2.5">
-                <span className="text-2xl">🇮🇳</span>
-                <h4 className="text-[16px] font-[800] text-slate-900">India (HQ & Development Hub)</h4>
-              </div>
-              <p className="text-[13px] text-slate-600 leading-relaxed">
-                C/102-103, Ganesh Meridian, Opp. Kargil Petrol Pump, S.G. Highway, Ahmedabad - 380060, Gujarat
-              </p>
-              <div className="pt-1 text-[13px] space-y-1">
-                <div><span className="font-semibold text-slate-700">Phone:</span> <a href="tel:+919429709662" className="text-[#006085] hover:underline font-medium">+91-942-970-9662</a></div>
-                <div><span className="font-semibold text-slate-700">Email:</span> <a href="mailto:contact@firevy.co" className="text-[#006085] hover:underline font-medium">contact@firevy.co</a></div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+
+            {/* Sales */}
+            <div className="space-y-3">
+              <h4 className="text-[18px] sm:text-[20px] font-[800] text-slate-900 tracking-tight">Sales</h4>
+              <div className="bg-white rounded-[14px] p-5 sm:p-6 border border-slate-200/80 shadow-sm space-y-3.5">
+                <div className="flex items-center space-x-3">
+                  <div className="w-9 h-9 rounded-full bg-[#006085]/10 flex items-center justify-center shrink-0">
+                    <Phone className="w-4 h-4 text-[#006085]" />
+                  </div>
+                  <div className="text-[13px] text-slate-700 space-y-0.5">
+                    <div><span className="font-semibold text-slate-500 text-[11px] uppercase tracking-wider">IN:</span>{' '}<a href="tel:+919429709662" className="font-[600] text-slate-800 hover:text-[#006085]">+91-942-970-9662</a></div>
+                    <div><span className="font-semibold text-slate-500 text-[11px] uppercase tracking-wider">US:</span>{' '}<a href="tel:+17542587670" className="font-[600] text-slate-800 hover:text-[#006085]">+1-754-258-7670</a></div>
+                  </div>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="w-9 h-9 rounded-full bg-[#006085]/10 flex items-center justify-center shrink-0">
+                    <Mail className="w-4 h-4 text-[#006085]" />
+                  </div>
+                  <a href="mailto:contact@sapphiresolutions.net" className="text-[13px] font-[600] text-slate-800 hover:text-[#006085]">contact@sapphiresolutions.net</a>
+                </div>
               </div>
             </div>
 
-            {/* USA Office */}
-            <div className="p-6 rounded-[12px] bg-[#F8FAFC] border border-slate-200/80 hover:border-blue-300 transition-colors space-y-3">
-              <div className="flex items-center space-x-2.5">
-                <span className="text-2xl">🇺🇸</span>
-                <h4 className="text-[16px] font-[800] text-slate-900">United States</h4>
-              </div>
-              <p className="text-[13px] text-slate-600 leading-relaxed">
-                1207 Delaware Ave #1044, Wilmington, DE 19806, United States
-              </p>
-              <div className="pt-1 text-[13px] space-y-1">
-                <div><span className="font-semibold text-slate-700">Phone:</span> <a href="tel:+13023071343" className="text-[#006085] hover:underline font-medium">+1 (302) 307-1343</a></div>
-                <div><span className="font-semibold text-slate-700">Email:</span> <a href="mailto:usa@firevy.co" className="text-[#006085] hover:underline font-medium">usa@firevy.co</a></div>
+            {/* Careers (Jobs) */}
+            <div className="space-y-3">
+              <h4 className="text-[18px] sm:text-[20px] font-[800] text-slate-900 tracking-tight">Careers (Jobs)</h4>
+              <div className="bg-white rounded-[14px] p-5 sm:p-6 border border-slate-200/80 shadow-sm space-y-3.5">
+                <div className="flex items-center space-x-3">
+                  <div className="w-9 h-9 rounded-full bg-[#006085]/10 flex items-center justify-center shrink-0">
+                    <Phone className="w-4 h-4 text-[#006085]" />
+                  </div>
+                  <div className="text-[13px] text-slate-700 space-y-0.5">
+                    <div><span className="font-semibold text-slate-500 text-[11px] uppercase tracking-wider">IN:</span>{' '}<a href="tel:+919099976034" className="font-[600] text-slate-800 hover:text-[#006085]">+91-909-997-6034</a></div>
+                    <div><span className="font-semibold text-slate-500 text-[11px] uppercase tracking-wider">US:</span>{' '}<a href="tel:+17542587670" className="font-[600] text-slate-800 hover:text-[#006085]">+1-754-258-7670</a></div>
+                  </div>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="w-9 h-9 rounded-full bg-[#006085]/10 flex items-center justify-center shrink-0">
+                    <Mail className="w-4 h-4 text-[#006085]" />
+                  </div>
+                  <a href="mailto:careers@sapphiresolutions.net" className="text-[13px] font-[600] text-slate-800 hover:text-[#006085]">careers@sapphiresolutions.net</a>
+                </div>
               </div>
             </div>
 
-            {/* UAE Office */}
-            <div className="p-6 rounded-[12px] bg-[#F8FAFC] border border-slate-200/80 hover:border-blue-300 transition-colors space-y-3">
-              <div className="flex items-center space-x-2.5">
-                <span className="text-2xl">🇦🇪</span>
-                <h4 className="text-[16px] font-[800] text-slate-900">United Arab Emirates</h4>
-              </div>
-              <p className="text-[13px] text-slate-600 leading-relaxed">
-                Building A1, Dubai Digital Park, Dubai Silicon Oasis, Dubai, UAE
-              </p>
-              <div className="pt-1 text-[13px] space-y-1">
-                <div><span className="font-semibold text-slate-700">Email:</span> <a href="mailto:uae@firevy.co" className="text-[#006085] hover:underline font-medium">uae@firevy.co</a></div>
+            {/* Product */}
+            <div className="space-y-3">
+              <h4 className="text-[18px] sm:text-[20px] font-[800] text-slate-900 tracking-tight">Product</h4>
+              <div className="bg-white rounded-[14px] p-5 sm:p-6 border border-slate-200/80 shadow-sm space-y-3.5">
+                <div className="flex items-center space-x-3">
+                  <div className="w-9 h-9 rounded-full bg-[#006085]/10 flex items-center justify-center shrink-0">
+                    <MapPin className="w-4 h-4 text-[#006085]" />
+                  </div>
+                  <a href="https://www.vidyalayaschoolsoftware.com" target="_blank" rel="noopener noreferrer" className="text-[13px] font-[600] text-slate-800 hover:text-[#006085]">www.vidyalayaschoolsoftware.com</a>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="w-9 h-9 rounded-full bg-[#006085]/10 flex items-center justify-center shrink-0">
+                    <MapPin className="w-4 h-4 text-[#006085]" />
+                  </div>
+                  <a href="https://www.occucare.co.in" target="_blank" rel="noopener noreferrer" className="text-[13px] font-[600] text-slate-800 hover:text-[#006085]">www.occucare.co.in</a>
+                </div>
               </div>
             </div>
 
           </div>
         </Container>
       </section>
+
+      {/* ========================================================= */}
+      {/* Review Badges Bar — Google / Clutch / GoodFirms           */}
+      {/* ========================================================= */}
+      <section className="bg-[#003C54] py-8 sm:py-10 font-sans">
+        <Container className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            <p className="text-white text-[16px] sm:text-[18px] font-[700] leading-snug max-w-md">
+              We are proud to be one of the top-rated companies on best customer review sites.
+            </p>
+            <div className="flex items-center gap-4 sm:gap-6">
+              {/* Google Badge */}
+              <div className="bg-white rounded-[10px] px-4 sm:px-5 py-3 flex flex-col items-center space-y-1 min-w-[120px] shadow-sm">
+                <div className="flex items-center space-x-1.5">
+                  <img src="/images/google.webp" alt="Google" className="h-5 object-contain" onError={(e) => { e.target.style.display = 'none'; }} />
+                  <span className="text-[14px] font-[800] text-slate-900">Google</span>
+                </div>
+                <div className="flex items-center space-x-0.5">
+                  {[...Array(4)].map((_, i) => <Star key={i} className="w-3.5 h-3.5 fill-[#FDB022] text-[#FDB022]" />)}
+                  <Star className="w-3.5 h-3.5 fill-[#FDB022]/50 text-[#FDB022]" />
+                </div>
+                <span className="text-[10px] font-[700] text-[#006085] uppercase tracking-wider">900+ REVIEWS</span>
+              </div>
+              {/* Clutch Badge */}
+              <div className="bg-white rounded-[10px] px-4 sm:px-5 py-3 flex flex-col items-center space-y-1 min-w-[120px] shadow-sm">
+                <div className="flex items-center space-x-1.5">
+                  <img src="/images/clutch.png" alt="Clutch" className="h-5 object-contain" onError={(e) => { e.target.style.display = 'none'; }} />
+                  <span className="text-[14px] font-[800] text-slate-900">Clutch</span>
+                </div>
+                <div className="flex items-center space-x-0.5">
+                  {[...Array(5)].map((_, i) => <Star key={i} className="w-3.5 h-3.5 fill-[#FDB022] text-[#FDB022]" />)}
+                </div>
+                <span className="text-[10px] font-[700] text-[#006085] uppercase tracking-wider">320+ REVIEWS</span>
+              </div>
+              {/* GoodFirms Badge */}
+              <div className="bg-white rounded-[10px] px-4 sm:px-5 py-3 flex flex-col items-center space-y-1 min-w-[120px] shadow-sm">
+                <div className="flex items-center space-x-1.5">
+                  <img src="/images/goodfirms.png" alt="GoodFirms" className="h-5 object-contain" onError={(e) => { e.target.style.display = 'none'; }} />
+                  <span className="text-[14px] font-[800] text-slate-900">GoodFirms</span>
+                </div>
+                <div className="flex items-center space-x-0.5">
+                  {[...Array(5)].map((_, i) => <Star key={i} className="w-3.5 h-3.5 fill-[#FDB022] text-[#FDB022]" />)}
+                </div>
+                <span className="text-[10px] font-[700] text-[#006085] uppercase tracking-wider">200+ REVIEWS</span>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* Unveiling Our Innovative Solution */}
+      <InnovativeSolutionVideo />
+
+      {/* Brand Logo Marquee */}
+      <BrandLogoMarquee />
 
       {/* Success Matrix Grid Component (Below Our Global Presence) */}
       <SuccessMatrixGrid />
