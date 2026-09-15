@@ -12,7 +12,7 @@ import OurStoryTheirWordsSection from './OurStoryTheirWordsSection';
 import FeaturedInBrandsSection from './FeaturedInBrandsSection';
 import DigitalTransformationSlider from '../common/DigitalTransformationSlider';
 import SapphireFaqSection from '../common/SapphireFaqSection';
-import AndroidRecentBlogsSection from './AndroidRecentBlogsSection';
+import NodeJsRecentBlogsSection from './NodeJsRecentBlogsSection';
 import AndroidWhatSetsUsApartSection from './AndroidWhatSetsUsApartSection';
 import AndroidChallengeCtaBanner from './AndroidChallengeCtaBanner';
 import PremiumServicesGrid from '../common/PremiumServicesGrid';
@@ -27,7 +27,8 @@ import NodeJsVideoShowcaseSection from './NodeJsVideoShowcaseSection';
 import SapphireTechExpertiseSection from './SapphireTechExpertiseSection';
 import OurNodeJsServicesSliderSection from './OurNodeJsServicesSliderSection';
 import NodeJsBenefitsSection from './NodeJsBenefitsSection';
-import NodeJsTechStackSection from './NodeJsTechStackSection';
+import NodeJsComparativeAnalysisSection from './NodeJsComparativeAnalysisSection';
+import NodeJsWhatOurClientsSaySection from './NodeJsWhatOurClientsSaySection';
 import NodeJsExceptionalProcessSection from './NodeJsExceptionalProcessSection';
 import BrandLogoMarquee from '../common/BrandLogoMarquee';
 import ClutchTopRatedBanner from '../common/ClutchTopRatedBanner';
@@ -400,6 +401,11 @@ export const NodeJsDevelopmentService = () => {
       <AndroidHiringModels />
 
       {/* =========================================================================
+          COMPARATIVE ANALYSIS (EXACT 1:1 MATCH)
+          ========================================================================= */}
+      <NodeJsComparativeAnalysisSection />
+
+      {/* =========================================================================
           UNVEILING OUR INNOVATIVE SOLUTION (EXACT 1:1 MATCH)
           ========================================================================= */}
       <InnovativeSolutionsVideoSection />
@@ -425,9 +431,9 @@ export const NodeJsDevelopmentService = () => {
       <SuccessMatrix />
 
       {/* =========================================================================
-          TECHNOLOGY STACK (EXACT 1:1 MATCH)
+          WHAT OUR CLIENTS SAY (EXACT 1:1 MATCH)
           ========================================================================= */}
-      <NodeJsTechStackSection />
+      <NodeJsWhatOurClientsSaySection />
 
       {/* =========================================================================
           WE HAVE BEEN FEATURED IN (EXACT 1:1 MATCH)
@@ -445,7 +451,7 @@ export const NodeJsDevelopmentService = () => {
         subtitle="Find answers to common questions about our Node.js enterprise application development services."
         faqs={nodeFaqs}
       />
-      <AndroidRecentBlogsSection />
+      <NodeJsRecentBlogsSection />
       <AndroidWhatSetsUsApartSection />
       <AndroidChallengeCtaBanner />
     </div>

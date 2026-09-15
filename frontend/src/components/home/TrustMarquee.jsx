@@ -3,16 +3,22 @@ import { getMediaUrl } from '../../utils/mediaUrl';
 import { homePageService } from '../../services/homePageService';
 
 const defaultBrandLogos = [
-  { name: 'adani', color: 'text-[#9B111E] font-serif lowercase tracking-normal text-2xl font-bold', symbol: '' },
-  { name: 'TOYOTA', color: 'text-red-600 font-sans tracking-wider font-extrabold', symbol: '🔴' },
-  { name: 'المراعي Almarai', color: 'text-[#005B94] font-sans font-bold', symbol: '🌾' },
-  { name: 'CEMENT CK BIRLA GROUP', color: 'text-slate-800 font-sans font-bold', symbol: '🏗️' },
-  { name: 'AMERICAN EXPRESS', color: 'text-[#006FCF] font-sans tracking-widest font-extrabold', symbol: '💳' },
-  { name: 'Alembic Touching lives over 100 years', color: 'text-[#00875A] font-sans font-semibold', symbol: '🧪' },
-  { name: 'HONDA', color: 'text-[#CC0000] font-sans font-black tracking-widest', symbol: '🏎️' },
-  { name: 'LafargeHolcim', color: 'text-slate-700 font-sans font-bold', symbol: '🏢' },
-  { name: 'Cummins', color: 'text-[#006B8F] font-sans font-bold', symbol: '⚙️' },
-  { name: "L'ORÉAL", color: 'text-slate-900 font-sans font-bold', symbol: '✨' }
+  { name: 'Adani', image: '/images/logo_adani.svg' },
+  { name: 'TOYOTA', image: '/images/toyota_logo.webp' },
+  { name: 'Almarai', image: '/images/almarai_corporate_logo.png' },
+  { name: 'ORIENT CEMENT', image: '/images/orient_logo.svg' },
+  { name: 'AMERICAN EXPRESS', image: '/images/logo_american_express.svg' },
+  { name: 'TATVAM OVERSEAS', image: '/images/tatvam_overseas.jpg' },
+  { name: 'Alembic', image: '/images/alembic_logo.svg' },
+  { name: 'DH', image: '/images/dh_logo.jpg' },
+  { name: 'HONDA', image: '/images/honda_logo.png' },
+  { name: 'SEASWORTH JEWELS', image: '/images/seasworth_jewels.png' },
+  { name: 'LafargeHolcim', image: '/images/logo_lafargeHolcim.svg' },
+  { name: 'Cummins', image: '/images/ncummins.png' },
+  { name: "L'ORÉAL", image: '/images/logo_loreal.png' },
+  { name: 'TDSG', image: '/images/logo_tdsg.png' },
+  { name: 'ASTRAL PIPES', image: '/images/logo_astral.png' },
+  { name: 'CLP INDIA', image: '/images/logo_clp_india.svg' }
 ];
 
 export const TrustMarquee = ({ data }) => {
@@ -46,39 +52,31 @@ export const TrustMarquee = ({ data }) => {
       {/* Infinite Auto-Scrolling Marquee Wrapper */}
       <div className="relative w-full overflow-hidden group">
         {/* Gradient Fades on Left & Right */}
-        <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white via-white/80 to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-white via-white/80 to-transparent z-10 pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white via-white/90 to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-white via-white/90 to-transparent z-10 pointer-events-none" />
 
         <div className="flex w-max animate-marquee group-hover:[animation-play-state:paused] items-center">
           {[...brandLogos, ...brandLogos, ...brandLogos, ...brandLogos].map((logo, idx) => (
             <div
               key={idx}
-              className="flex items-center space-x-3 mx-8 py-2 px-4 opacity-90 hover:opacity-100 transition-opacity duration-200 cursor-pointer shrink-0"
+              className="flex items-center justify-center mx-8 sm:mx-10 py-1.5 px-3 opacity-90 hover:opacity-100 transition-all duration-200 cursor-pointer shrink-0 h-10 sm:h-12"
             >
               {logo.image ? (
-                <div className="flex items-center space-x-2.5">
-                  <img
-                    src={getMediaUrl(logo.image)}
-                    alt={logo.name || 'Brand Logo'}
-                    className="h-8 sm:h-9 w-auto object-contain max-w-[140px]"
-                    onError={(e) => {
-                      e.target.style.display = 'none';
-                    }}
-                  />
-                  {logo.name && (
-                    <span className={`text-base sm:text-lg font-black tracking-wider ${logo.color || 'text-slate-900'} font-sans uppercase`}>
-                      {logo.name}
-                    </span>
-                  )}
-                </div>
-              ) : (
-                <div className="flex items-center space-x-2.5">
-                  {logo.symbol && <span className="text-xl">{logo.symbol}</span>}
-                  <span className={`text-base sm:text-lg font-black tracking-wider ${logo.color || 'text-slate-900'} font-sans uppercase`}>
-                    {logo.name}
-                  </span>
-                </div>
-              )}
+                <img
+                  src={getMediaUrl(logo.image)}
+                  alt={logo.name || 'Brand Logo'}
+                  className="h-7 sm:h-9 w-auto max-w-[140px] sm:max-w-[160px] object-contain transition-transform duration-200 hover:scale-105"
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                    if (e.target.nextElementSibling) {
+                      e.target.nextElementSibling.classList.remove('hidden');
+                    }
+                  }}
+                />
+              ) : null}
+              <span className={`${logo.image ? 'hidden' : 'inline-block'} text-base sm:text-lg font-black tracking-wider ${logo.color || 'text-slate-800'} font-sans uppercase`}>
+                {logo.name}
+              </span>
             </div>
           ))}
         </div>

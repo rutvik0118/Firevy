@@ -473,18 +473,20 @@ export const toggleClutchReview = asyncHandler(async (req, res) => {
 // 10. SINGLETON COMPANY SECTIONS CONTROLLER
 // ============================================================
 export const getSectionBySlug = asyncHandler(async (req, res) => {
-  const { slug } = req.params;
+  const rawSlug = req.params.slug;
+  const slug = (rawSlug === 'blogs') ? 'blog' : rawSlug;
   const isPreview = req.query.preview === 'true';
   const isAdmin = req.query.admin === 'true';
 
   let section = await CompanySection.findOne({ slug });
 
   if (!section) {
-    const seedData = initialCompanySections[slug];
+    const seedData = initialCompanySections[slug] || initialCompanySections[rawSlug];
     if (seedData) {
       try {
         section = await CompanySection.create({
           ...seedData,
+          slug,
           status: 'published',
           publishedAt: new Date(),
           publishedData: seedData,
@@ -522,7 +524,8 @@ export const getSectionBySlug = asyncHandler(async (req, res) => {
 });
 
 export const updateSectionBySlug = asyncHandler(async (req, res) => {
-  const { slug } = req.params;
+  const rawSlug = req.params.slug;
+  const slug = (rawSlug === 'blogs') ? 'blog' : rawSlug;
   const section = await CompanySection.findOneAndUpdate(
     { slug },
     {
@@ -539,7 +542,8 @@ export const updateSectionBySlug = asyncHandler(async (req, res) => {
 });
 
 export const saveDraftSection = asyncHandler(async (req, res) => {
-  const { slug } = req.params;
+  const rawSlug = req.params.slug;
+  const slug = (rawSlug === 'blogs') ? 'blog' : rawSlug;
   const existing = await CompanySection.findOne({ slug });
   const section = await CompanySection.findOneAndUpdate(
     { slug },
@@ -556,7 +560,8 @@ export const saveDraftSection = asyncHandler(async (req, res) => {
 });
 
 export const publishSection = asyncHandler(async (req, res) => {
-  const { slug } = req.params;
+  const rawSlug = req.params.slug;
+  const slug = (rawSlug === 'blogs') ? 'blog' : rawSlug;
   const bodyData = req.body && Object.keys(req.body).length > 0 ? req.body : null;
   const existing = await CompanySection.findOne({ slug });
   const dataToPublish = bodyData || existing?.draftData || existing || initialCompanySections[slug];

@@ -104,7 +104,6 @@ const AnimatedCounter = ({ value }) => {
   return (
     <span
       ref={ref}
-      onMouseEnter={runAnimation}
       className="inline-block tabular-nums font-[900] text-[#005F96] tracking-tight leading-none font-sans"
     >
       {count}{suffix}

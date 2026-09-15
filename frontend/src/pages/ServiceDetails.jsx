@@ -27,6 +27,7 @@ import HireCSharpDevelopersService from '../components/services/HireCSharpDevelo
 import HireBootstrapDevelopersService from '../components/services/HireBootstrapDevelopersService';
 import IWatchAppDevelopmentService from '../components/services/IWatchAppDevelopmentService';
 import IOSAppDevelopmentService from '../components/services/IOSAppDevelopmentService';
+import MobileAppDevelopmentService from '../components/services/MobileAppDevelopmentService';
 import XamarinAppDevelopmentService from '../components/services/XamarinAppDevelopmentService';
 import WordPressDevelopmentService from '../components/services/WordPressDevelopmentService';
 import DrupalDevelopmentService from '../components/services/DrupalDevelopmentService';
@@ -134,6 +135,12 @@ export const ServiceDetails = () => {
 
   const isIOS = currentSlug.includes('ios') ||
     currentSlug.includes('iphone');
+
+  const isMobileApp = currentSlug === 'mobile-app-development' ||
+    currentSlug === 'mobile-app' ||
+    currentSlug === 'mobile-application' ||
+    currentSlug === 'mobile-application-development' ||
+    (currentSlug.includes('mobile-app') && !isReactNative && !isFlutter && !isIOS && !isAndroid && !isXamarin && !isIWatch);
 
   const isNet = currentSlug === 'net' ||
     currentSlug.includes('dot-net') ||
@@ -329,13 +336,17 @@ export const ServiceDetails = () => {
   };
 
   useEffect(() => {
-    if (!isBootstrap && !isPowerAutomate && !isPowerApps && !isSharePoint && !isVue && !isReact && !isAngular && !isIot && !isPwa && !isRpa && !isVR && !isFullStack && !isBlockchain && !isArtificialIntelligence && !isGenerativeAi && !isNodeJs && !isJava && !isPhp && !isNet && !isXamarin && !isAndroid && !isReactNative && !isFlutter && !isIOS && !isHealthcare && !isEducation && !isUber && !isSpotify && !isZomato && !isAmazon && !isVisitor && !isWarehouse && !isClover && !isCSharp && !isIWatch && !isWordpress && !isDrupal && !isUmbraco && !isSitecore && !isSitefinity && !isMagento && !isShopify) {
+    if (!isMobileApp && !isBootstrap && !isPowerAutomate && !isPowerApps && !isSharePoint && !isVue && !isReact && !isAngular && !isIot && !isPwa && !isRpa && !isVR && !isFullStack && !isBlockchain && !isArtificialIntelligence && !isGenerativeAi && !isNodeJs && !isJava && !isPhp && !isNet && !isXamarin && !isAndroid && !isReactNative && !isFlutter && !isIOS && !isHealthcare && !isEducation && !isUber && !isSpotify && !isZomato && !isAmazon && !isVisitor && !isWarehouse && !isClover && !isCSharp && !isIWatch && !isWordpress && !isDrupal && !isUmbraco && !isSitecore && !isSitefinity && !isMagento && !isShopify) {
       fetchServiceDetails();
     } else {
       setLoading(false);
     }
     window.scrollTo(0, 0);
   }, [currentSlug]);
+
+  if (isMobileApp) {
+    return <MobileAppDevelopmentService />;
+  }
 
   if (isBootstrap) {
     return <HireBootstrapDevelopersService />;

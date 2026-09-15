@@ -1,29 +1,38 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-// 0. Waymark Maps Logo
+// 1. Adani Logo (Gradient text)
+const AdaniLogo = () => (
+  <div className="flex items-center space-x-2">
+    <span className="text-[34px] sm:text-[38px] font-[900] bg-gradient-to-r from-[#0072BC] via-[#5C2E91] to-[#E91E63] bg-clip-text text-transparent leading-none tracking-tight">
+      adani
+    </span>
+  </div>
+);
+
+// 2. Waymark Maps Logo
 const WaymarkLogo = () => (
-  <div>
-    <div className="text-[26px] sm:text-[28px] font-[900] text-[#5B21B6] leading-none tracking-tight">
+  <div className="flex flex-col">
+    <div className="text-[28px] sm:text-[32px] font-[900] text-[#581C87] leading-none tracking-tight">
       Waymark
     </div>
-    <div className="text-[22px] sm:text-[24px] font-[800] text-[#5B21B6] leading-none tracking-tight mt-0.5">
+    <div className="text-[24px] sm:text-[28px] font-[900] text-[#581C87] leading-none tracking-tight mt-0.5">
       Maps
     </div>
   </div>
 );
 
-// 1. BeeCar CARE Logo
+// 3. BeeCar CARE Logo
 const BeeCarLogo = () => (
-  <div className="flex items-center space-x-2">
-    <svg viewBox="0 0 40 40" className="w-10 h-10 shrink-0">
+  <div className="flex items-center space-x-2.5">
+    <svg viewBox="0 0 40 40" className="w-11 h-11 shrink-0">
       {/* Hexagon Yellow Bee Icon */}
-      <polygon points="20,2 36,11 36,29 20,38 4,29 4,11" fill="#FFD700" stroke="#111827" strokeWidth="2.5" />
+      <polygon points="20,2 36,11 36,29 20,38 4,29 4,11" fill="#FFC80A" stroke="#111827" strokeWidth="2.5" />
       <circle cx="20" cy="18" r="8" fill="#111827" />
-      <path d="M16 16 L24 16 M15 20 L25 20" stroke="#FFD700" strokeWidth="2" strokeLinecap="round" />
+      <path d="M16 16 L24 16 M15 20 L25 20" stroke="#FFC80A" strokeWidth="2" strokeLinecap="round" />
       <path d="M16 11 Q20 7 24 11" fill="none" stroke="#111827" strokeWidth="2" strokeLinecap="round" />
     </svg>
     <div>
-      <div className="text-[24px] sm:text-[26px] font-[900] text-[#D49800] leading-none tracking-tight">
+      <div className="text-[26px] sm:text-[28px] font-[900] text-[#E0A000] leading-none tracking-tight">
         BeeCar
       </div>
       <div className="text-[12px] font-[900] text-[#111827] tracking-[0.25em] leading-none mt-0.5">
@@ -33,7 +42,7 @@ const BeeCarLogo = () => (
   </div>
 );
 
-// 2. L&T Logo
+// 4. L&T Logo
 const LtLogo = () => (
   <div className="flex items-center space-x-2.5">
     <div className="w-10 h-10 rounded-full border-2 border-[#005A9C] flex items-center justify-center font-[900] text-[#005A9C] text-[18px]">
@@ -50,7 +59,7 @@ const LtLogo = () => (
   </div>
 );
 
-// 3. Morris Garages (MG) Logo
+// 5. Morris Garages (MG) Logo
 const MgLogo = () => (
   <div className="flex items-center space-x-2.5">
     <svg viewBox="0 0 40 40" className="w-10 h-10 shrink-0">
@@ -70,17 +79,7 @@ const MgLogo = () => (
   </div>
 );
 
-// 4. Adani Logo
-const AdaniLogo = () => (
-  <div className="flex items-center space-x-2">
-    <span className="text-[26px] font-[900] bg-gradient-to-r from-[#0072BC] via-[#5C2E91] to-[#E91E63] bg-clip-text text-transparent leading-none">
-      adani
-    </span>
-    <span className="text-[14px] font-[700] text-slate-700">EmCare</span>
-  </div>
-);
-
-// 5. L'Oreal Logo
+// 6. L'Oreal Logo
 const LorealLogo = () => (
   <div className="flex items-center space-x-1.5">
     <span className="text-[22px] font-[900] text-[#111827] tracking-widest uppercase font-serif">
@@ -93,14 +92,30 @@ const LorealLogo = () => (
 const transformCards = [
   {
     id: 1,
+    logoComp: AdaniLogo,
+    desc: "Adani EmCare is a Web + Mobile App used by Adani Group's medical officer to capture, analyze and manage the health data of the employees and workers. And this data is used by medical...",
+    bullets: [
+      '98% Employee satisfaction ratio',
+      '81% reduction in appointment scheduling...',
+      '24/7 real-time health monitoring',
+      'Serving over 60,000 healthcare...',
+      'Generating over USD 30 billion in revenue'
+    ],
+    leftBg: 'bg-[#EBF0FA]',
+    rightBg: 'bg-[#F6F8FD]',
+    image: '/images/adani.webp',
+    imageAlt: 'Adani EmCare Healthcare Telemedicine'
+  },
+  {
+    id: 2,
     logoComp: WaymarkLogo,
-    desc: 'A city map and free business listings are available on Waymark. Our city information is consistently accurate and current. With...',
+    desc: 'A city map and free business listings are available on Waymark. Our city information is consistently accurate and current. With advertisements, points of interest, restaurants,...',
     bullets: [
       'Turn-by-turn voice navigation',
-      'Points of Interest (POI)...',
-      'Real-time traffic updates an..',
-      'Offline map access for remot..',
-      'Augmented reality (AR)...'
+      'Points of interest (POI) recommendations',
+      'Real-time traffic updates and route...',
+      'Offline map access for remote areas',
+      'Augmented reality (AR) navigation features'
     ],
     leftBg: 'bg-[#F4EAFA]',
     rightBg: 'bg-[#FCF9FD]',
@@ -108,15 +123,15 @@ const transformCards = [
     imageAlt: 'Waymark Maps Application'
   },
   {
-    id: 2,
+    id: 3,
     logoComp: BeeCarLogo,
-    desc: 'If you provide car washing services and need to reach a wide range of customers, the car wash app is your best bet. Sapphire Software..',
+    desc: 'If you provide car washing services and need to reach a wide range of customers, the car wash app is your best bet. Sapphire Software Solutions has built a car wash application that allows...',
     bullets: [
       '96% customer retention rate',
-      '92 % increase in service..',
+      '82 % increase in service bookings',
       'Over 1,10,000 satisfied users',
-      'Operating in 90+ locations',
-      'User-friendly & Efficient..'
+      'Operating in 80+ locations',
+      'User-friendly & Efficient interface for easy...'
     ],
     leftBg: 'bg-[#FDF5D9]',
     rightBg: 'bg-[#FFFDF2]',
@@ -124,15 +139,15 @@ const transformCards = [
     imageAlt: 'BeeCar CARE Mobile App Mockup'
   },
   {
-    id: 3,
+    id: 4,
     logoComp: LtLogo,
-    desc: "Larsen & Toubro Limited is one of India's largest and most well-known private corporations. L&T offers unrivaled capabilities acros..",
+    desc: "Larsen & Toubro Limited is one of India's largest and most well-known private corporations. L&T offers unrivaled capabilities acros...",
     bullets: [
-      'Automated safety audits and..',
-      '24/7 access to safety trainin..',
-      'Customizable dashboards..',
-      'Real-time incident reporting..',
-      '99% compliance with health..'
+      'Automated safety audits and...',
+      '24/7 access to safety trainin...',
+      'Customizable dashboards...',
+      'Real-time incident reporting...',
+      '99% compliance with health...'
     ],
     leftBg: 'bg-[#DDEEF9]',
     rightBg: 'bg-[#EEF7FC]',
@@ -140,15 +155,15 @@ const transformCards = [
     imageAlt: 'Larsen & Toubro Enterprise Dashboard'
   },
   {
-    id: 4,
+    id: 5,
     logoComp: MgLogo,
-    desc: "MG Motor is a well-known firm that have large number of employee. It is their major responsibility to keep track of employees' health and..",
+    desc: "MG Motor is a well-known firm that have large number of employee. It is their major responsibility to keep track of employees' health and...",
     bullets: [
-      'Real-time health data..',
-      'HIPAA-compliant data..',
-      '24/7 access to health..',
-      'Personalized health..',
-      '98% improvement in..'
+      'Real-time health data...',
+      'HIPAA-compliant data...',
+      '24/7 access to health...',
+      'Personalized health...',
+      '98% improvement in...'
     ],
     leftBg: 'bg-[#FCE6E6]',
     rightBg: 'bg-[#FFF2F2]',
@@ -156,31 +171,15 @@ const transformCards = [
     imageAlt: 'MG Motor Health & Process Automation'
   },
   {
-    id: 5,
-    logoComp: AdaniLogo,
-    desc: 'Adani Group is a leading Indian multinational conglomerate. Adani EmCare is a comprehensive enterprise healthcare and telemedicine solution..',
-    bullets: [
-      '24/7 Telehealth & Remote Care..',
-      'Real-time vitals monitoring..',
-      'Automated health appointments..',
-      'HIPAA-compliant health data..',
-      '95% reduction in claim time..'
-    ],
-    leftBg: 'bg-[#F0E6FC]',
-    rightBg: 'bg-[#FAF5FF]',
-    image: '/images/adani.webp',
-    imageAlt: 'Adani EmCare Healthcare Telemedicine'
-  },
-  {
     id: 6,
     logoComp: LorealLogo,
-    desc: "L'Oréal is the world's largest cosmetics company. We engineered an intelligent beauty and cosmetic analytics platform..",
+    desc: "L'Oréal is the world's largest cosmetics company. We engineered an intelligent beauty and cosmetic analytics platform...",
     bullets: [
-      'AI-powered skin diagnostics..',
-      'Virtual beauty try-on features..',
-      'Real-time product recommendations..',
-      'Multi-language global platform..',
-      '99% app uptime & cloud scale..'
+      'AI-powered skin diagnostics...',
+      'Virtual beauty try-on features...',
+      'Real-time product recommendations...',
+      'Multi-language global platform...',
+      '99% app uptime & cloud scale...'
     ],
     leftBg: 'bg-[#F6EFEA]',
     rightBg: 'bg-[#FDFBF9]',

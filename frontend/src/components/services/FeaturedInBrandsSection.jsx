@@ -4,10 +4,10 @@ import Container from '../common/Container';
 // 1. Microsoft Logo (4 squares, grey default, colorful on hover)
 const MicrosoftLogo = () => (
   <svg viewBox="0 0 88 88" className="h-10 w-10 shrink-0">
-    <rect x="0" y="0" width="41" height="41" className="fill-[#8C8C8C] group-hover:fill-[#F25022] transition-colors duration-300" />
-    <rect x="47" y="0" width="41" height="41" className="fill-[#8C8C8C] group-hover:fill-[#7FBA00] transition-colors duration-300" />
-    <rect x="0" y="47" width="41" height="41" className="fill-[#8C8C8C] group-hover:fill-[#00A4EF] transition-colors duration-300" />
-    <rect x="47" y="47" width="41" height="41" className="fill-[#8C8C8C] group-hover:fill-[#FFB900] transition-colors duration-300" />
+    <rect x="0" y="0" width="41" height="41" className="fill-[#737373] group-hover:fill-[#F25022] transition-colors duration-300" />
+    <rect x="47" y="0" width="41" height="41" className="fill-[#737373] group-hover:fill-[#7FBA00] transition-colors duration-300" />
+    <rect x="0" y="47" width="41" height="41" className="fill-[#737373] group-hover:fill-[#00A4EF] transition-colors duration-300" />
+    <rect x="47" y="47" width="41" height="41" className="fill-[#737373] group-hover:fill-[#FFB900] transition-colors duration-300" />
   </svg>
 );
 
@@ -22,7 +22,7 @@ const IncLogo = () => (
       fontSize="36"
       fontWeight="900"
       letterSpacing="-1"
-      fill="#111827"
+      className="fill-[#475569] group-hover:fill-[#000000] transition-colors duration-300"
     >
       Inc.
     </text>
@@ -60,7 +60,7 @@ const GooglePlayLogo = () => (
       fontFamily="system-ui, -apple-system, 'Google Sans', sans-serif"
       fontSize="16"
       fontWeight="600"
-      className="fill-[#525252] group-hover:fill-[#111827] transition-colors duration-300"
+      className="fill-[#525252] group-hover:fill-[#01875F] transition-colors duration-300"
       letterSpacing="-0.3"
     >
       Google Play
@@ -75,12 +75,12 @@ const AppStoreLogo = () => (
       {/* Apple Leaf */}
       <path
         d="M17.4 7.2C18.8 5.4 19.8 2.8 19.5 0.2C17.3 0.3 14.6 1.7 13.1 3.4C11.8 4.9 10.7 7.5 11.1 10C13.5 10.2 16 8.8 17.4 7.2Z"
-        fill="#111827"
+        className="fill-[#475569] group-hover:fill-[#0071E3] transition-colors duration-300"
       />
       {/* Apple Body */}
       <path
         d="M19.5 14C16.5 14.2 14.1 12.3 12.5 12.3C10.9 12.3 8.7 14 6.7 14C3.5 14 0.6 16.1 0.6 21.2C0.6 25 2.2 29.5 4.1 32.2C5.5 34.2 7 36.4 9.2 36.3C11.3 36.2 12.1 34.9 14.6 34.9C17 34.9 17.7 36.3 19.9 36.3C22.2 36.2 23.5 34.3 24.9 32.2C26.6 29.8 27.2 27.5 27.4 27.4C27.2 27.3 22.8 25.6 22.8 20.6C22.8 16.4 26.2 14.4 26.4 14.2C24.3 11.2 21.1 10.7 20 10.7C17.5 10.5 15 12.2 13.8 12.2C12.5 12.2 10.5 10.7 8.5 10.7C5.8 10.7 3.3 12.2 1.9 14.7"
-        fill="#111827"
+        className="fill-[#475569] group-hover:fill-[#0071E3] transition-colors duration-300"
       />
     </g>
     <text
@@ -89,7 +89,7 @@ const AppStoreLogo = () => (
       fontFamily="system-ui, -apple-system, sans-serif"
       fontSize="16.5"
       fontWeight="700"
-      fill="#111827"
+      className="fill-[#475569] group-hover:fill-[#0071E3] transition-colors duration-300"
       letterSpacing="-0.4"
     >
       App Store
@@ -100,7 +100,14 @@ const AppStoreLogo = () => (
 // 5. Forbes Logo (Dark Gray Rectangle with Serif Wordmark)
 const ForbesLogo = () => (
   <svg viewBox="0 0 110 38" className="h-8 w-auto">
-    <rect x="0" y="2" width="110" height="34" rx="4" fill="#475569" />
+    <rect
+      x="0"
+      y="2"
+      width="110"
+      height="34"
+      rx="4"
+      className="fill-[#475569] group-hover:fill-[#0A2540] transition-colors duration-300"
+    />
     <text
       x="55"
       y="27"
@@ -152,7 +159,7 @@ const BbbLogo = () => (
       fontFamily="system-ui, sans-serif"
       fontSize="5.5"
       fontWeight="700"
-      fill="#64748B"
+      className="fill-[#64748B] group-hover:fill-[#005A9C] transition-colors duration-300"
     >
       Start With Trust ®
     </text>
@@ -180,23 +187,23 @@ const YourStoryLogo = () => (
 // 8. Wikipedia Logo (Detailed Puzzle Sphere Vector)
 const WikipediaLogo = () => (
   <svg viewBox="0 0 54 54" className="h-11 w-auto">
-    <circle cx="27" cy="27" r="24" fill="none" stroke="#1E293B" strokeWidth="1.6" />
+    <circle cx="27" cy="27" r="24" fill="none" className="stroke-[#475569] group-hover:stroke-[#3366CC] transition-colors duration-300" strokeWidth="1.6" />
     <path
       d="M27 3 C17 11, 17 43, 27 51 M27 3 C37 11, 37 43, 27 51"
       fill="none"
-      stroke="#1E293B"
+      className="stroke-[#475569] group-hover:stroke-[#3366CC] transition-colors duration-300"
       strokeWidth="1.2"
     />
     <path
       d="M7 16 C17 21, 37 21, 47 16 M4 27 C15 32, 39 32, 50 27 M7 38 C17 33, 37 33, 47 38"
       fill="none"
-      stroke="#1E293B"
+      className="stroke-[#475569] group-hover:stroke-[#3366CC] transition-colors duration-300"
       strokeWidth="1.2"
     />
     <path
       d="M22 10 Q25 7 27 10 Q29 13 32 10 M15 22 Q18 20 20 22 Q22 24 25 22 M29 22 Q32 20 34 22 Q36 24 39 22 M20 34 Q23 32 25 34 Q27 36 30 34"
       fill="none"
-      stroke="#1E293B"
+      className="stroke-[#475569] group-hover:stroke-[#3366CC] transition-colors duration-300"
       strokeWidth="1"
     />
     <path d="M23 4 L27 8 L31 4" fill="none" stroke="#FFFFFF" strokeWidth="2.5" />
@@ -207,7 +214,7 @@ const WikipediaLogo = () => (
       fontFamily="Georgia, serif"
       fontSize="16"
       fontWeight="bold"
-      fill="#1E293B"
+      className="fill-[#475569] group-hover:fill-[#3366CC] transition-colors duration-300"
     >
       W
     </text>
@@ -225,7 +232,7 @@ const EntrepreneurLogo = () => (
       fontSize="22"
       fontStyle="italic"
       fontWeight="800"
-      fill="#111827"
+      className="fill-[#475569] group-hover:fill-[#111827] transition-colors duration-300"
       letterSpacing="-0.3"
     >
       Entrepreneur
@@ -275,7 +282,7 @@ const CapterraLogo = () => (
 // 12. c|net Logo (Circle with 'c' + Line + 'net')
 const CnetLogo = () => (
   <svg viewBox="0 0 96 38" className="h-8 w-auto">
-    <circle cx="17" cy="19" r="14" className="fill-[#111827] group-hover:fill-[#CC0000] transition-colors duration-300" />
+    <circle cx="17" cy="19" r="14" className="fill-[#475569] group-hover:fill-[#CC0000] transition-colors duration-300" />
     <text
       x="17"
       y="26"
@@ -287,14 +294,14 @@ const CnetLogo = () => (
     >
       c
     </text>
-    <line x1="38" y1="5" x2="38" y2="33" stroke="#111827" strokeWidth="3.2" />
+    <line x1="38" y1="5" x2="38" y2="33" className="stroke-[#475569] group-hover:stroke-[#CC0000] transition-colors duration-300" strokeWidth="3.2" />
     <text
       x="46"
       y="29"
       fontFamily="system-ui, -apple-system, sans-serif"
       fontSize="26"
       fontWeight="900"
-      fill="#111827"
+      className="fill-[#475569] group-hover:fill-[#CC0000] transition-colors duration-300"
       letterSpacing="-1.2"
     >
       net
@@ -312,7 +319,7 @@ const NytLogo = () => (
       fontFamily="'Old English Text MT', 'UnifrakturMaguntia', 'Chomsky', 'Times New Roman', serif"
       fontSize="18"
       fontWeight="900"
-      fill="#111827"
+      className="fill-[#475569] group-hover:fill-[#000000] transition-colors duration-300"
       letterSpacing="0.2"
     >
       The New York Times
@@ -344,7 +351,7 @@ const ClutchBrandLogo = () => (
       fontFamily="system-ui, -apple-system, 'Helvetica Neue', sans-serif"
       fontSize="26"
       fontWeight="900"
-      fill="#111827"
+      className="fill-[#475569] group-hover:fill-[#1B2A4A] transition-colors duration-300"
       letterSpacing="-0.8"
     >
       Clutch
@@ -353,7 +360,7 @@ const ClutchBrandLogo = () => (
       cx="47"
       cy="7"
       r="2.5"
-      className="fill-[#111827] group-hover:fill-[#FF3E2E] transition-colors duration-300"
+      className="fill-[#475569] group-hover:fill-[#FF3E2E] transition-colors duration-300"
     />
   </svg>
 );
@@ -416,7 +423,7 @@ const G2CrowdLogo = () => (
       fontFamily="system-ui, -apple-system, sans-serif"
       fontSize="15"
       fontWeight="900"
-      fill="#111827"
+      className="fill-[#475569] group-hover:fill-[#FF492C] transition-colors duration-300"
       letterSpacing="0.5"
     >
       CROWD
@@ -434,7 +441,7 @@ const TelegraphLogo = () => (
       fontFamily="'Old English Text MT', 'Chomsky', 'Times New Roman', serif"
       fontSize="18"
       fontWeight="900"
-      fill="#111827"
+      className="fill-[#475569] group-hover:fill-[#000000] transition-colors duration-300"
     >
       The Telegraph
     </text>

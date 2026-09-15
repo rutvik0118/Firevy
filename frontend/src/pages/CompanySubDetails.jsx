@@ -22,7 +22,8 @@ import companyPublicService from '../services/companyPublicService';
 import { getMediaUrl } from '../utils/mediaUrl';
 import {
   Users, Award, Calendar, BookOpen, Heart, ShieldCheck, CheckCircle2,
-  ArrowRight, FileText, Mic, Globe, Sparkles, MessageSquare, Star, Quote, ChevronRight, ChevronLeft, ChevronDown, Briefcase, Target, Linkedin, ThumbsUp, Camera
+  ArrowRight, FileText, Mic, Globe, Sparkles, MessageSquare, Star, Quote, ChevronRight, ChevronLeft, ChevronDown, Briefcase, Target, Linkedin, ThumbsUp, Camera,
+  Zap, Rocket, Clock, Layers, Lightbulb, Compass, Cpu, Check, Download
 } from 'lucide-react';
 
 const coreValuesData = [
@@ -397,7 +398,14 @@ export const CompanySubDetails = () => {
 
   useEffect(() => {
     // Fetch singleton section data if available
-    companyPublicService.getSection(pageKey, isPreview).then((data) => {
+    const isBrochure = (pageKey === 'brochure' || pageKey === 'download-brochure' || pageKey === 'corporate-brochure');
+    const secSlug = (pageKey === 'blog' || pageKey.includes('blog') || pageKey === 'blogs')
+      ? 'blog'
+      : isBrochure
+        ? 'download-brochure'
+        : pageKey;
+
+    companyPublicService.getSection(secSlug, isPreview).then((data) => {
       if (data) setDynamicSection(data);
     }).catch(console.error);
 
@@ -413,13 +421,13 @@ export const CompanySubDetails = () => {
       }).catch(console.error);
     }
 
-    if (pageKey === 'brochure' || pageKey === 'download-brochure') {
+    if (isBrochure) {
       companyPublicService.getBrochures().then((data) => {
         if (data && data.length > 0) setDynamicBrochures(data);
       }).catch(console.error);
     }
 
-    if (pageKey === 'blog' || pageKey.includes('blog')) {
+    if (pageKey === 'blog' || pageKey.includes('blog') || pageKey === 'blogs') {
       companyPublicService.getBlogs().then((data) => {
         if (data && data.length > 0) setDynamicBlogs(data);
       }).catch(console.error);
@@ -2242,139 +2250,210 @@ export const CompanySubDetails = () => {
     );
   }
 
-  // If this is the "Download Brochure" / "brochure" / "download-brochure" page, render exact Sapphire Brochure Layout
-  if (pageKey === 'brochure' || pageKey === 'download-brochure') {
+  // If this is the "Download Brochure" / "brochure" / "download-brochure" / "corporate-brochure" page
+  if (pageKey === 'brochure' || pageKey === 'download-brochure' || pageKey === 'corporate-brochure') {
+    const hero = dynamicSection?.content?.hero || dynamicSection?.hero || {};
+    const downloadableInfo = dynamicSection?.content?.downloadableInfo || dynamicSection?.downloadableInfo || {};
+    const brochureForm = dynamicSection?.content?.brochureForm || dynamicSection?.brochureForm || {};
+    const trustedBrands = dynamicSection?.content?.trustedBrands || dynamicSection?.trustedBrands || {};
+    const featuredIn = dynamicSection?.content?.featuredIn || dynamicSection?.featuredIn || {};
+    const ctaBanner = dynamicSection?.content?.ctaBanner || dynamicSection?.ctaBanner || dynamicSection?.cta || {};
+    const newsletter = dynamicSection?.content?.newsletter || dynamicSection?.newsletter || {};
+    const seo = dynamicSection?.seo || {};
+
+    const heroHeadline = hero.title || dynamicSection?.title || "Let's create something big together!";
+    const heroSubtitle = hero.subtitle || dynamicSection?.subtitle || "firevy.co is a Leading software and app development company with offices worldwide. If you want to know more about our business.";
+    const heroCtaText = hero.ctaText || dynamicSection?.ctaText || "Connect Us";
+    const heroCtaLink = hero.ctaLink || dynamicSection?.ctaLink || "/contact";
+    const heroImage = hero.heroImage || dynamicSection?.heroImage;
+
+    const infoHeading = downloadableInfo.heading || "Easily & Quickly Downloadable Information";
+    const infoDescription = downloadableInfo.description || "As a global leader in the software development market, we have 2800+ satisfied clients in 30+ countries. Established in 2002, we are a leading Mobile App Development Company in the USA with ISO 27001:2013 certification. As a Multinational company, we provide software and website development services from our cutting-edge delivery centers in Ahmedabad, India. We have experience working with several Fortune 100 companies and popular brands like American Express, Bayer, Chevron, Almarai, Adani, L&T, Vedanta, Orient Cement, Dr Reddy, and LOREAL. Additionally, we take great pride in being Clutch and Google's top-rated mobile app development company. Whether you are looking for mobile app development services, website design, or software development, firevy.co is your right destination. firevy.co can deliver 1500+ projects and assists big clients like Adani and American Express skyrocket their business by delivering top-notch services.";
+
+    const card1Title = downloadableInfo.card1Title || "Services";
+    const card1Tag = downloadableInfo.card1Tag || "S";
+    const card1Bg = downloadableInfo.card1Bg || "#005478";
+
+    const card2Title = downloadableInfo.card2Title || "Company Overview";
+    const card2Subtitle = downloadableInfo.card2Subtitle || "achieve more and to be one of the best customer-centric";
+    const card2Bg = downloadableInfo.card2Bg || "#006B8F";
+
+    const card3Brand = downloadableInfo.card3Brand || "firevy";
+    const card3Suffix = downloadableInfo.card3Suffix || ".co";
+    const card3Tag = downloadableInfo.card3Tag || "ISO 27001:2013";
+    const card3Image = downloadableInfo.card3Image || "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=80";
+    const card3Title = downloadableInfo.card3Title || "Digital Brochure";
+    const card3Website = downloadableInfo.card3Website || "www.firevy.co";
+
+    const formTitle = brochureForm.title || "Download Our Brochure To Take A Glimpse Of Our Offerings";
+    const formBtnText = brochureForm.buttonText || "Download";
+    const formSuccessMsg = brochureForm.successMessage || "Thank you! Your firevy.co digital brochure download has started.";
+    const primaryPdfUrl = brochureForm.brochurePdf || brochureForm.pdfUrl || dynamicSection?.content?.brochurePdf || (dynamicBrochures?.[0]?.pdfUrl) || '';
+
+    const brandsTitle = trustedBrands.heading || "Trusted By The World’s Leading Brands";
+    const brandsSubtitle = trustedBrands.subtitle || "We are glad to be a digital technology and innovation partner with world’s leading brands. Building greater futures through innovation and collective knowledge.";
+
+    const featuredTitle = featuredIn.heading || "We Have Been Featured In";
+
+    const ctaTitle = ctaBanner.title || "Want to boost your business?";
+    const ctaSubtitle = ctaBanner.subtitle || "Would you like to know why choosing us is the best decision? Because we work with you to create something out of the box at a fraction of the cost.";
+    const ctaBtnText = ctaBanner.buttonText || "Request A Free Quote";
+    const ctaBtnLink = ctaBanner.buttonLink || "/contact";
+    const newsletterTitle = newsletter.title || "Subscribe us and Get the latest updates and news";
+
+    const handleFormSubmit = (e) => {
+      e.preventDefault();
+      if (primaryPdfUrl) {
+        window.open(getMediaUrl(primaryPdfUrl), '_blank');
+      }
+      alert(formSuccessMsg);
+    };
+
     return (
       <div className="bg-white min-h-screen text-slate-900 font-sans">
         <SEO
-          title="Download Brochure | Easily & Quickly Downloadable Information | firevy.co"
-          description="Download firevy.co corporate digital brochure. firevy.co is a leading software and app development company with offices worldwide."
-          canonical={`/company/${pageKey}`}
+          title={seo.metaTitle || "Download Brochure | Easily & Quickly Downloadable Information | firevy.co"}
+          description={seo.metaDescription || "Download firevy.co corporate digital brochure. firevy.co is a leading software and app development company with offices worldwide."}
+          canonical={seo.canonical || `/company/${pageKey}`}
+          keywords={seo.metaKeywords || ''}
         />
 
-        {/* 1. HERO SECTION: "Let's create something big together!" (Exact Reference Screenshot 0 Match) */}
+        {/* 1. HERO SECTION: "Let's create something big together!" */}
         <section className="pt-32 pb-16 bg-[#F4F7FB] relative overflow-hidden text-left font-sans">
           <div className="max-w-[1360px] mx-auto px-4 sm:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
               {/* Left Text */}
               <div className="lg:col-span-6 space-y-6">
                 <h1 className="text-[34px] font-[800] text-slate-900 tracking-tight leading-tight font-sans page-hero-title">
-                  Let's create something big together!
+                  {heroHeadline}
                 </h1>
                 <p className="text-[15px] text-slate-600 leading-relaxed font-[400] font-sans max-w-xl page-hero-desc">
-                  firevy.co is a Leading software and app development company with offices worldwide. If you want to know more about our business.
+                  {heroSubtitle}
                 </p>
                 <div className="pt-2">
                   <Link
-                    to="/contact"
+                    to={heroCtaLink}
                     className="inline-flex items-center justify-center space-x-2 px-8 py-3.5 rounded-[6px] bg-[#00668C] hover:bg-[#004E6C] text-white font-[700] text-[15px] transition-all shadow-md group font-sans"
                   >
-                    <span>Connect Us</span>
+                    <span>{heroCtaText}</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </div>
               </div>
 
-              {/* Right 3D Isometric Illustration (Exact Reference Screenshot 0 Match) */}
+              {/* Right 3D Visual or Custom Uploaded Hero Image */}
               <div className="lg:col-span-6 flex justify-center relative select-none">
-                <div className="relative w-full max-w-[540px] h-[360px] flex items-center justify-center">
-                  <svg viewBox="0 0 540 360" className="w-full h-full drop-shadow-xl" fill="none">
-                    {/* Isometric Base Platform (Light Sky Blue Grid) */}
-                    <polygon points="270,80 510,200 270,320 30,200" fill="#E6F2FC" opacity="0.95" />
-                    <polygon points="270,320 510,200 510,215 270,335 30,215 30,200" fill="#BAE1F9" />
+                {heroImage ? (
+                  <div className="relative w-full max-w-[540px] flex items-center justify-center">
+                    <img
+                      src={getMediaUrl(heroImage)}
+                      alt={heroHeadline}
+                      className="w-full max-h-[360px] object-contain drop-shadow-xl rounded-[12px]"
+                    />
+                  </div>
+                ) : (
+                  <div className="relative w-full max-w-[540px] h-[360px] flex items-center justify-center">
+                    <svg viewBox="0 0 540 360" className="w-full h-full drop-shadow-xl" fill="none">
+                      {/* Isometric Base Platform (Light Sky Blue Grid) */}
+                      <polygon points="270,80 510,200 270,320 30,200" fill="#E6F2FC" opacity="0.95" />
+                      <polygon points="270,320 510,200 510,215 270,335 30,215 30,200" fill="#BAE1F9" />
 
-                    {/* Checkmark Shield Badge Floating on Left */}
-                    <polygon points="80,180 140,150 200,180 140,210" fill="#3B82F6" />
-                    <polygon points="80,180 140,210 140,270 80,240" fill="#1D4ED8" />
-                    <polygon points="140,210 200,180 200,240 140,270" fill="#2563EB" />
-                    <path d="M115 210 L132 227 L168 185" stroke="#FFFFFF" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round" />
+                      {/* Checkmark Shield Badge Floating on Left */}
+                      <polygon points="80,180 140,150 200,180 140,210" fill="#3B82F6" />
+                      <polygon points="80,180 140,210 140,270 80,240" fill="#1D4ED8" />
+                      <polygon points="140,210 200,180 200,240 140,270" fill="#2563EB" />
+                      <path d="M115 210 L132 227 L168 185" stroke="#FFFFFF" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round" />
 
-                    {/* Brochure Document Card on Platform */}
-                    <polygon points="220,130 400,130 360,250 180,250" fill="#2563EB" />
-                    <polygon points="228,138 392,138 355,242 191,242" fill="#FFFFFF" />
-                    <rect x="220" y="152" width="120" height="8" rx="2" fill="#93C5FD" />
-                    <line x1="220" y1="170" x2="330" y2="170" stroke="#CBD5E1" strokeWidth="4" strokeLinecap="round" />
-                    <line x1="220" y1="185" x2="310" y2="185" stroke="#CBD5E1" strokeWidth="4" strokeLinecap="round" />
+                      {/* Brochure Document Card on Platform */}
+                      <polygon points="220,130 400,130 360,250 180,250" fill="#2563EB" />
+                      <polygon points="228,138 392,138 355,242 191,242" fill="#FFFFFF" />
+                      <rect x="220" y="152" width="120" height="8" rx="2" fill="#93C5FD" />
+                      <line x1="220" y1="170" x2="330" y2="170" stroke="#CBD5E1" strokeWidth="4" strokeLinecap="round" />
+                      <line x1="220" y1="185" x2="310" y2="185" stroke="#CBD5E1" strokeWidth="4" strokeLinecap="round" />
 
-                    {/* Team Members Interacting */}
-                    {/* Character 1 (Standing Top Left) */}
-                    <circle cx="210" cy="120" r="10" fill="#FED7AA" />
-                    <path d="M200 132 C200 128 220 128 220 132 L222 165 L198 165 Z" fill="#DC2626" />
+                      {/* Team Members Interacting */}
+                      <circle cx="210" cy="120" r="10" fill="#FED7AA" />
+                      <path d="M200 132 C200 128 220 128 220 132 L222 165 L198 165 Z" fill="#DC2626" />
 
-                    {/* Character 2 (Standing Bottom Left) */}
-                    <circle cx="150" cy="220" r="10" fill="#FED7AA" />
-                    <path d="M140 232 C140 228 160 228 160 232 L162 265 L138 265 Z" fill="#0284C7" />
+                      <circle cx="150" cy="220" r="10" fill="#FED7AA" />
+                      <path d="M140 232 C140 228 160 228 160 232 L162 265 L138 265 Z" fill="#0284C7" />
 
-                    {/* Character 3 (Standing Right) */}
-                    <circle cx="420" cy="130" r="10" fill="#FED7AA" />
-                    <path d="M410 142 C410 138 430 138 430 142 L432 175 L408 175 Z" fill="#EC4899" />
+                      <circle cx="420" cy="130" r="10" fill="#FED7AA" />
+                      <path d="M410 142 C410 138 430 138 430 142 L432 175 L408 175 Z" fill="#EC4899" />
 
-                    {/* Floating Profile Widget Top Right */}
-                    <polygon points="380,80 440,50 500,80 440,110" fill="#60A5FA" />
-                    <polygon points="380,80 440,110 440,160 380,130" fill="#3B82F6" />
-                    <polygon points="440,110 500,80 500,130 440,160" fill="#2563EB" />
-                    <circle cx="440" cy="95" r="12" fill="#FFFFFF" />
+                      {/* Floating Profile Widget Top Right */}
+                      <polygon points="380,80 440,50 500,80 440,110" fill="#60A5FA" />
+                      <polygon points="380,80 440,110 440,160 380,130" fill="#3B82F6" />
+                      <polygon points="440,110 500,80 500,130 440,160" fill="#2563EB" />
+                      <circle cx="440" cy="95" r="12" fill="#FFFFFF" />
 
-                    {/* Small Isometric Cube Front Right */}
-                    <polygon points="370,270 395,255 420,270 395,285" fill="#60A5FA" />
-                    <polygon points="370,270 395,285 395,315 370,300" fill="#3B82F6" />
-                    <polygon points="395,285 420,270 420,300 395,315" fill="#2563EB" />
-                  </svg>
-                </div>
+                      {/* Small Isometric Cube Front Right */}
+                      <polygon points="370,270 395,255 420,270 395,285" fill="#60A5FA" />
+                      <polygon points="370,270 395,285 395,315 370,300" fill="#3B82F6" />
+                      <polygon points="395,285 420,270 420,300 395,315" fill="#2563EB" />
+                    </svg>
+                  </div>
+                )}
               </div>
             </div>
           </div>
         </section>
 
-        {/* 2. "Easily & Quickly Downloadable Information" SECTION (Exact Reference Screenshot 1 & 2 Match) */}
+        {/* 2. "Easily & Quickly Downloadable Information" SECTION */}
         <section className="py-20 bg-white text-left font-sans">
           <div className="max-w-[1360px] mx-auto px-4 sm:px-8">
             <h2 className="text-[40px] font-[800] text-slate-900 tracking-tight leading-tight text-center mb-14 font-sans section-content-title">
-              Easily & Quickly Downloadable Information
+              {infoHeading}
             </h2>
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-              {/* Left Fan-out 3D Stacked Digital Brochure Cards (Exact Reference Screenshot 1 & 2 Match) */}
+              {/* Left Fan-out 3D Stacked Digital Brochure Cards */}
               <div className="lg:col-span-5 flex justify-center relative select-none">
                 <div className="relative w-full max-w-[460px] h-[340px] flex items-center justify-center">
                   {/* Background Oval Light Blue Shade */}
                   <div className="absolute w-[300px] h-[300px] rounded-full bg-[#D8EEF9] -top-2 left-6 -z-0" />
 
-                  {/* Card 1 (Back rotated left: "Services") */}
-                  <div className="absolute top-4 left-6 w-[240px] h-[160px] bg-[#005478] rounded-[10px] shadow-lg border border-white/20 p-4 -rotate-[28deg] text-white z-10 flex flex-col justify-between">
-                    <span className="text-[15px] font-[800] tracking-wider uppercase font-sans">Services</span>
-                    <div className="w-8 h-8 rounded-full border border-white/40 flex items-center justify-center font-bold text-xs">S</div>
+                  {/* Card 1 (Back rotated left) */}
+                  <div
+                    className="absolute top-4 left-6 w-[240px] h-[160px] rounded-[10px] shadow-lg border border-white/20 p-4 -rotate-[28deg] text-white z-10 flex flex-col justify-between"
+                    style={{ backgroundColor: card1Bg }}
+                  >
+                    <span className="text-[15px] font-[800] tracking-wider uppercase font-sans">{card1Title}</span>
+                    <div className="w-8 h-8 rounded-full border border-white/40 flex items-center justify-center font-bold text-xs">{card1Tag}</div>
                   </div>
 
-                  {/* Card 2 (Middle rotated left: "Company Overview") */}
-                  <div className="absolute top-10 left-16 w-[260px] h-[175px] bg-[#006B8F] rounded-[10px] shadow-xl border border-white/30 p-4 -rotate-[16deg] text-white z-20 flex flex-col justify-between">
-                    <span className="text-[16px] font-[800] tracking-wider font-sans">Company Overview</span>
-                    <div className="text-[11px] text-blue-100 font-semibold font-sans">achieve more and to be one of the best customer-centric</div>
+                  {/* Card 2 (Middle rotated left) */}
+                  <div
+                    className="absolute top-10 left-16 w-[260px] h-[175px] rounded-[10px] shadow-xl border border-white/30 p-4 -rotate-[16deg] text-white z-20 flex flex-col justify-between"
+                    style={{ backgroundColor: card2Bg }}
+                  >
+                    <span className="text-[16px] font-[800] tracking-wider font-sans">{card2Title}</span>
+                    <div className="text-[11px] text-blue-100 font-semibold font-sans">{card2Subtitle}</div>
                   </div>
 
-                  {/* Card 3 (Front main card: Digital Brochure with Office Image) */}
+                  {/* Card 3 (Front main card: Digital Brochure with Cover Image) */}
                   <div className="absolute bottom-2 right-4 w-[310px] sm:w-[330px] h-[210px] bg-white rounded-[12px] shadow-2xl border border-slate-200 p-4 z-30 flex flex-col justify-between">
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-1.5">
-                        <span className="text-[#006B8F] font-[900] text-xl font-sans">firevy</span>
-                        <span className="text-slate-700 font-[700] text-sm font-sans">.co</span>
+                        <span className="text-[#006B8F] font-[900] text-xl font-sans">{card3Brand}</span>
+                        <span className="text-slate-700 font-[700] text-sm font-sans">{card3Suffix}</span>
                       </div>
-                      <span className="text-[11px] text-slate-400 font-semibold font-sans">ISO 27001:2013</span>
+                      <span className="text-[11px] text-slate-400 font-semibold font-sans">{card3Tag}</span>
                     </div>
 
                     <div className="w-full h-[110px] rounded-[8px] overflow-hidden my-2 border border-slate-100">
                       <img
-                        src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=80"
-                        alt="firevy.co Office"
+                        src={getMediaUrl(card3Image)}
+                        alt={card3Title}
                         className="w-full h-full object-cover"
                       />
                     </div>
 
                     <div className="flex items-center justify-between">
                       <span className="text-[18px] font-[900] text-slate-900 font-sans tracking-tight">
-                        Digital Brochure
+                        {card3Title}
                       </span>
-                      <span className="text-[11px] text-[#006B8F] font-bold font-sans">www.firevy.co</span>
+                      <span className="text-[11px] text-[#006B8F] font-bold font-sans">{card3Website}</span>
                     </div>
                   </div>
                 </div>
@@ -2382,26 +2461,23 @@ export const CompanySubDetails = () => {
 
               {/* Right Text Column */}
               <div className="lg:col-span-7 space-y-4">
-                <p className="text-[15px] font-[400] text-slate-600 leading-[1.85] font-sans section-content-desc">
-                  As a global leader in the software development market, we have 2800+ satisfied clients in 30+ countries. Established in 2002, we are a leading Mobile App Development Company in the USA with ISO 27001:2013 certification. As a Multinational company, we provide software and website development services from our cutting-edge delivery centers in Ahmedabad, India. We have experience working with several Fortune 100 companies and popular brands like American Express, Bayer, Chevron, Almarai, Adani, L&T, Vedanta, Orient Cement, Dr Reddy, and LOREAL. Additionally, we take great pride in being Clutch and Google's top-rated mobile app development company. Whether you are looking for mobile app development services, website design, or software development, firevy.co is your right destination. firevy.co can deliver 1500+ projects and assists big clients like Adani and American Express skyrocket their business by delivering top-notch services.
+                <p className="text-[15px] font-[400] text-slate-600 leading-[1.85] font-sans section-content-desc whitespace-pre-line">
+                  {infoDescription}
                 </p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* 3. "Download Our Brochure To Take A Glimpse Of Our Offerings" FORM SECTION (Exact Reference Screenshot 2 & 3 Match) */}
-        <section className="py-16 bg-[#EDF6FC] text-center font-sans border-t border-b border-blue-100">
+        {/* 3. "Download Our Brochure To Take A Glimpse Of Our Offerings" FORM SECTION */}
+        <section className="py-16 bg-[#EDF6FC] text-center font-sans border-t border-b border-blue-100" id="brochure-download-form">
           <div className="max-w-[1360px] mx-auto px-4 sm:px-8">
-            <h2 className="text-[40px] font-[800] text-slate-900 tracking-tight leading-tight mb-8 font-sans section-content-title">
-              Download Our Brochure To Take A Glimpse Of Our Offerings
+            <h2 className="text-[32px] sm:text-[40px] font-[800] text-slate-900 tracking-tight leading-tight mb-8 font-sans section-content-title">
+              {formTitle}
             </h2>
 
             <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                alert('Thank you! Your firevy.co digital brochure download has started.');
-              }}
+              onSubmit={handleFormSubmit}
               className="max-w-6xl mx-auto space-y-6"
             >
               <div className="flex flex-col lg:flex-row items-center justify-center gap-3">
@@ -2454,22 +2530,23 @@ export const CompanySubDetails = () => {
                   type="submit"
                   className="inline-flex items-center justify-center px-10 py-3.5 rounded-[6px] bg-[#00668C] hover:bg-[#004E6C] text-white font-[800] text-[15px] transition-all shadow-md font-sans cursor-pointer"
                 >
-                  Download
+                  <Download className="w-4 h-4 mr-2" />
+                  <span>{formBtnText}</span>
                 </button>
               </div>
             </form>
           </div>
         </section>
 
-        {/* 4. "Trusted By The World’s Leading Brands" SECTION (Exact Reference Screenshot 3 & 4 Match) */}
+        {/* 4. "Trusted By The World’s Leading Brands" SECTION */}
         <section className="py-20 bg-white border-b border-slate-200 text-slate-900 font-sans">
           <div className="max-w-[1360px] mx-auto px-4 sm:px-8">
             <div className="text-center max-w-4xl mx-auto mb-14">
-              <h2 className="text-[40px] font-[800] text-slate-900 tracking-tight leading-tight mb-3 font-sans section-content-title">
-                Trusted By The World’s Leading Brands
+              <h2 className="text-[32px] sm:text-[40px] font-[800] text-slate-900 tracking-tight leading-tight mb-3 font-sans section-content-title">
+                {brandsTitle}
               </h2>
               <p className="text-[15px] font-[400] text-slate-600 leading-relaxed max-w-3xl mx-auto font-sans section-content-desc">
-                We are glad to be a digital technology and innovation partner with world’s leading brands. Building greater futures through innovation and collective knowledge.
+                {brandsSubtitle}
               </p>
             </div>
 
@@ -2488,13 +2565,16 @@ export const CompanySubDetails = () => {
           </div>
         </section>
 
-        {/* 5. "We Have Been Featured In" SECTION (Exact Reference Screenshot 4 Match) */}
-        <FeaturedInLogosGrid />
+        {/* 5. "We Have Been Featured In" SECTION */}
+        <FeaturedInLogosGrid title={featuredTitle} />
 
         {/* 6. "Want to boost your business?" CTA & Subscription Banners */}
         <WorkTogetherNewsletterSection
-          title="Want to boost your business?"
-          subtitle="Would you like to know why choosing us is the best decision? Because we work with you to create something out of the box at a fraction of the cost."
+          title={ctaTitle}
+          subtitle={ctaSubtitle}
+          buttonText={ctaBtnText}
+          buttonLink={ctaBtnLink}
+          newsletterTitle={newsletterTitle}
         />
       </div>
     );
@@ -2811,107 +2891,170 @@ export const CompanySubDetails = () => {
       }
     ];
 
+    // Helper to resolve icon by name or element
+    const renderWhyChooseIcon = (iconName, fallbackIcon, rawIcon) => {
+      if (rawIcon) {
+        const Raw = rawIcon;
+        return <Raw className="w-9 h-9 stroke-[1.7]" />;
+      }
+      if (fallbackIcon && React.isValidElement(fallbackIcon)) {
+        return fallbackIcon;
+      }
+      const iconLookup = {
+        Award, Globe, Star, Users, Calendar, FileText, Sparkles, MessageSquare,
+        Briefcase, ShieldCheck, Target, Heart, BookOpen, CheckCircle2, Zap, Rocket,
+        Clock, ThumbsUp, Layers, Lightbulb, Compass, Cpu, Check
+      };
+      const IconComponent = iconLookup[iconName] || Award;
+      return <IconComponent className="w-9 h-9 stroke-[1.7]" />;
+    };
+
+    // Dynamic cards resolution
+    const dynamicCards = (dynamicSection?.items && Array.isArray(dynamicSection.items) && dynamicSection.items.length > 0)
+      ? dynamicSection.items
+      : (dynamicSection?.cards && Array.isArray(dynamicSection.cards) && dynamicSection.cards.length > 0)
+        ? dynamicSection.cards
+        : (dynamicSection?.content?.whyChooseUsCards && Array.isArray(dynamicSection.content.whyChooseUsCards) && dynamicSection.content.whyChooseUsCards.length > 0)
+          ? dynamicSection.content.whyChooseUsCards
+          : whyChooseUsCards;
+
+    const heroTitle = dynamicSection?.title || dynamicSection?.hero?.title || 'Why Choose firevy.co';
+    const heroSubtitle = dynamicSection?.subtitle || dynamicSection?.hero?.subtitle || 'We understand the seriousness of your project, and here are the few reasons that why should you join the firevy.co club and get added to the list of 1500+ clients who have been trusting us since 2 decades.';
+    const heroCtaText = dynamicSection?.ctaText || dynamicSection?.hero?.ctaText || 'Connect Now';
+    const heroCtaLink = dynamicSection?.ctaLink || dynamicSection?.hero?.ctaLink || '/contact';
+    const heroImage = dynamicSection?.heroImage || dynamicSection?.hero?.heroImage || '/images/why-choose-hero.svg';
+
+    const sectionHeading = dynamicSection?.content?.sectionHeading || dynamicSection?.content?.heading || 'Why firevy.co?';
+    const sectionSubtitle = dynamicSection?.content?.sectionSubtitle || dynamicSection?.content?.subtitle || dynamicSection?.content?.intro || 'Reasons why our clients keep coming back to us';
+
+    const ctaTitle = dynamicSection?.content?.ctaBanner?.title || dynamicSection?.cta?.title || "Ready To Get Started?";
+    const ctaSubtitle = dynamicSection?.content?.ctaBanner?.subtitle || dynamicSection?.cta?.subtitle || "Learn how firevy.co can help you build better relationships with your customers. Start a conversation today.";
+    const ctaButtonText = dynamicSection?.content?.ctaBanner?.buttonText || dynamicSection?.cta?.buttonText || "TALK TO TECH EXPERT";
+    const ctaButtonLink = dynamicSection?.content?.ctaBanner?.buttonLink || dynamicSection?.cta?.buttonLink || "/contact";
+    const newsletterTitle = dynamicSection?.content?.newsletter?.title || dynamicSection?.newsletter?.title || "Subscribe us and Get the latest updates and news";
+    const newsletterSubtitle = dynamicSection?.content?.newsletter?.subtitle || dynamicSection?.newsletter?.subtitle || "Join over 25,000+ engineers, product managers, and leaders getting our weekly innovation digests.";
+    const newsletterButtonText = dynamicSection?.content?.newsletter?.buttonText || dynamicSection?.newsletter?.buttonText || "Subscribe Now";
+
     return (
       <div className="bg-white min-h-screen text-slate-900 font-sans">
         <SEO
-          title="Why Choose Us? | Reasons Why Clients Trust Us | firevy.co"
-          description="Discover why leading enterprises and startups trust firevy.co as their primary tech partner. Explore our 51 reasons for client excellence."
-          canonical={`/company/${pageKey}`}
+          title={dynamicSection?.seo?.metaTitle || "Why Choose Us? | Reasons Why Clients Trust Us | firevy.co"}
+          description={dynamicSection?.seo?.metaDescription || "Discover why leading enterprises and startups trust firevy.co as their primary tech partner. Explore our 51 reasons for client excellence."}
+          keywords={dynamicSection?.seo?.metaKeywords || ""}
+          canonical={dynamicSection?.seo?.canonical || `/company/${pageKey}`}
         />
 
-        {/* 1. HERO SECTION: "Why Choose Us?" (Exact Reference Screenshot 0 Match) */}
+        {/* 1. HERO SECTION: "Why Choose Us?" (Exact Reference Screenshot Match) */}
         <section className="pt-32 pb-16 bg-[#F4F7FB] relative overflow-hidden text-left font-sans">
           <div className="max-w-[1360px] mx-auto px-4 sm:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
               {/* Left Text */}
               <div className="lg:col-span-6 space-y-6">
                 <h1 className="text-[34px] font-[800] text-slate-900 tracking-tight leading-tight font-sans page-hero-title">
-                  {dynamicSection?.title || 'Why Choose Us?'}
+                  {heroTitle}
                 </h1>
                 <p className="text-[15px] text-slate-600 leading-relaxed font-[400] font-sans max-w-xl page-hero-desc">
-                  {dynamicSection?.subtitle || 'We understand the seriousness of your project, and here are the few reasons that why should you join the firevy.co club and get added to the list of 1500+ clients who have been trusting us since 2 decades.'}
+                  {heroSubtitle}
                 </p>
                 <div className="pt-2">
                   <Link
-                    to="/contact"
+                    to={heroCtaLink}
                     className="inline-flex items-center justify-center space-x-2 px-8 py-3.5 rounded-[6px] bg-[#00668C] hover:bg-[#004E6C] text-white font-[700] text-[15px] transition-all shadow-md group font-sans"
                   >
-                    <span>{dynamicSection?.ctaText || 'Connect Now'}</span>
+                    <span>{heroCtaText}</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </div>
               </div>
 
-              {/* Right 3D Isometric Illustration (Exact Reference Screenshot 0 Match) */}
+              {/* Right 3D Isometric Illustration or Custom Uploaded Hero Graphic */}
               <div className="lg:col-span-6 flex justify-center relative select-none">
-                <div className="relative w-full max-w-[540px] h-[360px] flex items-center justify-center">
-                  <svg viewBox="0 0 540 360" className="w-full h-full drop-shadow-xl" fill="none">
-                    {/* Isometric Base Platform */}
-                    <polygon points="270,70 510,190 270,310 30,190" fill="#E6F2FC" opacity="0.95" />
-                    <polygon points="270,310 510,190 510,205 270,325 30,205 30,190" fill="#BAE1F9" />
+                {heroImage ? (
+                  <div className="relative w-full max-w-[540px] max-h-[380px] flex items-center justify-center">
+                    <img
+                      src={getMediaUrl(heroImage)}
+                      alt={heroTitle}
+                      className="w-full h-auto max-h-[380px] object-contain drop-shadow-xl rounded-lg"
+                    />
+                  </div>
+                ) : (
+                  <div className="relative w-full max-w-[540px] h-[360px] flex items-center justify-center">
+                    <svg viewBox="0 0 540 360" className="w-full h-full drop-shadow-xl" fill="none">
+                      {/* Isometric Base Platform */}
+                      <polygon points="270,70 510,190 270,310 30,190" fill="#E6F2FC" opacity="0.95" />
+                      <polygon points="270,310 510,190 510,205 270,325 30,205 30,190" fill="#BAE1F9" />
 
-                    {/* Isometric Open Laptop */}
-                    <polygon points="230,120 410,120 370,240 190,240" fill="#2B80C5" />
-                    <polygon points="238,128 402,128 365,232 201,232" fill="#FFFFFF" />
-                    <rect x="230" y="142" width="120" height="60" rx="4" fill="#38BDF8" opacity="0.2" />
-                    <circle cx="360" cy="160" r="14" fill="#60A5FA" opacity="0.4" />
-                    <circle cx="360" cy="190" r="10" fill="#38BDF8" opacity="0.4" />
+                      {/* Isometric Open Laptop */}
+                      <polygon points="230,120 410,120 370,240 190,240" fill="#2B80C5" />
+                      <polygon points="238,128 402,128 365,232 201,232" fill="#FFFFFF" />
+                      <rect x="230" y="142" width="120" height="60" rx="4" fill="#38BDF8" opacity="0.2" />
+                      <circle cx="360" cy="160" r="14" fill="#60A5FA" opacity="0.4" />
+                      <circle cx="360" cy="190" r="10" fill="#38BDF8" opacity="0.4" />
 
-                    {/* Keyboard Stand */}
-                    <polygon points="190,240 370,240 430,290 250,290" fill="#1E5C91" />
+                      {/* Keyboard Stand */}
+                      <polygon points="190,240 370,240 430,290 250,290" fill="#1E5C91" />
 
-                    {/* Floating Question Mark Badges */}
-                    <text x="320" y="90" fill="#93C5FD" fontSize="32" fontWeight="900" fontFamily="sans-serif">?</text>
-                    <text x="345" y="70" fill="#60A5FA" fontSize="24" fontWeight="900" fontFamily="sans-serif">?</text>
-                    <text x="365" y="100" fill="#38BDF8" fontSize="20" fontWeight="900" fontFamily="sans-serif">?</text>
+                      {/* Floating Question Mark Badges */}
+                      <text x="320" y="90" fill="#93C5FD" fontSize="32" fontWeight="900" fontFamily="sans-serif">?</text>
+                      <text x="345" y="70" fill="#60A5FA" fontSize="24" fontWeight="900" fontFamily="sans-serif">?</text>
+                      <text x="365" y="100" fill="#38BDF8" fontSize="20" fontWeight="900" fontFamily="sans-serif">?</text>
 
-                    {/* Characters */}
-                    {/* Person 1 Top Left */}
-                    <circle cx="330" cy="130" r="12" fill="#FED7AA" />
-                    <path d="M318 144 C318 138 342 138 342 144 L345 178 L315 178 Z" fill="#2563EB" />
+                      {/* Characters */}
+                      {/* Person 1 Top Left */}
+                      <circle cx="330" cy="130" r="12" fill="#FED7AA" />
+                      <path d="M318 144 C318 138 342 138 342 144 L345 178 L315 178 Z" fill="#2563EB" />
 
-                    {/* Person 2 Sitting Bottom Left */}
-                    <circle cx="150" cy="200" r="12" fill="#FED7AA" />
-                    <path d="M138 214 C138 208 162 208 162 214 L165 245 L135 245 Z" fill="#0284C7" />
+                      {/* Person 2 Sitting Bottom Left */}
+                      <circle cx="150" cy="200" r="12" fill="#FED7AA" />
+                      <path d="M138 214 C138 208 162 208 162 214 L165 245 L135 245 Z" fill="#0284C7" />
 
-                    {/* Person 3 Sitting Right */}
-                    <circle cx="410" cy="220" r="12" fill="#FED7AA" />
-                    <path d="M398 234 C398 228 422 228 422 234 L425 268 L395 268 Z" fill="#EC4899" />
-                  </svg>
-                </div>
+                      {/* Person 3 Sitting Right */}
+                      <circle cx="410" cy="220" r="12" fill="#FED7AA" />
+                      <path d="M398 234 C398 228 422 228 422 234 L425 268 L395 268 Z" fill="#EC4899" />
+                    </svg>
+                  </div>
+                )}
               </div>
             </div>
           </div>
         </section>
 
-        {/* 2. "Why firevy.co?" CARDS GRID SECTION (Exact Reference Screenshots Match) */}
+        {/* 2. "Why firevy.co?" CARDS GRID SECTION */}
         <section className="py-20 bg-[#F4F7FB] text-left font-sans">
           <div className="max-w-[1360px] mx-auto px-4 sm:px-8">
             <div className="text-center max-w-4xl mx-auto mb-16">
               <h2 className="text-[34px] font-[800] text-slate-900 tracking-tight leading-tight mb-3 font-sans">
-                Why firevy.co?
+                {sectionHeading}
               </h2>
               <p className="text-[18px] font-[400] text-slate-600 leading-relaxed max-w-2xl mx-auto font-sans">
-                Reasons why our clients keep coming back to us
+                {sectionSubtitle}
               </p>
             </div>
 
             {/* 51 Feature Cards Grid (3 Columns) - Soft Clean Shadow, Rounded Corners, No Border */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-              {whyChooseUsCards.map((card) => (
+              {dynamicCards.map((card, idx) => (
                 <div
-                  key={card.id}
+                  key={card.id || idx}
                   className="bg-white rounded-[16px] p-8 sm:p-9 shadow-[0_4px_25px_rgba(0,0,0,0.04)] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group"
                 >
                   <div>
                     <div className="text-[#00668C] mb-5">
-                      {card.rawIcon ? <card.rawIcon className="w-9 h-9 stroke-[1.7]" /> : card.icon}
+                      {(card.iconImage || card.image) ? (
+                        <img
+                          src={getMediaUrl(card.iconImage || card.image)}
+                          alt={card.title || 'Feature icon'}
+                          className="w-10 h-10 object-contain"
+                        />
+                      ) : (
+                        renderWhyChooseIcon(card.iconName, card.icon, card.rawIcon)
+                      )}
                     </div>
                     <h3 className="text-[18px] font-[600] text-slate-900 font-sans tracking-tight mb-3 group-hover:text-[#00668C] transition-colors">
                       {card.title}
                     </h3>
                     <p className="text-[14.5px] font-[400] text-slate-600 leading-relaxed font-sans section-content-desc">
-                      {card.desc}
+                      {card.desc || card.description}
                     </p>
                   </div>
                 </div>
@@ -2922,8 +3065,13 @@ export const CompanySubDetails = () => {
 
         {/* 3. Global CTA / Newsletter Section */}
         <WorkTogetherNewsletterSection
-          title="Ready To Get Started?"
-          subtitle="Learn how firevy.co can help you build better relationships with your customers. Start a conversation today."
+          title={ctaTitle}
+          subtitle={ctaSubtitle}
+          buttonText={ctaButtonText}
+          buttonLink={ctaButtonLink}
+          newsletterTitle={newsletterTitle}
+          newsletterSubtitle={newsletterSubtitle}
+          newsletterButtonText={newsletterButtonText}
         />
       </div>
     );
@@ -2931,103 +3079,269 @@ export const CompanySubDetails = () => {
 
   // If this is the "Great Place To Work" / "great-place-to-work" page, render exact Sapphire Great Place To Work Layout
   if (pageKey === 'great-place-to-work') {
-    const greatPlaceBenefits = [
+    const defaultBenefits = [
       {
         id: 1,
         title: 'Sustainability',
         desc: 'For us, responsible entrepreneurship and scientific advancement go hand in hand. Because of this, a large portion of our magic is used to develop sustainable solutions.',
-        icon: (
-          <div className="w-12 h-12 rounded-[12px] bg-purple-50 text-purple-600 flex items-center justify-center mb-5 border border-purple-100">
-            <Globe className="w-6 h-6 stroke-[1.8]" />
-          </div>
-        )
+        iconName: 'Globe'
       },
       {
         id: 2,
         title: 'Equal Opportunity Employer',
         desc: 'firevy.co promises not to discriminate against employees because of their race, color, religion, sex, national origin, age, disability, or genetic information.',
-        icon: (
-          <div className="w-12 h-12 rounded-[12px] bg-emerald-50 text-emerald-600 flex items-center justify-center mb-5 border border-emerald-100">
-            <Users className="w-6 h-6 stroke-[1.8]" />
-          </div>
-        )
+        iconName: 'Users'
       },
       {
         id: 3,
         title: 'Are You Ready To Lead?',
         desc: 'Through our dedication to lifelong learning, we will support, encourage, and direct you to achieve your career goals.',
-        icon: (
-          <div className="w-12 h-12 rounded-[12px] bg-orange-50 text-orange-600 flex items-center justify-center mb-5 border border-orange-100">
-            <Award className="w-6 h-6 stroke-[1.8]" />
-          </div>
-        )
+        iconName: 'Award'
       }
     ];
+
+    const defaultWorkplacePhotos = [
+      'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80',
+      'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=80',
+      'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=600&q=80',
+      'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=600&q=80',
+      'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=600&q=80'
+    ];
+
+    const defaultCulturePillars = [
+      {
+        id: 1,
+        title: 'Flexibility And Freedom',
+        desc: 'We work hard to allow you the freedom to advance your career while maintaining a healthy work-life balance. You can reshape the job to fit your personality.',
+        iconName: 'Sparkles'
+      },
+      {
+        id: 2,
+        title: 'Innovation Everyday',
+        desc: 'We have people, strategy, leadership, management, culture and tools & processes to make sure we innovate every day and keep on improving our services.',
+        iconName: 'Globe'
+      },
+      {
+        id: 3,
+        title: 'People First',
+        desc: 'Meaningful employment, or a job in which one feels effective and has the potential to change the business, is one factor for hiring personnel. They ought to be moving forward, capable of expanding, growing, and advancing their career inside the organization.',
+        iconName: 'Users'
+      },
+      {
+        id: 4,
+        title: 'Making Impact',
+        desc: 'We aim to give you a chance to advance your career and alter the course of history. Our work at firevy.co significantly impacts the world we live in.',
+        iconName: 'Target'
+      }
+    ];
+
+    const defaultClutchReviews = [
+      {
+        id: 1,
+        name: 'Christine Ine',
+        location: 'Rockville, Maryland',
+        avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80',
+        title: '"They are very professional, respectful, competent, and approachable."',
+        quote: "The client was highly pleased with firevy.co's software development work. The team met all timeline goals and kept the cost within budget...",
+        rating: '4.5',
+        quality: '4.0',
+        schedule: '4.5',
+        cost: '5.0',
+        willingToRefer: '5.0'
+      },
+      {
+        id: 2,
+        name: 'Derrick Surratt',
+        location: 'Arkansas',
+        avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80',
+        title: '"firevy.co\'s team communicated effectively..."',
+        quote: 'firevy.co successfully implemented all UX and design features on the app. The team has consistently delivered on schedule...',
+        rating: '5.0',
+        quality: '5.0',
+        schedule: '5.0',
+        cost: '5.0',
+        willingToRefer: '5.0'
+      },
+      {
+        id: 3,
+        name: 'Hamidah Nalwoga',
+        location: 'Massachusetts',
+        avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=120&q=80',
+        title: "\"They're able to listen to customer requests and attend...\"",
+        quote: "firevy.co's updates improved a product's UX per the end customer's requests. The team is personable, reaches their goals...",
+        rating: '5.0',
+        quality: '5.0',
+        schedule: '5.0',
+        cost: '5.0',
+        willingToRefer: '5.0'
+      },
+      {
+        id: 4,
+        name: 'Michael Vance',
+        location: 'Austin, Texas',
+        avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80',
+        title: '"The team exceeded our expectations in every single release."',
+        quote: 'Communication was smooth across all timezones. They understood our complex requirements quickly and delivered high performance...',
+        rating: '5.0',
+        quality: '5.0',
+        schedule: '5.0',
+        cost: '4.8',
+        willingToRefer: '5.0'
+      }
+    ];
+
+    const renderBenefitIcon = (iconName) => {
+      switch (iconName) {
+        case 'Users':
+          return (
+            <div className="w-12 h-12 rounded-[12px] bg-emerald-50 text-emerald-600 flex items-center justify-center mb-5 border border-emerald-100">
+              <Users className="w-6 h-6 stroke-[1.8]" />
+            </div>
+          );
+        case 'Award':
+          return (
+            <div className="w-12 h-12 rounded-[12px] bg-orange-50 text-orange-600 flex items-center justify-center mb-5 border border-orange-100">
+              <Award className="w-6 h-6 stroke-[1.8]" />
+            </div>
+          );
+        case 'Sparkles':
+          return (
+            <div className="w-12 h-12 rounded-[12px] bg-amber-50 text-amber-600 flex items-center justify-center mb-5 border border-amber-100">
+              <Sparkles className="w-6 h-6 stroke-[1.8]" />
+            </div>
+          );
+        case 'Globe':
+        default:
+          return (
+            <div className="w-12 h-12 rounded-[12px] bg-purple-50 text-purple-600 flex items-center justify-center mb-5 border border-purple-100">
+              <Globe className="w-6 h-6 stroke-[1.8]" />
+            </div>
+          );
+      }
+    };
+
+    const renderCulturePillarIcon = (iconName) => {
+      switch (iconName) {
+        case 'Globe':
+          return <Globe className="w-7 h-7 stroke-[1.8]" />;
+        case 'Users':
+          return <Users className="w-7 h-7 stroke-[1.8]" />;
+        case 'Target':
+          return <Target className="w-7 h-7 stroke-[1.8]" />;
+        case 'Sparkles':
+        default:
+          return <Sparkles className="w-7 h-7 stroke-[1.8]" />;
+      }
+    };
+
+    // Dynamic resolution
+    const heroTitle = dynamicSection?.title || dynamicSection?.hero?.title || 'What Makes firevy.co An Exciting Place To Work?';
+    const heroSubtitle = dynamicSection?.subtitle || dynamicSection?.hero?.subtitle || 'Working with firevy.co is much more than doing a set of tasks daily. You can think, innovate, and tell us your ideas to improve this organization! You have exciting new opportunities to follow your curiosity wherever it takes you and pursue a career with our company.';
+    const heroCtaText = dynamicSection?.ctaText || dynamicSection?.hero?.ctaText || 'Discuss Your Project';
+    const heroCtaLink = dynamicSection?.ctaLink || dynamicSection?.hero?.ctaLink || '/contact';
+    const heroImage = dynamicSection?.heroImage || dynamicSection?.hero?.heroImage || '/images/great-place-hero.svg';
+
+    const howWeDidIt = dynamicSection?.content?.howWeDidIt || {};
+    const videoBanner = dynamicSection?.content?.videoBanner || {};
+    const heroes = dynamicSection?.content?.heroes || {};
+    const culture = dynamicSection?.content?.culture || {};
+    const workplace = dynamicSection?.content?.workplace || {};
+    const clutchReviewsData = dynamicSection?.content?.clutchReviews || {};
+
+    const benefitsToRender = (dynamicSection?.content?.benefits && Array.isArray(dynamicSection.content.benefits) && dynamicSection.content.benefits.length > 0)
+      ? dynamicSection.content.benefits
+      : (dynamicSection?.items && Array.isArray(dynamicSection.items) && dynamicSection.items.length > 0)
+        ? dynamicSection.items
+        : defaultBenefits;
+
+    const workplacePhotosToRender = (dynamicSection?.gallery && Array.isArray(dynamicSection.gallery) && dynamicSection.gallery.length > 0)
+      ? dynamicSection.gallery
+      : (workplace.gallery && Array.isArray(workplace.gallery) && workplace.gallery.length > 0)
+        ? workplace.gallery
+        : defaultWorkplacePhotos;
+
+    const culturePillarsToRender = (culture.pillars && Array.isArray(culture.pillars) && culture.pillars.length > 0)
+      ? culture.pillars
+      : defaultCulturePillars;
+
+    const clutchReviewsToRender = (clutchReviewsData.reviews && Array.isArray(clutchReviewsData.reviews) && clutchReviewsData.reviews.length > 0)
+      ? clutchReviewsData.reviews
+      : defaultClutchReviews;
+
+    const ctaTitle = dynamicSection?.content?.ctaBanner?.title || dynamicSection?.cta?.title || "Let's work together to make something big happen";
+    const ctaSubtitle = dynamicSection?.content?.ctaBanner?.subtitle || dynamicSection?.cta?.subtitle || "We provide custom software development and technology solutions tailored to your brand goals.";
+    const ctaButtonText = dynamicSection?.content?.ctaBanner?.buttonText || dynamicSection?.cta?.buttonText || "CONNECT WITH US";
+    const ctaButtonLink = dynamicSection?.content?.ctaBanner?.buttonLink || dynamicSection?.cta?.buttonLink || "/contact";
+    const newsletterTitle = dynamicSection?.content?.newsletter?.title || dynamicSection?.newsletter?.title || "Subscribe us and Get the latest updates and news";
+    const newsletterSubtitle = dynamicSection?.content?.newsletter?.subtitle || dynamicSection?.newsletter?.subtitle || "Join over 25,000+ engineers, product managers, and leaders getting our weekly innovation digests.";
+    const newsletterButtonText = dynamicSection?.content?.newsletter?.buttonText || dynamicSection?.newsletter?.buttonText || "Subscribe Now";
 
     return (
       <div className="bg-white min-h-screen text-slate-900 font-sans">
         <SEO
-          title="Great Place To Work | Life & Culture at firevy.co"
-          description="What makes firevy.co an exciting place to work? Discover our culture, values, team benefits, and awards."
-          canonical={`/company/${pageKey}`}
+          title={dynamicSection?.seo?.metaTitle || "Great Place To Work | Life & Culture at firevy.co"}
+          description={dynamicSection?.seo?.metaDescription || "What makes firevy.co an exciting place to work? Discover our culture, values, team benefits, and awards."}
+          keywords={dynamicSection?.seo?.metaKeywords || ""}
+          canonical={dynamicSection?.seo?.canonical || `/company/${pageKey}`}
         />
 
-        {/* 1. HERO SECTION: "What Makes firevy.co An Exciting Place To Work?" (Exact Reference Screenshot 0 Match) */}
+        {/* 1. HERO SECTION: "What Makes firevy.co An Exciting Place To Work?" (Exact Reference Screenshot Match) */}
         <section className="pt-32 pb-16 bg-[#F4F7FB] relative overflow-hidden text-left font-sans">
           <div className="max-w-[1360px] mx-auto px-4 sm:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
               {/* Left Text */}
               <div className="lg:col-span-6 space-y-6">
                 <h1 className="text-[34px] font-[800] text-slate-900 tracking-tight leading-tight font-sans page-hero-title">
-                  {dynamicSection?.title || 'What Makes firevy.co An Exciting Place To Work?'}
+                  {heroTitle}
                 </h1>
                 <p className="text-[15px] text-slate-600 leading-relaxed font-[400] font-sans max-w-xl page-hero-desc">
-                  {dynamicSection?.subtitle || 'Working with firevy.co is much more than doing a set of tasks daily. You can think, innovate, and tell us your ideas to improve this organization! You have exciting new opportunities to follow your curiosity wherever it takes you and pursue a career with our company.'}
+                  {heroSubtitle}
                 </p>
                 <div className="pt-2">
                   <Link
-                    to="/contact"
+                    to={heroCtaLink}
                     className="inline-flex items-center justify-center space-x-2 px-8 py-3.5 rounded-[6px] bg-[#00668C] hover:bg-[#004E6C] text-white font-[700] text-[15px] transition-all shadow-md group font-sans"
                   >
-                    <span>{dynamicSection?.ctaText || 'Discuss Your Project'}</span>
+                    <span>{heroCtaText}</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </div>
               </div>
 
-              {/* Right 3D Isometric Illustration (Exact Reference Screenshot 0 Match) */}
+              {/* Right 3D Isometric Illustration / Hero Image */}
               <div className="lg:col-span-6 flex justify-center relative select-none">
-                <div className="relative w-full max-w-[540px] h-[360px] flex items-center justify-center">
-                  <svg viewBox="0 0 540 360" className="w-full h-full drop-shadow-xl" fill="none">
-                    {/* Isometric Base Platform Grid */}
-                    <polygon points="270,70 510,190 270,310 30,190" fill="#E6F2FC" opacity="0.95" />
-                    <polygon points="270,310 510,190 510,205 270,325 30,205 30,190" fill="#BAE1F9" />
-
-                    {/* Isometric Workstations */}
-                    <polygon points="120,160 220,110 300,150 200,200" fill="#2563EB" opacity="0.9" />
-                    <polygon points="340,110 440,160 360,200 260,150" fill="#3B82F6" opacity="0.9" />
-
-                    {/* Floating Speech Bubbles */}
-                    <polygon points="380,70 440,50 480,70 420,90" fill="#60A5FA" />
-                    <polygon points="380,70 420,90 420,115 380,95" fill="#3B82F6" />
-
-                    {/* Team Characters */}
-                    <circle cx="200" cy="110" r="10" fill="#FED7AA" />
-                    <path d="M190 122 C190 118 210 118 210 122 L212 150 L188 150 Z" fill="#DC2626" />
-
-                    <circle cx="380" cy="160" r="10" fill="#FED7AA" />
-                    <path d="M370 172 C370 168 390 168 390 172 L392 200 L368 200 Z" fill="#0284C7" />
-
-                    <circle cx="280" cy="210" r="10" fill="#FED7AA" />
-                    <path d="M270 222 C270 218 290 218 290 222 L292 250 L268 250 Z" fill="#EC4899" />
-                  </svg>
-                </div>
+                {heroImage ? (
+                  <div className="relative w-full max-w-[540px] max-h-[380px] flex items-center justify-center">
+                    <img
+                      src={getMediaUrl(heroImage)}
+                      alt={heroTitle}
+                      className="w-full h-auto max-h-[380px] object-contain drop-shadow-xl rounded-lg"
+                    />
+                  </div>
+                ) : (
+                  <div className="relative w-full max-w-[540px] h-[360px] flex items-center justify-center">
+                    <svg viewBox="0 0 540 360" className="w-full h-full drop-shadow-xl" fill="none">
+                      <polygon points="270,70 510,190 270,310 30,190" fill="#E6F2FC" opacity="0.95" />
+                      <polygon points="270,310 510,190 510,205 270,325 30,205 30,190" fill="#BAE1F9" />
+                      <polygon points="120,160 220,110 300,150 200,200" fill="#2563EB" opacity="0.9" />
+                      <polygon points="340,110 440,160 360,200 260,150" fill="#3B82F6" opacity="0.9" />
+                      <polygon points="380,70 440,50 480,70 420,90" fill="#60A5FA" />
+                      <polygon points="380,70 420,90 420,115 380,95" fill="#3B82F6" />
+                      <circle cx="200" cy="110" r="10" fill="#FED7AA" />
+                      <path d="M190 122 C190 118 210 118 210 122 L212 150 L188 150 Z" fill="#DC2626" />
+                      <circle cx="380" cy="160" r="10" fill="#FED7AA" />
+                      <path d="M370 172 C370 168 390 168 390 172 L392 200 L368 200 Z" fill="#0284C7" />
+                      <circle cx="280" cy="210" r="10" fill="#FED7AA" />
+                      <path d="M270 222 C270 218 290 218 290 222 L292 250 L268 250 Z" fill="#EC4899" />
+                    </svg>
+                  </div>
+                )}
               </div>
             </div>
           </div>
         </section>
 
-        {/* 2. ENTERPRISE BRAND LOGOS BANNER (Exact Reference Screenshot 0 & 1 Match) */}
+        {/* 2. ENTERPRISE BRAND LOGOS BANNER */}
         <section className="py-12 bg-white border-b border-slate-100 font-sans">
           <div className="max-w-[1360px] mx-auto px-4 sm:px-8">
             <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-4 items-center opacity-80 hover:opacity-100 transition-opacity">
@@ -3040,7 +3354,7 @@ export const CompanySubDetails = () => {
           </div>
         </section>
 
-        {/* 3. "How We Did It?" SECTION (Exact Reference Screenshot 1 Match) */}
+        {/* 3. "How We Did It?" SECTION */}
         <section className="py-20 bg-white text-left font-sans">
           <div className="max-w-[1360px] mx-auto px-4 sm:px-8">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
@@ -3048,7 +3362,7 @@ export const CompanySubDetails = () => {
               <div className="lg:col-span-5 flex justify-center">
                 <div className="relative w-full rounded-[20px] overflow-hidden shadow-2xl border border-slate-200 group">
                   <img
-                    src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80"
+                    src={getMediaUrl(howWeDidIt.image || 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80')}
                     alt="firevy.co Corporate Building"
                     className="w-full h-[380px] sm:h-[420px] object-cover group-hover:scale-105 transition-transform duration-500"
                   />
@@ -3059,35 +3373,34 @@ export const CompanySubDetails = () => {
               {/* Right Column Text */}
               <div className="lg:col-span-7 space-y-6">
                 <h2 className="text-[40px] font-[800] text-slate-900 tracking-tight leading-tight font-sans section-content-title">
-                  How We Did It?
+                  {howWeDidIt.heading || 'How We Did It?'}
                 </h2>
                 <p className="text-[15px] font-[400] text-slate-600 leading-[1.85] font-sans section-content-desc">
-                  It was the first time we tried to offer 360-degree IT services, so getting here took a lot of work. A few years ago, we worked hard for our first client before receiving our first lead. At that very moment, firevy.co chose to group its IT services under a single umbrella. We were fortunate to receive further leads over the following few months, and they were gracious enough to provide us with as much input as we could reasonably process. Additionally, several of our clients began requesting digital marketing solutions. We started a small team for digital marketing from there and have yet to look back. All due to our incredible partners, clients, and, of course, our extraordinarily bright personnel who put in a lot of effort for us.
+                  {howWeDidIt.description || 'It was the first time we tried to offer 360-degree IT services, so getting here took a lot of work. A few years ago, we worked hard for our first client before receiving our first lead. At that very moment, firevy.co chose to group its IT services under a single umbrella. We were fortunate to receive further leads over the following few months, and they were gracious enough to provide us with as much input as we could reasonably process. Additionally, several of our clients began requesting digital marketing solutions. We started a small team for digital marketing from there and have yet to look back. All due to our incredible partners, clients, and, of course, our extraordinarily bright personnel who put in a lot of effort for us.'}
                 </p>
               </div>
             </div>
           </div>
         </section>
 
-        {/* 4. "What Makes firevy.co Great Place To Work" VIDEO BANNER SECTION (Exact Reference Screenshot 2 Match) */}
+        {/* 4. "What Makes firevy.co Great Place To Work" VIDEO BANNER SECTION */}
         <section className="py-20 bg-[#006B8F] text-white text-center font-sans relative overflow-hidden">
           <div className="max-w-[1360px] mx-auto px-4 sm:px-8">
             <h2 className="text-[40px] font-[800] text-white tracking-tight leading-tight mb-2 font-sans section-content-title">
-              What Makes firevy.co Great Place To Work
+              {videoBanner.heading || 'What Makes firevy.co Great Place To Work'}
             </h2>
             <p className="text-[15px] font-[400] text-cyan-100 max-w-xl mx-auto mb-12 font-sans section-content-desc">
-              What Makes firevy.co Great Place to work
+              {videoBanner.subtitle || 'What Makes firevy.co Great Place to work'}
             </p>
 
             {/* Video Container Box with Cyan Border */}
             <div className="relative max-w-4xl mx-auto rounded-[30px] overflow-hidden border-4 border-cyan-300/80 shadow-2xl group cursor-pointer">
               <img
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80"
+                src={getMediaUrl(videoBanner.coverImage || 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80')}
                 alt="firevy.co Team Collaboration"
                 className="w-full h-[400px] sm:h-[480px] object-cover group-hover:scale-105 transition-transform duration-700 brightness-95"
               />
               <div className="absolute inset-0 bg-slate-900/20 group-hover:bg-slate-900/10 transition-colors flex items-center justify-center">
-                {/* Play Button Icon */}
                 <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-white/95 text-[#006B8F] flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform pl-1">
                   <svg viewBox="0 0 24 24" className="w-10 h-10 fill-current">
                     <path d="M8 5v14l11-7z" />
@@ -3098,31 +3411,41 @@ export const CompanySubDetails = () => {
           </div>
         </section>
 
-        {/* 5. "Benefits" SECTION (Exact Reference Screenshot 3 Match) */}
+        {/* 5. "Benefits" SECTION */}
         <section className="py-20 bg-[#F4F7FB] text-left font-sans">
           <div className="max-w-[1360px] mx-auto px-4 sm:px-8">
             <div className="text-center max-w-4xl mx-auto mb-16">
               <h2 className="text-[40px] font-[800] text-slate-900 tracking-tight leading-tight mb-3 font-sans section-content-title">
-                Benefits
+                {dynamicSection?.content?.benefitsHeading || 'Benefits'}
               </h2>
               <p className="text-[15px] font-[400] text-slate-600 leading-relaxed max-w-3xl mx-auto font-sans section-content-desc">
-                To grow and consistently improve our work, we promote transparency, conversation, and employee feedback in a demanding and exciting learning environment.
+                {dynamicSection?.content?.benefitsSubtitle || 'To grow and consistently improve our work, we promote transparency, conversation, and employee feedback in a demanding and exciting learning environment.'}
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {greatPlaceBenefits.map((item) => (
+              {benefitsToRender.map((item, bIdx) => (
                 <div
-                  key={item.id}
+                  key={item.id || bIdx}
                   className="bg-white rounded-[20px] p-8 border border-slate-200/90 shadow-[0_4px_25px_rgba(0,0,0,0.04)] hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
                 >
                   <div>
-                    {item.icon}
+                    {(item.iconImage || item.image) ? (
+                      <div className="w-12 h-12 rounded-[12px] overflow-hidden mb-5">
+                        <img
+                          src={getMediaUrl(item.iconImage || item.image)}
+                          alt={item.title}
+                          className="w-full h-full object-contain"
+                        />
+                      </div>
+                    ) : (
+                      renderBenefitIcon(item.iconName)
+                    )}
                     <h3 className="text-[20px] font-[800] text-slate-900 font-sans tracking-tight mb-3">
                       {item.title}
                     </h3>
                     <p className="text-[14.5px] font-[400] text-slate-600 leading-relaxed font-sans section-content-desc">
-                      {item.desc}
+                      {item.desc || item.description}
                     </p>
                   </div>
                 </div>
@@ -3131,16 +3454,16 @@ export const CompanySubDetails = () => {
           </div>
         </section>
 
-        {/* 6. "Awards And Recognition" & "Meet Our Heroes" SECTION (Exact Reference Screenshot 4 Match) */}
+        {/* 6. "Awards And Recognition" & "Meet Our Heroes" SECTION */}
         <section className="py-20 bg-white text-left font-sans">
           <div className="max-w-[1360px] mx-auto px-4 sm:px-8 space-y-20">
             {/* Top Awards Header */}
             <div className="text-center max-w-4xl mx-auto">
               <h2 className="text-[40px] font-[800] text-slate-900 tracking-tight leading-tight mb-3 font-sans section-content-title">
-                Awards And Recognition
+                {heroes.awardsHeading || 'Awards And Recognition'}
               </h2>
               <p className="text-[15px] font-[400] text-slate-600 leading-relaxed max-w-3xl mx-auto font-sans section-content-desc">
-                The world is fueled by money. However, at our organization, rewards go beyond money. We provide a variety of attractive incentives to support you in working your magic.
+                {heroes.awardsSubtitle || 'The world is fueled by money. However, at our organization, rewards go beyond money. We provide a variety of attractive incentives to support you in working your magic.'}
               </p>
             </div>
 
@@ -3149,20 +3472,20 @@ export const CompanySubDetails = () => {
               {/* Left Column Text */}
               <div className="lg:col-span-6 space-y-6">
                 <h3 className="text-[40px] font-[800] text-slate-900 tracking-tight leading-tight font-sans section-content-title">
-                  Meet Our Heroes
+                  {heroes.heading || 'Meet Our Heroes'}
                 </h3>
                 <p className="text-[15px] font-[400] text-slate-600 leading-[1.85] font-sans section-content-desc">
-                  We reward them because our team's strength grows enormously from our accomplishments. When an individual or team exemplifies your company's values, mission, or objectives, we have a culture that values and rewards their effort, successes, and contributions. Employees that take part in initiatives like these realize the significance and value of their work. Their ability to accomplish their jobs better is thereby significantly increased. At firevy.co, increasing employee productivity and recruiting and keeping top talent is done in a variety of ways, from work incentives to more freedom. We recognize the significance of feeling valued in order to succeed as a business owner or entrepreneur.
+                  {heroes.description || "We reward them because our team's strength grows enormously from our accomplishments. When an individual or team exemplifies your company's values, mission, or objectives, we have a culture that values and rewards their effort, successes, and contributions. Employees that take part in initiatives like these realize the significance and value of their work. Their ability to accomplish their jobs better is thereby significantly increased. At firevy.co, increasing employee productivity and recruiting and keeping top talent is done in a variety of ways, from work incentives to more freedom. We recognize the significance of feeling valued in order to succeed as a business owner or entrepreneur."}
                 </p>
               </div>
 
-              {/* Right Column Photo Grid (Exact Reference Screenshot 4 Match) */}
+              {/* Right Column Photo Grid (3 Showcase Photos) */}
               <div className="lg:col-span-6">
                 <div className="grid grid-cols-2 gap-4">
                   {/* Big Left Photo */}
                   <div className="rounded-[16px] overflow-hidden shadow-lg border border-slate-200 h-full min-h-[300px]">
                     <img
-                      src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=600&q=80"
+                      src={getMediaUrl(heroes.image1 || 'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=600&q=80')}
                       alt="firevy.co Award Ceremony"
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                     />
@@ -3171,14 +3494,14 @@ export const CompanySubDetails = () => {
                   <div className="space-y-4">
                     <div className="rounded-[16px] overflow-hidden shadow-lg border border-slate-200 h-[145px]">
                       <img
-                        src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80"
+                        src={getMediaUrl(heroes.image2 || 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80')}
                         alt="Employee Recognition"
                         className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                       />
                     </div>
                     <div className="rounded-[16px] overflow-hidden shadow-lg border border-slate-200 h-[145px]">
                       <img
-                        src="https://images.unsplash.com/photo-1531497865144-0464ef8fb9a9?auto=format&fit=crop&w=600&q=80"
+                        src={getMediaUrl(heroes.image3 || 'https://images.unsplash.com/photo-1531497865144-0464ef8fb9a9?auto=format&fit=crop&w=600&q=80')}
                         alt="Team Celebration"
                         className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                       />
@@ -3190,14 +3513,14 @@ export const CompanySubDetails = () => {
           </div>
         </section>
 
-        {/* 7. "While There's Still A Lot To Explore In Our Workplace" PHOTO GALLERY & SLIDER SECTION (Exact Reference Screenshot 0 Match) */}
+        {/* 7. "While There's Still A Lot To Explore In Our Workplace" PHOTO GALLERY CAROUSEL */}
         <section className="py-20 bg-white text-center font-sans border-t border-slate-200 overflow-hidden">
           <div className="max-w-[1360px] mx-auto px-4 sm:px-8">
             <h2 className="text-[40px] font-[800] text-slate-900 tracking-tight leading-tight mb-3 font-sans section-content-title">
-              While There's Still A Lot To Explore In Our Workplace
+              {workplace.heading || "While There's Still A Lot To Explore In Our Workplace"}
             </h2>
             <p className="text-[15px] font-[400] text-slate-600 leading-relaxed max-w-3xl mx-auto mb-12 font-sans section-content-desc">
-              From dedicated cabins to conference rooms, we have been trying to find ways to provide our team with the resources they need to stay happy at work.
+              {workplace.subtitle || 'From dedicated cabins to conference rooms, we have been trying to find ways to provide our team with the resources they need to stay happy at work.'}
             </p>
 
             {/* Workplace Photos Scrollable Carousel Container */}
@@ -3206,41 +3529,18 @@ export const CompanySubDetails = () => {
               className="flex space-x-6 overflow-x-auto py-4 snap-x snap-mandatory scroll-smooth mb-8 border-none no-scrollbar"
               style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             >
-              <div className="rounded-[20px] overflow-hidden shadow-lg border border-slate-200/90 h-[280px] sm:h-[340px] shrink-0 w-[85vw] sm:w-[410px] snap-center group">
-                <img
-                  src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80"
-                  alt="firevy.co Developers at Work"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="rounded-[20px] overflow-hidden shadow-lg border border-slate-200/90 h-[280px] sm:h-[340px] shrink-0 w-[85vw] sm:w-[410px] snap-center group">
-                <img
-                  src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=80"
-                  alt="firevy.co Open Office Space"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="rounded-[20px] overflow-hidden shadow-lg border border-slate-200/90 h-[280px] sm:h-[340px] shrink-0 w-[85vw] sm:w-[410px] snap-center group">
-                <img
-                  src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=600&q=80"
-                  alt="firevy.co Festive Office Bay"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="rounded-[20px] overflow-hidden shadow-lg border border-slate-200/90 h-[280px] sm:h-[340px] shrink-0 w-[85vw] sm:w-[410px] snap-center group">
-                <img
-                  src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=600&q=80"
-                  alt="firevy.co Conference Room"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
-              <div className="rounded-[20px] overflow-hidden shadow-lg border border-slate-200/90 h-[280px] sm:h-[340px] shrink-0 w-[85vw] sm:w-[410px] snap-center group">
-                <img
-                  src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=600&q=80"
-                  alt="firevy.co Executive Lounge"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-              </div>
+              {workplacePhotosToRender.map((photoUrl, pIdx) => (
+                <div
+                  key={pIdx}
+                  className="rounded-[20px] overflow-hidden shadow-lg border border-slate-200/90 h-[280px] sm:h-[340px] shrink-0 w-[85vw] sm:w-[410px] snap-center group"
+                >
+                  <img
+                    src={getMediaUrl(photoUrl)}
+                    alt={`firevy.co Workplace ${pIdx + 1}`}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+              ))}
             </div>
 
             {/* Slider Arrow Navigation Controls */}
@@ -3265,96 +3565,65 @@ export const CompanySubDetails = () => {
           </div>
         </section>
 
-        {/* 8. "firevy.co Culture" SECTION (Exact Reference Screenshot 0 Match) */}
+        {/* 8. "firevy.co Culture" SECTION */}
         <section className="py-24 text-white font-sans relative overflow-hidden">
           {/* Office Background Image with Blue Tint Overlay */}
-          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80')] bg-cover bg-center" />
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{
+              backgroundImage: `url(${getMediaUrl(culture.backgroundImage || 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1600&q=80')})`
+            }}
+          />
           <div className="absolute inset-0 bg-[#006B8F]/88" />
 
           <div className="max-w-[1360px] mx-auto px-4 sm:px-8 relative z-10">
             <div className="text-center max-w-4xl mx-auto mb-16">
               <h2 className="text-[40px] font-[800] text-white tracking-tight leading-tight mb-3 font-sans section-content-title">
-                firevy.co Culture
+                {culture.heading || 'firevy.co Culture'}
               </h2>
               <p className="text-[15px] font-[400] text-cyan-100 leading-relaxed max-w-2xl mx-auto font-sans section-content-desc">
-                We embrace a culture that fosters an environment where workers are happy and produce better work...
+                {culture.subtitle || 'We embrace a culture that fosters an environment where workers are happy and produce better work...'}
               </p>
             </div>
 
-            {/* 2x2 Grid with Side-by-Side Flex Layout (Icon Box Left, Text Right) */}
+            {/* 2x2 Grid with Side-by-Side Flex Layout */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12 max-w-5xl mx-auto text-left">
-              {/* Item 1: Flexibility And Freedom */}
-              <div className="flex items-start space-x-5">
-                <div className="w-14 h-14 rounded-[12px] bg-white text-[#006B8F] flex items-center justify-center shrink-0 shadow-lg">
-                  <Sparkles className="w-7 h-7 stroke-[1.8]" />
+              {culturePillarsToRender.map((pillar, cIdx) => (
+                <div key={pillar.id || cIdx} className="flex items-start space-x-5">
+                  <div className="w-14 h-14 rounded-[12px] bg-white text-[#006B8F] flex items-center justify-center shrink-0 shadow-lg overflow-hidden">
+                    {(pillar.iconImage || pillar.image) ? (
+                      <img
+                        src={getMediaUrl(pillar.iconImage || pillar.image)}
+                        alt={pillar.title}
+                        className="w-8 h-8 object-contain"
+                      />
+                    ) : (
+                      renderCulturePillarIcon(pillar.iconName)
+                    )}
+                  </div>
+                  <div>
+                    <h3 className="text-[20px] font-[800] text-white font-sans tracking-tight mb-2">
+                      {pillar.title}
+                    </h3>
+                    <p className="text-[14.5px] font-[400] text-cyan-100 leading-relaxed font-sans section-content-desc">
+                      {pillar.desc}
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-[20px] font-[800] text-white font-sans tracking-tight mb-2">
-                    Flexibility And Freedom
-                  </h3>
-                  <p className="text-[14.5px] font-[400] text-cyan-100 leading-relaxed font-sans section-content-desc">
-                    We work hard to allow you the freedom to advance your career while maintaining a healthy work-life balance. You can reshape the job to fit your personality.
-                  </p>
-                </div>
-              </div>
-
-              {/* Item 2: Innovation Everyday */}
-              <div className="flex items-start space-x-5">
-                <div className="w-14 h-14 rounded-[12px] bg-white text-[#006B8F] flex items-center justify-center shrink-0 shadow-lg">
-                  <Globe className="w-7 h-7 stroke-[1.8]" />
-                </div>
-                <div>
-                  <h3 className="text-[20px] font-[800] text-white font-sans tracking-tight mb-2">
-                    Innovation Everyday
-                  </h3>
-                  <p className="text-[14.5px] font-[400] text-cyan-100 leading-relaxed font-sans section-content-desc">
-                    We have people, strategy, leadership, management, culture and tools & processes to make sure we innovate every day and keep on improving our services.
-                  </p>
-                </div>
-              </div>
-
-              {/* Item 3: People First */}
-              <div className="flex items-start space-x-5">
-                <div className="w-14 h-14 rounded-[12px] bg-white text-[#006B8F] flex items-center justify-center shrink-0 shadow-lg">
-                  <Users className="w-7 h-7 stroke-[1.8]" />
-                </div>
-                <div>
-                  <h3 className="text-[20px] font-[800] text-white font-sans tracking-tight mb-2">
-                    People First
-                  </h3>
-                  <p className="text-[14.5px] font-[400] text-cyan-100 leading-relaxed font-sans section-content-desc">
-                    Meaningful employment, or a job in which one feels effective and has the potential to change the business, is one factor for hiring personnel. They ought to be moving forward, capable of expanding, growing, and advancing their career inside the organization.
-                  </p>
-                </div>
-              </div>
-
-              {/* Item 4: Making Impact */}
-              <div className="flex items-start space-x-5">
-                <div className="w-14 h-14 rounded-[12px] bg-white text-[#006B8F] flex items-center justify-center shrink-0 shadow-lg">
-                  <Target className="w-7 h-7 stroke-[1.8]" />
-                </div>
-                <div>
-                  <h3 className="text-[20px] font-[800] text-white font-sans tracking-tight mb-2">
-                    Making Impact
-                  </h3>
-                  <p className="text-[14.5px] font-[400] text-cyan-100 leading-relaxed font-sans section-content-desc">
-                    We aim to give you a chance to advance your career and alter the course of history. Our work at firevy.co significantly impacts the world we live in.
-                  </p>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* 9. "Trusted By The World’s Leading Brands" SECTION (Exact Reference Screenshot 2 Match) */}
+        {/* 9. "Trusted By The World’s Leading Brands" SECTION */}
         <section className="py-20 bg-white border-b border-slate-200 text-slate-900 font-sans">
           <div className="max-w-[1360px] mx-auto px-4 sm:px-8">
             <div className="text-center max-w-4xl mx-auto mb-14">
               <h2 className="text-[40px] font-[800] text-slate-900 tracking-tight leading-tight mb-3 font-sans section-content-title">
-                Trusted By The World’s Leading Brands
+                {dynamicSection?.content?.trustedBrands?.heading || 'Trusted By The World’s Leading Brands'}
               </h2>
               <p className="text-[15px] font-[400] text-slate-600 leading-relaxed max-w-3xl mx-auto font-sans section-content-desc">
-                We are glad to be a digital technology and innovation partner with world’s leading brands. Building greater futures through innovation and collective knowledge.
+                {dynamicSection?.content?.trustedBrands?.subtitle || 'We are glad to be a digital technology and innovation partner with world’s leading brands. Building greater futures through innovation and collective knowledge.'}
               </p>
             </div>
 
@@ -3373,206 +3642,69 @@ export const CompanySubDetails = () => {
           </div>
         </section>
 
-        {/* 10. "What Our Clients Say" CLUTCH REVIEWS CAROUSEL SECTION (Exact Reference Screenshot 0 Match) */}
+        {/* 10. "What Our Clients Say" CLUTCH REVIEWS CAROUSEL SECTION */}
         <section className="py-20 bg-[#006B8F] text-white text-center font-sans overflow-hidden">
           <div className="max-w-[1360px] mx-auto px-4 sm:px-8">
             <h2 className="text-[40px] font-[800] text-white tracking-tight leading-tight mb-14 font-sans section-content-title">
-              What Our Clients Say
+              {clutchReviewsData.heading || 'What Our Clients Say'}
             </h2>
 
-            {/* Scrollable Horizontal Clutch Carousel Container (3 Cards Fit Side-by-Side) */}
+            {/* Scrollable Horizontal Clutch Carousel Container */}
             <div
               ref={clutchScrollRef}
               className="flex space-x-5 sm:space-x-6 overflow-x-auto py-4 snap-x snap-mandatory scroll-smooth no-scrollbar"
               style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             >
-              {/* Clutch Card 1 */}
-              <div className="bg-white text-slate-900 rounded-[24px] p-5 sm:p-6 shadow-2xl flex flex-col justify-between shrink-0 w-[88vw] sm:w-[410px] lg:w-[420px] snap-center">
-                <div className="grid grid-cols-12 gap-3.5 items-stretch">
-                  <div className="col-span-7 flex flex-col justify-between space-y-2.5 text-left">
-                    <div>
-                      <div className="text-[19px] font-[900] text-slate-900 tracking-tight mb-1.5 flex items-center">
-                        <span>Clut</span>
-                        <span className="text-red-500">c</span>
-                        <span>h</span>
-                      </div>
-                      <h4 className="text-[12.5px] font-[700] text-slate-900 leading-snug mb-1 font-sans">
-                        "They are very professional, respectful, competent, and approachable."
-                      </h4>
-                      <p className="text-[11.5px] font-[400] text-slate-600 leading-relaxed font-sans line-clamp-3">
-                        The client was highly pleased with firevy.co's software development work. The team met all timeline goals and kept the cost within budget...
-                      </p>
-                    </div>
-                    <div className="flex items-center space-x-2.5 pt-1">
-                      <img
-                        src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80"
-                        alt="Christine Ine"
-                        className="w-9 h-9 rounded-full object-cover shadow-sm"
-                      />
+              {clutchReviewsToRender.map((rev, rIdx) => (
+                <div
+                  key={rev.id || rIdx}
+                  className="bg-white text-slate-900 rounded-[24px] p-5 sm:p-6 shadow-2xl flex flex-col justify-between shrink-0 w-[88vw] sm:w-[410px] lg:w-[420px] snap-center text-left"
+                >
+                  <div className="grid grid-cols-12 gap-3.5 items-stretch">
+                    <div className="col-span-7 flex flex-col justify-between space-y-2.5">
                       <div>
-                        <h5 className="font-[800] text-slate-900 text-[12px] leading-tight">Christine Ine</h5>
-                        <span className="text-[10.5px] text-slate-500 font-medium">Rockville, Maryland</span>
+                        <div className="text-[19px] font-[900] text-slate-900 tracking-tight mb-1.5 flex items-center">
+                          <span>Clut</span>
+                          <span className="text-red-500">c</span>
+                          <span>h</span>
+                        </div>
+                        <h4 className="text-[12.5px] font-[700] text-slate-900 leading-snug mb-1 font-sans">
+                          {rev.title}
+                        </h4>
+                        <p className="text-[11.5px] font-[400] text-slate-600 leading-relaxed font-sans line-clamp-3">
+                          {rev.quote}
+                        </p>
+                      </div>
+                      <div className="flex items-center space-x-2.5 pt-1">
+                        <img
+                          src={getMediaUrl(rev.avatar || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80')}
+                          alt={rev.name}
+                          className="w-9 h-9 rounded-full object-cover shadow-sm"
+                        />
+                        <div>
+                          <h5 className="font-[800] text-slate-900 text-[12px] leading-tight">{rev.name}</h5>
+                          <span className="text-[10.5px] text-slate-500 font-medium">{rev.location}</span>
+                        </div>
                       </div>
                     </div>
-                  </div>
 
-                  <div className="col-span-5 bg-[#F4F7FB] rounded-[14px] p-3 flex flex-col justify-center items-center text-center">
-                    <span className="text-[28px] font-[900] text-slate-900 leading-none mb-1">4.5</span>
-                    <div className="flex space-x-0.5 text-amber-400 mb-2">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-3 h-3 fill-amber-400 text-amber-400" />
-                      ))}
-                    </div>
-                    <div className="w-full text-[10px] text-slate-600 font-medium space-y-1 pt-1 border-t border-slate-200/80">
-                      <div className="flex justify-between items-center"><span>Quality</span><span className="font-[800] text-slate-900">4.0</span></div>
-                      <div className="flex justify-between items-center"><span>Schedule</span><span className="font-[800] text-slate-900">4.5</span></div>
-                      <div className="flex justify-between items-center"><span>Cost</span><span className="font-[800] text-slate-900">5.0</span></div>
-                      <div className="flex justify-between items-center"><span>Willing to Refer</span><span className="font-[800] text-slate-900">5.0</span></div>
+                    <div className="col-span-5 bg-[#F4F7FB] rounded-[14px] p-3 flex flex-col justify-center items-center text-center">
+                      <span className="text-[28px] font-[900] text-slate-900 leading-none mb-1">{rev.rating || '5.0'}</span>
+                      <div className="flex space-x-0.5 text-amber-400 mb-2">
+                        {[...Array(5)].map((_, i) => (
+                          <Star key={i} className="w-3 h-3 fill-amber-400 text-amber-400" />
+                        ))}
+                      </div>
+                      <div className="w-full text-[10px] text-slate-600 font-medium space-y-1 pt-1 border-t border-slate-200/80">
+                        <div className="flex justify-between items-center"><span>Quality</span><span className="font-[800] text-slate-900">{rev.quality || '5.0'}</span></div>
+                        <div className="flex justify-between items-center"><span>Schedule</span><span className="font-[800] text-slate-900">{rev.schedule || '5.0'}</span></div>
+                        <div className="flex justify-between items-center"><span>Cost</span><span className="font-[800] text-slate-900">{rev.cost || '5.0'}</span></div>
+                        <div className="flex justify-between items-center"><span>Willing to Refer</span><span className="font-[800] text-slate-900">{rev.willingToRefer || '5.0'}</span></div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-
-              {/* Clutch Card 2 */}
-              <div className="bg-white text-slate-900 rounded-[24px] p-5 sm:p-6 shadow-2xl flex flex-col justify-between shrink-0 w-[88vw] sm:w-[410px] lg:w-[420px] snap-center">
-                <div className="grid grid-cols-12 gap-3.5 items-stretch">
-                  <div className="col-span-7 flex flex-col justify-between space-y-2.5 text-left">
-                    <div>
-                      <div className="text-[19px] font-[900] text-slate-900 tracking-tight mb-1.5 flex items-center">
-                        <span>Clut</span>
-                        <span className="text-red-500">c</span>
-                        <span>h</span>
-                      </div>
-                      <h4 className="text-[12.5px] font-[700] text-slate-900 leading-snug mb-1 font-sans">
-                        "firevy.co's team communicated effectively..."
-                      </h4>
-                      <p className="text-[11.5px] font-[400] text-slate-600 leading-relaxed font-sans line-clamp-3">
-                        firevy.co successfully implemented all UX and design features on the app. The team has consistently delivered on schedule...
-                      </p>
-                    </div>
-                    <div className="flex items-center space-x-2.5 pt-1">
-                      <img
-                        src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80"
-                        alt="Derrick Surratt"
-                        className="w-9 h-9 rounded-full object-cover shadow-sm"
-                      />
-                      <div>
-                        <h5 className="font-[800] text-slate-900 text-[12px] leading-tight">Derrick Surratt</h5>
-                        <span className="text-[10.5px] text-slate-500 font-medium">Arkansas</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="col-span-5 bg-[#F4F7FB] rounded-[14px] p-3 flex flex-col justify-center items-center text-center">
-                    <span className="text-[28px] font-[900] text-slate-900 leading-none mb-1">5.0</span>
-                    <div className="flex space-x-0.5 text-amber-400 mb-2">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-3 h-3 fill-amber-400 text-amber-400" />
-                      ))}
-                    </div>
-                    <div className="w-full text-[10px] text-slate-600 font-medium space-y-1 pt-1 border-t border-slate-200/80">
-                      <div className="flex justify-between items-center"><span>Quality</span><span className="font-[800] text-slate-900">5.0</span></div>
-                      <div className="flex justify-between items-center"><span>Schedule</span><span className="font-[800] text-slate-900">5.0</span></div>
-                      <div className="flex justify-between items-center"><span>Cost</span><span className="font-[800] text-slate-900">5.0</span></div>
-                      <div className="flex justify-between items-center"><span>Willing to Refer</span><span className="font-[800] text-slate-900">5.0</span></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Clutch Card 3 */}
-              <div className="bg-white text-slate-900 rounded-[24px] p-5 sm:p-6 shadow-2xl flex flex-col justify-between shrink-0 w-[88vw] sm:w-[410px] lg:w-[420px] snap-center">
-                <div className="grid grid-cols-12 gap-3.5 items-stretch">
-                  <div className="col-span-7 flex flex-col justify-between space-y-2.5 text-left">
-                    <div>
-                      <div className="text-[19px] font-[900] text-slate-900 tracking-tight mb-1.5 flex items-center">
-                        <span>Clut</span>
-                        <span className="text-red-500">c</span>
-                        <span>h</span>
-                      </div>
-                      <h4 className="text-[12.5px] font-[700] text-slate-900 leading-snug mb-1 font-sans">
-                        "They're able to listen to customer requests and attend..."
-                      </h4>
-                      <p className="text-[11.5px] font-[400] text-slate-600 leading-relaxed font-sans line-clamp-3">
-                        firevy.co's updates improved a product's UX per the end customer's requests. The team is personable, reaches their goals...
-                      </p>
-                    </div>
-                    <div className="flex items-center space-x-2.5 pt-1">
-                      <img
-                        src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=120&q=80"
-                        alt="Hamidah Nalwoga"
-                        className="w-9 h-9 rounded-full object-cover shadow-sm"
-                      />
-                      <div>
-                        <h5 className="font-[800] text-slate-900 text-[12px] leading-tight">Hamidah Nalwoga</h5>
-                        <span className="text-[10.5px] text-slate-500 font-medium">Massachusetts</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="col-span-5 bg-[#F4F7FB] rounded-[14px] p-3 flex flex-col justify-center items-center text-center">
-                    <span className="text-[28px] font-[900] text-slate-900 leading-none mb-1">5.0</span>
-                    <div className="flex space-x-0.5 text-amber-400 mb-2">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-3 h-3 fill-amber-400 text-amber-400" />
-                      ))}
-                    </div>
-                    <div className="w-full text-[10px] text-slate-600 font-medium space-y-1 pt-1 border-t border-slate-200/80">
-                      <div className="flex justify-between items-center"><span>Quality</span><span className="font-[800] text-slate-900">5.0</span></div>
-                      <div className="flex justify-between items-center"><span>Schedule</span><span className="font-[800] text-slate-900">5.0</span></div>
-                      <div className="flex justify-between items-center"><span>Cost</span><span className="font-[800] text-slate-900">5.0</span></div>
-                      <div className="flex justify-between items-center"><span>Willing to Refer</span><span className="font-[800] text-slate-900">5.0</span></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Clutch Card 4 */}
-              <div className="bg-white text-slate-900 rounded-[24px] p-5 sm:p-6 shadow-2xl flex flex-col justify-between shrink-0 w-[88vw] sm:w-[410px] lg:w-[420px] snap-center">
-                <div className="grid grid-cols-12 gap-3.5 items-stretch">
-                  <div className="col-span-7 flex flex-col justify-between space-y-2.5 text-left">
-                    <div>
-                      <div className="text-[19px] font-[900] text-slate-900 tracking-tight mb-1.5 flex items-center">
-                        <span>Clut</span>
-                        <span className="text-red-500">c</span>
-                        <span>h</span>
-                      </div>
-                      <h4 className="text-[12.5px] font-[700] text-slate-900 leading-snug mb-1 font-sans">
-                        "The team exceeded our expectations in every single release."
-                      </h4>
-                      <p className="text-[11.5px] font-[400] text-slate-600 leading-relaxed font-sans line-clamp-3">
-                        Communication was smooth across all timezones. They understood our complex requirements quickly and delivered high performance...
-                      </p>
-                    </div>
-                    <div className="flex items-center space-x-2.5 pt-1">
-                      <img
-                        src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80"
-                        alt="Michael Vance"
-                        className="w-9 h-9 rounded-full object-cover shadow-sm"
-                      />
-                      <div>
-                        <h5 className="font-[800] text-slate-900 text-[12px] leading-tight">Michael Vance</h5>
-                        <span className="text-[10.5px] text-slate-500 font-medium">Austin, Texas</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="col-span-5 bg-[#F4F7FB] rounded-[14px] p-3 flex flex-col justify-center items-center text-center">
-                    <span className="text-[28px] font-[900] text-slate-900 leading-none mb-1">5.0</span>
-                    <div className="flex space-x-0.5 text-amber-400 mb-2">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className="w-3 h-3 fill-amber-400 text-amber-400" />
-                      ))}
-                    </div>
-                    <div className="w-full text-[10px] text-slate-600 font-medium space-y-1 pt-1 border-t border-slate-200/80">
-                      <div className="flex justify-between items-center"><span>Quality</span><span className="font-[800] text-slate-900">5.0</span></div>
-                      <div className="flex justify-between items-center"><span>Schedule</span><span className="font-[800] text-slate-900">5.0</span></div>
-                      <div className="flex justify-between items-center"><span>Cost</span><span className="font-[800] text-slate-900">4.8</span></div>
-                      <div className="flex justify-between items-center"><span>Willing to Refer</span><span className="font-[800] text-slate-900">5.0</span></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
 
             {/* Slider Arrow Navigation Controls */}
@@ -3597,11 +3729,19 @@ export const CompanySubDetails = () => {
           </div>
         </section>
 
-        {/* 11. "We Have Been Featured In" SECTION (Exact Reference Screenshot 4 Match) */}
+        {/* 11. "We Have Been Featured In" SECTION */}
         <FeaturedInLogosGrid />
 
         {/* 12. Bottom CTA & Subscription Banners */}
-        <WorkTogetherNewsletterSection />
+        <WorkTogetherNewsletterSection
+          title={ctaTitle}
+          subtitle={ctaSubtitle}
+          buttonText={ctaButtonText}
+          buttonLink={ctaButtonLink}
+          newsletterTitle={newsletterTitle}
+          newsletterSubtitle={newsletterSubtitle}
+          newsletterButtonText={newsletterButtonText}
+        />
       </div>
     );
   }
@@ -4284,45 +4424,60 @@ export const CompanySubDetails = () => {
     return <CSR />;
   }
 
-  // If this is the "Blog" page, render exact Sapphire Blog Layout
-  const isBlogPage = pageKey === 'blog' || pageKey.includes('blog');
+  // If this is the "Blog" page, render dynamic Sapphire Blog Layout
+  const isBlogPage = pageKey === 'blog' || pageKey.includes('blog') || pageKey === 'blogs';
   if (isBlogPage) {
-    const featuredBlog = {
+    const blogSectionContent = dynamicSection?.content || {};
+
+    // 1. Featured Spotlight Article (Hero Left)
+    const featuredBlog = blogSectionContent.heroFeatured || dynamicSection?.heroFeatured || {
+      brandText: 'firevy.co',
+      badge: 'FEATURED ARTICLE',
+      tag: '</> AI TOOLS',
       title: "AI in Mobile App Development: Tools That Save Time and Money",
+      subtext: "Next-Gen Engineering Insights",
       category: "Artificial Intelligence Development",
+      author: "Kumaril Patel",
       date: "March 6, 2026",
       readTime: "6 min read",
-      excerpt: "AI is converting the way businesses accelerate and launch apps. By using AI Tools for mobile app development, companies can automate coding, testing, UI/UX design, and efficiency optimization."
+      excerpt: "AI is converting the way businesses accelerate and launch apps. By using AI Tools for mobile app development, companies can automate coding, testing, UI/UX design, and efficiency optimization.",
+      buttonText: "Read the full blog",
+      image: '',
+      gradientBg: "bg-gradient-to-br from-[#1E1B4B] via-[#312E81] to-[#4338CA]"
     };
 
-    const secondaryFeaturedBlogs = [
-      {
-        title: "Trending Tech Startup Ideas for Entrepreneurs Looking to Scale Fast",
-        category: "IT Companies",
-        date: "November 6, 2025 · 5 min read",
-        bg: "bg-gradient-to-r from-purple-900 via-indigo-900 to-slate-900"
-      },
-      {
-        title: "Why Investing in Legacy Modernization Services is Critical for Business Success?",
-        category: "Mobile App Development",
-        date: "November 4, 2025 · 6 min read",
-        bg: "bg-gradient-to-r from-sky-700 via-cyan-800 to-slate-900"
-      },
-      {
-        title: "Why Software Design Principles Matter for Successful IT Solutions?",
-        category: "Software Development",
-        date: "October 30, 2025 · 6 min read",
-        bg: "bg-gradient-to-r from-blue-900 via-slate-900 to-indigo-950"
-      },
-      {
-        title: "How to Scale Your IT Business with White Label Web Development Solutions?",
-        category: "Web Development",
-        date: "October 31, 2025 · 5 min read",
-        bg: "bg-gradient-to-r from-cyan-900 via-teal-900 to-slate-900"
-      }
-    ];
+    // 2. 4 Secondary Featured Articles (Hero Right 2x2 Grid)
+    const secondaryFeaturedBlogs = (blogSectionContent.secondaryFeatured && blogSectionContent.secondaryFeatured.length > 0)
+      ? blogSectionContent.secondaryFeatured
+      : [
+          {
+            title: "Trending Tech Startup Ideas for Entrepreneurs Looking to Scale Fast",
+            category: "IT Companies",
+            date: "November 6, 2025 · 5 min read",
+            bg: "bg-gradient-to-r from-purple-900 via-indigo-900 to-slate-900"
+          },
+          {
+            title: "Why Investing in Legacy Modernization Services is Critical for Business Success?",
+            category: "Mobile App Development",
+            date: "November 4, 2025 · 6 min read",
+            bg: "bg-gradient-to-r from-sky-700 via-cyan-800 to-slate-900"
+          },
+          {
+            title: "Why Software Design Principles Matter for Successful IT Solutions?",
+            category: "Software Development",
+            date: "October 30, 2025 · 6 min read",
+            bg: "bg-gradient-to-r from-blue-900 via-slate-900 to-indigo-950"
+          },
+          {
+            title: "How to Scale Your IT Business with White Label Web Development Solutions?",
+            category: "Web Development",
+            date: "October 31, 2025 · 5 min read",
+            bg: "bg-gradient-to-r from-cyan-900 via-teal-900 to-slate-900"
+          }
+        ];
 
-    const allBlogPosts = [
+    // 3. Fallback Initial Blog Posts
+    const defaultAllBlogPosts = [
       {
         id: 1,
         title: "What Happens When AI Agents Start Negotiating with Your Customers?",
@@ -4330,6 +4485,11 @@ export const CompanySubDetails = () => {
         category: "Artificial Intelligence Development",
         date: "August 31, 2026",
         readTime: "5 min read",
+        brandText: "firevy.co",
+        badge: "INSIGHT",
+        tag: "</> AI AGENTS",
+        subtext: "Next-Gen Engineering Insights",
+        buttonText: "Read the full blog",
         excerpt: '"If I increase the order to 500 units, can you give me 15% off?" That question used to go to a sales representative. Now it might go to a chatbot. But what happens when tha...',
         bg: "bg-gradient-to-br from-sky-600 via-blue-700 to-indigo-900"
       },
@@ -4340,6 +4500,11 @@ export const CompanySubDetails = () => {
         category: "Artificial Intelligence Development",
         date: "August 27, 2026",
         readTime: "5 min read",
+        brandText: "firevy.co",
+        badge: "INSIGHT",
+        tag: "</> COMPOSABLE AI",
+        subtext: "Next-Gen Engineering Insights",
+        buttonText: "Read the full blog",
         excerpt: "mid-sized company adds AI to its product. The pilot is doing well. Everyone is happy. Six months later, someone asks for a second AI feature. The team realizes they're...",
         bg: "bg-gradient-to-br from-emerald-600 via-teal-700 to-slate-900"
       },
@@ -4350,6 +4515,11 @@ export const CompanySubDetails = () => {
         category: "Software Development",
         date: "August 25, 2026",
         readTime: "5 min read",
+        brandText: "firevy.co",
+        badge: "INSIGHT",
+        tag: "</> LEADERSHIP",
+        subtext: "Next-Gen Engineering Insights",
+        buttonText: "Read the full blog",
         excerpt: "A founder can spend a decade learning how customers think, how to build a team that doesn't fall apart under pressure, how to read a balance sheet, how to time a...",
         bg: "bg-gradient-to-br from-indigo-900 via-purple-900 to-slate-900"
       },
@@ -4360,6 +4530,11 @@ export const CompanySubDetails = () => {
         category: "Artificial Intelligence Development",
         date: "August 21, 2026",
         readTime: "5 min read",
+        brandText: "firevy.co",
+        badge: "INSIGHT",
+        tag: "</> AUTOMATION",
+        subtext: "Next-Gen Engineering Insights",
+        buttonText: "Read the full blog",
         excerpt: "Imagine a customer issue that normally passes through three employees, four systems, and several manual checks before it is resolved. Now imagine an AI system handling...",
         bg: "bg-gradient-to-br from-cyan-600 via-blue-800 to-slate-950"
       },
@@ -4370,6 +4545,11 @@ export const CompanySubDetails = () => {
         category: "Web Development",
         date: "August 19, 2026",
         readTime: "5 min read",
+        brandText: "firevy.co",
+        badge: "INSIGHT",
+        tag: "</> WEB EVOLUTION",
+        subtext: "Next-Gen Engineering Insights",
+        buttonText: "Read the full blog",
         excerpt: "The Web We Build Today Is Not the Web We Started With. Twenty-three years ago, building the web simply meant writing HTML and hoping the browser would cooperate...",
         bg: "bg-gradient-to-br from-blue-900 via-slate-900 to-indigo-950"
       },
@@ -4380,6 +4560,11 @@ export const CompanySubDetails = () => {
         category: "Software Development",
         date: "August 14, 2026",
         readTime: "5 min read",
+        brandText: "firevy.co",
+        badge: "INSIGHT",
+        tag: "</> ARCHITECTURE",
+        subtext: "Next-Gen Engineering Insights",
+        buttonText: "Read the full blog",
         excerpt: "You've probably seen this happen, maybe even to you. Two agencies get the same requirements doc, and somehow one comes back at $60,000 and the other at $150,000....",
         bg: "bg-gradient-to-br from-sky-700 via-indigo-900 to-slate-900"
       },
@@ -4390,6 +4575,11 @@ export const CompanySubDetails = () => {
         category: "Artificial Intelligence Development",
         date: "August 5, 2026",
         readTime: "5 min read",
+        brandText: "firevy.co",
+        badge: "INSIGHT",
+        tag: "</> BI & ANALYTICS",
+        subtext: "Next-Gen Engineering Insights",
+        buttonText: "Read the full blog",
         excerpt: "There is no denying the fact that modern enterprises are creating unprecedented volumes of data. However, making sense of all that data is not easy and requires special skill...",
         bg: "bg-gradient-to-br from-purple-800 via-indigo-900 to-slate-900"
       },
@@ -4400,12 +4590,54 @@ export const CompanySubDetails = () => {
         category: "Artificial Intelligence Development",
         date: "July 31, 2026",
         readTime: "5 min read",
+        brandText: "firevy.co",
+        badge: "INSIGHT",
+        tag: "</> AI STRATEGY",
+        subtext: "Next-Gen Engineering Insights",
+        buttonText: "Read the full blog",
         excerpt: "AI is no longer something that we see in the far-off future and belongs to only the largest corporations. Rather, it is a technology which can help businesses become more...",
         bg: "bg-gradient-to-br from-teal-700 via-cyan-900 to-slate-950"
       }
     ];
 
-    const topCategories = [
+    // 4. Live Blog Posts from Database or Fallback
+    const allBlogPosts = (dynamicBlogs && dynamicBlogs.length > 0)
+      ? dynamicBlogs.map((b) => ({
+          id: b._id || b.id || b.slug,
+          title: b.title,
+          slug: b.slug,
+          author: b.author || 'Kumaril Patel',
+          category: b.category,
+          date: b.publishDate || b.date || 'August 31, 2026',
+          readTime: b.readTime || '5 min read',
+          excerpt: b.shortDescription || b.excerpt || '',
+          content: b.content || '',
+          brandText: b.brandText || 'firevy.co',
+          badge: b.badge || 'INSIGHT',
+          tag: b.tag || (b.tags?.[0] ? `</> ${b.tags[0]}` : '</> TECH'),
+          subtext: b.subtext || 'Next-Gen Engineering Insights',
+          buttonText: b.buttonText || 'Read the full blog',
+          featuredImage: b.featuredImage || '',
+          bg: b.gradientBg || b.bg || 'bg-gradient-to-br from-sky-600 via-blue-700 to-indigo-900',
+          tags: b.tags || []
+        }))
+      : defaultAllBlogPosts;
+
+    // 5. Sidebar Category Icons Map
+    const categoryIconMap = {
+      "Mobile App Development": Globe,
+      "Software Development": Briefcase,
+      "Web Development": Globe,
+      "IT Companies": Users,
+      "Android Development": Sparkles,
+      ".Net Development": FileText,
+      "Hire Developers": Users,
+      "iOS Development": Heart,
+      "Blockchain Development": ShieldCheck,
+      "Artificial Intelligence Development": Sparkles
+    };
+
+    const defaultTopCategories = [
       { name: "Mobile App Development", count: 184, icon: Globe },
       { name: "Software Development", count: 134, icon: Briefcase },
       { name: "Web Development", count: 195, icon: Globe },
@@ -4418,20 +4650,38 @@ export const CompanySubDetails = () => {
       { name: "Artificial Intelligence Development", count: 37, icon: Sparkles }
     ];
 
+    const topCategories = (blogSectionContent.sidebar?.categories && blogSectionContent.sidebar.categories.length > 0)
+      ? blogSectionContent.sidebar.categories.map((cat) => ({
+          name: cat.name,
+          count: cat.count !== undefined ? cat.count : (allBlogPosts.filter((b) => b.category === cat.name).length || 0),
+          icon: categoryIconMap[cat.name] || Sparkles
+        }))
+      : defaultTopCategories;
+
+    const sidebarSettings = blogSectionContent.sidebar || {};
+    const ctaBannerSettings = blogSectionContent.ctaBanner || {};
+    const newsletterSettings = blogSectionContent.newsletter || {};
+
+    // Search and Category Filtering
     const filteredPosts = allBlogPosts.filter(post => {
       const matchesSearch = blogSearchQuery === '' ||
-        post.title.toLowerCase().includes(blogSearchQuery.toLowerCase()) ||
-        post.excerpt.toLowerCase().includes(blogSearchQuery.toLowerCase()) ||
-        post.category.toLowerCase().includes(blogSearchQuery.toLowerCase());
+        post.title?.toLowerCase().includes(blogSearchQuery.toLowerCase()) ||
+        post.excerpt?.toLowerCase().includes(blogSearchQuery.toLowerCase()) ||
+        post.category?.toLowerCase().includes(blogSearchQuery.toLowerCase());
       const matchesCategory = selectedBlogCategory === 'All' || post.category === selectedBlogCategory;
       return matchesSearch && matchesCategory;
     });
 
+    // Pagination
+    const POSTS_PER_PAGE = 8;
+    const totalPages = Math.max(1, Math.ceil(filteredPosts.length / POSTS_PER_PAGE));
+    const paginatedPosts = filteredPosts.slice((blogPage - 1) * POSTS_PER_PAGE, blogPage * POSTS_PER_PAGE);
+
     return (
       <div className="bg-white min-h-screen text-slate-900 font-sans">
         <SEO
-          title="Tech Insights & Blog | firevy.co"
-          description="Read top tech articles, mobile app development guides, AI trends, and software strategy by firevy.co experts."
+          title={dynamicSection?.seo?.metaTitle || "Tech Insights & Blog | firevy.co"}
+          description={dynamicSection?.seo?.metaDescription || "Read top tech articles, mobile app development guides, AI trends, and software strategy by firevy.co experts."}
           canonical="/company/blog"
         />
 
@@ -4442,29 +4692,40 @@ export const CompanySubDetails = () => {
 
               {/* Left Main Featured Blog Card (7 Cols) */}
               <div className="lg:col-span-7 space-y-4 group cursor-pointer">
-                {/* Banner Graphic Box (Purple AI in Mobile App Theme) */}
-                <div className="w-full h-[320px] sm:h-[380px] rounded-[16px] overflow-hidden shadow-lg relative bg-gradient-to-br from-[#1E1B4B] via-[#312E81] to-[#4338CA] p-6 sm:p-8 flex flex-col justify-between text-white border border-slate-200/50">
+                {/* Banner Graphic Box (Purple AI in Mobile App Theme or Dynamic Gradient / Image) */}
+                <div className={`w-full h-[320px] sm:h-[380px] rounded-[16px] overflow-hidden shadow-lg relative ${featuredBlog.gradientBg || 'bg-gradient-to-br from-[#1E1B4B] via-[#312E81] to-[#4338CA]'} p-6 sm:p-8 flex flex-col justify-between text-white border border-slate-200/50`}>
+                  {featuredBlog.image && (
+                    <img
+                      src={getMediaUrl(featuredBlog.image)}
+                      alt={featuredBlog.title}
+                      className="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-overlay pointer-events-none"
+                    />
+                  )}
                   <div className="flex justify-between items-center z-10">
-                    <span className="text-[20px] font-[900] tracking-tight text-cyan-300 font-sans">firevy.co</span>
-                    <span className="bg-cyan-500/20 text-cyan-200 border border-cyan-400/30 text-[11px] font-[800] px-3 py-1 rounded-full uppercase tracking-wider">FEATURED ARTICLE</span>
+                    <span className="text-[20px] font-[900] tracking-tight text-cyan-300 font-sans">
+                      {featuredBlog.brandText || 'firevy.co'}
+                    </span>
+                    <span className="bg-cyan-500/20 text-cyan-200 border border-cyan-400/30 text-[11px] font-[800] px-3 py-1 rounded-full uppercase tracking-wider">
+                      {featuredBlog.badge || 'FEATURED ARTICLE'}
+                    </span>
                   </div>
 
                   <div className="relative z-10 my-auto max-w-lg space-y-3">
                     <div className="inline-block px-3 py-1 rounded-md bg-cyan-400 text-[#1E1B4B] font-[900] text-xs">
-                      &lt;/&gt; AI TOOLS
+                      {featuredBlog.tag || '</> AI TOOLS'}
                     </div>
                     <h2 className="text-[26px] sm:text-[32px] font-[900] text-white leading-tight font-sans tracking-tight">
-                      AI in Mobile App Development: Tools That Save Time and Money
+                      {featuredBlog.title}
                     </h2>
                   </div>
 
                   <div className="flex items-center space-x-2 text-xs text-indigo-200 z-10">
                     <Sparkles className="w-4 h-4 text-cyan-400" />
-                    <span>Next-Gen Engineering Insights</span>
+                    <span>{featuredBlog.subtext || 'Next-Gen Engineering Insights'}</span>
                   </div>
 
                   {/* Ambient Glow */}
-                  <div className="absolute -bottom-10 -right-10 w-60 h-60 bg-cyan-500/20 rounded-full blur-3xl" />
+                  <div className="absolute -bottom-10 -right-10 w-60 h-60 bg-cyan-500/20 rounded-full blur-3xl pointer-events-none" />
                 </div>
 
                 {/* Below Banner Info */}
@@ -4485,7 +4746,7 @@ export const CompanySubDetails = () => {
 
                   <div className="pt-1">
                     <span className="inline-flex items-center space-x-1.5 text-[#0099CC] font-[700] text-[14.5px] hover:underline cursor-pointer group-hover:translate-x-1 transition-transform">
-                      <span>Read the full blog</span>
+                      <span>{featuredBlog.buttonText || 'Read the full blog'}</span>
                       <ArrowRight className="w-4 h-4" />
                     </span>
                   </div>
@@ -4500,7 +4761,10 @@ export const CompanySubDetails = () => {
                     type="text"
                     placeholder="Search ..."
                     value={blogSearchQuery}
-                    onChange={(e) => setBlogSearchQuery(e.target.value)}
+                    onChange={(e) => {
+                      setBlogSearchQuery(e.target.value);
+                      setBlogPage(1);
+                    }}
                     className="flex-1 bg-slate-50 border border-slate-200 rounded-l-[6px] px-4 py-2.5 text-[14px] text-slate-800 outline-none focus:border-[#0099CC] transition-all font-sans"
                   />
                   <button
@@ -4515,11 +4779,36 @@ export const CompanySubDetails = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   {secondaryFeaturedBlogs.map((card, idx) => (
                     <div key={idx} className="group cursor-pointer flex flex-col justify-between space-y-2">
-                      <div className={`w-full h-32 rounded-[12px] overflow-hidden shadow-sm ${card.bg} p-3.5 flex flex-col justify-between text-white relative border border-slate-200/40 hover:shadow-md transition-shadow`}>
-                        <span className="text-[10px] font-[800] text-cyan-300 uppercase tracking-wider">firevy.co</span>
-                        <h4 className="text-[12px] font-[800] text-white line-clamp-2 leading-snug">
-                          {card.title}
-                        </h4>
+                      <div className={`w-full h-36 rounded-[12px] overflow-hidden shadow-sm ${card.bg || 'bg-gradient-to-r from-purple-900 via-indigo-900 to-slate-900'} p-3.5 flex flex-col justify-between text-white relative border border-slate-200/40 hover:shadow-md transition-shadow`}>
+                        {card.image && (
+                          <img
+                            src={getMediaUrl(card.image)}
+                            alt={card.title}
+                            className="absolute inset-0 w-full h-full object-cover opacity-45 mix-blend-overlay pointer-events-none"
+                          />
+                        )}
+                        <div className="flex justify-between items-center z-10">
+                          <span className="text-[10.5px] font-[900] text-cyan-300 uppercase tracking-wider">
+                            {card.brandText || 'firevy.co'}
+                          </span>
+                          <span className="text-[9px] font-[800] bg-cyan-400/20 text-cyan-200 border border-cyan-400/30 px-2 py-0.5 rounded-full uppercase">
+                            {card.badge || 'FEATURED ARTICLE'}
+                          </span>
+                        </div>
+
+                        <div className="z-10 my-1">
+                          <span className="inline-block px-2 py-0.5 rounded bg-cyan-400 text-[#1E1B4B] font-[900] text-[9.5px] mb-1">
+                            {card.tag || '</> TECH'}
+                          </span>
+                          <h4 className="text-[12.5px] font-[800] text-white line-clamp-2 leading-snug">
+                            {card.title}
+                          </h4>
+                        </div>
+
+                        <div className="flex items-center space-x-1.5 text-[10px] text-indigo-200 z-10">
+                          <Sparkles className="w-3 h-3 text-cyan-400" />
+                          <span className="truncate">{card.subtext || 'Next-Gen Engineering Insights'}</span>
+                        </div>
                       </div>
 
                       <div className="space-y-1">
@@ -4528,8 +4817,13 @@ export const CompanySubDetails = () => {
                         <h3 className="text-[13.5px] font-[800] text-slate-900 leading-snug font-sans line-clamp-2 group-hover:text-[#0099CC] transition-colors">
                           {card.title}
                         </h3>
+                        {card.excerpt && (
+                          <p className="text-[12px] text-slate-600 line-clamp-2 font-sans">
+                            {card.excerpt}
+                          </p>
+                        )}
                         <span className="inline-flex items-center text-[12px] font-[700] text-[#0099CC] space-x-1 pt-1">
-                          <span>Read the full blog</span>
+                          <span>{card.buttonText || 'Read the full blog'}</span>
                           <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
                         </span>
                       </div>
@@ -4553,97 +4847,128 @@ export const CompanySubDetails = () => {
 
               {/* Left Main Posts Feed Grid (8 Cols) */}
               <div className="lg:col-span-8 space-y-12">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  {filteredPosts.map((post) => (
-                    <div key={post.id} className="group cursor-pointer bg-white rounded-[16px] border border-slate-200/80 shadow-xs hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col justify-between">
-                      <div>
-                        {/* Top Thumbnail Banner Graphic */}
-                        <div className={`w-full h-48 ${post.bg} p-5 flex flex-col justify-between text-white relative overflow-hidden`}>
-                          <div className="flex justify-between items-center z-10">
-                            <span className="text-[12px] font-[900] tracking-wider text-cyan-300">firevy.co</span>
-                            <span className="text-[10px] font-[800] bg-white/10 backdrop-blur-xs text-cyan-100 px-2.5 py-0.5 rounded-full border border-white/20">INSIGHT</span>
+                {paginatedPosts.length === 0 ? (
+                  <div className="text-center py-16 bg-slate-50 rounded-2xl border border-dashed border-slate-300">
+                    <p className="text-slate-500 font-[600]">No blog articles match your selection.</p>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setBlogSearchQuery('');
+                        setSelectedBlogCategory('All');
+                      }}
+                      className="mt-3 text-sm text-[#0099CC] font-bold underline"
+                    >
+                      Clear filters
+                    </button>
+                  </div>
+                ) : (
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    {paginatedPosts.map((post) => (
+                      <div key={post.id} className="group cursor-pointer bg-white rounded-[16px] border border-slate-200/80 shadow-xs hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col justify-between">
+                        <div>
+                          {/* Top Thumbnail Banner Graphic */}
+                          <div className={`w-full h-52 ${post.bg || 'bg-gradient-to-br from-sky-600 via-blue-700 to-indigo-900'} p-5 flex flex-col justify-between text-white relative overflow-hidden`}>
+                            {post.featuredImage && (
+                              <img
+                                src={getMediaUrl(post.featuredImage)}
+                                alt={post.title}
+                                className="absolute inset-0 w-full h-full object-cover opacity-50 mix-blend-overlay pointer-events-none"
+                              />
+                            )}
+                            <div className="flex justify-between items-center z-10">
+                              <span className="text-[13px] font-[900] tracking-wider text-cyan-300">
+                                {post.brandText || 'firevy.co'}
+                              </span>
+                              <span className="text-[9.5px] font-[800] bg-cyan-400/20 text-cyan-200 border border-cyan-400/30 px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                                {post.badge || 'INSIGHT'}
+                              </span>
+                            </div>
+
+                            <div className="relative z-10 my-1">
+                              <span className="inline-block px-2.5 py-0.5 rounded bg-cyan-400 text-[#1E1B4B] font-[900] text-[10px] mb-1.5">
+                                {post.tag || (post.tags?.[0] ? `</> ${post.tags[0]}` : '</> TECH')}
+                              </span>
+                              <h4 className="text-[15.5px] font-[800] text-white line-clamp-2 leading-tight">
+                                {post.title}
+                              </h4>
+                            </div>
+
+                            <div className="flex items-center space-x-1.5 text-[10.5px] text-indigo-100 z-10">
+                              <Sparkles className="w-3.5 h-3.5 text-cyan-300 flex-shrink-0" />
+                              <span className="truncate">{post.subtext || 'Next-Gen Engineering Insights'}</span>
+                            </div>
+
+                            <div className="absolute -bottom-8 -right-8 w-36 h-36 bg-cyan-400/20 rounded-full blur-2xl pointer-events-none" />
                           </div>
 
-                          <div className="relative z-10">
-                            <h4 className="text-[15px] font-[800] text-white line-clamp-2 leading-tight">
+                          {/* Text Content */}
+                          <div className="p-6 space-y-3">
+                            <div className="text-[12px] font-sans">
+                              <span className="font-[700] text-slate-700">{post.author}</span>
+                              <span className="text-slate-400 mx-1.5">in</span>
+                              <span className="text-[#0099CC] font-[800]">{post.category}</span>
+                            </div>
+
+                            <div className="text-[11.5px] font-[400] text-slate-500 font-sans">
+                              {post.date} · {post.readTime}
+                            </div>
+
+                            <h3 className="text-[17px] font-[800] text-slate-900 leading-snug font-sans group-hover:text-[#0099CC] transition-colors line-clamp-2">
                               {post.title}
-                            </h4>
-                          </div>
+                            </h3>
 
-                          <div className="absolute -bottom-8 -right-8 w-36 h-36 bg-cyan-400/20 rounded-full blur-2xl" />
+                            <p className="text-[13.5px] font-[400] text-slate-600 leading-relaxed font-sans line-clamp-3">
+                              {post.excerpt}
+                            </p>
+                          </div>
                         </div>
 
-                        {/* Text Content */}
-                        <div className="p-6 space-y-3">
-                          <div className="text-[12px] font-sans">
-                            <span className="font-[700] text-slate-700">{post.author}</span>
-                            <span className="text-slate-400 mx-1.5">in</span>
-                            <span className="text-[#0099CC] font-[800]">{post.category}</span>
-                          </div>
-
-                          <div className="text-[11.5px] font-[400] text-slate-500 font-sans">
-                            {post.date} · {post.readTime}
-                          </div>
-
-                          <h3 className="text-[17px] font-[800] text-slate-900 leading-snug font-sans group-hover:text-[#0099CC] transition-colors line-clamp-2">
-                            {post.title}
-                          </h3>
-
-                          <p className="text-[13.5px] font-[400] text-slate-600 leading-relaxed font-sans line-clamp-3">
-                            {post.excerpt}
-                          </p>
+                        {/* Card Bottom Link */}
+                        <div className="px-6 pb-6 pt-2 border-t border-slate-100">
+                          <span className="inline-flex items-center space-x-1.5 text-[#0099CC] font-[700] text-[13.5px] group-hover:underline">
+                            <span>{post.buttonText || 'Read the full blog'}</span>
+                            <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+                          </span>
                         </div>
                       </div>
+                    ))}
+                  </div>
+                )}
 
-                      {/* Card Bottom Link */}
-                      <div className="px-6 pb-6 pt-2 border-t border-slate-100">
-                        <span className="inline-flex items-center space-x-1.5 text-[#0099CC] font-[700] text-[13.5px] group-hover:underline">
-                          <span>Read the full blog</span>
-                          <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                        </span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Pagination Controls (Exact Reference Screenshot 4 Match) */}
-                <div className="pt-8 flex items-center justify-start space-x-2 font-sans">
-                  <button
-                    type="button"
-                    onClick={() => setBlogPage(1)}
-                    className={`w-9 h-9 rounded-[6px] text-[14px] font-[700] transition-colors ${blogPage === 1 ? 'bg-[#0099CC] text-white' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'}`}
-                  >
-                    1
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setBlogPage(2)}
-                    className={`w-9 h-9 rounded-[6px] text-[14px] font-[700] transition-colors ${blogPage === 2 ? 'bg-[#0099CC] text-white' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'}`}
-                  >
-                    2
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setBlogPage(3)}
-                    className={`w-9 h-9 rounded-[6px] text-[14px] font-[700] transition-colors ${blogPage === 3 ? 'bg-[#0099CC] text-white' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'}`}
-                  >
-                    3
-                  </button>
-                  <span className="text-slate-400 px-1 text-sm">...</span>
-                  <button
-                    type="button"
-                    onClick={() => setBlogPage(101)}
-                    className="w-11 h-9 rounded-[6px] bg-slate-100 text-slate-700 font-[700] text-[14px] hover:bg-slate-200 transition-colors"
-                  >
-                    101
-                  </button>
-                  <button
-                    type="button"
-                    className="w-9 h-9 rounded-[6px] bg-slate-100 text-slate-700 font-[700] text-[14px] hover:bg-slate-200 flex items-center justify-center transition-colors"
-                  >
-                    <ChevronRight className="w-4 h-4 text-slate-600" />
-                  </button>
-                </div>
+                {/* Dynamic Pagination Controls */}
+                {totalPages > 1 && (
+                  <div className="pt-8 flex items-center justify-start space-x-2 font-sans">
+                    {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNum) => (
+                      <button
+                        key={pageNum}
+                        type="button"
+                        onClick={() => {
+                          setBlogPage(pageNum);
+                          window.scrollTo({ top: 600, behavior: 'smooth' });
+                        }}
+                        className={`w-9 h-9 rounded-[6px] text-[14px] font-[700] transition-colors ${
+                          blogPage === pageNum
+                            ? 'bg-[#0099CC] text-white'
+                            : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
+                        }`}
+                      >
+                        {pageNum}
+                      </button>
+                    ))}
+                    {blogPage < totalPages && (
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setBlogPage((prev) => Math.min(totalPages, prev + 1));
+                          window.scrollTo({ top: 600, behavior: 'smooth' });
+                        }}
+                        className="w-9 h-9 rounded-[6px] bg-slate-100 text-slate-700 font-[700] text-[14px] hover:bg-slate-200 flex items-center justify-center transition-colors"
+                      >
+                        <ChevronRight className="w-4 h-4 text-slate-600" />
+                      </button>
+                    )}
+                  </div>
+                )}
               </div>
 
               {/* Right Sticky Sidebar (4 Cols) */}
@@ -4652,7 +4977,7 @@ export const CompanySubDetails = () => {
                 {/* 1. "Get in Touch" Contact Box (Exact Reference Screenshots 1 - 4 Match) */}
                 <div className="bg-[#EAF6FA] border border-[#C5E7F4] rounded-[20px] p-6 sm:p-7 shadow-sm text-left font-sans">
                   <h3 className="text-[22px] font-[800] text-slate-900 text-center mb-5 font-sans">
-                    Get in Touch
+                    {sidebarSettings.getInTouchTitle || 'Get in Touch'}
                   </h3>
 
                   {contactSubmitted ? (
@@ -4663,8 +4988,21 @@ export const CompanySubDetails = () => {
                     </div>
                   ) : (
                     <form
-                      onSubmit={(e) => {
+                      onSubmit={async (e) => {
                         e.preventDefault();
+                        try {
+                          await fetch('/api/v1/contact', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                              name: contactForm.name,
+                              email: contactForm.email,
+                              phone: contactForm.phone,
+                              message: contactForm.message,
+                              source: 'Blog Sidebar'
+                            })
+                          }).catch(() => {});
+                        } catch {}
                         setContactSubmitted(true);
                       }}
                       className="space-y-4"
@@ -4737,7 +5075,7 @@ export const CompanySubDetails = () => {
                         type="submit"
                         className="w-full py-3.5 rounded-[6px] bg-[#0099CC] hover:bg-[#0088BB] text-white font-[800] text-[15px] shadow-md transition-colors cursor-pointer"
                       >
-                        Talk to expert
+                        {sidebarSettings.buttonText || 'Talk to expert'}
                       </button>
                     </form>
                   )}
@@ -4746,17 +5084,20 @@ export const CompanySubDetails = () => {
                 {/* 2. "Top Category" List Box (Exact Reference Screenshots 1 - 4 Match) */}
                 <div className="bg-white border border-slate-200/90 rounded-[20px] p-6 shadow-xs text-left font-sans">
                   <h3 className="text-[20px] font-[800] text-slate-900 mb-5 font-sans">
-                    Top Category
+                    {sidebarSettings.topCategoryTitle || 'Top Category'}
                   </h3>
 
                   <div className="space-y-3">
                     {topCategories.map((cat, idx) => {
-                      const CatIcon = cat.icon;
+                      const CatIcon = cat.icon || Sparkles;
                       const isSelected = selectedBlogCategory === cat.name;
                       return (
                         <div
                           key={idx}
-                          onClick={() => setSelectedBlogCategory(isSelected ? 'All' : cat.name)}
+                          onClick={() => {
+                            setSelectedBlogCategory(isSelected ? 'All' : cat.name);
+                            setBlogPage(1);
+                          }}
                           className={`flex items-center justify-between p-3.5 rounded-[12px] border transition-all cursor-pointer ${isSelected
                               ? 'bg-[#0099CC]/10 border-[#0099CC] text-[#0099CC]'
                               : 'bg-slate-50/70 border-slate-100 hover:bg-slate-100 text-slate-800'
@@ -4781,8 +5122,14 @@ export const CompanySubDetails = () => {
           </div>
         </section>
 
-        {/* Global Newsletter Section */}
-        <WorkTogetherNewsletterSection />
+        {/* Global Newsletter & CTA Section */}
+        <WorkTogetherNewsletterSection
+          title={ctaBannerSettings.title}
+          subtitle={ctaBannerSettings.subtitle}
+          buttonText={ctaBannerSettings.buttonText}
+          buttonLink={ctaBannerSettings.buttonLink}
+          data={{ ...ctaBannerSettings, ...newsletterSettings }}
+        />
       </div>
     );
   }

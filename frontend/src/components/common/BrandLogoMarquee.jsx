@@ -1,19 +1,22 @@
 import React from 'react';
 
 const brandLogos = [
+  { name: 'Almarai', src: '/images/almarai_corporate_logo.png' },
+  { name: 'Orient Cement', src: '/images/orient_logo.svg' },
+  { name: 'American Express', src: '/images/logo_american_express.svg' },
   { name: 'Alembic', src: '/images/alembic_logo.svg' },
   { name: 'Honda', src: '/images/honda_logo.png' },
   { name: 'LafargeHolcim', src: '/images/logo_lafargeHolcim.svg' },
+  { name: 'TATVAM OVERSEAS', src: '/images/tatvam_overseas.jpg' },
   { name: 'Cummins', src: '/images/ncummins.png' },
+  { name: 'DH', src: '/images/dh_logo.jpg' },
   { name: 'Loreal', src: '/images/logo_loreal.png' },
+  { name: 'SEASWORTH JEWELS', src: '/images/seasworth_jewels.png' },
   { name: 'TDSG', src: '/images/logo_tdsg.png' },
   { name: 'Astral Pipes', src: '/images/logo_astral.png' },
   { name: 'CLP India', src: '/images/logo_clp_india.svg' },
   { name: 'Adani', src: '/images/logo_adani.svg' },
-  { name: 'Toyota', src: '/images/toyota_logo.webp' },
-  { name: 'Almarai', src: '/images/almarai_corporate_logo.png' },
-  { name: 'Orient Cement', src: '/images/orient_logo.svg' },
-  { name: 'American Express', src: '/images/logo_american_express.svg' }
+  { name: 'Toyota', src: '/images/toyota_logo.webp' }
 ];
 
 export const BrandLogoMarquee = () => {

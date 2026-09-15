@@ -54,6 +54,7 @@ export const SapphireLightHeroBanner = ({
   const isVisitor = serviceCategory === 'visitor' || serviceCategory === 'vms' || serviceCategory === 'gatepass';
   const isWarehouse = serviceCategory === 'warehouse' || serviceCategory === 'wms' || serviceCategory === 'inventory';
   const isClover = serviceCategory === 'clover' || serviceCategory === 'pos';
+  const isIWatch = serviceCategory === 'iwatch' || serviceCategory === 'watch';
 
   const defaultZomatoStats = [
     { value: '80+', label: 'Mobile App Developers' },
@@ -930,6 +931,15 @@ export const SapphireLightHeroBanner = ({
                     <line x1="452" y1="130" x2="458" y2="285" stroke="#475569" strokeWidth="4" strokeLinecap="round" />
                   </svg>
                 </div>
+              </div>
+            ) : isIWatch ? (
+              /* iWatch App Development 1:1 Reference Image */
+              <div className="relative w-full max-w-[560px] flex items-center justify-center min-h-[380px] py-2 select-none">
+                <img
+                  src="/images/iwatch_hero_illustration.png"
+                  alt="Best iWatch App Development company in USA"
+                  className="w-full h-auto max-w-[500px] object-contain drop-shadow-sm"
+                />
               </div>
             ) : (
               <div className="relative w-full max-w-[560px]">
