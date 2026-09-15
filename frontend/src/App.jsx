@@ -136,6 +136,9 @@ export function App() {
                 <Route path="/blog" element={<CompanySubDetails />} />
                 <Route path="/services" element={<Services />} />
                 <Route path="/services/:slug" element={<ServiceDetails />} />
+                <Route path="/services/it-consulting-services" element={<ServiceDetails />} />
+                <Route path="/it-consulting-services" element={<ServiceDetails />} />
+                <Route path="/services/tech-consulting-services" element={<ServiceDetails />} />
                 <Route path="/services/hire-bootstrap-developers" element={<ServiceDetails />} />
                 <Route path="/services/hire-bootstrap-developer" element={<ServiceDetails />} />
                 <Route path="/hire-bootstrap-developers" element={<ServiceDetails />} />

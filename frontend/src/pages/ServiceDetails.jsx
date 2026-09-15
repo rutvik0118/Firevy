@@ -54,6 +54,7 @@ import VueJsDevelopmentService from '../components/services/VueJsDevelopmentServ
 import SharePointDevelopmentService from '../components/services/SharePointDevelopmentService';
 import PowerAppsDevelopmentService from '../components/services/PowerAppsDevelopmentService';
 import PowerAutomateDevelopmentService from '../components/services/PowerAutomateDevelopmentService';
+import ItConsultingServices from '../components/services/ItConsultingServices';
 
 export const ServiceDetails = () => {
   const { slug } = useParams();
@@ -241,6 +242,11 @@ export const ServiceDetails = () => {
     currentSlug.includes('hire-power-automate') ||
     currentSlug.includes('hire-powerautomate');
 
+  const isItConsulting = currentSlug === 'it-consulting-services' ||
+    currentSlug.includes('it-consulting') ||
+    currentSlug === 'tech-consulting-services' ||
+    currentSlug === 'services/it-consulting-services';
+
   const unslugify = (str) => {
     if (!str) return 'Enterprise Tech Solution';
     return str
@@ -366,6 +372,10 @@ export const ServiceDetails = () => {
 
   if (isNet) {
     return <DotNetDevelopmentService />;
+  }
+
+  if (isItConsulting) {
+    return <ItConsultingServices />;
   }
 
   if (isPowerAutomate) {
