@@ -160,85 +160,38 @@ export const Footer = () => {
         </div>
 
         {/* 2. AWARDS & RECOGNITION BADGE BANNER — FULL WIDTH */}
-        <div className="w-full bg-white rounded-[24px] border border-slate-200/90 shadow-sm p-6 sm:p-8 text-left">
-          <h3 className="text-[20px] sm:text-[22px] font-[800] text-[#006B8F] tracking-tight mb-6 font-sans">
+        <div className="w-full bg-white rounded-[16px] sm:rounded-[20px] border border-slate-200/90 shadow-sm p-4 sm:p-5 lg:p-6 text-left">
+          <h3 className="text-[17px] sm:text-[19px] font-[800] text-[#006B8F] tracking-tight mb-4 sm:mb-5 font-sans">
             Awards & Recognition
           </h3>
-          <div className="flex items-center justify-between gap-4 overflow-x-auto pb-2 scrollbar-none">
-            {/* 1. GESIA */}
-            <div className="shrink-0 flex flex-col items-center justify-center">
-              <svg viewBox="0 0 50 50" className="w-16 h-16">
-                <circle cx="25" cy="25" r="18" fill="none" stroke="#F59E0B" strokeWidth="6" strokeDasharray="30 100" />
-                <circle cx="25" cy="25" r="18" fill="none" stroke="#EF4444" strokeWidth="6" strokeDasharray="30 100" strokeDashoffset="-28" />
-                <circle cx="25" cy="25" r="18" fill="none" stroke="#3B82F6" strokeWidth="6" strokeDasharray="30 100" strokeDashoffset="-56" />
-                <circle cx="25" cy="25" r="18" fill="none" stroke="#10B981" strokeWidth="6" strokeDasharray="30 100" strokeDashoffset="-84" />
-              </svg>
-              <span className="text-[14px] font-[900] text-slate-900 tracking-tight font-sans mt-1">gesia</span>
-            </div>
-
-            {/* 2. ISO 27001:2013 */}
-            <div className="shrink-0 w-20 h-20 rounded-full border-2 border-[#006B8F] flex flex-col items-center justify-center p-1 text-center bg-[#F0F9FF] shadow-xs">
-              <span className="text-[8px] font-[700] text-[#006B8F] uppercase leading-none">CERTIFIED</span>
-              <span className="text-[16px] font-[900] text-[#006B8F] leading-tight my-0.5">ISO</span>
-              <span className="text-[8px] font-[700] text-slate-700 leading-none">27001:2013</span>
-              <span className="text-[7px] font-[600] text-slate-500 uppercase leading-none mt-0.5">COMPANY</span>
-            </div>
-
-            {/* 3. GCCI */}
-            <div className="shrink-0 w-20 h-20 rounded-full border-2 border-blue-900 flex flex-col items-center justify-center p-1 text-center bg-white shadow-xs">
-              <span className="text-[6.5px] font-[800] text-blue-900 uppercase leading-none">GUJARAT CHAMBER</span>
-              <span className="text-[13px] font-[900] text-blue-950 uppercase leading-tight my-0.5">GCCI</span>
-              <span className="text-[6.5px] font-[800] text-blue-900 uppercase leading-none">& INDUSTRY</span>
-            </div>
-
-            {/* 4. Top Web Dev */}
-            <div className="shrink-0 w-16 h-22 bg-[#006B8F] text-white rounded-[6px] flex flex-col items-center justify-center p-2 text-center shadow-xs">
-              <span className="text-[8px] font-bold text-cyan-200">2026 INDIA</span>
-              <span className="text-[9.5px] font-[900] leading-tight mt-1">WEB DEVELOPMENT</span>
-              <span className="text-[7px] text-cyan-200 mt-1">TOP COMPANY</span>
-            </div>
-
-            {/* 5. Top Mobile App */}
-            <div className="shrink-0 w-16 h-22 bg-[#004A75] text-white rounded-[6px] flex flex-col items-center justify-center p-2 text-center shadow-xs">
-              <span className="text-[8px] font-bold text-cyan-200">2026 INDIA</span>
-              <span className="text-[9.5px] font-[900] leading-tight mt-1">MOBILE APP DEV</span>
-              <span className="text-[7px] text-cyan-200 mt-1">TOP COMPANY</span>
-            </div>
-
-            {/* 6. SoftwareWorld Top Rated */}
-            <div className="shrink-0 w-20 h-20 rounded-full border-2 border-blue-600 bg-blue-50/60 flex flex-col items-center justify-center p-1 text-center shadow-xs">
-              <span className="text-[7px] font-[800] text-blue-900 uppercase leading-none">TOP RATED</span>
-              <span className="text-[9px] font-[900] text-[#006B8F] leading-tight my-0.5">App Development</span>
-              <span className="text-[7px] font-[800] text-slate-600 uppercase leading-none">SOFTWAREWORLD</span>
-            </div>
-
-            {/* 7. Clutch Top Company */}
-            <div className="shrink-0 w-16 h-22 border border-slate-300 rounded-[6px] bg-white flex flex-col items-center justify-center p-1.5 text-center shadow-xs">
-              <span className="text-[13px] font-[900] text-slate-900 font-sans">Clutch</span>
-              <span className="text-[7px] font-[700] text-slate-500 uppercase mt-0.5">TOP COMPANY</span>
-              <span className="text-[7.5px] font-[800] text-[#006B8F] uppercase mt-0.5">Development</span>
-              <span className="text-[6.5px] text-slate-400">INDIA</span>
-            </div>
-
-            {/* 8-14. 7x Red Ribbon Shields */}
+          <div className="flex items-center justify-between gap-3 sm:gap-4 lg:gap-5 overflow-x-auto pb-1 scrollbar-none">
             {[
-              'SOFTWARE DEVELOPERS',
-              'IPHONE APP DEVELOPMENT COMPANY',
-              'E-COMMERCE DEVELOPERS',
-              'BLOCKCHAIN COMPANY',
-              'APP DEVELOPMENT COMPANY',
-              'DESIGN COMPANY',
-              'WEB DEVELOPERS'
-            ].map((ribbon, idx) => (
+              { name: 'GESIA IT Association', img: '/images/gesia.png' },
+              { name: 'ISO 27001:2013 Certified Company', img: '/images/iso_footer.png' },
+              { name: 'Gujarat Chamber of Commerce & Industry', img: '/images/gcci.png' },
+              { name: 'GoodFirms Top Mobile App Development Company', img: '/images/awards/top_mobile_app_goodfirm.svg' },
+              { name: 'GoodFirms Top Web Development Company', img: '/images/awards/top_web_dev_goodfirm.svg' },
+              { name: 'SoftwareWorld Top Rated App Development Companies', img: '/images/software_world_footer.png' },
+              { name: 'Clutch Top Company Development India', img: '/images/clutchfooter.png' },
+              { name: 'The Manifest Most Reviewed Software Developers', img: '/images/awards/top_the_manifest_software_developers_2022_award.png' },
+              { name: 'The Manifest Most Reviewed iPhone App Development Company', img: '/images/awards/top_the_manifest_iphone_app_development_company_2022_award.webp' },
+              { name: 'The Manifest Most Reviewed E-Commerce Developers', img: '/images/awards/top_the_manifest_e-commerce_developers_2022_award.png' },
+              { name: 'The Manifest Most Reviewed Blockchain Company', img: '/images/awards/top_the_manifest_blockchain_company_2022_award.png' },
+              { name: 'The Manifest Most Reviewed App Development Company', img: '/images/awards/top_the_manifest_app_development_company_2022_award.webp' },
+              { name: 'The Manifest Most Reviewed Design Company', img: '/images/awards/top_the_manifest_design_company_2022_award.png' },
+              { name: 'The Manifest Most Reviewed Web Developers', img: '/images/awards/top_the_manifest_web_developers_2022_award.png' }
+            ].map((badge, idx) => (
               <div
                 key={idx}
-                className="shrink-0 w-16 h-24 bg-white border border-rose-300 rounded-t-[6px] flex flex-col items-center justify-between p-2 text-center shadow-xs relative"
+                className="shrink-0 flex items-center justify-center p-1 hover:scale-105 transition-transform duration-200"
+                title={badge.name}
               >
-                <span className="text-[6.5px] font-[800] text-rose-800 uppercase leading-none">MOST REVIEWED</span>
-                <span className="text-[7.5px] font-[900] text-slate-800 leading-tight line-clamp-2 uppercase my-1">{ribbon}</span>
-                <div className="flex items-center space-x-0.5 text-rose-600 text-[10px] leading-none">
-                  <span>★</span><span>★</span><span>★</span>
-                </div>
+                <img
+                  src={badge.img}
+                  alt={badge.name}
+                  className="h-12 sm:h-14 md:h-16 lg:h-[70px] w-auto max-w-[80px] object-contain select-none"
+                  loading="lazy"
+                />
               </div>
             ))}
           </div>
@@ -338,33 +291,42 @@ export const Footer = () => {
               </div>
             </div>
 
-            {/* Three Rating Badges (Google, Clutch, GoodFirms) */}
-            <div className="grid grid-cols-3 gap-3">
+            {/* Three Rating Badges (Google, Clutch, GoodFirms) with Laurel Wreaths */}
+            <div className="grid grid-cols-3 gap-2.5 sm:gap-3">
               {/* Google */}
-              <div className="bg-white rounded-[16px] p-3.5 border border-slate-200/90 shadow-sm flex flex-col items-center justify-center text-center">
-                <span className="text-[15px] font-[900] text-slate-900 font-sans">Google</span>
-                <div className="text-blue-600 text-[13px] my-0.5 tracking-tight">★★★★★</div>
-                <span className="text-[10px] font-[800] text-slate-800 font-sans tracking-tight">
-                  {footerConfig?.ratings?.googleReviews || '900+ REVIEWS'}
-                </span>
+              <div className="bg-white rounded-[16px] px-2 py-2 sm:py-2.5 border border-slate-200/90 shadow-sm flex items-center justify-between space-x-1 sm:space-x-1.5 hover:shadow-md transition-shadow">
+                <img src="/images/left-leaf.svg" alt="" className="h-9 sm:h-11 w-auto shrink-0 select-none opacity-85" />
+                <div className="flex flex-col items-center justify-center text-center min-w-0 flex-1 px-0.5">
+                  <img src="/images/google.webp" alt="Google" className="h-5 sm:h-6 w-auto object-contain mb-0.5" />
+                  <span className="text-[9px] sm:text-[10px] font-[900] text-black font-sans tracking-tight leading-none whitespace-nowrap">
+                    {footerConfig?.ratings?.googleReviews || '900+ REVIEWS'}
+                  </span>
+                </div>
+                <img src="/images/right-leaf.svg" alt="" className="h-9 sm:h-11 w-auto shrink-0 select-none opacity-85" />
               </div>
 
               {/* Clutch */}
-              <div className="bg-white rounded-[16px] p-3.5 border border-slate-200/90 shadow-sm flex flex-col items-center justify-center text-center">
-                <span className="text-[15px] font-[900] text-slate-900 font-sans">Clutch</span>
-                <div className="text-blue-600 text-[13px] my-0.5 tracking-tight">★★★★★</div>
-                <span className="text-[10px] font-[800] text-slate-800 font-sans tracking-tight">
-                  {footerConfig?.ratings?.clutchReviews || '320+ REVIEWS'}
-                </span>
+              <div className="bg-white rounded-[16px] px-2 py-2 sm:py-2.5 border border-slate-200/90 shadow-sm flex items-center justify-between space-x-1 sm:space-x-1.5 hover:shadow-md transition-shadow">
+                <img src="/images/left-leaf.svg" alt="" className="h-9 sm:h-11 w-auto shrink-0 select-none opacity-85" />
+                <div className="flex flex-col items-center justify-center text-center min-w-0 flex-1 px-0.5">
+                  <img src="/images/clutch.webp" alt="Clutch" className="h-5 sm:h-6 w-auto object-contain mb-0.5" />
+                  <span className="text-[9px] sm:text-[10px] font-[900] text-black font-sans tracking-tight leading-none whitespace-nowrap">
+                    {footerConfig?.ratings?.clutchReviews || '320+ REVIEWS'}
+                  </span>
+                </div>
+                <img src="/images/right-leaf.svg" alt="" className="h-9 sm:h-11 w-auto shrink-0 select-none opacity-85" />
               </div>
 
               {/* GoodFirms */}
-              <div className="bg-white rounded-[16px] p-3.5 border border-slate-200/90 shadow-sm flex flex-col items-center justify-center text-center">
-                <span className="text-[14px] font-[900] text-[#006B8F] font-sans">GoodFirms</span>
-                <div className="text-blue-600 text-[13px] my-0.5 tracking-tight">★★★★★</div>
-                <span className="text-[10px] font-[800] text-slate-800 font-sans tracking-tight">
-                  {footerConfig?.ratings?.goodFirmsReviews || '200+ REVIEWS'}
-                </span>
+              <div className="bg-white rounded-[16px] px-2 py-2 sm:py-2.5 border border-slate-200/90 shadow-sm flex items-center justify-between space-x-1 sm:space-x-1.5 hover:shadow-md transition-shadow">
+                <img src="/images/left-leaf.svg" alt="" className="h-9 sm:h-11 w-auto shrink-0 select-none opacity-85" />
+                <div className="flex flex-col items-center justify-center text-center min-w-0 flex-1 px-0.5">
+                  <img src="/images/goodfirms.webp" alt="GoodFirms" className="h-5 sm:h-6 w-auto object-contain mb-0.5" />
+                  <span className="text-[9px] sm:text-[10px] font-[900] text-black font-sans tracking-tight leading-none whitespace-nowrap">
+                    {footerConfig?.ratings?.goodFirmsReviews || '200+ REVIEWS'}
+                  </span>
+                </div>
+                <img src="/images/right-leaf.svg" alt="" className="h-9 sm:h-11 w-auto shrink-0 select-none opacity-85" />
               </div>
             </div>
 
@@ -406,79 +368,36 @@ export const Footer = () => {
           <div className="lg:col-span-7">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {(footerConfig?.offices && footerConfig.offices.length > 0 ? footerConfig.offices : [
-                { id: '1', country: 'India(HQ)', flag: '🇮🇳', address: 'C/102-103, Ganesh Meridian, Opp. Kargil Petrol Pump, S.G. Highway, Ahmedabad - 380060, Gujarat, INDIA' },
-                { id: '2', country: 'USA', flag: '🇺🇸', address: '5004 NW 116th Ave Coral Springs, Florida, FL 33076' },
-                { id: '3', country: 'Canada', flag: '🇨🇦', address: '111 Tarawood lane NE, unit#403 Calgary AB, T3J 0G8' },
-                { id: '4', country: 'Australia', flag: '🇦🇺', address: 'U 2B 305 Harborne Street, Glendalough 6016 WA' },
-                { id: '5', country: 'UK', flag: '🇬🇧', address: '42 Audley Avenue, Gillingham, ME73AY United Kingdom' },
-                { id: '6', country: 'UAE', flag: '🇦🇪', address: 'A-21, Building 21, Ghoroob, Mirdif Dubai, United Arab Emirates' }
+                { id: '1', country: 'India(HQ)', flag: '/images/india_office.svg', address: 'C/102-103, Ganesh Meridian, Opp. Kargil Petrol Pump, S.G. Highway, Ahmedabad - 380060, Gujarat, INDIA' },
+                { id: '2', country: 'USA', flag: '/images/usa_office.svg', address: '5004 NW 116th Ave Coral Springs, Florida, FL 33076' },
+                { id: '3', country: 'Canada', flag: '/images/canada_office.svg', address: '111 Tarawood lane NE, unit#403 Calgary AB, T3J 0G8' },
+                { id: '4', country: 'Australia', flag: '/images/aus_office.svg', address: 'U 2B 305 Harborne Street, Glendalough 6016 WA' },
+                { id: '5', country: 'UK', flag: '/images/uk_office.svg', address: '42 Audley Avenue, Gillingham, ME73AY United Kingdom' },
+                { id: '6', country: 'UAE', flag: '/images/uae_office.svg', address: 'A-21, Building 21, Ghoroob, Mirdif Dubai, United Arab Emirates' }
               ]).map((office, idx) => {
                 const countryLower = (office.country || '').toLowerCase();
-                const renderSketch = () => {
-                  if (countryLower.includes('india') || idx === 0) {
-                    return (
-                      <svg viewBox="0 0 50 80" className="w-14 h-24" fill="none" stroke="#334155" strokeWidth="1.2">
-                        <circle cx="25" cy="14" r="6" />
-                        <path d="M18 20 L32 20 L36 48 L33 76 L17 76 L14 48 Z" />
-                        <line x1="25" y1="20" x2="25" y2="76" strokeDasharray="2 2" />
-                        <line x1="8" y1="78" x2="42" y2="78" strokeWidth="2" />
-                      </svg>
-                    );
+                
+                const getFlag = () => {
+                  if (office.flag && (office.flag.startsWith('/') || office.flag.startsWith('http') || office.flag.includes('.svg') || office.flag.includes('.png'))) {
+                    return office.flag;
                   }
-                  if (countryLower.includes('usa') || countryLower.includes('united states') || idx === 1) {
-                    return (
-                      <svg viewBox="0 0 60 80" className="w-20 h-24" fill="none" stroke="#334155" strokeWidth="1.2">
-                        <rect x="6" y="32" width="12" height="46" />
-                        <rect x="22" y="12" width="16" height="66" />
-                        <line x1="30" y1="4" x2="30" y2="12" strokeWidth="1.5" />
-                        <rect x="42" y="26" width="14" height="52" />
-                        <line x1="2" y1="78" x2="58" y2="78" strokeWidth="2" />
-                      </svg>
-                    );
-                  }
-                  if (countryLower.includes('canada') || idx === 2) {
-                    return (
-                      <svg viewBox="0 0 60 80" className="w-20 h-24" fill="none" stroke="#334155" strokeWidth="1.2">
-                        <line x1="28" y1="4" x2="28" y2="78" strokeWidth="2" />
-                        <circle cx="28" cy="24" r="6" />
-                        <rect x="6" y="38" width="14" height="40" />
-                        <rect x="38" y="30" width="16" height="48" />
-                        <line x1="2" y1="78" x2="58" y2="78" strokeWidth="2" />
-                      </svg>
-                    );
-                  }
-                  if (countryLower.includes('australia') || idx === 3) {
-                    return (
-                      <svg viewBox="0 0 60 80" className="w-20 h-24" fill="none" stroke="#334155" strokeWidth="1.2">
-                        <path d="M4 76 C12 60 22 55 30 76" />
-                        <path d="M16 76 C24 50 34 46 44 76" />
-                        <line x1="50" y1="14" x2="50" y2="76" strokeWidth="2" />
-                        <circle cx="50" cy="26" r="4" />
-                        <line x1="2" y1="78" x2="58" y2="78" strokeWidth="2" />
-                      </svg>
-                    );
-                  }
-                  if (countryLower.includes('uk') || countryLower.includes('united kingdom') || idx === 4) {
-                    return (
-                      <svg viewBox="0 0 60 80" className="w-20 h-24" fill="none" stroke="#334155" strokeWidth="1.2">
-                        <rect x="8" y="18" width="12" height="60" />
-                        <path d="M8 18 L14 6 L20 18 Z" />
-                        <circle cx="14" cy="26" r="3" />
-                        <circle cx="42" cy="48" r="14" />
-                        <line x1="42" y1="48" x2="42" y2="78" strokeWidth="2" />
-                        <line x1="2" y1="78" x2="58" y2="78" strokeWidth="2" />
-                      </svg>
-                    );
-                  }
-                  return (
-                    <svg viewBox="0 0 60 80" className="w-20 h-24" fill="none" stroke="#334155" strokeWidth="1.2">
-                      <path d="M12 76 C18 55 18 40 10 32 C24 36 28 55 30 76" />
-                      <line x1="46" y1="4" x2="46" y2="76" strokeWidth="2" />
-                      <rect x="42" y="24" width="8" height="52" />
-                      <rect x="38" y="44" width="16" height="32" />
-                      <line x1="2" y1="78" x2="58" y2="78" strokeWidth="2" />
-                    </svg>
-                  );
+                  if (countryLower.includes('india') || idx === 0) return '/images/india_office.svg';
+                  if (countryLower.includes('usa') || countryLower.includes('states') || idx === 1) return '/images/usa_office.svg';
+                  if (countryLower.includes('canada') || idx === 2) return '/images/canada_office.svg';
+                  if (countryLower.includes('aus') || idx === 3) return '/images/aus_office.svg';
+                  if (countryLower.includes('uk') || countryLower.includes('kingdom') || idx === 4) return '/images/uk_office.svg';
+                  if (countryLower.includes('uae') || countryLower.includes('emirates') || countryLower.includes('dubai') || idx === 5) return '/images/uae_office.svg';
+                  return '/images/india_office.svg';
+                };
+
+                const getSketch = () => {
+                  if (countryLower.includes('india') || idx === 0) return '/images/india_iamge.png';
+                  if (countryLower.includes('usa') || countryLower.includes('states') || idx === 1) return '/images/usaimage.png';
+                  if (countryLower.includes('canada') || idx === 2) return '/images/canadaimage.png';
+                  if (countryLower.includes('aus') || idx === 3) return '/images/ausimage.png';
+                  if (countryLower.includes('uk') || countryLower.includes('kingdom') || idx === 4) return '/images/ukimage.png';
+                  if (countryLower.includes('uae') || countryLower.includes('emirates') || countryLower.includes('dubai') || idx === 5) return '/images/uae_image.png';
+                  return '/images/india_iamge.png';
                 };
 
                 return (
@@ -487,16 +406,24 @@ export const Footer = () => {
                     className="bg-white rounded-[18px] p-5 border border-slate-200/90 shadow-sm flex flex-col justify-between h-[180px] sm:h-[190px] relative overflow-hidden group hover:border-[#006B8F]/40 transition-colors"
                   >
                     <div>
-                      <div className="font-[800] text-slate-900 text-[16px] mb-2 font-sans flex items-center space-x-2">
-                        <span className="text-xl">{office.flag || '📍'}</span>
+                      <div className="font-[800] text-slate-900 text-[15px] sm:text-[16px] mb-2 font-sans flex items-center space-x-2.5">
+                        <img
+                          src={getFlag()}
+                          alt={office.country}
+                          className="w-6 h-4.5 object-contain shrink-0 rounded-xs shadow-2xs"
+                        />
                         <span>{office.country}</span>
                       </div>
                       <p className="text-slate-600 leading-relaxed text-[12.5px] font-[400] font-sans pr-14 line-clamp-4">
                         {office.address}
                       </p>
                     </div>
-                    <div className="absolute right-3 bottom-2 pointer-events-none opacity-60 group-hover:opacity-90 transition-opacity">
-                      {renderSketch()}
+                    <div className="absolute right-2.5 bottom-1.5 pointer-events-none opacity-60 group-hover:opacity-100 transition-opacity">
+                      <img
+                        src={getSketch()}
+                        alt=""
+                        className="h-20 sm:h-22 w-auto object-contain max-w-[85px] sm:max-w-[100px]"
+                      />
                     </div>
                   </div>
                 );
