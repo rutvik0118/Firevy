@@ -5,6 +5,11 @@ import Container from '../common/Container';
 import BrandLogoMarquee from '../common/BrandLogoMarquee';
 import ClutchTopRatedBanner from '../common/ClutchTopRatedBanner';
 import PremiumServicesGrid from '../common/PremiumServicesGrid';
+import SapphireSeasonedExpertsSection from './SapphireSeasonedExpertsSection';
+import CustomItServicesSection from './CustomItServicesSection';
+import SectorsThrivingSection from './SectorsThrivingSection';
+import IndustryFocusedInsightsSection from './IndustryFocusedInsightsSection';
+import ExpertiseItConsultingSection from './ExpertiseItConsultingSection';
 import {
   ShieldCheck,
   Zap,
@@ -960,9 +965,34 @@ export const ItConsultingServices = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* 5. OUR PREMIUM SERVICES (MATCHING FIRST IMAGE) */}
+      {/* 5. OUR PREMIUM SERVICES */}
       {/* ========================================================================= */}
       <PremiumServicesGrid companyName="Firevy" />
+
+      {/* ========================================================================= */}
+      {/* 6. MEET SAPPHIRE'S EXCEPTIONAL TEAM OF SEASONED EXPERTS (IMAGE 1) */}
+      {/* ========================================================================= */}
+      <SapphireSeasonedExpertsSection />
+
+      {/* ========================================================================= */}
+      {/* 7. SAPPHIRE CUSTOM IT SERVICE (IMAGE 2) */}
+      {/* ========================================================================= */}
+      <CustomItServicesSection companyName="Sapphire" />
+
+      {/* ========================================================================= */}
+      {/* 8. SECTORS THRIVING THROUGH SAPPHIRE'S BESPOKE IT SERVICE DEVELOPMENT (IMAGE 3) */}
+      {/* ========================================================================= */}
+      <SectorsThrivingSection title="Sectors Thriving Through Sapphire’s Bespoke IT Service Development" />
+
+      {/* ========================================================================= */}
+      {/* 9. INDUSTRY-FOCUSED INSIGHTS TO ELEVATE YOUR BUSINESS (IMAGE 4) */}
+      {/* ========================================================================= */}
+      <IndustryFocusedInsightsSection subtitle="Trending Industries that Use IT Service Development" />
+
+      {/* ========================================================================= */}
+      {/* 10. EXPERTISE IN OUR IT CONSULTING SERVICES (IMAGE 5) */}
+      {/* ========================================================================= */}
+      <ExpertiseItConsultingSection />
 
       {/* ========================================================================= */}
       {/* 6. WHY CHOOSE FIREVY FOR IT CONSULTING SERVICES */}

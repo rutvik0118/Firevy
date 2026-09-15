@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Container from '../common/Container';
 
-export const IndustryFocusedInsightsSection = () => {
+export const IndustryFocusedInsightsSection = ({ title, subtitle } = {}) => {
   const [activeIndustry, setActiveIndustry] = useState('Automotive');
 
   const row1Industries = [
@@ -220,10 +220,10 @@ export const IndustryFocusedInsightsSection = () => {
         {/* Section Heading & Subtitle */}
         <div className="text-center max-w-4xl mx-auto mb-6 sm:mb-8">
           <h2 className="text-2xl sm:text-3xl md:text-[34px] lg:text-[38px] font-[800] text-[#0B0F19] tracking-tight leading-tight mb-2">
-            Industry-Focused Insights To Elevate Your Business
+            {title || "Industry-Focused Insights To Elevate Your Business"}
           </h2>
           <p className="text-xs sm:text-sm md:text-[15px] text-[#475569] font-normal">
-            Trending Industries that Use Web App Development
+            {subtitle || "Trending Industries that Use Web App Development"}
           </p>
         </div>
 
