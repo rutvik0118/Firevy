@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import SEO from '../common/SEO';
 import Container from '../common/Container';
 import BrandLogoMarquee from '../common/BrandLogoMarquee';
-import { ProudAwardsBanner } from './ProudAwardsBanner';
+import ClutchTopRatedBanner from '../common/ClutchTopRatedBanner';
 import {
   ShieldCheck,
   Zap,
@@ -39,13 +39,17 @@ import {
   ChevronRight,
   ExternalLink,
   Laptop,
-  CheckSquare
+  CheckSquare,
+  ArrowLeft,
+  Quote,
+  Trophy
 } from 'lucide-react';
 
 export const ItConsultingServices = () => {
   const [openFaq, setOpenFaq] = useState(0);
   const [activeTechTab, setActiveTechTab] = useState('cloud');
   const [activeDomainTab, setActiveDomainTab] = useState('cloud');
+  const [cuttingEdgeIndex, setCuttingEdgeIndex] = useState(0);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
@@ -570,6 +574,81 @@ export const ItConsultingServices = () => {
     }
   ];
 
+  const cuttingEdgeTech = [
+    {
+      title: 'MEAN Stack App Development',
+      icon: (
+        <svg className="w-8 h-8 text-[#005F96]" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="6" y="8" width="36" height="26" rx="4" />
+          <path d="M 12 14 H 36" />
+          <circle cx="12" cy="11" r="1" fill="currentColor" />
+          <circle cx="16" cy="11" r="1" fill="currentColor" />
+          <path d="M 16 26 L 20 22 L 16 18" />
+          <path d="M 24 26 H 32" />
+        </svg>
+      ),
+      desc: 'When it comes to MEAN Stack development services, we are a reliable partner. Our team is skilled in using frameworks like AngularJS and Mongoose to create web apps that have several features and perform very well.'
+    },
+    {
+      title: 'Fast API Development',
+      icon: (
+        <svg className="w-8 h-8 text-[#005F96]" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="6" y="10" width="36" height="24" rx="4" />
+          <path d="M 20 18 L 28 22 L 20 26 Z" fill="currentColor" />
+          <path d="M 24 34 V 40 M 16 40 H 32" />
+        </svg>
+      ),
+      desc: 'Our group specializes in creating dynamic, high-performing online apps by using the FastAPI framework. Utilizing the newest Python frameworks, we guarantee that your project shines in terms of functionality, user experience, and smooth integration thanks to our knowledge of tools like Pydantic and Starlette.'
+    },
+    {
+      title: 'Django App Development',
+      icon: (
+        <svg className="w-8 h-8 text-[#005F96]" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="6" y="8" width="36" height="24" rx="4" />
+          <circle cx="24" cy="20" r="5" />
+          <path d="M 24 13 V 15 M 24 25 V 27 M 17 20 H 19 M 29 20 H 31" />
+          <path d="M 24 32 V 40 M 14 40 H 34" />
+        </svg>
+      ),
+      desc: 'View our Django development services, where we create robust, effective online applications using the Django framework. Our services are made to improve your online solutions, making them more dependable and speedier from the ground up.'
+    },
+    {
+      title: 'Laravel App Development',
+      icon: (
+        <svg className="w-8 h-8 text-[#005F96]" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <polygon points="24,6 40,15 40,33 24,42 8,33 8,15" />
+          <path d="M 24 6 V 42 M 8 15 L 24 24 L 40 15" />
+        </svg>
+      ),
+      desc: 'With our Laravel development services, take your business to 2026. We are a reliable Laravel consulting company with tech experts who use the power of the framework to build powerful web applications with modern architecture and high security.'
+    },
+    {
+      title: 'MERN Stack Development',
+      icon: (
+        <svg className="w-8 h-8 text-[#005F96]" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="24" cy="24" r="6" />
+          <ellipse cx="24" cy="24" rx="18" ry="7" transform="rotate(30 24 24)" />
+          <ellipse cx="24" cy="24" rx="18" ry="7" transform="rotate(-30 24 24)" />
+        </svg>
+      ),
+      desc: 'Build scalable web applications using MongoDB, Express, React, and Node.js with high performance, dynamic user interfaces, and seamless REST/GraphQL API integration.'
+    },
+    {
+      title: 'Spring Boot Microservices',
+      icon: (
+        <svg className="w-8 h-8 text-[#005F96]" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="8" y="8" width="32" height="12" rx="3" />
+          <rect x="8" y="24" width="32" height="12" rx="3" />
+          <circle cx="14" cy="14" r="1.5" fill="currentColor" />
+          <circle cx="14" cy="30" r="1.5" fill="currentColor" />
+          <line x1="20" y1="14" x2="34" y2="14" />
+          <line x1="20" y1="30" x2="34" y2="30" />
+        </svg>
+      ),
+      desc: 'Enterprise Java backend architectures built for resilient distributed workloads, banking-grade security, and high-volume transaction throughput.'
+    }
+  ];
+
   return (
     <div className="bg-white min-h-screen text-slate-800 font-sans selection:bg-[#005F96] selection:text-white">
       <SEO
@@ -714,72 +793,40 @@ export const ItConsultingServices = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* 3. OVERVIEW SECTION 2: Tailored IT Advisory for Sustainable Growth */}
+      {/* 3. BRIEF ABOUT OUR IT CONSULTING SERVICES (1:1 SAPPHIRE REFERENCE) */}
       {/* ========================================================================= */}
-      <section className="py-16 lg:py-20 bg-slate-50 border-y border-slate-200/80">
+      <section className="py-16 lg:py-24 bg-white border-t border-slate-100">
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Left Text */}
-            <div className="lg:col-span-7 space-y-5">
-              <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-md bg-cyan-50 text-cyan-800 text-xs font-bold tracking-wider uppercase">
-                <span>Strategic Tech Excellence</span>
-              </div>
-
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 leading-tight">
-                Tailored IT Advisory for <span className="text-[#005F96]">Sustainable Growth</span> & Innovation
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            {/* Left Content */}
+            <div className="lg:col-span-6 space-y-6">
+              <h2
+                className="text-slate-900 font-extrabold text-2xl sm:text-3xl lg:text-[34px] leading-snug tracking-tight"
+              >
+                Brief About Our IT Consulting Services
               </h2>
 
-              <p className="text-slate-600 leading-relaxed text-sm sm:text-base">
-                Whether you need an end-to-end digital overhaul or targeted advice on cloud adoption, DevOps implementation, or data governance, our senior technology consultants bring decades of industry experience to guide your organization toward digital maturity.
+              <p className="text-slate-600 text-sm sm:text-[15px] leading-relaxed font-normal">
+                Our IT experts help discover and eliminate network and system security risks. They collaborate with your team to build procedures and policies that improve ongoing security. The Best Tech Consulting Company will provide an exact estimate of the cost of the IT Consulting Services In USA in advance. Once the project is complete, you are not required to retain the expert on staff.
               </p>
 
-              <div className="space-y-3 pt-2">
-                {[
-                  {
-                    title: 'Vendor-Agnostic Technology Recommendations',
-                    desc: 'We select the right tech stack based strictly on your performance, budget, and business requirements—never tied to vendor sales quotas.'
-                  },
-                  {
-                    title: 'Cost-Effective Infrastructure & License Optimization',
-                    desc: 'Identify redundant software licenses and idle cloud resources to slash your annual Total Cost of Ownership (TCO) by up to 40%.'
-                  },
-                  {
-                    title: 'Scalable & Future-Proof Solution Blueprints',
-                    desc: 'Architect microservices, containerized deployments, and event-driven backends designed to support explosive business growth.'
-                  }
-                ].map((item, idx) => (
-                  <div key={idx} className="flex items-start space-x-3 bg-white p-4 rounded-xl border border-slate-200/80 shadow-sm">
-                    <div className="p-1.5 rounded-md bg-blue-50 text-[#005F96] shrink-0 mt-0.5">
-                      <Check className="w-4 h-4 stroke-[3]" />
-                    </div>
-                    <div>
-                      <h4 className="text-sm font-bold text-slate-900">{item.title}</h4>
-                      <p className="text-xs text-slate-500 mt-0.5 leading-normal">{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
+              <p className="text-slate-600 text-sm sm:text-[15px] leading-relaxed font-normal">
+                Engaging IT consulting services in the UK for specialized projects allows your staff to concentrate on essential business processes and goals while leveraging the expertise of a Affordable IT Consultant for App or Web Development.
+              </p>
             </div>
 
-            {/* Right Graphic */}
-            <div className="lg:col-span-5">
-              <div className="relative rounded-2xl overflow-hidden shadow-xl border border-slate-200 bg-white p-3">
+            {/* Right Graphic: Video Conference Presentation Scene */}
+            <div className="lg:col-span-6 flex justify-center items-center">
+              <div className="relative w-full max-w-[580px] rounded-2xl overflow-hidden p-2">
                 <img
-                  src="/images/c_sharp_developer_illustration.png"
-                  alt="IT Consulting Presentation"
-                  className="w-full h-auto rounded-xl object-cover"
+                  src="/images/it_consulting_brief_videocall.jpg"
+                  alt="Brief About Our IT Consulting Services"
+                  className="w-full h-auto object-contain rounded-xl shadow-lg border border-slate-200/70 bg-white"
                   onError={(e) => {
                     e.target.onerror = null;
-                    e.target.src = "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=800&q=80";
+                    e.target.src = "/images/c_sharp_developer_illustration.png";
                   }}
                 />
-                <div className="p-4 bg-slate-900 text-white rounded-xl mt-3 flex items-center justify-between">
-                  <div>
-                    <span className="text-xs text-cyan-300 font-semibold block">Continuous Delivery</span>
-                    <span className="text-sm font-bold">Bi-Weekly Milestone Reviews</span>
-                  </div>
-                  <div className="px-3 py-1 rounded bg-[#005F96] text-xs font-bold">Agile Sprints</div>
-                </div>
               </div>
             </div>
           </div>
@@ -787,18 +834,129 @@ export const ItConsultingServices = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* 4. AWARDS & RECOGNITION RIBBON */}
+      {/* 4. AWARDS & RECOGNITION RIBBON (CLUTCH TOP RATED - 1:1 SAPPHIRE REFERENCE) */}
       {/* ========================================================================= */}
-      <div className="bg-[#004A75] py-8 border-y border-[#003859]">
+      <ClutchTopRatedBanner title="World Wide Top Rated IT Company on Clutch" />
+
+      {/* ========================================================================= */}
+      {/* 5. GET 100% CUSTOMIZABLE IT CONSULTING SERVICES (1:1 SAPPHIRE REFERENCE) */}
+      {/* ========================================================================= */}
+      <section className="py-20 bg-white">
         <Container>
-          <div className="text-center mb-6">
-            <span className="text-xs font-bold uppercase tracking-widest text-cyan-200">
-              Trusted by Leading Enterprises & Recognized Worldwide
-            </span>
+          <div className="text-center max-w-3xl mx-auto mb-14">
+            <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-extrabold text-slate-900 tracking-tight leading-snug">
+              Get 100% Customizable IT Consulting Services From Experts
+            </h2>
           </div>
-          <ProudAwardsBanner />
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            {/* Left Quote Callout Card */}
+            <div className="lg:col-span-5">
+              <div className="relative bg-[#F0F7FD] rounded-2xl p-8 sm:p-10 border border-blue-100/80 shadow-sm overflow-hidden min-h-[320px] flex flex-col justify-between">
+                {/* Background Subtle Contour Pattern */}
+                <div className="absolute top-0 right-0 w-48 h-48 bg-blue-200/20 rounded-full blur-2xl pointer-events-none -mr-10 -mt-10" />
+
+                <div className="relative z-10 space-y-6">
+                  <div className="w-14 h-14 rounded-2xl bg-white text-[#005F96] flex items-center justify-center shadow-md border border-blue-100">
+                    <Quote className="w-7 h-7 fill-[#005F96]" />
+                  </div>
+
+                  <h3 className="text-2xl sm:text-3xl lg:text-[32px] font-extrabold text-[#005F96] leading-[1.3] tracking-tight">
+                    Build Resilience, And Create New Efficiencies.
+                  </h3>
+                </div>
+
+                <div className="relative z-10 pt-6 border-t border-blue-200/50 flex items-center justify-between text-xs font-bold text-slate-600">
+                  <span>Firevy Advisory Framework</span>
+                  <span className="text-[#005F96]">100% Tailored</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Detailed Copy */}
+            <div className="lg:col-span-7 space-y-5">
+              <p className="text-slate-600 text-sm sm:text-[15px] leading-relaxed font-normal">
+                As a leading IT Consulting Firm, our endeavor assists customers in selecting both cost- and time-efficient IT business solutions and avoiding the pitfalls associated with current technological trends. Because we base every solution and advice we provide on our understanding of the market, you can focus on running your company confidently, knowing that our Business Consultant Services will guide you in making the appropriate IT choices. Additionally, we offer expert digital transformation consulting services that help businesses optimize their digital investments for maximum ROI.
+              </p>
+
+              <p className="text-slate-600 text-sm sm:text-[15px] leading-relaxed font-normal">
+                Our Information Technology (IT) Consulting Services team keeps current on developing the newest frameworks and platforms by continually monitoring industry advancements. Because our Technology Consultants have certifications in a variety of platforms, you can be confident that the quality of our Top IT consulting Company for Development business will meet your expectations. Have a conversation with our IT consulting company to learn more about how our Business Consultant Services may assist you with your IT Strategy and Roadmap. We also specialize in enterprise IT consulting for businesses aiming to scale operations, improve security, and modernize IT environments.
+              </p>
+            </div>
+          </div>
         </Container>
-      </div>
+      </section>
+
+      {/* ========================================================================= */}
+      {/* 6. CUTTING-EDGE TECHNOLOGIES WE USE (1:1 SAPPHIRE REFERENCE) */}
+      {/* ========================================================================= */}
+      <section className="py-20 bg-slate-50 border-y border-slate-200/80">
+        <Container>
+          <div className="text-center max-w-3xl mx-auto mb-14">
+            <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-extrabold text-slate-900 tracking-tight leading-snug">
+              Cutting-Edge Technologies Firevy Use for IT Service Development
+            </h2>
+          </div>
+
+          {/* Slider Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {cuttingEdgeTech
+              .slice(cuttingEdgeIndex, cuttingEdgeIndex + 3)
+              .concat(
+                cuttingEdgeIndex + 3 > cuttingEdgeTech.length
+                  ? cuttingEdgeTech.slice(0, (cuttingEdgeIndex + 3) % cuttingEdgeTech.length)
+                  : []
+              )
+              .slice(0, 3)
+              .map((item, idx) => (
+                <div
+                  key={idx}
+                  className="bg-[#EBF5FB] p-7 sm:p-8 rounded-2xl border border-blue-100/90 shadow-sm hover:shadow-md transition-all flex flex-col justify-between"
+                >
+                  <div className="space-y-4">
+                    <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center shadow-sm border border-blue-200/60">
+                      {item.icon}
+                    </div>
+
+                    <h3 className="text-lg font-bold text-slate-900 leading-snug">
+                      {item.title}
+                    </h3>
+
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                      {item.desc}
+                    </p>
+                  </div>
+                </div>
+              ))}
+          </div>
+
+          {/* Navigation Arrows (← →) */}
+          <div className="flex items-center justify-center space-x-4 mt-10">
+            <button
+              onClick={() =>
+                setCuttingEdgeIndex((prev) =>
+                  prev === 0 ? cuttingEdgeTech.length - 1 : prev - 1
+                )
+              }
+              className="w-11 h-11 rounded-full border border-slate-300 bg-white hover:border-[#005F96] hover:bg-[#005F96] hover:text-white flex items-center justify-center transition-all text-slate-700 shadow-sm active:scale-95"
+              aria-label="Previous Technology"
+            >
+              <ArrowLeft className="w-5 h-5" />
+            </button>
+            <button
+              onClick={() =>
+                setCuttingEdgeIndex((prev) =>
+                  prev >= cuttingEdgeTech.length - 1 ? 0 : prev + 1
+                )
+              }
+              className="w-11 h-11 rounded-full border border-slate-300 bg-white hover:border-[#005F96] hover:bg-[#005F96] hover:text-white flex items-center justify-center transition-all text-slate-700 shadow-sm active:scale-95"
+              aria-label="Next Technology"
+            >
+              <ArrowRight className="w-5 h-5" />
+            </button>
+          </div>
+        </Container>
+      </section>
 
       {/* ========================================================================= */}
       {/* 5. CORE IT CONSULTING CAPABILITIES (DARK BLUE THEME) */}
