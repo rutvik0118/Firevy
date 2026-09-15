@@ -234,7 +234,7 @@ export const initialBlogPosts = [
     category: 'Artificial Intelligence Development',
     featuredImage: '',
     gradientBg: 'bg-gradient-to-br from-sky-600 via-blue-700 to-indigo-900',
-    shortDescription: '"If I increase the order to 500 units, can you give me 15% off?" That question used to go to a sales representative. Now it might go to an autonomous AI agent.',
+    shortDescription: '"If I increase the order to 500 units, can you give me 15% off?" That question used to go to a sales representative. Now it might go to a chatbot. But what happens when tha...',
     content: 'Autonomous commerce agents are shifting customer interactions from static scripts to dynamic value negotiation.',
     tags: ['AI Agents', 'Commerce', 'Customer Experience'],
     readTime: '5 min read',
@@ -254,7 +254,7 @@ export const initialBlogPosts = [
     category: 'Artificial Intelligence Development',
     featuredImage: '',
     gradientBg: 'bg-gradient-to-br from-emerald-600 via-teal-700 to-slate-900',
-    shortDescription: 'A mid-sized company adds AI to its product. The pilot is doing well. Six months later, someone asks for a second AI feature. The team realizes they need composable architectures.',
+    shortDescription: "mid-sized company adds AI to its product. The pilot is doing well. Everyone is happy. Six months later, someone asks for a second AI feature. The team realizes they're...",
     content: 'Composable AI architectures empower organizations to swap LLM backends and orchestration pipelines with zero friction.',
     tags: ['Composable AI', 'Architecture', 'Cost Optimization'],
     readTime: '5 min read',
@@ -265,6 +265,126 @@ export const initialBlogPosts = [
     seoKeywords: 'composable AI, enterprise LLM, AI architecture',
     status: 'published',
     order: 3,
+    isActive: true
+  },
+  {
+    title: 'Why the Best Business Leaders Need to Stay Ahead of Technology and How They Can Do It',
+    slug: 'why-best-business-leaders-stay-ahead-of-technology',
+    author: 'Kumaril Patel',
+    category: 'Software Development',
+    featuredImage: '',
+    gradientBg: 'bg-gradient-to-br from-indigo-900 via-purple-900 to-slate-900',
+    shortDescription: "A founder can spend a decade learning how customers think, how to build a team that doesn't fall apart under pressure, how to read a balance sheet, how to time a...",
+    content: 'Technology leadership requires constant adaptation, architectural vigilance, and embracing emerging computing primitives before market commoditization.',
+    tags: ['Leadership', 'Technology Strategy', 'CTO Insights'],
+    readTime: '5 min read',
+    publishDate: 'August 25, 2026',
+    isFeatured: false,
+    seoTitle: 'Why Business Leaders Must Stay Ahead of Tech | firevy.co',
+    seoDescription: 'Strategic guidance for founders and executives navigating technological shifts.',
+    seoKeywords: 'tech leadership, strategy, software trends',
+    status: 'published',
+    order: 4,
+    isActive: true
+  },
+  {
+    title: 'Beyond Chatbots and Copilots: What Happens When AI Agents Start Running Business Processes?',
+    slug: 'beyond-chatbots-and-copilots-ai-agents-business-processes',
+    author: 'Kumaril Patel',
+    category: 'Artificial Intelligence Development',
+    featuredImage: '',
+    gradientBg: 'bg-gradient-to-br from-cyan-600 via-blue-800 to-slate-950',
+    shortDescription: 'Imagine a customer issue that normally passes through three employees, four systems, and several manual checks before it is resolved. Now imagine an AI system handling...',
+    content: 'Agentic workflows combine perception, planning, and tool execution to automate multi-stage enterprise operations end-to-end.',
+    tags: ['AI Agents', 'Automation', 'Enterprise AI'],
+    readTime: '5 min read',
+    publishDate: 'August 21, 2026',
+    isFeatured: false,
+    seoTitle: 'AI Agents Running Business Processes | firevy.co',
+    seoDescription: 'Moving beyond conversational LLMs to autonomous process orchestration.',
+    seoKeywords: 'autonomous agents, process automation, AI workflow',
+    status: 'published',
+    order: 5,
+    isActive: true
+  },
+  {
+    title: 'What 23 Years of Web Development Can Teach Us About Building App for the Next Decade?',
+    slug: 'what-23-years-of-web-development-can-teach-us',
+    author: 'Kumaril Patel',
+    category: 'Web Development',
+    featuredImage: '',
+    gradientBg: 'bg-gradient-to-br from-blue-900 via-slate-900 to-indigo-950',
+    shortDescription: 'The Web We Build Today Is Not the Web We Started With. Twenty-three years ago, building the web simply meant writing HTML and hoping the browser would cooperate...',
+    content: 'Historical perspective on frontend tooling, distributed systems, edge runtimes, and building enduring digital architectures.',
+    tags: ['Web Development', 'Architecture', 'Engineering History'],
+    readTime: '5 min read',
+    publishDate: 'August 19, 2026',
+    isFeatured: false,
+    seoTitle: '23 Years of Web Development | Lessons Learned | firevy.co',
+    seoDescription: 'Key engineering lessons from over two decades of full-stack web development.',
+    seoKeywords: 'web development, software history, modern frontend',
+    status: 'published',
+    order: 6,
+    isActive: true
+  },
+  {
+    title: 'Why Two Software Products with the Same Requirements Can Have Completely Different Development Costs?',
+    slug: 'why-two-software-products-have-different-development-costs',
+    author: 'Kumaril Patel',
+    category: 'Software Development',
+    featuredImage: '',
+    gradientBg: 'bg-gradient-to-br from-sky-700 via-indigo-900 to-slate-900',
+    shortDescription: "You've probably seen this happen, maybe even to you. Two agencies get the same requirements doc, and somehow one comes back at $60,000 and the other at $150,000....",
+    content: 'Detailed cost breakdown explaining the hidden trade-offs between scalable architecture, security hardening, automated testing, and technical debt.',
+    tags: ['Software Costs', 'Estimates', 'Architecture'],
+    readTime: '5 min read',
+    publishDate: 'August 14, 2026',
+    isFeatured: false,
+    seoTitle: 'Software Development Cost Discrepancies Explained | firevy.co',
+    seoDescription: 'Why quotes vary drastically for identical software requirement specifications.',
+    seoKeywords: 'software pricing, development estimates, architecture costs',
+    status: 'published',
+    order: 7,
+    isActive: true
+  },
+  {
+    title: 'Why Businesses Are Investing in AI-Driven Business Intelligence Development Services?',
+    slug: 'why-businesses-are-investing-in-ai-driven-bi-services',
+    author: 'Kumaril Patel',
+    category: 'Artificial Intelligence Development',
+    featuredImage: '',
+    gradientBg: 'bg-gradient-to-br from-purple-800 via-indigo-900 to-slate-900',
+    shortDescription: 'There is no denying the fact that modern enterprises are creating unprecedented volumes of data. However, making sense of all that data is not easy and requires special skill...',
+    content: 'Transforming legacy dashboard metrics into predictive decision-support intelligence engines using modern semantic layers and generative insights.',
+    tags: ['Business Intelligence', 'Data Analytics', 'Predictive AI'],
+    readTime: '5 min read',
+    publishDate: 'August 5, 2026',
+    isFeatured: false,
+    seoTitle: 'AI-Driven Business Intelligence Services | firevy.co',
+    seoDescription: 'How next-generation BI turns raw enterprise data into automated tactical decisions.',
+    seoKeywords: 'business intelligence, data analytics, predictive AI, BI solutions',
+    status: 'published',
+    order: 8,
+    isActive: true
+  },
+  {
+    title: 'Why Every Business Needs a Smart Enterprise Strategy in the Age of AI?',
+    slug: 'why-every-business-needs-smart-enterprise-strategy-in-age-of-ai',
+    author: 'Kumaril Patel',
+    category: 'Artificial Intelligence Development',
+    featuredImage: '',
+    gradientBg: 'bg-gradient-to-br from-teal-700 via-cyan-900 to-slate-950',
+    shortDescription: 'AI is no longer something that we see in the far-off future and belongs to only the largest corporations. Rather, it is a technology which can help businesses become more...',
+    content: 'Constructing pragmatic roadmap for adopting AI across legacy workflows, customer touchpoints, and internal tooling.',
+    tags: ['Enterprise Strategy', 'AI Roadmap', 'Digital Transformation'],
+    readTime: '5 min read',
+    publishDate: 'July 31, 2026',
+    isFeatured: false,
+    seoTitle: 'Smart Enterprise Strategy in the Age of AI | firevy.co',
+    seoDescription: 'Pragmatic AI strategy frameworks for mid-market and enterprise organizations.',
+    seoKeywords: 'enterprise AI strategy, AI roadmap, digital transformation',
+    status: 'published',
+    order: 9,
     isActive: true
   }
 ];
@@ -673,36 +793,84 @@ export const initialCompanySections = {
     slug: 'why-choose-us',
     title: 'Why Choose firevy.co',
     badge: 'VALUE PROPOSITION',
-    subtitle: 'Discover Why Leading Enterprises, ISVs, and Startups Trust firevy.co as Their Primary Tech Partner.',
-    heroImage: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1200&q=80',
+    subtitle: 'We understand the seriousness of your project, and here are the few reasons that why should you join the firevy.co club and get added to the list of 1500+ clients who have been trusting us since 2 decades.',
+    ctaText: 'Connect Us',
+    ctaLink: '/contact',
+    heroImage: '/images/why-choose-hero.svg',
     heroVideo: '',
     content: {
-      heading: 'Engineered for Scale, Built for Long-Term Value',
-      intro: 'We combine 23+ years of domain expertise with top 3% engineering talent to build software solutions that perform flawlessly under peak loads.'
+      sectionHeading: 'Why firevy.co?',
+      sectionSubtitle: 'Reasons why our clients keep coming back to us',
+      ctaBanner: {
+        title: 'Ready To Get Started?',
+        subtitle: 'Learn how firevy.co can help you build better relationships with your customers. Start a conversation today.',
+        buttonText: 'TALK TO TECH EXPERT',
+        buttonLink: '/contact'
+      },
+      newsletter: {
+        title: 'Subscribe us and Get the latest updates and news'
+      }
     },
     gallery: [],
-    highlights: [
-      '99.4% On-time and within budget project delivery',
-      'Direct communication with senior engineers and architects',
-      'Full IP and source code ownership from day one',
-      'Strict SOC2 & ISO 27001 data security compliance'
-    ],
-    stats: [
-      { label: 'On-Time Delivery', value: '99.4%' },
-      { label: 'Enterprise NPS', value: '88+' }
-    ],
+    highlights: [],
+    stats: [],
     items: [
-      { id: 1, title: 'Top 3% Vetted Talent', desc: 'Our developers pass rigorous technical screenings and architecture challenges.' },
-      { id: 2, title: 'Agile 2-Week Sprints', desc: 'Predictable deliverables, weekly demos, and transparent Jira task tracking.' },
-      { id: 3, title: 'Battle-Tested Security', desc: 'ISO 27001:2013 certified processes with end-to-end data encryption.' },
-      { id: 4, title: 'Scalable Cloud blueprinted', desc: 'AWS, Azure, and GCP certified engineers designing resilient microservices.' },
-      { id: 5, title: 'Zero Vendor Lock-in', desc: 'You own 100% of the intellectual property, repositories, and CI/CD pipelines.' },
-      { id: 6, title: '24/7 Global Support SLAs', desc: 'Dedicated site reliability engineers ensuring 99.99% system uptime.' }
+      { id: 1, title: 'Fortune 100 clientele', desc: 'Effective solutions with delivering satisfactory outcomes has enabled us to add fortune 100-1000 clients to list.', iconName: 'Award', iconImage: '' },
+      { id: 2, title: 'ISO Certified 27001', desc: 'We are an ISO certified company, hence you can expect genuinity with no frauds or misery.', iconName: 'Globe', iconImage: '' },
+      { id: 3, title: '1500+ Success Stories', desc: 'Covered 1500+ satisfied clients for the product (education domain) across the globe.', iconName: 'Star', iconImage: '' },
+      { id: 4, title: 'Clients Presence', desc: 'Clients in more than 25 countries across the globe are advocates of firevy.co\'s deliverability, quality, and production.', iconName: 'Users', iconImage: '' },
+      { id: 5, title: 'Since', desc: '2002! Yes, having presence in market from more than 20 years and still counting. Choosing us benefits you to get your product deployed under expert technicians as per your expectations.', iconName: 'Calendar', iconImage: '' },
+      { id: 6, title: 'Awards & Achievements', desc: 'firevy.co is an award winning and well known name in education domain with amazing ranking on google (SEO) and holding more than 15+ awards for the product.', iconName: 'Award', iconImage: '' },
+      { id: 7, title: 'No Hidden Costs', desc: 'Pay for what service you get and nothing else. firevy.co has a strict policy of avoiding any additional charges and taking payments once the work is completely done (in freelancing portals).', iconName: 'FileText', iconImage: '' },
+      { id: 8, title: 'Recommendations', desc: '127+ verified reviews on clutch platform, top-rated profile on Upwork (100% client retention and satisfaction noted), amongst top 1% players on freelancer portal (Preferred freelancer badge), and some other recommendation on Good firms, cafeteria , and other review platforms.', iconName: 'Sparkles', iconImage: '' },
+      { id: 9, title: 'Free Guidance', desc: 'New to web development or app development? please feel free for any guidance or consultation, firevy.co provides it completely free of charge and keeps no charge for guiding or communicating with new clients in the market.', iconName: 'MessageSquare', iconImage: '' },
+      { id: 10, title: 'One Stop Shop', desc: 'Tired of finding & paying for individuals with different skills? firevy.co comes up with a one roof solution, enabling you to get everything from designs to QA and support at a single stop. Allow firevy.co to minimize your efforts.', iconName: 'Briefcase', iconImage: '' },
+      { id: 11, title: 'Trust', desc: 'Hire firevy.co and get secured. Handover all your worries and concerns to a 23+ years + 270001 ISO-Certified firm and get rid of any frauds or worries. Not only this, Our reputation is our shadow, hence we cannot at all afford ruining our reputation because of any fraud or misbehaves.', iconName: 'ShieldCheck', iconImage: '' },
+      { id: 12, title: 'Enterprise Solutions', desc: 'Enterprise solutions quality guaranteed; covered clients with employee strength more than 500000, and their branches spread in more than 300 locations.', iconName: 'Target', iconImage: '' },
+      { id: 13, title: 'Customer Retention', desc: 'Adani group has been part of firevy.co\'s client library since 2012.', iconName: 'Heart', iconImage: '' },
+      { id: 14, title: 'Proud To Have', desc: '2 decades of experience in education domain and 10+ of experience in Healthcare domain.', iconName: 'Award', iconImage: '' },
+      { id: 15, title: 'Diversified Portfolio', desc: 'We provide diversified services in domain industries like: Cement, power, refinery, logistics, engineering, Finance, Automotive, steel, energy, chemicals.', iconName: 'BookOpen', iconImage: '' },
+      { id: 16, title: 'Dedicated', desc: 'Facing issues of unavailability from freelancers? firevy.co comes with full time availability with multiple options of developers incase the one gets unavailable.', iconName: 'Users', iconImage: '' },
+      { id: 17, title: 'Cost And ROI', desc: 'firevy.co takes care of your budget and helps you to workout even in low budgets, the idea of going for a MVP comes into picture under such scenarios and we proceed with helping you with a model that helps you to generate ROI first.', iconName: 'FileText', iconImage: '' },
+      { id: 18, title: 'Boutique Agency', desc: 'Services that firevy.co provides from a single roof includes: Web Development, Mobile App Development, Cloud & DevOps, Product Development, Software Testing & QA, Digital Marketing, Software Maintenance & Support.', iconName: 'Briefcase', iconImage: '' },
+      { id: 19, title: 'Domain Expertise', desc: 'firevy.co comes up with attitude of learning though it has been providing its services from last 2 decades. With time we have evolved to latest technologies and languages like flutter, react-native, ML, react JS, Node JS, etc. Making it easy for you to find all under a single roof.', iconName: 'Globe', iconImage: '' },
+      { id: 20, title: 'Secured & Safe', desc: 'firevy.co is bound to keep all your data private by signing NDAs We understand sensitivity of project information, and insured to work on high-security/high-safety systems. In this way we will implement essential steps to protect proprietary and personal data.', iconName: 'ShieldCheck', iconImage: '' },
+      { id: 21, title: 'Easy Handover', desc: 'Honest enough to say \'Sorry, not good fit for you\'. Need to switch your preference? please don\'t hesitate at all. firevy.co provides the complete KT (Knowledge Transfer) to next party keep you updated of everything with an easy exit process.', iconName: 'CheckCircle2', iconImage: '' },
+      { id: 22, title: 'Enterprise Apps', desc: 'firevy.co is not only focused on on-demand services apps development. But, also have an expert eye on providing enterprise apps and solution like ERP development, CRM development, CRMS, SaaS product development, and Sharepoint/Ninetex solutions too.', iconName: 'Target', iconImage: '' },
+      { id: 23, title: 'Problem Solving', desc: 'firevy.co believes in client satisfaction, hence enables you to work or communicate with techie who would not only provide problem solving approaches, but will also help to make a road map and fulfill your requirement in best possible manner.', iconName: 'Sparkles', iconImage: '' },
+      { id: 24, title: 'Strategy Development', desc: 'As we follow agile methodology you\'ll find precise and accurate development strategies, but it is not limited to development strategies, we also focus on after development and client retention strategy which has helped us alot to maintain 100% client retention in past.', iconName: 'CheckCircle2', iconImage: '' },
+      { id: 25, title: 'Flexible Availability', desc: '40 hours/week, 8 hours/day. -Available on weekends as well (in case of urgent deliveries) would need to be informed before a day. -Would be working dedicatedly on your projects, reporting to you daily with updates and progress.', iconName: 'Users', iconImage: '' },
+      { id: 26, title: 'Cost Optimization', desc: 'Choosing firevy.co might be beneficial for you has you can hire a team at a cost of single individual. firevy.co\'s hourly rate are having wide ranges depending upon what developers you choose. Making you comfortable to choose developers according to the complexity of your task.', iconName: 'FileText', iconImage: '' },
+      { id: 27, title: 'Focused On UI/UX', desc: 'User experience is quite important and firevy.co pressures it more. We offer clients to go with an initial milestone of designs only. Finalizing it first, and then proceeding it with the final development after complete satisfaction of your on the designs.', iconName: 'Sparkles', iconImage: '' },
+      { id: 28, title: 'Timely Delivery', desc: 'A proven track record of on-time delivery. We decide the deadline of the applications in the initial negotiation phases. Setting the timeframe by considering the time to be taken for debugging and training - Enabling you a get a complete road view of your project before you award.', iconName: 'Calendar', iconImage: '' },
+      { id: 29, title: 'Digitization', desc: 'Expanding and working on providing modern tech solutions that can involved with help of Artificial intelligence, Machine learning, Virtual reality, and IoT as well - helping us to transform digitally and be a keen competition in the market.', iconName: 'Globe', iconImage: '' },
+      { id: 30, title: 'Cloud Computing', desc: 'World is switching to cloud! Everyone is getting rid of online servers and offline storage stuff. firevy.co comes up with an updated support in cloud technologies as well like AWS, Docker, Jenkins, Oracle, DevOps, and many more.', iconName: 'Target', iconImage: '' },
+      { id: 31, title: 'Testing Prototypes', desc: 'We know and understand the importance of testing, hence the testing does not come at the end of the project, but we offer you multiple testing levels like unit testing, prototype testing, UI/UX testing, and deployment testing.', iconName: 'ShieldCheck', iconImage: '' },
+      { id: 32, title: 'English Proficiency', desc: 'No miscommunication or language barrier. firevy.co comes up with the best and energetic team completely trained and quoted with proficiency in English from Sales to support. Giving you a very homely feel via easy means of communication.', iconName: 'MessageSquare', iconImage: '' },
+      { id: 33, title: 'The BRD Policy', desc: 'firevy.co comes up with a policy, where everything would be freezed and pre-written in a BRD (Business requirement document) Work starts only after client\'s approval on the BRD. Let\'s avoid the possible communication gaps and any possible future disputes.', iconName: 'FileText', iconImage: '' },
+      { id: 34, title: 'Initial Design Milestone', desc: 'Facing trust issues? Worried about your project budgets? Start with firevy.co at just a short milestone for the rough wireframes and mockups! Essure the quality and decide, wanna proceed with us or not. Release the milestone only if satisfied by the work. No need to pay big amounts in name of advance.', iconName: 'CheckCircle2', iconImage: '' },
+      { id: 35, title: 'On-Demand POCs', desc: 'Looking for someone who can provide you quickest solution for a on-demand service app (MVPs)? firevy.co is a perfect place to help you with such POCs at cost efficient rates + quickest delivery through white labeling.', iconName: 'Briefcase', iconImage: '' },
+      { id: 36, title: 'Always In Touch', desc: 'Weather it\'s clients, partners, people, or prospects, firevy.co believes in staying touch with everyone and look forward for a better and strong relationship.', iconName: 'Heart', iconImage: '' },
+      { id: 37, title: 'Innovation', desc: 'Innovation is birth of new Invention . firevy.co comes up with innovative techniques making your projects/products more precise and up to date with adding modern touches.', iconName: 'Sparkles', iconImage: '' },
+      { id: 38, title: 'Support Help', desc: 'We do not believe in keeping relations with clients till development only. We believe in maintaining long term and positive relations with clients by providing them the support and maintenance module as well.', iconName: 'ShieldCheck', iconImage: '' },
+      { id: 39, title: 'Flexibility', desc: 'firevy.co also offers to work in different timezone , hence making you comfortable by offering our flexibility.', iconName: 'Globe', iconImage: '' },
+      { id: 40, title: 'Support & Maintenance', desc: 'We commit (in writing) to provide software configuration, software orientation, software customization, software maintenance and software backup services', iconName: 'Briefcase', iconImage: '' },
+      { id: 41, title: 'Application Ownership', desc: 'We are a white-label service provider where we commit our clients to provide all Graphics, Source code, and related content as it\'s their property. They can utilize it even when they plan to scale or need some upgrades etc.', iconName: 'FileText', iconImage: '' },
+      { id: 42, title: 'Clear Communication', desc: 'Our team does not believe in siting in a room and keeps on coding endlessly. Every developer is confident enough in his/her speech, suggestions and solutions. They are not only limited to answer to your query, but also you\'ll find a problem solving approach.', iconName: 'MessageSquare', iconImage: '' },
+      { id: 43, title: 'Enthusiasm & Passion', desc: 'Good interpersonal relationship between business partners directly influences the success of both parties. So when a vendor shows genuine care about the client\'s success, it\'s a game-changer.', iconName: 'Users', iconImage: '' },
+      { id: 44, title: 'Training Acceptance', desc: 'Always a yes from firevy.co side regarding any challenges that come as an hurdle in the development and other phases. Giving you a complete easy to work with environment where every detailed study would be done by firevy.co team. It\'s an honor to learn new things daily.', iconName: 'CheckCircle2', iconImage: '' },
+      { id: 45, title: 'Platform Selection', desc: 'firevy.co helps you to understand the importance of using a particular technology stack with its pros and cons. Letting you to leave all your worries to us and just provide you end results as per your expectations.', iconName: 'Target', iconImage: '' },
+      { id: 46, title: 'Quality Assurance', desc: 'QA personnel often perform software testing as soon as developers produce executable code, rather than waiting for the application to be completely coded.', iconName: 'ShieldCheck', iconImage: '' },
+      { id: 47, title: 'Evolving Ideas', desc: 'It\'s not always limited to scope or a BRD, No scope document can bound a limit for evolution of new phases in the app. firevy.co helps you to add +1 to your visions, keeping and developing things in a realistic manner.', iconName: 'Sparkles', iconImage: '' },
+      { id: 48, title: 'Thought Process', desc: 'Your project is our Responsibility; we do it with integrity; and deliver it with honesty - thought process followed by firevy.co since it\'s existence in the market.', iconName: 'Award', iconImage: '' },
+      { id: 49, title: 'Flexible Models', desc: 'We offer clients 3 different models as per their comfort. They can hire developers hourly, dedicatedly, and fixed costs models', iconName: 'Users', iconImage: '' },
+      { id: 50, title: 'Result Oriented', desc: 'firevy.co works behind your vision, and makes your vision as its mission and thrive hard to get the results as expected by you.', iconName: 'Target', iconImage: '' },
+      { id: 51, title: 'Agility', desc: 'No need to worry of any miscommunication or communication gaps as your project is safe - divided in phases, allocated in sprints, and acknowledged to you via daily reports.', iconName: 'CheckCircle2', iconImage: '' }
     ],
     seo: {
-      metaTitle: 'Why Choose firevy.co | Enterprise Software Partner',
-      metaDescription: 'Discover the firevy.co advantages: senior engineering squads, agile delivery, and enterprise security.',
-      metaKeywords: 'why choose firevy, custom software partner, top software developers',
+      metaTitle: 'Why Choose Us? | Reasons Why Clients Trust Us | firevy.co',
+      metaDescription: 'Discover why leading enterprises and startups trust firevy.co as their primary tech partner. Explore our 51 reasons for client excellence.',
+      metaKeywords: 'why choose us, firevy tech partner, software engineering excellence',
       canonical: '/company/why-choose-us'
     },
     isActive: true
@@ -712,38 +880,208 @@ export const initialCompanySections = {
     title: 'Great Place To Work',
     badge: 'COMPANY CULTURE',
     subtitle: 'What Makes firevy.co An Inspiring, Fun, and Rewarding Workplace?',
-    heroImage: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80',
+    ctaText: 'Discuss Your Project',
+    ctaLink: '/contact',
+    heroImage: '/images/great-place-hero.svg',
     heroVideo: '',
+    hero: {
+      title: 'Great Place To Work',
+      subtitle: 'What Makes firevy.co An Inspiring, Fun, and Rewarding Workplace?',
+      badge: 'COMPANY CULTURE',
+      ctaText: 'Discuss Your Project',
+      ctaLink: '/contact',
+      heroImage: '/images/great-place-hero.svg'
+    },
     content: {
       headline: 'A Culture of Innovation, Ownership, and Mutual Respect',
-      description: 'At firevy.co, we nurture talent and encourage ambitious thinking. We believe that great software is crafted by empowered engineers working in an inclusive, transparent environment with continuous growth opportunities.'
+      description: 'At firevy.co, we nurture talent and encourage ambitious thinking. We believe that great software is crafted by empowered engineers working in an inclusive, transparent environment with continuous growth opportunities.',
+      howWeDidIt: {
+        heading: 'How We Did It?',
+        description: 'It was the first time we tried to offer 360-degree IT services, so getting here took a lot of work. A few years ago, we worked hard for our first client before receiving our first lead. At that very moment, firevy.co chose to group its IT services under a single umbrella. We were fortunate to receive further leads over the following few months, and they were gracious enough to provide us with as much input as we could reasonably process. Additionally, several of our clients began requesting digital marketing solutions. We started a small team for digital marketing from there and have yet to look back. All due to our incredible partners, clients, and, of course, our extraordinarily bright personnel who put in a lot of effort for us.',
+        image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80'
+      },
+      videoBanner: {
+        heading: 'What Makes firevy.co Great Place To Work',
+        subtitle: 'What Makes firevy.co Great Place to work',
+        coverImage: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80',
+        videoUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
+      },
+      benefits: [
+        {
+          id: 1,
+          title: 'Sustainability',
+          desc: 'For us, responsible entrepreneurship and scientific advancement go hand in hand. Because of this, a large portion of our magic is used to develop sustainable solutions.',
+          iconName: 'Globe',
+          iconImage: ''
+        },
+        {
+          id: 2,
+          title: 'Equal Opportunity Employer',
+          desc: 'firevy.co promises not to discriminate against employees because of their race, color, religion, sex, national origin, age, disability, or genetic information.',
+          iconName: 'Users',
+          iconImage: ''
+        },
+        {
+          id: 3,
+          title: 'Are You Ready To Lead?',
+          desc: 'Through our dedication to lifelong learning, we will support, encourage, and direct you to achieve your career goals.',
+          iconName: 'Award',
+          iconImage: ''
+        }
+      ],
+      heroes: {
+        heading: 'Meet Our Heroes',
+        subtitle: 'The brilliant minds driving innovation, engineering excellence, and creative growth across all client missions.',
+        image1: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80',
+        image2: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80',
+        image3: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80'
+      },
+      workplace: {
+        heading: 'Life & Workplace At firevy.co',
+        subtitle: 'A glimpse into our collaborative workspaces, team celebrations, and vibrant tech culture.',
+        gallery: [
+          'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80',
+          'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=80',
+          'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=600&q=80',
+          'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=600&q=80',
+          'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=600&q=80'
+        ]
+      },
+      culture: {
+        heading: 'Our Culture',
+        subtitle: 'Our culture is built on trust, innovation, freedom to explore, and delivering meaningful real-world impact.',
+        backgroundImage: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1400&q=80',
+        pillars: [
+          {
+            id: 1,
+            title: 'Flexibility And Freedom',
+            desc: 'We work hard to allow you the freedom to advance your career while maintaining a healthy work-life balance. You can reshape the job to fit your personality.',
+            iconName: 'Sparkles',
+            iconImage: ''
+          },
+          {
+            id: 2,
+            title: 'Innovation Everyday',
+            desc: 'We have people, strategy, leadership, management, culture and tools & processes to make sure we innovate every day and keep on improving our services.',
+            iconName: 'Globe',
+            iconImage: ''
+          },
+          {
+            id: 3,
+            title: 'People First',
+            desc: 'Meaningful employment, or a job in which one feels effective and has the potential to change the business, is one factor for hiring personnel. They ought to be moving forward, capable of expanding, growing, and advancing their career inside the organization.',
+            iconName: 'Users',
+            iconImage: ''
+          },
+          {
+            id: 4,
+            title: 'Making Impact',
+            desc: 'We aim to give you a chance to advance your career and alter the course of history. Our work at firevy.co significantly impacts the world we live in.',
+            iconName: 'Target',
+            iconImage: ''
+          }
+        ]
+      },
+      clutchReviews: {
+        heading: 'What Our Clients Say',
+        reviews: [
+          {
+            id: 1,
+            name: 'Christine Ine',
+            location: 'Rockville, Maryland',
+            avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80',
+            title: '"They are very professional, respectful, competent, and approachable."',
+            quote: "The client was highly pleased with firevy.co's software development work. The team met all timeline goals and kept the cost within budget...",
+            rating: '4.5',
+            quality: '4.0',
+            schedule: '4.5',
+            cost: '5.0',
+            willingToRefer: '5.0'
+          },
+          {
+            id: 2,
+            name: 'Derrick Surratt',
+            location: 'Arkansas',
+            avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80',
+            title: '"firevy.co\'s team communicated effectively..."',
+            quote: 'firevy.co successfully implemented all UX and design features on the app. The team has consistently delivered on schedule...',
+            rating: '5.0',
+            quality: '5.0',
+            schedule: '5.0',
+            cost: '5.0',
+            willingToRefer: '5.0'
+          },
+          {
+            id: 3,
+            name: 'Hamidah Nalwoga',
+            location: 'Massachusetts',
+            avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=120&q=80',
+            title: '"They\'re able to listen to customer requests and attend..."',
+            quote: "firevy.co's updates improved a product's UX per the end customer's requests. The team is personable, reaches their goals...",
+            rating: '5.0',
+            quality: '5.0',
+            schedule: '5.0',
+            cost: '5.0',
+            willingToRefer: '5.0'
+          },
+          {
+            id: 4,
+            name: 'Michael Vance',
+            location: 'Austin, Texas',
+            avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80',
+            title: '"The code is very clean and the architecture is scalable..."',
+            quote: 'Working with firevy.co was seamless. They understood requirements, suggested architecture improvements, and exceeded deadlines...',
+            rating: '5.0',
+            quality: '5.0',
+            schedule: '5.0',
+            cost: '5.0',
+            willingToRefer: '5.0'
+          }
+        ]
+      },
+      ctaBanner: {
+        title: "Let's work together to make something big happen",
+        subtitle: 'We provide custom software development and technology solutions tailored to your brand goals.',
+        buttonText: 'CONNECT WITH US',
+        buttonLink: '/contact'
+      },
+      newsletter: {
+        title: 'Subscribe us and Get the latest updates and news',
+        subtitle: 'Join over 25,000+ engineers, product managers, and leaders getting our weekly innovation digests.',
+        buttonText: 'Subscribe Now'
+      }
     },
     gallery: [
       'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80',
+      'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=80',
+      'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=600&q=80',
       'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=600&q=80',
-      'https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=600&q=80',
       'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=600&q=80'
     ],
-    highlights: [
-      'Certified Great Place to Work organization',
-      'Comprehensive wellness and medical coverage',
-      'Annual tech upskilling and certification allowances',
-      'Hybrid flexible work culture'
-    ],
-    stats: [
-      { label: 'Employee Satisfaction Score', value: '4.8 / 5' },
-      { label: 'Average Team Retention', value: '4.5 Yrs' }
-    ],
     items: [
-      { id: 1, title: 'Continuous Learning', desc: 'Full sponsorship for cloud certifications and technical conferences.' },
-      { id: 2, title: 'Work-Life Balance', desc: 'Flexible working hours, remote-friendly policies, and wellness sabbaticals.' },
-      { id: 3, title: 'Merit-Driven Growth', desc: 'Fast-track career advancements based on contributions, not seniority.' },
-      { id: 4, title: 'Camaraderie & Fun', desc: 'Quarterly team retreats, hackathons, gaming tournaments, and celebrations.' }
+      {
+        id: 1,
+        title: 'Sustainability',
+        desc: 'For us, responsible entrepreneurship and scientific advancement go hand in hand. Because of this, a large portion of our magic is used to develop sustainable solutions.',
+        iconName: 'Globe'
+      },
+      {
+        id: 2,
+        title: 'Equal Opportunity Employer',
+        desc: 'firevy.co promises not to discriminate against employees because of their race, color, religion, sex, national origin, age, disability, or genetic information.',
+        iconName: 'Users'
+      },
+      {
+        id: 3,
+        title: 'Are You Ready To Lead?',
+        desc: 'Through our dedication to lifelong learning, we will support, encourage, and direct you to achieve your career goals.',
+        iconName: 'Award'
+      }
     ],
     seo: {
-      metaTitle: 'Great Place To Work | firevy.co Careers & Culture',
-      metaDescription: 'Discover our work culture, values, and why tech talent chooses firevy.co.',
-      metaKeywords: 'great place to work, firevy culture, software engineering careers',
+      metaTitle: 'Great Place To Work | Life & Culture at firevy.co',
+      metaDescription: 'What makes firevy.co an exciting place to work? Discover our culture, values, team benefits, and awards.',
+      metaKeywords: 'great place to work, firevy culture, careers, employee benefits, software company culture',
       canonical: '/company/great-place-to-work'
     },
     isActive: true
@@ -1123,21 +1461,242 @@ export const initialCompanySections = {
   },
   blog: {
     slug: 'blog',
-    title: 'Our Latest Insights & Articles',
-    badge: 'THOUGHT LEADERSHIP',
-    subtitle: 'Explore in-depth engineering breakdowns, AI architecture case studies, and modern tech industry perspectives from the firevy.co team.',
+    title: 'AI in Mobile App Development: Tools That Save Time and Money',
+    badge: 'FEATURED ARTICLE',
+    subtitle: 'AI is converting the way businesses accelerate and launch apps. By using AI Tools for mobile app development, companies can automate coding, testing, UI/UX design, and efficiency optimization.',
     heroImage: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80',
-    ctaText: 'Explore Articles',
+    ctaText: 'Read the full blog',
     ctaLink: '/company/blog',
-    contentSections: [
-      {
-        title: 'Articles & Tutorials',
-        content: 'Stay ahead of technological advancements with deep-dive technical articles written by our principal engineers.'
+    content: {
+      heroFeatured: {
+        brandText: 'firevy.co',
+        badge: 'FEATURED ARTICLE',
+        tag: '</> AI TOOLS',
+        title: 'AI in Mobile App Development: Tools That Save Time and Money',
+        subtext: 'Next-Gen Engineering Insights',
+        category: 'Artificial Intelligence Development',
+        author: 'Kumaril Patel',
+        date: 'March 6, 2026',
+        readTime: '6 min read',
+        excerpt: 'AI is converting the way businesses accelerate and launch apps. By using AI Tools for mobile app development, companies can automate coding, testing, UI/UX design, and efficiency optimization.',
+        buttonText: 'Read the full blog',
+        image: '',
+        gradientBg: 'bg-gradient-to-br from-[#1E1B4B] via-[#312E81] to-[#4338CA]'
+      },
+      secondaryFeatured: [
+        {
+          brandText: "firevy.co",
+          badge: "FEATURED ARTICLE",
+          tag: "</> STARTUP",
+          title: "Trending Tech Startup Ideas for Entrepreneurs Looking to Scale Fast",
+          subtext: "Fast-Growth Scale Strategy",
+          category: "IT Companies",
+          date: "November 6, 2025",
+          readTime: "5 min read",
+          excerpt: "Discover high-growth technology startup concepts and execution roadmaps designed to help modern founders move from validation to market leadership.",
+          buttonText: "Read the full blog",
+          bg: "bg-gradient-to-r from-purple-900 via-indigo-900 to-slate-900",
+          image: "",
+          link: ""
+        },
+        {
+          brandText: "firevy.co",
+          badge: "FEATURED ARTICLE",
+          tag: "</> MOBILE",
+          title: "Why Investing in Legacy Modernization Services is Critical for Business Success?",
+          subtext: "Enterprise Architecture Evolution",
+          category: "Mobile App Development",
+          date: "November 4, 2025",
+          readTime: "6 min read",
+          excerpt: "Legacy modernization unlocks unprecedented operational agility, system security, and scalability for forward-thinking modern enterprises.",
+          buttonText: "Read the full blog",
+          bg: "bg-gradient-to-r from-sky-700 via-cyan-800 to-slate-900",
+          image: "",
+          link: ""
+        },
+        {
+          brandText: "firevy.co",
+          badge: "FEATURED ARTICLE",
+          tag: "</> DESIGN",
+          title: "Why Software Design Principles Matter for Successful IT Solutions?",
+          subtext: "Clean Architecture Principles",
+          category: "Software Development",
+          date: "October 30, 2025",
+          readTime: "6 min read",
+          excerpt: "Adhering to proven software design patterns ensures long-term maintainability, defect reduction, and accelerated feature velocity.",
+          buttonText: "Read the full blog",
+          bg: "bg-gradient-to-r from-blue-900 via-slate-900 to-indigo-950",
+          image: "",
+          link: ""
+        },
+        {
+          brandText: "firevy.co",
+          badge: "FEATURED ARTICLE",
+          tag: "</> WEB TECH",
+          title: "How to Scale Your IT Business with White Label Web Development Solutions?",
+          subtext: "Partner Growth Solutions",
+          category: "Web Development",
+          date: "October 31, 2025",
+          readTime: "5 min read",
+          excerpt: "Leverage dedicated white-label engineering capabilities to expand your service portfolio, increase client retention, and maximize margins.",
+          buttonText: "Read the full blog",
+          bg: "bg-gradient-to-r from-cyan-900 via-teal-900 to-slate-900",
+          image: "",
+          link: ""
+        }
+      ],
+      sidebar: {
+        getInTouchTitle: 'Get in Touch',
+        buttonText: 'Talk to expert',
+        topCategoryTitle: 'Top Category',
+        categories: [
+          { name: "Mobile App Development", count: 184 },
+          { name: "Software Development", count: 134 },
+          { name: "Web Development", count: 195 },
+          { name: "IT Companies", count: 77 },
+          { name: "Android Development", count: 64 },
+          { name: ".Net Development", count: 19 },
+          { name: "Hire Developers", count: 34 },
+          { name: "iOS Development", count: 67 },
+          { name: "Blockchain Development", count: 4 },
+          { name: "Artificial Intelligence Development", count: 37 }
+        ]
+      },
+      ctaBanner: {
+        title: "Let's Work Together On Your Next Digital Project",
+        subtitle: "Got a project in mind? We'd love to talk about how we can help you build high performance scalable products.",
+        buttonText: "Request A Proposal",
+        buttonLink: "/contact"
+      },
+      newsletter: {
+        title: "Subscribe us and Get the latest updates and news",
+        subtitle: "Stay updated with our latest insights, innovations, and engineering breakthroughs."
       }
-    ],
+    },
     seo: {
-      metaTitle: 'Blog & Technical Articles | firevy.co',
-      metaDescription: 'Read the latest thought leadership and software engineering articles by firevy.co developers and architects.',
+      metaTitle: 'Tech Insights & Blog | firevy.co',
+      metaDescription: 'Read top tech articles, mobile app development guides, AI trends, and software strategy by firevy.co experts.',
+      canonical: '/company/blog'
+    },
+    isActive: true
+  },
+  blogs: {
+    slug: 'blogs',
+    title: 'AI in Mobile App Development: Tools That Save Time and Money',
+    badge: 'FEATURED ARTICLE',
+    subtitle: 'AI is converting the way businesses accelerate and launch apps. By using AI Tools for mobile app development, companies can automate coding, testing, UI/UX design, and efficiency optimization.',
+    heroImage: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80',
+    ctaText: 'Read the full blog',
+    ctaLink: '/company/blog',
+    content: {
+      heroFeatured: {
+        brandText: 'firevy.co',
+        badge: 'FEATURED ARTICLE',
+        tag: '</> AI TOOLS',
+        title: 'AI in Mobile App Development: Tools That Save Time and Money',
+        subtext: 'Next-Gen Engineering Insights',
+        category: 'Artificial Intelligence Development',
+        author: 'Kumaril Patel',
+        date: 'March 6, 2026',
+        readTime: '6 min read',
+        excerpt: 'AI is converting the way businesses accelerate and launch apps. By using AI Tools for mobile app development, companies can automate coding, testing, UI/UX design, and efficiency optimization.',
+        buttonText: 'Read the full blog',
+        image: '',
+        gradientBg: 'bg-gradient-to-br from-[#1E1B4B] via-[#312E81] to-[#4338CA]'
+      },
+      secondaryFeatured: [
+        {
+          brandText: "firevy.co",
+          badge: "FEATURED ARTICLE",
+          tag: "</> STARTUP",
+          title: "Trending Tech Startup Ideas for Entrepreneurs Looking to Scale Fast",
+          subtext: "Fast-Growth Scale Strategy",
+          category: "IT Companies",
+          date: "November 6, 2025",
+          readTime: "5 min read",
+          excerpt: "Discover high-growth technology startup concepts and execution roadmaps designed to help modern founders move from validation to market leadership.",
+          buttonText: "Read the full blog",
+          bg: "bg-gradient-to-r from-purple-900 via-indigo-900 to-slate-900",
+          image: "",
+          link: ""
+        },
+        {
+          brandText: "firevy.co",
+          badge: "FEATURED ARTICLE",
+          tag: "</> MOBILE",
+          title: "Why Investing in Legacy Modernization Services is Critical for Business Success?",
+          subtext: "Enterprise Architecture Evolution",
+          category: "Mobile App Development",
+          date: "November 4, 2025",
+          readTime: "6 min read",
+          excerpt: "Legacy modernization unlocks unprecedented operational agility, system security, and scalability for forward-thinking modern enterprises.",
+          buttonText: "Read the full blog",
+          bg: "bg-gradient-to-r from-sky-700 via-cyan-800 to-slate-900",
+          image: "",
+          link: ""
+        },
+        {
+          brandText: "firevy.co",
+          badge: "FEATURED ARTICLE",
+          tag: "</> DESIGN",
+          title: "Why Software Design Principles Matter for Successful IT Solutions?",
+          subtext: "Clean Architecture Principles",
+          category: "Software Development",
+          date: "October 30, 2025",
+          readTime: "6 min read",
+          excerpt: "Adhering to proven software design patterns ensures long-term maintainability, defect reduction, and accelerated feature velocity.",
+          buttonText: "Read the full blog",
+          bg: "bg-gradient-to-r from-blue-900 via-slate-900 to-indigo-950",
+          image: "",
+          link: ""
+        },
+        {
+          brandText: "firevy.co",
+          badge: "FEATURED ARTICLE",
+          tag: "</> WEB TECH",
+          title: "How to Scale Your IT Business with White Label Web Development Solutions?",
+          subtext: "Partner Growth Solutions",
+          category: "Web Development",
+          date: "October 31, 2025",
+          readTime: "5 min read",
+          excerpt: "Leverage dedicated white-label engineering capabilities to expand your service portfolio, increase client retention, and maximize margins.",
+          buttonText: "Read the full blog",
+          bg: "bg-gradient-to-r from-cyan-900 via-teal-900 to-slate-900",
+          image: "",
+          link: ""
+        }
+      ],
+      sidebar: {
+        getInTouchTitle: 'Get in Touch',
+        buttonText: 'Talk to expert',
+        topCategoryTitle: 'Top Category',
+        categories: [
+          { name: "Mobile App Development", count: 184 },
+          { name: "Software Development", count: 134 },
+          { name: "Web Development", count: 195 },
+          { name: "IT Companies", count: 77 },
+          { name: "Android Development", count: 64 },
+          { name: ".Net Development", count: 19 },
+          { name: "Hire Developers", count: 34 },
+          { name: "iOS Development", count: 67 },
+          { name: "Blockchain Development", count: 4 },
+          { name: "Artificial Intelligence Development", count: 37 }
+        ]
+      },
+      ctaBanner: {
+        title: "Let's Work Together On Your Next Digital Project",
+        subtitle: "Got a project in mind? We'd love to talk about how we can help you build high performance scalable products.",
+        buttonText: "Request A Proposal",
+        buttonLink: "/contact"
+      },
+      newsletter: {
+        title: "Subscribe us and Get the latest updates and news",
+        subtitle: "Stay updated with our latest insights, innovations, and engineering breakthroughs."
+      }
+    },
+    seo: {
+      metaTitle: 'Tech Insights & Blog | firevy.co',
+      metaDescription: 'Read top tech articles, mobile app development guides, AI trends, and software strategy by firevy.co experts.',
       canonical: '/company/blog'
     },
     isActive: true
