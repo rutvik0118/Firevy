@@ -13,7 +13,12 @@ import {
   UploadCloud,
   Layers,
   Sparkles,
-  Info
+  Info,
+  Search,
+  Globe,
+  Monitor,
+  Smartphone,
+  MoreVertical
 } from 'lucide-react';
 import MediaUploadInput from './MediaUploadInput';
 
@@ -333,7 +338,8 @@ export const AdminFormField = ({
   helperText,
   error,
   children,
-  style = {}
+  style = {},
+  rightLabel
 }) => {
   return (
     <div
@@ -347,7 +353,7 @@ export const AdminFormField = ({
       }}
     >
       {label && (
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2px' }}>
           <label
             style={{
               display: 'block',
@@ -360,11 +366,13 @@ export const AdminFormField = ({
           >
             {label} {required && <span style={{ color: '#DC2626' }}>*</span>}
           </label>
-          {optional && !required && (
+          {rightLabel ? (
+            rightLabel
+          ) : optional && !required ? (
             <span style={{ fontSize: '10.5px', color: '#94A3B8', fontWeight: 500 }}>
               (Optional)
             </span>
-          )}
+          ) : null}
         </div>
       )}
       {children}
@@ -800,6 +808,8 @@ export const AdminPageInfoSection = ({
  * Standard Search Engine Optimization (SEO) & Metadata Card with Character Counters & Live Preview
  */
 export const AdminSeoSection = ({ data = {}, onChange }) => {
+  const [previewMode, setPreviewMode] = useState('desktop');
+
   const updateField = (field, value) => {
     if (onChange) {
       onChange({ ...data, [field]: value });
@@ -816,43 +826,80 @@ export const AdminSeoSection = ({ data = {}, onChange }) => {
 
   // Title Status Helper
   const getTitleStatus = (len) => {
-    if (len === 0) return { color: '#64748B', status: 'empty' };
-    if (len > 60) return { color: '#DC2626', status: 'error', text: 'Exceeds recommended 60 chars' };
-    if (len < 40) return { color: '#D97706', status: 'warning', text: 'Slightly short (recommended 50-60)' };
-    if (len >= 50 && len <= 60) return { color: '#16A34A', status: 'optimal', text: 'Optimal title length' };
-    return { color: '#006B8F', status: 'good', text: 'Good length' };
+    if (len === 0) return { label: 'Empty', color: '#64748B', bg: '#F1F5F9', border: '#E2E8F0', barColor: '#CBD5E1', pct: 0 };
+    if (len > 60) return { label: `${len - 60} chars too long`, color: '#DC2626', bg: '#FEF2F2', border: '#FECACA', barColor: '#EF4444', pct: 100 };
+    if (len < 40) return { label: 'Slightly short', color: '#D97706', bg: '#FEF3C7', border: '#FDE68A', barColor: '#F59E0B', pct: Math.round((len / 60) * 100) };
+    if (len >= 50 && len <= 60) return { label: 'Optimal length', color: '#059669', bg: '#ECFDF5', border: '#A7F3D0', barColor: '#10B981', pct: 100 };
+    return { label: 'Good length', color: '#0284C7', bg: '#F0F9FF', border: '#BAE6FD', barColor: '#0EA5E9', pct: Math.round((len / 60) * 100) };
   };
 
   // Description Status Helper
   const getDescStatus = (len) => {
-    if (len === 0) return { color: '#64748B', status: 'empty' };
-    if (len > 160) return { color: '#DC2626', status: 'error', text: 'Exceeds recommended 160 chars' };
-    if (len < 100) return { color: '#D97706', status: 'warning', text: 'Slightly short (recommended 120-160)' };
-    if (len >= 120 && len <= 160) return { color: '#16A34A', status: 'optimal', text: 'Optimal description length' };
-    return { color: '#006B8F', status: 'good', text: 'Good length' };
+    if (len === 0) return { label: 'Empty', color: '#64748B', bg: '#F1F5F9', border: '#E2E8F0', barColor: '#CBD5E1', pct: 0 };
+    if (len > 160) return { label: `${len - 160} chars too long`, color: '#DC2626', bg: '#FEF2F2', border: '#FECACA', barColor: '#EF4444', pct: 100 };
+    if (len < 100) return { label: 'Slightly short', color: '#D97706', bg: '#FEF3C7', border: '#FDE68A', barColor: '#F59E0B', pct: Math.round((len / 160) * 100) };
+    if (len >= 120 && len <= 160) return { label: 'Optimal length', color: '#059669', bg: '#ECFDF5', border: '#A7F3D0', barColor: '#10B981', pct: 100 };
+    return { label: 'Good length', color: '#0284C7', bg: '#F0F9FF', border: '#BAE6FD', barColor: '#0EA5E9', pct: Math.round((len / 160) * 100) };
   };
 
   const titleStatus = getTitleStatus(metaTitleLength);
   const descStatus = getDescStatus(metaDescLength);
 
-  const displayCanonical = canonical ? (canonical.startsWith('http') ? canonical : `firevy.co${canonical.startsWith('/') ? '' : '/'}${canonical}`) : 'firevy.co/company/about-firevy';
+  // Format display breadcrumb for preview
+  const rawCanonical = canonical.trim();
+  const cleanCanonicalSlug = rawCanonical.replace(/^https?:\/\/[^/]+/, '');
+  const displayUrl = rawCanonical
+    ? (rawCanonical.startsWith('http') ? rawCanonical : `https://firevy.co${cleanCanonicalSlug.startsWith('/') ? '' : '/'}${cleanCanonicalSlug}`)
+    : 'https://firevy.co/company/blog';
+
+  const breadcrumbDisplay = displayUrl
+    .replace(/^https?:\/\//, '')
+    .split('/')
+    .filter(Boolean)
+    .join(' › ');
 
   return (
     <AdminFormSection
       title="Search Engine Optimization (SEO) & Metadata"
       subtitle="Configure how this page appears in Google search results and social media shares."
+      icon={Search}
       badge="SEO & Social"
+      badgeVariant="sky"
       collapsible
       defaultOpen={true}
     >
-      <AdminFormGrid columns={2} gap="16px">
+      <AdminFormGrid columns={2} gap="20px">
         {/* Meta Title Field */}
         <AdminFormField
           label="Page Meta Title"
+          rightLabel={
+            <span
+              style={{
+                fontSize: '11px',
+                fontWeight: 600,
+                color: titleStatus.color,
+                backgroundColor: titleStatus.bg,
+                border: `1px solid ${titleStatus.border}`,
+                borderRadius: '999px',
+                padding: '2px 8px',
+                whiteSpace: 'nowrap',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '4px'
+              }}
+            >
+              <span>{metaTitleLength} / 60</span>
+              {titleStatus.label && <span style={{ opacity: 0.85 }}>• {titleStatus.label}</span>}
+            </span>
+          }
           helperText={
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '2px' }}>
-              <span>Recommended: 50–60 characters</span>
-              {titleStatus.text && <span style={{ color: titleStatus.color, fontWeight: 600 }}>{titleStatus.text}</span>}
+            <div>
+              <div style={{ width: '100%', height: '3px', backgroundColor: '#F1F5F9', borderRadius: '3px', overflow: 'hidden', marginTop: '4px', marginBottom: '4px' }}>
+                <div style={{ width: `${Math.min(100, titleStatus.pct)}%`, height: '100%', backgroundColor: titleStatus.barColor, transition: 'width 0.2s ease, background-color 0.2s ease' }} />
+              </div>
+              <span style={{ color: '#64748B', fontSize: '11px' }}>
+                Recommended: 50–60 characters for optimal display in search engines.
+              </span>
             </div>
           }
         >
@@ -860,6 +907,8 @@ export const AdminSeoSection = ({ data = {}, onChange }) => {
             type="text"
             className="form-control"
             style={{
+              height: '38px',
+              fontSize: '13px',
               borderColor: metaTitleLength > 60 ? '#FCA5A5' : metaTitleLength >= 50 ? '#86EFAC' : undefined,
               boxShadow: metaTitleLength > 60 ? '0 0 0 2px rgba(220, 38, 38, 0.1)' : undefined
             }}
@@ -870,25 +919,101 @@ export const AdminSeoSection = ({ data = {}, onChange }) => {
         </AdminFormField>
 
         {/* Canonical URL Slug Field */}
-        <AdminFormField label="Canonical URL Slug" helperText="Preferred indexing URL slug for search engine robots (e.g. /company/about-firevy).">
-          <input
-            type="text"
-            className="form-control"
-            placeholder="e.g. /company/about-firevy"
-            style={{ fontFamily: 'monospace' }}
-            value={canonical}
-            onChange={(e) => updateField('canonical', e.target.value)}
-          />
+        <AdminFormField
+          label="Canonical URL Slug"
+          rightLabel={
+            <span
+              style={{
+                fontSize: '11px',
+                fontWeight: 600,
+                color: '#64748B',
+                backgroundColor: '#F1F5F9',
+                border: '1px solid #E2E8F0',
+                borderRadius: '999px',
+                padding: '2px 8px',
+                whiteSpace: 'nowrap'
+              }}
+            >
+              Indexing URL
+            </span>
+          }
+          helperText={
+            <div>
+              <div style={{ height: '3px', marginTop: '4px', marginBottom: '4px' }} />
+              <span style={{ color: '#64748B', fontSize: '11px' }}>
+                Preferred indexing URL slug for search engine crawlers (e.g. /company/blog).
+              </span>
+            </div>
+          }
+        >
+          <div style={{ display: 'flex', alignItems: 'stretch' }}>
+            <span
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                padding: '0 10px',
+                backgroundColor: '#F8FAFC',
+                border: '1px solid #CBD5E1',
+                borderRight: 'none',
+                borderRadius: '6px 0 0 6px',
+                color: '#64748B',
+                fontSize: '12px',
+                fontWeight: 500,
+                whiteSpace: 'nowrap',
+                userSelect: 'none'
+              }}
+            >
+              <Globe size={12} style={{ marginRight: '5px', color: '#006B8F' }} />
+              firevy.co
+            </span>
+            <input
+              type="text"
+              className="form-control"
+              placeholder="/company/blog"
+              style={{
+                height: '38px',
+                fontSize: '13px',
+                fontFamily: 'monospace',
+                borderRadius: '0 6px 6px 0'
+              }}
+              value={canonical}
+              onChange={(e) => updateField('canonical', e.target.value)}
+            />
+          </div>
         </AdminFormField>
 
         {/* Meta Description Field */}
         <AdminFormField
           label="Meta Description"
           fullWidth
+          rightLabel={
+            <span
+              style={{
+                fontSize: '11px',
+                fontWeight: 600,
+                color: descStatus.color,
+                backgroundColor: descStatus.bg,
+                border: `1px solid ${descStatus.border}`,
+                borderRadius: '999px',
+                padding: '2px 8px',
+                whiteSpace: 'nowrap',
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '4px'
+              }}
+            >
+              <span>{metaDescLength} / 160</span>
+              {descStatus.label && <span style={{ opacity: 0.85 }}>• {descStatus.label}</span>}
+            </span>
+          }
           helperText={
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '2px' }}>
-              <span>Recommended: 120–160 characters</span>
-              {descStatus.text && <span style={{ color: descStatus.color, fontWeight: 600 }}>{descStatus.text}</span>}
+            <div>
+              <div style={{ width: '100%', height: '3px', backgroundColor: '#F1F5F9', borderRadius: '3px', overflow: 'hidden', marginTop: '4px', marginBottom: '4px' }}>
+                <div style={{ width: `${Math.min(100, descStatus.pct)}%`, height: '100%', backgroundColor: descStatus.barColor, transition: 'width 0.2s ease, background-color 0.2s ease' }} />
+              </div>
+              <span style={{ color: '#64748B', fontSize: '11px' }}>
+                Recommended: 120–160 characters. A compelling snippet increases search click-through rates.
+              </span>
             </div>
           }
         >
@@ -896,21 +1021,29 @@ export const AdminSeoSection = ({ data = {}, onChange }) => {
             className="form-control"
             rows={3}
             style={{
+              fontSize: '13px',
+              lineHeight: 1.5,
               borderColor: metaDescLength > 160 ? '#FCA5A5' : metaDescLength >= 120 ? '#86EFAC' : undefined,
               boxShadow: metaDescLength > 160 ? '0 0 0 2px rgba(220, 38, 38, 0.1)' : undefined,
               resize: 'vertical'
             }}
-            placeholder="Enter concise search summary snippet..."
+            placeholder="Enter concise search summary snippet for Google..."
             value={metaDescription}
             onChange={(e) => updateField('metaDescription', e.target.value)}
           />
         </AdminFormField>
 
         {/* Meta Keywords Field */}
-        <AdminFormField label="Meta Keywords" optional fullWidth helperText="Comma-separated keywords for internal tagging and search engine metadata.">
+        <AdminFormField
+          label="Meta Keywords"
+          optional
+          fullWidth
+          helperText="Comma-separated keywords for internal tagging and search engine metadata."
+        >
           <input
             type="text"
             className="form-control"
+            style={{ height: '38px', fontSize: '13px' }}
             placeholder="e.g. software development, custom web app, mobile engineering, agile squads"
             value={metaKeywords}
             onChange={(e) => updateField('metaKeywords', e.target.value)}
@@ -921,62 +1054,192 @@ export const AdminSeoSection = ({ data = {}, onChange }) => {
       {/* Google Search Result Live Preview Card */}
       <div
         style={{
-          marginTop: '16px',
-          padding: '14px 16px',
+          marginTop: '20px',
+          padding: '16px',
           backgroundColor: '#F8FAFC',
           border: '1px solid #E2E8F0',
-          borderRadius: '8px'
+          borderRadius: '10px'
         }}
       >
+        {/* Preview Card Header with Desktop / Mobile Toggle */}
         <div
           style={{
-            fontSize: '11px',
-            fontWeight: 800,
-            color: '#64748B',
-            textTransform: 'uppercase',
-            letterSpacing: '0.06em',
-            marginBottom: '8px',
             display: 'flex',
             alignItems: 'center',
-            gap: '6px'
+            justifyContent: 'space-between',
+            marginBottom: '12px',
+            flexWrap: 'wrap',
+            gap: '8px'
           }}
         >
-          <span>Search Result Preview</span>
-        </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+            <div
+              style={{
+                width: '20px',
+                height: '20px',
+                borderRadius: '4px',
+                backgroundColor: '#4285F4',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: '#FFFFFF',
+                fontSize: '11px',
+                fontWeight: 900
+              }}
+            >
+              G
+            </div>
+            <span
+              style={{
+                fontSize: '11.5px',
+                fontWeight: 800,
+                color: '#334155',
+                textTransform: 'uppercase',
+                letterSpacing: '0.05em'
+              }}
+            >
+              Google Search Result Preview
+            </span>
+          </div>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '3px' }}>
+          {/* View Mode Switcher */}
           <div
             style={{
-              fontSize: '14px',
-              fontWeight: 600,
-              color: '#1A0DAB',
-              overflow: 'hidden',
-              textOverflow: 'ellipsis',
-              whiteSpace: 'nowrap',
-              lineHeight: 1.3
+              display: 'inline-flex',
+              alignItems: 'center',
+              backgroundColor: '#E2E8F0',
+              borderRadius: '6px',
+              padding: '2px',
+              gap: '2px'
             }}
+          >
+            <button
+              type="button"
+              onClick={() => setPreviewMode('desktop')}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '4px',
+                padding: '3px 10px',
+                fontSize: '11px',
+                fontWeight: 600,
+                borderRadius: '4px',
+                border: 'none',
+                cursor: 'pointer',
+                backgroundColor: previewMode === 'desktop' ? '#FFFFFF' : 'transparent',
+                color: previewMode === 'desktop' ? '#0F172A' : '#64748B',
+                boxShadow: previewMode === 'desktop' ? '0 1px 2px rgba(0,0,0,0.06)' : 'none',
+                transition: 'all 0.15s ease'
+              }}
+            >
+              <Monitor size={12} />
+              Desktop
+            </button>
+            <button
+              type="button"
+              onClick={() => setPreviewMode('mobile')}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '4px',
+                padding: '3px 10px',
+                fontSize: '11px',
+                fontWeight: 600,
+                borderRadius: '4px',
+                border: 'none',
+                cursor: 'pointer',
+                backgroundColor: previewMode === 'mobile' ? '#FFFFFF' : 'transparent',
+                color: previewMode === 'mobile' ? '#0F172A' : '#64748B',
+                boxShadow: previewMode === 'mobile' ? '0 1px 2px rgba(0,0,0,0.06)' : 'none',
+                transition: 'all 0.15s ease'
+              }}
+            >
+              <Smartphone size={12} />
+              Mobile
+            </button>
+          </div>
+        </div>
+
+        {/* Realistic Google Search Card */}
+        <div
+          style={{
+            backgroundColor: '#FFFFFF',
+            border: '1px solid #E2E8F0',
+            borderRadius: '8px',
+            padding: previewMode === 'mobile' ? '12px 14px' : '14px 18px',
+            maxWidth: previewMode === 'mobile' ? '380px' : '650px',
+            margin: previewMode === 'mobile' ? '0 auto' : '0',
+            boxShadow: '0 1px 4px rgba(0,0,0,0.04)',
+            fontFamily: 'Arial, sans-serif'
+          }}
+        >
+          {/* Favicon & Site Name */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '4px' }}>
+            <div
+              style={{
+                width: '24px',
+                height: '24px',
+                borderRadius: '50%',
+                backgroundColor: '#0F172A',
+                color: '#FFFFFF',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: '11px',
+                fontWeight: 800,
+                flexShrink: 0
+              }}
+            >
+              F
+            </div>
+            <div style={{ overflow: 'hidden' }}>
+              <div style={{ fontSize: '13px', fontWeight: 500, color: '#202124', lineHeight: 1.2 }}>
+                firevy.co
+              </div>
+              <div
+                style={{
+                  fontSize: '11.5px',
+                  color: '#4D5156',
+                  overflow: 'hidden',
+                  textOverflow: 'ellipsis',
+                  whiteSpace: 'nowrap',
+                  lineHeight: 1.2
+                }}
+              >
+                {breadcrumbDisplay || 'firevy.co › company › blog'}
+              </div>
+            </div>
+            <div style={{ marginLeft: 'auto', color: '#70757A' }}>
+              <MoreVertical size={14} />
+            </div>
+          </div>
+
+          {/* Title Link */}
+          <div
+            style={{
+              fontSize: previewMode === 'mobile' ? '16px' : '18px',
+              fontWeight: 400,
+              color: '#1A0DAB',
+              lineHeight: 1.3,
+              cursor: 'pointer',
+              marginTop: '3px',
+              marginBottom: '4px',
+              wordBreak: 'break-word'
+            }}
+            onMouseEnter={(e) => (e.currentTarget.style.textDecoration = 'underline')}
+            onMouseLeave={(e) => (e.currentTarget.style.textDecoration = 'none')}
           >
             {metaTitle || 'Page Meta Title | firevy.co'}
           </div>
+
+          {/* Meta Description */}
           <div
             style={{
-              fontSize: '12px',
+              fontSize: '13px',
               color: '#4D5156',
-              fontFamily: 'monospace',
-              overflow: 'hidden',
-              textOverflow: 'ellipsis',
-              whiteSpace: 'nowrap'
-            }}
-          >
-            {displayCanonical}
-          </div>
-          <div
-            style={{
-              fontSize: '12.5px',
-              color: '#4D5156',
-              lineHeight: 1.4,
+              lineHeight: 1.5,
               display: '-webkit-box',
-              WebkitLineClamp: 2,
+              WebkitLineClamp: previewMode === 'mobile' ? 3 : 2,
               WebkitBoxOrient: 'vertical',
               overflow: 'hidden'
             }}
