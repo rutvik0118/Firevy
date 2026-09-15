@@ -11,6 +11,15 @@ import SuccessStoriesSection from '../common/SuccessStoriesSection';
 import PremiumServicesGrid from '../common/PremiumServicesGrid';
 import BrandLogoMarquee from '../common/BrandLogoMarquee';
 import SapphireLightHeroBanner from '../common/SapphireLightHeroBanner';
+import ProudAwardsBanner from './ProudAwardsBanner';
+import InnovativeSolutionsVideoSection from './InnovativeSolutionsVideoSection';
+import OurStoryTheirWordsSection from './OurStoryTheirWordsSection';
+import FeaturedInBrandsSection from './FeaturedInBrandsSection';
+import DigitalTransformationSlider from '../common/DigitalTransformationSlider';
+import SapphireFaqSection, { iwatchFaqList } from '../common/SapphireFaqSection';
+import IWatchRecentBlogsSection from './IWatchRecentBlogsSection';
+import IWatchWhatSetsUsApartSection from './IWatchWhatSetsUsApartSection';
+import IWatchChallengeCtaBanner from './IWatchChallengeCtaBanner';
 import {
   Watch,
   HeartPulse,
@@ -41,30 +50,6 @@ import {
 export const IWatchAppDevelopmentService = () => {
   const [openFaq, setOpenFaq] = useState(0);
   const [formSubmitted, setFormSubmitted] = useState(false);
-  const [activeVideoIndex, setActiveVideoIndex] = useState(0);
-  const [activeVideoModal, setActiveVideoModal] = useState(null);
-  const [cardsPerPage, setCardsPerPage] = useState(3);
-  const [activeTestimonialIndex, setActiveTestimonialIndex] = useState(0);
-  const [activeTestimonialModal, setActiveTestimonialModal] = useState(null);
-  const [testimonialCardsPerPage, setTestimonialCardsPerPage] = useState(3);
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth < 640) {
-        setCardsPerPage(1);
-        setTestimonialCardsPerPage(1);
-      } else if (window.innerWidth < 1024) {
-        setCardsPerPage(2);
-        setTestimonialCardsPerPage(2);
-      } else {
-        setCardsPerPage(3);
-        setTestimonialCardsPerPage(3);
-      }
-    };
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -302,114 +287,6 @@ export const IWatchAppDevelopmentService = () => {
     }
   ];
 
-  // Insightful Video Solutions Showcase Data
-  const insightfulVideos = [
-    {
-      id: 1,
-      title: 'Revolutionizing Recruitment with AI/ML-Driven - Top AI Development...',
-      videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1',
-      thumbnail: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80',
-      category: 'AI / ML Solutions',
-      badgeText: 'AI in Recruitment'
-    },
-    {
-      id: 2,
-      title: 'National Water Supply Corporation : Ensure reliable water supply with..',
-      videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1',
-      thumbnail: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80',
-      category: 'Enterprise Mobility',
-      badgeText: 'NWSC Mobile App'
-    },
-    {
-      id: 3,
-      title: 'NutriPlan: Your Ultimate Meal Planning and Nutrition Guide - NutriPlan..',
-      videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1',
-      thumbnail: 'https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=800&q=80',
-      category: 'Health & Fitness',
-      badgeText: 'NutriPlan App'
-    },
-    {
-      id: 4,
-      title: 'Smart Wearable iWatch Application - Real-Time Health & Fitness Tracking...',
-      videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1',
-      thumbnail: 'https://images.unsplash.com/photo-1510017803434-a899398421b3?auto=format&fit=crop&w=800&q=80',
-      category: 'Wearable Tech',
-      badgeText: 'iWatch Solution'
-    },
-    {
-      id: 5,
-      title: 'Next-Gen FinTech Mobile App Solutions - Secure Real-Time Portfolio...',
-      videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1',
-      thumbnail: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=800&q=80',
-      category: 'FinTech Platform',
-      badgeText: 'FinTech App'
-    },
-    {
-      id: 6,
-      title: 'Terraform Timesheet App with Microsoft Power Apps & Power Automate...',
-      videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1',
-      thumbnail: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80',
-      category: 'Power Platform',
-      badgeText: 'Power Apps'
-    }
-  ];
-
-  const handlePrevVideo = () => {
-    setActiveVideoIndex((prev) => (prev > 0 ? prev - 1 : Math.max(0, insightfulVideos.length - cardsPerPage)));
-  };
-
-  const handleNextVideo = () => {
-    setActiveVideoIndex((prev) => (prev < insightfulVideos.length - cardsPerPage ? prev + 1 : 0));
-  };
-
-  // Client Video Testimonials Data ('Our Story, Their Words')
-  const clientTestimonialVideos = [
-    {
-      id: 1,
-      clientName: 'Michael Robert',
-      clientLocation: 'Canada',
-      title: 'Sapphire Successfully Delivered Web & Mobile App Solutions - Leading IT Company in Canada',
-      videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1',
-      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80',
-      company: 'Enterprise Mobility Client'
-    },
-    {
-      id: 2,
-      clientName: 'David Miller',
-      clientLocation: 'USA',
-      title: 'Sapphire Software Solutions - Top iOS App Development Company in USA!',
-      videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1',
-      avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80',
-      company: 'iOS Application Partner'
-    },
-    {
-      id: 3,
-      clientName: 'Christina Vance',
-      clientLocation: 'UK',
-      title: "Peer into Satisfaction: Christina's Testimonial Video Shines Bright!",
-      videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1',
-      avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80',
-      company: 'Global Healthcare Client'
-    },
-    {
-      id: 4,
-      clientName: 'Jonathan Hayes',
-      clientLocation: 'Australia',
-      title: 'Exceptional iWatch App Development & Wearable Tech Solutions Partner!',
-      videoUrl: 'https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1',
-      avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&q=80',
-      company: 'Wearable Tech Client'
-    }
-  ];
-
-  const handlePrevTestimonial = () => {
-    setActiveTestimonialIndex((prev) => (prev > 0 ? prev - 1 : Math.max(0, clientTestimonialVideos.length - testimonialCardsPerPage)));
-  };
-
-  const handleNextTestimonial = () => {
-    setActiveTestimonialIndex((prev) => (prev < clientTestimonialVideos.length - testimonialCardsPerPage ? prev + 1 : 0));
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     setFormSubmitted(true);
@@ -508,11 +385,11 @@ export const IWatchAppDevelopmentService = () => {
 
       {/* Sapphire Light Hero Banner */}
       <SapphireLightHeroBanner
-        title="iWatch App Development Services in USA"
-        subtitle="Empowering modern enterprises and healthcare leaders with custom Apple WatchOS applications. We engineer standalone WatchOS apps, HealthKit biometric tracking, interactive complications, and BLE sensor integrations designed for Apple Watch Series & Ultra devices."
-        ctaText="Discuss Your Wearable Project"
+        title="Best iWatch App Development company in USA"
+        subtitle="We have an incredible team of applications for Apple Watch strategists, designers, developers, and programmers constantly working on fascinating new applications for wearable technology."
+        ctaText="Discuss Your Project"
         ctaLink="#quote-form"
-        serviceCategory="mobile"
+        serviceCategory="iwatch"
       />
 
       {/* Brand Logo Marquee Right Below Hero Banner */}
@@ -522,83 +399,14 @@ export const IWatchAppDevelopmentService = () => {
       <section className="py-16 sm:py-20 bg-white border-b border-slate-200 text-left">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-            {/* Left Column: Apple Watch Vector Graphic Showcase */}
+            {/* Left Column: Tailored Services Image */}
             <div className="lg:col-span-6 flex justify-center">
-              <div className="relative w-full max-w-[480px] p-4 flex items-center justify-center">
-                {/* SVG Apple Watch Graphic with App Grid & Finance Badge matching Sapphire reference */}
-                <svg viewBox="0 0 500 420" className="w-full h-auto drop-shadow-xl overflow-visible">
-                  {/* Subtle Background Backdrop Oval */}
-                  <ellipse cx="250" cy="260" rx="200" ry="100" fill="#EBF5FB" opacity="0.8" />
-                  <ellipse cx="250" cy="350" rx="180" ry="8" fill="#CBD5E1" opacity="0.5" />
-
-                  {/* Left Person Vector Figure */}
-                  <g transform="translate(80, 200)">
-                    {/* Plant pot next to person */}
-                    <path d="M-40 110 L-25 150 L-5 150 L10 110 Z" fill="#64748B" />
-                    <path d="M-25 110 Q-35 80 -15 60 Q5 80 -5 110 Z" fill="#38BDF8" />
-                    <path d="M-15 110 Q-5 70 15 50 Q30 70 15 110 Z" fill="#0284C7" />
-                    {/* Person */}
-                    <circle cx="30" cy="-10" r="14" fill="#FDBA74" />
-                    <path d="M18 10 L42 10 L48 70 L12 70 Z" fill="#1E293B" />
-                    <path d="M12 70 L26 140 L16 140 L4 70 Z" fill="#0284C7" />
-                    <path d="M30 70 L44 140 L34 140 L22 70 Z" fill="#0284C7" />
-                    <path d="M42 20 L75 35 L70 45 L42 30 Z" fill="#FDBA74" />
-                  </g>
-
-                  {/* Center Apple Watch Frame (Blue Strap & Case) */}
-                  <g transform="translate(180, 50)">
-                    {/* Top Strap */}
-                    <path d="M40 0 L100 0 L90 70 L50 70 Z" fill="#0EA5E9" />
-                    {/* Bottom Strap */}
-                    <path d="M48 250 L92 250 L100 320 L40 320 Z" fill="#0EA5E9" />
-
-                    {/* Outer Blue Watch Body */}
-                    <rect x="20" y="60" width="100" height="200" rx="30" fill="#0284C7" stroke="#0369A1" strokeWidth="4" />
-                    {/* Crown Dial */}
-                    <rect x="120" y="100" width="8" height="30" rx="3" fill="#0369A1" />
-
-                    {/* Black Screen Display */}
-                    <rect x="28" y="68" width="84" height="184" rx="22" fill="#0F172A" />
-
-                    {/* App Grid Launcher (WatchOS Honeycomb Icons) */}
-                    <g transform="translate(36, 80)">
-                      <circle cx="16" cy="16" r="10" fill="#EF4444" />
-                      <circle cx="40" cy="16" r="10" fill="#F59E0B" />
-                      <circle cx="64" cy="16" r="10" fill="#10B981" />
-
-                      <circle cx="10" cy="40" r="10" fill="#3B82F6" />
-                      <circle cx="34" cy="40" r="10" fill="#8B5CF6" />
-                      <circle cx="58" cy="40" r="10" fill="#EC4899" />
-
-                      <circle cx="20" cy="64" r="12" fill="#EAB308" />
-                      <circle cx="48" cy="64" r="12" fill="#06B6D4" />
-
-                      <circle cx="10" cy="88" r="10" fill="#10B981" />
-                      <circle cx="34" cy="88" r="10" fill="#F43F5E" />
-                      <circle cx="58" cy="88" r="10" fill="#3B82F6" />
-
-                      <circle cx="16" cy="112" r="10" fill="#8B5CF6" />
-                      <circle cx="40" cy="112" r="10" fill="#F59E0B" />
-                      <circle cx="64" cy="112" r="10" fill="#06B6D4" />
-                    </g>
-                  </g>
-
-                  {/* Overlapping Dollar Badge ($ Coin Graphic) */}
-                  <g transform="translate(265, 175)">
-                    <circle cx="35" cy="35" r="35" fill="#0284C7" stroke="#FFFFFF" strokeWidth="4" />
-                    <circle cx="35" cy="35" r="28" fill="#38BDF8" />
-                    <text x="35" y="46" textAnchor="middle" fill="#FFFFFF" fontSize="32" fontWeight="900" fontFamily="sans-serif">$</text>
-                  </g>
-
-                  {/* Right Person Vector Figure */}
-                  <g transform="translate(360, 205)">
-                    <circle cx="20" cy="-10" r="14" fill="#FDBA74" />
-                    <path d="M8 10 L32 10 L38 70 L2 70 Z" fill="#0F172A" />
-                    <path d="M5 70 L18 140 L8 140 L-5 70 Z" fill="#334155" />
-                    <path d="M22 70 L35 140 L25 140 L12 70 Z" fill="#334155" />
-                    <path d="M8 20 L-25 35 L-20 45 L8 30 Z" fill="#FDBA74" />
-                  </g>
-                </svg>
+              <div className="relative w-full max-w-[480px] p-2 flex items-center justify-center">
+                <img
+                  src="/images/iwatch_tailored_services.png"
+                  alt="Tailored Watch Application Development Services"
+                  className="w-full h-auto max-w-[460px] object-contain drop-shadow-sm"
+                />
               </div>
             </div>
 
@@ -609,7 +417,7 @@ export const IWatchAppDevelopmentService = () => {
               </h2>
 
               <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed">
-                We don't simply make mobile applications but develop custom iWatch Application Development Services groundbreaking experiences to deliver Affordable iWatch App Development Services. Your iWatch application development project's success is our top priority, and we won't settle for anything less than that! Together, we can bring your apple watch design development idea to life and design applications that can enrich your clients' Apple Watch experience in ways you could never have imagined.
+                We don't simply make mobile applications but develop apple Custom iWatch Application Development Services groundbreaking experiences to deliver Affordable iWatch App Development Services. Your iWatch application development project's success is our top priority, and we won't settle for anything less than that! Together, we can bring your apple watch design development idea to life and design applications that can enrich your clients' Apple Watch experience in ways you could never have imagined.
               </p>
             </div>
           </div>
@@ -623,7 +431,7 @@ export const IWatchAppDevelopmentService = () => {
             {/* Left Column: Brief Content */}
             <div className="lg:col-span-6 space-y-5">
               <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-[800] text-slate-900 tracking-tight leading-[1.25]">
-                Brief On Affordable iwatch App Development Solutions
+                Brief On Affordable Iwatch App Development Solutions
               </h2>
 
               <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed">
@@ -635,86 +443,14 @@ export const IWatchAppDevelopmentService = () => {
               </p>
             </div>
 
-            {/* Right Column: Fitness Runner Apple Watch SVG Graphic */}
+            {/* Right Column: Brief Solutions Image */}
             <div className="lg:col-span-6 flex justify-center">
-              <div className="relative w-full max-w-[480px] p-4 flex items-center justify-center">
-                <svg viewBox="0 0 500 420" className="w-full h-auto drop-shadow-xl overflow-visible">
-                  {/* Backdrop Oval */}
-                  <ellipse cx="250" cy="260" rx="200" ry="100" fill="#EBF5FB" opacity="0.8" />
-                  <ellipse cx="250" cy="350" rx="180" ry="8" fill="#CBD5E1" opacity="0.5" />
-
-                  {/* Plant Pot at Bottom Left */}
-                  <g transform="translate(70, 240)">
-                    <path d="M10 70 L25 110 L45 110 L60 70 Z" fill="#334155" />
-                    <path d="M25 70 Q10 40 30 20 Q50 40 35 70 Z" fill="#0284C7" />
-                    <path d="M35 70 Q45 30 65 15 Q80 35 60 70 Z" fill="#38BDF8" />
-                  </g>
-
-                  {/* Center Apple Watch (Blue Case & Strap) */}
-                  <g transform="translate(180, 45)">
-                    {/* Top Strap */}
-                    <path d="M40 0 L100 0 L90 70 L50 70 Z" fill="#0EA5E9" />
-                    {/* Bottom Strap */}
-                    <path d="M48 250 L92 250 L100 330 L40 330 Z" fill="#0EA5E9" />
-
-                    {/* Blue Outer Watch Body */}
-                    <rect x="20" y="60" width="100" height="200" rx="30" fill="#0284C7" stroke="#0369A1" strokeWidth="4" />
-                    <rect x="120" y="100" width="8" height="30" rx="3" fill="#0369A1" />
-
-                    {/* Black Display */}
-                    <rect x="28" y="68" width="84" height="184" rx="22" fill="#0F172A" />
-
-                    {/* App Grid Launcher */}
-                    <g transform="translate(36, 80)">
-                      <circle cx="16" cy="16" r="10" fill="#EF4444" />
-                      <circle cx="40" cy="16" r="10" fill="#F59E0B" />
-                      <circle cx="64" cy="16" r="10" fill="#10B981" />
-
-                      <circle cx="10" cy="40" r="10" fill="#3B82F6" />
-                      <circle cx="34" cy="40" r="10" fill="#8B5CF6" />
-                      <circle cx="58" cy="40" r="10" fill="#EC4899" />
-
-                      <circle cx="20" cy="64" r="12" fill="#EAB308" />
-                      <circle cx="48" cy="64" r="12" fill="#06B6D4" />
-
-                      <circle cx="10" cy="88" r="10" fill="#10B981" />
-                      <circle cx="34" cy="88" r="10" fill="#F43F5E" />
-                      <circle cx="58" cy="88" r="10" fill="#3B82F6" />
-
-                      <circle cx="16" cy="112" r="10" fill="#8B5CF6" />
-                      <circle cx="40" cy="112" r="10" fill="#F59E0B" />
-                      <circle cx="64" cy="112" r="10" fill="#06B6D4" />
-                    </g>
-                  </g>
-
-                  {/* Left Water Drop Hydration Badge */}
-                  <g transform="translate(145, 90)">
-                    <circle cx="25" cy="25" r="25" fill="#0284C7" stroke="#FFFFFF" strokeWidth="3" />
-                    <circle cx="25" cy="25" r="20" fill="#38BDF8" />
-                    <path d="M25 14 Q32 25 32 30 A7 7 0 0 1 18 30 Q18 25 25 14 Z" fill="#FFFFFF" />
-                  </g>
-
-                  {/* Right Dumbbell Workout Fitness Badge */}
-                  <g transform="translate(290, 90)">
-                    <circle cx="25" cy="25" r="25" fill="#0284C7" stroke="#FFFFFF" strokeWidth="3" />
-                    <circle cx="25" cy="25" r="20" fill="#38BDF8" />
-                    {/* Dumbbell Icon */}
-                    <rect x="14" y="23" width="22" height="4" fill="#FFFFFF" />
-                    <rect x="14" y="18" width="4" height="14" rx="2" fill="#FFFFFF" />
-                    <rect x="32" y="18" width="4" height="14" rx="2" fill="#FFFFFF" />
-                  </g>
-
-                  {/* Right Running Woman Vector Figure */}
-                  <g transform="translate(325, 140)">
-                    <path d="M40 20 C40 10 20 0 10 20 C5 30 15 45 25 35 Z" fill="#1E293B" />
-                    <circle cx="30" cy="25" r="12" fill="#FDBA74" />
-                    <path d="M20 37 L50 37 L45 90 L25 90 Z" fill="#38BDF8" />
-                    <path d="M30 90 L60 140 L45 145 L20 95 Z" fill="#1E293B" />
-                    <path d="M40 90 L0 125 L-15 115 L25 85 Z" fill="#1E293B" />
-                    <path d="M60 140 L75 140 L75 150 L55 150 Z" fill="#38BDF8" />
-                    <path d="M-15 115 L-30 130 L-20 135 L-5 120 Z" fill="#38BDF8" />
-                  </g>
-                </svg>
+              <div className="relative w-full max-w-[480px] p-2 flex items-center justify-center">
+                <img
+                  src="/images/iwatch_brief_solutions.png"
+                  alt="Brief On Affordable Iwatch App Development Solutions"
+                  className="w-full h-auto max-w-[460px] object-contain drop-shadow-sm"
+                />
               </div>
             </div>
           </div>
@@ -984,47 +720,8 @@ export const IWatchAppDevelopmentService = () => {
         </Container>
       </section>
 
-      {/* SECTION: Recognition Badges Ribbon (1:1 Reference Screenshot Match) */}
-      <section className="py-10 bg-[#0b5072] text-white font-sans text-left overflow-hidden border-b border-blue-900/40">
-        <Container>
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-8 max-w-6xl mx-auto">
-            {/* Left Title */}
-            <div className="text-center lg:text-left max-w-md space-y-2">
-              <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-[800] text-white tracking-tight leading-tight font-sans">
-                Proud To Have Picked These Up Along The Way
-              </h2>
-            </div>
-
-            {/* Right 4 White Badges */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-5 w-full lg:w-auto">
-              {/* Badge 1: Clutch */}
-              <div className="bg-white rounded-[12px] p-4 text-slate-900 shadow-md flex flex-col items-center justify-center text-center h-28 w-full sm:w-32 border border-slate-100">
-                <div className="text-[7.5px] font-[800] text-slate-500 uppercase tracking-widest leading-none mb-1">CLIENTS SAY</div>
-                <div className="text-[12px] font-[900] text-slate-900 leading-tight mb-1">WE DELIVER ON</div>
-                <div className="text-lg font-[900] text-slate-950 font-serif tracking-tight border-t border-slate-200 pt-1 w-full">Clutch</div>
-              </div>
-
-              {/* Badge 2: Upwork */}
-              <div className="bg-white rounded-[12px] p-4 text-slate-900 shadow-md flex flex-col items-center justify-center text-center h-28 w-full sm:w-32 border border-slate-100">
-                <div className="text-sm font-[900] text-[#14A800] font-sans leading-none mb-1">Upwork</div>
-                <div className="px-2 py-0.5 rounded bg-[#14A800] text-white text-[9px] font-[800] tracking-wider uppercase">TOP RATED</div>
-              </div>
-
-              {/* Badge 3: Freelancer */}
-              <div className="bg-white rounded-[12px] p-4 text-slate-900 shadow-md flex flex-col items-center justify-center text-center h-28 w-full sm:w-32 border border-slate-100">
-                <div className="text-sm font-[900] text-[#29B6F6] font-sans leading-none mb-1">freelancer</div>
-                <div className="px-2 py-0.5 rounded bg-[#0284C7] text-white text-[8px] font-[800] tracking-wider uppercase mt-1">PREFERRED FREELANCER</div>
-              </div>
-
-              {/* Badge 4: GoodFirms / Trophy */}
-              <div className="bg-white rounded-[12px] p-4 text-slate-900 shadow-md flex flex-col items-center justify-center text-center h-28 w-full sm:w-32 border border-slate-100">
-                <div className="text-xs font-[900] text-amber-500 mb-0.5">🏆 VIEW OUR PROFILE</div>
-                <div className="text-xs font-[900] text-[#005F96]">goodfirms.co</div>
-              </div>
-            </div>
-          </div>
-        </Container>
-      </section>
+      {/* SECTION: Proud To Have Picked These Up Along The Way (1:1 Reference Match) */}
+      <ProudAwardsBanner />
 
       {/* SECTION: Benefits Of iWatch App Development (1:1 Reference Screenshot Match) */}
       <section className="py-16 sm:py-20 bg-[#f4f9fd] text-slate-900 font-sans text-left border-b border-slate-200/80 overflow-hidden">
@@ -1174,363 +871,31 @@ export const IWatchAppDevelopmentService = () => {
         </Container>
       </section>
 
-      {/* SECTION: Unveiling Our Innovative Solution */}
-      <section className="py-16 sm:py-20 bg-[#0b5072] text-white font-sans text-left border-b border-blue-900/50 overflow-hidden relative">
-        <Container>
-          {/* Section Header */}
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, ease: 'easeOut' }}
-            className="text-center max-w-4xl mx-auto mb-12 sm:mb-14 space-y-3"
-          >
-            <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-[800] text-white tracking-tight leading-tight font-sans">
-              Unveiling Our Innovative Solution
-            </h2>
-            <p className="text-base sm:text-[17.5px] font-[400] text-blue-100 leading-relaxed font-sans max-w-3xl mx-auto">
-              From cutting-edge technology to revolutionary concepts, get ready to be inspired and intrigued. This is more than just a video - it's a glimpse into the future of innovation.
-            </p>
-          </motion.div>
-
-          {/* Responsive Video Showcase Container (100% Fit On ALL Screen Sizes Without Overlapping or Cut-offs) */}
-          <div className="max-w-6xl mx-auto mb-8 px-4">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch">
-              {insightfulVideos.slice(activeVideoIndex, activeVideoIndex + cardsPerPage).map((video) => (
-                <motion.div
-                  key={video.id}
-                  initial={{ opacity: 0, scale: 0.96 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.3 }}
-                  whileHover={{ y: -6 }}
-                  onClick={() => setActiveVideoModal(video)}
-                  className="bg-white rounded-[16px] border border-white/20 shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden group cursor-pointer flex flex-col justify-between h-full"
-                >
-                  {/* Thumbnail Image Container with Play Overlay */}
-                  <div className="relative aspect-[16/9] w-full bg-slate-900 overflow-hidden">
-                    <img
-                      src={video.thumbnail}
-                      alt={video.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100"
-                    />
-
-                    {/* Sapphire Logo Watermark (Top Right) */}
-                    <div className="absolute top-3 right-3 bg-slate-950/70 backdrop-blur-md px-2.5 py-1 rounded-md text-[11px] font-[900] text-white tracking-wide border border-white/10 flex items-center space-x-1">
-                      <span className="text-cyan-400 font-serif">S</span>
-                      <span>Sapphire</span>
-                    </div>
-
-                    {/* Category Pill (Top Left) */}
-                    <div className="absolute top-3 left-3 bg-[#0b5072]/80 backdrop-blur-md px-2.5 py-1 rounded-md text-[10px] font-[800] text-cyan-200 tracking-wide uppercase border border-cyan-400/20">
-                      {video.badgeText}
-                    </div>
-
-                    {/* Play Button Overlay */}
-                    <div className="absolute inset-0 flex items-center justify-center bg-slate-950/20 group-hover:bg-slate-950/40 transition-colors">
-                      <div className="w-13 h-13 sm:w-14 sm:h-14 rounded-full bg-white text-[#0b5072] flex items-center justify-center shadow-xl group-hover:scale-110 group-hover:bg-[#005F96] group-hover:text-white transition-all duration-300">
-                        <Play className="w-6 h-6 fill-current ml-0.5" />
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Video Title Box */}
-                  <div className="p-4 sm:p-5 text-left bg-white border-t border-slate-100 min-h-[76px] flex items-center">
-                    <h3 className="text-xs sm:text-[13.5px] font-[700] text-slate-900 leading-snug font-sans line-clamp-2 group-hover:text-[#0b5072] transition-colors">
-                      {video.title}
-                    </h3>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-
-          {/* Carousel Navigation Arrows */}
-          <div className="flex items-center justify-center space-x-4 mb-8">
-            <button
-              onClick={handlePrevVideo}
-              aria-label="Previous Videos"
-              className="w-10 h-10 rounded-full border border-white/40 text-white hover:bg-white hover:text-[#0b5072] transition-all flex items-center justify-center shadow-md active:scale-95 cursor-pointer"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-            <button
-              onClick={handleNextVideo}
-              aria-label="Next Videos"
-              className="w-10 h-10 rounded-full border border-white/40 text-white hover:bg-white hover:text-[#0b5072] transition-all flex items-center justify-center shadow-md active:scale-95 cursor-pointer"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
-          </div>
-
-          {/* Centered 'View Insightful Videos' Button */}
-          <div className="text-center">
-            <Link
-              to="/company/insightful-videos"
-              className="inline-flex items-center justify-center px-8 py-3.5 rounded-[8px] bg-white hover:bg-slate-100 text-[#0b5072] font-[800] text-[15px] transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5 font-sans"
-            >
-              View Insightful Videos
-            </Link>
-          </div>
-        </Container>
-
-        {/* Interactive Video Lightbox Modal */}
-        {activeVideoModal && (
-          <div className="fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 animate-fadeIn">
-            <div className="relative w-full max-w-4xl bg-slate-900 rounded-2xl overflow-hidden shadow-2xl border border-white/10">
-              {/* Modal Top Bar */}
-              <div className="flex items-center justify-between p-4 bg-slate-950 border-b border-white/10 text-white">
-                <div className="flex items-center space-x-2">
-                  <span className="px-2.5 py-0.5 rounded bg-cyan-500/20 text-cyan-300 text-xs font-bold uppercase">
-                    {activeVideoModal.category}
-                  </span>
-                  <h4 className="text-sm font-bold text-slate-200 truncate max-w-md">
-                    {activeVideoModal.title}
-                  </h4>
-                </div>
-                <button
-                  onClick={() => setActiveVideoModal(null)}
-                  className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors cursor-pointer"
-                >
-                  <X className="w-5 h-5" />
-                </button>
-              </div>
-
-              {/* Video Player Container */}
-              <div className="relative aspect-video w-full bg-black">
-                <iframe
-                  src={activeVideoModal.videoUrl}
-                  title={activeVideoModal.title}
-                  className="w-full h-full border-0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-              </div>
-            </div>
-          </div>
-        )}
-      </section>
+      {/* SECTION: Unveiling Our Innovative Solution (1:1 Reference Match) */}
+      <InnovativeSolutionsVideoSection />
 
       {/* SECTION: Process We Follow (Moved Directly Below Unveiling Our Innovative Solution) */}
       <ProcessWeFollow title="Process We Follow" subtitle="Process-oriented execution from wearable UI wireframes to WatchOS SDK development, UAT, and App Store deployment." />
 
-      {/* SECTION: Our Story, Their Words (1:1 Reference Screenshot Match with Working Video Carousel & Lightbox Modal) */}
-      <section className="py-16 sm:py-20 bg-[#dcf2fd] text-slate-900 font-sans text-left border-b border-blue-200/60 overflow-hidden relative">
-        <Container>
-          {/* Section Header */}
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, ease: 'easeOut' }}
-            className="text-center max-w-4xl mx-auto mb-12 sm:mb-14 space-y-3"
-          >
-            <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-[800] text-slate-950 tracking-tight leading-tight font-sans">
-              Our Story, Their Words
-            </h2>
-            <p className="text-base sm:text-[17.5px] font-[400] text-slate-600 leading-relaxed font-sans max-w-3xl mx-auto">
-              From satisfied clients to enthusiastic users, each testimonial shares a unique perspective on the impact and value of our solution. Get inspired as you listen to authentic voices that showcase the true essence of our project's impact.
-            </p>
-          </motion.div>
-
-          {/* 3 Visible Testimonial Video Cards Grid Container */}
-          <div className="max-w-6xl mx-auto mb-8 px-4">
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-stretch">
-              {clientTestimonialVideos.slice(activeTestimonialIndex, activeTestimonialIndex + testimonialCardsPerPage).map((item) => (
-                <motion.div
-                  key={item.id}
-                  initial={{ opacity: 0, scale: 0.96 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.3 }}
-                  whileHover={{ y: -6 }}
-                  onClick={() => setActiveTestimonialModal(item)}
-                  className="bg-white rounded-[16px] border border-white/50 shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden group cursor-pointer flex flex-col justify-between h-full"
-                >
-                  {/* Upper Blue Graphic Banner with Client Avatar */}
-                  <div className="relative bg-gradient-to-r from-[#0284c7] via-[#0b5072] to-[#004A75] py-8 sm:py-10 px-4 flex items-center justify-center overflow-hidden">
-                    {/* Background Decorative Vector Overlay */}
-                    <div className="absolute inset-0 opacity-20 pointer-events-none">
-                      <svg className="w-full h-full" viewBox="0 0 400 200" fill="none">
-                        <circle cx="50" cy="50" r="40" stroke="white" strokeWidth="2" />
-                        <circle cx="350" cy="150" r="60" stroke="#f59e0b" strokeWidth="3" fill="none" />
-                        <path d="M10 150 L30 150 M20 140 L20 160" stroke="white" strokeWidth="3" />
-                        <path d="M370 30 L390 30 M380 20 L380 40" stroke="white" strokeWidth="3" />
-                      </svg>
-                    </div>
-
-                    {/* Client Headshot Avatar */}
-                    <div className="relative z-10">
-                      <img
-                        src={item.avatar}
-                        alt={item.clientName}
-                        className="w-28 h-28 sm:w-32 sm:h-32 rounded-full border-4 border-white object-cover shadow-xl group-hover:scale-105 transition-transform duration-300"
-                      />
-                    </div>
-                  </div>
-
-                  {/* Lower Title & Blue Play Button Box */}
-                  <div className="p-4 sm:p-5 bg-white border-t border-slate-100 flex items-center justify-between gap-3 min-h-[84px] text-left">
-                    <h3 className="text-xs sm:text-[13.5px] font-[700] text-slate-900 leading-snug font-sans line-clamp-2 group-hover:text-[#0b5072] transition-colors">
-                      {item.title}
-                    </h3>
-
-                    {/* Blue Play Button */}
-                    <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-[#0b5072] text-white flex items-center justify-center shrink-0 shadow-md group-hover:bg-[#005F96] group-hover:scale-110 transition-all duration-300">
-                      <Play className="w-5 h-5 fill-current ml-0.5" />
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-
-          {/* Carousel Navigation Arrow Buttons */}
-          <div className="flex items-center justify-center space-x-4">
-            <button
-              onClick={handlePrevTestimonial}
-              aria-label="Previous Testimonials"
-              className="w-10 h-10 rounded-full border border-slate-400 text-slate-700 hover:bg-[#0b5072] hover:text-white hover:border-[#0b5072] transition-all flex items-center justify-center shadow-md active:scale-95 cursor-pointer"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-            <button
-              onClick={handleNextTestimonial}
-              aria-label="Next Testimonials"
-              className="w-10 h-10 rounded-full border border-slate-400 text-slate-700 hover:bg-[#0b5072] hover:text-white hover:border-[#0b5072] transition-all flex items-center justify-center shadow-md active:scale-95 cursor-pointer"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
-          </div>
-        </Container>
-
-        {/* Interactive Client Video Lightbox Modal */}
-        {activeTestimonialModal && (
-          <div className="fixed inset-0 z-50 bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 animate-fadeIn">
-            <div className="relative w-full max-w-4xl bg-slate-900 rounded-2xl overflow-hidden shadow-2xl border border-white/10">
-              {/* Modal Top Header Bar */}
-              <div className="flex items-center justify-between p-4 bg-slate-950 border-b border-white/10 text-white">
-                <div className="flex items-center space-x-3">
-                  <img src={activeTestimonialModal.avatar} alt={activeTestimonialModal.clientName} className="w-9 h-9 rounded-full object-cover border border-white/20" />
-                  <div>
-                    <h4 className="text-sm font-bold text-slate-100">{activeTestimonialModal.clientName} ({activeTestimonialModal.clientLocation})</h4>
-                    <p className="text-[11px] text-cyan-300">{activeTestimonialModal.company}</p>
-                  </div>
-                </div>
-                <button
-                  onClick={() => setActiveTestimonialModal(null)}
-                  className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors cursor-pointer"
-                >
-                  <X className="w-5 h-5" />
-                </button>
-              </div>
-
-              {/* Video Player */}
-              <div className="relative aspect-video w-full bg-black">
-                <iframe
-                  src={activeTestimonialModal.videoUrl}
-                  title={activeTestimonialModal.title}
-                  className="w-full h-full border-0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-              </div>
-            </div>
-          </div>
-        )}
-      </section>
+      {/* SECTION: Our Story, Their Words (1:1 Reference Match) */}
+      <OurStoryTheirWordsSection />
+      <TrustedBrandsGrid />
       <SuccessMatrix />
       <SapphireTechStackGrid domainName="iwatch app" richTechCategories={techCategories} />
-      <TrustedBrandsGrid />
+      <FeaturedInBrandsSection />
+      <DigitalTransformationSlider />
 
-      {/* SECTION 5: FAQs Section */}
-      <section className="py-20 bg-white border-b border-slate-200 text-left">
-        <Container className="max-w-4xl">
-          <div className="text-center mb-12 space-y-3">
-            <span className="px-3.5 py-1 rounded-full text-xs font-extrabold bg-[#005F96]/10 text-[#005F96] uppercase tracking-wider">
-              FREQUENTLY ASKED QUESTIONS
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
-              iWatch App Development FAQs
-            </h2>
-          </div>
+      {/* SECTION 5: Frequently Asked Questions (1:1 Reference Match) */}
+      <SapphireFaqSection faqList={iwatchFaqList} />
 
-          <div className="space-y-4">
-            {sapphireFaqs.map((faq, idx) => (
-              <div key={idx} className="rounded-xl border border-slate-200 overflow-hidden bg-white shadow-sm transition-all">
-                <button
-                  onClick={() => setOpenFaq(openFaq === idx ? -1 : idx)}
-                  className="w-full p-5 flex items-center justify-between text-left font-bold text-base text-slate-900 hover:text-[#005F96] transition-colors"
-                >
-                  <span className="pr-4">{faq.q}</span>
-                  <ChevronDown className={`w-5 h-5 text-slate-400 shrink-0 transition-transform ${openFaq === idx ? 'rotate-180 text-[#005F96]' : ''}`} />
-                </button>
-                {openFaq === idx && (
-                  <div className="px-5 pb-5 pt-1 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100">
-                    {faq.a}
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
+      {/* SECTION: Our Recent Blogs (1:1 Reference Match) */}
+      <IWatchRecentBlogsSection />
 
-      {/* SECTION 6: Free Quote Lead Form */}
-      <section id="quote-form" className="py-20 bg-gradient-to-b from-[#005F96] via-[#004B77] to-[#003452] text-white text-left">
-        <Container className="max-w-5xl">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-5 space-y-6">
-              <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full text-xs font-bold bg-white/10 text-cyan-300 border border-white/20">
-                <Watch className="w-3.5 h-3.5 text-cyan-300" />
-                <span>BUILD YOUR APPLE WATCH APP</span>
-              </div>
-              <h2 className="text-3xl sm:text-4xl font-black text-white leading-tight">
-                Get Access to Senior WatchOS Engineers
-              </h2>
-              <p className="text-base text-blue-100 leading-relaxed font-normal">
-                Book a consultation with our wearable solution architects today to design your custom iWatch application.
-              </p>
-            </div>
+      {/* SECTION: What Sets Us Apart (1:1 Reference Match) */}
+      <IWatchWhatSetsUsApartSection />
 
-            <div className="lg:col-span-7">
-              <div className="bg-white text-slate-900 rounded-2xl p-8 shadow-2xl">
-                {formSubmitted ? (
-                  <div className="py-12 text-center space-y-4">
-                    <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto">
-                      <Check className="w-8 h-8" />
-                    </div>
-                    <h3 className="text-2xl font-black text-slate-900">Inquiry Received!</h3>
-                    <button onClick={() => setFormSubmitted(false)} className="px-6 py-2.5 rounded-lg bg-[#005F96] text-white font-bold text-xs">
-                      Submit Another Inquiry
-                    </button>
-                  </div>
-                ) : (
-                  <form onSubmit={handleSubmit} className="space-y-4">
-                    <h3 className="text-xl font-black text-slate-900 mb-2">Get A Free Project Quote</h3>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-xs font-bold text-slate-700 mb-1">Your Name *</label>
-                        <input type="text" name="name" required value={formData.name} onChange={handleInputChange} placeholder="e.g. Sarah Jenkins" className="w-full px-4 py-3 rounded-lg border border-slate-300 text-sm focus:ring-2 focus:ring-[#005F96] outline-none" />
-                      </div>
-                      <div>
-                        <label className="block text-xs font-bold text-slate-700 mb-1">Business Email *</label>
-                        <input type="email" name="email" required value={formData.email} onChange={handleInputChange} placeholder="sarah@healthtech.com" className="w-full px-4 py-3 rounded-lg border border-slate-300 text-sm focus:ring-2 focus:ring-[#005F96] outline-none" />
-                      </div>
-                    </div>
-                    <div>
-                      <label className="block text-xs font-bold text-slate-700 mb-1">Project Brief</label>
-                      <textarea name="message" rows="3" value={formData.message} onChange={handleInputChange} placeholder="Tell us about your Apple Watch app, HealthKit integration, biometric tracking..." className="w-full px-4 py-3 rounded-lg border border-slate-300 text-sm focus:ring-2 focus:ring-[#005F96] outline-none resize-none" />
-                    </div>
-                    <button type="submit" className="w-full py-4 rounded-lg bg-[#005F96] hover:bg-[#004A75] text-white font-black text-sm tracking-wide transition-all shadow-lg hover:shadow-xl flex items-center justify-center space-x-2">
-                      <span>Submit Project Brief & Get Proposal</span>
-                      <ArrowRight className="w-4 h-4" />
-                    </button>
-                  </form>
-                )}
-              </div>
-            </div>
-          </div>
-        </Container>
-      </section>
+      {/* SECTION: Challenge CTA Banner (1:1 Reference Match) */}
+      <IWatchChallengeCtaBanner />
     </div>
   );
 };

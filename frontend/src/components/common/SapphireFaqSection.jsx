@@ -218,14 +218,74 @@ export const uberFaqList = [
   }
 ];
 
+export const iwatchFaqList = [
+  {
+    id: 1,
+    question: '1. How do you make a program for Apple Watch?',
+    bullets: [
+      "Launch the Appy Pie App builder and choose the 'Create your app' option from the menu.",
+      "To proceed, you must provide your company's name and click 'Next.'",
+      "Select the category that best meets your requirements",
+      "Put the finishing touches on the color scheme for your app.",
+      "Make sure you are testing your app on an iPhone device.",
+      "After making necessary adjustments to the app's appearance, choose to Save and Continue."
+    ]
+  },
+  {
+    id: 2,
+    question: '2. What apps are built into the Apple Watch?',
+    answer: 'Apple Watch includes native core applications including Activity, Workout, Heart Rate, ECG, Blood Oxygen, Noise, Messages, Phone, Mail, Maps, Calendar, Wallet, Music, Weather, and Reminders, alongside support for third-party watchOS applications.'
+  },
+  {
+    id: 3,
+    question: '3. What programming language is Apple Watch written in?',
+    answer: "Apple Watch applications are predominantly written in Swift and SwiftUI, leveraging Apple's watchOS SDK, WatchKit framework, HealthKit, and Core Bluetooth to build high-performance, battery-efficient wearable experiences."
+  },
+  {
+    id: 4,
+    question: '4. What is iWatch app development, and why is it important for businesses in USA?',
+    answer: 'iWatch app development involves creating custom standalone and companion wearable applications tailored for Apple Watch devices. It empowers US businesses to deliver instant on-wrist notifications, biometric health tracking, hands-free convenience, and frictionless interactions that elevate user engagement.'
+  },
+  {
+    id: 5,
+    question: '5. How can Sapphire Solutions help with iWatch app development in the USA?',
+    answer: 'Sapphire Solutions delivers end-to-end WatchOS app development services across the USA—from wearable UI/UX wireframing and HealthKit integration to native Swift coding, companion iOS sync, BLE pairing, App Store submission, and SLA maintenance.'
+  },
+  {
+    id: 6,
+    question: '6. Does Sapphire Solutions provide custom iWatch app development in USA?',
+    answer: 'Yes, we provide 100% custom watchOS engineering tailored to your specific business model—including healthcare & fitness trackers, IoT enterprise controls, logistics dispatch, real-time alerts, and contactless NFC solutions.'
+  },
+  {
+    id: 7,
+    question: '7. How much does it cost to develop an iWatch app in USA?',
+    answer: 'The cost to develop an iWatch app in the USA generally ranges from $15,000 to $45,000+ depending on whether it is an independent standalone watchOS app or paired with an iOS ecosystem, complexity of sensor integrations (HealthKit, GPS, Biometrics), and backend cloud architecture.'
+  },
+  {
+    id: 8,
+    question: '8. How long does it take to develop an iWatch app with Sapphire Solutions in USA?',
+    answer: 'A standard watchOS application typically takes 4 to 8 weeks for MVP release. Comprehensive enterprise wearable applications with custom watch complications and cloud microservices take approximately 8 to 14 weeks.'
+  },
+  {
+    id: 9,
+    question: '9. Why should I choose Sapphire Solutions as my iWatch app development company in USA?',
+    answer: 'Sapphire Solutions brings 23+ years of IT engineering excellence, 320+ 5-star Clutch reviews, dedicated Apple-certified Swift/SwiftUI engineers, strict HIPAA & OWASP security compliance, and 1,500+ successful deployments worldwide.'
+  },
+  {
+    id: 10,
+    question: '10. Do you provide ongoing support and updates for iWatch apps in USA?',
+    answer: 'Yes, we provide 24/7 post-launch SLA maintenance, new watchOS version updates (watchOS 10/11+), bug fixes, battery optimization, API monitoring, and ongoing feature enhancements.'
+  }
+];
+
 export const SapphireFaqSection = ({
   faqList,
   faqs,
   title = "Frequently Asked Questions",
   subtitle = "We listen to query and provide solutions that captivate users. Feel free to contact us in case of any query which is not mention below."
 }) => {
-  const activeFaqs = faqList || faqs || androidFaqList;
-  const [openId, setOpenId] = useState(1);
+  const activeFaqs = faqList || faqs || iwatchFaqList;
+  const [openId, setOpenId] = useState(null);
 
   const toggleFaq = (id) => {
     setOpenId((prevId) => (prevId === id ? null : id));
@@ -357,7 +417,17 @@ export const SapphireFaqSection = ({
                     {/* Expandable Answer */}
                     {isOpen && (
                       <div className="pt-2.5 pb-1 text-[12px] sm:text-[13px] text-[#475569] font-normal leading-[1.68] transition-all">
-                        {answerText}
+                        {Array.isArray(faq.bullets) ? (
+                          <ul className="space-y-1.5 list-disc pl-5 my-1 text-slate-700">
+                            {faq.bullets.map((bulletItem, bIdx) => (
+                              <li key={bIdx} className="leading-relaxed">
+                                {bulletItem}
+                              </li>
+                            ))}
+                          </ul>
+                        ) : (
+                          <p>{answerText}</p>
+                        )}
                       </div>
                     )}
                   </div>
