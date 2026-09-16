@@ -1,0 +1,136 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 450" width="100%" height="100%" fill="none">
+  <defs>
+    <filter id="cardFloatShadow" x="-10%" y="-10%" width="125%" height="125%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0284C7" flood-opacity="0.15" />
+    </filter>
+  </defs>
+
+  <!-- Ground Line -->
+  <ellipse cx="320" cy="415" rx="230" ry="10" fill="#E2E8F0" opacity="0.8" />
+  <line x1="60" y1="415" x2="580" y2="415" stroke="#CBD5E1" stroke-width="2" />
+
+  <!-- ================= FLOATING BACKGROUND UI WINDOWS & BADGES ================= -->
+
+  <!-- 1. Top-Left: CSS Window -->
+  <g filter="url(#cardFloatShadow)" transform="translate(70, 140)">
+    <rect x="0" y="0" width="70" height="50" rx="8" fill="#FFFFFF" stroke="#93C5FD" stroke-width="1.5" />
+    <rect x="0" y="0" width="70" height="14" rx="8" fill="#F0F9FF" />
+    <circle cx="8" cy="7" r="2" fill="#38BDF8" />
+    <circle cx="14" cy="7" r="2" fill="#38BDF8" />
+    <text x="35" y="34" font-family="'Poppins', sans-serif" font-size="14" font-weight="900" fill="#0284C7" text-anchor="middle">CSS</text>
+  </g>
+
+  <!-- 2. Top-Center Left: HTML Tag Badge -->
+  <g filter="url(#cardFloatShadow)" transform="translate(175, 120)">
+    <rect x="0" y="0" width="34" height="24" rx="6" fill="#0284C7" />
+    <text x="17" y="16" font-family="sans-serif" font-size="9" font-weight="900" fill="#FFFFFF" text-anchor="middle">HTML</text>
+  </g>
+
+  <!-- 3. Top-Center: WooCommerce App Window -->
+  <g filter="url(#cardFloatShadow)" transform="translate(200, 140)">
+    <rect x="0" y="0" width="165" height="100" rx="10" fill="#FFFFFF" stroke="#38BDF8" stroke-width="2" />
+    <!-- Header Bar -->
+    <rect x="0" y="0" width="165" height="20" rx="10" fill="#F0F9FF" />
+    <circle cx="10" cy="10" r="3" fill="#38BDF8" />
+    <circle cx="18" cy="10" r="3" fill="#38BDF8" />
+    <circle cx="26" cy="10" r="3" fill="#38BDF8" />
+
+    <!-- Woo Commerce Purple Badge in Window Header -->
+    <rect x="36" y="4" width="22" height="12" rx="3" fill="#7C3AED" />
+    <text x="47" y="13" font-family="sans-serif" font-size="6" font-weight="900" fill="#FFFFFF" text-anchor="middle">WOO</text>
+    <text x="62" y="13" font-family="sans-serif" font-size="8" font-weight="900" fill="#1E293B">COMMERCE</text>
+
+    <!-- Window Inner Content Lines -->
+    <g stroke="#93C5FD" stroke-width="2" stroke-linecap="round">
+      <line x1="12" y1="35" x2="60" y2="35" />
+      <line x1="12" y1="45" x2="80" y2="45" />
+      <line x1="12" y1="55" x2="70" y2="55" />
+      <line x1="12" y1="65" x2="55" y2="65" />
+      <line x1="12" y1="75" x2="75" y2="75" />
+      <line x1="12" y1="85" x2="65" y2="85" />
+    </g>
+
+    <!-- Vertical Divider Line -->
+    <line x1="90" y1="28" x2="90" y2="92" stroke="#E2E8F0" stroke-width="1.5" />
+
+    <!-- Right Grid Preview inside Woo Window -->
+    <rect x="100" y="32" width="55" height="24" rx="4" fill="#F0F9FF" stroke="#BAE6FD" stroke-width="1" />
+    <rect x="100" y="62" width="55" height="28" rx="4" fill="#F0F9FF" stroke="#BAE6FD" stroke-width="1" />
+  </g>
+
+  <!-- 4. Top-Right: PHP Tag Badge -->
+  <g filter="url(#cardFloatShadow)" transform="translate(390, 140)">
+    <rect x="0" y="0" width="46" height="32" rx="8" fill="#0284C7" />
+    <text x="23" y="21" font-family="sans-serif" font-size="12" font-weight="900" fill="#FFFFFF" text-anchor="middle">PHP</text>
+  </g>
+
+  <!-- 5. Far Top-Right: Code Window Tile -->
+  <g filter="url(#cardFloatShadow)" transform="translate(470, 130)">
+    <rect x="0" y="0" width="70" height="50" rx="8" fill="#BAE6FD" stroke="#38BDF8" stroke-width="1.5" />
+    <line x1="10" y1="18" x2="40" y2="18" stroke="#0284C7" stroke-width="2" stroke-linecap="round" />
+    <line x1="10" y1="26" x2="55" y2="26" stroke="#0284C7" stroke-width="2" stroke-linecap="round" />
+    <line x1="10" y1="34" x2="35" y2="34" stroke="#0284C7" stroke-width="2" stroke-linecap="round" />
+  </g>
+
+  <!-- 6. Mid-Right: Code Tag Tile </> -->
+  <g filter="url(#cardFloatShadow)" transform="translate(520, 205)">
+    <rect x="0" y="0" width="48" height="42" rx="8" fill="#FFFFFF" stroke="#38BDF8" stroke-width="1.5" />
+    <text x="24" y="27" font-family="monospace" font-size="14" font-weight="900" fill="#0284C7" text-anchor="middle">&lt; / &gt;</text>
+  </g>
+
+  <!-- ================= FEMALE DEVELOPER (LEFT) ================= -->
+  <!-- Chair / Backing -->
+  <rect x="100" y="290" width="80" height="110" rx="14" fill="#93C5FD" opacity="0.6" />
+
+  <g>
+    <!-- Body / Blue Top -->
+    <path d="M 120 280 C 130 265 170 265 180 280 L 195 380 L 110 380 Z" fill="#0284C7" />
+
+    <!-- Arms & Hands on Laptop Keyboard -->
+    <path d="M 125 290 L 170 345 L 205 345" stroke="#0284C7" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+    <circle cx="205" cy="345" r="6" fill="#FED7AA" />
+
+    <!-- Neck & Face -->
+    <rect x="146" y="245" width="10" height="18" fill="#FED7AA" />
+    <circle cx="151" cy="235" r="16" fill="#FED7AA" />
+
+    <!-- Dark Hair Tied Back in Bun/Ponytail -->
+    <circle cx="128" cy="235" r="12" fill="#0F172A" />
+    <path d="M 138 225 C 138 210 150 208 165 212 C 172 216 172 230 170 245 C 162 235 150 230 142 242 Z" fill="#0F172A" />
+
+    <!-- Laptop on Desk -->
+    <polygon points="175,370 245,370 238,325 185,325" fill="#0F172A" stroke="#38BDF8" stroke-width="1.5" />
+    <circle cx="211" cy="347" r="3" fill="#FFFFFF" />
+    <rect x="165" y="370" width="85" height="6" rx="2" fill="#1E293B" />
+  </g>
+
+  <!-- ================= MALE DEVELOPER (RIGHT) ================= -->
+  <!-- Desk Monitor for Male Developer -->
+  <rect x="315" y="270" width="115" height="90" rx="8" fill="#0F172A" stroke="#38BDF8" stroke-width="2" />
+  <rect x="322" y="277" width="101" height="76" rx="4" fill="#0284C7" />
+  <!-- Monitor Stand -->
+  <path d="M 365 360 L 380 360 L 382 390 L 363 390 Z" fill="#0F172A" />
+  <ellipse cx="372" cy="390" rx="25" ry="5" fill="#0F172A" />
+
+  <g>
+    <!-- Yellow / Amber Polo Shirt -->
+    <path d="M 395 270 C 405 255 445 255 455 270 L 470 380 L 385 380 Z" fill="#F59E0B" />
+    <!-- Collar -->
+    <polygon points="418,265 432,265 425,282" fill="#D97706" />
+
+    <!-- Left Arm Pointing / Gesturing toward monitor -->
+    <path d="M 395 275 L 340 330" stroke="#F59E0B" stroke-width="12" stroke-linecap="round" fill="none" />
+    <circle cx="338" cy="330" r="6" fill="#FED7AA" />
+    <path d="M 338 330 L 325 328" stroke="#FED7AA" stroke-width="3" stroke-linecap="round" />
+
+    <!-- Right Arm -->
+    <path d="M 450 275 L 470 340" stroke="#F59E0B" stroke-width="12" stroke-linecap="round" fill="none" />
+
+    <!-- Neck & Face -->
+    <rect x="420" y="240" width="10" height="18" fill="#FED7AA" />
+    <circle cx="425" cy="230" r="16" fill="#FED7AA" />
+
+    <!-- Dark Short Hair -->
+    <path d="M 412 225 C 412 210 422 208 438 210 C 445 214 445 225 442 238 C 435 228 424 228 418 236 Z" fill="#0F172A" />
+  </g>
+</svg>

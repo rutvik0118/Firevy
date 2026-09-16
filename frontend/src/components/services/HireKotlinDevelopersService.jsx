@@ -939,14 +939,14 @@ export const HireKotlinDevelopersService = () => {
       <ClientReviewsDarkSection />
 
       {/* ============================================================
-          20. FREQUENTLY ASKED QUESTIONS (100% Matching Screenshot)
-          ============================================================ */}
-      <SapphireFaqSection faqList={kotlinFaqList} />
-
-      {/* ============================================================
-          21. RECENT BLOGS SECTION (Component)
+          20. RECENT BLOGS SECTION (Component)
           ============================================================ */}
       <RecentBlogsSection />
+
+      {/* ============================================================
+          21. FREQUENTLY ASKED QUESTIONS (100% Matching Screenshot)
+          ============================================================ */}
+      <SapphireFaqSection faqList={kotlinFaqList} />
 
       {/* ============================================================
           22. NEWSLETTER SUBSCRIBE

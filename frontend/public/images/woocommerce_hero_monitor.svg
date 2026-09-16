@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 460" width="100%" height="100%" fill="none">
+  <defs>
+    <linearGradient id="wooScreenGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#F8FAFC" />
+    </linearGradient>
+    <linearGradient id="wooStandGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#CBD5E1" />
+      <stop offset="100%" stop-color="#94A3B8" />
+    </linearGradient>
+    <filter id="wooMonitorShadow" x="-10%" y="-10%" width="125%" height="125%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#0F172A" flood-opacity="0.12" />
+    </filter>
+    <filter id="wooBadgeShadow" x="-15%" y="-15%" width="130%" height="130%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#0284C7" flood-opacity="0.15" />
+    </filter>
+  </defs>
+
+  <!-- Background Ambient Gears & Circles -->
+  <g opacity="0.45" stroke="#93C5FD" stroke-width="2.5" fill="none">
+    <!-- Big Gear Top Left -->
+    <path d="M 110 90 L 114 82 A 40 40 0 0 1 128 82 L 132 90 A 45 45 0 0 1 146 98 L 154 94 A 40 40 0 0 1 164 105 L 160 114 A 45 45 0 0 1 168 128 L 176 132 A 40 40 0 0 1 176 146 L 168 150 A 45 45 0 0 1 160 164 L 164 173 A 40 40 0 0 1 154 184 L 146 180 A 45 45 0 0 1 132 188 L 128 196 A 40 40 0 0 1 114 196 L 110 188 A 45 45 0 0 1 96 180 L 88 184 A 40 40 0 0 1 78 173 L 82 164 A 45 45 0 0 1 74 150 L 66 146 A 40 40 0 0 1 66 132 L 74 128 A 45 45 0 0 1 82 114 L 78 105 A 40 40 0 0 1 88 94 L 96 98 A 45 45 0 0 1 110 90 Z" fill="#EFF6FF" fill-opacity="0.5"/>
+    <circle cx="121" cy="139" r="18" fill="#FFFFFF" stroke="#93C5FD" stroke-width="2" />
+
+    <!-- Right Gear -->
+    <circle cx="530" cy="190" r="30" stroke="#BAE6FD" stroke-dasharray="6 4" stroke-width="2.5" />
+    <circle cx="530" cy="190" r="14" fill="#E0F2FE" />
+  </g>
+
+  <!-- Monitor Stand Base -->
+  <ellipse cx="320" cy="385" rx="55" ry="12" fill="url(#wooStandGrad)" />
+  <path d="M 305 340 L 335 340 L 338 382 L 302 382 Z" fill="url(#wooStandGrad)" />
+
+  <!-- ================= DESKTOP COMPUTER MONITOR ================= -->
+  <g filter="url(#wooMonitorShadow)">
+    <!-- Monitor Outer Frame (Dark Slate Bezel) -->
+    <rect x="150" y="70" width="340" height="240" rx="14" fill="#0F172A" />
+    
+    <!-- Monitor Screen Area -->
+    <rect x="158" y="78" width="324" height="224" rx="8" fill="url(#wooScreenGrad)" />
+
+    <!-- Top Window Title Bar -->
+    <rect x="158" y="78" width="324" height="24" fill="#38BDF8" />
+    <circle cx="174" cy="90" r="4" fill="#FFFFFF" />
+    <circle cx="186" cy="90" r="4" fill="#FFFFFF" />
+    <circle cx="198" cy="90" r="4" fill="#FFFFFF" />
+
+    <!-- Left Source Code Lines -->
+    <g stroke="#93C5FD" stroke-width="3" stroke-linecap="round">
+      <line x1="175" y1="120" x2="270" y2="120" />
+      <line x1="175" y1="132" x2="310" y2="132" />
+      <line x1="185" y1="144" x2="250" y2="144" />
+      <line x1="185" y1="156" x2="285" y2="156" />
+      <line x1="175" y1="168" x2="230" y2="168" />
+      <line x1="175" y1="180" x2="300" y2="180" />
+      <line x1="185" y1="192" x2="260" y2="192" />
+      <line x1="175" y1="204" x2="290" y2="204" />
+      <line x1="175" y1="216" x2="240" y2="216" />
+      <line x1="185" y1="228" x2="280" y2="228" />
+      <line x1="175" y1="240" x2="255" y2="240" />
+      <line x1="175" y1="252" x2="310" y2="252" />
+      <line x1="185" y1="264" x2="270" y2="264" />
+      <line x1="175" y1="276" x2="230" y2="276" />
+    </g>
+
+    <!-- RIGHT WOOCOMMERCE LOGO & BRANDING ON SCREEN -->
+    <g transform="translate(340, 160)">
+      <!-- WooCommerce Purple Badge Box -->
+      <rect x="0" y="0" width="34" height="24" rx="5" fill="#7C3AED" />
+      <!-- 'WOO' in Speech bubble shape -->
+      <text x="17" y="16" font-family="'Poppins', 'Arial', sans-serif" font-size="10" font-weight="900" fill="#FFFFFF" text-anchor="middle">WOO</text>
+      <!-- 'COMMERCE' Text -->
+      <text x="40" y="16" font-family="'Poppins', 'Inter', sans-serif" font-size="13" font-weight="900" fill="#1E293B" letter-spacing="-0.3">COMMERCE</text>
+    </g>
+  </g>
+
+  <!-- ================= SURROUNDING TECH BADGES ================= -->
+
+  <!-- 1. Top-Left: JavaScript Badge (JS) -->
+  <g filter="url(#wooBadgeShadow)" transform="translate(130, 155)">
+    <rect x="0" y="0" width="56" height="52" rx="10" fill="#BAE6FD" stroke="#38BDF8" stroke-width="1.5" />
+    <text x="28" y="27" font-family="sans-serif" font-size="16" font-weight="900" fill="#0369A1" text-anchor="middle">JS</text>
+    <text x="28" y="42" font-family="sans-serif" font-size="7" font-weight="700" fill="#0284C7" text-anchor="middle">JavaScript</text>
+  </g>
+
+  <!-- 2. Bottom-Left: PHP Badge -->
+  <g filter="url(#wooBadgeShadow)" transform="translate(160, 275)">
+    <rect x="0" y="0" width="52" height="48" rx="10" fill="#BAE6FD" stroke="#38BDF8" stroke-width="1.5" />
+    <text x="26" y="29" font-family="sans-serif" font-size="13" font-weight="900" fill="#0369A1" text-anchor="middle">PHP</text>
+  </g>
+
+  <!-- 3. Top-Right: HTML5 Badge -->
+  <g filter="url(#wooBadgeShadow)" transform="translate(470, 85)">
+    <rect x="0" y="0" width="54" height="52" rx="10" fill="#BAE6FD" stroke="#38BDF8" stroke-width="1.5" />
+    <text x="27" y="28" font-family="sans-serif" font-size="18" font-weight="900" fill="#0369A1" text-anchor="middle">5</text>
+    <text x="27" y="42" font-family="sans-serif" font-size="8" font-weight="800" fill="#0284C7" text-anchor="middle">HTML</text>
+  </g>
+
+  <!-- 4. Bottom-Right: CSS3 Badge -->
+  <g filter="url(#wooBadgeShadow)" transform="translate(465, 235)">
+    <rect x="0" y="0" width="54" height="52" rx="10" fill="#BAE6FD" stroke="#38BDF8" stroke-width="1.5" />
+    <text x="27" y="28" font-family="sans-serif" font-size="18" font-weight="900" fill="#0369A1" text-anchor="middle">3</text>
+    <text x="27" y="42" font-family="sans-serif" font-size="8" font-weight="800" fill="#0284C7" text-anchor="middle">CSS</text>
+  </g>
+</svg>

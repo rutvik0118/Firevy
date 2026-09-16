@@ -72,7 +72,7 @@ export const ServiceDetails = () => {
   const [openFaq, setOpenFaq] = useState(0);
 
   const isHireAndroid = currentSlug.includes('hire-android');
-  const isHireIonic = currentSlug.includes('hire-ionic') || currentSlug === 'ionic' || currentSlug === 'services/ionic';
+  const isHireIonic = currentSlug.includes('ionic') || currentSlug.includes('hire-ionic');
   const isHireFlutter = currentSlug.includes('hire-flutter');
   const isHireIOS = currentSlug.includes('hire-ios');
   const isHireSwift = currentSlug.includes('hire-swift') || currentSlug === 'swift' || currentSlug === 'services/swift';
@@ -81,7 +81,10 @@ export const ServiceDetails = () => {
   const isHireFreelance = currentSlug.includes('hire-freelance');
   const isHireAiApp = currentSlug.includes('hire-ai-application') || currentSlug.includes('hire-ai-app');
   const isHireIphone = currentSlug.includes('hire-iphone');
-  const isAnyDedicatedHire = isHireAndroid || isHireIonic || isHireFlutter || isHireIOS || isHireSwift || isHireMobile || isHireBlackberry || isHireFreelance || isHireAiApp || isHireIphone;
+  const isHireWooCommerce = currentSlug.includes('woocommerce') || currentSlug.includes('woo-commerce');
+  const isHirePrestashop = currentSlug.includes('prestashop') || currentSlug.includes('presta-shop');
+  const isHireWordpress = currentSlug.includes('hire-wordpress') || currentSlug.includes('wordpress-developers') || currentSlug.includes('hire-wp');
+  const isAnyDedicatedHire = isHireAndroid || isHireIonic || isHireFlutter || isHireIOS || isHireSwift || isHireMobile || isHireBlackberry || isHireFreelance || isHireAiApp || isHireIphone || isHireWooCommerce || isHirePrestashop || isHireWordpress;
 
   const isXamarin = currentSlug.includes('xamarin');
   const isReactNative = currentSlug.includes('react-native') || currentSlug.includes('reactnative');
@@ -406,6 +409,18 @@ export const ServiceDetails = () => {
 
   if (isHireIphone) {
     return <HireTechDevelopersService techKey="hire-iphone-app-developers" />;
+  }
+
+  if (isHireWooCommerce) {
+    return <HireTechDevelopersService techKey="hire-woocommerce-developers" />;
+  }
+
+  if (isHirePrestashop) {
+    return <HireTechDevelopersService techKey="hire-prestashop-developers" />;
+  }
+
+  if (isHireWordpress) {
+    return <HireTechDevelopersService techKey="hire-wordpress-developers" />;
   }
 
   if (isKotlin) {
