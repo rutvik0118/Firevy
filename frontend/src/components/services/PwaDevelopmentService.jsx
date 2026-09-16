@@ -225,33 +225,65 @@ export const PwaDevelopmentService = () => {
       </section>
 
       {/* =========================================================================
-          3. BEST PROGRESSIVE WEB APP DEVELOPMENT COMPANY (Section 2)
+          3. LEADING PROGRESSIVE WEB APP DEVELOPMENT COMPANY (1:1 Reference Match)
+          ========================================================================= */}
+      <section className="py-12 sm:py-16 bg-white border-b border-slate-100">
+        <Container>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            {/* Left Column: Leading PWA Vector Illustration */}
+            <div className="lg:col-span-6 flex justify-center lg:justify-start">
+              <div className="w-full max-w-lg overflow-hidden">
+                <img
+                  src="/images/pwa_leading_company_illustration.jpg"
+                  alt="Leading Progressive Web App Development Company"
+                  className="w-full h-auto object-contain hover:scale-[1.02] transition-transform duration-500 rounded-xl"
+                />
+              </div>
+            </div>
+
+            {/* Right Column: Heading & Description */}
+            <div className="lg:col-span-6 space-y-4 text-left">
+              <h2 className="text-[26px] sm:text-[32px] lg:text-[34px] font-[800] text-[#0B0F19] tracking-tight leading-tight">
+                Leading Progressive Web App Development Company
+              </h2>
+              <div className="space-y-4 text-[13.5px] sm:text-[14.5px] text-[#475569] leading-[1.75]">
+                <p>
+                  PWAs, which have specific properties inherent to native apps and websites, need less time and effort to create, resulting in less time to bring the product to market. In addition, Top PWA Development Services for Businesses may have their home screens added to a smartphone, desktop computer, or tablet and immediately begin functioning as native apps. This can be done without sacrificing the functionality or speed of the app. As a progressive web application development company, Affordable PWA Development Company PROMISE that when you use our progressive web application development services, you will only encounter progressive apps of the highest possible quality.
+                </p>
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* =========================================================================
+          3.5. BRIEF ABOUT PROGRESSIVE WEB APP DEVELOPMENT SERVICES (1:1 Reference Match)
           ========================================================================= */}
       <section className="py-12 sm:py-16 bg-white border-b border-slate-100">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             {/* Left Column: Heading & Description */}
-            <div className="lg:col-span-6 space-y-5 text-left">
-              <h2 className="text-[28px] sm:text-[34px] font-[900] text-[#0B0F19] tracking-tight leading-tight">
-                Best Progressive Web App Development Company
+            <div className="lg:col-span-6 space-y-4 text-left">
+              <h2 className="text-[26px] sm:text-[32px] lg:text-[34px] font-[800] text-[#0B0F19] tracking-tight leading-tight">
+                Brief About Progressive Web App Development Services
               </h2>
-              <div className="space-y-4 text-[14.5px] text-[#475569] leading-[1.8]">
+              <div className="space-y-4 text-[13.5px] sm:text-[14.5px] text-[#475569] leading-[1.75]">
                 <p>
-                  Progressive Web Applications (PWAs) represent the pinnacle of modern web engineering, combining the universal discoverability of websites with the immersive interactivity and hardware performance of native mobile applications.
+                  We have a staff with imagination, invention, and years of industry expertise. Because of this, we can develop a Custom Progressive Web App Solutions that is lightning-fast, leaner, and more responsive than its competitors, and it rips the industry apart with its next-generation capabilities.
                 </p>
                 <p>
-                  As an award-winning PWA development company, we craft feature-rich, ultra-lightweight progressive web apps utilizing React, Next.js, Vue, Angular, and Google Workbox. We ensure your digital experience loads instantaneously even in low-connectivity areas, driving unprecedented user engagement and maximizing revenue conversion.
+                  Fast and Secure PWA Development Agency provide safe navigation in the same way that native mobile apps do for mobile devices. Best Progressive Web App Development Company makes the app practically indistinguishable from a typical app and easier to use.
                 </p>
               </div>
             </div>
 
-            {/* Right Column: PWA Architecture Vector Illustration */}
+            {/* Right Column: Brief Services Vector Illustration */}
             <div className="lg:col-span-6 flex justify-center lg:justify-end">
               <div className="w-full max-w-lg overflow-hidden">
                 <img
-                  src="/images/pwa_features_illustration.jpg"
-                  alt="Best Progressive Web App Development Company"
-                  className="w-full h-auto object-contain hover:scale-[1.02] transition-transform duration-500"
+                  src="/images/pwa_brief_services_illustration.jpg"
+                  alt="Brief About Progressive Web App Development Services"
+                  className="w-full h-auto object-contain hover:scale-[1.02] transition-transform duration-500 rounded-xl"
                 />
               </div>
             </div>
