@@ -58,12 +58,9 @@ import PowerAppsDevelopmentService from '../components/services/PowerAppsDevelop
 import KotlinAppDevelopmentService from '../components/services/KotlinAppDevelopmentService';
 import HybridAppDevelopmentService from '../components/services/HybridAppDevelopmentService';
 import ItConsultingServices from '../components/services/ItConsultingServices';
-<<<<<<< HEAD
 import AppDevelopmentConsultingService from '../components/services/AppDevelopmentConsultingService';
-=======
 import HireKotlinDevelopersService from '../components/services/HireKotlinDevelopersService';
 import HireTechDevelopersService from '../components/services/HireTechDevelopersService';
->>>>>>> 62be97978530bcd2a39307eaf51193b876252e1b
 
 export const ServiceDetails = () => {
   const { slug } = useParams();
