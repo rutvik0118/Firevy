@@ -210,8 +210,12 @@ export function App() {
                 <Route path="/hire-android-developer" element={<ServiceDetails />} />
                 <Route path="/services/hire-ionic-developers" element={<ServiceDetails />} />
                 <Route path="/services/hire-ionic-developer" element={<ServiceDetails />} />
+                <Route path="/services/ionic" element={<ServiceDetails />} />
+                <Route path="/services/ionic-app-development" element={<ServiceDetails />} />
                 <Route path="/hire-ionic-developers" element={<ServiceDetails />} />
                 <Route path="/hire-ionic-developer" element={<ServiceDetails />} />
+                <Route path="/ionic" element={<ServiceDetails />} />
+                <Route path="/ionic-app-development" element={<ServiceDetails />} />
                 <Route path="/services/hire-flutter-developers" element={<ServiceDetails />} />
                 <Route path="/services/hire-flutter-developer" element={<ServiceDetails />} />
                 <Route path="/hire-flutter-developers" element={<ServiceDetails />} />
@@ -232,8 +236,12 @@ export function App() {
                 <Route path="/hire-mobile-developers" element={<ServiceDetails />} />
                 <Route path="/services/hire-blackberry-app-developers" element={<ServiceDetails />} />
                 <Route path="/services/hire-blackberry-app-developer" element={<ServiceDetails />} />
+                <Route path="/services/hire-blackberry-developers" element={<ServiceDetails />} />
+                <Route path="/services/blackberry-app-development" element={<ServiceDetails />} />
                 <Route path="/hire-blackberry-app-developers" element={<ServiceDetails />} />
                 <Route path="/hire-blackberry-app-developer" element={<ServiceDetails />} />
+                <Route path="/hire-blackberry-developers" element={<ServiceDetails />} />
+                <Route path="/blackberry-app-development" element={<ServiceDetails />} />
                 <Route path="/services/hire-freelance-app-developers" element={<ServiceDetails />} />
                 <Route path="/services/hire-freelance-app-developer" element={<ServiceDetails />} />
                 <Route path="/hire-freelance-app-developers" element={<ServiceDetails />} />
@@ -282,7 +290,10 @@ export function App() {
                 <Route path="/services/wordpress" element={<ServiceDetails />} />
                 <Route path="/wordpress" element={<ServiceDetails />} />
                 <Route path="/wordpress-development" element={<ServiceDetails />} />
+                <Route path="/services/hire-wordpress-developers" element={<ServiceDetails />} />
+                <Route path="/services/hire-wordpress-developer" element={<ServiceDetails />} />
                 <Route path="/hire-wordpress-developers" element={<ServiceDetails />} />
+                <Route path="/hire-wordpress-developer" element={<ServiceDetails />} />
                 <Route path="/services/drupal" element={<ServiceDetails />} />
                 <Route path="/drupal" element={<ServiceDetails />} />
                 <Route path="/drupal-development" element={<ServiceDetails />} />
@@ -300,7 +311,12 @@ export function App() {
                 <Route path="/sitefinity-development" element={<ServiceDetails />} />
                 <Route path="/hire-sitefinity-developers" element={<ServiceDetails />} />
                 <Route path="/services/magento" element={<ServiceDetails />} />
+                <Route path="/services/magento-development-services-in-usa" element={<ServiceDetails />} />
+                <Route path="/services/magento-development-services" element={<ServiceDetails />} />
+                <Route path="/services/magento-development" element={<ServiceDetails />} />
+                <Route path="/services/hire-magento-developers" element={<ServiceDetails />} />
                 <Route path="/magento" element={<ServiceDetails />} />
+                <Route path="/magento-development-services-in-usa" element={<ServiceDetails />} />
                 <Route path="/magento-development" element={<ServiceDetails />} />
                 <Route path="/adobe-commerce" element={<ServiceDetails />} />
                 <Route path="/hire-magento-developers" element={<ServiceDetails />} />
@@ -309,6 +325,22 @@ export function App() {
                 <Route path="/shopify-development" element={<ServiceDetails />} />
                 <Route path="/shopify-plus" element={<ServiceDetails />} />
                 <Route path="/hire-shopify-developers" element={<ServiceDetails />} />
+                <Route path="/services/woocommerce" element={<ServiceDetails />} />
+                <Route path="/services/woocommerce-development" element={<ServiceDetails />} />
+                <Route path="/services/hire-woocommerce-developers" element={<ServiceDetails />} />
+                <Route path="/services/hire-woocommerce-developer" element={<ServiceDetails />} />
+                <Route path="/woocommerce" element={<ServiceDetails />} />
+                <Route path="/woocommerce-development" element={<ServiceDetails />} />
+                <Route path="/hire-woocommerce-developers" element={<ServiceDetails />} />
+                <Route path="/hire-woocommerce-developer" element={<ServiceDetails />} />
+                <Route path="/services/prestashop" element={<ServiceDetails />} />
+                <Route path="/services/prestashop-development" element={<ServiceDetails />} />
+                <Route path="/services/hire-prestashop-developers" element={<ServiceDetails />} />
+                <Route path="/services/hire-prestashop-developer" element={<ServiceDetails />} />
+                <Route path="/prestashop" element={<ServiceDetails />} />
+                <Route path="/prestashop-development" element={<ServiceDetails />} />
+                <Route path="/hire-prestashop-developers" element={<ServiceDetails />} />
+                <Route path="/hire-prestashop-developer" element={<ServiceDetails />} />
                 <Route path="/iwatch-app-development" element={<ServiceDetails />} />
                 <Route path="/services/iwatch-app-development" element={<ServiceDetails />} />
                 <Route path="/ipad-app-development-services" element={<ServiceDetails />} />

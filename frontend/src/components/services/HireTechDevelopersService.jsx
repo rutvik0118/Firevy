@@ -20,6 +20,7 @@ import IndustryFocusedInsightsSection from './IndustryFocusedInsightsSection';
 import AboutKeyMetrics from '../home/AboutKeyMetrics';
 import SapphireFaqSection from '../common/SapphireFaqSection';
 import SubscribeNewsletterSection from '../home/SubscribeNewsletterSection';
+import { ClutchTopRatedBanner } from '../common/ClutchTopRatedBanner';
 import {
   Clock,
   Calendar,
@@ -751,16 +752,18 @@ export const techConfigs = {
   },
 
   'hire-mobile-app-developers': {
-    title: 'Hire Mobile App Developers',
-    metaTitle: 'Hire Mobile App Developers in USA | Dedicated Mobile Programmers',
-    metaDesc: 'Hire certified mobile app developers from Sapphire / Firevy. Build custom native (iOS & Android) and cross-platform mobile apps for startups and enterprises.',
+    title: 'Hire Dedicated Mobile App Developers',
+    metaTitle: 'Hire Dedicated Mobile App Developers in USA | Vetted Mobile Programmers',
+    metaDesc: 'Hire certified mobile app developers from Firevy. Build custom native (iOS & Android) and cross-platform mobile apps for startups and enterprises.',
     canonical: '/services/hire-mobile-app-developers',
-    heroTag: 'Hire Mobile App Developers',
-    heroDesc: 'When you employ skilled mobile app developers from us, we will collaborate with you throughout all phases to create high-performance, engaging, and scalable mobile solutions.',
+    heroTag: 'Hire Dedicated Mobile App Developers',
+    heroDesc: 'We have a team of talented and skilled team of mobile app developers who are well-versed in creating mobile applications. Get Best App Developers for Startups and free quote now!',
+    heroImage: '/images/hire_mobdev_img_1.svg',
     hourlyRate: '$21/Hourly*',
-    remoteTitle: 'Quickly Hire Remote Mobile App Developers From Us',
-    remoteDesc: 'Our flexible hiring methods allow you to hire Mobile App developers in India based on your budget and project specifications. We offer professional developers to resolve mission-critical business issues and complete projects on schedule. When you hire Dedicated Mobile App Experts from us, you receive access to our expertise in mobile app development across various industries.',
-    remoteCta: 'Connect With Mobile App Experts',
+    remoteTitle: 'Professional Mobile App Developers Available For Hire',
+    remoteDesc: "To make your app concept a reality and stay up with the intense competition, you must maximize the optimal combination of high-end development talents and long-lasting user experiences. Hire AI-Powered Mobile App Developers to smartly and effectively implement industry best practices and high-quality outputs that significantly boost your company appoint best app developers for startups in USA. You can hire dedicated mobile app developers from Firevy on an hourly basis who are familiar with the industry's most recent trends and strategies. Our trained app programmers in USA have worked on various scalable and secure mobile app solutions for our specialized and international customers.",
+    remoteImage: '/images/hire_mobdev_img_2.svg',
+    remoteCta: 'Hire Mobile App Developers',
     briefTitle: 'Brief About Our Mobile App Development Services',
     briefP1: 'Modern mobile applications require seamless UI responsiveness, cloud scalability, strict cybersecurity, and cross-device compatibility. Whether your roadmap demands native iOS/Android development or cross-platform Flutter/React Native solutions, our team delivers end-to-end excellence.',
     briefP2: 'When you hire mobile app developers from our team, you gain access to cross-functional mobile squads comprising senior architects, UI/UX designers, backend cloud engineers, and QA automation specialists dedicated to your digital success.',
@@ -884,19 +887,23 @@ export const techConfigs = {
   },
 
   'hire-blackberry-app-developers': {
-    title: 'Hire Blackberry App Developers',
+    title: 'Hire BlackBerry App Developer',
     metaTitle: 'Hire BlackBerry App Developers in USA | Enterprise Mobility Programmers',
-    metaDesc: 'Hire certified BlackBerry & Enterprise Mobility developers from Sapphire / Firevy. Build secure, containerized enterprise apps using BlackBerry Dynamics SDK & UEM.',
+    metaDesc: 'Hire certified BlackBerry developers from Firevy. Build secure, containerized enterprise apps using BlackBerry Dynamics SDK & UEM.',
     canonical: '/services/hire-blackberry-app-developers',
-    heroTag: 'Hire Blackberry App Developers',
-    heroDesc: 'When you employ skilled BlackBerry & Enterprise Mobility developers from us, we will collaborate with you to create military-grade secure, containerized enterprise mobile solutions.',
+    heroTag: 'Hire BlackBerry App Developer',
+    heroDesc: 'We are renowned for our innovative blackberry app development company, with qualified and experienced blackberry app developers that offer superior blackberry app development services',
+    heroImage: '/images/hire_mobdev_img_1.svg',
     hourlyRate: '$21/Hourly*',
-    remoteTitle: 'Quickly Hire Remote BlackBerry App Developers From Us',
-    remoteDesc: 'Our flexible hiring methods allow you to hire BlackBerry and enterprise mobility developers based on your budget and project specifications. We offer professional developers to resolve mission-critical business issues and complete projects on schedule. When you hire Dedicated BlackBerry Experts from us, you receive access to our expertise in secure enterprise mobility across various industries.',
+    showDirectHireButton: true,
+    remoteTitle: 'Hire A Dedicated Blackberry Application Developer From Us',
+    remoteDesc: "You may hire Blackberry developers on a full-time or part-time basis. Hire Blackberry App Developers with a wealth of knowledge and experience to produce superior mobile apps. Using the most recent tools and technologies, they develop world-class Blackberry applications tailored to the client's business requirements and budget. If you hire Blackberry Application Developers from us, you will get the highest quality bespoke Blackberry application development at affordable prices. We offer numerous flexible employment alternatives for Blackberry app developers.",
+    remoteImage: '/images/hire_mobdev_img_2.svg',
     remoteCta: 'Connect With BlackBerry Experts',
-    briefTitle: 'Brief About Our BlackBerry Development Services',
-    briefP1: 'BlackBerry Dynamics and BlackBerry Unified Endpoint Management (UEM) provide the gold standard in enterprise mobile security for government, defense, financial services, and healthcare sectors. Developing secure containerized applications requires specialized knowledge of cryptographic protocols and MDM/MAM policies.',
-    briefP2: 'Our enterprise mobility engineers possess deep expertise in integrating the BlackBerry Dynamics SDK across iOS, Android, and cross-platform frameworks, ensuring airtight data-at-rest and data-in-transit encryption without sacrificing productivity.',
+    briefTitle: 'Brief About Our BlackBerry App Development Services',
+    briefP1: 'Our blackberry developers are pretty efficient and hold years of expertise. Other perks of hiring our developers include: We enable you to communicate with your development team in real-time and directly using Skype. You are free to receive demonstrations whenever it is convenient for you. Stop wishing things are going according to plan and start realizing they are. From the initial conception to the final invoicing of your projects, you will have the ability to see the whole process personally.',
+    briefP2: 'Hire Dedicated Blackberry Mobile App Developers who have received instruction in efficient communication and are always accessible to speak with you in real-time. Without mutual trust, there can be no successful collaboration. Trust was the foundation upon which Firevy was formed, and we are aware that it is something that must be gained, appreciated, and maintained.',
+    briefImage: '/images/hire_mobdev_img_3.svg',
     whyHireTitle: 'Why Hire Dedicated BlackBerry App Developers?',
     whyHireSubtitle: 'Hiring dedicated enterprise mobility developers guarantees compliance with the strictest government, banking, and healthcare security regulations.',
     stepsTitle: 'Hire BlackBerry App Developers In 4 Easy Steps',
@@ -1017,19 +1024,22 @@ export const techConfigs = {
   },
 
   'hire-freelance-app-developers': {
-    title: 'Hire Freelance App Developers',
+    title: 'Hire Freelance App Developer',
     metaTitle: 'Hire Freelance App Developers in USA | Vetted On-Demand Programmers',
-    metaDesc: 'Hire vetted freelance app developers from Sapphire / Firevy. Scale your mobile & web engineering capacity instantly with flexible hourly and monthly contracts.',
+    metaDesc: 'Hire vetted freelance app developers from Firevy. Build custom mobile and web applications with flexible hourly and monthly contracts.',
     canonical: '/services/hire-freelance-app-developers',
-    heroTag: 'Hire Freelance App Developers',
-    heroDesc: 'When you hire vetted freelance app developers from us, you get the flexibility of freelance contracts combined with the accountability, security, and quality guarantees of an enterprise agency.',
+    heroTag: 'Hire Freelance App Developer',
+    heroDesc: 'Bring your mobile or web application ideas to life with freelance services app developer at Firevy. Our Affordable Freelance App Developer is highly-skilled, vetted and ready to provide customized solutions, fast, at scale and with precision! Whether you want to build a new application from scratch or expand an existing application, we provide flexible freelance talent, On-demand App Developer Freelancer and Custom Mobile App Developer for Startup that works towards your timeline and objectives!',
     hourlyRate: '$21/Hourly*',
-    remoteTitle: 'Quickly Hire Remote Freelance App Developers From Us',
-    remoteDesc: 'Our flexible hiring methods allow you to hire freelance app developers in India based on your budget and project specifications. We offer professional developers to resolve mission-critical business issues and complete projects on schedule. When you hire Dedicated Freelance Experts from us, you receive access to our expertise in mobile app development across various industries.',
-    remoteCta: 'Connect With Freelance App Experts',
-    briefTitle: 'Brief About Our Freelance App Development Services',
-    briefP1: 'Finding reliable freelance developers on open marketplaces often leads to communication gaps, abandoned projects, and unverified code quality. Sapphire / Firevy solves this by providing pre-vetted, top 1% freelance engineers backed by an established enterprise infrastructure.',
-    briefP2: 'Whether you need a senior mobile engineer to build an MVP, patch critical bugs, or accelerate sprint velocity, our on-demand developers integrate instantly into your Git, Slack, and Jira workflows with guaranteed accountability and zero recruitment fees.',
+    heroImage: '/images/hire_mobdev_img_1.svg',
+    remoteTitle: 'Quick Access To Best Freelance App Developers – Anytime, Anywhere',
+    remoteDesc: "Obtain instant access to a worldwide network of freelance app developers that specialize in iOS, Android and cross-platform frameworks like Flutter and React Native, as well as backend integrations. At Firevy, we simplify the hiring process to save you time and reduce time-to-market, while also allowing you to scale quickly with qualified developers that have technical competency and business acumen. Our developers are constantly active in modern developer ecosystems, facilitating work with CI/CD pipelines, agile development methods, and cloud-native architectures. Our freelance app developers and designers understand that our customers' output is a cycle that starts with API's into performance of the app, ensuring every deliverable is in line with best practices and aligned with your business vision.",
+    remoteImage: '/images/hire_mobdev_img_2.svg',
+    remoteCta: 'Hire Freelance App Developers',
+    briefTitle: 'Brief About Freelance App Development Services',
+    briefP1: 'We provide flexible hiring models. Whether you want to hire a developer full-time, part-time, or hourly, our flexibility fits the needs of businesses to hire talent as projects require, without upfront investments or ongoing obligations. With access to a global talent pool, clients are hiring freelance app developers in India, USA, UK, Canada, Australia, and UAE for 24x7 coverage, fast onboarding, and successful delivery.',
+    briefP2: 'Hire Freelance App Developer that continuous focus on quality, innovation, and scale - regardless of where you are located in the world.',
+    briefImage: '/images/kotlin_developer_sitting.png',
     whyHireTitle: 'Why Hire Dedicated Freelance App Developers?',
     whyHireSubtitle: 'Get maximum agility and cost-efficiency without the risks of unvetted marketplace freelancers.',
     stepsTitle: 'Hire Freelance App Developers In 4 Easy Steps',
@@ -1152,17 +1162,20 @@ export const techConfigs = {
   'hire-ai-application-developers': {
     title: 'Hire AI Application Developers',
     metaTitle: 'Hire AI Application Developers in USA | Dedicated AI & ML Mobile Programmers',
-    metaDesc: 'Hire certified AI application developers from Sapphire / Firevy. Build intelligent mobile & web apps powered by LLMs, Generative AI, CoreML, and TensorFlow.',
+    metaDesc: 'Hire certified AI application developers from Firevy. Build intelligent mobile & web apps powered by LLMs, Generative AI, CoreML, and TensorFlow.',
     canonical: '/services/hire-ai-application-developers',
     heroTag: 'Hire AI Application Developers',
-    heroDesc: 'When you employ skilled AI application developers from us, we will collaborate with you to create futuristic, intelligent mobile and enterprise applications powered by GenAI and Machine Learning.',
+    heroDesc: 'Bring your mobile or web application ideas to life with AI application developers at Firevy. Our Affordable AI Application Developer is highly-skilled, vetted and ready to provide customized solutions, fast, at scale and with precision! Whether you want to build a new AI-powered application from scratch or expand an existing application with LLMs and Machine Learning, we provide flexible AI talent, On-demand AI Developers and Custom AI Mobile App Developers for Startups that work towards your timeline and objectives!',
     hourlyRate: '$21/Hourly*',
-    remoteTitle: 'Quickly Hire Remote AI Application Developers From Us',
-    remoteDesc: 'Our flexible hiring methods allow you to hire AI application developers in India based on your budget and project specifications. We offer professional developers to resolve mission-critical business issues and complete projects on schedule. When you hire Dedicated AI Application Experts from us, you receive access to our expertise in artificial intelligence and mobile app development across various industries.',
-    remoteCta: 'Connect With AI Application Experts',
+    heroImage: '/images/hire_mobdev_img_1.svg',
+    remoteTitle: 'Quick Access To Best AI Application Developers – Anytime, Anywhere',
+    remoteDesc: "Obtain instant access to a worldwide network of AI application developers that specialize in Generative AI, LLMs, Computer Vision, on-device CoreML & TensorFlow, as well as scalable cloud AI backends. At Firevy, we simplify the hiring process to save you time and reduce time-to-market, while also allowing you to scale quickly with qualified AI engineers that have technical competency and deep machine learning expertise. Our AI developers are constantly active in modern developer ecosystems, facilitating work with LangChain, LlamaIndex, OpenAI, Anthropic, CI/CD pipelines, and cloud-native vector databases. Our AI app developers ensure every intelligent deliverable is in line with best practices and aligned with your business vision.",
+    remoteImage: '/images/hire_mobdev_img_2.svg',
+    remoteCta: 'Hire AI Application Developers',
     briefTitle: 'Brief About Our AI Application Development Services',
     briefP1: 'Artificial Intelligence is transforming consumer mobile and enterprise software. Integrating Large Language Models (LLMs), on-device computer vision, predictive intelligence, and autonomous AI agents enables companies to deliver hyper-personalized user experiences and automate complex operations.',
     briefP2: 'When you hire AI application developers from our team, you gain access to seasoned machine learning architects and full-stack developers experienced in LangChain, LlamaIndex, OpenAI API, CoreML, TensorFlow Lite, and Vector Databases (Pinecone, ChromaDB).',
+    briefImage: '/images/hire_mobdev_img_3.svg',
     whyHireTitle: 'Why Hire Dedicated AI Application Developers?',
     whyHireSubtitle: 'Gain a decisive competitive advantage by integrating cutting-edge AI and automated intelligence into your mobile applications.',
     stepsTitle: 'Hire AI Application Developers In 4 Easy Steps',
@@ -1288,14 +1301,17 @@ export const techConfigs = {
     metaDesc: 'Hire certified iPhone app developers from Sapphire / Firevy. Build custom, high-performance native iOS applications for iPhone using Swift and SwiftUI.',
     canonical: '/services/hire-iphone-app-developers',
     heroTag: 'Hire iPhone App Developers',
-    heroDesc: 'When you employ skilled iPhone app developers from us, we will collaborate with you throughout all phases to create high-performance, elegant, and secure iPhone applications.',
+    heroDesc: 'Want to build a world-class iOS app? Our experts enable you to find best iPhone app developers who excel in creating scalable, secure, and easy-to-use iOS applications aligned with your company goals. Whether you are an enterprise or startup, we provide apps that enhance customer satisfaction, drive revenue, and enhance your brand presence within the Apple platform. Start today with a team emphasizing both performance and innovation.',
+    heroImage: '/images/iphone_hero_illustration.svg',
     hourlyRate: '$21/Hourly*',
-    remoteTitle: 'Quickly Hire Remote iPhone App Developers From Us',
-    remoteDesc: 'Our flexible hiring methods allow you to hire iPhone developers in India based on your budget and project specifications. We offer professional developers to resolve mission-critical business issues and complete projects on schedule. When you hire Dedicated iPhone Experts from us, you receive access to our expertise in mobile app development across various industries.',
+    remoteTitle: 'Hire Dedicated IOS App Developers',
+    remoteDesc: "When you employ professional iOS app programmers from us, you get a team of professionals with expertise in Swift, Objective-C, and Apple's new frameworks. Whether you are looking to develop a straightforward utility app or a sophisticated enterprise-class app, our programmers guarantee smooth performance, user-friendly interfaces, and compatibility on all Apple devices. We offer professional iPhone app developers who work exclusively on your project for optimal productivity.",
+    remoteImage: '/images/iphone_dedicated_illustration.svg',
     remoteCta: 'Connect With iPhone Experts',
-    briefTitle: 'Brief About Our iPhone Development Services',
-    briefP1: 'The iPhone is the benchmark of modern consumer mobile hardware. Crafting an exceptional iPhone app requires deep adherence to Apple’s Human Interface Guidelines (HIG), seamless integration with iOS features (Dynamic Island, Live Activities, Apple Pay, FaceID), and silky 120Hz ProMotion animations.',
-    briefP2: 'When you hire iPhone programmers from our team, you gain access to certified Apple platform developers who build responsive, secure, and commercially successful apps backed by 100% first-time App Store approval records.',
+    briefTitle: 'Dedicated iPhone App Programmers For Every Business Need',
+    briefP1: 'Each business is different, and so are its online needs. Our top iPhone app developers create tailored solutions from e-commerce applications, scheduling systems, medical applications, financial apps, and business solutions. With verified experience in App Store compliance, UI/UX masterpieces, and secure coding principles, we ensure your iOS application shines and drives business results.',
+    briefP2: null,
+    briefImage: '/images/iphone_business_need_illustration.svg',
     whyHireTitle: 'Why Hire Dedicated iPhone App Developers?',
     whyHireSubtitle: 'Hiring dedicated iPhone developers ensures your app meets Apple’s highest performance and aesthetic standards.',
     stepsTitle: 'Hire iPhone App Developers In 4 Easy Steps',
@@ -1411,6 +1427,480 @@ export const techConfigs = {
         id: 9,
         question: 'Why choose Sapphire / Firevy for iPhone application development?',
         answer: 'With 23+ years of engineering experience, 320+ 5-star Clutch reviews, and 1,500+ successful digital solutions, we provide trusted, world-class iPhone development.'
+      }
+    ]
+  },
+
+  'hire-magento-developers': {
+    title: 'Hire Magento Developers',
+    metaTitle: 'Hire Magento Developers in USA | Certified Adobe Commerce Experts',
+    metaDesc: 'Hire certified Magento 2 developers from Sapphire / Firevy. Build custom, high-performance Adobe Commerce and Magento stores with Hyvä themes.',
+    canonical: '/services/hire-magento-developers',
+    heroTag: 'Hire Magento Developers',
+    heroDesc: 'Magento 1 and Magento 2 are included in the Magento development services we provide. If you need to hire Magento developers, you can depend on our knowledgeable Magento 2 developers.',
+    heroImage: '/images/magento_hero_monitor.svg',
+    hourlyRate: '$21/Hourly*',
+    remoteTitle: 'Hire Dedicated Magento Programmers At Affordable Prices',
+    remoteDesc: 'They can assist you with the Magento Community version and the Magento Enterprise edition. Hire a Magento programmer with expertise in delivering various Magento development services, from creating themes to integrating third-party components. We are your one-stop option if you are looking to Hire Dedicated Magento Developers. You may Hire Magento Certified Developer to help you with your online business. We have a team of qualified Magento developers in India that work hard to provide Adobe Commerce development services that our competitors unmatch.',
+    remoteImage: '/images/magento_dedicated_illustration.svg',
+    remoteCta: 'Connect With Magento Experts',
+    briefTitle: 'Brief About Our Magento Developers',
+    briefP1: 'Our developers are not obliged to have any training in any kind of sector or technology. All that is needed of you is to provide them with an explanation of your project, and they will carry out the necessary tasks.',
+    briefP2: 'To guarantee that the procedure runs well, we allocate a senior developer. If you hire Magento developers in UAE, you can rest confident that they will be reliable and responsible since the administration of the project will fall on our shoulders.',
+    briefImage: '/images/magento_brief_developers_illustration.svg',
+    whyHireTitle: 'Why Hire Dedicated Magento Developers?',
+    whyHireSubtitle: 'Hiring dedicated Magento developers ensures your e-commerce store is fast, secure, scalable, and conversion-optimized.',
+    stepsTitle: 'Hire Magento Developers In 4 Easy Steps',
+    stepsSubtitle: 'Onboard elite certified Magento software developers through our streamlined 4-step process:',
+    expertiseTitle: 'The Expertise Of Our Magento Developers',
+    expertiseSubtitle: 'Our talented Magento developers have delivered high-converting Adobe Commerce stores worldwide. Discover their capabilities:',
+    expertise: [
+      {
+        title: 'Custom Magento 2 & Adobe Commerce Store Engineering',
+        desc: 'Build scalable, secure multi-store Magento architectures tailored to complex enterprise catalogs.',
+        icon: ShoppingBag
+      },
+      {
+        title: 'Hyvä Themes & Headless PWA Studio',
+        desc: 'Achieve sub-second page loads and 95+ Google Core Web Vitals using lightweight Hyvä themes and PWA Studio.',
+        icon: Zap
+      },
+      {
+        title: 'ERP, CRM & 3PL Warehouse Integrations',
+        desc: 'Connect Magento seamlessly with SAP, NetSuite, Salesforce, and custom warehouse APIs.',
+        icon: Cpu
+      },
+      {
+        title: 'B2B Commerce & Custom Wholesale Portals',
+        desc: 'Implement tiered pricing, custom quotation workflows, quick order matrix, and requisition lists.',
+        icon: Users
+      },
+      {
+        title: 'Magento Version Upgrades & Security Patches',
+        desc: 'Keep your store secure and compliant with timely Adobe Quality Patches and zero-downtime upgrades.',
+        icon: ShieldCheck
+      },
+      {
+        title: 'Custom Module & Extension Development',
+        desc: 'Develop clean, modular, and upgrade-safe Magento 2 extensions following strict Adobe coding standards.',
+        icon: Code2
+      }
+    ],
+    benefits: [
+      {
+        title: 'Certified Adobe Commerce Architects',
+        desc: 'Access certified Magento engineers with 10+ years of high-volume retail architecture experience.',
+        icon: Award
+      },
+      {
+        title: '100% IP & Source Code Ownership',
+        desc: 'All source code, extensions, themes, and configuration files belong completely to your company.',
+        icon: Lock
+      },
+      {
+        title: 'Flexible Hourly or Monthly Retainers',
+        desc: 'Hire on-demand at $21/hr or scale dedicated squads with guaranteed 160 hrs monthly productivity.',
+        icon: Coins
+      },
+      {
+        title: 'Direct Agile Collaboration',
+        desc: 'Seamless daily standups, Jira trackers, GitHub commits, and direct Slack communication in your timezone.',
+        icon: MessageSquare
+      },
+      {
+        title: 'High-Converting Checkout Optimization',
+        desc: 'Frictionless one-step checkout, one-click Apple Pay / Google Pay, and localized multi-currency flows.',
+        icon: Sparkles
+      },
+      {
+        title: '24/7 Managed SLA & Maintenance',
+        desc: 'Proactive server monitoring, database indexing, caching tuning, and round-the-clock incident response.',
+        icon: RefreshCw
+      }
+    ],
+    faqs: [
+      {
+        id: 1,
+        question: 'Why should I hire dedicated Magento developers from Sapphire / Firevy?',
+        answer: 'Our certified Magento developers bring deep expertise in Magento 2.4.x, Hyvä themes, Headless PWA Studio, and enterprise ERP integrations with flexible hiring models and direct communication.'
+      },
+      {
+        id: 2,
+        question: 'Can your developers migrate our store from Magento 1 to Magento 2?',
+        answer: 'Yes, we provide end-to-end migration services from Magento 1 to the latest Magento 2.4 with zero data loss, order preservation, and SEO retention.'
+      },
+      {
+        id: 3,
+        question: 'What is the pricing model for hiring Magento developers?',
+        answer: 'We offer hourly models starting at $21/hr, dedicated full-time monthly retainers (160 hrs/mo), and fixed-price milestone delivery contracts.'
+      },
+      {
+        id: 4,
+        question: 'How quickly can I onboard a Magento developer?',
+        answer: 'We can present qualified senior Magento developer profiles within 24 hours and have your developer onboarded into your project within 48 to 72 hours.'
+      },
+      {
+        id: 5,
+        question: 'Do your developers follow official Adobe Commerce coding standards?',
+        answer: 'Yes, all code undergoes automated PHPStan and Magento Coding Standard validation before deployment to ensure upgrade safety and high performance.'
+      }
+    ]
+  },
+
+  'hire-woocommerce-developers': {
+    title: 'Hire WooCommerce Developer',
+    metaTitle: 'Hire WooCommerce Developers in USA | Dedicated WordPress & WooCommerce Experts',
+    metaDesc: 'Hire certified WooCommerce developers from Sapphire / Firevy. Build custom, high-converting WooCommerce storefronts, extensions, and payment integrations.',
+    canonical: '/services/hire-woocommerce-developers',
+    heroTag: 'Hire WooCommerce Developer',
+    heroDesc: 'Hire WooCommerce developer in India who create highly individualized and potent eCommerce storefronts for companies of practically every size all around the globe.',
+    heroImage: '/images/woocommerce_hero_monitor.svg',
+    hourlyRate: '$21/Hourly*',
+    remoteTitle: 'Best WooCommerce Developers Are Available For Hire',
+    remoteDesc: 'These developers are available for hire. WooCommerce has consistently shown that it is the most powerful eCommerce platform open, regardless of whether you are considering starting an online company or want to develop websites for your existing eStores. We give a large pool of experienced and creative hire WooCommerce programmer with in-depth knowledge of the eCommerce industry and are experts in developing online shopping portals. In addition, we have a proven track record of establishing hundreds of successful online stores up to this point and providing Best WooCommerce developers for hire.',
+    remoteImage: '/images/woocommerce_dedicated_illustration.svg',
+    remoteCta: 'Connect With WooCommerce Experts',
+    briefTitle: 'Brief About Our WooCommerce Development Services',
+    briefP1: "If you use WordPress for your website, the woo-commerce plugin may be quickly installed and it won't take more than a few minutes.WooCommerce provides 140 region-specific payment gateways to pick from and connect with, including familiar names such as PayPal, Stripe, Square, Apple Pay, and Amazon Pay.The WooCommerce platform gives store administrators a user interface that is intuitive and simple to use, making it possible for them to keep the dashboard's items up to date.You can pick from a large variety of unlimited product variants, single goods, subscription choices, bundles, and many more, merchants using WooCommerce can sell anything on it.",
+    briefP2: '',
+    briefImage: '/images/woocommerce_brief_illustration.svg',
+    whyHireTitle: 'Why Hire Dedicated WooCommerce Developers?',
+    whyHireSubtitle: 'Hiring dedicated WooCommerce developers ensures your online store is fast, secure, scalable, and conversion-optimized.',
+    stepsTitle: 'Hire WooCommerce Developers In 4 Easy Steps',
+    stepsSubtitle: 'Onboard elite WooCommerce developers through our streamlined 4-step process:',
+    expertiseTitle: 'The Expertise Of Our WooCommerce Developers',
+    expertiseSubtitle: 'Our talented WooCommerce developers have delivered hundreds of high-ranking online stores. Discover their capabilities:',
+    expertise: [
+      {
+        title: 'Custom WooCommerce Store Design & Engineering',
+        desc: 'Build bespoke, responsive e-commerce storefronts tailored precisely to your brand and customer buyer journey.',
+        icon: ShoppingBag
+      },
+      {
+        title: 'Bespoke Plugin & Extension Development',
+        desc: 'Engineer custom WordPress/WooCommerce plugins with secure architecture and seamless admin configuration.',
+        icon: Code2
+      },
+      {
+        title: 'Payment Gateway & Multi-Currency Setup',
+        desc: 'Integrate Stripe, PayPal, Square, Apple Pay, Klarna, and localized regional payment providers securely.',
+        icon: Coins
+      },
+      {
+        title: 'High-Volume Caching & Speed Optimization',
+        desc: 'Achieve sub-second product loading and 95+ Core Web Vitals using Redis, Varnish, and clean database queries.',
+        icon: Zap
+      },
+      {
+        title: 'ERP, CRM & 3PL Logistics Inventory Sync',
+        desc: 'Connect your store bi-directionally with QuickBooks, Zoho, Salesforce, SAP, and automated warehouse fulfillment.',
+        icon: Cpu
+      },
+      {
+        title: 'WooCommerce Migration & Version Upgrades',
+        desc: 'Safely upgrade WooCommerce core, PHP, and database versions with zero data loss and 100% SEO preservation.',
+        icon: RefreshCw
+      }
+    ],
+    benefits: [
+      {
+        title: '100% IP & Data Ownership',
+        desc: 'Zero platform lock-in. You retain 100% ownership of your store source code, customer database, and digital assets.',
+        icon: Lock
+      },
+      {
+        title: 'Zero Monthly Platform Fees',
+        desc: 'Avoid hefty monthly SaaS percentage commissions and scale your store revenues with complete financial freedom.',
+        icon: Coins
+      },
+      {
+        title: 'Sub-Second Checkout Performance',
+        desc: 'Optimized one-page checkout flows designed for minimum cart abandonment and maximum conversions.',
+        icon: Sparkles
+      },
+      {
+        title: 'Direct Agile Collaboration',
+        desc: 'Daily standups, Jira/Trello boards, GitHub repository access, and direct Slack communication.',
+        icon: MessageSquare
+      },
+      {
+        title: 'Dedicated Senior Engineers',
+        desc: 'Work directly with senior developers with 8+ years of dedicated WordPress and WooCommerce experience.',
+        icon: UserCheck
+      },
+      {
+        title: '24/7 Managed SLA & Maintenance',
+        desc: 'Proactive malware scanning, uptime monitoring, security patching, and round-the-clock incident response.',
+        icon: ShieldCheck
+      }
+    ],
+    faqs: [
+      {
+        id: 1,
+        question: 'Why should I hire dedicated WooCommerce developers from Sapphire / Firevy?',
+        answer: 'Our certified WooCommerce programmers bring 10+ years of e-commerce experience, custom plugin development mastery, high-speed optimization, and flexible hourly or monthly hiring models.'
+      },
+      {
+        id: 2,
+        question: 'Can you migrate our store from Shopify or Magento to WooCommerce?',
+        answer: 'Yes! We manage complete e-commerce migrations including products, customers, order history, URLs, and SEO metadata with zero downtime.'
+      },
+      {
+        id: 3,
+        question: 'What is the pricing model for hiring WooCommerce developers?',
+        answer: 'We offer flexible hourly rates starting at $21/hr, dedicated full-time monthly retainers (160 hrs/mo), and fixed-price milestone project contracts.'
+      },
+      {
+        id: 4,
+        question: 'How quickly can I onboard a WooCommerce developer?',
+        answer: 'We can share qualified senior developer profiles within 24 hours and have your dedicated developer onboarded within 48 to 72 hours.'
+      },
+      {
+        id: 5,
+        question: 'Can you build custom payment gateway integrations for WooCommerce?',
+        answer: 'Yes, we specialize in building custom payment gateways adhering to PCI-DSS compliance, tokenization, and recurring subscription billing.'
+      }
+    ]
+  },
+
+  'hire-prestashop-developers': {
+    title: 'Hire Prestashop Developer',
+    metaTitle: 'Hire PrestaShop Developers in USA | Dedicated PrestaShop Experts',
+    metaDesc: 'Hire certified PrestaShop developers from Sapphire / Firevy. Build custom, high-performance PrestaShop online stores, modules, and theme customizations.',
+    canonical: '/services/hire-prestashop-developers',
+    heroTag: 'Hire PrestaShop Developer',
+    heroDesc: 'Hire PrestaShop developers to create solutions of the highest possible quality from our highly skilled and enthusiastic staff of PrestaShop developers.',
+    heroImage: '/images/prestashop_hero_monitor.svg',
+    showDirectHireButton: true,
+    remoteTitle: 'Get Prestashop Development Services Globally',
+    remoteDesc: 'Our expert PrestaShop programmers put into practice the appropriate expertise to turn websites into thriving businesses by ensuring that they have the most recent updates. Our PrestaShop Web Development Company, recognized as one of the leading providers of Prestashop Development Services, builds feature-packed eCommerce webshops at competitive prices while combining all necessary components. In addition to these services, we also provide planned consulting, the disclosure of development services, and the creation of individualized modules and PrestaShop themes. No matter what requirements you have for your online store, the knowledgeable PrestaShop for developers can help you meet them.',
+    remoteImage: '/images/prestashop_dedicated_illustration.svg',
+    remoteCta: 'Connect With PrestaShop Experts',
+    briefTitle: 'Brief About Our Prestashop Development Services',
+    briefP1: 'You will be able to take advantage of our consistent, trustworthy, and round-the-clock PrestaShop app maintenance and support services, which will help to guarantee that your eCommerce solution functions smoothly and without any problems.Our primary focus is on boosting the quality of the shopping experience by including various cutting-edge functions, such as CRM and payment methods. We build a product that meets the most current needs of the market by using the most recent technology.If you want seamless performance, you should hire PrestaShop web developers to ensure your website loads quickly. This will prevent end-users from waiting an additional second to get to where they need to go on the website.',
+    briefP2: '',
+    briefImage: '/images/prestashop_brief_illustration.svg',
+    whoIsTitle: 'Who Exactly Is A Prestashop Developer?',
+    whoIsQuoteTitle: 'Highly Scalable\nPrestashop\nECommerce\nSolutions',
+    whoIsP1: 'A Prestashop developer has expertise in integrating APIs provided by other parties, extensive familiarity and expertise with PrestaShop, and a good grasp of MVC Frameworks. Hire PrestaShop Programmers from us with knowledge of Open Source Software and Applications, expertise in the use of AJAX at a high level, exemplary in Terms of the Integration of Payment Gateways, and extensive expertise in the creation of PrestaShop.',
+    whoIsP2: 'Our Prestashop developers are highly competent and devoted. Our Prestashop tech specialists and the team of business analysts that work on the project for our clients keep our customers up to speed with the status of their project and its proceedings. Our team of PrestaShop programmers has excellent technical knowledge of various development solutions and the requirements for professional apps that are emerging these days.',
+    whoIsCta: "Let's Discuss Your Project",
+    whyHireTitle: 'Why Hire Dedicated PrestaShop Developers?',
+    whyHireSubtitle: 'Hiring dedicated PrestaShop programmers ensures high performance, seamless checkout flows, and top security.',
+    stepsTitle: 'Hire PrestaShop Developers In 4 Easy Steps',
+    stepsSubtitle: 'Onboard elite PrestaShop developers through our streamlined 4-step process:',
+    expertiseTitle: 'The Expertise Of Our PrestaShop Developers',
+    expertiseSubtitle: 'Our talented PrestaShop developers have delivered hundreds of high-ranking online stores. Discover their capabilities:',
+    expertise: [
+      {
+        title: 'Custom PrestaShop Store Development',
+        desc: 'Engineer bespoke, lightning-fast PrestaShop e-commerce stores customized for your brand and sales funnel.',
+        icon: ShoppingBag
+      },
+      {
+        title: 'Custom PrestaShop Module Development',
+        desc: 'Develop secure, tailored PrestaShop modules and add-ons compliant with native PrestaShop coding guidelines.',
+        icon: Code2
+      },
+      {
+        title: 'Theme & UI/UX Customization',
+        desc: 'Pixel-perfect, mobile-responsive PrestaShop theme design with sub-second page loads and conversion optimization.',
+        icon: Sparkles
+      },
+      {
+        title: 'PrestaShop Migration & Version Upgrades',
+        desc: 'Upgrade from PrestaShop 1.6/1.7 to 8.x or migrate seamlessly from WooCommerce/Magento with zero downtime.',
+        icon: RefreshCw
+      },
+      {
+        title: 'Payment Gateway & ERP Integrations',
+        desc: 'Integrate global payment processors, inventory management systems, CRM tools, and shipping carrier APIs.',
+        icon: Coins
+      },
+      {
+        title: '24/7 Support, Maintenance & Security SLA',
+        desc: 'Continuous performance optimization, database tuning, security patch application, and malware protection.',
+        icon: ShieldCheck
+      }
+    ],
+    benefits: [
+      {
+        title: '100% Code & Store Ownership',
+        desc: 'Full intellectual property rights and direct GitHub repository access from day one.',
+        icon: Lock
+      },
+      {
+        title: 'Dedicated Senior PrestaShop Specialists',
+        desc: 'Access pre-vetted engineers with 7+ years of specialized PrestaShop and PHP e-commerce expertise.',
+        icon: UserCheck
+      },
+      {
+        title: 'High-Converting Checkout Funnels',
+        desc: 'One-page checkout architecture optimized to eliminate abandoned carts and boost order volume.',
+        icon: Zap
+      },
+      {
+        title: 'Transparent Agile Communication',
+        desc: 'Daily standups, Jira/Trello sprint boards, and direct communication via Slack or MS Teams.',
+        icon: MessageSquare
+      },
+      {
+        title: 'Cost-Effective Hiring Models',
+        desc: 'Save up to 60% on development costs with flexible hourly, monthly, or fixed-price models.',
+        icon: Coins
+      },
+      {
+        title: 'Strict NDA & Enterprise Security',
+        desc: 'Complete IP protection, non-disclosure agreements, and adherence to PCI-DSS standards.',
+        icon: ShieldCheck
+      }
+    ],
+    faqs: [
+      {
+        id: 1,
+        question: 'Why should I hire dedicated PrestaShop developers from Sapphire / Firevy?',
+        answer: 'Our certified PrestaShop programmers bring extensive e-commerce experience, custom module mastery, speed optimization, and flexible hourly or monthly engagement models.'
+      },
+      {
+        id: 2,
+        question: 'Can you migrate our existing online store to PrestaShop?',
+        answer: 'Yes! We manage end-to-end migrations from platforms like Magento, WooCommerce, Shopify, or OpenCart to PrestaShop with 100% data integrity and zero SEO loss.'
+      },
+      {
+        id: 3,
+        question: 'What engagement models do you offer for hiring PrestaShop developers?',
+        answer: 'We provide hourly hiring starting at $21/hr, full-time dedicated monthly developers (160 hours/month), and milestone-based fixed scope contracts.'
+      },
+      {
+        id: 4,
+        question: 'How quickly can I onboard a PrestaShop developer?',
+        answer: 'We share pre-screened developer profiles within 24 hours, and your developer can begin within 48 to 72 hours of contract approval.'
+      },
+      {
+        id: 5,
+        question: 'Can you develop custom modules for PrestaShop 8.x?',
+        answer: 'Yes, our team specializes in building native PrestaShop modules compatible with the latest PrestaShop 8.x and Symfony architecture.'
+      }
+    ]
+  },
+
+  'hire-wordpress-developers': {
+    title: 'Hire WordPress Developers',
+    metaTitle: 'Hire WordPress Developers in USA | Dedicated WordPress Experts',
+    metaDesc: 'Hire certified WordPress developers from Sapphire / Firevy. Build custom WordPress websites, enterprise plugins, Gutenberg blocks, and scalable CMS architectures.',
+    canonical: '/services/hire-wordpress-developers',
+    heroTag: 'Hire WordPress Developers',
+    heroDesc: 'Hire WordPress developers in the USA who always abide by international quality standards and use best practices when delivering quality on all fronts. Contact us now for more info!',
+    heroImage: '/images/wordpress_hero_monitor.svg',
+    hourlyRate: '$21/Hourly*',
+    remoteTitle: 'Hire WordPress Developers Remotely',
+    remoteDesc: 'WordPress has long had a dominant position in website development and blogging. It is by far the most widely used website builder out there. You may Hire Dedicated WordPress developers to fit your requirements, whether you want to establish a personal blog, a commercial website, or an online shop. We have cultivated a team of wordpress website designers that are capable of fulfilling your needs for a digital solution in an effective manner. Our dedicated wordpress experts can construct the optimal solution for you because of their years of expertise in various industrial verticals.',
+    remoteImage: '/images/wordpress_remote_developers.svg',
+    remoteCta: 'Connect With WordPress Experts',
+    briefTitle: 'Brief About Our WordPress Development',
+    briefP1: 'Our developers will aid you in constructing a dependable application while seamlessly preserving transparency, communicating at the appropriate moment, and reporting progress.Hire WordPress developers to work with the other team members in your workplace or at a particular location. This recruitment allows a full-time developer or team to work at your selected location and receive help around the clock.Using this approach as the basis for the web development project has proven beneficial for both startups and medium-sized businesses.When you have a well-defined list of needs for your project, the fixed-price model is an excellent choice for financial management.',
+    briefP2: '',
+    briefImage: '/images/wordpress_brief_illustration.svg',
+    whoIsTitle: 'Who Exactly Is A WordPress Developer?',
+    whoIsQuoteTitle: 'Custom &\nEnterprise\nWordPress\nSolutions',
+    whoIsP1: 'A WordPress developer specializes in custom theme engineering, bespoke plugin development, REST API integrations, and advanced database optimization for high-traffic environments. Hire WordPress Programmers from us with in-depth knowledge of Open Source Software, Gutenberg block creation, and custom post type architectures.',
+    whoIsP2: 'Our WordPress developers are highly competent and devoted. Our tech specialists and business analysts keep clients up to speed with the status of their project with daily reports, transparent sprint boards, and direct communication.',
+    whoIsCta: "Let's Discuss Your Project",
+    whyHireTitle: 'Why Hire Dedicated WordPress Developers?',
+    whyHireSubtitle: 'Hiring dedicated WordPress developers ensures your online presence is fast, secure, scalable, and conversion-optimized.',
+    stepsTitle: 'Hire WordPress Developers In 4 Easy Steps',
+    stepsSubtitle: 'Onboard elite WordPress developers through our streamlined 4-step process:',
+    expertiseTitle: 'The Expertise Of Our WordPress Developers',
+    expertiseSubtitle: 'Our talented WordPress developers have delivered hundreds of high-ranking websites. Discover their capabilities:',
+    expertise: [
+      {
+        title: 'Custom WordPress Theme & Block Engineering',
+        desc: 'Build bespoke, responsive WordPress themes and custom Gutenberg blocks tailored precisely to your brand guidelines.',
+        icon: Sparkles
+      },
+      {
+        title: 'Custom Plugin & Extension Development',
+        desc: 'Engineer secure, scalable WordPress plugins adhering to WordPress core coding standards and security best practices.',
+        icon: Code2
+      },
+      {
+        title: 'WooCommerce & Custom Checkout Setup',
+        desc: 'Integrate multi-currency payment gateways, custom product builders, automated shipping feeds, and subscription funnels.',
+        icon: ShoppingBag
+      },
+      {
+        title: 'Headless WordPress (Decoupled Architecture)',
+        desc: 'Combine WordPress REST/GraphQL API as a flexible CMS backend with Next.js or React for sub-second frontend rendering.',
+        icon: Cpu
+      },
+      {
+        title: 'Speed Optimization & Core Web Vitals',
+        desc: 'Achieve 95+ Google PageSpeed scores using Redis object caching, Cloudflare CDN, image compression, and database tuning.',
+        icon: Zap
+      },
+      {
+        title: 'WordPress Migration & Enterprise Security SLA',
+        desc: 'Safely migrate from Drupal, Joomla, or legacy CMS with 100% SEO preservation, SSL hardening, and 24/7 malware scanning.',
+        icon: ShieldCheck
+      }
+    ],
+    benefits: [
+      {
+        title: '100% IP & Data Ownership',
+        desc: 'Zero platform lock-in. You retain complete ownership of your custom themes, plugins, customer data, and digital assets.',
+        icon: Lock
+      },
+      {
+        title: 'Dedicated Senior WordPress Engineers',
+        desc: 'Work directly with senior engineers with 8+ years of dedicated WordPress, PHP, and modern JavaScript expertise.',
+        icon: UserCheck
+      },
+      {
+        title: 'Sub-Second Page Load Optimization',
+        desc: 'Optimized server-side caching and lightweight code execution designed for maximum SEO visibility and user retention.',
+        icon: Zap
+      },
+      {
+        title: 'Direct Agile Collaboration',
+        desc: 'Daily standups, Jira/Trello boards, GitHub repository access, and direct Slack communication with your dedicated developer.',
+        icon: MessageSquare
+      },
+      {
+        title: 'Flexible Hourly or Retainer Models',
+        desc: 'Scale your engineering bandwidth up or down with flexible hourly rates or dedicated full-time monthly developer contracts.',
+        icon: Coins
+      },
+      {
+        title: '24/7 Managed SLA & Security',
+        desc: 'Proactive malware scanning, uptime monitoring, core updates, and round-the-clock emergency incident response.',
+        icon: ShieldCheck
+      }
+    ],
+    faqs: [
+      {
+        id: 1,
+        question: 'Why should I hire dedicated WordPress developers from Sapphire / Firevy?',
+        answer: 'Our certified WordPress developers bring 10+ years of CMS mastery, bespoke theme and plugin development skills, sub-second speed optimization, and flexible hourly or monthly engagement models.'
+      },
+      {
+        id: 2,
+        question: 'Can you build custom Gutenberg blocks for our editorial team?',
+        answer: 'Yes! We create tailored Gutenberg blocks using React and the WordPress Block API, empowering your content creators to build bespoke pages effortlessly.'
+      },
+      {
+        id: 3,
+        question: 'What is the pricing model for hiring WordPress developers?',
+        answer: 'We provide flexible hourly pricing starting at $21/hr, dedicated full-time monthly retainers (160 hrs/mo), and fixed milestone contracts.'
+      },
+      {
+        id: 4,
+        question: 'How quickly can I onboard a dedicated WordPress developer?',
+        answer: 'We can match and share verified senior developer profiles within 24 hours, and your dedicated developer can start within 48 to 72 hours.'
+      },
+      {
+        id: 5,
+        question: 'Can you migrate our existing website from Wix/Squarespace/Drupal to WordPress?',
+        answer: 'Yes, we handle complete content, image, URL rewrite, and SEO metadata migrations with zero downtime and 100% search ranking preservation.'
       }
     ]
   }
@@ -1659,26 +2149,38 @@ export const HireTechDevelopersService = ({ techKey }) => {
                 </div>
               </div>
 
-              {/* Call-to-action pill box */}
-              <div className="space-y-3 pt-3">
-                <div className="text-sm sm:text-[15px] font-[700] text-[#006095]">
-                  Get Top Talent Work for you At
-                </div>
-                <div className="inline-flex items-center justify-between bg-[#0089a8] rounded-[16px] p-2 pl-3.5 pr-2 w-full max-w-[410px] shadow-lg shadow-[#0089a8]/25">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center shrink-0 shadow-sm">
-                      <Clock className="w-4 h-4 text-[#0089a8] stroke-[2.5]" />
-                    </div>
-                    <span className="text-xl sm:text-[22px] font-[800] text-white tracking-tight">{config.hourlyRate}</span>
-                  </div>
+              {/* Call-to-action */}
+              {config.showDirectHireButton ? (
+                <div className="pt-2">
                   <Link
                     to="/contact"
-                    className="bg-white text-[#006095] hover:bg-slate-50 font-[700] px-6 py-2.5 rounded-[10px] text-[15px] transition-all shadow-sm flex items-center justify-center cursor-pointer"
+                    className="inline-flex items-center space-x-2 px-7 py-3 rounded-[6px] bg-[#005F96] hover:bg-[#004B77] text-white font-[700] text-sm sm:text-base transition-all shadow-sm hover:shadow-md cursor-pointer"
                   >
-                    Hire Team
+                    <span>Hire Team</span>
+                    <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>
-              </div>
+              ) : (
+                <div className="space-y-3 pt-3">
+                  <div className="text-sm sm:text-[15px] font-[700] text-[#006095]">
+                    Get Top Talent Work for you At
+                  </div>
+                  <div className="inline-flex items-center justify-between bg-[#0089a8] rounded-[16px] p-2 pl-3.5 pr-2 w-full max-w-[410px] shadow-lg shadow-[#0089a8]/25">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center shrink-0 shadow-sm">
+                        <Clock className="w-4 h-4 text-[#0089a8] stroke-[2.5]" />
+                      </div>
+                      <span className="text-xl sm:text-[22px] font-[800] text-white tracking-tight">{config.hourlyRate}</span>
+                    </div>
+                    <Link
+                      to="/contact"
+                      className="bg-white text-[#006095] hover:bg-slate-50 font-[700] px-6 py-2.5 rounded-[10px] text-[15px] transition-all shadow-sm flex items-center justify-center cursor-pointer"
+                    >
+                      Hire Team
+                    </Link>
+                  </div>
+                </div>
+              )}
             </div>
 
             {/* Right Column Graphic */}
@@ -1736,6 +2238,8 @@ export const HireTechDevelopersService = ({ techKey }) => {
           </div>
         </Container>
       </section>
+
+
 
       {/* ============================================================
           4. OUR FLEXIBLE HIRING MODELS (Light Cards Carousel)
@@ -1860,11 +2364,11 @@ export const HireTechDevelopersService = ({ techKey }) => {
           <div className="max-w-4xl mx-auto overflow-x-auto rounded-2xl border border-slate-200 shadow-sm">
             <table className="w-full text-left border-collapse min-w-[620px]">
               <thead>
-                <tr className="bg-[#00557e] text-white">
+                <tr className="bg-[#006095] text-white">
                   <th className="p-4 sm:p-4.5 font-[800] text-sm sm:text-[15px] w-1/4">Range of Developers</th>
-                  <th className="p-4 sm:p-4.5 font-[800] text-sm sm:text-[15px] w-1/4 border-l border-cyan-800/40">Junior Developers</th>
-                  <th className="p-4 sm:p-4.5 font-[800] text-sm sm:text-[15px] w-1/4 border-l border-cyan-800/40">Mid-Level Developers</th>
-                  <th className="p-4 sm:p-4.5 font-[800] text-sm sm:text-[15px] w-1/4 border-l border-cyan-800/40">Senior Developers</th>
+                  <th className="p-4 sm:p-4.5 font-[800] text-sm sm:text-[15px] w-1/4 border-l border-white/20">Junior Developers</th>
+                  <th className="p-4 sm:p-4.5 font-[800] text-sm sm:text-[15px] w-1/4 border-l border-white/20">Mid-Level Developers</th>
+                  <th className="p-4 sm:p-4.5 font-[800] text-sm sm:text-[15px] w-1/4 border-l border-white/20">Senior Developers</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-slate-200">
@@ -1910,10 +2414,12 @@ export const HireTechDevelopersService = ({ techKey }) => {
         </Container>
       </section>
 
+
+
       {/* ============================================================
           6. BRIEF ABOUT OUR DEVELOPMENT SERVICES
           ============================================================ */}
-      <section className="py-20 bg-white font-sans text-slate-900 border-b border-slate-100 text-left">
+      <section className="py-16 md:py-20 bg-[#F9FBFC] font-sans text-slate-900 border-b border-slate-100 text-left">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Content */}
@@ -1924,22 +2430,95 @@ export const HireTechDevelopersService = ({ techKey }) => {
               <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
                 {config.briefP1}
               </p>
-              <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
-                {config.briefP2}
-              </p>
+              {config.briefP2 && (
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
+                  {config.briefP2}
+                </p>
+              )}
             </div>
 
             {/* Right Graphic Illustration */}
             <div className="lg:col-span-6 relative flex justify-center items-center">
               <img
-                src="/images/kotlin_developer_sitting.png"
+                src={config.briefImage || "/images/kotlin_developer_sitting.png"}
                 alt={config.briefTitle}
-                className="w-full max-w-[500px] h-auto object-contain mx-auto"
+                className="w-full max-w-[520px] h-auto object-contain mx-auto drop-shadow-md"
               />
             </div>
           </div>
         </Container>
       </section>
+
+      {/* ============================================================
+          CLUTCH TOP RATED AWARDS BANNER (Exact Screenshot Match)
+          ============================================================ */}
+      <ClutchTopRatedBanner
+        title={`World Wide Top Rated ${config.title.replace('Hire ', '').replace(' Developers', '').replace(' Developer', '')} Development Company on Clutch`}
+      />
+
+      {/* ============================================================
+          WHO EXACTLY IS A DEVELOPER? (Exact Screenshot Match)
+          ============================================================ */}
+      {(config.whoIsTitle || config.title) && (
+        <section className="py-16 md:py-24 bg-white font-sans text-slate-900 border-b border-slate-100">
+          <Container>
+            {/* Section Title */}
+            <h2 className="text-2xl sm:text-3xl lg:text-[40px] font-[900] text-slate-900 tracking-tight leading-tight text-center mb-12 sm:mb-16">
+              {config.whoIsTitle || `Who Exactly Is A ${config.title.replace('Hire ', '')}?`}
+            </h2>
+
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
+              {/* Left Box with Quote & Bold Text */}
+              <div className="lg:col-span-4 bg-[#F0F7FC] rounded-2xl p-8 sm:p-10 flex flex-col justify-center relative overflow-hidden border border-cyan-100/60 shadow-sm">
+                {/* Speech bubble pointer triangle on right side for large screens */}
+                <div className="hidden lg:block absolute -right-3 top-1/2 -translate-y-1/2 w-0 h-0 border-t-[14px] border-t-transparent border-b-[14px] border-b-transparent border-l-[14px] border-l-[#F0F7FC] z-20"></div>
+
+                {/* Background Subtle Contour Pattern */}
+                <svg className="absolute inset-0 w-full h-full text-cyan-200/25 pointer-events-none" viewBox="0 0 400 400" fill="none">
+                  <path d="M 0 100 C 100 50, 200 150, 300 100 C 400 50, 500 150, 600 100" stroke="currentColor" strokeWidth="2.5" />
+                  <path d="M 0 200 C 100 150, 200 250, 300 200 C 400 150, 500 250, 600 200" stroke="currentColor" strokeWidth="2.5" />
+                  <path d="M 0 300 C 100 250, 200 350, 300 300 C 400 250, 500 350, 600 300" stroke="currentColor" strokeWidth="2.5" />
+                  <circle cx="200" cy="200" r="140" stroke="currentColor" strokeWidth="1.5" />
+                </svg>
+
+                <div className="relative z-10 space-y-5">
+                  {/* Large Quote Icon */}
+                  <div className="text-[#0083B0]">
+                    <svg viewBox="0 0 48 48" className="w-14 h-14 fill-current">
+                      <path d="M12 28 C 12 18, 20 12, 28 10 L 26 14 C 21 16, 17 20, 17 25 L 23 25 L 23 38 L 12 38 Z M 28 28 C 28 18, 36 12, 44 10 L 42 14 C 37 16, 33 20, 33 25 L 39 25 L 39 38 L 28 38 Z" />
+                    </svg>
+                  </div>
+
+                  <h3 className="text-2xl sm:text-3xl lg:text-[32px] font-[900] text-[#006095] leading-[1.25] tracking-tight whitespace-pre-line">
+                    {config.whoIsQuoteTitle || `Highly Scalable\n${config.title.replace('Hire ', '').replace(' Developers', '').replace(' Developer', '')}\nSolutions`}
+                  </h3>
+                </div>
+              </div>
+
+              {/* Right Text Column */}
+              <div className="lg:col-span-8 flex flex-col justify-between space-y-6">
+                <div className="space-y-5 text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
+                  <p>
+                    {config.whoIsP1 || `Our dedicated ${config.title.replace('Hire ', '')} experts specialize in crafting high-performance, robust, and future-proof digital solutions aligned precisely with your organizational growth objectives.`}
+                  </p>
+                  <p>
+                    {config.whoIsP2 || `With complete technical proficiency, transparent sprint reporting, and seamless API integrations, our engineers deliver tailored architectures designed for optimal user experience and enterprise scalability.`}
+                  </p>
+                </div>
+
+                <div className="pt-2">
+                  <Link
+                    to="/contact"
+                    className="inline-flex items-center justify-center bg-[#006095] hover:bg-[#004f7a] text-white font-bold px-8 py-3.5 rounded-lg text-sm sm:text-base transition-all shadow-md hover:shadow-lg cursor-pointer"
+                  >
+                    {config.whoIsCta || "Let's Discuss Your Project"}
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </Container>
+        </section>
+      )}
 
       {/* ============================================================
           7. OUR PREMIUM SERVICES (Component)
@@ -2085,14 +2664,14 @@ export const HireTechDevelopersService = ({ techKey }) => {
       <ClientReviewsDarkSection />
 
       {/* ============================================================
-          21. FREQUENTLY ASKED QUESTIONS
-          ============================================================ */}
-      <SapphireFaqSection faqList={config.faqs} />
-
-      {/* ============================================================
-          22. RECENT BLOGS SECTION
+          21. RECENT BLOGS SECTION
           ============================================================ */}
       <RecentBlogsSection />
+
+      {/* ============================================================
+          22. FREQUENTLY ASKED QUESTIONS
+          ============================================================ */}
+      <SapphireFaqSection faqList={config.faqs} />
 
       {/* ============================================================
           23. NEWSLETTER SUBSCRIBE

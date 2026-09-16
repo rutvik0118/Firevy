@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 440" width="100%" height="100%" fill="none">
+  <defs>
+    <linearGradient id="laptopBodyGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1E293B" />
+      <stop offset="100%" stop-color="#0F172A" />
+    </linearGradient>
+    <linearGradient id="screenAreaGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#F8FAFC" />
+    </linearGradient>
+    <filter id="mageLaptopShadow" x="-10%" y="-10%" width="125%" height="125%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#0F172A" flood-opacity="0.14" />
+    </filter>
+  </defs>
+
+  <!-- Ground Line -->
+  <ellipse cx="280" cy="410" rx="220" ry="10" fill="#E2E8F0" opacity="0.8" />
+  <line x1="50" y1="410" x2="480" y2="410" stroke="#CBD5E1" stroke-width="2" />
+
+  <!-- ================= CENTRAL LAPTOP ================= -->
+  <g filter="url(#mageLaptopShadow)">
+    <!-- Laptop Screen Outer Lid -->
+    <rect x="140" y="70" width="280" height="195" rx="12" fill="url(#laptopBodyGrad)" stroke="#38BDF8" stroke-width="2" />
+    
+    <!-- Screen Inner Display -->
+    <rect x="148" y="78" width="264" height="178" rx="6" fill="url(#screenAreaGrad)" />
+
+    <!-- Screen Header Browser/App Bar -->
+    <rect x="148" y="78" width="264" height="22" fill="#38BDF8" />
+    <circle cx="160" cy="89" r="3.5" fill="#FFFFFF" />
+    <circle cx="170" cy="89" r="3.5" fill="#FFFFFF" />
+    <circle cx="180" cy="89" r="3.5" fill="#FFFFFF" />
+
+    <!-- SCREEN UI WIREFRAME ELEMENTS -->
+    <!-- Top Wireframe Container Box (Dashed) -->
+    <rect x="160" y="108" width="165" height="50" rx="6" fill="#F0F9FF" stroke="#BAE6FD" stroke-dasharray="3 3" stroke-width="1.2" />
+    <circle cx="210" cy="125" r="4" fill="#0284C7" />
+    <circle cx="280" cy="125" r="4" fill="#0284C7" />
+    <line x1="170" y1="145" x2="315" y2="145" stroke="#93C5FD" stroke-width="2" />
+
+    <!-- Horizontal Lines Block in middle -->
+    <rect x="160" y="165" width="120" height="22" rx="4" fill="#93C5FD" />
+    <line x1="168" y1="172" x2="272" y2="172" stroke="#0369A1" stroke-width="2" />
+    <line x1="168" y1="179" x2="250" y2="179" stroke="#0369A1" stroke-width="2" />
+
+    <!-- Bottom Small Wireframe Cards (Gear & Photo) -->
+    <rect x="180" y="195" width="34" height="34" rx="6" fill="#FFFFFF" stroke="#38BDF8" stroke-width="1.5" />
+    <!-- Gear Icon in card -->
+    <circle cx="197" cy="212" r="7" stroke="#0284C7" stroke-width="2" fill="none" />
+    <circle cx="197" cy="212" r="2.5" fill="#0284C7" />
+
+    <rect x="222" y="195" width="34" height="34" rx="6" fill="#FFFFFF" stroke="#38BDF8" stroke-width="1.5" />
+    <!-- Photo Icon in card -->
+    <circle cx="244" cy="205" r="3" fill="#0284C7" />
+    <polygon points="228,222 236,212 244,222" fill="#0284C7" />
+    <polygon points="240,222 247,215 252,222" fill="#38BDF8" />
+
+    <!-- Right Side Big Tag Badge </> -->
+    <rect x="270" y="180" width="46" height="46" rx="8" fill="#38BDF8" />
+    <text x="293" y="210" font-family="monospace" font-size="16" font-weight="900" fill="#FFFFFF" text-anchor="middle">&lt;/&gt;</text>
+
+    <!-- Floating Diamond Badge with {} -->
+    <g transform="translate(160, 140) rotate(-15)">
+      <rect x="-16" y="-16" width="36" height="36" rx="8" fill="#60A5FA" stroke="#FFFFFF" stroke-width="2" />
+      <text x="2" y="7" font-family="monospace" font-size="16" font-weight="900" fill="#FFFFFF" text-anchor="middle">{ }</text>
+    </g>
+
+    <!-- Laptop Keyboard Base -->
+    <path d="M 110 265 L 450 265 L 430 280 L 130 280 Z" fill="#0F172A" />
+    <rect x="240" y="265" width="80" height="5" rx="2" fill="#475569" />
+  </g>
+
+  <!-- ================= FEMALE DEVELOPER (LEFT) ================= -->
+  <g>
+    <!-- Foot Shadows -->
+    <ellipse cx="94" cy="410" rx="14" ry="4" fill="#CBD5E1" />
+    <ellipse cx="120" cy="410" rx="14" ry="4" fill="#CBD5E1" />
+
+    <!-- Shoes (Heels) -->
+    <polygon points="88,406 98,406 96,410 87,410" fill="#0F172A" />
+    <polygon points="114,406 124,406 122,410 113,410" fill="#0F172A" />
+
+    <!-- Bare Legs -->
+    <rect x="91" y="340" width="8" height="68" fill="#FED7AA" />
+    <rect x="115" y="340" width="8" height="68" fill="#FED7AA" />
+
+    <!-- Dark Navy Pencil Skirt -->
+    <polygon points="85,275 130,275 125,342 90,342" fill="#1E3A8A" />
+
+    <!-- Light Cyan / Blue Top -->
+    <polygon points="90,215 126,215 130,276 85,276" fill="#38BDF8" />
+
+    <!-- Left Arm (Hand on Hip) -->
+    <path d="M 90 220 L 72 250 L 85 265" stroke="#38BDF8" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+    <circle cx="85" cy="265" r="4.5" fill="#FED7AA" />
+
+    <!-- Right Arm pointing towards screen -->
+    <path d="M 126 220 L 152 245" stroke="#38BDF8" stroke-width="8" stroke-linecap="round" fill="none" />
+    <circle cx="152" cy="245" r="4.5" fill="#FED7AA" />
+
+    <!-- Neck & Face -->
+    <rect x="104" y="202" width="7" height="14" fill="#FED7AA" />
+    <circle cx="107" cy="192" r="13" fill="#FED7AA" />
+
+    <!-- Dark Styled Hair -->
+    <path d="M 94 190 C 94 176 104 174 118 176 C 125 180 126 195 123 210 C 117 200 105 198 98 206 Z" fill="#0F172A" />
+    <path d="M 94 190 C 94 205 91 216 88 226 C 93 226 98 215 100 200 Z" fill="#0F172A" />
+  </g>
+
+  <!-- ================= MALE DEVELOPER (RIGHT) ================= -->
+  <g>
+    <!-- Foot Shadows -->
+    <ellipse cx="400" cy="410" rx="16" ry="4" fill="#CBD5E1" />
+    <ellipse cx="428" cy="410" rx="16" ry="4" fill="#CBD5E1" />
+
+    <!-- Shoes -->
+    <path d="M 392,406 L 406,406 L 408,410 L 390,410 Z" fill="#0F172A" />
+    <path d="M 420,406 L 434,406 L 436,410 L 418,410 Z" fill="#0F172A" />
+
+    <!-- Dark Navy Trousers -->
+    <path d="M 398 290 L 410 290 L 404 406 L 394 406 Z" fill="#1E3A8A" />
+    <path d="M 414 290 L 426 290 L 432 406 L 422 406 Z" fill="#1E3A8A" />
+
+    <!-- Yellow / Amber Top -->
+    <polygon points="395,225 432,225 426,295 398,295" fill="#F59E0B" />
+
+    <!-- Arms holding Blue Tablet / Code Tile -->
+    <path d="M 398 230 L 365 210" stroke="#F59E0B" stroke-width="8" stroke-linecap="round" fill="none" />
+    <circle cx="365" cy="210" r="4.5" fill="#FED7AA" />
+
+    <path d="M 430 230 L 390 205" stroke="#F59E0B" stroke-width="8" stroke-linecap="round" fill="none" />
+    <circle cx="390" cy="205" r="4.5" fill="#FED7AA" />
+
+    <!-- Blue Square Block with Play/Code icon in Hands -->
+    <rect x="350" y="180" width="46" height="46" rx="8" fill="#0284C7" stroke="#38BDF8" stroke-width="1.5" />
+    <circle cx="373" cy="203" r="10" fill="#FFFFFF" opacity="0.3" />
+    <polygon points="369,197 379,203 369,209" fill="#FFFFFF" />
+
+    <!-- Neck & Head -->
+    <rect x="408" y="212" width="7" height="14" fill="#FED7AA" />
+    <circle cx="412" cy="200" r="13" fill="#FED7AA" />
+
+    <!-- Dark Hair -->
+    <path d="M 402 198 C 402 186 412 185 422 187 C 427 190 427 200 425 210 C 420 206 412 206 406 210 Z" fill="#0F172A" />
+  </g>
+</svg>

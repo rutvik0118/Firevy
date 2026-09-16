@@ -1,0 +1,117 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 420" width="100%" height="100%" fill="none">
+  <defs>
+    <filter id="softGlow" x="-10%" y="-10%" width="125%" height="125%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0284C7" flood-opacity="0.12" />
+    </filter>
+  </defs>
+
+  <!-- Ground Line -->
+  <line x1="30" y1="388" x2="590" y2="388" stroke="#E2E8F0" stroke-width="2" />
+
+  <!-- ================= BACKGROUND STOREFRONT / BROWSER WINDOW ================= -->
+  <g transform="translate(180, 50)" filter="url(#softGlow)">
+    <!-- Main Window Frame -->
+    <rect x="0" y="0" width="300" height="190" rx="14" fill="#BAE6FD" opacity="0.65" />
+    
+    <!-- Window Header with 3 dots -->
+    <circle cx="18" cy="18" r="4" fill="#FFFFFF" opacity="0.8" />
+    <circle cx="32" cy="18" r="4" fill="#FFFFFF" opacity="0.8" />
+    <circle cx="46" cy="18" r="4" fill="#FFFFFF" opacity="0.8" />
+
+    <!-- Window Inner Panels / Product Cards -->
+    <!-- Left Box with Gift/Package Icon -->
+    <rect x="25" y="38" width="100" height="135" rx="10" fill="#E0F2FE" opacity="0.85" />
+    <rect x="42" y="60" width="66" height="50" rx="6" fill="#FFFFFF" opacity="0.9" />
+    <!-- Gift box ribbon in white box -->
+    <rect x="72" y="60" width="6" height="50" fill="#BAE6FD" />
+    <rect x="42" y="82" width="66" height="6" fill="#BAE6FD" />
+
+    <!-- Right Top Panel -->
+    <rect x="140" y="38" width="145" height="60" rx="10" fill="#E0F2FE" opacity="0.85" />
+    <!-- Right Bottom Panel -->
+    <rect x="140" y="110" width="145" height="63" rx="10" fill="#E0F2FE" opacity="0.85" />
+  </g>
+
+  <!-- ================= LEFT POTTED PLANT ================= -->
+  <g transform="translate(90, 240)">
+    <!-- Plant Leaves -->
+    <path d="M 50 110 C 20 80 15 40 45 20 C 55 50 52 85 50 110 Z" fill="#38BDF8" />
+    <path d="M 50 110 C 60 70 85 30 105 50 C 95 80 75 100 50 110 Z" fill="#0284C7" />
+    <path d="M 50 110 C 10 95 0 65 15 45 C 30 65 42 90 50 110 Z" fill="#0369A1" />
+    <path d="M 50 110 C 70 85 105 75 110 95 C 90 110 70 110 50 110 Z" fill="#38BDF8" />
+    
+    <!-- Pot -->
+    <path d="M 35 110 L 65 110 L 60 148 L 40 148 Z" fill="#1E293B" />
+  </g>
+
+  <!-- ================= RIGHT PACKAGES ON FLOOR ================= -->
+  <g transform="translate(480, 310)">
+    <!-- Base Large Box -->
+    <rect x="0" y="30" width="55" height="48" rx="3" fill="#38BDF8" />
+    <rect x="23" y="30" width="9" height="48" fill="#0284C7" />
+    <!-- Small Top Box -->
+    <rect x="25" y="0" width="45" height="38" rx="3" fill="#0284C7" />
+    <rect x="42" y="0" width="7" height="38" fill="#38BDF8" />
+  </g>
+
+  <!-- ================= MINIMAL BLUE WORK DESK ================= -->
+  <g transform="translate(290, 240)">
+    <!-- Desk Top Surface -->
+    <rect x="0" y="70" width="170" height="10" rx="4" fill="#0284C7" />
+    <!-- Desk Legs -->
+    <rect x="15" y="80" width="7" height="68" fill="#0284C7" />
+    <rect x="150" y="80" width="7" height="68" fill="#0284C7" />
+
+    <!-- Open Laptop on Desk -->
+    <polygon points="50,68 85,68 95,70 40,70" fill="#94A3B8" />
+    <path d="M 85 40 L 98 70 L 90 70 L 80 40 Z" fill="#0284C7" />
+    <polygon points="80,42 85,42 96,68 90,68" fill="#FFFFFF" />
+  </g>
+
+  <!-- ================= CHAIR ================= -->
+  <g transform="translate(200, 220)">
+    <!-- Chair Backrest & Seat (Modern Shell Chair) -->
+    <path d="M 10 30 C 5 60 15 95 35 105 L 85 105 C 90 105 95 100 95 95 L 90 85 C 65 85 45 65 40 30 C 40 15 15 15 10 30 Z" fill="#38BDF8" />
+    <!-- Legs (Wood / Dark angled legs) -->
+    <line x1="35" y1="105" x2="15" y2="168" stroke="#1E293B" stroke-width="4" stroke-linecap="round" />
+    <line x1="65" y1="105" x2="80" y2="168" stroke="#1E293B" stroke-width="4" stroke-linecap="round" />
+    <line x1="25" y1="135" x2="72" y2="135" stroke="#1E293B" stroke-width="2.5" />
+    <line x1="25" y1="135" x2="68" y2="155" stroke="#1E293B" stroke-width="2" />
+    <line x1="72" y1="135" x2="20" y2="155" stroke="#1E293B" stroke-width="2" />
+  </g>
+
+  <!-- ================= DEVELOPER SITTING ================= -->
+  <!-- Legs (Navy Pants) -->
+  <g transform="translate(210, 240)">
+    <!-- Thighs -->
+    <path d="M 30 75 L 85 75 C 95 75 105 85 110 95 L 125 148 L 105 148 L 90 100 L 30 85 Z" fill="#1E293B" />
+    <!-- Bare Feet / Shoes -->
+    <path d="M 125 148 L 142 148 C 146 148 148 145 146 142 L 138 140 Z" fill="#FED7AA" />
+  </g>
+
+  <!-- Torso & Shirt (Light Blue) -->
+  <g transform="translate(210, 160)">
+    <!-- Torso -->
+    <path d="M 25 70 C 25 50 35 35 55 35 C 75 35 85 50 85 70 L 80 120 L 30 120 Z" fill="#38BDF8" />
+
+    <!-- Head & Hair -->
+    <rect x="52" y="16" width="12" height="18" fill="#FED7AA" />
+    <circle cx="58" cy="14" r="15" fill="#FED7AA" />
+    <!-- Dark Hair -->
+    <path d="M 44 14 C 44 2 54 -3 68 0 C 76 3 76 10 74 18 C 66 12 56 12 50 18 Z" fill="#1E293B" />
+    <!-- Ear -->
+    <circle cx="48" cy="14" r="3" fill="#FED7AA" />
+
+    <!-- Left Arm holding delivery box forward -->
+    <path d="M 68 45 L 110 70 L 140 70" stroke="#38BDF8" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+    <circle cx="140" cy="70" r="7" fill="#FED7AA" />
+
+    <!-- Held Delivery Parcel Box -->
+    <g transform="translate(135, 38)">
+      <rect x="0" y="0" width="55" height="42" rx="4" fill="#38BDF8" stroke="#0284C7" stroke-width="1.5" />
+      <rect x="6" y="8" width="14" height="10" rx="1.5" fill="#FFFFFF" opacity="0.85" />
+      <line x1="28" y1="12" x2="48" y2="12" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" />
+      <line x1="28" y1="18" x2="44" y2="18" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" />
+    </g>
+  </g>
+</svg>
