@@ -282,13 +282,13 @@ export const AppDevelopmentConsultingService = () => {
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             {/* Left Content */}
-            <div className="lg:col-span-6 space-y-6 text-left">
-              <h1 className="text-slate-900 tracking-tight font-extrabold text-3xl sm:text-4xl lg:text-[44px] leading-[1.15]">
-                App Development Consulting <br className="hidden sm:inline" />
+            <div className="lg:col-span-6 space-y-5 text-left font-['Poppins',sans-serif]">
+              <h1 className="text-[#000000] font-[800] text-3xl sm:text-4xl lg:text-[45px] xl:text-[48px] leading-[1.18] tracking-tight">
+                App Development Consulting <br />
                 Services in USA
               </h1>
 
-              <p className="text-slate-600 max-w-xl text-sm sm:text-[15px] leading-relaxed font-normal">
+              <p className="text-[#4A5568] max-w-[540px] text-[15px] sm:text-[16px] leading-[1.7] font-[400]">
                 Our app development consulting is geared toward the business needs of startups, small and medium-sized businesses, and large, well-established Best app consultants for startups companies.
               </p>
 
@@ -296,10 +296,10 @@ export const AppDevelopmentConsultingService = () => {
               <div className="pt-2">
                 <a
                   href="#consultation-form"
-                  className="inline-flex items-center justify-center px-7 py-3.5 rounded-lg bg-[#005F96] text-white font-bold text-sm sm:text-base hover:bg-[#004A75] transition-all shadow-sm hover:shadow-md transform active:scale-95 group"
+                  className="inline-flex items-center justify-center px-6 py-3 rounded-[6px] bg-[#005F96] text-white font-[600] text-[14.5px] sm:text-[15px] hover:bg-[#004A75] transition-all shadow-xs hover:shadow-sm active:scale-98 group"
                 >
                   <span>Discuss Your Project</span>
-                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                  <span className="ml-2.5 text-base font-normal transition-transform group-hover:translate-x-1">→</span>
                 </a>
               </div>
             </div>
