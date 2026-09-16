@@ -69,7 +69,7 @@ import {
   Scale
 } from 'lucide-react';
 
-export const HireBootstrapDevelopersService = () => {
+export const HireCodeIgniterDevelopersService = () => {
   const [openFaq, setOpenFaq] = useState(0);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [cardSlideIndex, setCardSlideIndex] = useState(0);
@@ -97,10 +97,10 @@ export const HireBootstrapDevelopersService = () => {
       saveText: null,
       badgeText: null,
       features: [
-        'Billing cycle : Monthly',
+        'hecked-engagement Billing cycle : Monthly',
         'Project Trackers : Daily Reports, Basecamp, Jira, Redmine etc.',
-        '4 hours a day, 5 days a week',
-        'Minimum: 2 months'
+        'checked-engagement 4 hours a day, 5 days a week',
+        'checked-engagement Minimum: 2 months'
       ]
     },
     {
@@ -114,9 +114,9 @@ export const HireBootstrapDevelopersService = () => {
       badgeText: null,
       features: [
         'Project Trackers : Daily Reports, Basecamp, Jira, Redmine etc',
-        '4 hours a day, 5 days a week',
-        'Minimum: 2 months',
-        'Hire Dedicated Bootstrap Developers that exclusively works for you'
+        'checked-engagement 4 hours a day, 5 days a week',
+        'checked-engagement Minimum: 2 months',
+        'Hire Dedicated CodeIgniter Developers that exclusively works for you'
       ]
     },
     {
@@ -131,7 +131,7 @@ export const HireBootstrapDevelopersService = () => {
       features: [
         'Project Trackers : Daily Reports, Basecamp, Jira, Redmine etc.',
         'Payment based on hours worked',
-        '4 hours a day, 5 days a week',
+        'checked-engagement 4 hours a day, 5 days a week',
         'Billing cycle: Weekly/Monthly'
       ]
     },
@@ -145,10 +145,10 @@ export const HireBootstrapDevelopersService = () => {
       saveText: null,
       badgeText: null,
       features: [
-        'Billing cycle : Monthly',
+        'checked-engagement Billing cycle : Monthly',
         'Project Trackers : Daily Reports, Basecamp, Jira, Redmine etc.',
-        '4 hours a day, 5 days a week',
-        'Minimum: 2 months'
+        'checked-engagement 4 hours a day, 5 days a week',
+        'checked-engagement Minimum: 2 months'
       ]
     },
     {
@@ -161,10 +161,10 @@ export const HireBootstrapDevelopersService = () => {
       saveText: null,
       badgeText: null,
       features: [
-        'Billing cycle : Monthly',
+        'checked-engagement Billing cycle : Monthly',
         'Project Trackers : Daily Reports, Basecamp, Jira, Redmine etc.',
-        '4 hours a day, 5 days a week',
-        'Minimum: 2 months'
+        'checked-engagement 4 hours a day, 5 days a week',
+        'checked-engagement Minimum: 2 months'
       ]
     },
     {
@@ -177,10 +177,10 @@ export const HireBootstrapDevelopersService = () => {
       saveText: 'Save Up TO 20%',
       badgeText: 'Best Deal',
       features: [
-        'Billing cycle : Monthly',
+        'checked-engagement Billing cycle : Monthly',
         'Project Trackers : Daily Reports, Basecamp, Jira, Redmine etc.',
-        '4 hours a day, 5 days a week',
-        'Minimum: 2 months'
+        'checked-engagement 4 hours a day, 5 days a week',
+        'checked-engagement Minimum: 2 months'
       ]
     }
   ];
@@ -217,7 +217,7 @@ export const HireBootstrapDevelopersService = () => {
     email: '',
     phone: '',
     model: 'Dedicated Team ($21/hr)',
-    appType: 'Bootstrap Responsive App',
+    appType: 'CodeIgniter Responsive App',
     budget: '$10,000 - $25,000',
     message: ''
   });
@@ -232,56 +232,56 @@ export const HireBootstrapDevelopersService = () => {
     setFormSubmitted(true);
   };
 
-  // Bootstrap FAQs (Exact Match to Sapphire Reference Site Image 1)
-  const bootstrapFaqs = [
+  // CodeIgniter FAQs (Exact Match to Sapphire Reference Site Image 1)
+  const codeigniterFaqs = [
     {
       id: 1,
-      question: '1. Why is Bootstrap used?',
-      answer: 'Bootstrap helps designers and developers to create websites that are fully responsive rapidly. It is the most popular CSS framework for designing mobile-first and responsive apps.'
+      question: '1. Why is CodeIgniter used?',
+      answer: 'CodeIgniter helps designers and developers to create websites that are fully responsive rapidly. It is the most popular CSS framework for designing mobile-first and responsive apps.'
     },
     {
       id: 2,
-      question: '2. Is Bootstrap Necessary For Web Development?',
-      answer: 'While not strictly necessary, Bootstrap significantly speeds up front-end development by providing pre-built responsive grid systems, components, and utilities.'
+      question: '2. Is CodeIgniter Necessary For Web Development?',
+      answer: 'While not strictly necessary, CodeIgniter significantly speeds up front-end development by providing pre-built responsive grid systems, components, and utilities.'
     },
     {
       id: 3,
-      question: '3. What is Bootstrap?',
-      answer: 'Bootstrap is an open-source front-end framework containing HTML, CSS, and JavaScript-based design templates for typography, forms, buttons, navigation, and other interface components.'
+      question: '3. What is CodeIgniter?',
+      answer: 'CodeIgniter is an open-source front-end framework containing HTML, CSS, and JavaScript-based design templates for typography, forms, buttons, navigation, and other interface components.'
     },
     {
       id: 4,
-      question: '4. What are Bootstrap Components?',
-      answer: 'Bootstrap components include navigation bars, modals, carousels, accordions, dropdowns, tooltips, cards, buttons, and alert badges designed for rapid web assembly.'
+      question: '4. What are CodeIgniter Components?',
+      answer: 'CodeIgniter components include navigation bars, modals, carousels, accordions, dropdowns, tooltips, cards, buttons, and alert badges designed for rapid web assembly.'
     },
     {
       id: 5,
-      question: '5. Why is Bootstrap Preferred For Website Development?',
-      answer: 'Bootstrap is preferred for its mobile-first responsive grid system, cross-browser compatibility, extensive documentation, customizable SCSS variables, and strong community support.'
+      question: '5. Why is CodeIgniter Preferred For Website Development?',
+      answer: 'CodeIgniter is preferred for its mobile-first responsive grid system, cross-browser compatibility, extensive documentation, customizable SCSS variables, and strong community support.'
     },
     {
       id: 6,
-      question: '6. Why should I hire a Bootstrap developer from Sapphire Solutions?',
-      answer: 'Our dedicated Bootstrap developers have 5+ years of experience refactoring legacy UI, building custom responsive themes, optimizing web speed, and adhering to W3C standards.'
+      question: '6. Why should I hire a CodeIgniter developer from Sapphire Solutions?',
+      answer: 'Our dedicated CodeIgniter developers have 5+ years of experience refactoring legacy UI, building custom responsive themes, optimizing web speed, and adhering to W3C standards.'
     },
     {
       id: 7,
-      question: '7. Can I hire Bootstrap developers for an existing web project redesign?',
-      answer: 'Yes, our Bootstrap engineers specialize in modernizing legacy websites to Bootstrap 5, implementing clean responsive layouts, and improving lighthouse performance scores.'
+      question: '7. Can I hire CodeIgniter developers for an existing web project redesign?',
+      answer: 'Yes, our CodeIgniter engineers specialize in modernizing legacy websites to CodeIgniter 4, implementing clean responsive layouts, and improving lighthouse performance scores.'
     },
     {
       id: 8,
-      question: '8. Are your Bootstrap developers experienced in working with other front-end frameworks?',
-      answer: 'Yes, our Bootstrap developers are proficient in HTML5, CSS3, SCSS, JavaScript, React.js, Vue.js, and modern build tools like Vite and Webpack.'
+      question: '8. Are your CodeIgniter developers experienced in working with other front-end frameworks?',
+      answer: 'Yes, our CodeIgniter developers are proficient in HTML5, CSS3, SCSS, JavaScript, React.js, Vue.js, and modern build tools like Vite and Webpack.'
     }
   ];
 
   return (
     <div className="bg-white text-slate-900 font-sans min-h-screen">
       <SEO
-        title="Hire Bootstrap Developer | Dedicated Bootstrap Web Developers at $21/Hr"
-        description="Hire dedicated Bootstrap developers from Firevy.co. We are among the leading providers of bootstrap development services tailored for responsive web & mobile apps."
-        canonical="/services/hire-bootstrap-developers"
+        title="Hire CodeIgniter Developer | Dedicated CodeIgniter Web Developers at $21/Hr"
+        description="Hire dedicated CodeIgniter developers from Firevy.co. We are among the leading providers of codeigniter development services tailored for responsive web & mobile apps."
+        canonical="/services/hire-codeigniter-developers"
       />
 
       {/* ============================================================
@@ -294,10 +294,10 @@ export const HireBootstrapDevelopersService = () => {
             {/* Left Column Text & Action */}
             <div className="lg:col-span-7 space-y-6 text-left">
               <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-[900] text-slate-900 tracking-tight leading-tight">
-                Hire Bootstrap Developer
+                Hire CodeIgniter Developer
               </h1>
               <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal max-w-2xl">
-                We are among the leading providers of bootstrap development services. As a reputable Bootstrap Web Development Company, we have tailored our services to satisfy the demands of companies seeking creative mobile applications.
+                We are among the leading providers of codeigniter development services. As a reputable CodeIgniter Web Development Company, we have tailored our services to satisfy the demands of companies seeking creative mobile applications.
               </p>
 
               {/* 4 Metrics / Stats Row */}
@@ -358,8 +358,8 @@ export const HireBootstrapDevelopersService = () => {
             <div className="lg:col-span-5 relative flex items-center justify-center">
               <div className="relative w-full max-w-[540px]">
                 <img
-                  src="/images/bootstrap_hero_illustration.jpg"
-                  alt="Hire Bootstrap Developer Illustration"
+                  src="/images/codeigniter_hero_illustration.jpg"
+                  alt="Hire CodeIgniter Developer Illustration"
                   className="w-full h-auto object-contain rounded-2xl shadow-2xl border border-slate-200/80 hover:shadow-indigo-500/10 transition-shadow duration-300"
                 />
               </div>
@@ -375,7 +375,7 @@ export const HireBootstrapDevelopersService = () => {
       <BrandLogoMarquee />
 
       {/* ============================================================
-          SECTION 2: Bootstrap Developers Are Available For Hire (Screenshot 2)
+          SECTION 2: CodeIgniter Developers Are Available For Hire (Screenshot 2)
           ============================================================ */}
       <section className="py-16 md:py-24 bg-white font-sans text-slate-900 border-b border-slate-100">
         <Container>
@@ -385,8 +385,8 @@ export const HireBootstrapDevelopersService = () => {
             <div className="lg:col-span-6 relative flex justify-center items-center">
               <div className="relative w-full max-w-[550px]">
                 <img
-                  src="/images/bootstrap_section2_illustration.jpg"
-                  alt="Bootstrap Developers Available For Hire"
+                  src="/images/codeigniter_section2_illustration.jpg"
+                  alt="CodeIgniter Developers Available For Hire"
                   className="w-full h-auto object-contain rounded-2xl shadow-xl border border-slate-200/80 hover:shadow-cyan-500/10 transition-shadow duration-300"
                 />
               </div>
@@ -395,10 +395,10 @@ export const HireBootstrapDevelopersService = () => {
             {/* Right Text Column */}
             <div className="lg:col-span-6 space-y-6">
               <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-[900] text-slate-900 tracking-tight leading-snug">
-                Bootstrap Developers Are Available For Hire
+                CodeIgniter Developers Are Available For Hire
               </h2>
               <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
-                Hire Dedicated Bootstrap Developers with extensive expertise in the Bootstrap framework. We assist you in developing scalable applications that promote growth. Our team of bootstrap developers can create attractive web and mobile apps regardless of the kind of company or sector. With us, adaptation and flexibility will never be a concern since the applications developed by our bootstrap web developer are highly configurable. Using a single codebase, Bootstrap reduces development time and costs, assuring the implementation of scalable business solutions. In addition, the framework includes templates that may be used to construct site components such as forms and buttons.
+                Hire Dedicated CodeIgniter Developers with extensive expertise in the CodeIgniter framework. We assist you in developing scalable applications that promote growth. Our team of codeigniter developers can create attractive web and mobile apps regardless of the kind of company or sector. With us, adaptation and flexibility will never be a concern since the applications developed by our codeigniter web developer are highly configurable. Using a single codebase, CodeIgniter reduces development time and costs, assuring the implementation of scalable business solutions. In addition, the framework includes templates that may be used to construct site components such as forms and buttons.
               </p>
 
               <div className="pt-2">
@@ -410,7 +410,7 @@ export const HireBootstrapDevelopersService = () => {
                   }}
                   className="inline-flex items-center space-x-2 bg-[#0083B0] hover:bg-[#006095] text-white font-bold px-7 py-3 rounded-xl text-sm transition-all shadow-md"
                 >
-                  <span>Hire Dedicated Bootstrap Developers</span>
+                  <span>Hire Dedicated CodeIgniter Developers</span>
                   <ArrowRight className="w-4 h-4" />
                 </a>
               </div>
@@ -430,7 +430,7 @@ export const HireBootstrapDevelopersService = () => {
               Our Flexible Hiring Models: Find the Perfect Fit For Your Project
             </h2>
             <p className="text-sm sm:text-base text-slate-600 font-medium">
-              Hire Bootstrap Developers from Firevy.co Starts from,
+              Hire CodeIgniter Developers from Firevy.co Starts from,
             </p>
           </div>
 
@@ -557,7 +557,7 @@ export const HireBootstrapDevelopersService = () => {
               Hire Dedicated Developers To Empower Your Business with our Development Proficiency
             </h2>
             <p className="text-sm sm:text-base text-slate-600 font-medium">
-              Hire Bootstrap Developers to meet your business perks by leveraging our technical elegance.
+              Hire CodeIgniter Developers to meet your business perks by leveraging our technical elegance.
             </p>
           </div>
 
@@ -627,15 +627,15 @@ export const HireBootstrapDevelopersService = () => {
             {/* Left Text Column */}
             <div className="lg:col-span-7 space-y-6">
               <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-[900] text-slate-900 tracking-tight leading-snug">
-                Brief About Our Bootstrap Development Services
+                Brief About Our CodeIgniter Development Services
               </h2>
               
               <div className="space-y-4 text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
                 <p>
-                  Hire Our Bootstrap Developers To Get App and Web Development Services. Benefits of Hiring them include:Our developers will produce your Bootstrap project in real-time and with 100 percent correctness.Our Bootstrap developers must have a history of completing all project deadlines on time and providing complete customer satisfaction.
+                  Hire Our CodeIgniter Developers To Get App and Web Development Services. Benefits of Hiring them include:Our developers will produce your CodeIgniter project in real-time and with 100 percent correctness.Our CodeIgniter developers must have a history of completing all project deadlines on time and providing complete customer satisfaction.
                 </p>
                 <p>
-                  Experience well-structured code and construct a next-generation solution with our safe, scalable, dependable, and high-quality software development services at an accessible price. Our Bootstrap developers have the most extraordinary communication abilities, so working with us will be effortless.
+                  Experience well-structured code and construct a next-generation solution with our safe, scalable, dependable, and high-quality software development services at an accessible price. Our CodeIgniter developers have the most extraordinary communication abilities, so working with us will be effortless.
                 </p>
               </div>
             </div>
@@ -644,8 +644,8 @@ export const HireBootstrapDevelopersService = () => {
             <div className="lg:col-span-5 relative flex justify-center items-center">
               <div className="relative w-full max-w-[500px]">
                 <img
-                  src="/images/bootstrap_section8_illustration.jpg"
-                  alt="Who Exactly Is A Bootstrap Developer & Why Hire Them"
+                  src="/images/codeigniter_section8_illustration.jpg"
+                  alt="Who Exactly Is A CodeIgniter Developer & Why Hire Them"
                   className="w-full h-auto object-contain rounded-2xl shadow-xl border border-slate-200/80 hover:shadow-blue-500/10 transition-shadow duration-300"
                 />
               </div>
@@ -658,7 +658,7 @@ export const HireBootstrapDevelopersService = () => {
       {/* ============================================================
           SECTION 6: WORLD WIDE TOP RATED BOOTSTRAP DEVELOPMENT COMPANY ON CLUTCH (Auto-scroll Marquee Awards Banner)
           ============================================================ */}
-      <ClutchTopRatedBanner title="World Wide Top Rated Bootstrap Development Company on Clutch" />
+      <ClutchTopRatedBanner title="World Wide Top Rated CodeIgniter Development Company on Clutch" />
 
       {/* ============================================================
           SECTION 7: WHO EXACTLY IS A BOOTSTRAP DEVELOPER? (Screenshot 1 Copy to Copy)
@@ -667,7 +667,7 @@ export const HireBootstrapDevelopersService = () => {
         <Container>
           {/* Section Title */}
           <h2 className="text-2xl sm:text-3xl lg:text-[40px] font-[900] text-slate-900 tracking-tight leading-tight text-center mb-12 sm:mb-16">
-            Who Exactly Is A Bootstrap Developer?
+            Who Exactly Is A CodeIgniter Developer?
           </h2>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
@@ -701,10 +701,10 @@ export const HireBootstrapDevelopersService = () => {
             <div className="lg:col-span-7 flex flex-col justify-between space-y-6">
               <div className="space-y-5 text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
                 <p>
-                  Whether for Bootstrap UI design or bootstrap web applications, businesses need to hire bootstrap programmers with a high level of expertise who can provide high-quality work. The latter should align with the company's strategic objectives and customer needs. This is why front-end developers, particularly Bootstrap developers, constantly find it difficult to provide an appealing experience. Testing and debugging are crucial steps in the front-end development process, and we have Bootstrap Developers for Hire.
+                  Whether for CodeIgniter UI design or codeigniter web applications, businesses need to hire codeigniter programmers with a high level of expertise who can provide high-quality work. The latter should align with the company's strategic objectives and customer needs. This is why front-end developers, particularly CodeIgniter developers, constantly find it difficult to provide an appealing experience. Testing and debugging are crucial steps in the front-end development process, and we have CodeIgniter Developers for Hire.
                 </p>
                 <p>
-                  To minimize functional misunderstanding, testing and debugging tools exist in frameworks, which must be used with care. Hire Bootstrap Developers in India to increase web speed, such as compressing pictures and deleting extraneous code characters, without affecting the website's functionality. These factors may make a substantial impact when selecting a bootstrap programmer. Hire Bootstrap Developers in USA to develop a website that is both feature-rich and instantly deployable since it includes a variety of layouts and pre-built templates. Bootstrap is an open-source framework that allows developers to alter and tailor applications easily.
+                  To minimize functional misunderstanding, testing and debugging tools exist in frameworks, which must be used with care. Hire CodeIgniter Developers in India to increase web speed, such as compressing pictures and deleting extraneous code characters, without affecting the website's functionality. These factors may make a substantial impact when selecting a codeigniter programmer. Hire CodeIgniter Developers in USA to develop a website that is both feature-rich and instantly deployable since it includes a variety of layouts and pre-built templates. CodeIgniter is an open-source framework that allows developers to alter and tailor applications easily.
                 </p>
               </div>
 
@@ -1313,46 +1313,46 @@ export const HireBootstrapDevelopersService = () => {
           <div className="space-y-12">
             <div className="text-center max-w-4xl mx-auto space-y-3">
               <h2 className="text-2xl sm:text-3xl lg:text-[38px] font-[900] text-slate-900 tracking-tight leading-tight">
-                The Expertise Of Our Bootstrap Development Services
+                The Expertise Of Our CodeIgniter Development Services
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 font-medium max-w-3xl mx-auto">
-                Our Bootstrap Developers Are Available On An Hourly Basis At Very Affordable Rates. Their Expertise Includes:
+                Our CodeIgniter Developers Are Available On An Hourly Basis At Very Affordable Rates. Their Expertise Includes:
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
               {[
                 {
-                  title: 'Bootstrap Consultation',
-                  desc: 'Hire Bootstrap Developers in UK who will assist you in mastering Bootstrap. Our professionals will guide you through the process and assist you in making more intelligent decisions.',
+                  title: 'CodeIgniter Consultation',
+                  desc: 'Hire CodeIgniter Developers in UK who will assist you in mastering CodeIgniter. Our professionals will guide you through the process and assist you in making more intelligent decisions.',
                   bgColor: 'bg-purple-50',
                   iconColor: 'text-purple-600',
                   IconComp: Laptop
                 },
                 {
                   title: 'App Designing',
-                  desc: 'If you have a concept and have chosen to go forward with bootstrap development, our expert designers will assist you in creating a visual representation. This signifies that our front-end developers will develop a prototype of your application.',
+                  desc: 'If you have a concept and have chosen to go forward with codeigniter development, our expert designers will assist you in creating a visual representation. This signifies that our front-end developers will develop a prototype of your application.',
                   bgColor: 'bg-emerald-50',
                   iconColor: 'text-emerald-600',
                   IconComp: LayoutGrid
                 },
                 {
                   title: 'App Development',
-                  desc: 'Hire Bootstrap Developers in Australia to create responsive apps with ease. Our developers are well-versed in widgets and templates, ensuring optimal implementation.',
+                  desc: 'Hire CodeIgniter Developers in Australia to create responsive apps with ease. Our developers are well-versed in widgets and templates, ensuring optimal implementation.',
                   bgColor: 'bg-orange-50',
                   iconColor: 'text-orange-600',
                   IconComp: Code2
                 },
                 {
                   title: 'App Customization',
-                  desc: 'We can alter an old solution, including contemporary features, and enhance its efficacy. Hire Bootstrap Developers in Canada if you seek professional assistance to improve and optimize the application.',
+                  desc: 'We can alter an old solution, including contemporary features, and enhance its efficacy. Hire CodeIgniter Developers in Canada if you seek professional assistance to improve and optimize the application.',
                   bgColor: 'bg-amber-50',
                   iconColor: 'text-amber-600',
                   IconComp: Sliders
                 },
                 {
                   title: 'Application Recording',
-                  desc: 'Whether a tiny start-up or a well-established business, Hire Bootstrap Developers in UAE who will assist you with website re-coding at affordable prices.',
+                  desc: 'Whether a tiny start-up or a well-established business, Hire CodeIgniter Developers in UAE who will assist you with website re-coding at affordable prices.',
                   bgColor: 'bg-pink-50',
                   iconColor: 'text-pink-600',
                   IconComp: Cpu
@@ -1478,8 +1478,8 @@ export const HireBootstrapDevelopersService = () => {
       </section>
 
       <HireDeveloper4Steps
-        title="Hire Bootstrap Developer In 4 Easy Steps"
-        subtitle="Bootstrap Developer Offers a number of advantages over another platform. Some of them are:"
+        title="Hire CodeIgniter Developer In 4 Easy Steps"
+        subtitle="CodeIgniter Developer Offers a number of advantages over another platform. Some of them are:"
       />
 
       {/* ============================================================
@@ -1502,7 +1502,7 @@ export const HireBootstrapDevelopersService = () => {
           FAQ SECTION (Matching Sapphire Reference Site Image 1)
           ============================================================ */}
       <SapphireFaqSection
-        faqList={bootstrapFaqs}
+        faqList={codeigniterFaqs}
         title="Frequently Asked Questions"
         subtitle="We listen to query and provide solutions that captivate users. Feel free to contact us in case of any query which is not mention below."
       />
@@ -1517,13 +1517,13 @@ export const HireBootstrapDevelopersService = () => {
           WHAT SETS US APART, CHALLENGE CTA & NEWSLETTER (1:1 Match to Sapphire Reference)
           ============================================================ */}
       <WhatSetsUsApartSection
-        title="What Sets Us Apart As Bootstrap Development Company?"
+        title="What Sets Us Apart As CodeIgniter Development Company?"
         subtitle="Being unique is our quality! Sapphire Solutions believe in the things that give us an edge over our competitors. We are renowned software and mobile application development organization serving customers with end-to-end support. Our Idealization, feasibility assessment of the entire software development process stands us one level up the competitors."
       />
 
       <IWatchChallengeCtaBanner
-        title="Have Bootstrap Development Challenge To Address ?"
-        subtitle="Get access to top Bootstrap developers to transform your ideas into a robust application."
+        title="Have CodeIgniter Development Challenge To Address ?"
+        subtitle="Get access to top CodeIgniter developers to transform your ideas into a robust application."
         buttonText="Hire Now"
       />
 
@@ -1532,4 +1532,4 @@ export const HireBootstrapDevelopersService = () => {
   );
 };
 
-export default HireBootstrapDevelopersService;
+export default HireCodeIgniterDevelopersService;

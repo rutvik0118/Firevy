@@ -69,7 +69,7 @@ import {
   Scale
 } from 'lucide-react';
 
-export const HireBootstrapDevelopersService = () => {
+export const HireLaravelDevelopersService = () => {
   const [openFaq, setOpenFaq] = useState(0);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [cardSlideIndex, setCardSlideIndex] = useState(0);
@@ -116,7 +116,7 @@ export const HireBootstrapDevelopersService = () => {
         'Project Trackers : Daily Reports, Basecamp, Jira, Redmine etc',
         '4 hours a day, 5 days a week',
         'Minimum: 2 months',
-        'Hire Dedicated Bootstrap Developers that exclusively works for you'
+        'Hire Dedicated Laravel Developers that exclusively works for you'
       ]
     },
     {
@@ -198,13 +198,13 @@ export const HireBootstrapDevelopersService = () => {
   const handleTransitionEnd = () => {
     if (cardSlideIndex >= hiringModelCards.length) {
       setEnableTransition(false);
-      setCardSlideIndex(cardSlideIndex % hiringModelCards.length);
+      setCardSlideIndex(0);
     }
   };
 
   const handlePrevCard = () => {
     setEnableTransition(true);
-    setCardSlideIndex((prev) => (prev > 0 ? prev - 1 : hiringModelCards.length - 1));
+    setCardSlideIndex((prev) => (prev === 0 ? hiringModelCards.length - 1 : prev - 1));
   };
 
   const handleNextCard = () => {
@@ -212,92 +212,230 @@ export const HireBootstrapDevelopersService = () => {
     setCardSlideIndex((prev) => prev + 1);
   };
 
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    model: 'Dedicated Team ($21/hr)',
-    appType: 'Bootstrap Responsive App',
-    budget: '$10,000 - $25,000',
-    message: ''
-  });
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setFormSubmitted(true);
-  };
-
-  // Bootstrap FAQs (Exact Match to Sapphire Reference Site Image 1)
-  const bootstrapFaqs = [
+  // Team of Seasoned Experts Data
+  const teamCategories = ['Trending', 'Hire Developer', 'Web Development', 'App Development', 'Cross Platform', 'Ecommerce & CMS'];
+  const teamMembers = [
     {
       id: 1,
-      question: '1. Why is Bootstrap used?',
-      answer: 'Bootstrap helps designers and developers to create websites that are fully responsive rapidly. It is the most popular CSS framework for designing mobile-first and responsive apps.'
+      name: 'Nikhil V.',
+      role: 'Senior Lead Laravel Architect',
+      exp: '9+ Years Experience',
+      image: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80',
+      description: 'Senior Laravel architect specializing in enterprise microservices, Eloquent ORM tuning, Livewire, Inertia.js, and RESTful API engineering.',
+      techs: ['Laravel 11', 'PHP 8.3', 'Livewire', 'Eloquent ORM', 'Inertia.js', 'MySQL', 'Redis', 'Docker'],
+      stats: { projects: '65+', clientRating: '4.95/5', codeQuality: '99.8%' }
     },
     {
       id: 2,
-      question: '2. Is Bootstrap Necessary For Web Development?',
-      answer: 'While not strictly necessary, Bootstrap significantly speeds up front-end development by providing pre-built responsive grid systems, components, and utilities.'
+      name: 'Rajesh K.',
+      role: 'Full-Stack Laravel & Vue Specialist',
+      exp: '7+ Years Experience',
+      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80',
+      description: 'Expert full-stack developer skilled in Laravel, Livewire 3, Inertia.js + Vue.js 3, Filament admin panels, and payment gateway integrations.',
+      techs: ['Laravel', 'Vue.js 3', 'Livewire', 'Inertia.js', 'Filament', 'Stripe', 'Redis', 'AWS'],
+      stats: { projects: '48+', clientRating: '4.92/5', codeQuality: '99.5%' }
     },
     {
       id: 3,
-      question: '3. What is Bootstrap?',
-      answer: 'Bootstrap is an open-source front-end framework containing HTML, CSS, and JavaScript-based design templates for typography, forms, buttons, navigation, and other interface components.'
+      name: 'Ananya S.',
+      role: 'Laravel API & Microservices Lead',
+      exp: '6+ Years Experience',
+      image: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80',
+      description: 'Specializes in high-concurrency Laravel Passport/Sanctum APIs, queue optimization with Horizon, Pest testing, and CI/CD pipelines.',
+      techs: ['Laravel Sanctum', 'Horizon', 'Pest PHP', 'Docker', 'GraphQL', 'PostgreSQL', 'Redis'],
+      stats: { projects: '42+', clientRating: '4.96/5', codeQuality: '99.9%' }
+    }
+  ];
+
+  // 10 Employ Advanced Proficiency Cards
+  const proficiencyCards = [
+    {
+      id: 1,
+      title: 'Custom Laravel Web App Development',
+      desc: 'Tailored enterprise portals, SaaS platforms, and backend systems engineered with Laravel 11 clean MVC design patterns.',
+      icon: Code2
+    },
+    {
+      id: 2,
+      title: 'Full-Stack Livewire & Inertia.js Apps',
+      desc: 'Dynamic single-page experiences built seamlessly with Laravel Livewire 3 and Inertia.js with Vue/React without API complexity.',
+      icon: Cpu
+    },
+    {
+      id: 3,
+      title: 'Laravel RESTful & GraphQL API Engineering',
+      desc: 'Secure, high-throughput backend APIs for web and mobile apps powered by Laravel Sanctum, Passport, and GraphQL.',
+      icon: Layers
     },
     {
       id: 4,
-      question: '4. What are Bootstrap Components?',
-      answer: 'Bootstrap components include navigation bars, modals, carousels, accordions, dropdowns, tooltips, cards, buttons, and alert badges designed for rapid web assembly.'
+      title: 'Filament & Custom Admin Panels',
+      desc: 'Feature-rich, high-security admin dashboards, CMS platforms, and internal operational portals built with Filament and Blade.',
+      icon: LayoutGrid
     },
     {
       id: 5,
-      question: '5. Why is Bootstrap Preferred For Website Development?',
-      answer: 'Bootstrap is preferred for its mobile-first responsive grid system, cross-browser compatibility, extensive documentation, customizable SCSS variables, and strong community support.'
+      title: 'Legacy Code Migration to Laravel 11',
+      desc: 'Seamless refactoring of legacy PHP, CodeIgniter, or older Laravel versions to modern Laravel 11 with zero data loss.',
+      icon: RefreshCw
     },
     {
       id: 6,
-      question: '6. Why should I hire a Bootstrap developer from Sapphire Solutions?',
-      answer: 'Our dedicated Bootstrap developers have 5+ years of experience refactoring legacy UI, building custom responsive themes, optimizing web speed, and adhering to W3C standards.'
+      title: 'Laravel E-commerce Solutions',
+      desc: 'High-converting online storefronts, marketplace systems, and payment gateways engineered with Bagisto and Laravel.',
+      icon: ShoppingBag
     },
     {
       id: 7,
-      question: '7. Can I hire Bootstrap developers for an existing web project redesign?',
-      answer: 'Yes, our Bootstrap engineers specialize in modernizing legacy websites to Bootstrap 5, implementing clean responsive layouts, and improving lighthouse performance scores.'
+      title: 'Database Optimization & Queue Scaling',
+      desc: 'High-performance database indexing, Redis caching, and async job queues managed with Laravel Horizon and Octane.',
+      icon: Database
     },
     {
       id: 8,
-      question: '8. Are your Bootstrap developers experienced in working with other front-end frameworks?',
-      answer: 'Yes, our Bootstrap developers are proficient in HTML5, CSS3, SCSS, JavaScript, React.js, Vue.js, and modern build tools like Vite and Webpack.'
+      title: 'Multi-Tenant SaaS Application Architecture',
+      desc: 'Scalable multi-tenant SaaS solutions with isolated databases, domain mapping, subscription management, and tenant routing.',
+      icon: Server
+    },
+    {
+      id: 9,
+      title: 'Automated Testing with Pest & PHPUnit',
+      desc: 'Comprehensive unit, feature, and integration test coverage using Pest PHP to guarantee bug-free production rollouts.',
+      icon: ShieldCheck
+    },
+    {
+      id: 10,
+      title: '24/7 SLA Maintenance & DevOps Tuning',
+      desc: 'Continuous security patch rollouts, cloud server deployment with Laravel Forge/Envoyer, and 99.99% uptime monitoring.',
+      icon: Zap
+    }
+  ];
+
+  // Specialized Expertise Services (6 Cards)
+  const specializedServices = [
+    {
+      title: 'Laravel Enterprise Solutions',
+      desc: 'Scalable, enterprise-grade web applications designed for high load, complex business logic, and bank-grade security standards.',
+      icon: Server
+    },
+    {
+      title: 'Laravel Livewire 3 & Inertia.js',
+      desc: 'Reactive, real-time user interfaces created using Laravel Livewire and Inertia.js for modern SPA user experiences.',
+      icon: Layers
+    },
+    {
+      title: 'Laravel API & Microservices',
+      desc: 'High-performance microservices architecture with lightweight API endpoints, rate limiting, and Sanctum authentication.',
+      icon: Cpu
+    },
+    {
+      title: 'Filament Admin & Dashboard Development',
+      desc: 'Sleek, intuitive, and secure management control panels built with Filament PHP for rapid backend administration.',
+      icon: LayoutGrid
+    },
+    {
+      title: 'Laravel E-commerce & Marketplaces',
+      desc: 'Robust multi-vendor e-commerce solutions with Stripe/PayPal integration, inventory sync, and real-time order tracking.',
+      icon: ShoppingBag
+    },
+    {
+      title: 'CodeIgniter/PHP to Laravel Migration',
+      desc: 'Smooth structural migration from legacy PHP codebases to Laravel 11 with modernized database schemas and unit tests.',
+      icon: RotateCw
+    }
+  ];
+
+  // Benefits of Hiring (6 Cards)
+  const benefits = [
+    {
+      title: 'Top 1% Vetted Laravel Talent',
+      desc: 'Access senior Laravel engineers with average 6+ years of production experience in building complex web applications.',
+      icon: Award
+    },
+    {
+      title: 'Rapid Sprint Delivery',
+      desc: 'Accelerate feature deployment by up to 40% with agile bi-weekly sprints, CI/CD automation, and Laravel Octane speed.',
+      icon: Zap
+    },
+    {
+      title: 'Strict IP & NDA Protection',
+      desc: 'Complete IP ownership, strict Non-Disclosure Agreements, and enterprise-grade data privacy protocols from day one.',
+      icon: Lock
+    },
+    {
+      title: 'Direct Engineer Communication',
+      desc: 'Collaborate directly with your dedicated Laravel developers via Slack, Jira, GitHub, and daily standup calls.',
+      icon: MessageSquare
+    },
+    {
+      title: 'Transparent Flat Pricing',
+      desc: 'Flexible hiring packages with zero hidden fees, clear monthly/hourly rates, and easy scaling up or down.',
+      icon: Coins
+    },
+    {
+      title: '100% Risk-Free Trial',
+      desc: 'Evaluate developer performance with a 15-day risk-free trial period to ensure complete alignment with your team.',
+      icon: UserCheck
+    }
+  ];
+
+  // FAQs matching Sapphire reference page
+  const faqs = [
+    {
+      q: 'How much does it cost to hire a Laravel developer?',
+      a: 'Our pricing is straightforward to understand. You may hire a Laravel developer in Canada from us and they have an average of four to six years of expertise.'
+    },
+    {
+      q: 'Which is better: Django or Laravel?',
+      a: 'Both Django and Laravel are powerful frameworks. Laravel is ideal for rapid PHP development with elegant syntax, built-in ORM, and rich ecosystem like Livewire and Inertia.js, whereas Django is Python-based. Choice depends on your technology stack preferences.'
+    },
+    {
+      q: 'Which company is best for Laravel development?',
+      a: 'Firevy.co is a top-rated Laravel development company with 20+ years of experience, a team of dedicated Laravel experts, and a track record of delivering high-performing web applications globally.'
+    },
+    {
+      q: 'Do you give support and maintenance services after Development?',
+      a: 'Yes, we offer comprehensive post-launch support and SLA maintenance packages including security patch rollouts, server scaling, performance tuning, and 24/7 incident monitoring.'
+    },
+    {
+      q: 'Is Laravel in high demand?',
+      a: 'Yes, Laravel is the most widely used PHP framework globally, powering high-throughput web applications for startups and enterprise platforms alike.'
+    },
+    {
+      q: 'Why is Laravel the best for web application development?',
+      a: 'Laravel offers elegant syntax, built-in authentication, ORM (Eloquent), robust migration tools, queue management, and an expansive ecosystem.'
+    },
+    {
+      q: 'Why should I hire Laravel developers from Firevy.co?',
+      a: 'Our dedicated Laravel developers bring deep domain expertise, bi-weekly agile velocity, 100% IP & code ownership, direct communication, and 15-day risk-free trials to guarantee project success.'
+    },
+    {
+      q: 'Do you offer Laravel development services for global clients like the USA, UK, Canada, and Australia?',
+      a: 'Yes, we serve clients globally across the USA, UK, Canada, Australia, UAE, and Europe, adapting seamlessly to your time zone and workflow requirements.'
     }
   ];
 
   return (
     <div className="bg-white text-slate-900 font-sans min-h-screen">
       <SEO
-        title="Hire Bootstrap Developer | Dedicated Bootstrap Web Developers at $21/Hr"
-        description="Hire dedicated Bootstrap developers from Firevy.co. We are among the leading providers of bootstrap development services tailored for responsive web & mobile apps."
-        canonical="/services/hire-bootstrap-developers"
+        title="Hire Dedicated Laravel Developers | Expert Laravel 11 Engineers | Firevy.co"
+        description="Hire top 1% vetted dedicated Laravel developers from Firevy.co. Expert Laravel 11, Livewire, Inertia.js, Eloquent, and Filament specialists. Flexible hiring models, zero onboarding overhead, and 100% IP ownership."
       />
 
       {/* ============================================================
-          HERO SECTION (Matching Sapphire Screenshot 1 Design 100%)
+          HERO SECTION (Matching Sapphire Reference Screenshot 1)
           ============================================================ */}
       <section className="pt-32 pb-20 bg-[#F0F6FB] text-slate-900 relative overflow-hidden font-sans border-b border-slate-200/60">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
+
             {/* Left Column Text & Action */}
             <div className="lg:col-span-7 space-y-6 text-left">
               <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-[900] text-slate-900 tracking-tight leading-tight">
-                Hire Bootstrap Developer
+                Hire Laravel Developers
               </h1>
               <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal max-w-2xl">
-                We are among the leading providers of bootstrap development services. As a reputable Bootstrap Web Development Company, we have tailored our services to satisfy the demands of companies seeking creative mobile applications.
+                Create web applications that are reliable, up-to-date, scalable, and robust with the help of our specialized Laravel developers for hire. You can also Hire AI Laravel Developers to build intelligent, scalable, and future-ready Laravel web solutions tailored to your business needs.
               </p>
 
               {/* 4 Metrics / Stats Row */}
@@ -358,8 +496,8 @@ export const HireBootstrapDevelopersService = () => {
             <div className="lg:col-span-5 relative flex items-center justify-center">
               <div className="relative w-full max-w-[540px]">
                 <img
-                  src="/images/bootstrap_hero_illustration.jpg"
-                  alt="Hire Bootstrap Developer Illustration"
+                  src="/images/react_hero_illustration.jpg"
+                  alt="Hire Laravel Developers Illustration"
                   className="w-full h-auto object-contain rounded-2xl shadow-2xl border border-slate-200/80 hover:shadow-indigo-500/10 transition-shadow duration-300"
                 />
               </div>
@@ -375,18 +513,18 @@ export const HireBootstrapDevelopersService = () => {
       <BrandLogoMarquee />
 
       {/* ============================================================
-          SECTION 2: Bootstrap Developers Are Available For Hire (Screenshot 2)
+          SECTION 2: Experienced Laravel Developers Available For Hire
           ============================================================ */}
       <section className="py-16 md:py-24 bg-white font-sans text-slate-900 border-b border-slate-100">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
+
             {/* Left Graphic Illustration Image */}
             <div className="lg:col-span-6 relative flex justify-center items-center">
               <div className="relative w-full max-w-[550px]">
                 <img
-                  src="/images/bootstrap_section2_illustration.jpg"
-                  alt="Bootstrap Developers Available For Hire"
+                  src="/images/react_section2_illustration.jpg"
+                  alt="Experienced Laravel Developers Available For Hire"
                   className="w-full h-auto object-contain rounded-2xl shadow-xl border border-slate-200/80 hover:shadow-cyan-500/10 transition-shadow duration-300"
                 />
               </div>
@@ -395,10 +533,10 @@ export const HireBootstrapDevelopersService = () => {
             {/* Right Text Column */}
             <div className="lg:col-span-6 space-y-6">
               <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-[900] text-slate-900 tracking-tight leading-snug">
-                Bootstrap Developers Are Available For Hire
+                Experienced Laravel Developers Available For Hire
               </h2>
               <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
-                Hire Dedicated Bootstrap Developers with extensive expertise in the Bootstrap framework. We assist you in developing scalable applications that promote growth. Our team of bootstrap developers can create attractive web and mobile apps regardless of the kind of company or sector. With us, adaptation and flexibility will never be a concern since the applications developed by our bootstrap web developer are highly configurable. Using a single codebase, Bootstrap reduces development time and costs, assuring the implementation of scalable business solutions. In addition, the framework includes templates that may be used to construct site components such as forms and buttons.
+                Hire Dedicated Laravel Developers with extensive expertise in the Laravel framework. We assist you in developing scalable applications that promote growth. Our team of Laravel developers can create attractive web and mobile apps regardless of the kind of company or sector. With us, adaptation and flexibility will never be a concern since the applications developed by our Laravel web developer are highly configurable. Using a single codebase, Laravel reduces development time and costs, assuring the implementation of scalable business solutions. In addition, the framework includes templates that may be used to construct site components such as forms and buttons.
               </p>
 
               <div className="pt-2">
@@ -410,7 +548,7 @@ export const HireBootstrapDevelopersService = () => {
                   }}
                   className="inline-flex items-center space-x-2 bg-[#0083B0] hover:bg-[#006095] text-white font-bold px-7 py-3 rounded-xl text-sm transition-all shadow-md"
                 >
-                  <span>Hire Dedicated Bootstrap Developers</span>
+                  <span>Hire Dedicated Laravel Developers</span>
                   <ArrowRight className="w-4 h-4" />
                 </a>
               </div>
@@ -421,7 +559,7 @@ export const HireBootstrapDevelopersService = () => {
       </section>
 
       {/* ============================================================
-          SECTION 3: Flexible Hiring Models (Screenshot 3 - Carousel)
+          SECTION 3: Flexible Hiring Models (Carousel)
           ============================================================ */}
       <section className="py-16 md:py-24 bg-[#F8FAFC] font-sans text-slate-900 border-b border-slate-200/70">
         <Container>
@@ -430,7 +568,7 @@ export const HireBootstrapDevelopersService = () => {
               Our Flexible Hiring Models: Find the Perfect Fit For Your Project
             </h2>
             <p className="text-sm sm:text-base text-slate-600 font-medium">
-              Hire Bootstrap Developers from Firevy.co Starts from,
+              Hire Laravel Developers from Firevy.co Starts from,
             </p>
           </div>
 
@@ -455,11 +593,10 @@ export const HireBootstrapDevelopersService = () => {
                     className="w-full md:w-1/2 lg:w-1/3 shrink-0 px-3 py-4"
                   >
                     <div
-                      className={`h-full bg-white rounded-2xl p-6 sm:p-8 flex flex-col justify-between relative transition-all duration-300 ${
-                        card.isFeatured
+                      className={`h-full bg-white rounded-2xl p-6 sm:p-8 flex flex-col justify-between relative transition-all duration-300 ${card.isFeatured
                           ? 'border-2 border-[#0083B0] shadow-xl ring-4 ring-[#0083B0]/10 scale-[1.02]'
                           : 'border border-slate-200/80 shadow-md hover:shadow-xl'
-                      }`}
+                        }`}
                     >
                       {/* Top Save text or badge */}
                       {card.saveText && (
@@ -507,11 +644,10 @@ export const HireBootstrapDevelopersService = () => {
                             e.preventDefault();
                             document.getElementById('quote-form')?.scrollIntoView({ behavior: 'smooth' });
                           }}
-                          className={`w-full inline-flex items-center justify-center font-bold py-3 px-6 rounded-xl transition-all shadow-sm ${
-                            card.isFeatured
+                          className={`w-full inline-flex items-center justify-center font-bold py-3 px-6 rounded-xl transition-all shadow-sm ${card.isFeatured
                               ? 'bg-[#0083B0] hover:bg-[#006095] text-white shadow-md'
                               : 'bg-[#006095] hover:bg-[#0083B0] text-white'
-                          }`}
+                            }`}
                         >
                           Hire Now
                         </a>
@@ -527,7 +663,7 @@ export const HireBootstrapDevelopersService = () => {
             </div>
           </div>
 
-          {/* Bottom Center Navigation Controls (Exact Match to Sapphire Reference Screenshot 1) */}
+          {/* Bottom Center Navigation Controls */}
           <div className="flex items-center justify-center space-x-6 pt-8">
             <button
               onClick={handlePrevCard}
@@ -548,7 +684,7 @@ export const HireBootstrapDevelopersService = () => {
       </section>
 
       {/* ============================================================
-          SECTION 4: Comparison Table (Screenshot 4)
+          SECTION 4: Comparison Table
           ============================================================ */}
       <section className="py-16 md:py-24 bg-white font-sans text-slate-900 border-b border-slate-200/60">
         <Container>
@@ -557,7 +693,7 @@ export const HireBootstrapDevelopersService = () => {
               Hire Dedicated Developers To Empower Your Business with our Development Proficiency
             </h2>
             <p className="text-sm sm:text-base text-slate-600 font-medium">
-              Hire Bootstrap Developers to meet your business perks by leveraging our technical elegance.
+              Hire Laravel Developers to meet your business perks by leveraging our technical elegance.
             </p>
           </div>
 
@@ -618,24 +754,24 @@ export const HireBootstrapDevelopersService = () => {
       </section>
 
       {/* ============================================================
-          SECTION 5: BRIEF ABOUT OUR BOOTSTRAP DEVELOPMENT SERVICES (Screenshot 1 Copy to Copy)
+          SECTION 5: BRIEF ABOUT OUR LARAVEL DEVELOPMENT SERVICES
           ============================================================ */}
       <section className="py-16 md:py-24 bg-white font-sans text-slate-900 border-b border-slate-100">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
+
             {/* Left Text Column */}
             <div className="lg:col-span-7 space-y-6">
               <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-[900] text-slate-900 tracking-tight leading-snug">
-                Brief About Our Bootstrap Development Services
+                Brief About Our Laravel Development Services
               </h2>
-              
+
               <div className="space-y-4 text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
                 <p>
-                  Hire Our Bootstrap Developers To Get App and Web Development Services. Benefits of Hiring them include:Our developers will produce your Bootstrap project in real-time and with 100 percent correctness.Our Bootstrap developers must have a history of completing all project deadlines on time and providing complete customer satisfaction.
+                  Hire Our Laravel Developers To Get App and Web Development Services. Benefits of Hiring them include: Our developers will produce your Laravel project in real-time and with 100 percent correctness. Our Laravel developers have a proven history of completing all project deadlines on time with complete client satisfaction.
                 </p>
                 <p>
-                  Experience well-structured code and construct a next-generation solution with our safe, scalable, dependable, and high-quality software development services at an accessible price. Our Bootstrap developers have the most extraordinary communication abilities, so working with us will be effortless.
+                  Experience well-structured code and construct a next-generation solution with our safe, scalable, dependable, and high-quality software development services at an accessible price. Our Laravel developers possess extraordinary communication abilities, ensuring seamless daily coordination.
                 </p>
               </div>
             </div>
@@ -644,8 +780,8 @@ export const HireBootstrapDevelopersService = () => {
             <div className="lg:col-span-5 relative flex justify-center items-center">
               <div className="relative w-full max-w-[500px]">
                 <img
-                  src="/images/bootstrap_section8_illustration.jpg"
-                  alt="Who Exactly Is A Bootstrap Developer & Why Hire Them"
+                  src="/images/react_section8_illustration.jpg"
+                  alt="Who Exactly Is A Laravel Developer & Why Hire Them"
                   className="w-full h-auto object-contain rounded-2xl shadow-xl border border-slate-200/80 hover:shadow-blue-500/10 transition-shadow duration-300"
                 />
               </div>
@@ -656,22 +792,22 @@ export const HireBootstrapDevelopersService = () => {
       </section>
 
       {/* ============================================================
-          SECTION 6: WORLD WIDE TOP RATED BOOTSTRAP DEVELOPMENT COMPANY ON CLUTCH (Auto-scroll Marquee Awards Banner)
+          SECTION 6: CLUTCH TOP RATED BANNER
           ============================================================ */}
-      <ClutchTopRatedBanner title="World Wide Top Rated Bootstrap Development Company on Clutch" />
+      <ClutchTopRatedBanner title="World Wide Top Rated Laravel Development Company on Clutch" />
 
       {/* ============================================================
-          SECTION 7: WHO EXACTLY IS A BOOTSTRAP DEVELOPER? (Screenshot 1 Copy to Copy)
+          SECTION 7: WHO EXACTLY IS A LARAVEL DEVELOPER? (Screenshot 1 Match)
           ============================================================ */}
       <section className="py-16 md:py-24 bg-white font-sans text-slate-900 border-b border-slate-100">
         <Container>
           {/* Section Title */}
           <h2 className="text-2xl sm:text-3xl lg:text-[40px] font-[900] text-slate-900 tracking-tight leading-tight text-center mb-12 sm:mb-16">
-            Who Exactly Is A Bootstrap Developer?
+            Who Exactly Is A Laravel Developer?
           </h2>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
-            
+
             {/* Left Box with Quote & Bold Text */}
             <div className="lg:col-span-5 bg-[#F0F7FC] rounded-2xl p-8 sm:p-12 flex flex-col justify-center relative overflow-hidden border border-cyan-100/60 shadow-xs">
               {/* Background Wavy Subtle Pattern */}
@@ -690,9 +826,9 @@ export const HireBootstrapDevelopersService = () => {
                 </div>
 
                 <h3 className="text-3xl sm:text-4xl lg:text-[42px] font-[900] text-[#006095] leading-[1.2] tracking-tight">
-                  Dedicated and<br />
-                  Talented<br />
-                  Developers
+                  Fast, Scalable And<br />
+                  Simple<br />
+                  Applications
                 </h3>
               </div>
             </div>
@@ -701,10 +837,10 @@ export const HireBootstrapDevelopersService = () => {
             <div className="lg:col-span-7 flex flex-col justify-between space-y-6">
               <div className="space-y-5 text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
                 <p>
-                  Whether for Bootstrap UI design or bootstrap web applications, businesses need to hire bootstrap programmers with a high level of expertise who can provide high-quality work. The latter should align with the company's strategic objectives and customer needs. This is why front-end developers, particularly Bootstrap developers, constantly find it difficult to provide an appealing experience. Testing and debugging are crucial steps in the front-end development process, and we have Bootstrap Developers for Hire.
+                  You can hire Laravel developer India as they have capability to work in a variety of settings, together with a feeling of confidence gained from that experience. Hire Laravel developers in UK with knowledge of how to code, including a solid grasp of front-end technologies and programming languages such as CSS, JS, HTML, and PHP. Hire Laravel Consultants with familiarity with both the best coding methods used by Laravel and those used in the industry. Our Laravel experts have a fundamental comprehension of standard design guidelines and OOP is required to develop scalable web applications. As Laravel OpenAI Integration Experts, they can also help integrate AI-powered features into modern Laravel applications.
                 </p>
                 <p>
-                  To minimize functional misunderstanding, testing and debugging tools exist in frameworks, which must be used with care. Hire Bootstrap Developers in India to increase web speed, such as compressing pictures and deleting extraneous code characters, without affecting the website's functionality. These factors may make a substantial impact when selecting a bootstrap programmer. Hire Bootstrap Developers in USA to develop a website that is both feature-rich and instantly deployable since it includes a variety of layouts and pre-built templates. Bootstrap is an open-source framework that allows developers to alter and tailor applications easily.
+                  Hire Skilled Laravel Developer to find solutions to problems with PHP and gain command over versioning systems such as GIT. Our developers are capable of working with API, RESTful, OOP, SOAP, and MVC. They have skills like management strategies such as SCRUM, AGILE, and WATERFALL, among others. Hire Laravel developers in India who have people skills and a strong knowledge of the English language. When you hire laravel developer in USA from a trusted, reputed, and credible Laravel development company like ours, you get access to the top 1% of Laravel talent with proven expertise. We also deliver Custom AI Solutions with Laravel to help businesses build smarter, scalable, and future-ready web applications.
                 </p>
               </div>
 
@@ -738,40 +874,41 @@ export const HireBootstrapDevelopersService = () => {
         <Container>
           <div className="space-y-8">
             {/* Section Header */}
-            <div className="text-center max-w-4xl mx-auto space-y-3">
-              <h2 className="text-2xl sm:text-3xl lg:text-[38px] font-[900] text-slate-900 tracking-tight leading-tight">
-                Meet Sapphire's Exceptional Team of Seasoned Experts
+            <div className="text-center max-w-6xl mx-auto space-y-3">
+              <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-[900] text-slate-900 tracking-tight leading-tight whitespace-normal sm:whitespace-nowrap">
+                Meet Firevy.co's Exceptional Team of Seasoned Experts
               </h2>
             </div>
 
-            {/* Filter Pills Bar */}
-            <div className="flex items-center justify-center flex-wrap gap-2 max-w-5xl mx-auto">
-              {[
-                'Trending',
-                'Product Development',
-                'SaaS',
-                'AI/ML',
-                'Data Engineering',
-                'Design',
-                'Marketing',
-                'IoT App Dev',
-                'Blockchain Dev'
-              ].map((cat) => (
-                <button
-                  key={cat}
-                  onClick={() => {
-                    setExpertActiveCategory(cat);
-                    setExpertCarouselIndex(0);
-                  }}
-                  className={`px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${
-                    expertActiveCategory === cat
-                      ? 'bg-[#006095] text-white shadow-md'
-                      : 'bg-slate-100 text-slate-600 hover:bg-slate-200/70'
-                  }`}
-                >
-                  {cat}
-                </button>
-              ))}
+            {/* Filter Pills Bar Capsule */}
+            <div className="flex justify-center w-full overflow-x-auto py-1">
+              <div className="bg-[#DDECF5] p-1 rounded-full inline-flex items-center justify-center gap-1 md:gap-1.5 lg:gap-2 max-w-6xl border border-cyan-100/60 shadow-2xs">
+                {[
+                  'Trending',
+                  'Product Development',
+                  'Saas',
+                  'AI/ML',
+                  'Data Engineering',
+                  'Design',
+                  'Marketing',
+                  'IoT App Dev',
+                  'Blockchain Dev'
+                ].map((cat) => (
+                  <button
+                    key={cat}
+                    onClick={() => {
+                      setExpertActiveCategory(cat);
+                      setExpertCarouselIndex(0);
+                    }}
+                    className={`px-3.5 py-1.5 md:px-4 md:py-1.5 rounded-full text-xs md:text-sm font-bold transition-all cursor-pointer whitespace-nowrap ${expertActiveCategory === cat
+                        ? 'bg-[#006095] text-white shadow-xs'
+                        : 'text-slate-700 hover:text-slate-900 font-semibold'
+                      }`}
+                  >
+                    {cat}
+                  </button>
+                ))}
+              </div>
             </div>
 
             {/* 3 Team Cards Grid */}
@@ -818,20 +955,19 @@ export const HireBootstrapDevelopersService = () => {
 
                       <h3 className="text-lg font-bold text-slate-900 mb-3">{team.title}</h3>
 
-                      <div className="flex items-center space-x-2 mb-4">
+                      {/* Pill Capsule sub-tabs */}
+                      <div className="bg-white rounded-full p-1 inline-flex items-center space-x-1 mb-4 shadow-2xs border border-slate-100">
                         <button
                           onClick={() => setExpertTabs((prev) => ({ ...prev, [team.id]: 'tech' }))}
-                          className={`px-3 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
-                            currentTab === 'tech' ? 'bg-[#006095] text-white shadow-xs' : 'bg-white text-slate-600 border border-slate-200/60'
-                          }`}
+                          className={`px-3 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${currentTab === 'tech' ? 'bg-[#006095] text-white shadow-xs' : 'text-slate-700 hover:text-slate-900'
+                            }`}
                         >
                           Technologies
                         </button>
                         <button
                           onClick={() => setExpertTabs((prev) => ({ ...prev, [team.id]: 'composition' }))}
-                          className={`px-3 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
-                            currentTab === 'composition' ? 'bg-[#006095] text-white shadow-xs' : 'bg-white text-slate-600 border border-slate-200/60'
-                          }`}
+                          className={`px-3 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${currentTab === 'composition' ? 'bg-[#006095] text-white shadow-xs' : 'text-slate-700 hover:text-slate-900'
+                            }`}
                         >
                           Team Composition
                         </button>
@@ -840,21 +976,21 @@ export const HireBootstrapDevelopersService = () => {
                       <div className="flex flex-wrap gap-2 mb-6 min-h-[70px]">
                         {currentTab === 'tech'
                           ? team.techs.map((t, idx) => (
-                              <span key={idx} className="bg-white text-slate-800 text-xs font-semibold px-3 py-1 rounded-full border border-slate-200">
-                                {t}
-                              </span>
-                            ))
+                            <span key={idx} className="bg-white text-slate-800 text-xs font-semibold px-3 py-1.5 rounded-full border border-slate-100 shadow-2xs">
+                              {t}
+                            </span>
+                          ))
                           : team.composition.map((c, idx) => (
-                              <span key={idx} className="bg-white text-[#006095] text-xs font-bold px-3 py-1 rounded-full border border-slate-200">
-                                • {c}
-                              </span>
-                            ))}
+                            <span key={idx} className="bg-white text-[#006095] text-xs font-bold px-3 py-1.5 rounded-full border border-slate-100 shadow-2xs">
+                              • {c}
+                            </span>
+                          ))}
                       </div>
                     </div>
 
                     <button
                       onClick={() => setSelectedTeamModal(team)}
-                      className="bg-[#006095] hover:bg-[#0083B0] text-white px-5 py-2.5 rounded-xl text-xs font-bold inline-flex items-center space-x-2 transition-all shadow-xs cursor-pointer"
+                      className="bg-[#006095] hover:bg-[#0083B0] text-white px-4 py-2.5 rounded-xl text-xs font-bold inline-flex items-center space-x-2 transition-all shadow-xs cursor-pointer w-fit"
                     >
                       <span>Get Details</span>
                       <span>→</span>
@@ -864,315 +1000,297 @@ export const HireBootstrapDevelopersService = () => {
               })}
             </div>
 
-            {/* Bottom Centered Navigation Controls (←  →) */}
-            <div className="flex items-center justify-center space-x-6 pt-4">
-              <button
-                onClick={() => setExpertCarouselIndex((prev) => (prev <= 0 ? 1 : prev - 1))}
-                className="text-slate-400 hover:text-[#006095] p-2 transition-all cursor-pointer"
-                aria-label="Previous team slide"
-              >
-                <span className="text-2xl font-bold">←</span>
+            {/* Bottom Carousel Navigation Arrows */}
+            <div className="flex items-center justify-center space-x-4 pt-4">
+              <button className="text-slate-400 hover:text-slate-700 transition-colors text-2xl font-light px-2 cursor-pointer">
+                ←
               </button>
-              <button
-                onClick={() => setExpertCarouselIndex((prev) => (prev >= 1 ? 0 : prev + 1))}
-                className="text-slate-400 hover:text-[#006095] p-2 transition-all cursor-pointer"
-                aria-label="Next team slide"
-              >
-                <span className="text-2xl font-bold">→</span>
+              <button className="text-slate-800 hover:text-black transition-colors text-2xl font-light px-2 cursor-pointer">
+                →
               </button>
             </div>
           </div>
         </Container>
       </section>
 
-      {/* Selected Team Interactive Detail Modal */}
-      {selectedTeamModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-xs p-4 animate-fade-in">
-          <div className="bg-white rounded-3xl max-w-xl w-full shadow-2xl overflow-hidden border border-slate-100 relative max-h-[90vh] flex flex-col">
-            <div className="relative h-44 sm:h-48 w-full bg-slate-900">
-              <img src={selectedTeamModal.image} alt={selectedTeamModal.title} className="w-full h-full object-cover opacity-80" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex flex-col justify-end p-6">
-                <span className="text-[#00D8FF] text-[11px] font-extrabold uppercase tracking-widest mb-1">
-                  Verified Sapphire Squad • {selectedTeamModal.experience}
-                </span>
-                <h3 className="text-xl sm:text-2xl font-black text-white">{selectedTeamModal.title}</h3>
-              </div>
-              <button
-                onClick={() => setSelectedTeamModal(null)}
-                className="absolute top-4 right-4 bg-black/40 hover:bg-black/70 text-white rounded-full p-2 text-sm backdrop-blur-xs cursor-pointer transition-all"
-              >
-                ✕
-              </button>
-            </div>
-            <div className="p-6 overflow-y-auto space-y-5">
-              <div>
-                <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Squad Overview</h4>
-                <p className="text-sm text-slate-700 leading-relaxed">{selectedTeamModal.summary}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
       {/* =========================================================================
-          SECTION 10: LEVERAGE THE EXPERTISE OF SAPPHIRE DEDICATED DEVELOPERS (Screenshot 3 & 4 Match)
+          SECTION 8A: LEVERAGE THE EXPERTISE OF SAPPHIRE DEDICATED DEVELOPERS (Screenshots 1 & 2)
           ========================================================================= */}
-      <section className="py-16 md:py-24 bg-[#F8FAFC] font-sans text-slate-900 border-b border-slate-100">
+      <section className="py-16 md:py-24 bg-white text-slate-900 font-sans border-b border-slate-100">
         <Container>
-          <div className="space-y-8">
-            <div className="text-center max-w-4xl mx-auto space-y-4">
+          <div className="space-y-8 max-w-6xl mx-auto">
+            {/* Title */}
+            <div className="text-center space-y-3">
               <h2 className="text-2xl sm:text-3xl lg:text-[38px] font-[900] text-slate-900 tracking-tight leading-tight">
-                Leverage The Expertise of Sapphire Dedicated Developers
+                Leverage The Expertise of Firevy.co Dedicated Developers
               </h2>
+            </div>
 
-              <div className="flex justify-center space-x-2 bg-slate-200/60 p-1.5 rounded-full max-w-md mx-auto">
-                {['In Demand', 'Mobile', 'Web', 'AI'].map((tabName, idx) => (
+            {/* Filter Pills Capsule */}
+            <div className="flex justify-center">
+              <div className="bg-[#DDECF5] p-1.5 rounded-full inline-flex flex-wrap items-center justify-center gap-1 sm:gap-2 border border-cyan-100/60 shadow-xs">
+                {['In Demand', 'Mobile', 'Web', 'AI'].map((tab) => (
                   <button
-                    key={idx}
-                    onClick={() => setLeverageTab(idx)}
-                    className={`px-5 py-2 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${
-                      leverageTab === idx ? 'bg-[#006095] text-white shadow-md' : 'text-slate-700 hover:text-[#006095]'
-                    }`}
+                    key={tab}
+                    onClick={() => setLeverageTab(tab)}
+                    className={`px-5 py-2 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${(leverageTab === tab || (leverageTab === 0 && tab === 'In Demand'))
+                        ? 'bg-[#006095] text-white shadow-xs'
+                        : 'text-slate-700 hover:text-slate-900 font-semibold'
+                      }`}
                   >
-                    {tabName}
+                    {tab}
                   </button>
                 ))}
               </div>
             </div>
 
-            {/* Pink Highlighted Active Tab Description Banner */}
-            <div className="max-w-5xl mx-auto">
-              <div className="bg-[#FFDEE9]/80 border border-pink-200/80 rounded-2xl p-6 sm:p-8 text-left">
-                <h3 className="text-lg font-bold text-slate-900 mb-2 flex items-center space-x-2">
-                  <span>{['In Demand ↗', 'Mobile ↗', 'Web ↗', 'AI ↗'][leverageTab]}</span>
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-800 leading-relaxed font-normal">
-                  Employ someone to quickly establish a specialized development team from the beginning or to help you grow your team. Inform us of your needs, and you will have total control over the most suitable specialists, much like your core internal staff.
-                </p>
-              </div>
+            {/* Highlight Banner (Pink/Rose card) */}
+            <div className="bg-[#FCE4EC] rounded-2xl p-6 sm:p-8 border border-pink-100 shadow-xs space-y-2">
+              <h3 className="text-lg font-bold text-slate-900 flex items-center space-x-1.5">
+                <span>In Demand</span>
+                <span className="text-base">↗</span>
+              </h3>
+              <p className="text-xs sm:text-sm text-slate-700 leading-relaxed font-normal">
+                Employ someone to quickly establish a specialized development team from the beginning or to help you grow your team. Inform us of your needs, and you will have total control over the most suitable specialists, much like your core internal staff.
+              </p>
             </div>
 
-            {/* 2-Column Role Cards Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            {/* 6 Cards Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
               {[
                 {
-                  title: 'AI Developers ↗',
-                  desc: 'Employ our team\'s best AI developers, who have a wealth of expertise and practical experience with GANs, neural networks, LLMs, and other AI topics. Making use of everything, our AI developers create clever AI solutions that transform the way companies operate. Hire the perfect AI developer with only one click to save the headache!'
+                  title: 'AI Developers',
+                  desc: "Employ our team's best AI developers, who have a wealth of expertise and practical experience with GANs, neural networks, LLMs, and other AI topics. Making use of everything, our AI developers create clever AI solutions that transform the way companies operate. Hire the perfect AI developer with only one click to save the headache!"
                 },
                 {
-                  title: 'UI/UX Designers ↗',
+                  title: 'UI/UX Designers',
                   desc: 'Hire the top UI/UX designers from our team who are well-versed in the most recent design trends, user interface theories, and user experience tactics. Our UI/UX designers produce designs that improve user interaction and propel companies forward. Save yourself the trouble and quickly and easily find the ideal UI/UX designer with just one click!'
                 },
                 {
-                  title: 'API Developers ↗',
+                  title: 'API Developers',
                   desc: 'Use the FastAPI framework to your advantage by hiring our skilled full-stack engineers who are proficient in FastAPI development. Utilizing technologies such as Pydantic and Starlette, their knowledge allows them to develop dynamic web apps that are optimized for smooth integration and an outstanding user experience.'
                 },
                 {
-                  title: 'Next JS Developers ↗',
+                  title: 'Next JS Developers',
                   desc: 'Employ our passionate Next.js developers to build websites; they possess a thorough grasp of the Next.js technology. Has proficiency in developing sophisticated online solutions that provide unified user experience and contemporary design using technologies like Styled Components and React Query. Collaborate with our Next.js programmers to improve your websites.'
                 },
                 {
-                  title: 'Machine Learning Developers ↗',
-                  desc: 'Employ our team\'s best ML developers; they have a wealth of expertise and practical experience dealing with LLMs like LLaMA, GPT, and others. Our machine-learning experts provide clever solutions that completely transform how companies run. With only one click, find the perfect machine learning developer!'
+                  title: 'Machine Learning Developers',
+                  desc: "Employ our team's best ML developers; they have a wealth of expertise and practical experience dealing with LLMs like LLaMA, GPT, and others. Our machine-learning experts provide clever solutions that completely transform how companies run. With only one click, find the perfect machine learning developer!"
                 },
                 {
-                  title: 'Data Scientists ↗',
+                  title: 'Data Scientists',
                   desc: 'Hire the best data scientists who have produced amazing computer vision, unique data, and AI solutions, as well as LLM-powered applications. Our data scientists can assist you with all your data science needs, including actionable insight extraction, predictive model building, and business process optimization. Hire the perfect data science specialists with just one click to save the fuss!'
                 }
-              ].map((card, idx) => (
-                <div key={idx} className="bg-white rounded-2xl p-6 text-left border border-slate-200/80 shadow-xs hover:shadow-md transition-all space-y-3">
-                  <h4 className="text-base sm:text-lg font-bold text-slate-900 flex items-center justify-between">
-                    <span>{card.title}</span>
-                  </h4>
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-                    {card.desc}
-                  </p>
+              ].map((item, idx) => (
+                <div
+                  key={idx}
+                  className="bg-[#F0F7FC] rounded-2xl p-6 sm:p-7 border border-blue-100/70 shadow-xs hover:shadow-md transition-all flex flex-col justify-between space-y-4"
+                >
+                  <div className="space-y-3">
+                    <h4 className="text-lg font-bold text-slate-900 flex items-center space-x-1">
+                      <span>{item.title}</span>
+                      <span className="text-base text-slate-700">↗</span>
+                    </h4>
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                      {item.desc}
+                    </p>
+                  </div>
                 </div>
               ))}
             </div>
 
-            {/* Bottom CTA Button */}
+            {/* View All Portfolio Button */}
             <div className="text-center pt-4">
-              <a
-                href="#quote-form"
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.getElementById('quote-form')?.scrollIntoView({ behavior: 'smooth' });
-                }}
-                className="inline-flex items-center justify-center bg-[#006095] hover:bg-[#0083B0] text-white font-bold px-8 py-3.5 rounded-lg text-sm transition-all shadow-md"
-              >
+              <button className="bg-[#006095] hover:bg-[#0083B0] text-white font-bold px-6 py-2.5 rounded-xl text-xs sm:text-sm transition-all shadow-xs cursor-pointer">
                 View All Portfolio
-              </a>
+              </button>
             </div>
           </div>
         </Container>
       </section>
 
       {/* =========================================================================
-          SECTION 11: INDUSTRY-FOCUSED INSIGHTS TO ELEVATE YOUR BUSINESS (Screenshot 1 Match)
+          SECTION 8B: INDUSTRY-FOCUSED INSIGHTS TO ELEVATE YOUR BUSINESS (Screenshot 3)
           ========================================================================= */}
-      <section className="py-16 md:py-24 bg-white font-sans text-slate-900 border-b border-slate-100">
+      <section className="py-16 md:py-24 bg-white text-slate-900 font-sans border-b border-slate-100">
         <Container>
-          <div className="space-y-8">
-            <div className="text-center max-w-4xl mx-auto space-y-2">
+          <div className="space-y-8 max-w-6xl mx-auto">
+            {/* Title Header */}
+            <div className="text-center space-y-2 max-w-4xl mx-auto">
               <h2 className="text-2xl sm:text-3xl lg:text-[38px] font-[900] text-slate-900 tracking-tight leading-tight">
                 Industry-Focused Insights To Elevate Your Business
               </h2>
-              <p className="text-xs sm:text-sm text-slate-600 font-medium">
+              <p className="text-xs sm:text-sm font-semibold text-slate-600">
                 Trending Industries that Use Dedicated Developers
               </p>
             </div>
 
-            {/* 2-Row Category Filter Bar (1:1 Match to Sapphire Screenshot 1) */}
-            <div className="bg-[#F0F7FC] p-4 rounded-2xl max-w-5xl mx-auto border border-cyan-100 space-y-3">
-              <div className="flex items-center justify-center flex-wrap gap-2">
-                {['Automotive', 'Ecommerce', 'Education', 'Entertainment', 'Finance', 'Food and Beverage', 'Healthcare'].map((ind) => (
-                  <button
-                    key={ind}
-                    onClick={() => setActiveInsightIndustry(ind)}
-                    className={`px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
-                      activeInsightIndustry === ind ? 'bg-[#005C8A] text-white font-bold shadow-xs' : 'bg-white text-slate-700 hover:bg-slate-50'
-                    }`}
-                  >
-                    {ind}
-                  </button>
-                ))}
-              </div>
-              <div className="flex items-center justify-center flex-wrap gap-2">
-                {['Information Technology', 'Logistics', 'Travel & Tourism', 'Utility Services'].map((ind) => (
-                  <button
-                    key={ind}
-                    onClick={() => setActiveInsightIndustry(ind)}
-                    className={`px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
-                      activeInsightIndustry === ind ? 'bg-[#005C8A] text-white font-bold shadow-xs' : 'bg-white text-slate-700 hover:bg-slate-50'
-                    }`}
-                  >
-                    {ind}
-                  </button>
-                ))}
+            {/* Industry Filter Pills Container (Rounded Rectangular Box with 2 Rows) */}
+            <div className="flex justify-center">
+              <div className="bg-[#EBF4FA] p-5 rounded-2xl max-w-5xl w-full border border-cyan-100/70 shadow-2xs space-y-3">
+                {/* Row 1: 7 Pills */}
+                <div className="flex flex-wrap items-center justify-center gap-2.5">
+                  {[
+                    'Automotive',
+                    'Ecommerce',
+                    'Education',
+                    'Entertainment',
+                    'Finance',
+                    'Food and Beverage',
+                    'Healthcare'
+                  ].map((ind) => (
+                    <button
+                      key={ind}
+                      onClick={() => setActiveInsightIndustry(ind)}
+                      className={`px-5 py-2.5 rounded-lg text-xs sm:text-sm transition-all cursor-pointer ${activeInsightIndustry === ind
+                          ? 'bg-[#006095] text-white font-bold shadow-xs'
+                          : 'bg-white text-slate-700 font-semibold hover:text-slate-900 border border-slate-100 shadow-2xs'
+                        }`}
+                    >
+                      {ind}
+                    </button>
+                  ))}
+                </div>
+
+                {/* Row 2: 4 Pills */}
+                <div className="flex flex-wrap items-center justify-center gap-2.5">
+                  {[
+                    'Information Technology',
+                    'Logistics',
+                    'Travel & Tourism',
+                    'Utility Services'
+                  ].map((ind) => (
+                    <button
+                      key={ind}
+                      onClick={() => setActiveInsightIndustry(ind)}
+                      className={`px-5 py-2.5 rounded-lg text-xs sm:text-sm transition-all cursor-pointer ${activeInsightIndustry === ind
+                          ? 'bg-[#006095] text-white font-bold shadow-xs'
+                          : 'bg-white text-slate-700 font-semibold hover:text-slate-900 border border-slate-100 shadow-2xs'
+                        }`}
+                    >
+                      {ind}
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
 
-            {/* 3 Industry Project Cards with SVG Mockup Banners */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto pt-2">
+            {/* 3 Industry Portfolio Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
               {[
                 {
-                  id: 'vehicle-data',
                   title: 'Vehicle Data Logging Software',
-                  image: '/images/enterprise_app_mockup.jpg'
+                  image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop&q=80'
                 },
                 {
-                  id: 'car-wash',
                   title: 'Car Wash App Development',
                   image: '/images/car_wash_app_mockup.jpg'
                 },
                 {
-                  id: 'taxi-booking',
                   title: 'Taxi Booking-App Development',
                   image: '/images/taxi_booking_app_mockup.jpg'
                 }
-              ].map((proj) => (
-                <div key={proj.id} className="bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-xs hover:shadow-md transition-all flex flex-col justify-between">
-                  <div className="h-52 w-full bg-slate-50 flex items-center justify-center overflow-hidden">
-                    <img src={proj.image} alt={proj.title} className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
+              ].map((card, idx) => (
+                <div key={idx} className="space-y-3 group">
+                  <div className="bg-[#EBF4FA] rounded-2xl p-4 border border-cyan-100/60 shadow-xs hover:shadow-md transition-all overflow-hidden h-64 flex items-center justify-center">
+                    <img
+                      src={card.image}
+                      alt={card.title}
+                      className="w-full h-full object-cover rounded-xl group-hover:scale-105 transition-transform duration-300"
+                    />
                   </div>
-                  <div className="p-4 text-center">
-                    <h4 className="text-sm sm:text-base font-extrabold text-slate-900">{proj.title}</h4>
-                  </div>
+                  <h3 className="text-center font-bold text-slate-900 text-sm md:text-base">
+                    {card.title}
+                  </h3>
                 </div>
               ))}
             </div>
 
-            {/* Bottom Centered View All Portfolio Button (1:1 Match to Sapphire Screenshot 1) */}
+            {/* View All Portfolio Button */}
             <div className="text-center pt-4">
-              <a
-                href="#quote-form"
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.getElementById('quote-form')?.scrollIntoView({ behavior: 'smooth' });
-                }}
-                className="inline-flex items-center justify-center bg-[#005C8A] hover:bg-[#004A75] text-white font-bold px-8 py-3.5 rounded-lg text-sm sm:text-base transition-all shadow-md cursor-pointer"
-              >
+              <button className="bg-[#006095] hover:bg-[#0083B0] text-white font-bold px-7 py-2.5 rounded-lg text-xs sm:text-sm transition-all shadow-xs cursor-pointer">
                 View All Portfolio
-              </a>
+              </button>
             </div>
           </div>
         </Container>
       </section>
 
-      {/* ============================================================
-          SECTION 12: ABOUT US (Screenshot 1 Match)
-          ============================================================ */}
-      <section className="py-16 md:py-24 bg-[#005C8A] text-white font-sans overflow-hidden border-b border-cyan-900">
+      {/* =========================================================================
+          SECTION 8C: ABOUT US (8 STATS CARDS) (Screenshot 4)
+          ========================================================================= */}
+      <section className="py-16 md:py-24 bg-[#006095] text-white font-sans border-b border-cyan-800">
         <Container>
-          <div className="space-y-12">
-            <div className="text-center max-w-3xl mx-auto space-y-3">
-              <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-[900] text-white tracking-tight leading-tight">
+          <div className="space-y-10 max-w-6xl mx-auto">
+            {/* Header */}
+            <div className="text-center space-y-3 max-w-3xl mx-auto">
+              <h2 className="text-3xl sm:text-4xl font-[900] text-white tracking-tight leading-tight">
                 About Us
               </h2>
-              <p className="text-sm sm:text-base text-cyan-100 font-medium leading-relaxed">
-                Sapphire delivers cutting-edge digital solutions that drive our clients to achieve unparalleled success
+              <p className="text-xs sm:text-sm md:text-base text-cyan-100 font-medium">
+                Firevy.co delivers cutting-edge digital solutions that drive our clients to achieve unparalleled success
               </p>
             </div>
 
-            {/* 8 Stats Metric Cards (4 Columns x 2 Rows) */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            {/* 8 Metric Cards Grid (2 rows of 4) */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
               {[
                 {
-                  value: '23+',
+                  number: '23+',
                   label: 'Years of Experience',
-                  img: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=400&auto=format&fit=crop&q=80'
+                  image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&auto=format&fit=crop&q=80'
                 },
                 {
-                  value: '320+',
+                  number: '320+',
                   label: '5-Star Clutch Reviews',
-                  img: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=400&auto=format&fit=crop&q=80'
+                  image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&auto=format&fit=crop&q=80'
                 },
                 {
-                  value: '20+',
+                  number: '20+',
                   label: 'Fortunes 500 Companies',
-                  img: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&auto=format&fit=crop&q=80'
+                  image: 'https://images.unsplash.com/photo-1477959858617-67f30ac4ce78?w=400&auto=format&fit=crop&q=80'
                 },
                 {
-                  value: '200+',
+                  number: '200+',
                   label: 'IT Professional',
-                  img: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&auto=format&fit=crop&q=80'
+                  image: 'https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=400&auto=format&fit=crop&q=80'
                 },
                 {
-                  value: '95%',
+                  number: '95%',
                   label: 'Client Retention',
-                  img: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&auto=format&fit=crop&q=80'
+                  image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=400&auto=format&fit=crop&q=80'
                 },
                 {
-                  value: '18+',
+                  number: '18+',
                   label: 'Industry Served',
-                  img: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&auto=format&fit=crop&q=80'
+                  image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&auto=format&fit=crop&q=80'
                 },
                 {
-                  value: '2800+',
+                  number: '2800+',
                   label: 'Satisfied Clients',
-                  img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&auto=format&fit=crop&q=80'
+                  image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&auto=format&fit=crop&q=80'
                 },
                 {
-                  value: '1500+',
+                  number: '1500+',
                   label: 'Completed Projects',
-                  img: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&auto=format&fit=crop&q=80'
+                  image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&auto=format&fit=crop&q=80'
                 }
               ].map((stat, idx) => (
                 <div
                   key={idx}
-                  className="bg-white rounded-2xl p-5 flex items-center space-x-4 shadow-lg text-slate-900 border border-slate-100 hover:scale-[1.02] transition-all"
+                  className="bg-white text-slate-900 rounded-2xl p-4 shadow-md flex items-center space-x-4 border border-slate-100 hover:shadow-lg transition-all"
                 >
-                  <div className="w-16 h-16 rounded-xl overflow-hidden shrink-0 bg-slate-100">
-                    <img src={stat.img} alt={stat.label} className="w-full h-full object-cover" />
+                  <div className="w-16 h-16 rounded-xl overflow-hidden shrink-0">
+                    <img src={stat.image} alt={stat.label} className="w-full h-full object-cover" />
                   </div>
-                  <div className="space-y-0.5 text-left">
-                    <div className="text-2xl sm:text-3xl font-[900] text-[#005C8A] leading-tight">
-                      {stat.value}
-                    </div>
-                    <div className="text-xs font-bold text-slate-700 leading-tight">
+                  <div>
+                    <h4 className="text-2xl font-black text-[#006095] leading-none mb-1">
+                      {stat.number}
+                    </h4>
+                    <p className="text-xs font-semibold text-slate-600 leading-tight">
                       {stat.label}
-                    </div>
+                    </p>
                   </div>
                 </div>
               ))}
@@ -1181,90 +1299,102 @@ export const HireBootstrapDevelopersService = () => {
         </Container>
       </section>
 
-      {/* ============================================================
-          SECTION 13: SECTORS THRIVING THROUGH SAPPHIRE'S BESPOKE DEDICATED DEVELOPERS (Screenshot 2 Match)
-          ============================================================ */}
-      <SectorsThrivingSection title="Sectors Thriving Through Sapphire's Bespoke Dedicated Developers" />
+      {/* =========================================================================
+          SECTION 8D: SECTORS THRIVING (Screenshot 1)
+          ========================================================================= */}
+      <SectorsThrivingSection />
 
-      {/* ============================================================
-          SECTION 14: EMPLOY THE ADVANCED PROFICIENCY OF SAPPHIRE'S DEDICATED DEVELOPMENT TEAM (Screenshot 3 Match)
-          ============================================================ */}
-      <section className="py-16 md:py-20 bg-[#F0F6FB] text-slate-900 font-sans border-b border-slate-200/80">
-        <Container className="max-w-6xl">
-          <div className="text-center max-w-3xl mx-auto mb-10 space-y-2">
-            <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-[900] text-slate-900 tracking-tight leading-tight">
-              Employ the Advanced Proficiency of Sapphire’s Dedicated Development Team
-            </h2>
-            <p className="text-xs sm:text-sm text-slate-600 font-normal max-w-2xl mx-auto">
-              At Sapphire, we have a dedicated development team to deliver IT services and create solutions that surpass expectations.
-            </p>
-          </div>
+      {/* =========================================================================
+          SECTION 8E: EMPLOY THE ADVANCED PROFICIENCY OF SAPPHIRE'S DEDICATED DEV TEAM (Screenshot 2)
+          ========================================================================= */}
+      <section className="py-16 md:py-24 bg-[#F0F7FC] text-slate-900 font-sans border-b border-slate-100">
+        <Container>
+          <div className="space-y-12 max-w-6xl mx-auto">
+            {/* Header */}
+            <div className="text-center space-y-3 max-w-4xl mx-auto">
+              <h2 className="text-2xl sm:text-3xl lg:text-[38px] font-[900] text-slate-900 tracking-tight leading-tight">
+                Employ the Advanced Proficiency of Firevy.co's Dedicated Development Team
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-600 font-medium">
+                At Firevy.co, we have a dedicated development team to deliver IT services and create solutions that surpass expectations.
+              </p>
+            </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 max-w-5xl mx-auto">
-            {[
-              { title: 'On-Time Progress Monitoring', IconComp: LineChart },
-              { title: 'Time-Zone Compatibility', IconComp: Globe },
-              { title: 'Cost-Effective Development', IconComp: Coins },
-              { title: 'World Class Expertise', IconComp: Award },
-              { title: 'Least Turnaround Time', IconComp: RotateCw },
-              { title: 'Best Management Standards', IconComp: Sliders },
-              { title: '500+ Seasons Experts', IconComp: Lightbulb },
-              { title: '24x7 Support Team', IconComp: Headphones },
-              { title: 'Efficient Project Management', IconComp: Handshake },
-              { title: 'Dedicated Delivery Management', IconComp: UserCheck }
-            ].map((item, idx) => {
-              const Icon = item.IconComp;
-              return (
-                <div
-                  key={idx}
-                  className="bg-white rounded-2xl py-4 px-3 border border-blue-100/60 shadow-xs flex flex-col items-center justify-center text-center group hover:shadow-md hover:-translate-y-0.5 transition-all h-[120px] sm:h-[130px]"
-                >
-                  <div className="w-8 h-8 text-[#005F96] flex items-center justify-center mb-2 shrink-0">
-                    <Icon className="w-7 h-7 stroke-[1.6]" />
+            {/* 10 White Cards Grid (2 rows of 5) */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+              {[
+                { title: 'On-Time Progress Monitoring', IconComp: Clock },
+                { title: 'Time-Zone Compatibility', IconComp: Globe },
+                { title: 'Cost-Effective Development', IconComp: Coins },
+                { title: 'World Class Expertise', IconComp: Award },
+                { title: 'Least Turnaround Time', IconComp: Zap },
+                { title: 'Best Management Standards', IconComp: ShieldCheck },
+                { title: '500+ Seasons Experts', IconComp: Lightbulb },
+                { title: '24x7 Support Team', IconComp: Headphones },
+                { title: 'Efficient Project Management', IconComp: Handshake },
+                { title: 'Dedicated Delivery Management', IconComp: UserCheck }
+              ].map((item, idx) => {
+                const CardIcon = item.IconComp;
+                return (
+                  <div
+                    key={idx}
+                    className="bg-white rounded-2xl p-6 text-center shadow-xs hover:shadow-md border border-slate-100/80 transition-all flex flex-col justify-center items-center space-y-3 h-40"
+                  >
+                    <div className="w-10 h-10 text-[#006095] flex items-center justify-center">
+                      <CardIcon className="w-8 h-8 stroke-[1.5]" />
+                    </div>
+                    <h4 className="text-xs sm:text-sm font-bold text-slate-900 leading-snug">
+                      {item.title}
+                    </h4>
                   </div>
-                  <h3 className="text-xs font-bold text-slate-800 leading-snug group-hover:text-[#005F96] transition-colors max-w-[130px]">
-                    {item.title}
-                  </h3>
-                </div>
-              );
-            })}
+                );
+              })}
+            </div>
           </div>
         </Container>
       </section>
 
-      {/* ============================================================
-          SECTION 15: HOW WE DIVIDE YOUR PROJECT RESPONSIBILITIES ? (Screenshot 4 Match)
-          ============================================================ */}
-      <section className="py-16 md:py-24 bg-white text-slate-900 font-sans border-b border-slate-200">
-        <Container className="max-w-7xl">
-          <div className="text-center max-w-4xl mx-auto mb-10 space-y-4">
-            <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-[900] text-slate-900 tracking-tight leading-tight">
-              How We Divide Your Project Responsibilities ?
-            </h2>
-
-            <div className="inline-flex items-center bg-[#EBF4FA] rounded-xl p-1.5 border border-blue-100 shadow-xs">
-              <button
-                onClick={() => setResponsibilityTab('sapphire')}
-                className={`px-8 py-2 rounded-lg font-bold text-xs sm:text-sm transition-all cursor-pointer ${
-                  responsibilityTab === 'sapphire' ? 'bg-[#005F96] text-white shadow-sm' : 'text-slate-600 hover:text-slate-900'
-                }`}
-              >
-                Firevy.co
-              </button>
-              <button
-                onClick={() => setResponsibilityTab('client')}
-                className={`px-8 py-2 rounded-lg font-bold text-xs sm:text-sm transition-all cursor-pointer ${
-                  responsibilityTab === 'client' ? 'bg-[#005F96] text-white shadow-sm' : 'text-slate-600 hover:text-slate-900'
-                }`}
-              >
-                Client
-              </button>
+      {/* =========================================================================
+          SECTION 8F: HOW WE DIVIDE YOUR PROJECT RESPONSIBILITIES ? (Screenshot 3)
+          ========================================================================= */}
+      <section className="py-16 md:py-24 bg-white text-slate-900 font-sans border-b border-slate-100">
+        <Container>
+          <div className="space-y-10 max-w-6xl mx-auto">
+            {/* Header */}
+            <div className="text-center space-y-3">
+              <h2 className="text-2xl sm:text-3xl lg:text-[38px] font-[900] text-slate-900 tracking-tight leading-tight">
+                How We Divide Your Project Responsibilities ?
+              </h2>
             </div>
-          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-6xl mx-auto">
-            {(responsibilityTab === 'sapphire'
-              ? [
+            {/* Sapphire / Client Filter Capsule */}
+            <div className="flex justify-center">
+              <div className="bg-[#DDECF5] p-1.5 rounded-full inline-flex items-center space-x-1 border border-cyan-100/60 shadow-xs">
+                <button
+                  onClick={() => setResponsibilityTab('sapphire')}
+                  className={`px-6 py-2 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${responsibilityTab === 'sapphire'
+                      ? 'bg-[#006095] text-white shadow-xs'
+                      : 'text-slate-700 hover:text-slate-900 font-semibold'
+                    }`}
+                >
+                  Firevy.co
+                </button>
+                <button
+                  onClick={() => setResponsibilityTab('client')}
+                  className={`px-6 py-2 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${responsibilityTab === 'client'
+                      ? 'bg-[#006095] text-white shadow-xs'
+                      : 'text-slate-700 hover:text-slate-900 font-semibold'
+                    }`}
+                >
+                  Client
+                </button>
+              </div>
+            </div>
+
+            {/* 6 Responsibilities Cards Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
+              {(responsibilityTab === 'sapphire'
+                ? [
                   { title: 'Create a dedicated team', IconComp: Users },
                   { title: 'Gather required access', IconComp: Lock },
                   { title: 'Plan project resources', IconComp: Sliders },
@@ -1272,108 +1402,187 @@ export const HireBootstrapDevelopersService = () => {
                   { title: 'Regular communication between stakeholders', IconComp: MessageSquare },
                   { title: 'Research on competitors', IconComp: Flag }
                 ]
-              : [
-                  { title: 'End-to-end ownership', IconComp: Handshake },
-                  { title: 'Manage the project roadmap', IconComp: Milestone },
-                  { title: 'Streamline feedback & review', IconComp: Star },
-                  { title: 'System for feedback & changes', IconComp: RefreshCw },
-                  { title: 'Project life cycle tracking', IconComp: RotateCw },
-                  { title: 'Ensure on-time delivery', IconComp: Calendar }
+                : [
+                  { title: 'Define project scope & vision', IconComp: Milestone },
+                  { title: 'Provide domain context & access', IconComp: Database },
+                  { title: 'Review sprint deliverables', IconComp: CheckCircle2 },
+                  { title: 'Provide timely feedback & approvals', IconComp: RefreshCw },
+                  { title: 'Align business priorities with roadmap', IconComp: LineChart },
+                  { title: 'Co-evaluate key performance indicators', IconComp: PieChart }
                 ]
-            ).map((card, cIdx) => {
-              const CardIcon = card.IconComp;
-              return (
-                <div
-                  key={cIdx}
-                  className="bg-[#F0F6FB] rounded-2xl py-6 px-6 border border-blue-100/60 shadow-xs flex flex-col items-center justify-center text-center group hover:shadow-md hover:-translate-y-0.5 transition-all h-[135px] sm:h-[145px]"
-                >
-                  <div className="w-10 h-10 text-[#005F96] flex items-center justify-center mb-3 shrink-0">
-                    <CardIcon className="w-8 h-8 stroke-[1.6]" />
+              ).map((item, idx) => {
+                const CardIcon = item.IconComp;
+                return (
+                  <div
+                    key={idx}
+                    className="bg-[#EBF4FA] rounded-2xl p-8 text-center border border-cyan-100/70 shadow-xs hover:shadow-md transition-all flex flex-col justify-center items-center space-y-4 min-h-[160px]"
+                  >
+                    <div className="w-12 h-12 text-[#006095] flex items-center justify-center">
+                      <CardIcon className="w-10 h-10 stroke-[1.5]" />
+                    </div>
+                    <h4 className="text-sm md:text-base font-bold text-slate-900 leading-snug">
+                      {item.title}
+                    </h4>
                   </div>
-                  <h3 className="text-xs sm:text-sm font-bold text-slate-800 leading-snug max-w-[240px]">
+                );
+              })}
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* =========================================================================
+          SECTION 8G: SUCCESS STORIES & 4 BOTTOM STAT BOXES (Screenshot 4)
+          ========================================================================= */}
+      <section className="py-16 md:py-24 bg-[#EBF4FA] text-slate-900 font-sans border-b border-slate-200/60">
+        <Container>
+          <div className="space-y-12 max-w-6xl mx-auto">
+            {/* Header */}
+            <div className="text-center space-y-3 max-w-4xl mx-auto">
+              <h2 className="text-2xl sm:text-3xl lg:text-[38px] font-[900] text-slate-900 tracking-tight leading-tight">
+                Success Stories
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-600 font-medium">
+                Know Sapphire journey from concept to success. Explore how we've brought ideas to life and achieved remarkable results for our clients.
+              </p>
+            </div>
+
+            {/* 3 Portfolio Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {[
+                {
+                  title: 'Safety Improvement Application Development',
+                  image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&auto=format&fit=crop&q=80'
+                },
+                {
+                  title: 'Motivational Speaker Website',
+                  image: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=800&auto=format&fit=crop&q=80'
+                },
+                {
+                  title: 'Performance Appraisal System Website',
+                  image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop&q=80'
+                }
+              ].map((card, idx) => (
+                <div key={idx} className="space-y-3 group">
+                  <div className="bg-white rounded-2xl p-4 border border-slate-100 shadow-xs hover:shadow-md transition-all overflow-hidden h-64 flex items-center justify-center">
+                    <img
+                      src={card.image}
+                      alt={card.title}
+                      className="w-full h-full object-cover rounded-xl group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                  <h3 className="text-center font-bold text-slate-900 text-sm md:text-base">
                     {card.title}
                   </h3>
                 </div>
-              );
-            })}
+              ))}
+            </div>
+
+            {/* View All Portfolio Button */}
+            <div className="text-center pt-2">
+              <button className="bg-[#006095] hover:bg-[#0083B0] text-white font-bold px-7 py-2.5 rounded-lg text-xs sm:text-sm transition-all shadow-xs cursor-pointer">
+                View All Portfolio
+              </button>
+            </div>
+
+            {/* 4 Bottom Colored Stat Boxes Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-6">
+              <div className="bg-[#E8DDFB] rounded-2xl p-6 flex flex-col justify-center items-center text-center shadow-2xs h-36">
+                <h4 className="text-3xl font-black text-slate-900 mb-1">23+</h4>
+                <p className="text-xs font-bold text-slate-700">Years Experience</p>
+              </div>
+
+              <div className="bg-[#D1F2D9] rounded-2xl p-6 flex flex-col justify-center items-center text-center shadow-2xs h-36">
+                <h4 className="text-3xl font-black text-slate-900 mb-1">320+</h4>
+                <p className="text-xs font-bold text-slate-700">5-Star Clutch Reviews</p>
+              </div>
+
+              <div className="bg-[#FFD7D7] rounded-2xl p-6 flex flex-col justify-center items-center text-center shadow-2xs h-36">
+                <h4 className="text-3xl font-black text-slate-900 mb-1">2800+</h4>
+                <p className="text-xs font-bold text-slate-700">Satisfied Clients</p>
+              </div>
+
+              <div className="bg-[#006095] text-white rounded-2xl p-6 flex flex-col justify-between items-center text-center shadow-xs h-36">
+                <h4 className="text-base font-bold text-white">Want to start Projects</h4>
+                <button className="bg-white text-[#006095] font-bold px-5 py-2 rounded-lg text-xs hover:bg-slate-50 transition-all cursor-pointer">
+                  Get Estimation
+                </button>
+              </div>
+            </div>
           </div>
         </Container>
       </section>
 
       {/* ============================================================
-          SECTION 16: TECHNOLOGY STACK THAT SAPPHIRE DEDICATED DEVELOPERS USE PROFICIENTLY
+          SECTION 9: TECH STACK PROFICIENT GRID
           ============================================================ */}
-      <TechStackProficientGrid title="Technology Stack That Sapphire Dedicated Developers Use Proficiently" />
+      <TechStackProficientGrid />
 
-      {/* ============================================================
-          SECTION 17: THE EXPERTISE OF OUR BOOTSTRAP DEVELOPMENT SERVICES (Screenshot 1 Match)
-          ============================================================ */}
-      <section className="py-16 md:py-24 bg-[#F0F6FB] text-slate-900 font-sans border-b border-slate-200/80">
+      {/* =========================================================================
+          SECTION 9B: THE EXPERTISE OF OUR LARAVEL DEVELOPERS SERVICES (Screenshot Match)
+          ========================================================================= */}
+      <section className="py-16 md:py-24 bg-[#F0F7FC] text-slate-900 font-sans border-b border-slate-100">
         <Container>
-          <div className="space-y-12">
-            <div className="text-center max-w-4xl mx-auto space-y-3">
+          <div className="space-y-12 max-w-6xl mx-auto">
+            {/* Header */}
+            <div className="text-center space-y-3 max-w-4xl mx-auto">
               <h2 className="text-2xl sm:text-3xl lg:text-[38px] font-[900] text-slate-900 tracking-tight leading-tight">
-                The Expertise Of Our Bootstrap Development Services
+                The Expertise Of Our Laravel Developers Services
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 font-medium max-w-3xl mx-auto">
-                Our Bootstrap Developers Are Available On An Hourly Basis At Very Affordable Rates. Their Expertise Includes:
+                We have a pool of dedicated Laravel developers available for hire. Take a look at the expertise of our developers:
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {/* 6 White Cards Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[
                 {
-                  title: 'Bootstrap Consultation',
-                  desc: 'Hire Bootstrap Developers in UK who will assist you in mastering Bootstrap. Our professionals will guide you through the process and assist you in making more intelligent decisions.',
-                  bgColor: 'bg-purple-50',
-                  iconColor: 'text-purple-600',
-                  IconComp: Laptop
-                },
-                {
-                  title: 'App Designing',
-                  desc: 'If you have a concept and have chosen to go forward with bootstrap development, our expert designers will assist you in creating a visual representation. This signifies that our front-end developers will develop a prototype of your application.',
-                  bgColor: 'bg-emerald-50',
-                  iconColor: 'text-emerald-600',
-                  IconComp: LayoutGrid
-                },
-                {
-                  title: 'App Development',
-                  desc: 'Hire Bootstrap Developers in Australia to create responsive apps with ease. Our developers are well-versed in widgets and templates, ensuring optimal implementation.',
-                  bgColor: 'bg-orange-50',
-                  iconColor: 'text-orange-600',
+                  title: 'Custom Laravel Development',
+                  desc: 'Your concept may be brought to life by the power of Laravel, which can be unlocked by our devoted Laravel developers, who are up to speed on the fundamentals and the most recent advancements in the CMS.',
+                  iconBg: 'bg-purple-100 text-purple-600',
                   IconComp: Code2
                 },
                 {
-                  title: 'App Customization',
-                  desc: 'We can alter an old solution, including contemporary features, and enhance its efficacy. Hire Bootstrap Developers in Canada if you seek professional assistance to improve and optimize the application.',
-                  bgColor: 'bg-amber-50',
-                  iconColor: 'text-amber-600',
+                  title: 'Laravel API Development',
+                  desc: 'Hire our Laravel developers to construct and modify web portals and design bespoke APIs for companies of any size.',
+                  iconBg: 'bg-emerald-100 text-emerald-600',
+                  IconComp: Server
+                },
+                {
+                  title: 'Enterprise Laravel Solutions',
+                  desc: 'You can now hire Laravel developers in UAE or anywhere else in the world to create scalable apps for large-scale businesses.',
+                  iconBg: 'bg-orange-100 text-orange-600',
+                  IconComp: Building2
+                },
+                {
+                  title: 'Laravel Module Development',
+                  desc: 'Are you looking for efficient solutions for the creation of modules? Hire Laravel developer in Australia to construct it for you to maximize your investment return.',
+                  iconBg: 'bg-amber-100 text-amber-600',
+                  IconComp: Layers
+                },
+                {
+                  title: 'Laravel Management & Maintenance',
+                  desc: 'Employing our remote Laravel developers will ensure that your web applications are handled and maintained according to industry standards.',
+                  iconBg: 'bg-pink-100 text-pink-600',
                   IconComp: Sliders
                 },
                 {
-                  title: 'Application Recording',
-                  desc: 'Whether a tiny start-up or a well-established business, Hire Bootstrap Developers in UAE who will assist you with website re-coding at affordable prices.',
-                  bgColor: 'bg-pink-50',
-                  iconColor: 'text-pink-600',
+                  title: 'Laravel Integration & Upgradation',
+                  desc: 'Are you interested in updating the app you already have? We combine the most recent technologies, originating from various platforms such as Python, .Net, etc.',
+                  iconBg: 'bg-cyan-100 text-cyan-600',
                   IconComp: Cpu
-                },
-                {
-                  title: 'Theme Implementation',
-                  desc: 'We facilitate the incorporation of visually attractive themes into your current application. If necessary, we can adapt themes to match the existing color scheme of the website.',
-                  bgColor: 'bg-cyan-50',
-                  iconColor: 'text-cyan-600',
-                  IconComp: Layers
                 }
               ].map((card, idx) => {
                 const CardIcon = card.IconComp;
                 return (
                   <div
                     key={idx}
-                    className="bg-white rounded-2xl p-7 border border-slate-200/80 shadow-xs hover:shadow-md transition-all flex flex-col justify-between"
+                    className="bg-white rounded-2xl p-7 shadow-xs hover:shadow-md border border-slate-100/90 transition-all space-y-4 flex flex-col justify-between"
                   >
-                    <div className="space-y-4">
-                      <div className={`w-12 h-12 rounded-xl ${card.bgColor} ${card.iconColor} flex items-center justify-center`}>
-                        <CardIcon className="w-6 h-6 stroke-[2]" />
+                    <div className="space-y-3">
+                      <div className={`w-12 h-12 rounded-xl ${card.iconBg} flex items-center justify-center`}>
+                        <CardIcon className="w-6 h-6 stroke-[1.8]" />
                       </div>
                       <h3 className="text-lg font-bold text-slate-900">{card.title}</h3>
                       <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
@@ -1384,31 +1593,15 @@ export const HireBootstrapDevelopersService = () => {
                 );
               })}
             </div>
-
-            <div className="text-center pt-4">
-              <a
-                href="#quote-form"
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.getElementById('quote-form')?.scrollIntoView({ behavior: 'smooth' });
-                }}
-                className="inline-flex items-center justify-center bg-[#005C8A] hover:bg-[#004A75] text-white font-bold px-8 py-3.5 rounded-lg text-sm sm:text-base transition-all shadow-md cursor-pointer"
-              >
-                Get A Free Quote For Your Project
-              </a>
-            </div>
           </div>
         </Container>
       </section>
 
       {/* ============================================================
-          SECTION 18: PROUD TO HAVE PICKED THESE UP ALONG THE WAY (Screenshot 2 Match)
+          SECTION 10: PROUD AWARDS BANNER & BENEFITS OF HIRING DEDICATED DEVELOPERS (Screenshot 1 Match)
           ============================================================ */}
       <ProudAwardsBanner />
 
-      {/* ============================================================
-          SECTION 19: BENEFITS OF HIRING DEDICATED DEVELOPERS (Screenshot 2 & 3 Match)
-          ============================================================ */}
       <section className="py-16 md:py-24 bg-white text-slate-900 font-sans border-b border-slate-100">
         <Container>
           <div className="space-y-12">
@@ -1477,59 +1670,43 @@ export const HireBootstrapDevelopersService = () => {
         </Container>
       </section>
 
+      {/* ============================================================
+          SECTION 11: HIRE DEVELOPER 4 STEPS
+          ============================================================ */}
       <HireDeveloper4Steps
-        title="Hire Bootstrap Developer In 4 Easy Steps"
-        subtitle="Bootstrap Developer Offers a number of advantages over another platform. Some of them are:"
+        title="Hire Laravel Developer In 4 Easy Steps"
+        subtitle="Laravel Developer offers a number of advantages over another platform. Some of them are:"
       />
 
       {/* ============================================================
-          STANDARD HOME PAGE SECTIONS
+          SECTION 12: VIDEO TESTIMONIALS & ENGAGEMENT MODELS
           ============================================================ */}
       <VideoTestimonialsStory />
-      <EngagementModelsSection
-        data={{
-          title: "Business Friendly Hiring Models : Building Greater Futures Through Innovation",
-          description: "We offer three different types of hiring models that are designed to suit your diverse needs and budget. Take a look at our hiring models:"
-        }}
-      />
+      <EngagementModelsSection />
+
+      {/* ============================================================
+          SECTION 13: SUCCESS MATRIX & WORK PROCESS GRID
+          ============================================================ */}
       <SuccessMatrixGrid />
       <InnovativeSolutionVideo />
       <WorkProcessGrid />
       <ClientReviewsDarkSection />
+
+      {/* ============================================================
+          SECTION 14: DIGITAL TRANSFORMATION CASE STUDIES
+          ============================================================ */}
       <DigitalTransformationCaseStudies />
 
       {/* ============================================================
-          FAQ SECTION (Matching Sapphire Reference Site Image 1)
+          SECTION 15: SAPPHIRE FAQ SECTION & FOOTER SECTIONS
           ============================================================ */}
-      <SapphireFaqSection
-        faqList={bootstrapFaqs}
-        title="Frequently Asked Questions"
-        subtitle="We listen to query and provide solutions that captivate users. Feel free to contact us in case of any query which is not mention below."
-      />
-
-      {/* ============================================================
-          SOCIAL MEDIA & RECENT BLOGS
-          ============================================================ */}
+      <SapphireFaqSection faqs={faqs} />
       <SocialMediaSection />
       <RecentBlogsSection />
-
-      {/* ============================================================
-          WHAT SETS US APART, CHALLENGE CTA & NEWSLETTER (1:1 Match to Sapphire Reference)
-          ============================================================ */}
-      <WhatSetsUsApartSection
-        title="What Sets Us Apart As Bootstrap Development Company?"
-        subtitle="Being unique is our quality! Sapphire Solutions believe in the things that give us an edge over our competitors. We are renowned software and mobile application development organization serving customers with end-to-end support. Our Idealization, feasibility assessment of the entire software development process stands us one level up the competitors."
-      />
-
-      <IWatchChallengeCtaBanner
-        title="Have Bootstrap Development Challenge To Address ?"
-        subtitle="Get access to top Bootstrap developers to transform your ideas into a robust application."
-        buttonText="Hire Now"
-      />
-
+      <WhatSetsUsApartSection />
       <SubscribeNewsletterSection />
     </div>
   );
 };
 
-export default HireBootstrapDevelopersService;
+export default HireLaravelDevelopersService;

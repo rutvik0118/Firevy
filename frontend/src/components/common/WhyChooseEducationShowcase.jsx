@@ -11,7 +11,7 @@ export const WhyChooseEducationShowcase = () => {
         {/* Section Headers */}
         <div className="space-y-2 mb-10 sm:mb-14">
           <h3 className="text-xl sm:text-2xl font-extrabold text-slate-800 tracking-tight font-sans">
-            Why Choose Sapphire for?
+            Why Choose Firevy.co for?
           </h3>
           <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-black text-slate-950 tracking-tight leading-tight font-sans">
             Education App Development Service
@@ -27,7 +27,7 @@ export const WhyChooseEducationShowcase = () => {
             {/* 1:1 Exact Graphic Image with 18 Features & Center Smartphone */}
             <img
               src="/images/why_choose_sapphire_education_orbit.jpg"
-              alt="Why Choose Sapphire for Education App Development Service"
+              alt="Why Choose Firevy.co for Education App Development Service"
               className="w-full h-auto object-contain max-h-[700px] mx-auto rounded-3xl"
             />
 
@@ -54,7 +54,7 @@ export const WhyChooseEducationShowcase = () => {
             <div className="aspect-video w-full">
               <iframe
                 src="https://www.youtube.com/embed/L_LUpnjgPso?autoplay=1"
-                title="Sapphire Education App Development Overview"
+                title="Firevy.co Education App Development Overview"
                 className="w-full h-full border-0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen

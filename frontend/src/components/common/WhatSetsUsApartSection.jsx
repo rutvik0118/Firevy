@@ -88,7 +88,7 @@ const pillarList = [
 
 export const WhatSetsUsApartSection = ({
   title = "What Sets Us Apart As Healthcare App Development Company?",
-  subtitle = "Being unique is our quality! Sapphire Solutions believe in the things that give us an edge over our competitors. We are renowned software and mobile application development organization serving customers with end-to-end support. Our Idealization, feasibility assessment of the entire software development process stands us one level up the competitors."
+  subtitle = "Being unique is our quality! Firevy.co believes in the things that give us an edge over our competitors. We are renowned software and mobile application development organization serving customers with end-to-end support. Our Idealization, feasibility assessment of the entire software development process stands us one level up the competitors."
 }) => {
   const [formData, setFormData] = useState({
     name: '',
@@ -127,7 +127,7 @@ export const WhatSetsUsApartSection = ({
             lineHeight: '26px'
           }}
         >
-          Being unique is our quality! Sapphire Solutions believe in the things that give us an edge over our competitors. We are renowned software and mobile application development organization serving customers with end-to-end support. Our Idealization, feasibility assessment of the entire software development process stands us one level up the competitors.
+          Being unique is our quality! Firevy.co believes in the things that give us an edge over our competitors. We are renowned software and mobile application development organization serving customers with end-to-end support. Our Idealization, feasibility assessment of the entire software development process stands us one level up the competitors.
         </p>
       </div>
 

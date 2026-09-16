@@ -4,7 +4,7 @@ import Container from './Container';
 const testimonialVideos = [
   {
     id: 1,
-    title: 'Client who has scaled business using Sapphire...',
+    title: 'Client who has scaled business using Firevy.co...',
     clientName: 'Robert Vance',
     designation: 'CTO, HealthTech Solutions',
     avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80',
@@ -12,7 +12,7 @@ const testimonialVideos = [
   },
   {
     id: 2,
-    title: 'Hear what Pravin has got to say about working with Sapphire...',
+    title: 'Hear what Pravin has got to say about working with Firevy.co...',
     clientName: 'Pravin Patel',
     designation: 'Managing Director, MedCare',
     avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80',
@@ -20,7 +20,7 @@ const testimonialVideos = [
   },
   {
     id: 3,
-    title: 'Sapphire Successfully Delivered Web & Mobile App Solutions -...',
+    title: 'Firevy.co Successfully Delivered Web & Mobile App Solutions -...',
     clientName: 'Michael Johnson',
     designation: 'Founder, TeleDoc Pro',
     avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=300&q=80',
@@ -28,7 +28,7 @@ const testimonialVideos = [
   },
   {
     id: 4,
-    title: 'Sapphire Software Solutions - Top iOS App Development...',
+    title: 'Firevy.co - Top iOS App Development...',
     clientName: 'David Miller',
     designation: 'VP of Product, CarePulse',
     avatar: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=300&q=80',
