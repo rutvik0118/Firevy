@@ -44,7 +44,8 @@ export const SapphireLightHeroBanner = ({
   subtitle = "As a best educational app development company, we deliver affordable education app development services. We are an experienced educational app development agency with a team of professional mobile app developers.",
   ctaText = "Discuss Your Project",
   ctaLink = "#quote-form",
-  serviceCategory = "education"
+  serviceCategory = "education",
+  stats = null
 }) => {
   const isEducation = serviceCategory === 'education';
   const isUber = serviceCategory === 'uber' || serviceCategory === 'taxi';

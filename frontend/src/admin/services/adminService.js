@@ -11,7 +11,76 @@ export const adminService = {
     return apiClient.get('/admin/me');
   },
 
-  // Services API
+  // ============================================================
+  // HOME PAGE CMS MANAGEMENT APIS (All 22 Sections)
+  // ============================================================
+  getHomePageAdmin: async () => {
+    try {
+      return await apiClient.get('/home-page/admin');
+    } catch {
+      return await apiClient.get('/home-page');
+    }
+  },
+
+  getHomePageSection: async (key) => {
+    return apiClient.get(`/home-page/section/${key}`);
+  },
+
+  updateHomePageSection: async (key, sectionData) => {
+    return apiClient.put(`/home-page/section/${key}`, sectionData);
+  },
+
+  toggleHomePageSection: async (key) => {
+    return apiClient.patch(`/home-page/section/${key}/toggle`);
+  },
+
+  reorderHomePageSections: async (sectionsOrder) => {
+    return apiClient.patch('/home-page/reorder', { sectionsOrder });
+  },
+
+  resetHomePageSection: async (key) => {
+    return apiClient.post(`/home-page/reset/${key}`);
+  },
+
+  resetHomePage: async () => {
+    return apiClient.post('/home-page/reset');
+  },
+
+  // ============================================================
+  // FILE / MEDIA UPLOAD APIS
+  // ============================================================
+  uploadMedia: async (file, type = 'image') => {
+    const formData = new FormData();
+    formData.append('file', file);
+    if (type) {
+      formData.append('type', type);
+    }
+    return apiClient.post('/upload', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
+  },
+
+  uploadFile: async (file) => {
+    const formData = new FormData();
+    formData.append('file', file);
+    return apiClient.post('/upload', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
+  },
+
+  deleteMedia: async (fileUrl) => {
+    return apiClient.delete('/upload', {
+      data: { fileUrl }
+    });
+  },
+
+  // ============================================================
+  // OTHER DOMAIN APIS
+  // ============================================================
   getServices: async () => {
     return apiClient.get('/services');
   },
@@ -19,7 +88,6 @@ export const adminService = {
     return apiClient.get(`/services/${slug}`);
   },
 
-  // Portfolio API
   getPortfolio: async (params = {}) => {
     return apiClient.get('/portfolio', { params });
   },
@@ -27,38 +95,63 @@ export const adminService = {
     return apiClient.get(`/portfolio/${slug}`);
   },
 
-  // Careers / Jobs API
+  // ============================================================
+  // CAREERS CMS & JOBS MANAGEMENT APIS
+  // ============================================================
+  getCareerPageAdmin: async () => {
+    return apiClient.get('/careers/admin');
+  },
+  updateCareerPage: async (data) => {
+    return apiClient.put('/careers', data);
+  },
+  resetCareerPage: async () => {
+    return apiClient.post('/careers/reset');
+  },
+
   getJobs: async () => {
     return apiClient.get('/jobs');
   },
+  getAdminJobs: async () => {
+    return apiClient.get('/jobs/admin/all');
+  },
   getJobById: async (id) => {
     return apiClient.get(`/jobs/${id}`);
+  },
+  createJob: async (data) => {
+    return apiClient.post('/jobs', data);
+  },
+  updateJob: async (id, data) => {
+    return apiClient.put(`/jobs/${id}`, data);
+  },
+  deleteJob: async (id) => {
+    return apiClient.delete(`/jobs/${id}`);
+  },
+  toggleJobStatus: async (id) => {
+    return apiClient.patch(`/jobs/${id}/toggle`);
+  },
+  reorderJobs: async (jobsOrder) => {
+    return apiClient.patch('/jobs/reorder', { jobsOrder });
   },
   submitApplication: async (data) => {
     return apiClient.post('/applications', data);
   },
 
-  // Contact Inquiries API
   submitContactInquiry: async (data) => {
     return apiClient.post('/contact', data);
   },
 
-  // Industries & Sectors API
   getIndustries: async () => {
     return apiClient.get('/industries');
   },
 
-  // Technologies API
   getTechnologies: async () => {
     return apiClient.get('/technologies');
   },
 
-  // Testimonials API
   getTestimonials: async () => {
     return apiClient.get('/testimonials');
   },
 
-  // Settings API
   getSettings: async () => {
     return apiClient.get('/settings');
   },

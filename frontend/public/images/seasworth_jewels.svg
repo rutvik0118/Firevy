@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 140" width="360" height="140">
+  <g fill="#0D1A2D">
+    <!-- Hexagonal S / SJ Monogram Emblem -->
+    <g transform="translate(180, 42) scale(0.68)">
+      <path d="
+        M 0 -48
+        L 28 -32
+        L 28 -6
+        L 14 2
+        L 14 -22
+        L 0 -30
+        L -16 -21
+        L -16 6
+        L 14 23
+        L 14 36
+        L 0 44
+        L -28 28
+        L -28 2
+        L -14 -6
+        L -14 18
+        L 0 26
+        L 16 17
+        L 16 -10
+        L -14 -27
+        L -14 -40
+        Z
+      "/>
+    </g>
+    
+    <!-- Wordmark SEASWORTH JEWELS -->
+    <text x="180" y="112" font-family="'Cinzel', 'Optima', 'Playfair Display', 'Didot', 'Georgia', serif" font-size="20" font-weight="600" letter-spacing="9" text-anchor="middle">SEASWORTH JEWELS</text>
+  </g>
+</svg>

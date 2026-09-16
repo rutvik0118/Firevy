@@ -2,6 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
+import path from 'path';
+import { fileURLToPath } from 'url';
 import config from './config/env.js';
 import errorHandler from './middleware/errorHandler.js';
 
@@ -16,11 +18,21 @@ import contactRoutes from './routes/contactRoutes.js';
 import applicationRoutes from './routes/applicationRoutes.js';
 import settingsRoutes from './routes/settingsRoutes.js';
 import adminRoutes from './routes/adminRoutes.js';
+import homePageRoutes from './routes/homePageRoutes.js';
+import careerRoutes from './routes/careerRoutes.js';
+import uploadRoutes from './routes/uploadRoutes.js';
+import companyRoutes from './routes/companyRoutes.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 
 // Security and Logging Middleware
-app.use(helmet({ contentSecurityPolicy: false }));
+app.use(helmet({
+  contentSecurityPolicy: false,
+  crossOriginResourcePolicy: { policy: 'cross-origin' }
+}));
 
 // Permissive CORS Configuration for local frontend ports (5173, 5174, 5175, etc.)
 const allowedOrigins = [
@@ -60,6 +72,17 @@ app.use(morgan(config.nodeEnv === 'development' ? 'dev' : 'combined'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Serve static uploads directory with permissive cross-origin access
+app.use(
+  '/uploads',
+  (req, res, next) => {
+    res.setHeader('Cross-Origin-Resource-Policy', 'cross-origin');
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    next();
+  },
+  express.static(path.join(__dirname, '../uploads'))
+);
+
 // Root API Health Check
 app.get('/api/v1/health', (req, res) => {
   res.status(200).json({
@@ -72,12 +95,16 @@ app.get('/api/v1/health', (req, res) => {
 });
 
 // API v1 Mounting
+app.use('/api/v1/home-page', homePageRoutes);
+app.use('/api/v1/upload', uploadRoutes);
 app.use('/api/v1/services', serviceRoutes);
 app.use('/api/v1/portfolio', portfolioRoutes);
 app.use('/api/v1/industries', industryRoutes);
 app.use('/api/v1/technologies', technologyRoutes);
 app.use('/api/v1/testimonials', testimonialRoutes);
 app.use('/api/v1/jobs', jobRoutes);
+app.use('/api/v1/careers', careerRoutes);
+app.use('/api/v1/company', companyRoutes);
 app.use('/api/v1/contact', contactRoutes);
 app.use('/api/v1/applications', applicationRoutes);
 app.use('/api/v1/settings', settingsRoutes);

@@ -2,13 +2,24 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import SEO from '../common/SEO';
 import Container from '../common/Container';
-import ProcessWeFollow from '../common/ProcessWeFollow';
-import SuccessMatrix from '../common/SuccessMatrix';
-import TrustedBrandsGrid from '../common/TrustedBrandsGrid';
-import SapphireTechStackGrid from '../common/SapphireTechStackGrid';
-import SuccessStoriesSection from '../common/SuccessStoriesSection';
+import VideoTestimonialsStory from '../home/VideoTestimonialsStory';
+import EngagementModelsSection from '../home/EngagementModelsSection';
+import SuccessMatrixGrid from '../home/SuccessMatrixGrid';
+import InnovativeSolutionVideo from '../home/InnovativeSolutionVideo';
+import WorkProcessGrid from '../home/WorkProcessGrid';
+import ClientReviewsDarkSection from '../home/ClientReviewsDarkSection';
+import TechStackProficientGrid from '../common/TechStackProficientGrid';
 import PremiumServicesGrid from '../common/PremiumServicesGrid';
 import BrandLogoMarquee from '../common/BrandLogoMarquee';
+import ProudAwardsBanner from './ProudAwardsBanner';
+import HireDeveloper4Steps from '../common/HireDeveloper4Steps';
+import DigitalTransformationCaseStudies from '../home/DigitalTransformationCaseStudies';
+import SapphireFaqSection from '../common/SapphireFaqSection';
+import SocialMediaSection from '../common/SocialMediaSection';
+import RecentBlogsSection from '../home/RecentBlogsSection';
+import WhatSetsUsApartSection from '../common/WhatSetsUsApartSection';
+import ConversionCalloutBanner from '../home/ConversionCalloutBanner';
+import SubscribeNewsletterSection from '../home/SubscribeNewsletterSection';
 import {
   Clock,
   Calendar,
@@ -409,7 +420,7 @@ export const HireCSharpDevelopersService = () => {
 
                 {/* Yellow Diamond Badge floating bottom-left */}
                 <div className="absolute bottom-6 -left-6 z-20 bg-[#F5A623] text-white w-12 h-12 rounded-xl rotate-12 shadow-lg flex items-center justify-center font-mono font-bold text-base border-2 border-white">
-                  <span className="-rotate-12">{'{/}'}</span>
+                  <span className="-rotate-12">{'{ }'}</span>
                 </div>
 
                 {/* Soft cyan circle accent */}
@@ -2158,7 +2169,7 @@ export const HireCSharpDevelopersService = () => {
                     : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
-                Sapphire
+                Firevy.co
               </button>
               <button
                 onClick={() => setResponsibilityTab('client')}
@@ -2305,6 +2316,9 @@ export const HireCSharpDevelopersService = () => {
         </Container>
       </section>
 
+      {/* Technology Stack That Sapphire Dedicated Developers Use Proficiently (Inserted Exactly Between Success Stories & Get The Right C# Developers) */}
+      <TechStackProficientGrid />
+
       {/* ============================================================
           GET THE RIGHT C# DEVELOPERS (9 ROLE CARDS GRID)
           ============================================================ */}
@@ -2381,8 +2395,32 @@ export const HireCSharpDevelopersService = () => {
               </div>
             ))}
           </div>
+
+          {/* Centered CTA Button matching Image 1 */}
+          <div className="text-center mt-10 sm:mt-12">
+            <a
+              href="#quote-form"
+              onClick={(e) => {
+                e.preventDefault();
+                const el = document.getElementById('quote-form');
+                if (el) {
+                  el.scrollIntoView({ behavior: 'smooth' });
+                } else {
+                  window.location.href = '/contact';
+                }
+              }}
+              className="inline-block bg-[#005F96] hover:bg-[#004B77] text-white font-[800] text-sm sm:text-base px-8 sm:px-10 py-3.5 rounded-lg shadow-md transition-all hover:scale-105"
+            >
+              Get A Free Quote For Your Project
+            </a>
+          </div>
         </Container>
       </section>
+
+      {/* ============================================================
+          PROUD TO HAVE PICKED THESE UP ALONG THE WAY (PROUD AWARDS BANNER)
+          ============================================================ */}
+      <ProudAwardsBanner />
 
       {/* ============================================================
           BENEFITS OF HIRING DEDICATED DEVELOPERS
@@ -2444,146 +2482,62 @@ export const HireCSharpDevelopersService = () => {
         </Container>
       </section>
 
-      {/* Tech Stack Grid */}
-      <SapphireTechStackGrid domainName="C# & .NET" richTechCategories={techCategories} />
+      {/* Hire C# Developer In 4 Easy Steps */}
+      <HireDeveloper4Steps />
 
-      {/* Process We Follow */}
-      <ProcessWeFollow
-        title="Our C# Developer Onboarding Process"
-        subtitle="Transparent process to interview, select, and integrate senior C# programmers into your codebase within 48 hours."
+      {/* Home Page: Video Testimonials Story ("Our Story, Their Words") */}
+      <VideoTestimonialsStory />
+
+      {/* Home Page: Business Friendly Engagement Models */}
+      <EngagementModelsSection />
+
+      {/* Home Page: Success Matrix Grid */}
+      <SuccessMatrixGrid />
+
+      {/* Home Page: Unveiling Our Innovative Solution Video Carousel */}
+      <InnovativeSolutionVideo />
+
+      {/* Home Page: Work Process Grid */}
+      <WorkProcessGrid />
+
+      {/* Home Page: Client Reviews Dark Section ("What Our Clients Say") */}
+      <ClientReviewsDarkSection />
+
+      {/* Digital Transformation Case Studies (Screenshot 1) */}
+      <DigitalTransformationCaseStudies />
+
+      {/* Sapphire FAQ Section (Deep Blue Background + Left 8 Stat Badges + Right FAQ Accordion - Screenshot 2) */}
+      <SapphireFaqSection
+        faqList={csharpFaqs.map((f, i) => ({ id: i + 1, question: f.q, answer: f.a }))}
+        subtitle="We listen to query and provide solutions that captivate users. Feel free to contact us in case of any query which is not mention below."
       />
 
-      <TrustedBrandsGrid />
+      {/* Social Media Section (Screenshot 3 top) */}
+      <SocialMediaSection />
 
-      {/* Success Stories & Portfolio */}
-      <SuccessStoriesSection category="general" />
+      {/* Recent Blogs Section (Screenshot 3 bottom) */}
+      <RecentBlogsSection />
 
-      {/* FAQs Section */}
-      <section className="py-20 bg-white border-b border-slate-200 text-left font-sans">
-        <Container className="max-w-4xl">
-          <div className="text-center mb-12 space-y-3">
-            <span className="px-3.5 py-1 rounded-full text-xs font-extrabold bg-[#005F96]/10 text-[#005F96] uppercase tracking-wider">
-              FREQUENTLY ASKED QUESTIONS
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-[900] text-slate-900 tracking-tight">
-              Hire C# Developers FAQs
-            </h2>
-          </div>
+      {/* What Sets Us Apart As C# Development Company? (Screenshot 4) */}
+      <WhatSetsUsApartSection
+        title="What Sets Us Apart As C# Development Company?"
+        subtitle="Being unique is our quality! Sapphire Solutions believe in the things that give us an edge over our competitors. We are renowned software and mobile application development organization serving customers with end-to-end support. Our Idealization, feasibility assessment of the entire software development process stands us one level up the competitors."
+      />
 
-          <div className="space-y-4">
-            {csharpFaqs.map((faq, idx) => (
-              <div key={idx} className="rounded-xl border border-slate-200 overflow-hidden bg-white shadow-sm transition-all">
-                <button
-                  onClick={() => setOpenFaq(openFaq === idx ? -1 : idx)}
-                  className="w-full p-5 flex items-center justify-between text-left font-bold text-base text-slate-900 hover:text-[#005F96] transition-colors"
-                >
-                  <span className="pr-4">{faq.q}</span>
-                  <ChevronDown className={`w-5 h-5 text-slate-400 shrink-0 transition-transform ${openFaq === idx ? 'rotate-180 text-[#005F96]' : ''}`} />
-                </button>
-                {openFaq === idx && (
-                  <div className="px-5 pb-5 pt-1 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-100">
-                    {faq.a}
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
+      {/* Conversion Callout Banner (Screenshot 5 top - Full width deep blue banner matching reference) */}
+      <ConversionCalloutBanner
+        hideSideImages={true}
+        data={{
+          title: "Have C# Development Challenge To Address ?",
+          description: "Get access to top C# developers to transform your ideas into a robust application.",
+          buttonText: "Hire Now",
+          buttonLink: "#quote-form",
+          hideImages: true
+        }}
+      />
 
-      {/* ============================================================
-          QUOTE FORM SECTION (Proposal Form right above Footer)
-          ============================================================ */}
-      <section id="quote-form" className="py-20 bg-gradient-to-b from-[#005F96] via-[#004B77] to-[#003452] text-white text-left font-sans">
-        <Container className="max-w-5xl">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-5 space-y-6">
-              <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full text-xs font-bold bg-white/10 text-cyan-300 border border-white/20">
-                <Code2 className="w-3.5 h-3.5 text-cyan-300" />
-                <span>HIRE SENIOR C# TALENT AT $21/HR</span>
-              </div>
-              <h2 className="text-3xl sm:text-4xl font-[900] text-white leading-tight">
-                Scale Your Software Team With Top C# Engineers
-              </h2>
-              <p className="text-base text-blue-100 leading-relaxed font-normal">
-                Book a risk-free consultation today. Talk directly to our technical lead to discuss your C# .NET architecture and developer requirements.
-              </p>
-              <div className="pt-2 space-y-3 text-xs sm:text-sm text-blue-100 font-medium">
-                <div className="flex items-center space-x-2">
-                  <Check className="w-4 h-4 text-cyan-300 shrink-0" />
-                  <span>Onboard Pre-screened C# Developers in 24-48 Hours</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <Check className="w-4 h-4 text-cyan-300 shrink-0" />
-                  <span>100% Source Code & Intellectual Property Ownership</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <Check className="w-4 h-4 text-cyan-300 shrink-0" />
-                  <span>Transparent Rates Starting at $21/Hour</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="lg:col-span-7">
-              <div className="bg-white text-slate-900 rounded-2xl p-8 shadow-2xl">
-                {formSubmitted ? (
-                  <div className="py-12 text-center space-y-4">
-                    <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto">
-                      <Check className="w-8 h-8" />
-                    </div>
-                    <h3 className="text-2xl font-black text-slate-900">Inquiry Received!</h3>
-                    <p className="text-xs sm:text-sm text-slate-600">Our senior engineering manager will contact you within 2 business hours.</p>
-                    <button onClick={() => setFormSubmitted(false)} className="px-6 py-2.5 rounded-lg bg-[#005F96] text-white font-bold text-xs">
-                      Submit Another Request
-                    </button>
-                  </div>
-                ) : (
-                  <form onSubmit={handleSubmit} className="space-y-4">
-                    <h3 className="text-xl font-black text-slate-900 mb-2">Get A Free C# Developer Proposal</h3>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-xs font-bold text-slate-700 mb-1">Your Name *</label>
-                        <input type="text" name="name" required value={formData.name} onChange={handleInputChange} placeholder="e.g. John Smith" className="w-full px-4 py-3 rounded-lg border border-slate-300 text-sm focus:ring-2 focus:ring-[#005F96] outline-none" />
-                      </div>
-                      <div>
-                        <label className="block text-xs font-bold text-slate-700 mb-1">Business Email *</label>
-                        <input type="email" name="email" required value={formData.email} onChange={handleInputChange} placeholder="john@company.com" className="w-full px-4 py-3 rounded-lg border border-slate-300 text-sm focus:ring-2 focus:ring-[#005F96] outline-none" />
-                      </div>
-                    </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div>
-                        <label className="block text-xs font-bold text-slate-700 mb-1">Hiring Model</label>
-                        <select name="model" value={formData.model} onChange={handleInputChange} className="w-full px-4 py-3 rounded-lg border border-slate-300 text-sm focus:ring-2 focus:ring-[#005F96] outline-none">
-                          <option value="Dedicated Team ($21/hr)">Dedicated C# Developer ($21/hr)</option>
-                          <option value="Hourly Rate">Hourly Pay As You Go</option>
-                          <option value="Fixed Price Sprint">Fixed Price Sprint Delivery</option>
-                        </select>
-                      </div>
-                      <div>
-                        <label className="block text-xs font-bold text-slate-700 mb-1">Target Budget</label>
-                        <select name="budget" value={formData.budget} onChange={handleInputChange} className="w-full px-4 py-3 rounded-lg border border-slate-300 text-sm focus:ring-2 focus:ring-[#005F96] outline-none">
-                          <option value="Under $10,000">Under $10,000</option>
-                          <option value="$10,000 - $25,000">$10,000 - $25,000</option>
-                          <option value="$25,000 - $50,000">$25,000 - $50,000</option>
-                          <option value="$50,000+">$50,000+</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div>
-                      <label className="block text-xs font-bold text-slate-700 mb-1">Project Brief / Developer Requirements</label>
-                      <textarea name="message" rows="3" value={formData.message} onChange={handleInputChange} placeholder="Describe your C# .NET application, team size requirements, or technology stack..." className="w-full px-4 py-3 rounded-lg border border-slate-300 text-sm focus:ring-2 focus:ring-[#005F96] outline-none resize-none" />
-                    </div>
-                    <button type="submit" className="w-full py-4 rounded-lg bg-[#005F96] hover:bg-[#004A75] text-white font-black text-sm tracking-wide transition-all shadow-lg hover:shadow-xl flex items-center justify-center space-x-2">
-                      <span>Submit Project Brief & Hire Developers</span>
-                      <ArrowRight className="w-4 h-4" />
-                    </button>
-                  </form>
-                )}
-              </div>
-            </div>
-          </div>
-        </Container>
-      </section>
+      {/* Subscribe Newsletter Section (Screenshot 5 bottom) */}
+      <SubscribeNewsletterSection />
     </div>
   );
 };

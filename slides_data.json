@@ -1,0 +1,104 @@
+{
+  "slides": [
+    {
+      "bgColor": "#EDEDF6",
+      "logo": "/images/case_study_images/Images/new/finallogos_1/adani.png",
+      "desc": "Adani EmCare is a Web + Mobile App used by Adani Group’s medical officer to capture, analyze and manage the health data of the employees and workers. And this data is used by medical officer to provide the preventive healthcare to the employees.",
+      "bullets": [
+        "98% Employee satisfaction ratio",
+        "91% reduction in appointment scheduling time",
+        "24/7 real-time health monitoring",
+        "Serving over 60,000 healthcare professionals",
+        "Generating over USD 30 billion in revenue"
+      ],
+      "caseStudyLink": "/healthcare-mobile-app-development-company",
+      "mainImg": "/images/case_study_images/Images/new/adani.webp"
+    },
+    {
+      "bgColor": "rgba(247, 210, 244, 0.5)",
+      "logo": "/images/case_study_images/Images/new/finallogos_1/waymarkmaps.png",
+      "desc": "A city map and free business listings are available on Waymark. Our city information is consistently accurate and current. With advertisements, points of interest, restaurants, hotels, malls, parking, featured locations, metro routes, tourist attractions, and much more, Waymark offers an interactive map of the Ivory Coast. There are two versions of Waymark: mobile and web.",
+      "bullets": [
+        "Turn-by-turn voice navigation",
+        "Points of interest (POI) recommendations",
+        "Real-time traffic updates and route optimization",
+        "Offline map access for remote areas",
+        "Augmented reality (AR) navigation features"
+      ],
+      "caseStudyLink": "/gps-navigation-app-development-company",
+      "mainImg": "/images/case_study_images/Images/new/waymark_map_app.webp"
+    },
+    {
+      "bgColor": "#F2F1EC",
+      "logo": "/images/case_study_images/Images/new/finallogos_1/beecar.png",
+      "desc": "If you provide car washing services and need to reach a wide range of customers, the car wash app is your best bet. Sapphire Software Solutions has built a car wash application that allows people to book car wash services in few clicks",
+      "bullets": [
+        "96% customer retention rate",
+        "92 % increase in service bookings",
+        "Over 1,10,000 satisfied users",
+        "Operating in 90+ locations",
+        "User-friendly &amp; Efficient interface for easy booking"
+      ],
+      "caseStudyLink": "/on-demand-car-wash-app-development-company",
+      "mainImg": "/images/case_study_images/Images/new/beecar.webp"
+    },
+    {
+      "bgColor": "#EEF6FD",
+      "logo": "/images/case_study_images/Images/new/finallogos_1/lt.png",
+      "desc": "Larsen & Toubro Limited is one of India's largest and most well-known private corporations. L&T offers unrivaled capabilities across Technology, Engineering, Construction, and Manufacturing, and retains leadership in all of its primary lines of business, almost 80 years of a strong, customer-focused strategy and a never-ending search for world-class quality. The Hazira campus produce extra-large and very heavy equipment for power projects, chemical, refinery, petrochemical, and fertilizer sectors, which may be shipped abroad by waterways.The Modular Production Facility (MFF) at Hazira, one of the largest of its kind in South Asia, can produce many large modules at once and has a fabrication capacity of 50,000 MT per year.",
+      "bullets": [
+        "Automated safety audits and inspections",
+        "24/7 access to safety training resources",
+        "Customizable dashboards and reporting tools",
+        "Real-time incident reporting and tracking",
+        "99% compliance with health and safety regulations"
+      ],
+      "caseStudyLink": "/health-and-safety-management-system",
+      "mainImg": "/images/case_study_images/Images/new/l&amp;t.webp"
+    },
+    {
+      "bgColor": "rgba(255, 216, 216, 0.25)",
+      "logo": "/images/case_study_images/Images/new/finallogos_1/mg.png",
+      "desc": "MG Motor is a well-known firm that have large number of employee. It is their major responsibility to keep track of employees' health and records. The system from their end was to have one secure locker for the protection of all the papers in order to keep track of employee Examination and OPD records for audit purpose.",
+      "bullets": [
+        "Real-time health data analytics",
+        "HIPAA-compliant data security",
+        "24/7 access to health resources and support",
+        "Personalized health recommendations",
+        "98% improvement in employee health monitoring"
+      ],
+      "caseStudyLink": "/employee-health-tracker-app-development",
+      "mainImg": "/images/case_study_images/Images/new/mg.webp"
+    },
+    {
+      "bgColor": "rgba(243, 242, 239, 1)",
+      "logo": "/images/case_study_images/Images/new/finallogos_1/loreal.png",
+      "desc": "This safety improvement application collects the observations from the organizational Staff and non-staff, and the respective department head will take care of the closure observation, and some observation categories will be verified by the top management.",
+      "bullets": [
+        "97% reduction in safety incidents",
+        "Scalable solution for large enterprises",
+        "Recognized for excellence in safety innovation",
+        "Automated safety reminders and alerts",
+        "Real-time hazard identification and reporting"
+      ],
+      "caseStudyLink": "/safety-improvement-application-development",
+      "mainImg": "/images/case_study_images/Images/new/loreal.webp"
+    }
+  ],
+  "imgUrls": [
+    "/images/case_study_images/Images/new/adani.webp",
+    "/images/case_study_images/Images/new/waymark_map_app.webp",
+    "/images/case_study_images/Images/new/beecar.webp",
+    "/images/case_study_images/Images/new/l&amp;t.webp",
+    "/images/case_study_images/Images/new/mg.webp",
+    "/images/case_study_images/Images/new/loreal.webp"
+  ],
+  "logoUrls": [
+    "/images/case_study_images/Images/new/finallogos_1/adani.png",
+    "/images/case_study_images/Images/new/finallogos_1/waymarkmaps.png",
+    "/images/case_study_images/Images/new/finallogos_1/beecar.png",
+    "/images/case_study_images/Images/new/finallogos_1/lt.png",
+    "/images/case_study_images/Images/new/finallogos_1/mg.png",
+    "/images/case_study_images/Images/new/finallogos_1/loreal.png"
+  ]
+}

@@ -1,198 +1,194 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, Phone, MessageSquare } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import Container from '../common/Container';
-import BRAND from '../../constants/brand';
 
-const heroSlides = [
-  {
-    tag: 'AI Innovation',
-    titleLine1: 'Your Vision,',
-    titleLine2: 'Our Technology',
-    subTag: '(Limitless Possibilities)',
-    bullets: [
-      'Recognized as #1 Web Development Company in India and USA.',
-      'Trusted by 20+ Fortune 500 Companies and a Clutch Leader.',
-      "We've been Redefining Excellence for over Two Decades."
-    ],
-    rightBoxTitle: 'Redefined Learning Experiences',
-    rightBoxSub: 'With Intelligent AI Innovation'
-  },
-  {
-    tag: 'Enterprise Engineering',
-    titleLine1: 'Scalable Systems,',
-    titleLine2: 'Global Performance',
-    subTag: '(Engineered for Growth)',
-    bullets: [
-      'Top 1% Senior React, Node & Cloud Architects.',
-      'ISO 9001:2015 & Enterprise SOC2 Ready Infrastructure.',
-      'Sub-50ms API Latency with 99.99% Guaranteed Uptime.'
-    ],
-    rightBoxTitle: 'Cloud & AI Microservices',
-    rightBoxSub: 'Driven by Next-Gen Innovation'
-  },
-  {
-    tag: 'Custom App Solutions',
-    titleLine1: 'Transforming Ideas,',
-    titleLine2: 'Empowering Brands',
-    subTag: '(Native & Cross-Platform)',
-    bullets: [
-      '500+ High-Impact Digital Products Delivered Worldwide.',
-      'Seamless Multi-Device Web & Mobile UX Engineering.',
-      'Agile 2-Week Sprint Delivery with Full Transparency.'
-    ],
-    rightBoxTitle: 'Immersive Product Design',
-    rightBoxSub: 'Crafted for Modern Enterprise'
-  }
-];
+const defaultSlide = {
+  tag: 'AI Innovation',
+  titleLine1: 'Your Vision,',
+  titleLine2: 'Our Technology',
+  subTag: '(Limitless Possibilities)',
+  bullets: [
+    'Recognized as #1 Web Development Company in India and USA.',
+    'Trusted by 20+ Fortune 500 Companies and a Clutch Leader.',
+    "We've been Redefining Excellence for over Two Decades."
+  ],
+  primaryCtaText: "Let's Talk",
+  primaryCtaLink: '/contact',
+  backgroundVideoUrl: '/Best Software Development Company in USA - Sapphire Software Sol.mp4',
+  backgroundImageUrl: '',
+  bgType: 'video',
+  isActive: true
+};
 
-export const Hero = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
+export const Hero = ({ data }) => {
+  // Normalize slides array from data.slides, top-level data fields, or defaultSlide
+  const slides = (data?.slides && Array.isArray(data.slides) && data.slides.filter(s => s.isActive !== false).length > 0)
+    ? data.slides.filter(s => s.isActive !== false)
+    : (data && (data.tag || data.titleLine1 || data.titleLine2 || data.title || data.bullets)
+      ? [{
+        tag: data.tag,
+        titleLine1: data.titleLine1,
+        titleLine2: data.titleLine2,
+        title: data.title,
+        subTag: data.subTag || data.subtitle,
+        bullets: data.bullets,
+        primaryCtaText: data.primaryCtaText,
+        primaryCtaLink: data.primaryCtaLink,
+        backgroundVideoUrl: data.backgroundVideoUrl,
+        backgroundImageUrl: data.backgroundImageUrl,
+        bgType: data.bgType,
+        isActive: true
+      }]
+      : [defaultSlide]);
 
+  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+
+  // Keep index within bounds if slide count changes
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
-    }, 7000);
-    return () => clearInterval(interval);
-  }, []);
+    if (currentSlideIndex >= slides.length) {
+      setCurrentSlideIndex(0);
+    }
+  }, [slides.length, currentSlideIndex]);
 
-  const slide = heroSlides[currentSlide];
-  const phoneUS = BRAND?.contact?.phoneUS || '+1 (800) 592-7410';
-  const phoneRaw = phoneUS.replace(/[^0-9]/g, '');
+  // Auto-rotate if multiple slides
+  useEffect(() => {
+    if (slides.length <= 1) return;
+    const current = slides[currentSlideIndex] || {};
+    if (current.autoRotate === false) return;
+
+    const timer = setInterval(() => {
+      setCurrentSlideIndex((prev) => (prev + 1) % slides.length);
+    }, 6000);
+
+    return () => clearInterval(timer);
+  }, [slides.length, currentSlideIndex, slides]);
+
+  const currentSlide = slides[currentSlideIndex] || slides[0] || defaultSlide;
+
+  const tag = currentSlide.tag ?? data?.tag ?? defaultSlide.tag;
+  const titleLine1 = currentSlide.titleLine1 ?? data?.titleLine1 ?? (currentSlide.title || data?.title ? (currentSlide.title || data?.title) : defaultSlide.titleLine1);
+  const titleLine2 = currentSlide.titleLine2 ?? data?.titleLine2 ?? (currentSlide.title || data?.title ? '' : defaultSlide.titleLine2);
+  const subTag = currentSlide.subTag ?? data?.subTag ?? currentSlide.subtitle ?? data?.subtitle ?? defaultSlide.subTag;
+  const bullets = (Array.isArray(currentSlide.bullets) && currentSlide.bullets.length > 0)
+    ? currentSlide.bullets
+    : (Array.isArray(data?.bullets) && data.bullets.length > 0 ? data.bullets : defaultSlide.bullets);
+  const primaryCtaText = currentSlide.primaryCtaText ?? data?.primaryCtaText ?? defaultSlide.primaryCtaText;
+  const primaryCtaLink = currentSlide.primaryCtaLink ?? data?.primaryCtaLink ?? defaultSlide.primaryCtaLink;
+  const getVideoUrl = (url) => {
+    if (!url) return '';
+    if (url.startsWith('http://') || url.startsWith('https://') || url.startsWith('blob:') || url.startsWith('data:')) {
+      return url;
+    }
+    if (url.startsWith('/uploads/') || url.startsWith('uploads/')) {
+      const backendBase = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
+      const cleanUrl = url.startsWith('/') ? url : `/${url}`;
+      return `${backendBase.replace(/\/$/, '')}${cleanUrl}`;
+    }
+    return url;
+  };
+
+  const bgType = currentSlide.bgType || data?.bgType || (currentSlide.backgroundImageUrl ? 'image' : 'video');
+  const backgroundVideoUrl = currentSlide.backgroundVideoUrl || data?.backgroundVideoUrl || defaultSlide.backgroundVideoUrl;
+  const backgroundImageUrl = currentSlide.backgroundImageUrl || data?.backgroundImageUrl || '';
+
+  const resolvedVideoUrl = getVideoUrl(backgroundVideoUrl);
 
   return (
-    <section className="relative min-h-[92vh] flex items-center justify-center pt-24 pb-20 overflow-hidden bg-slate-950 font-sans text-left">
-      {/* 1. Background Video Layer */}
+    <section className="relative min-h-[90vh] sm:min-h-[95vh] flex items-end pt-40 sm:pt-48 pb-12 sm:pb-16 overflow-hidden bg-[#011120] font-sans text-left">
+      {/* 1. Background Video / Image Layer */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        <video
-          src="/Best Software Development Company in USA - Sapphire Software Sol.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="w-full h-full object-cover scale-105 filter brightness-[0.7]"
-        />
-        {/* Dark Blue / Purple Gradient Overlay matching reference image */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#031120]/90 via-[#071D35]/80 to-[#0A071E]/85 backdrop-blur-[2px]" />
-        
-        {/* 3D Wireframe Mesh Graphic Overlay */}
-        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1/2 h-full opacity-20 pointer-events-none bg-[radial-gradient(#005F96_1px,transparent_1px)] [background-size:24px_24px]" />
+        {bgType === 'image' && backgroundImageUrl ? (
+          <img
+            src={backgroundImageUrl}
+            alt={tag || 'Hero Banner'}
+            className="w-full h-full object-cover filter brightness-[0.75] contrast-[1.1]"
+          />
+        ) : (
+          <video
+            key={resolvedVideoUrl}
+            src={resolvedVideoUrl}
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            className="w-full h-full object-cover filter brightness-[0.75] contrast-[1.1]"
+          />
+        )}
+        {/* Dark Blue Gradient Overlay for High Contrast Legibility */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#011120] via-[#011627]/80 to-transparent pointer-events-none" />
       </div>
 
 
-      {/* 3. Hero Main Content Container */}
-      <Container className="relative z-10 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          
-          {/* Left Text Column */}
-          <div className="lg:col-span-8 space-y-6">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={currentSlide}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: 20 }}
-                transition={{ duration: 0.5 }}
-                className="space-y-5"
+      {/* 3. Hero Main Content Container - Aligns directly to left matching Header padding */}
+      <div className="relative z-10 w-full px-6 lg:px-10">
+        <div className="max-w-3xl space-y-4">
+
+          {/* Tag / Badge */}
+          {tag && (
+            <h2 className="text-[28px] sm:text-[34px] font-[800] text-white tracking-wide font-sans">
+              {tag}
+            </h2>
+          )}
+
+          {/* Main Title: Heading Line 1 + Heading Line 2 */}
+          {(titleLine1 || titleLine2) && (
+            <h1 className="text-[36px] sm:text-[46px] lg:text-[50px] font-[900] tracking-tight leading-[1.12] font-sans">
+              {titleLine1 && <span className="text-[#0088CC]">{titleLine1} </span>}
+              {titleLine2 && <span className="text-[#E83D98]">{titleLine2}</span>}
+            </h1>
+          )}
+
+          {/* Subtitle */}
+          {subTag && (
+            <p className="text-[17px] sm:text-[19px] font-[400] text-white/95 tracking-normal font-sans mb-4">
+              {subTag}
+            </p>
+          )}
+
+          {/* Dynamic Bullet Points List */}
+          {bullets && bullets.length > 0 && (
+            <ul className="space-y-3 pt-2 max-w-2xl text-slate-100 text-[15px] sm:text-[16px] font-[400] font-sans leading-relaxed">
+              {bullets.map((bullet, idx) => {
+                if (!bullet) return null;
+                return (
+                  <li key={idx} className="flex items-start space-x-2.5">
+                    <span className="text-white text-lg font-bold leading-none mt-1">•</span>
+                    <span>{bullet}</span>
+                  </li>
+                );
+              })}
+            </ul>
+          )}
+
+          {/* Primary CTA Button */}
+          {primaryCtaText && (
+            <div className="pt-4">
+              <Link
+                to={primaryCtaLink || '/contact'}
+                className="inline-flex items-center justify-center px-7 py-3 rounded-[4px] bg-[#006B8F] hover:bg-[#005478] text-white font-[700] text-[15px] transition-all shadow-md font-sans"
               >
-                {/* Category Tag (AI Innovation) */}
-                <div className="inline-block">
-                  <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-wide">
-                    {slide.tag}
-                  </h3>
-                </div>
+                <span>{primaryCtaText}</span>
+              </Link>
+            </div>
+          )}
 
-                {/* Main Heading with Gradient Text */}
-                <h1 className="text-[34px] font-[800] tracking-tight leading-[1.25]">
-                  <span className="text-[#005F96] text-white block">{slide.titleLine1}</span>
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-300 to-pink-500 font-[800]">
-                    {slide.titleLine2}
-                  </span>
-                </h1>
-
-                {/* Subtag Paragraph under Main Heading */}
-                <p className="text-[18px] font-[400] text-slate-300 tracking-wide">
-                  {slide.subTag}
-                </p>
-
-                {/* Bullet Points List matching reference screenshot */}
-                <ul className="space-y-3 pt-2 max-w-2xl text-slate-200 text-sm sm:text-base font-medium">
-                  {slide.bullets.map((bullet, idx) => (
-                    <li key={idx} className="flex items-start space-x-3">
-                      <span className="text-cyan-400 font-bold text-lg leading-none mt-0.5">•</span>
-                      <span className="leading-snug">
-                        {bullet.includes('Recognized') ? (
-                          <>Recognized as <strong className="text-white font-extrabold">#1 Web Development</strong> Company in India and USA.</>
-                        ) : bullet.includes('Trusted') ? (
-                          <>Trusted by <strong className="text-white font-extrabold">20+ Fortune 500 Companies</strong> and a Clutch Leader.</>
-                        ) : bullet.includes('Redefining') ? (
-                          <>We've been Redefining Excellence for over <strong className="text-white font-extrabold">Two Decades.</strong></>
-                        ) : (
-                          bullet
-                        )}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-
-                {/* Primary CTA Buttons */}
-                <div className="pt-4 flex flex-wrap items-center gap-4">
-                  <Link
-                    to="/contact"
-                    className="inline-flex items-center justify-center px-8 py-3.5 rounded-xl bg-gradient-to-r from-blue-600 via-cyan-500 to-teal-400 text-white font-extrabold text-base hover:opacity-95 transition-all shadow-xl shadow-cyan-500/20 hover:scale-105 active:scale-95 group"
-                  >
-                    <span>Let's Talk</span>
-                    <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-                  </Link>
-
-                  <Link
-                    to="/contact"
-                    className="inline-flex items-center justify-center px-8 py-3.5 rounded-xl bg-slate-900/80 border-2 border-cyan-500/50 text-white font-extrabold text-base hover:bg-cyan-500/10 hover:border-cyan-400 transition-all shadow-lg hover:scale-105 active:scale-95"
-                  >
-                    <span>Get in Touch</span>
-                  </Link>
-                </div>
-              </motion.div>
-            </AnimatePresence>
-          </div>
-
-          {/* Right Bottom Highlight Box matching reference screenshot */}
-          <div className="lg:col-span-4 flex flex-col justify-end items-end relative">
-            {/* Slide Navigation Dots */}
-            <div className="flex items-center space-x-2 mb-8">
-              {heroSlides.map((_, idx) => (
+          {/* Slide Indicator Dots (if multiple slides exist) */}
+          {slides.length > 1 && (
+            <div className="flex items-center space-x-2 pt-4">
+              {slides.map((_, idx) => (
                 <button
                   key={idx}
-                  onClick={() => setCurrentSlide(idx)}
-                  className={`h-2.5 rounded-full transition-all duration-300 ${
-                    currentSlide === idx ? 'w-8 bg-[#005F96]' : 'w-2.5 bg-white/30 hover:bg-white/60'
-                  }`}
-                  aria-label={`Go to slide ${idx + 1}`}
+                  type="button"
+                  onClick={() => setCurrentSlideIndex(idx)}
+                  className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${idx === currentSlideIndex ? 'w-8 bg-[#0088CC]' : 'w-2 bg-white/40 hover:bg-white/70'
+                    }`}
+                  aria-label={`Slide ${idx + 1}`}
                 />
               ))}
             </div>
-
-            {/* Floating Highlight Banner */}
-            <motion.div
-              key={`right-${currentSlide}`}
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="p-6 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-2xl text-right max-w-sm space-y-1 relative overflow-hidden"
-            >
-              <div className="absolute top-0 right-0 w-32 h-32 bg-pink-500/10 rounded-full blur-2xl pointer-events-none" />
-              <h4 className="text-base font-extrabold text-white">
-                {slide.rightBoxTitle}
-              </h4>
-              <p className="text-base font-black text-pink-400">
-                {slide.rightBoxSub}
-              </p>
-            </motion.div>
-          </div>
-
+          )}
         </div>
-      </Container>
+      </div>
     </section>
   );
 };

@@ -1,51 +1,71 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import {
   LayoutDashboard,
-  Layers,
-  Briefcase,
-  Users2,
-  Inbox,
+  Home,
   Building2,
+  Package,
+  Layers,
+  Users2,
   Cpu,
-  Star,
-  Settings,
-  Terminal,
+  Briefcase,
   ChevronLeft,
   ChevronRight,
-  Shield,
-  LogOut,
-  UserCheck
+  ChevronDown,
+  LogOut
 } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
+import SidebarMenuItem from './SidebarMenuItem';
 import { useToast } from '../../context/ToastContext';
 
 const NAV_ITEMS = [
   {
-    section: 'Core Management',
-    items: [
-      { path: '/admin/dashboard', label: 'Dashboard', icon: LayoutDashboard },
-      { path: '/admin/services', label: 'Services', icon: Layers, badge: '10' },
-      { path: '/admin/portfolio', label: 'Portfolio', icon: Briefcase, badge: '6' },
-      { path: '/admin/jobs', label: 'Jobs', icon: Users2, badge: '3' },
-      { path: '/admin/applications', label: 'Applications', icon: UserCheck },
-      { path: '/admin/inquiries', label: 'Inquiries', icon: Inbox },
-    ]
+    id: 'dashboard',
+    label: 'Dashboard',
+    icon: LayoutDashboard,
+    path: '/admin/dashboard'
   },
   {
-    section: 'Domain Content',
-    items: [
-      { path: '/admin/industries', label: 'Industries', icon: Building2, badge: '8' },
-      { path: '/admin/technologies', label: 'Tech Stack', icon: Cpu, badge: '19' },
-      { path: '/admin/testimonials', label: 'Testimonials', icon: Star, badge: '4' },
-    ]
+    id: 'home-page',
+    label: 'Home Page',
+    icon: Home,
+    path: '/admin/home-page'
   },
   {
-    section: 'System & Developer',
-    items: [
-      { path: '/admin/api-playground', label: 'API Playground', icon: Terminal },
-      { path: '/admin/settings', label: 'Settings', icon: Settings },
-    ]
+    id: 'company',
+    label: 'Company',
+    icon: Building2,
+    path: '/admin/company'
+  },
+  {
+    id: 'product',
+    label: 'Product',
+    icon: Package,
+    path: '/admin/product'
+  },
+  {
+    id: 'services',
+    label: 'Services',
+    icon: Layers,
+    path: '/admin/services'
+  },
+  {
+    id: 'hireDevelopers',
+    label: 'Hire Developers',
+    icon: Users2,
+    path: '/admin/hire'
+  },
+  {
+    id: 'technology',
+    label: 'Technology',
+    icon: Cpu,
+    path: '/admin/technologies'
+  },
+  {
+    id: 'ourWork',
+    label: 'Our Work',
+    icon: Briefcase,
+    path: '/admin/our-work'
   }
 ];
 
@@ -68,23 +88,47 @@ export const Sidebar = ({ isCollapsed, onToggleCollapse, isMobileOpen, onCloseMo
     >
       {/* Brand Header */}
       <div className="sidebar-header">
-        <NavLink to="/admin/dashboard" className="brand-logo-wrap" onClick={onCloseMobile}>
-          <div className="brand-icon-box">
-            <Shield size={20} />
-          </div>
-          {!isCollapsed && (
-            <div className="brand-text-col">
-              <span className="brand-name">FIREVY</span>
-              <span className="brand-badge">Admin Panel</span>
+        <NavLink
+          to="/admin/dashboard"
+          className="brand-logo-wrap flex items-center"
+          onClick={onCloseMobile}
+          title="Firevy.co Admin Panel"
+        >
+          {!isCollapsed ? (
+            <div className="brand-logo-full">
+              <img
+                src="/firevy_logo_dark.png"
+                alt="Firevy.co"
+                className="brand-logo-img brand-logo-img-light"
+              />
+              <img
+                src="/firevy_logo_white.png"
+                alt="Firevy.co"
+                className="brand-logo-img brand-logo-img-dark"
+              />
+            </div>
+          ) : (
+            <div className="brand-icon-wrap">
+              <img
+                src="/firevy_icon_dark.png"
+                alt="Firevy.co"
+                className="brand-icon-img brand-icon-img-light"
+              />
+              <img
+                src="/firevy_icon_white.png"
+                alt="Firevy.co"
+                className="brand-icon-img brand-icon-img-dark"
+              />
             </div>
           )}
         </NavLink>
 
         <button
           onClick={onToggleCollapse}
-          className="btn btn-ghost btn-icon-sm"
+          className="btn btn-ghost btn-icon-sm sidebar-collapse-btn"
           style={{ display: isMobileOpen ? 'none' : 'flex' }}
           title={isCollapsed ? 'Expand Sidebar' : 'Collapse Sidebar'}
+          aria-label={isCollapsed ? 'Expand Sidebar' : 'Collapse Sidebar'}
         >
           {isCollapsed ? <ChevronRight size={18} /> : <ChevronLeft size={18} />}
         </button>
@@ -92,34 +136,15 @@ export const Sidebar = ({ isCollapsed, onToggleCollapse, isMobileOpen, onCloseMo
 
       {/* Nav List */}
       <div className="sidebar-nav-container">
-        {NAV_ITEMS.map((group, gIdx) => (
-          <div key={gIdx}>
-            {!isCollapsed && <div className="nav-section-title">{group.section}</div>}
-            {group.items.map((item) => {
-              const Icon = item.icon;
-              const isActive = location.pathname === item.path;
+        <div className="nav-section-title">Navigation</div>
 
-              return (
-                <NavLink
-                  key={item.path}
-                  to={item.path}
-                  className={`nav-item ${isActive ? 'active' : ''}`}
-                  onClick={onCloseMobile}
-                  title={isCollapsed ? item.label : undefined}
-                >
-                  <div className="nav-item-content">
-                    <div className="nav-item-icon">
-                      <Icon size={18} />
-                    </div>
-                    {!isCollapsed && <span className="nav-item-text">{item.label}</span>}
-                  </div>
-                  {!isCollapsed && item.badge && (
-                    <span className="nav-item-count">{item.badge}</span>
-                  )}
-                </NavLink>
-              );
-            })}
-          </div>
+        {NAV_ITEMS.map((item) => (
+          <SidebarMenuItem
+            key={item.id}
+            item={item}
+            isCollapsed={isCollapsed}
+            onCloseMobile={onCloseMobile}
+          />
         ))}
       </div>
 
@@ -152,3 +177,4 @@ export const Sidebar = ({ isCollapsed, onToggleCollapse, isMobileOpen, onCloseMo
 };
 
 export default Sidebar;
+

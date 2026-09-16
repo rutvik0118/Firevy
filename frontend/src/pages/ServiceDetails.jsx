@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, useLocation, Link } from 'react-router-dom';
 import SEO from '../components/common/SEO';
 import Container from '../components/common/Container';
 import SectionHeading from '../components/common/SectionHeading';
@@ -20,50 +20,251 @@ import AmazonLikeAppDevelopmentService from '../components/services/AmazonLikeAp
 import VisitorManagementSystemService from '../components/services/VisitorManagementSystemService';
 import WarehouseManagementSystemService from '../components/services/WarehouseManagementSystemService';
 import CloverAppDevelopmentService from '../components/services/CloverAppDevelopmentService';
+import AndroidAppDevelopmentService from '../components/services/AndroidAppDevelopmentService';
+import ReactNativeAppDevelopmentService from '../components/services/ReactNativeAppDevelopmentService';
+import FlutterAppDevelopmentService from '../components/services/FlutterAppDevelopmentService';
 import HireCSharpDevelopersService from '../components/services/HireCSharpDevelopersService';
+import HireBootstrapDevelopersService from '../components/services/HireBootstrapDevelopersService';
+import HireCodeIgniterDevelopersService from '../components/services/HireCodeIgniterDevelopersService';
 import IWatchAppDevelopmentService from '../components/services/IWatchAppDevelopmentService';
 import CovidTrackerAppDevelopmentService from '../components/services/CovidTrackerAppDevelopmentService';
 import EcommerceMobileAppDevelopmentService from '../components/services/EcommerceMobileAppDevelopmentService';
 
 export const ServiceDetails = () => {
   const { slug } = useParams();
+  const location = useLocation();
+  const pathSegments = location.pathname.toLowerCase().split('/').filter(Boolean);
+  const pathSlug = pathSegments.length > 1 ? pathSegments[pathSegments.length - 1] : pathSegments[0] || '';
+  const rawSlug = slug || pathSlug || '';
+  const currentSlug = decodeURIComponent(rawSlug).toLowerCase();
+
   const [service, setService] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [openFaq, setOpenFaq] = useState(0);
 
-  const isHealthcare = slug && (
-    slug.toLowerCase().includes('health-care-app') ||
-    slug.toLowerCase().includes('healthcare-app') ||
-    slug.toLowerCase() === 'healthcare'
+  const isHireAndroid = currentSlug.includes('hire-android');
+  const isHireIonic = currentSlug.includes('ionic') || currentSlug.includes('hire-ionic');
+  const isHireFlutter = currentSlug.includes('hire-flutter');
+  const isHireIOS = currentSlug.includes('hire-ios');
+  const isHireSwift = currentSlug.includes('hire-swift') || currentSlug === 'swift' || currentSlug === 'services/swift';
+  const isHireMobile = currentSlug.includes('hire-mobile');
+  const isHireBlackberry = currentSlug.includes('hire-blackberry') || currentSlug.includes('blackberry');
+  const isHireFreelance = currentSlug.includes('hire-freelance');
+  const isHireAiApp = currentSlug.includes('hire-ai-application') || currentSlug.includes('hire-ai-app');
+  const isHireIphone = currentSlug.includes('hire-iphone');
+<<<<<<< HEAD
+  const isHireWooCommerce = currentSlug.includes('woocommerce') || currentSlug.includes('woo-commerce');
+  const isHirePrestashop = currentSlug.includes('prestashop') || currentSlug.includes('presta-shop');
+  const isHireWordpress = currentSlug.includes('hire-wordpress') || currentSlug.includes('wordpress-developers') || currentSlug.includes('hire-wp');
+  const isAnyDedicatedHire = isHireAndroid || isHireIonic || isHireFlutter || isHireIOS || isHireSwift || isHireMobile || isHireBlackberry || isHireFreelance || isHireAiApp || isHireIphone || isHireWooCommerce || isHirePrestashop || isHireWordpress;
+=======
+  const isHireKotlin = currentSlug.includes('hire-kotlin');
+  const isAnyDedicatedHire = isHireAndroid || isHireIonic || isHireFlutter || isHireIOS || isHireSwift || isHireMobile || isHireBlackberry || isHireFreelance || isHireAiApp || isHireIphone || isHireKotlin;
+>>>>>>> a5ebb59c7b5a87a0671a835585365d686ca124ee
+
+  const isXamarin = currentSlug.includes('xamarin');
+  const isReactNative = currentSlug.includes('react-native') || currentSlug.includes('reactnative');
+  const isFlutter = !isHireFlutter && currentSlug.includes('flutter');
+  const isSitecore = currentSlug.includes('sitecore') || currentSlug.includes('hire-sitecore');
+  const isSitefinity = currentSlug.includes('sitefinity') || currentSlug.includes('hire-sitefinity');
+
+  const isMagento = currentSlug.includes('magento') ||
+    currentSlug.includes('adobe-commerce') ||
+    currentSlug.includes('hire-magento');
+
+  const isShopify = currentSlug.includes('shopify') ||
+    currentSlug.includes('shopify-plus') ||
+    currentSlug.includes('hire-shopify');
+
+  const isUmbraco = currentSlug.includes('umbraco') ||
+    currentSlug.includes('hire-umbraco');
+
+  const isDrupal = currentSlug.includes('drupal') ||
+    currentSlug.includes('hire-drupal');
+
+  const isWordpress = currentSlug.includes('wordpress') ||
+    currentSlug.includes('word-press') ||
+    currentSlug.includes('wp-development') ||
+    currentSlug.includes('hire-wordpress');
+
+  const isAndroid = !isHireAndroid && currentSlug.includes('android');
+
+  const isHealthcare = currentSlug.includes('health-care') ||
+    currentSlug.includes('healthcare');
+
+  const isEducation = currentSlug.includes('education') ||
+    currentSlug.includes('elearning');
+
+  const isUber = currentSlug.includes('uber') ||
+    currentSlug.includes('taxi-booking');
+
+  const isSpotify = currentSlug.includes('spotify') ||
+    currentSlug.includes('audio-streaming') ||
+    currentSlug.includes('music-streaming');
+
+  const isZomato = currentSlug.includes('zomato') ||
+    currentSlug.includes('food-delivery');
+
+  const isAmazon = currentSlug.includes('amazon') ||
+    currentSlug.includes('ecommerce') ||
+    currentSlug.includes('e-commerce');
+
+  const isVisitor = currentSlug.includes('visitor');
+
+  const isWarehouse = currentSlug.includes('warehouse') ||
+    currentSlug.includes('wms');
+
+  const isClover = currentSlug.includes('clover');
+
+  const isCSharp = currentSlug.includes('c-sharp') ||
+    currentSlug.includes('csharp') ||
+    currentSlug.includes('hire-c-sharp');
+
+  const isBootstrap = currentSlug.includes('bootstrap') ||
+    currentSlug.includes('hire-bootstrap');
+
+  const isCodeIgniter = currentSlug.includes('codeigniter') ||
+    currentSlug.includes('code-igniter') ||
+    currentSlug.includes('hire-codeigniter');
+
+  const isIWatch = currentSlug.includes('iwatch') ||
+    currentSlug.includes('apple-watch') ||
+    currentSlug.includes('watchos');
+
+  const isIPad = currentSlug.includes('ipad');
+
+  const isKotlin = !isHireKotlin && currentSlug.includes('kotlin');
+
+  const isHybrid = currentSlug.includes('hybrid');
+
+  const isPersonalFitness = currentSlug === 'personal-fitness-app' ||
+    currentSlug.includes('personal-fitness') ||
+    currentSlug.includes('fitness-app') ||
+    currentSlug === 'services/personal-fitness-app';
+
+  const isUsedCar = currentSlug === 'used-car-app-development' ||
+    currentSlug === 'used-car-app' ||
+    currentSlug.includes('used-car') ||
+    currentSlug.includes('used-cars') ||
+    currentSlug === 'services/used-car-app-development';
+
+  const isEnneagram = currentSlug === 'enneagram-test-app' ||
+    currentSlug === 'enneagram-test' ||
+    currentSlug.includes('enneagram') ||
+    currentSlug === 'services/enneagram-test-app';
+
+  const isCreditCard = currentSlug === 'credit-card-app-development' ||
+    currentSlug === 'credit-card-app' ||
+    currentSlug.includes('credit-card') ||
+    currentSlug === 'services/credit-card-app-development';
+
+  const isCrossPlatform = currentSlug.includes('cross-platform') ||
+    currentSlug.includes('crossplatform') ||
+    currentSlug.includes('multi-platform');
+
+  const isIOS = !isHireIOS && !isHireIphone && !isHireSwift && (currentSlug.includes('ios') || currentSlug.includes('iphone')) && !isIPad;
+
+  const isMobileApp = !isHireMobile && (
+    currentSlug === 'mobile-app-development' ||
+    currentSlug === 'mobile-app' ||
+    currentSlug === 'mobile-application' ||
+    currentSlug === 'mobile-application-development' ||
+    (currentSlug.includes('mobile-app') && !isReactNative && !isFlutter && !isIOS && !isAndroid && !isXamarin && !isIWatch && !isCrossPlatform && !isKotlin && !isHybrid && !isIPad && !isPersonalFitness && !isUsedCar && !isEnneagram && !isCreditCard)
   );
 
-  const isEducation = slug && (
-    slug.toLowerCase().includes('education-app') ||
-    slug.toLowerCase().includes('elearning-app') ||
-    slug.toLowerCase() === 'education'
+  const isNet = currentSlug === 'net' ||
+    currentSlug.includes('dot-net') ||
+    currentSlug.includes('dotnet') ||
+    currentSlug.includes('net-development') ||
+    currentSlug.includes('microsoft-development');
+
+  const isPhp = currentSlug === 'php' ||
+    currentSlug.includes('php-development') ||
+    currentSlug.includes('hire-php');
+
+  const isJava = currentSlug === 'java' ||
+    currentSlug.includes('java-development') ||
+    currentSlug.includes('hire-java') ||
+    currentSlug.includes('java-software') ||
+    currentSlug.includes('java-web');
+
+  const isNodeJs = currentSlug === 'nodejs' ||
+    currentSlug === 'node-js' ||
+    currentSlug.includes('node-js') ||
+    currentSlug.includes('nodejs') ||
+    currentSlug.includes('hire-node') ||
+    currentSlug.includes('node-developer');
+
+  const isGenerativeAi = currentSlug.includes('generative-ai') ||
+    currentSlug.includes('generativeai') ||
+    currentSlug.includes('genai') ||
+    currentSlug.includes('gen-ai');
+
+  const isArtificialIntelligence = !isHireAiApp && !isGenerativeAi && (
+    currentSlug.includes('artificial-intelligence') ||
+    currentSlug.includes('ai-ml') ||
+    currentSlug.includes('ai-development') ||
+    currentSlug === 'ai' ||
+    currentSlug === 'ai-services' ||
+    currentSlug.includes('hire-ai-developers')
   );
 
-  const isUber = slug && (
-    slug.toLowerCase().includes('uber-like') ||
-    slug.toLowerCase().includes('uber-clone') ||
-    slug.toLowerCase().includes('taxi-booking') ||
-    slug.toLowerCase() === 'uber'
+  const isBlockchain = currentSlug.includes('blockchain') ||
+    currentSlug.includes('crypto') ||
+    currentSlug.includes('dapp') ||
+    currentSlug.includes('hire-blockchain');
+
+  const isFullStack = currentSlug.includes('full-stack') ||
+    currentSlug.includes('fullstack') ||
+    currentSlug.includes('hire-full-stack');
+
+  const isVR = currentSlug.includes('vr') ||
+    currentSlug.includes('virtual-reality') ||
+    currentSlug.includes('vr-ar') ||
+    currentSlug.includes('ar-vr') ||
+    currentSlug.includes('augmented-reality');
+
+  const isIot = currentSlug.includes('iot') ||
+    currentSlug.includes('internet-of-things') ||
+    currentSlug.includes('smart-devices');
+
+  const isPwa = currentSlug.includes('pwd') ||
+    currentSlug.includes('pwa') ||
+    currentSlug.includes('progressive-web') ||
+    currentSlug.includes('progressive-app');
+
+  const isRpa = currentSlug.includes('rpa') ||
+    currentSlug.includes('robotic-process') ||
+    currentSlug.includes('process-automation') ||
+    currentSlug.includes('robotic');
+
+  const isAngular = currentSlug.includes('angular');
+
+  const isNext = currentSlug.includes('next') ||
+    currentSlug.includes('nextjs') ||
+    currentSlug.includes('next-js') ||
+    currentSlug.includes('hire-next');
+
+  const isReact = !isReactNative && !isNext && (
+    currentSlug.includes('react-js') ||
+    currentSlug.includes('reactjs') ||
+    currentSlug.includes('react-development') ||
+    currentSlug.includes('hire-react') ||
+    currentSlug === 'react' ||
+    currentSlug === 'services/react'
   );
 
-  const isSpotify = slug && (
-    slug.toLowerCase().includes('spotify-like') ||
-    slug.toLowerCase().includes('audio-streaming') ||
-    slug.toLowerCase().includes('music-streaming') ||
-    slug.toLowerCase() === 'spotify'
-  );
+  const isVue = currentSlug.includes('vue') ||
+    currentSlug.includes('vuejs') ||
+    currentSlug.includes('vue-js') ||
+    currentSlug.includes('hire-vue') ||
+    currentSlug.includes('nuxt');
 
-  const isZomato = slug && (
-    slug.toLowerCase().includes('zomato-like') ||
-    slug.toLowerCase().includes('zomato-clone') ||
-    slug.toLowerCase().includes('food-delivery') ||
-    slug.toLowerCase() === 'zomato'
-  );
+  const isEmber = currentSlug.includes('ember') ||
+    currentSlug.includes('emberjs') ||
+    currentSlug.includes('ember-js') ||
+    currentSlug.includes('hire-ember');
 
   const isAmazon = slug && (
     slug.toLowerCase().includes('amazon-like') ||
@@ -71,36 +272,37 @@ export const ServiceDetails = () => {
     slug.toLowerCase() === 'amazon'
   );
 
-  const isVisitor = slug && (
-    slug.toLowerCase().includes('visitor-management') ||
-    slug.toLowerCase().includes('visitor-app') ||
-    slug.toLowerCase() === 'visitor'
-  );
+  const isExpress = (currentSlug.includes('express') ||
+    currentSlug.includes('expressjs') ||
+    currentSlug.includes('express-js') ||
+    currentSlug.includes('hire-express')) &&
+    !currentSlug.includes('node');
 
-  const isWarehouse = slug && (
-    slug.toLowerCase().includes('warehouse-management') ||
-    slug.toLowerCase().includes('wms') ||
-    slug.toLowerCase() === 'warehouse'
-  );
+  const isSharePoint = currentSlug.includes('sharepoint') ||
+    currentSlug.includes('share-point') ||
+    currentSlug.includes('hire-sharepoint');
 
-  const isClover = slug && (
-    slug.toLowerCase().includes('clover-app') ||
-    slug.toLowerCase().includes('clover-pos') ||
-    slug.toLowerCase() === 'clover'
-  );
+  const isPowerApps = (currentSlug.includes('powerapps') ||
+    currentSlug.includes('power-apps') ||
+    currentSlug.includes('power-platform') ||
+    currentSlug.includes('hire-powerapps') ||
+    currentSlug.includes('hire-power-apps')) &&
+    !currentSlug.includes('automate');
 
-  const isCSharp = slug && (
-    slug.toLowerCase().includes('c-sharp') ||
-    slug.toLowerCase().includes('csharp') ||
-    slug.toLowerCase().includes('hire-c-sharp') ||
-    slug.toLowerCase() === 'hire-c-sharp-developers'
-  );
+  const isPowerAutomate = currentSlug.includes('power-automate') ||
+    currentSlug.includes('powerautomate') ||
+    currentSlug.includes('hire-power-automate') ||
+    currentSlug.includes('hire-powerautomate');
 
-  const isIWatch = slug && (
-    slug.toLowerCase().includes('iwatch') ||
-    slug.toLowerCase().includes('apple-watch') ||
-    slug.toLowerCase().includes('watchos')
-  );
+  const isItConsulting = currentSlug === 'it-consulting-services' ||
+    currentSlug.includes('it-consulting') ||
+    currentSlug === 'tech-consulting-services' ||
+    currentSlug === 'services/it-consulting-services';
+
+  const isAppConsulting = currentSlug === 'app-development-consulting' ||
+    currentSlug === 'app-development-consulting-services' ||
+    currentSlug.includes('app-development-consulting') ||
+    currentSlug === 'services/app-development-consulting';
 
   const isCovid = slug && (
     slug.toLowerCase().includes('covid') ||
@@ -125,7 +327,7 @@ export const ServiceDetails = () => {
   const generateFallbackService = (serviceSlug) => {
     const formattedTitle = unslugify(serviceSlug);
     const isHire = serviceSlug.toLowerCase().includes('hire');
-    
+
     return {
       title: formattedTitle,
       slug: serviceSlug,
@@ -161,43 +363,48 @@ export const ServiceDetails = () => {
           description: "Real-time metrics dashboards, bottleneck analysis, and continuous performance optimization."
         }
       ],
-      technologies: [
-        "React", "TypeScript", "Node.js", "Python", "Docker", "Kubernetes", "AWS Cloud", "GraphQL", "Tailwind CSS", "PostgreSQL", "Redis"
+      process: [
+        { title: "Discovery & Strategy", description: "Architecture scoping, technology stack validation, and feasibility mapping." },
+        { title: "Sprint Engineering", description: "Bi-weekly sprint deliverables with clean code, unit test coverage, and documentation." },
+        { title: "Quality Assurance", description: "Automated vulnerability scanning, load testing, and cross-platform verification." },
+        { title: "Global Cloud Deployment", description: "Zero-downtime orchestration, Kubernetes rollout, and continuous monitoring." }
       ],
+      technologies: ["React", "Node.js", "TypeScript", "Python", "Docker", "AWS Cloud", "Kubernetes", "GraphQL", "PostgreSQL", "Redis"],
       faqs: [
         {
-          question: `Why choose Firevy.co for ${formattedTitle}?`,
-          answer: `Firevy.co provides over 15+ years of combined engineering excellence, rapid squad deployment within 48 hours, and 100% code ownership with transparent pricing.`
+          q: `How do Firevy.co's ${formattedTitle} services accelerate time-to-market?`,
+          a: "Our pre-built architectural blueprints, vetted domain architects, and DevOps automation allow us to deliver production-ready features up to 40% faster than traditional agencies."
         },
         {
-          question: `How quickly can we start a project or onboard ${formattedTitle}?`,
-          answer: `Our onboarding process takes as little as 2 to 5 business days from initial architecture discovery to active sprint execution.`
+          q: "What security compliance frameworks do you adhere to?",
+          a: "All deliverables undergo rigorous static code analysis, SOC-2 readiness checks, GDPR / HIPAA compliant architecture design, and automated vulnerability scanning."
         },
         {
-          question: `What engagement models do you offer for ${formattedTitle}?`,
-          answer: "We support Dedicated Teams (Staff Augmentation), Time & Materials (T&M), and Fixed-Price Project delivery based on your specific requirements."
+          q: "Can you seamlessly augment our existing engineering team?",
+          a: "Yes. Our engineers integrate directly into your Jira, Slack, GitHub workflows with daily standups and transparent reporting."
         },
         {
-          question: `How do you ensure data confidentiality and IP security?`,
-          answer: "We sign strict non-disclosure agreements (NDAs) before discovery discussions and transfer 100% intellectual property rights upon delivery."
+          q: "What post-launch maintenance SLA options are provided?",
+          a: "We offer 24/7/365 infrastructure monitoring, automated security patch rollouts, performance tuning, and guaranteed < 15 minute emergency incident responses."
         }
       ]
     };
   };
 
   const fetchServiceDetails = async () => {
-    setLoading(true);
-    setError(null);
     try {
-      const res = await serviceApi.getServiceBySlug(slug);
-      if (res.data) {
-        setService(res.data);
+      setLoading(true);
+      const data = await serviceApi.getServiceBySlug(currentSlug);
+      if (data && data.success && data.data) {
+        setService(data.data);
+      } else if (data && data.title) {
+        setService(data);
       } else {
-        setService(generateFallbackService(slug));
+        setService(generateFallbackService(currentSlug));
       }
     } catch (err) {
-      console.warn('[Service Details Fetch Fallback Used]', slug);
-      setService(generateFallbackService(slug));
+      console.warn("Backend unavailable or service not found in DB. Falling back to static enterprise content.", err);
+      setService(generateFallbackService(currentSlug));
     } finally {
       setLoading(false);
     }
@@ -210,7 +417,271 @@ export const ServiceDetails = () => {
       setLoading(false);
     }
     window.scrollTo(0, 0);
-  }, [slug]);
+  }, [currentSlug]);
+
+  if (isExpress) {
+    return <HireExpressJsDevelopersService />;
+  }
+
+  if (isHireAndroid) {
+    return <HireTechDevelopersService techKey="hire-android-developers" />;
+  }
+
+  if (isHireIonic) {
+    return <HireTechDevelopersService techKey="hire-ionic-developers" />;
+  }
+
+  if (isHireFlutter) {
+    return <HireTechDevelopersService techKey="hire-flutter-developers" />;
+  }
+
+  if (isHireIOS) {
+    return <HireTechDevelopersService techKey="hire-ios-developers" />;
+  }
+
+  if (isHireSwift) {
+    return <HireTechDevelopersService techKey="hire-swift-developer" />;
+  }
+
+  if (isHireMobile) {
+    return <HireTechDevelopersService techKey="hire-mobile-app-developers" />;
+  }
+
+  if (isHireBlackberry) {
+    return <HireTechDevelopersService techKey="hire-blackberry-app-developers" />;
+  }
+
+  if (isHireFreelance) {
+    return <HireTechDevelopersService techKey="hire-freelance-app-developers" />;
+  }
+
+  if (isHireAiApp) {
+    return <HireTechDevelopersService techKey="hire-ai-application-developers" />;
+  }
+
+  if (isHireIphone) {
+    return <HireTechDevelopersService techKey="hire-iphone-app-developers" />;
+  }
+
+<<<<<<< HEAD
+  if (isHireWooCommerce) {
+    return <HireTechDevelopersService techKey="hire-woocommerce-developers" />;
+  }
+
+  if (isHirePrestashop) {
+    return <HireTechDevelopersService techKey="hire-prestashop-developers" />;
+  }
+
+  if (isHireWordpress) {
+    return <HireTechDevelopersService techKey="hire-wordpress-developers" />;
+  }
+
+  if (isKotlin) {
+=======
+  if (isHireKotlin) {
+>>>>>>> a5ebb59c7b5a87a0671a835585365d686ca124ee
+    return <HireKotlinDevelopersService />;
+  }
+
+  if (isKotlin) {
+    return <KotlinAppDevelopmentService />;
+  }
+
+  if (isIPad) {
+    return <IPadAppDevelopmentService />;
+  }
+
+  if (isHybrid) {
+    return <HybridAppDevelopmentService />;
+  }
+
+  if (isPersonalFitness) {
+    return <PersonalFitnessAppService />;
+  }
+
+  if (isUsedCar) {
+    return <UsedCarAppDevelopmentService />;
+  }
+
+  if (isEnneagram) {
+    return <EnneagramTestAppService />;
+  }
+
+  if (isCreditCard) {
+    return <CreditCardAppDevelopmentService />;
+  }
+
+  if (isCrossPlatform) {
+    return <CrossPlatformAppDevelopmentService />;
+  }
+
+  if (isIWatch) {
+    return <IWatchAppDevelopmentService />;
+  }
+
+  if (isMobileApp) {
+    return <MobileAppDevelopmentService />;
+  }
+
+  if (isBootstrap) {
+    return <HireBootstrapDevelopersService />;
+  }
+
+  if (isCodeIgniter) {
+    return <HireCodeIgniterDevelopersService />;
+  }
+
+  if (isEmber) {
+    return <HireEmberDevelopersService />;
+  }
+
+  if (isLaravel) {
+    return <HireLaravelDevelopersService />;
+  }
+
+  if (isNodeJs) {
+    return <NodeJsDevelopmentService />;
+  }
+
+  if (isJava) {
+    return <JavaDevelopmentService />;
+  }
+
+  if (isPhp) {
+    return <PhpDevelopmentService />;
+  }
+
+  if (isNet) {
+    return <DotNetDevelopmentService />;
+  }
+
+  if (isItConsulting) {
+    return <ItConsultingServices />;
+  }
+
+  if (isAppConsulting) {
+    return <AppDevelopmentConsultingService />;
+  }
+
+  if (isPowerAutomate) {
+    return <PowerAutomateDevelopmentService />;
+  }
+
+  if (isPowerApps) {
+    return <PowerAppsDevelopmentService />;
+  }
+
+  if (isSharePoint) {
+    return <SharePointDevelopmentService />;
+  }
+
+  if (isNext) {
+    return <HireNextJsDevelopersService />;
+  }
+
+  if (isExpress) {
+    return <HireExpressJsDevelopersService />;
+  }
+
+  if (isLaravel) {
+    return <HireLaravelDevelopersService />;
+  }
+
+  if (isEmber) {
+    return <HireEmberDevelopersService />;
+  }
+
+  if (isVue) {
+    return <HireVueDevelopersService />;
+  }
+
+  if (isReact) {
+    return <HireReactDevelopersService />;
+  }
+
+  if (isAngular) {
+    return <HireAngularDevelopersService />;
+  }
+
+  if (isIot) {
+    return <IotDevelopmentService />;
+  }
+
+  if (isPwa) {
+    return <PwaDevelopmentService />;
+  }
+
+  if (isRpa) {
+    return <RpaDevelopmentService />;
+  }
+
+  if (isVR) {
+    return <VirtualRealityDevelopmentService />;
+  }
+
+  if (isFullStack) {
+    return <FullStackDevelopmentService />;
+  }
+
+  if (isBlockchain) {
+    return <BlockchainDevelopmentService />;
+  }
+
+  if (isArtificialIntelligence) {
+    return <ArtificialIntelligenceDevelopmentService />;
+  }
+
+  if (isGenerativeAi) {
+    return <GenerativeAiDevelopmentService />;
+  }
+
+  if (isSitecore) {
+    return <SitecoreDevelopmentService />;
+  }
+
+  if (isSitefinity) {
+    return <SitefinityDevelopmentService />;
+  }
+
+  if (isMagento) {
+    return <MagentoDevelopmentService />;
+  }
+
+  if (isShopify) {
+    return <ShopifyDevelopmentService />;
+  }
+
+  if (isUmbraco) {
+    return <UmbracoDevelopmentService />;
+  }
+
+  if (isDrupal) {
+    return <DrupalDevelopmentService />;
+  }
+
+  if (isWordpress) {
+    return <WordPressDevelopmentService />;
+  }
+
+  if (isXamarin) {
+    return <XamarinAppDevelopmentService />;
+  }
+
+  if (isIOS) {
+    return <IOSAppDevelopmentService />;
+  }
+
+  if (isAndroid) {
+    return <AndroidAppDevelopmentService />;
+  }
+
+  if (isReactNative) {
+    return <ReactNativeAppDevelopmentService />;
+  }
+
+  if (isFlutter) {
+    return <FlutterAppDevelopmentService />;
+  }
 
   if (isEcommerceApp) {
     return <EcommerceMobileAppDevelopmentService />;
@@ -256,8 +727,14 @@ export const ServiceDetails = () => {
     return <HireCSharpDevelopersService />;
   }
 
-  if (isIWatch) {
-    return <IWatchAppDevelopmentService />;
+
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-slate-950 flex items-center justify-center">
+        <LoadingSpinner size="lg" />
+      </div>
+    );
   }
 
   if (isCovid) {
@@ -268,93 +745,77 @@ export const ServiceDetails = () => {
   if (error || !service) return <Container className="py-20"><ErrorState message={error || 'Service not found.'} onRetry={fetchServiceDetails} /></Container>;
 
   return (
-    <div className="bg-white min-h-screen text-slate-900 font-sans">
+    <div className="min-h-screen bg-slate-950 text-slate-100 font-sans selection:bg-[#005F96] selection:text-white">
       <SEO
-        title={`${service.title} | ${BRAND.name}`}
-        description={service.shortDescription}
-        canonical={`/services/${service.slug}`}
+        title={`${currentService.title} Services | ${BRAND.name}`}
+        description={currentService.shortDescription || currentService.description}
       />
 
-      {/* Sapphire Signature Hero Header */}
-      <section className="pt-32 pb-16 bg-gradient-to-b from-[#005F96] via-[#004A75] to-[#003B60] text-white relative overflow-hidden text-left font-sans">
-        <Container>
-          {/* Breadcrumb Navigation */}
-          <div className="flex items-center space-x-2 text-xs text-blue-200 mb-6 font-sans">
-            <Link to="/" className="hover:text-white transition-colors">Home</Link>
-            <ChevronRight className="w-3.5 h-3.5 text-blue-300" />
-            <Link to="/services" className="hover:text-white transition-colors">Services</Link>
-            <ChevronRight className="w-3.5 h-3.5 text-blue-300" />
-            <span className="text-white font-semibold">{service.title}</span>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative z-10">
-            <div className="lg:col-span-7 space-y-5">
-              <div className="inline-flex items-center space-x-2 px-3.5 py-1 rounded-full text-xs font-bold bg-white/10 border border-white/20 text-cyan-300">
-                <IconRenderer name={service.icon || 'Code2'} className="w-3.5 h-3.5 text-cyan-300" />
-                <span className="uppercase tracking-widest">EXPERT SERVICE CAPABILITY</span>
-              </div>
-              <h1 className="text-[32px] sm:text-[42px] font-[800] text-white tracking-tight leading-tight">
-                {service.title}
-              </h1>
-              <p className="text-[16px] text-blue-100 leading-relaxed font-normal">
-                {service.description}
-              </p>
-              <div className="pt-2 flex flex-wrap gap-4">
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center justify-center px-7 py-3.5 rounded-[6px] bg-white text-[#004A75] font-[700] text-[14px] hover:bg-slate-100 transition-all shadow-md group"
-                >
-                  <span>Request Consultation</span>
-                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                </Link>
-                <Link
-                  to="/portfolio"
-                  className="inline-flex items-center justify-center px-7 py-3.5 rounded-[6px] bg-cyan-500/20 border border-cyan-300/40 text-cyan-200 font-[700] text-[14px] hover:bg-cyan-500/30 transition-all"
-                >
-                  <span>View Relevant Work</span>
-                </Link>
-              </div>
+      {/* Hero Section */}
+      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-gradient-to-b from-slate-900 via-slate-950 to-slate-950 border-b border-slate-800/80">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(0,95,150,0.25),rgba(255,255,255,0))] pointer-events-none" />
+        <Container className="relative z-10">
+          <div className="max-w-4xl mx-auto text-center space-y-6">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#005F96]/10 border border-[#005F96]/30 text-xs font-semibold text-cyan-400">
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>Enterprise Grade Solution</span>
             </div>
 
-            <div className="lg:col-span-5">
-              <div className="rounded-[16px] overflow-hidden border-4 border-white/20 shadow-2xl bg-white/10 backdrop-blur-md">
-                <img
-                  src={service.image || "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80"}
-                  alt={service.title}
-                  className="w-full h-72 sm:h-80 object-cover"
-                />
-              </div>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight leading-tight">
+              {currentService.title}
+            </h1>
+
+            <p className="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed font-normal">
+              {currentService.description}
+            </p>
+
+            <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
+              <a
+                href="#contact"
+                className="px-8 py-4 rounded-xl bg-[#005F96] hover:bg-[#004D7A] text-white font-bold text-sm tracking-wide transition-all shadow-lg hover:shadow-cyan-500/25 flex items-center gap-2 group"
+              >
+                <span>Schedule Architecture Call</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </a>
+              <a
+                href="#features"
+                className="px-8 py-4 rounded-xl bg-slate-900/80 hover:bg-slate-800 text-slate-200 border border-slate-700/80 font-bold text-sm tracking-wide transition-all"
+              >
+                Explore Capabilities
+              </a>
             </div>
           </div>
         </Container>
       </section>
 
-      {/* Key Features & Capabilities */}
-      {service.features && service.features.length > 0 && (
-        <section className="py-16 bg-[#F4F8FA] border-b border-slate-200">
+      {/* Capabilities / Features Section */}
+      {currentService.features && currentService.features.length > 0 && (
+        <section id="features" className="py-20 bg-slate-950 border-b border-slate-900">
           <Container>
-            <div className="text-center max-w-3xl mx-auto mb-12">
-              <h2 className="text-[34px] font-[800] text-slate-900 tracking-tight">
-                Key Architectural Capabilities
+            <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
+              <span className="text-xs font-extrabold text-[#005F96] tracking-wider uppercase">
+                ENGINEERING EXCELLENCE
+              </span>
+              <h2 className="text-3xl md:text-4xl font-black text-white tracking-tight">
+                Key Architecture Capabilities
               </h2>
-              <p className="text-[18px] text-slate-600 font-[400] mt-2">
-                Engineered for scalability, security, and measurable performance.
-              </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
-              {service.features.map((feat, idx) => (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {currentService.features.map((feature, idx) => (
                 <div
                   key={idx}
-                  className="p-6 rounded-[14px] bg-white border border-slate-200/80 shadow-sm hover:border-[#006B8F]/40 hover:shadow-md transition-all flex flex-col justify-between"
+                  className="p-8 rounded-2xl bg-slate-900/60 border border-slate-800/80 hover:border-[#005F96]/60 transition-all space-y-3 group"
                 >
-                  <div>
-                    <div className="w-10 h-10 rounded-[10px] bg-cyan-50 text-[#006B8F] flex items-center justify-center mb-3">
-                      <CheckCircle2 className="w-5 h-5" />
-                    </div>
-                    <h3 className="text-[17px] font-[700] text-slate-900 mb-2">{feat.title}</h3>
-                    <p className="text-[13px] text-slate-600 leading-relaxed font-[400]">{feat.description}</p>
+                  <div className="w-10 h-10 rounded-xl bg-[#005F96]/10 text-cyan-400 flex items-center justify-center font-bold">
+                    <ShieldCheck className="w-5 h-5" />
                   </div>
+                  <h3 className="text-lg font-bold text-white group-hover:text-cyan-400 transition-colors">
+                    {feature.title}
+                  </h3>
+                  <p className="text-sm text-slate-400 leading-relaxed font-normal">
+                    {feature.description}
+                  </p>
                 </div>
               ))}
             </div>
@@ -362,24 +823,20 @@ export const ServiceDetails = () => {
         </section>
       )}
 
-      {/* Technologies Used Grid */}
-      {service.technologies && service.technologies.length > 0 && (
-        <section className="py-16 bg-white border-b border-slate-100">
+      {/* Tech Stack Pills */}
+      {currentService.technologies && currentService.technologies.length > 0 && (
+        <section className="py-16 bg-slate-900/40 border-b border-slate-900">
           <Container>
-            <div className="text-center max-w-3xl mx-auto mb-10">
-              <h2 className="text-[34px] font-[800] text-slate-900 tracking-tight">
-                Technologies & Tools We Utilize
-              </h2>
-              <p className="text-[18px] text-slate-600 font-[400] mt-2">
-                Industry standard frameworks and cloud infrastructure.
-              </p>
+            <div className="text-center mb-8">
+              <span className="text-xs font-extrabold text-slate-400 uppercase tracking-wider">
+                CORE TECHNOLOGIES & TOOLCHAINS
+              </span>
             </div>
-
             <div className="flex flex-wrap items-center justify-center gap-3 max-w-4xl mx-auto">
-              {service.technologies.map((tech, idx) => (
+              {currentService.technologies.map((tech, idx) => (
                 <span
                   key={idx}
-                  className="px-5 py-2.5 rounded-[8px] bg-[#EDF5F9] border border-slate-200 text-slate-800 text-[13px] font-[600] font-sans"
+                  className="px-4 py-2 rounded-lg bg-slate-800/80 border border-slate-700/60 text-slate-200 text-xs font-semibold hover:border-cyan-400/50 transition-colors"
                 >
                   {tech}
                 </span>
@@ -389,35 +846,34 @@ export const ServiceDetails = () => {
         </section>
       )}
 
-      {/* FAQ Accordion Section */}
-      {service.faqs && service.faqs.length > 0 && (
-        <section className="py-16 bg-[#F4F8FA] border-b border-slate-200">
+      {/* FAQs Section */}
+      {currentService.faqs && currentService.faqs.length > 0 && (
+        <section className="py-20 bg-slate-950 border-b border-slate-900">
           <Container className="max-w-4xl">
-            <div className="text-center mb-10">
-              <h2 className="text-[34px] font-[800] text-slate-900 tracking-tight">
+            <div className="text-center mb-14 space-y-3">
+              <h2 className="text-3xl font-black text-white tracking-tight">
                 Frequently Asked Questions
               </h2>
-              <p className="text-[18px] text-slate-600 font-[400] mt-2">
-                Common questions about our {service.title.toLowerCase()} service offerings.
-              </p>
             </div>
 
-            <div className="space-y-3 text-left">
-              {service.faqs.map((faq, idx) => (
+            <div className="space-y-4">
+              {currentService.faqs.map((faq, idx) => (
                 <div
                   key={idx}
-                  className="rounded-[12px] bg-white border border-slate-200/80 shadow-sm overflow-hidden"
+                  className="rounded-xl border border-slate-800 bg-slate-900/50 overflow-hidden transition-all"
                 >
                   <button
                     onClick={() => setOpenFaq(openFaq === idx ? -1 : idx)}
-                    className="w-full p-5 flex items-center justify-between text-left font-[700] text-[15px] text-slate-900 hover:text-[#006B8F] transition-colors"
+                    className="w-full p-5 flex items-center justify-between text-left font-bold text-base text-white hover:text-cyan-400 transition-colors"
                   >
-                    <span>{faq.question}</span>
-                    <ChevronDown className={`w-4 h-4 text-slate-400 transition-transform ${openFaq === idx ? 'rotate-180 text-[#006B8F]' : ''}`} />
+                    <span>{faq.q}</span>
+                    <ChevronDown
+                      className={`w-5 h-5 text-slate-400 transition-transform ${openFaq === idx ? 'rotate-180 text-cyan-400' : ''}`}
+                    />
                   </button>
                   {openFaq === idx && (
-                    <div className="px-5 pb-5 pt-1 text-[13px] text-slate-600 leading-relaxed font-[400] border-t border-slate-100">
-                      {faq.answer}
+                    <div className="px-5 pb-5 pt-1 text-sm text-slate-400 leading-relaxed border-t border-slate-800/60 font-normal">
+                      {faq.a}
                     </div>
                   )}
                 </div>
@@ -427,7 +883,6 @@ export const ServiceDetails = () => {
         </section>
       )}
 
-      {/* Global Consultation CTA */}
       <CTASection />
     </div>
   );

@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 360" width="100%" height="100%">
+  <defs>
+    <!-- Platform gradient & shadow -->
+    <linearGradient id="gpBaseTop" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F2F8FE" />
+      <stop offset="100%" stop-color="#E1EEFB" />
+    </linearGradient>
+    <filter id="gpDropShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="20" stdDeviation="22" flood-color="#0284C7" flood-opacity="0.18" />
+    </filter>
+  </defs>
+
+  <!-- 3D Isometric Base Platform with Drop Shadow -->
+  <g filter="url(#gpDropShadow)">
+    <polygon points="270,72 505,188 270,304 35,188" fill="url(#gpBaseTop)" />
+    <polygon points="35,188 270,304 270,320 35,204" fill="#C5E0FA" />
+    <polygon points="270,304 505,188 505,204 270,320" fill="#ADCFF4" />
+  </g>
+
+  <!-- Floating 3D Folded Blue Ribbon / Banner at Top Right -->
+  <g>
+    <!-- Top angled strip -->
+    <polygon points="328,104 372,78 438,102 394,128" fill="#3B82F6" />
+    <!-- Downward fold -->
+    <polygon points="328,104 328,138 358,154 358,120" fill="#1D4ED8" />
+  </g>
+
+  <!-- Two Overlapping Diamond Workstation Zones -->
+  <!-- Left Deep Blue Diamond -->
+  <polygon points="120,186 215,134 310,186 215,238" fill="#1D6FE9" />
+  <!-- Right Sky Blue Diamond -->
+  <polygon points="215,186 310,134 405,186 310,238" fill="#388BF2" opacity="0.9" />
+  <!-- Blended Overlapping Center Diamond -->
+  <polygon points="215,186 262.5,160 310,186 262.5,212" fill="#1A5DC4" />
+
+  <!-- 3D Characters (Cone Body with Round Peach Head) -->
+  <!-- Person 1: Red character on left blue diamond -->
+  <g>
+    <!-- Head -->
+    <circle cx="188" cy="148" r="13" fill="#FED7AA" />
+    <!-- Cone Body -->
+    <polygon points="174,204 202,204 196,161 180,161" fill="#DC2626" />
+  </g>
+
+  <!-- Person 2: Blue/Cyan character on right diamond -->
+  <g>
+    <!-- Head -->
+    <circle cx="340" cy="186" r="13" fill="#FED7AA" />
+    <!-- Cone Body -->
+    <polygon points="326,242 354,242 348,199 332,199" fill="#0284C7" />
+  </g>
+
+  <!-- Person 3: Pink/Magenta character in front center -->
+  <g>
+    <!-- Head -->
+    <circle cx="270" cy="226" r="13" fill="#FED7AA" />
+    <!-- Cone Body -->
+    <polygon points="256,282 284,282 278,239 262,239" fill="#EC4899" />
+  </g>
+</svg>

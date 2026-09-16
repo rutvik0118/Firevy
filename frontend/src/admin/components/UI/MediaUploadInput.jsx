@@ -1,0 +1,523 @@
+import React, { useState, useRef } from 'react';
+import {
+  Upload,
+  Image as ImageIcon,
+  Video,
+  FileText,
+  CheckCircle2,
+  Loader2,
+  RefreshCw,
+  ExternalLink,
+  Trash2
+} from 'lucide-react';
+import adminService from '../../services/adminService';
+import { useToast } from '../../context/ToastContext';
+
+export const getMediaUrl = (url) => {
+  if (!url) return '';
+  if (url.startsWith('http://') || url.startsWith('https://') || url.startsWith('blob:') || url.startsWith('data:')) {
+    return url;
+  }
+  if (url.startsWith('/uploads/') || url.startsWith('uploads/')) {
+    const backendBase = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
+    const cleanUrl = url.startsWith('/') ? url : `/${url}`;
+    return `${backendBase.replace(/\/$/, '')}${cleanUrl}`;
+  }
+  return url;
+};
+
+export const MediaUploadInput = ({
+  value,
+  onChange,
+  label = 'Media Asset',
+  type = 'image', // 'image' | 'video' | 'pdf'
+  helperText = ''
+}) => {
+  const { addToast } = useToast();
+  const fileInputRef = useRef(null);
+  const [uploading, setUploading] = useState(false);
+  const [deleting, setDeleting] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleFileChange = async (e) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    // Validate type cleanly with extension fallback for Windows MIME compatibility
+    if (type === 'image') {
+      const isMime = file.type.startsWith('image/');
+      const isExt = /\.(jpg|jpeg|png|webp|svg|gif|avif|bmp)$/i.test(file.name);
+      if (!isMime && !isExt) {
+        addToast('Please select a valid image file (JPG, PNG, WebP, SVG)', 'error');
+        return;
+      }
+    }
+    if (type === 'video') {
+      const isMime = file.type.startsWith('video/');
+      const isExt = /\.(mp4|webm|mov|mkv)$/i.test(file.name);
+      if (!isMime && !isExt) {
+        addToast('Please select a valid video file (MP4, WebM)', 'error');
+        return;
+      }
+    }
+    if (type === 'pdf') {
+      const isPdfMime = file.type.includes('pdf');
+      const isPdfExt = /\.pdf$/i.test(file.name);
+      if (!isPdfMime && !isPdfExt) {
+        addToast('Please select a valid PDF file', 'error');
+        return;
+      }
+    }
+
+    setUploading(true);
+    try {
+      const res = await adminService.uploadMedia(file, type);
+      const fileUrl = res?.data?.url || res?.data?.fileUrl || res?.url || (typeof res?.data === 'string' ? res.data : null);
+
+      if (fileUrl) {
+        onChange(fileUrl);
+        addToast(`${file.name} uploaded successfully!`, 'success');
+      } else {
+        throw new Error('Server did not return a valid file URL');
+      }
+    } catch (err) {
+      addToast(`Upload failed: ${err.message || 'Server error'}`, 'error');
+    } finally {
+      setUploading(false);
+      if (fileInputRef.current) {
+        fileInputRef.current.value = '';
+      }
+    }
+  };
+
+  // Direct 1-click Delete Handler without confirmation modal
+  const handleDelete = async (e) => {
+    if (e) {
+      e.stopPropagation();
+      e.preventDefault();
+    }
+    if (!value || deleting) return;
+
+    setDeleting(true);
+    try {
+      if (value.startsWith('/uploads/') || value.startsWith('uploads/')) {
+        await adminService.deleteMedia(value);
+      }
+      onChange('');
+      addToast('Media removed successfully.', 'success');
+    } catch (err) {
+      onChange('');
+      addToast('Media removed from field.', 'info');
+    } finally {
+      setDeleting(false);
+    }
+  };
+
+  const getAcceptTypes = () => {
+    if (type === 'video') return 'video/*,.mp4,.webm,.mov,.mkv';
+    if (type === 'pdf') return 'application/pdf,.pdf';
+    return 'image/*,.png,.jpg,.jpeg,.webp,.svg,.gif,.avif';
+  };
+
+  const getIcon = () => {
+    if (type === 'video') return <Video size={14} />;
+    if (type === 'pdf') return <FileText size={14} />;
+    return <ImageIcon size={14} />;
+  };
+
+  const filename = value ? value.split('/').pop()?.split('?')[0] || value : '';
+
+  return (
+    <div className="form-group" style={{ marginBottom: '12px' }}>
+      {label && (
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '5px' }}>
+          <label
+            style={{
+              margin: 0,
+              display: 'flex',
+              alignItems: 'center',
+              gap: '6px',
+              fontSize: '12px',
+              fontWeight: 700,
+              color: '#0F172A',
+              fontFamily: 'Poppins, sans-serif'
+            }}
+          >
+            {getIcon()}
+            <span>{label}</span>
+          </label>
+        </div>
+      )}
+
+      {/* Hidden File Input */}
+      <input
+        ref={fileInputRef}
+        type="file"
+        accept={getAcceptTypes()}
+        onChange={handleFileChange}
+        style={{ display: 'none' }}
+      />
+
+      {/* Upload Dropzone / Existing Asset Preview */}
+      {!value ? (
+        <div
+          onClick={() => {
+            if (uploading) return;
+            if (fileInputRef.current) {
+              fileInputRef.current.value = '';
+            }
+            fileInputRef.current?.click();
+          }}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+          style={{
+            border: `2px dashed ${isHovered ? '#006B8F' : '#CBD5E1'}`,
+            borderRadius: '8px',
+            padding: '16px 14px',
+            textAlign: 'center',
+            cursor: uploading ? 'wait' : 'pointer',
+            backgroundColor: isHovered ? 'rgba(0, 107, 143, 0.04)' : '#F8FAFC',
+            transition: 'all 0.15s ease',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '8px'
+          }}
+        >
+          {uploading ? (
+            <>
+              <Loader2 className="animate-spin" size={24} style={{ color: '#006B8F' }} />
+              <span style={{ fontSize: '12.5px', fontWeight: 600, color: '#006B8F' }}>
+                Uploading {type}...
+              </span>
+            </>
+          ) : (
+            <>
+              <div
+                style={{
+                  width: '36px',
+                  height: '36px',
+                  borderRadius: '50%',
+                  backgroundColor: 'rgba(0, 107, 143, 0.1)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: '#006B8F'
+                }}
+              >
+                <Upload size={18} />
+              </div>
+              <div>
+                <div style={{ fontSize: '12.5px', fontWeight: 700, color: '#0F172A' }}>
+                  Click to Upload {type === 'image' ? 'Image' : type === 'video' ? 'Video' : 'PDF Document'}
+                </div>
+                <div style={{ fontSize: '11px', color: '#64748B', marginTop: '2px' }}>
+                  {type === 'image' && 'Supports PNG, JPG, WebP, SVG up to 10MB'}
+                  {type === 'video' && 'Supports MP4, WebM up to 50MB'}
+                  {type === 'pdf' && 'Supports PDF document up to 20MB'}
+                </div>
+              </div>
+            </>
+          )}
+        </div>
+      ) : (
+        <div
+          style={{
+            border: '1px solid #E2E8F0',
+            borderRadius: '8px',
+            backgroundColor: '#FFFFFF',
+            padding: '10px 14px',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            gap: '12px',
+            width: '100%',
+            boxSizing: 'border-box',
+            boxShadow: '0 1px 3px rgba(15, 23, 42, 0.04)'
+          }}
+        >
+          {/* Left: Thumbnail & Center: Filename + Active Status */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flex: 1, minWidth: 0 }}>
+            {type === 'image' && (
+              <div
+                style={{
+                  width: '52px',
+                  height: '52px',
+                  borderRadius: '6px',
+                  overflow: 'hidden',
+                  backgroundColor: '#F1F5F9',
+                  border: '1px solid #E2E8F0',
+                  flexShrink: 0,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}
+              >
+                <img
+                  src={getMediaUrl(value)}
+                  alt="Asset Preview"
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                  }}
+                />
+              </div>
+            )}
+            {type === 'video' && (
+              <div
+                style={{
+                  width: '52px',
+                  height: '52px',
+                  borderRadius: '6px',
+                  overflow: 'hidden',
+                  backgroundColor: '#0F172A',
+                  border: '1px solid #1E293B',
+                  flexShrink: 0,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: '#38BDF8'
+                }}
+              >
+                {value ? (
+                  <video
+                    src={getMediaUrl(value)}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                    }}
+                  />
+                ) : (
+                  <Video size={22} />
+                )}
+              </div>
+            )}
+            {type === 'pdf' && (
+              <div
+                style={{
+                  width: '52px',
+                  height: '52px',
+                  borderRadius: '6px',
+                  backgroundColor: '#FEF2F2',
+                  border: '1px solid #FCA5A5',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  flexShrink: 0,
+                  color: '#EF4444'
+                }}
+              >
+                <FileText size={22} />
+              </div>
+            )}
+
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <div
+                style={{
+                  fontSize: '12.5px',
+                  fontWeight: 600,
+                  color: '#0F172A',
+                  overflow: 'hidden',
+                  textOverflow: 'ellipsis',
+                  whiteSpace: 'nowrap',
+                  lineHeight: 1.3
+                }}
+                title={filename}
+              >
+                {filename}
+              </div>
+              <div
+                style={{
+                  fontSize: '11px',
+                  color: '#16A34A',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '4px',
+                  marginTop: '3px',
+                  fontWeight: 600
+                }}
+              >
+                <CheckCircle2 size={12} />
+                <span>Active Media Asset</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Right: Aligned Action Controls [ Replace ] [ 👁 ] [ 🗑 ] */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '6px', flexShrink: 0 }}>
+            {uploading || deleting ? (
+              <div style={{ display: 'flex', alignItems: 'center', gap: '6px', padding: '4px 8px' }}>
+                <Loader2 className="animate-spin" size={16} style={{ color: deleting ? '#DC2626' : '#006B8F' }} />
+                <span style={{ fontSize: '11px', fontWeight: 600, color: deleting ? '#DC2626' : '#006B8F' }}>
+                  {deleting ? 'Deleting...' : 'Uploading...'}
+                </span>
+              </div>
+            ) : (
+              <>
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    e.preventDefault();
+                    if (fileInputRef.current) {
+                      fileInputRef.current.value = '';
+                    }
+                    fileInputRef.current?.click();
+                  }}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '4px',
+                    height: '32px',
+                    padding: '0 10px',
+                    fontSize: '11.5px',
+                    fontWeight: 600,
+                    backgroundColor: '#F8FAFC',
+                    border: '1px solid #CBD5E1',
+                    color: '#334155',
+                    borderRadius: '6px',
+                    cursor: 'pointer',
+                    transition: 'all 0.15s ease'
+                  }}
+                  onMouseOver={(e) => {
+                    e.currentTarget.style.backgroundColor = '#F1F5F9';
+                    e.currentTarget.style.borderColor = '#94A3B8';
+                  }}
+                  onMouseOut={(e) => {
+                    e.currentTarget.style.backgroundColor = '#F8FAFC';
+                    e.currentTarget.style.borderColor = '#CBD5E1';
+                  }}
+                  title="Replace with another file"
+                >
+                  <RefreshCw size={12} />
+                  <span>Replace</span>
+                </button>
+
+                <a
+                  href={getMediaUrl(value)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    width: '32px',
+                    height: '32px',
+                    backgroundColor: '#F8FAFC',
+                    border: '1px solid #E2E8F0',
+                    color: '#475569',
+                    borderRadius: '6px',
+                    textDecoration: 'none',
+                    transition: 'all 0.15s ease'
+                  }}
+                  onMouseOver={(e) => {
+                    e.currentTarget.style.backgroundColor = '#F1F5F9';
+                    e.currentTarget.style.color = '#0F172A';
+                  }}
+                  onMouseOut={(e) => {
+                    e.currentTarget.style.backgroundColor = '#F8FAFC';
+                    e.currentTarget.style.color = '#475569';
+                  }}
+                  title="Preview in new tab"
+                >
+                  <ExternalLink size={13} />
+                </a>
+
+                <button
+                  type="button"
+                  onClick={handleDelete}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    width: '32px',
+                    height: '32px',
+                    backgroundColor: '#FEF2F2',
+                    border: '1px solid #FECACA',
+                    color: '#DC2626',
+                    borderRadius: '6px',
+                    cursor: 'pointer',
+                    transition: 'all 0.15s ease'
+                  }}
+                  onMouseOver={(e) => {
+                    e.currentTarget.style.backgroundColor = '#FEE2E2';
+                    e.currentTarget.style.borderColor = '#FCA5A5';
+                  }}
+                  onMouseOut={(e) => {
+                    e.currentTarget.style.backgroundColor = '#FEF2F2';
+                    e.currentTarget.style.borderColor = '#FECACA';
+                  }}
+                  title="Delete Media"
+                  aria-label="Delete Media"
+                >
+                  <Trash2 size={13} />
+                </button>
+              </>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* Video Live Preview Box */}
+      {type === 'video' && value && (
+        <div
+          style={{
+            marginTop: '10px',
+            borderRadius: '8px',
+            overflow: 'hidden',
+            backgroundColor: '#0F172A',
+            border: '1px solid #1E293B',
+            boxShadow: '0 2px 6px rgba(0, 0, 0, 0.15)'
+          }}
+        >
+          <div
+            style={{
+              padding: '6px 12px',
+              backgroundColor: '#1E293B',
+              borderBottom: '1px solid #334155',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              color: '#F8FAFC',
+              fontSize: '11px',
+              fontWeight: 600
+            }}
+          >
+            <span style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+              <Video size={13} style={{ color: '#38BDF8' }} />
+              Live Background Video Preview
+            </span>
+            <span style={{ fontSize: '10px', padding: '2px 6px', borderRadius: '4px', backgroundColor: 'rgba(56, 189, 248, 0.15)', color: '#38BDF8' }}>
+              Auto-playing & Muted
+            </span>
+          </div>
+          <div style={{ position: 'relative', width: '100%', maxHeight: '220px', backgroundColor: '#000000', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <video
+              src={getMediaUrl(value)}
+              autoPlay
+              loop
+              muted
+              playsInline
+              controls
+              style={{ width: '100%', maxHeight: '220px', objectFit: 'contain' }}
+            />
+          </div>
+        </div>
+      )}
+
+      {helperText && (
+        <span style={{ marginTop: '4px', display: 'block', fontSize: '11px', color: '#64748B', lineHeight: '1.3' }}>
+          {helperText}
+        </span>
+      )}
+    </div>
+  );
+};
+
+export default MediaUploadInput;
+

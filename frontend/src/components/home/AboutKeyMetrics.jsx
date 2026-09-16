@@ -1,154 +1,176 @@
-import React from 'react';
-import Container from '../common/Container';
+import React, { useState, useEffect, useRef } from 'react';
+import { getMediaUrl } from '../../utils/mediaUrl';
 
-export const AboutKeyMetrics = () => {
-  const cards = [
-    // Row 1
-    {
-      type: 'stat',
-      metric: '23+',
-      label: 'Years Experience'
-    },
-    {
-      type: 'stat',
-      metric: '2800+',
-      label: 'Satisfied Clients'
-    },
-    {
-      type: 'stat',
-      metric: '1500+',
-      label: 'Projects Completed'
-    },
-    {
-      type: 'stat',
-      metric: '200+',
-      label: 'IT Professional'
-    },
+const defaultCards = [
+  {
+    metric: '23+',
+    label: 'Years of Experience',
+    image: '/images/first.webp'
+  },
+  {
+    metric: '320+',
+    label: '5-Star Clutch Reviews',
+    image: '/images/first.webp'
+  },
+  {
+    metric: '20+',
+    label: 'Fortunes 500 Companies',
+    image: '/images/third.webp'
+  },
+  {
+    metric: '200+',
+    label: 'IT Professional',
+    image: '/images/awards/hdimages/client_seven.webp'
+  },
+  {
+    metric: '95%',
+    label: 'Client Retention',
+    image: '/images/sixth.webp'
+  },
+  {
+    metric: '18+',
+    label: 'Industry Served',
+    image: '/images/fourth.webp'
+  },
+  {
+    metric: '2800+',
+    label: 'Satisfied Clients',
+    image: '/images/fifth.webp'
+  },
+  {
+    metric: '1500+',
+    label: 'Completed Projects',
+    image: '/images/awards/hdimages/clienttestimonial3.webp'
+  }
+];
 
-    // Row 2
-    {
-      type: 'stat',
-      metric: '95%',
-      label: 'Client Retention'
-    },
-    {
-      type: 'stat',
-      metric: '18+',
-      label: 'Industry Served'
-    },
-    {
-      type: 'stat',
-      metric: '30+',
-      label: 'Countries Active Customers'
-    },
-    {
-      type: 'stat',
-      metric: '6+',
-      label: 'Global Offices'
-    },
+// Smooth Animated Counter Component
+const AnimatedCounter = ({ value }) => {
+  const [count, setCount] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef(null);
 
-    // Row 3 (4 Benefit Cards with Cyan/Blue Line Icons)
-    {
-      type: 'feature',
-      label: 'Work at your time zone',
-      icon: (
-        <svg viewBox="0 0 40 40" className="w-10 h-10 text-[#006B8F] mb-1.5" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-          {/* Globe with Clock */}
-          <circle cx="20" cy="20" r="16" />
-          <path d="M4 20h32" />
-          <path d="M20 4a24 24 0 0 1 0 32 24 24 0 0 1 0-32" />
-          <circle cx="27" cy="27" r="7" fill="#FFFFFF" stroke="#006B8F" strokeWidth="2" />
-          <polyline points="27,24 27,27 29,29" stroke="#006B8F" strokeWidth="2" />
-        </svg>
-      )
-    },
-    {
-      type: 'feature',
-      label: 'Easy communication',
-      icon: (
-        <svg viewBox="0 0 40 40" className="w-10 h-10 text-[#006B8F] mb-1.5" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-          {/* Two Chat Speech Bubbles */}
-          <path d="M26 18c0-5.5-5.4-10-12-10S2 12.5 2 18c0 2.8 1.4 5.3 3.6 7.1L4 30l5.4-1.8c1.4.5 3 .8 4.6.8 6.6 0 12-4.5 12-10z" />
-          <path d="M24 25.5c3.8-.5 6.5-2.8 6.5-5.5 0-1-.4-2-1.1-2.8" />
-          <path d="M30 32l-3.6-1.2c-.9.4-2 .6-3.1.6" />
-        </svg>
-      )
-    },
-    {
-      type: 'feature',
-      label: 'Hire in 48 Hours',
-      icon: (
-        <svg viewBox="0 0 40 40" className="w-10 h-10 text-[#006B8F] mb-1.5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          {/* HIRED Badge + Handshake */}
-          <rect x="11" y="4" width="18" height="8" rx="2" fill="#006B8F" />
-          <text x="20" y="10" textAnchor="middle" fontSize="5" fontWeight="900" fill="#FFFFFF" fontFamily="sans-serif">HIRED</text>
-          <path d="M6 24l7-7 6 6 8-8 7 7" />
-          <path d="M19 23l4 4" />
-          <path d="M16 26l4 4" />
-        </svg>
-      )
-    },
-    {
-      type: 'feature',
-      label: 'In Business since 2002',
-      icon: (
-        <svg viewBox="0 0 40 40" className="w-10 h-10 text-[#006B8F] mb-1.5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          {/* Handshake with Gear */}
-          <circle cx="20" cy="12" r="5" strokeDasharray="3 2" />
-          <path d="M8 26l6-6 6 6 6-6 6 6" />
-          <path d="M14 26l6 6 6-6" />
-          <path d="M6 32h28" strokeWidth="2.5" />
-        </svg>
-      )
+  // Parse numeric target and suffix (e.g. "2800+" -> num: 2800, suffix: "+", "95%" -> num: 95, suffix: "%")
+  const match = String(value).match(/^(\d+)(.*)$/);
+  const target = match ? parseInt(match[1], 10) : 0;
+  const suffix = match ? match[2] : '';
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.2 }
+    );
+
+    const elem = ref.current;
+    if (elem) observer.observe(elem);
+
+    return () => {
+      if (elem) observer.unobserve(elem);
+    };
+  }, []);
+
+  const runAnimation = () => {
+    if (!target) return;
+    let startTimestamp = null;
+    const duration = 1800; // 1.8s smooth duration
+
+    const step = (timestamp) => {
+      if (!startTimestamp) startTimestamp = timestamp;
+      const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+      // Easing function: easeOutQuart
+      const ease = 1 - Math.pow(1 - progress, 4);
+      setCount(Math.floor(ease * target));
+
+      if (progress < 1) {
+        window.requestAnimationFrame(step);
+      } else {
+        setCount(target);
+      }
+    };
+
+    window.requestAnimationFrame(step);
+  };
+
+  useEffect(() => {
+    if (isVisible) {
+      runAnimation();
     }
-  ];
+  }, [isVisible, target]);
 
   return (
-    <section
-      className="py-20 text-white relative font-sans overflow-hidden border-b border-cyan-900 bg-cover bg-center"
-      style={{
-        backgroundImage: "linear-gradient(135deg, rgba(0, 107, 143, 0.94) 0%, rgba(0, 85, 120, 0.96) 100%), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1600&q=80')"
-      }}
+    <span
+      ref={ref}
+      className="inline-block tabular-nums font-[900] text-[#005F96] tracking-tight leading-none font-sans"
     >
-      <div className="max-w-[1360px] mx-auto px-4 sm:px-8 relative z-10">
-        {/* Section Header - Exact Copy-to-Copy with Reference Image 1 */}
-        <div className="text-center max-w-4xl mx-auto mb-14">
-          <h2 className="text-[36px] sm:text-[44px] font-[900] text-white tracking-tight leading-tight mb-3 font-sans">
-            Glance through our creations and presence
+      {count}{suffix}
+    </span>
+  );
+};
+
+export const AboutKeyMetrics = ({ data }) => {
+  const title = data?.title || 'About Us';
+  const description = data?.description || 'Sapphire delivers cutting-edge digital solutions that drive our clients to achieve unparalleled success';
+  
+  const rawCards = (data?.cards && Array.isArray(data.cards) && data.cards.filter(c => c.isActive !== false).length > 0)
+    ? data.cards.filter(c => c.isActive !== false)
+    : defaultCards;
+
+  const cards = rawCards.map((card, idx) => ({
+    metric: card.metric || defaultCards[idx % defaultCards.length].metric,
+    label: card.label || defaultCards[idx % defaultCards.length].label,
+    image: card.image || defaultCards[idx % defaultCards.length].image
+  }));
+
+  return (
+    <section className="py-16 sm:py-20 bg-[#006085] text-white relative font-sans overflow-hidden border-b border-cyan-900">
+      <div className="max-w-[1240px] mx-auto px-4 sm:px-6 relative z-10">
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
+          <h2 className="text-[32px] sm:text-[40px] font-[900] text-white tracking-tight leading-tight mb-2.5 font-sans">
+            {title}
           </h2>
-          <p className="text-[15px] sm:text-[16.5px] font-[400] text-blue-100 leading-relaxed max-w-3xl mx-auto font-sans">
-            We are a team of qualified Salesforce & Enterprise Development Professionals adept at expanding your current system's capabilities via the development and integration of Salesforce CRM and cloud architectures.
+          <p className="text-[14.5px] sm:text-[15.5px] font-[400] text-blue-100 leading-relaxed max-w-2xl mx-auto font-sans">
+            {description}
           </p>
         </div>
 
-        {/* 12-Card Grid (4 Columns x 3 Rows - Exact Reference Match) */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {cards.map((card, idx) => (
-            <div
-              key={idx}
-              className="bg-white rounded-[16px] shadow-[0px_8px_30px_rgba(0,0,0,0.12)] p-6 flex flex-col items-center justify-center text-center h-[140px] hover:scale-105 transition-transform duration-300 group"
-            >
-              {card.type === 'stat' ? (
-                <>
-                  <div className="text-[38px] font-[900] text-[#006B8F] tracking-tight leading-none mb-1.5 font-sans">
-                    {card.metric}
+        {/* 8-Card Grid (2 rows x 4 columns) */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+          {cards.map((card, idx) => {
+            return (
+              <div
+                key={idx}
+                className="bg-white rounded-[18px] sm:rounded-[20px] shadow-lg p-3 sm:p-3.5 flex items-center space-x-3.5 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 group cursor-pointer"
+              >
+                {/* Left Thumbnail Image */}
+                <div className="w-[78px] h-[88px] sm:w-[86px] sm:h-[96px] rounded-[14px] overflow-hidden shrink-0 bg-slate-100 shadow-inner flex items-center justify-center">
+                  <img
+                    src={getMediaUrl(card.image)}
+                    alt={card.label}
+                    className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500"
+                    loading="lazy"
+                    onError={(e) => {
+                      e.target.src = '/images/first.webp';
+                    }}
+                  />
+                </div>
+
+                {/* Right Stat & Label with Counting Animation */}
+                <div className="flex flex-col justify-center min-w-0 pr-1 text-left">
+                  <div className="text-[26px] sm:text-[29px] mb-1.5 leading-none">
+                    <AnimatedCounter value={card.metric} />
                   </div>
-                  <div className="text-[14.5px] font-[700] text-slate-800 tracking-tight font-sans">
+                  <div className="text-[13px] sm:text-[13.5px] font-[600] text-slate-700 leading-snug font-sans group-hover:text-slate-950 transition-colors">
                     {card.label}
                   </div>
-                </>
-              ) : (
-                <>
-                  <div className="flex items-center justify-center text-[#006B8F] group-hover:scale-110 transition-transform">
-                    {card.icon}
-                  </div>
-                  <div className="text-[14.5px] font-[700] text-slate-800 tracking-tight font-sans mt-0.5">
-                    {card.label}
-                  </div>
-                </>
-              )}
-            </div>
-          ))}
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>

@@ -1,5 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import SEO from '../components/common/SEO';
+import { homePageService } from '../services/homePageService';
+import { initialHomePageData, initialSectionsOrder } from '../constants/initialHomePageData';
+
+// All 22 Home Page Section Components
 import Hero from '../components/home/Hero';
 import TrustMarquee from '../components/home/TrustMarquee';
 import AboutKeyMetrics from '../components/home/AboutKeyMetrics';
@@ -22,9 +26,84 @@ import RecentBlogsSection from '../components/home/RecentBlogsSection';
 import ClientReviewsDarkSection from '../components/home/ClientReviewsDarkSection';
 import FeaturedInLogosGrid from '../components/home/FeaturedInLogosGrid';
 import WorkTogetherNewsletterSection from '../components/home/WorkTogetherNewsletterSection';
-import FloatingElements from '../components/common/FloatingElements';
+import SubscribeNewsletterSection from '../components/home/SubscribeNewsletterSection';
+import AboutPreview from '../components/home/AboutPreview';
+import AwardsSection from '../components/home/AwardsSection';
+import CTASection from '../components/home/CTASection';
+import ConversionBanner from '../components/home/ConversionBanner';
+import FaqAccordion from '../components/home/FaqAccordion';
+import IndustriesGrid from '../components/home/IndustriesGrid';
+import ProcessTimeline from '../components/home/ProcessTimeline';
+import StatsSection from '../components/home/StatsSection';
+import TechEcosystem from '../components/home/TechEcosystem';
+import WhyChooseUs from '../components/home/WhyChooseUs';
+
+const SECTION_COMPONENTS = {
+  hero: Hero,
+  trustMarquee: TrustMarquee,
+  aboutKeyMetrics: AboutKeyMetrics,
+  aboutPreview: AboutPreview,
+  awardsSection: AwardsSection,
+  ctaSection: CTASection,
+  conversionBanner: ConversionBanner,
+  faqAccordion: FaqAccordion,
+  industriesGrid: IndustriesGrid,
+  processTimeline: ProcessTimeline,
+  statsSection: StatsSection,
+  techEcosystem: TechEcosystem,
+  whyChooseUs: WhyChooseUs,
+  brandLogoGrid: BrandLogoGrid,
+  servicesSection: ServicesSection,
+  conversionCalloutBanner: ConversionCalloutBanner,
+  portfolioShowcase: PortfolioShowcase,
+  trustRecognitionBanner: TrustRecognitionBanner,
+  workProcessGrid: WorkProcessGrid,
+  engagementModelsSection: EngagementModelsSection,
+  techShowcaseTabbed: TechShowcaseTabbed,
+  premiumServicesGrid: PremiumServicesGrid,
+  successMatrixGrid: SuccessMatrixGrid,
+  innovativeSolutionVideo: InnovativeSolutionVideo,
+  recentPodcastsSection: RecentPodcastsSection,
+  downloadBrochureSection: DownloadBrochureSection,
+  digitalTransformationCaseStudies: DigitalTransformationCaseStudies,
+  videoTestimonialsStory: VideoTestimonialsStory,
+  recentBlogsSection: RecentBlogsSection,
+  clientReviewsDarkSection: ClientReviewsDarkSection,
+  featuredInLogosGrid: FeaturedInLogosGrid,
+  workTogetherNewsletterSection: WorkTogetherNewsletterSection,
+  subscribeNewsletterSection: SubscribeNewsletterSection
+};
 
 export const Home = () => {
+  const [pageConfig, setPageConfig] = useState({
+    sectionsOrder: initialSectionsOrder,
+    sections: initialHomePageData.sections
+  });
+
+  useEffect(() => {
+    let isMounted = true;
+    const fetchHomeData = async () => {
+      try {
+        const data = await homePageService.getHomePageData();
+        if (isMounted && data) {
+          setPageConfig({
+            sectionsOrder: data.sectionsOrder || initialSectionsOrder,
+            sections: data.sections || initialHomePageData.sections
+          });
+        }
+      } catch (err) {
+        console.warn('Using local fallback for homepage:', err);
+      }
+    };
+
+    fetchHomeData();
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
+  const { sectionsOrder, sections } = pageConfig;
+
   return (
     <>
       <SEO
@@ -32,76 +111,26 @@ export const Home = () => {
         description="We design and develop scalable web, mobile, cloud, AI, and enterprise software solutions that transform ambitious ideas into measurable business outcomes."
       />
 
-      {/* 1. Hero Banner & Sub-Header Ribbon */}
-      <Hero />
+      {/* Dynamically Render All 22 Sections in Configured Order */}
+      {sectionsOrder.map((sectionKey) => {
+        const Component = SECTION_COMPONENTS[sectionKey];
+        if (!Component) return null;
 
-      {/* 2. Auto-Scrolling Brand Logos Marquee (Between Hero & About Us) */}
-      <TrustMarquee />
+        const sectionData = sections?.[sectionKey] || initialHomePageData.sections[sectionKey] || {};
+        
+        // Skip rendering if section is disabled/hidden
+        if (sectionData.isVisible === false || sectionData.isEnabled === false) {
+          return null;
+        }
 
-      {/* 3. About Us & Key Metrics (Grid of 8 Cards) */}
-      <AboutKeyMetrics />
+        // On Home, hide the duplicate newsletter inside workTogetherNewsletterSection
+        // because subscribeNewsletterSection renders the newsletter banner independently
+        if (sectionKey === 'workTogetherNewsletterSection') {
+          return <Component key={sectionKey} data={sectionData} hideNewsletter={true} />;
+        }
 
-      {/* 4. World's Leading Brands (Logo Wall Grid) */}
-      <BrandLogoGrid />
-
-      {/* 5. Our Services Grid (Interactive Vertical Cards) */}
-      <ServicesSection />
-
-      {/* 6. Dark Teal Conversion Callout Banner */}
-      <ConversionCalloutBanner />
-
-      {/* 7. Our Recent Projects (Portfolio Cards) */}
-      <PortfolioShowcase />
-
-      {/* 8. Trust & Recognition Banner */}
-      <TrustRecognitionBanner />
-
-      {/* 9. Work Process (Two-Row Step Cards with Arrow Connectors) */}
-      <WorkProcessGrid />
-
-      {/* 10. Engagement Models Section */}
-      <EngagementModelsSection />
-
-      {/* 11. Technologies We Work With (Interactive Tabbed Showcase) */}
-      <TechShowcaseTabbed />
-
-      {/* 12. Our Premium Services (Pill Grid) */}
-      <PremiumServicesGrid />
-
-      {/* Sapphire Template Sections (Images 10 through 19) */}
-
-      {/* 1. Success Matrix Section (Image 10) */}
-      <SuccessMatrixGrid />
-
-      {/* 2. Unveiling Our Innovative Solution Video Section (Image 11) */}
-      <InnovativeSolutionVideo />
-
-      {/* 3. Our Recent Podcasts Section (Image 12, 13) */}
-      <RecentPodcastsSection />
-
-      {/* 4. Download Our Brochure Form Section (Image 13, 14) */}
-      <DownloadBrochureSection />
-
-      {/* 5. Digital Transformation & Case Studies Section (Image 14, 15) */}
-      <DigitalTransformationCaseStudies />
-
-      {/* 6. Our Story, Their Words Testimonial Section (Image 15, 16) */}
-      <VideoTestimonialsStory />
-
-      {/* 7. Our Recent Blogs Section (Image 16, 17) */}
-      <RecentBlogsSection />
-
-      {/* 8. What Our Clients Say Section (Image 17, 18) */}
-      <ClientReviewsDarkSection />
-
-      {/* 9. We Have Been Featured In Logo Grid (Image 18) */}
-      <FeaturedInLogosGrid />
-
-      {/* 10. Let's Work Together & Newsletter Subscription Banners (Image 19) */}
-      <WorkTogetherNewsletterSection />
-
-      {/* Fixed Floating UI Elements */}
-      <FloatingElements />
+        return <Component key={sectionKey} data={sectionData} />;
+      })}
     </>
   );
 };

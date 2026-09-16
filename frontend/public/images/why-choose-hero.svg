@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 360" width="100%" height="100%">
+  <defs>
+    <linearGradient id="platformTopGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EBF5FE" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#D6ECFD" stop-opacity="0.9" />
+    </linearGradient>
+    <linearGradient id="platformEdgeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#BAE1F9" />
+      <stop offset="100%" stop-color="#93C5FD" />
+    </linearGradient>
+    <linearGradient id="laptopScreenBezel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563EB" />
+      <stop offset="100%" stop-color="#1D4ED8" />
+    </linearGradient>
+    <linearGradient id="laptopBaseGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E40AF" />
+      <stop offset="100%" stop-color="#172554" />
+    </linearGradient>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#0284C7" flood-opacity="0.16" />
+    </filter>
+  </defs>
+
+  <!-- Isometric Platform with Drop Shadow -->
+  <g filter="url(#softShadow)">
+    <polygon points="270,68 512,188 270,308 28,188" fill="url(#platformTopGrad)" />
+    <polygon points="270,308 512,188 512,204 270,324 28,204 28,188" fill="url(#platformEdgeGrad)" />
+  </g>
+
+  <!-- Isometric Open Laptop -->
+  <!-- Screen Lid Bezel -->
+  <polygon points="228,118 412,118 372,242 188,242" fill="url(#laptopScreenBezel)" />
+  <!-- Display Screen Surface -->
+  <polygon points="236,126 404,126 367,234 199,234" fill="#FFFFFF" />
+  
+  <!-- Screen Content UI Elements -->
+  <rect x="228" y="142" width="120" height="60" rx="4" fill="#38BDF8" opacity="0.18" />
+  <circle cx="360" cy="160" r="14" fill="#60A5FA" opacity="0.4" />
+  <circle cx="360" cy="190" r="10" fill="#38BDF8" opacity="0.4" />
+  <rect x="236" y="152" width="80" height="8" rx="2" fill="#38BDF8" opacity="0.5" />
+  <rect x="236" y="166" width="60" height="6" rx="2" fill="#93C5FD" opacity="0.6" />
+  <rect x="236" y="178" width="95" height="6" rx="2" fill="#BAE6FD" opacity="0.7" />
+
+  <!-- Laptop Keyboard Base (Isometric) -->
+  <polygon points="188,242 372,242 432,292 248,292" fill="url(#laptopBaseGrad)" />
+  <polygon points="198,247 364,247 418,287 254,287" fill="#0F172A" opacity="0.3" />
+
+  <!-- Floating Question Mark Badges (Cyan / Sky Blue) -->
+  <g font-family="system-ui, -apple-system, sans-serif" font-weight="900">
+    <text x="318" y="88" fill="#93C5FD" font-size="34">?</text>
+    <text x="346" y="66" fill="#60A5FA" font-size="26">?</text>
+    <text x="368" y="98" fill="#38BDF8" font-size="22">?</text>
+  </g>
+
+  <!-- 3D Illustrated People -->
+  <!-- Person 1: Standing behind laptop on top left -->
+  <g>
+    <!-- Head -->
+    <circle cx="330" cy="128" r="13" fill="#FED7AA" />
+    <circle cx="334" cy="124" r="3" fill="#9A3412" opacity="0.4" />
+    <!-- Body -->
+    <path d="M317 142 C317 136 343 136 343 142 L346 178 L314 178 Z" fill="#2563EB" />
+  </g>
+
+  <!-- Person 2: Sitting on bottom-left edge of platform -->
+  <g>
+    <!-- Head -->
+    <circle cx="150" cy="198" r="13" fill="#FED7AA" />
+    <!-- Body -->
+    <path d="M137 212 C137 206 163 206 163 212 L166 244 L134 244 Z" fill="#0284C7" />
+    <!-- Legs dangling -->
+    <rect x="138" y="244" width="8" height="22" rx="3" fill="#0369A1" />
+    <rect x="152" y="244" width="8" height="20" rx="3" fill="#0369A1" />
+  </g>
+
+  <!-- Person 3: Sitting on right edge of platform -->
+  <g>
+    <!-- Head -->
+    <circle cx="410" cy="218" r="13" fill="#FED7AA" />
+    <!-- Body -->
+    <path d="M397 232 C397 226 423 226 423 232 L426 266 L394 266 Z" fill="#EC4899" />
+    <!-- Legs dangling -->
+    <rect x="398" y="266" width="8" height="24" rx="3" fill="#BE185D" />
+    <rect x="412" y="266" width="8" height="22" rx="3" fill="#BE185D" />
+  </g>
+</svg>

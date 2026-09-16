@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const ClutchTopRatedBanner = () => {
+export const ClutchTopRatedBanner = ({ title = "World Wide Top Rated IT Company on Clutch" }) => {
   // Ultra-crisp HD SVG Badges for Rotating Marquee
   const rotatingBadges = [
     // Badge 1: GoodFirms Circular Top Dedicated Badge
@@ -99,7 +99,7 @@ export const ClutchTopRatedBanner = () => {
           {/* Left Block: Fixed Text + FIXED FIRST GOLD TROPHY BADGE */}
           <div className="flex items-center space-x-4 sm:space-x-6 shrink-0">
             <h3 className="text-xl sm:text-2xl lg:text-3xl font-black tracking-tight text-white leading-tight max-w-xs sm:max-w-sm font-sans">
-              World Wide Top Rated IT Company on Clutch
+              {title}
             </h3>
 
             {/* FIXED FIRST GOLD TROPHY BADGE (Ultra-crisp SVG - Fixed position) */}

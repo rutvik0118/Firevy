@@ -40,182 +40,187 @@ export const servicesCategories = [
     id: 'backend',
     label: 'Back End Development',
     col1: [
-      'Node.js API Engineering',
-      'Express.js Microservices',
-      'Python & FastAPI Backend',
-      'Django Web Framework',
-      'RESTful API Architecture',
-      'GraphQL Service Layer'
+      'Symfony Development',
+      'Django Development',
+      'Laravel Development',
+      'Lamp Development',
+      'Python Development Services',
+      'Golang Development Services'
     ],
     col2: [
-      'Serverless Backend (AWS Lambda)',
-      'Database Optimization & SQL',
-      'PostgreSQL & MongoDB Ops',
-      'Payment Gateway Integration',
-      'High-Throughput Microservices',
-      'Redis Caching & PubSub'
+      'Big Commerce Development',
+      'MongoDB Development Services',
+      'Phalcon Development Services',
+      'Azure Web Services',
+      'MySQL Development Company'
     ]
   },
   {
     id: 'ai',
     label: 'AI & ML Development',
     col1: [
-      'Custom Generative AI',
-      'RAG Knowledge Base Systems',
-      'Autonomous AI Agents',
-      'LLM Fine-Tuning & Prompt Ops',
-      'Computer Vision Systems',
-      'Predictive Analytics Engines'
+      'Artificial Intelligence Development',
+      'Machine Learning Development',
+      'Chatbot Development',
+      'Data Analytics Services',
+      'Data Migration Services',
+      'Business Intelligence Development'
     ],
     col2: [
-      'NLP Data Processing',
-      'PyTorch & TensorFlow Models',
-      'OpenAI & LangChain Integration',
-      'Vector Database Architecture',
-      'Voice AI & Chatbots',
-      'Enterprise AI Automation'
+      'IOT App Development',
+      'Blockchain Development',
+      'AI Ionic App Development',
+      'Enterprise AI Development',
+      'AI in Payments Industry'
     ]
   },
   {
     id: 'frontend',
     label: 'Front End Development',
     col1: [
-      'React.js Web Applications',
-      'Next.js Fullstack Platforms',
-      'Vue.js & Nuxt Applications',
-      'Single Page Applications (SPA)',
-      'Progressive Web Apps (PWA)',
-      'Responsive UI/UX Engineering'
+      'C Sharp Development',
+      'Frontend Development',
+      'Meteor JS Development',
+      'Typescript Development Services',
+      'Next Js Development',
+      'React JS Development'
     ],
     col2: [
-      'TypeScript Architecture',
-      'Tailwind CSS Design Systems',
-      'WebAssembly High Performance',
-      'Redux & Zustand State Ops',
-      'Core Web Vitals Optimization',
-      'Headless Storefront Engineering'
+      'CSR Web Development',
+      'CSS Web Development',
+      'Web Portal Development',
+      'Web3 Development',
+      'Progressive Web App'
     ]
   },
   {
     id: 'microsoft',
     label: 'Microsoft Development',
     col1: [
-      '.NET Core Engineering',
-      'ASP.NET Web Applications',
-      'Azure Cloud Native Apps',
-      'C# Enterprise Software',
-      'SharePoint Solutions'
+      'Microsoft Development',
+      'ASP.NET Core Development',
+      '.NET Application Development',
+      'ASP.NET Development',
+      'ASP.NET Migration Service',
+      'Microsoft Dynamics 365 Consulting'
     ],
     col2: [
-      'Power BI Data Analytics',
-      'Power Apps Automation',
-      'Office 365 API Integration',
-      'Microsoft SQL Server Ops',
-      'Dynamics 365 Solutions'
+      'Kentico Development Services',
+      'Dotnetnuke Development',
+      'Power BI Consulting',
+      'Windows 11 App Development',
+      'Windows App Development'
     ]
   },
   {
     id: 'blockchain',
     label: 'Blockchain Development',
     col1: [
-      'Smart Contract Auditing',
-      'Web3 DApp Development',
-      'Ethereum & EVM Chains',
-      'DeFi Protocol Engineering',
-      'NFT Marketplace Architecture'
+      'NFT Marketplace Development',
+      'Smart Contracts Development',
+      'Bitcoin Wallet Development',
+      'Marketplace App Development'
     ],
     col2: [
-      'Tokenomics & ERC-20 Tokens',
-      'Hyperledger Enterprise',
-      'Solana Ecosystem Apps',
-      'Crypto Wallet Integration',
-      'Cross-Chain Bridge Systems'
+      'Cryptocurrency Wallet Development',
+      'Bullion Exchange App Development',
+      'Digital Wayfinding Solutions',
+      'Ethereum App Development'
     ]
   },
   {
     id: 'software',
     label: 'Software Development Service',
     col1: [
-      'Enterprise ERP Platforms',
-      'Custom CRM Software',
-      'Legacy System Modernization',
-      'SaaS Product Engineering',
-      'Dedicated Engineering Squads'
+      'Product Development',
+      'Software Development Service',
+      'Digital Transformation Services',
+      'Application Services',
+      'Startup Consulting Services',
+      'App Development Consulting',
+      'Crm Development',
+      'Prototype Development Services',
+      'Offshore Software Development',
+      'Invoice Generation Software',
+      'Software Modernization Services'
     ],
     col2: [
-      'High-Availability Systems',
-      'Distributed Architectures',
-      'Software Maintenance & Ops',
-      'Code Security Auditing',
-      'Agile Sprint Methodology'
+      'Web Application Development',
+      'Product Engineering Services',
+      'IT Outsourcing',
+      'Business Application Development',
+      'It Consulting Services',
+      'VB6 Migration Services',
+      'Enterprise Mobility Services',
+      'Full Stack Development',
+      'Financial Software Development',
+      'Travel Software Development',
+      'Software Product Discovery'
     ]
   },
   {
     id: 'arvr',
     label: 'AR/VR Development',
     col1: [
-      'Unity 3D App Development',
-      'Unreal Engine 5 Applications',
-      'Spatial Computing Apps',
-      'Virtual Reality Training',
-      'AR Product Preview Systems'
+      'Augmented Reality App Development',
+      'Virtual Reality App Development',
+      'Extended Reality Development'
     ],
     col2: [
-      'Apple Vision Pro VisionOS',
-      'WebXR Immersive Web',
-      '3D Asset & Mesh Modeling',
-      'Mixed Reality Enterprise',
-      'Interactive Simulations'
+      'Metaverse Development Company',
+      'Digital Twin Solutions'
     ]
   },
   {
     id: 'cloud',
     label: 'Cloud & DevOps',
     col1: [
-      'AWS Cloud Infrastructure',
-      'Google Cloud Platform (GCP)',
-      'Docker & Containerization',
-      'Kubernetes Orchestration',
-      'CI/CD Pipeline Automation'
+      'Cloud Development',
+      'Cloud Computing Service',
+      'DevOps Development Services',
+      'AWS Cloud Services',
+      'Google Cloud Development'
     ],
     col2: [
-      'Terraform Infrastructure Code',
-      'Zero-Downtime Cloud Move',
-      '24/7 Cloud Security Monitoring',
-      'Serverless Architectures',
-      'FinOps Cost Optimization'
+      'Cloud Foundry Software Development',
+      'Cloud Cost Optimization Software',
+      'Cloud Based Storage Services',
+      'Cloud Analytics Software Development'
     ]
   },
   {
     id: 'other',
     label: 'Other Services',
     col1: [
-      'QA & Automated E2E Testing',
-      'Cybersecurity & OWASP Audits',
-      'UI/UX Product Design',
-      'Data Engineering Pipelines'
+      'UI/UX Design',
+      'Digital Marketing',
+      'Testing & QA',
+      'Nintex Development Services',
+      'Mobile App Porting',
+      'Data Cleansing Services'
     ],
     col2: [
-      'Technical SEO & Performance',
-      'IoT Firmware & Sensor Apps',
-      'Headless E-Commerce Storefronts',
-      'API Integration Gateways'
+      'Data Annotation Company',
+      'Patient Management System',
+      'Digital Twin Solutions Company',
+      'Artist Collaboration Platform',
+      'Prototype Development Services'
     ]
   },
   {
     id: 'consulting',
     label: 'Tech Consulting Services',
     col1: [
-      'CTO Advisory & Tech Audit',
-      'Architecture System Review',
-      'Security & Compliance Audit',
-      'Cloud Strategy & Roadmap'
+      'IT Consulting Services',
+      'App Development Consulting',
+      'Startup Consulting Services',
+      'Epicor ERP Consulting Services'
     ],
     col2: [
-      'AI Adoption Consulting',
-      'Software Scalability Review',
-      'Cost Reduction Strategy',
-      'Team Scaling & Advisory'
+      'DevOps Consulting Service',
+      'Generative AI Consulting Company',
+      'Microservices Consulting Services',
+      'AI Consulting Services'
     ]
   }
 ];
@@ -242,85 +247,104 @@ export const hireDeveloperCategories = [
     id: 'mobile',
     label: 'Hire Mobile App Developers',
     roles: [
-      'Hire iOS App Developers',
-      'Hire Android App Developers',
-      'Hire React Native Developers',
-      'Hire Flutter Developers',
-      'Hire Swift Developers',
       'Hire Kotlin Developers',
-      'Hire Xamarin Developers',
-      'Hire PWA Developers'
+      'Hire Android Developers',
+      'Hire Ionic Developers',
+      'Hire Flutter Developers',
+      'Hire iOS Developers',
+      'Hire Swift Developer',
+      'Hire Mobile App Developers',
+      'Hire Blackberry App Developers',
+      'Hire Freelance App Developers',
+      'Hire AI Application Developers',
+      'Hire iPhone App Developers'
     ]
   },
   {
     id: 'cms',
     label: 'Hire CMS & E-Commerce Developers',
     roles: [
-      'Hire WordPress Developers',
-      'Hire Drupal Developers',
       'Hire Magento Developers',
-      'Hire Shopify Developers',
       'Hire WooCommerce Developers',
-      'Hire Headless Commerce Developers'
+      'Hire Prestashop Developers',
+      'Hire Wordpress Developers',
+      'Hire Bootstrap Developers',
+      'Hire Laravel Developers',
+      'Hire Flutter Developers',
+      'Hire Swift Developers'
     ]
   },
   {
     id: 'backend',
     label: 'Hire Back End Developers',
     roles: [
-      'Hire Node.js Developers',
+      'Hire Golang Developers',
+      'Hire Backend Developers',
       'Hire Python Developers',
       'Hire Java Developers',
+      'Hire Spring Boot Developers',
+      'Hire Django Developers',
+      'Hire .NET Developers',
+      'Hire Node JS Developers',
       'Hire PHP Developers',
-      'Hire Golang Developers',
-      'Hire C# .NET Developers',
-      'Hire Microservices Engineers'
+      'Hire Express JS Developers',
+      'Hire Fintech Developers'
     ]
   },
   {
     id: 'microsoft',
     label: 'Hire Microsoft Developers',
     roles: [
-      '.NET Core Developers',
-      'Hire SharePoint Developers',
       'Hire PowerApps Developers',
-      'Hire C# Developers',
-      'Hire Azure Cloud Developers'
+      'Hire SharePoint Developers',
+      'Hire Alexa Skills Developer',
+      'Hire Metaverse Developers',
+      'Hire Software Developers',
+      'Hire Embedded Software Developers',
+      'Hire Machine Learning Engineer'
     ]
   },
   {
     id: 'javascript',
     label: 'Hire Javascript Developers',
     roles: [
-      'Hire Full Stack JS Developers',
-      'Hire React & Next.js Developers',
-      'Hire Node.js Developers',
-      'Hire TypeScript Developers',
-      'Hire Vue.js Developers',
-      'Hire Angular Developers'
+      'Hire Mean Stack Developers',
+      'Hire Mern Stack Developers',
+      'Hire Full Stack Developers',
+      'Hire Ember JS Developer',
+      'Hire React JS Developers',
+      'Hire Angular JS Developers',
+      'Hire Next JS Developers',
+      'Hire Vue JS Developers',
+      'Hire Express JS Developers'
     ]
   },
   {
     id: 'blockchain',
     label: 'Hire Blockchain Development',
     roles: [
-      'Hire Smart Contract Engineers',
+      'Hire Blockchain Developers',
       'Hire Solidity Developers',
-      'Hire Web3 DApp Developers',
-      'Hire DeFi Developers',
-      'Hire Rust Blockchain Developers'
+      'Hire Data Scientist',
+      'Hire FastAPI Developers',
+      'Hire API Developers'
     ]
   },
   {
     id: 'trending',
     label: 'Hire Trending',
     roles: [
-      'Hire AI & LLM Engineers',
-      'Hire Generative AI Developers',
-      'Hire RAG Engineers',
-      'Hire Machine Learning Engineers',
-      'Hire Prompt Engineers',
-      'Hire DevOps & Kubernetes Engineers'
+      'Hire Data Scientist Developers',
+      'Hire Alexa Skills Developers',
+      'Hire Embedded Software Developers',
+      'Hire Metaverse Developers',
+      'Hire Dedicated Developers',
+      'Hire Blackberry App Developers',
+      'Hire Software Developers',
+      'Hire ChatGPT Developer',
+      'Hire LLM Engineers',
+      'Hire AI Agent Developer',
+      'Hire OpenAI Developer'
     ]
   }
 ];
@@ -412,7 +436,7 @@ export const MegaMenu = ({ type, onClose }) => {
                     CASE STUDY
                   </h4>
                   <Link
-                    to="/portfolio"
+                    to="/case-studies"
                     onClick={onClose}
                     className="group block p-6 rounded-2xl bg-slate-50 border border-slate-200/80 hover:border-[#005F96] hover:shadow-xl transition-all duration-300 h-[280px] flex flex-col justify-between"
                   >
@@ -1081,11 +1105,7 @@ export const MegaMenu = ({ type, onClose }) => {
                     <li><Link to="/company/great-place-to-work" onClick={onClose} className={subMenuLinkStyle}>Great Place To Work</Link></li>
                     <li><Link to="/company/women-empowerment" onClick={onClose} className={subMenuLinkStyle}>Women Empowerment</Link></li>
                     <li><Link to="/company/awards-recognition" onClick={onClose} className={subMenuLinkStyle}>Awards & Recognition</Link></li>
-                    <li>
-                      <button onClick={() => openVideo('/Best Software Development Company in USA - Sapphire Software Sol.mp4')} className={`${subMenuLinkStyle} w-full text-left`}>
-                        Insightful Videos
-                      </button>
-                    </li>
+                    <li><Link to="/company/insightful-videos" onClick={onClose} className={subMenuLinkStyle}>Insightful Videos</Link></li>
                   </ul>
 
                   <ul className="space-y-1">
@@ -1114,12 +1134,7 @@ export const MegaMenu = ({ type, onClose }) => {
                 </h4>
                 <ul className="space-y-1">
                   <li><Link to="/company/client-testimonials" onClick={onClose} className={subMenuLinkStyle}>Client Testimonials</Link></li>
-                  <li>
-                    <button onClick={() => openVideo('/Best Software Development Company in USA - Sapphire Software Sol.mp4')} className={`${subMenuLinkStyle} w-full flex items-center justify-between text-left`}>
-                      <span>Video Testimonial</span>
-                      <Play className="w-3 h-3 text-cyan-600 fill-current ml-1 inline" />
-                    </button>
-                  </li>
+                  <li><Link to="/company/video-testimonial" onClick={onClose} className={subMenuLinkStyle}>Video Testimonial</Link></li>
                   <li><Link to="/company/clutch-testimonial" onClick={onClose} className={subMenuLinkStyle}>Clutch Testimonial</Link></li>
                 </ul>
               </div>

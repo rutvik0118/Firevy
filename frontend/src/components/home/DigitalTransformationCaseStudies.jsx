@@ -1,8 +1,113 @@
-import React, { useState, useEffect, useCallback } from 'react';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
+import React, { useState, useCallback } from 'react';
+import { ArrowLeft, ArrowRight, ChevronsRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-export const DigitalTransformationCaseStudies = () => {
+const caseStudiesList = [
+  {
+    id: 'mg',
+    company: 'Morris Garages',
+    bgColor: '#FFF0F0',
+    logo: '/images/mg.png',
+    desc: "MG Motor is a well-known firm that have large number of employee. It is their major responsibility to keep track of employees' health and records. The system from their end was to have one secure locker for the protection of all the papers in order to keep track of employee Examination and OPD records for audit purpose.",
+    bullets: [
+      'Real-time health data analytics',
+      'HIPAA-compliant data security',
+      '24/7 access to health resources and support',
+      'Personalized health recommendations',
+      '98% improvement in employee health monitoring'
+    ],
+    caseStudyLink: '/portfolio',
+    portfolioLink: '/portfolio',
+    mainImg: '/images/mg.webp'
+  },
+  {
+    id: 'loreal',
+    company: "L'Oréal",
+    bgColor: '#F5F3EF',
+    logo: '/images/loreal.png',
+    desc: "This safety improvement application collects the observations from organizational Staff and non-staff, and the respective department head will take care of the closure observation, and some observation categories will be verified by top management.",
+    bullets: [
+      '97% reduction in safety incidents',
+      'Scalable solution for large enterprises',
+      'Recognized for excellence in safety innovation',
+      'Automated safety reminders and alerts',
+      'Real-time hazard identification and reporting'
+    ],
+    caseStudyLink: '/portfolio',
+    portfolioLink: '/portfolio',
+    mainImg: '/images/loreal.webp'
+  },
+  {
+    id: 'adani',
+    company: 'Adani Group',
+    bgColor: '#EDEDF6',
+    logo: '/images/adani.png',
+    desc: "Adani EmCare is a Web + Mobile App used by Adani Group’s medical officer to capture, analyze and manage the health data of the employees and workers. And this data is used by medical officer to provide preventive healthcare to the employees.",
+    bullets: [
+      '98% Employee satisfaction ratio',
+      '91% reduction in appointment scheduling time',
+      '24/7 real-time health monitoring',
+      'Serving over 60,000 healthcare professionals',
+      'Generating over USD 30 billion in revenue'
+    ],
+    caseStudyLink: '/portfolio',
+    portfolioLink: '/portfolio',
+    mainImg: '/images/adani.webp'
+  },
+  {
+    id: 'waymark',
+    company: 'Waymark Maps',
+    bgColor: '#F5EDFC',
+    logo: '/images/waymarkmaps.png',
+    desc: "A city map and free business listings are available on Waymark. Our city information is consistently accurate and current. With advertisements, points of interest, restaurants, hotels, malls, parking, featured locations, metro routes, tourist attractions, and much more, Waymark offers an interactive map of the Ivory Coast...",
+    bullets: [
+      'Turn by turn voice navigation',
+      'Points of interest (POI) recommendations',
+      'Real-time traffic updates and route optimization',
+      'Offline map access for remote areas',
+      'Augmented reality (AR) navigation features'
+    ],
+    caseStudyLink: '/portfolio',
+    portfolioLink: '/portfolio',
+    mainImg: '/images/waymark_map_app.webp'
+  },
+  {
+    id: 'beecar',
+    company: 'Bee Car CARE',
+    bgColor: '#FFFBEB',
+    logo: '/images/beecar.png',
+    desc: "If you provide car washing services and need to reach a wide range of customers, the car wash app is your best bet. Sapphire Software Solutions has built a car wash application that allows people to book car wash services in few clicks",
+    bullets: [
+      '56% customer retention rate',
+      '112 % increase in service bookings',
+      'Over 1,10,000 satisfied users',
+      'Operating in 20+ locations',
+      'User-friendly & Efficient interface for easy booking'
+    ],
+    caseStudyLink: '/portfolio',
+    portfolioLink: '/portfolio',
+    mainImg: '/images/beecar.webp'
+  },
+  {
+    id: 'lt',
+    company: 'LARSEN & TOUBRO',
+    bgColor: '#EBF5FB',
+    logo: '/images/lt.png',
+    desc: "Larsen & Toubro Limited is one of India's largest and most well-known corporations. L&T offers unrivaled capabilities across Technology, Engineering, Construction, and Manufacturing, and retains leadership in all of its prime businesses, almost 80 years of a strong, customer-focused strategy and...",
+    bullets: [
+      'Automated safety audits and inspections',
+      '24/7 access to safety training resources',
+      'Customizable dashboards and reporting tools',
+      'Real-time incident reporting and tracking',
+      '99% compliance with health and safety regulations'
+    ],
+    caseStudyLink: '/portfolio',
+    portfolioLink: '/portfolio',
+    mainImg: '/images/l&t.webp'
+  }
+];
+
+export const DigitalTransformationCaseStudies = ({ data }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   // 6 Enterprise Case Studies (1:1 with user screenshots 1 to 5)
@@ -454,11 +559,7 @@ export const DigitalTransformationCaseStudies = () => {
 
   const total = caseStudies.length;
 
-  const goNext = useCallback(() => {
-    setCurrentIndex((prev) => (prev + 1) % total);
-  }, [total]);
-
-  const goPrev = useCallback(() => {
+  const handlePrev = useCallback(() => {
     setCurrentIndex((prev) => (prev === 0 ? total - 1 : prev - 1));
   }, [total]);
 
@@ -542,7 +643,6 @@ export const DigitalTransformationCaseStudies = () => {
             ))}
           </div>
         </div>
-      </div>
 
       {/* Bottom Navigation Arrows */}
       <div className="flex items-center justify-center gap-6">

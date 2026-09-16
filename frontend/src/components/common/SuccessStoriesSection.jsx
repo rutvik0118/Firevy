@@ -276,6 +276,8 @@ export const SuccessStoriesSection = ({ category = 'ecommerce', title, subtitle 
                 Ai Powered Language Learning App Development
               </h3>
             </div>
+          ))}
+        </div>
 
             <div className="flex flex-col justify-between group cursor-pointer">
               <div className="h-64 sm:h-72 rounded-2xl overflow-hidden shadow-md group-hover:shadow-xl transition-all duration-300 relative border border-slate-200/80 bg-white">
@@ -371,7 +373,7 @@ export const SuccessStoriesSection = ({ category = 'ecommerce', title, subtitle 
               className="px-5 py-1.5 rounded-lg bg-white text-[#005D95] font-black text-[11px] hover:bg-slate-100 transition-colors shadow-md"
             >
               Get Estimation
-            </a>
+            </Link>
           </div>
         </div>
       </Container>

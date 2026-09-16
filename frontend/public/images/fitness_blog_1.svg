@@ -1,0 +1,157 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="bgGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F172A" />
+      <stop offset="50%" stop-color="#1E1B4B" />
+      <stop offset="100%" stop-color="#312E81" />
+    </linearGradient>
+    <linearGradient id="phoneGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#1E293B" />
+      <stop offset="100%" stop-color="#0F172A" />
+    </linearGradient>
+    <linearGradient id="neonPink" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#EC4899" />
+      <stop offset="100%" stop-color="#F43F5E" />
+    </linearGradient>
+    <linearGradient id="neonCyan" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#06B6D4" />
+      <stop offset="100%" stop-color="#3B82F6" />
+    </linearGradient>
+    <linearGradient id="pulseGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#F43F5E" />
+      <stop offset="50%" stop-color="#FB923C" />
+      <stop offset="100%" stop-color="#F43F5E" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#bgGrad1)" />
+
+  <!-- Ambient Glow Blobs -->
+  <circle cx="160" cy="200" r="140" fill="#3B82F6" opacity="0.15" filter="url(#glow)" />
+  <circle cx="640" cy="240" r="150" fill="#EC4899" opacity="0.18" filter="url(#glow)" />
+  <circle cx="400" cy="120" r="180" fill="#6366F1" opacity="0.2" filter="url(#glow)" />
+
+  <!-- Background Grid Lines -->
+  <g opacity="0.08" stroke="#FFFFFF" stroke-width="1">
+    <line x1="0" y1="90" x2="800" y2="90" />
+    <line x1="0" y1="180" x2="800" y2="180" />
+    <line x1="0" y1="270" x2="800" y2="270" />
+    <line x1="0" y1="360" x2="800" y2="360" />
+    <line x1="160" y1="0" x2="160" y2="450" />
+    <line x1="320" y1="0" x2="320" y2="450" />
+    <line x1="480" y1="0" x2="480" y2="450" />
+    <line x1="640" y1="0" x2="640" y2="450" />
+  </g>
+
+  <!-- Left: Runner Athlete Silhouette -->
+  <g transform="translate(60, 110)">
+    <!-- Speed Motion Trails -->
+    <path d="M 10 240 Q 60 220 120 230" stroke="#38BDF8" stroke-width="3" stroke-linecap="round" opacity="0.6" />
+    <path d="M 0 210 Q 50 195 100 205" stroke="#EC4899" stroke-width="2.5" stroke-linecap="round" opacity="0.5" />
+    <path d="M 20 260 Q 80 250 140 255" stroke="#818CF8" stroke-width="2" stroke-linecap="round" opacity="0.4" />
+
+    <!-- Runner Body Silhouette -->
+    <!-- Head -->
+    <circle cx="150" cy="40" r="18" fill="#38BDF8" />
+    <!-- Torso -->
+    <path d="M 142 58 L 120 140 L 155 135 L 165 70 Z" fill="#60A5FA" />
+    <!-- Back Leg -->
+    <path d="M 120 140 L 80 185 L 50 170" stroke="#38BDF8" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+    <!-- Front Leg -->
+    <path d="M 155 135 L 185 190 L 220 235" stroke="#60A5FA" stroke-width="16" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+    <!-- Arms -->
+    <path d="M 148 70 L 185 100 L 205 85" stroke="#93C5FD" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+    <path d="M 135 75 L 105 110 L 85 135" stroke="#3B82F6" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+
+    <!-- Floating Badge: Flame Kcal -->
+    <g transform="translate(10, 30)">
+      <rect width="64" height="64" rx="16" fill="#1E293B" stroke="#F43F5E" stroke-width="2" opacity="0.9" />
+      <text x="32" y="42" font-size="28" text-anchor="middle">🔥</text>
+    </g>
+
+    <!-- Floating Badge: Steps -->
+    <g transform="translate(160, -20)">
+      <rect width="90" height="34" rx="10" fill="#1E293B" stroke="#38BDF8" stroke-width="1.5" />
+      <text x="45" y="22" fill="#38BDF8" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">⚡ 8,750 Steps</text>
+    </g>
+  </g>
+
+  <!-- Center: Smartphone Mockup with Real-time BPM and ECG Curve -->
+  <g transform="translate(370, 40)">
+    <!-- Phone Outer Shell -->
+    <rect width="210" height="370" rx="34" fill="url(#phoneGrad)" stroke="#475569" stroke-width="5" filter="url(#glow)" />
+    <!-- Dynamic Island / Notch -->
+    <rect x="75" y="10" width="60" height="12" rx="6" fill="#020617" />
+
+    <!-- Top Status / Title -->
+    <text x="25" y="45" fill="#94A3B8" font-family="sans-serif" font-size="10" font-weight="bold">WORKOUT: RUNNING</text>
+    <circle cx="185" cy="42" r="4" fill="#22C55E" />
+
+    <!-- Main Heart Rate Display Box -->
+    <rect x="18" y="60" width="174" height="150" rx="16" fill="#0F172A" stroke="#334155" stroke-width="1.5" />
+    <text x="32" y="85" fill="#94A3B8" font-family="sans-serif" font-size="10" font-weight="bold">HEART RATE</text>
+    <text x="32" y="125" fill="#FFFFFF" font-family="sans-serif" font-size="36" font-weight="900">148</text>
+    <text x="105" y="125" fill="#F43F5E" font-family="sans-serif" font-size="14" font-weight="bold">BPM</text>
+
+    <!-- ECG Live Pulse Curve -->
+    <path d="M 25 170 L 60 170 L 75 140 L 90 190 L 105 130 L 120 175 L 135 160 L 150 170 L 185 170" 
+          fill="none" stroke="url(#pulseGlow)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" filter="url(#glow)" />
+
+    <!-- Secondary Metrics (Time, Distance) -->
+    <g transform="translate(18, 225)">
+      <rect width="82" height="55" rx="12" fill="#0F172A" stroke="#334155" stroke-width="1" />
+      <text x="41" y="24" fill="#94A3B8" font-family="sans-serif" font-size="9" text-anchor="middle">TIME</text>
+      <text x="41" y="44" fill="#38BDF8" font-family="sans-serif" font-size="15" font-weight="bold" text-anchor="middle">24:36</text>
+    </g>
+    <g transform="translate(110, 225)">
+      <rect width="82" height="55" rx="12" fill="#0F172A" stroke="#334155" stroke-width="1" />
+      <text x="41" y="24" fill="#94A3B8" font-family="sans-serif" font-size="9" text-anchor="middle">DISTANCE</text>
+      <text x="41" y="44" fill="#F43F5E" font-family="sans-serif" font-size="15" font-weight="bold" text-anchor="middle">3.15 mi</text>
+    </g>
+
+    <!-- Activity Rings -->
+    <g transform="translate(105, 320)">
+      <!-- Outer Move Ring -->
+      <circle cx="0" cy="0" r="28" fill="none" stroke="#334155" stroke-width="5" />
+      <circle cx="0" cy="0" r="28" fill="none" stroke="#F43F5E" stroke-width="5" stroke-dasharray="140" stroke-dashoffset="30" stroke-linecap="round" />
+      <!-- Middle Exercise Ring -->
+      <circle cx="0" cy="0" r="20" fill="none" stroke="#334155" stroke-width="5" />
+      <circle cx="0" cy="0" r="20" fill="none" stroke="#22C55E" stroke-width="5" stroke-dasharray="100" stroke-dashoffset="20" stroke-linecap="round" />
+      <!-- Inner Stand Ring -->
+      <circle cx="0" cy="0" r="12" fill="none" stroke="#334155" stroke-width="5" />
+      <circle cx="0" cy="0" r="12" fill="none" stroke="#06B6D4" stroke-width="5" stroke-dasharray="60" stroke-dashoffset="10" stroke-linecap="round" />
+    </g>
+  </g>
+
+  <!-- Right: Smartwatch Device Mockup with Synced Biometrics -->
+  <g transform="translate(615, 140)">
+    <!-- Watch Straps Top & Bottom -->
+    <path d="M 30 -35 L 90 -35 L 85 20 L 35 20 Z" fill="#1E293B" />
+    <path d="M 35 170 L 85 170 L 90 225 L 30 225 Z" fill="#1E293B" />
+
+    <!-- Watch Case -->
+    <rect width="120" height="150" rx="28" fill="#090D16" stroke="#475569" stroke-width="4" filter="url(#glow)" />
+    <!-- Watch Crown Knob -->
+    <rect x="120" y="55" width="6" height="30" rx="3" fill="#64748B" />
+
+    <!-- Watch Screen Header -->
+    <text x="60" y="32" fill="#94A3B8" font-family="sans-serif" font-size="9" font-weight="bold" text-anchor="middle">HEART RATE</text>
+    <text x="60" y="70" fill="#FFFFFF" font-family="sans-serif" font-size="28" font-weight="900" text-anchor="middle">148</text>
+    <text x="60" y="85" fill="#F43F5E" font-family="sans-serif" font-size="10" font-weight="bold" text-anchor="middle">BPM</text>
+
+    <!-- Mini Pulse Chart -->
+    <path d="M 20 115 L 40 115 L 50 95 L 60 130 L 70 100 L 80 120 L 100 115" 
+          fill="none" stroke="#F43F5E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+
+    <!-- Sync Indicator -->
+    <g transform="translate(35, 132)">
+      <circle cx="6" cy="4" r="3" fill="#22C55E" />
+      <text x="15" y="7" fill="#86EFAC" font-family="sans-serif" font-size="8" font-weight="bold">Live Sync</text>
+    </g>
+  </g>
+</svg>

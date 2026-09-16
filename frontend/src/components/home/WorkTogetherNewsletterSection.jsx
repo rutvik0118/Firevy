@@ -3,7 +3,36 @@ import { Link } from 'react-router-dom';
 import { CheckCircle2, ChevronDown } from 'lucide-react';
 import Container from '../common/Container';
 
-export const WorkTogetherNewsletterSection = () => {
+export const WorkTogetherNewsletterSection = ({
+  data,
+  title,
+  subtitle,
+  buttonText,
+  buttonLink,
+  hideBanner = false,
+  showBanner = true,
+  hideNewsletter = false,
+  showNewsletter = true
+}) => {
+  const bannerTitle =
+    title ||
+    data?.bannerTitle ||
+    data?.title ||
+    "Let's Work Together On Your Next Digital Project";
+  const bannerDescription =
+    subtitle ||
+    data?.bannerDescription ||
+    data?.description ||
+    "Book a meeting with our specialists today to learn more about how firevy.co can help you unlock technology visions and drive your product strategy.";
+  const bannerButtonText = buttonText || data?.bannerButtonText || data?.buttonText || "Request A Free Quote";
+  const bannerButtonLink = buttonLink || data?.bannerButtonLink || data?.buttonLink || "/contact";
+  const newsletterTitle =
+    data?.newsletterTitle || "Subscribe us and Get the latest updates and news";
+  const newsletterButtonText =
+    data?.newsletterButtonText || "Subscribe";
+
+  const shouldShowNewsletter = !hideNewsletter && showNewsletter && !data?.hideNewsletter;
+
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
@@ -42,8 +71,6 @@ export const WorkTogetherNewsletterSection = () => {
               Request A Free Quote
             </Link>
           </div>
-        </div>
-      </section>
 
       {/* 2. Subscribe us and Get the latest updates and news Banner */}
       <section className="py-12 sm:py-14 bg-[#E5F2F7] text-slate-900 text-center relative font-sans border-b border-slate-200">
@@ -116,10 +143,70 @@ export const WorkTogetherNewsletterSection = () => {
                   Subscribe
                 </button>
               </div>
-            </form>
-          )}
-        </Container>
-      </section>
+            ) : (
+              <form onSubmit={handleSubmit} className="max-w-[1240px] mx-auto">
+                <div className="flex flex-col lg:flex-row items-center justify-center gap-3 lg:gap-3.5">
+                  {/* Input: Name */}
+                  <input
+                    type="text"
+                    required
+                    placeholder="Your name *"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    className="w-full lg:flex-1 h-[48px] px-4 rounded-[4px] bg-white border border-slate-200 text-slate-900 placeholder-slate-400 text-[13.5px] focus:outline-none focus:border-[#006085] font-sans shadow-xs"
+                  />
+
+                  {/* Input: Email */}
+                  <input
+                    type="email"
+                    required
+                    placeholder="Your Email ID *"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="w-full lg:flex-1 h-[48px] px-4 rounded-[4px] bg-white border border-slate-200 text-slate-900 placeholder-slate-400 text-[13.5px] focus:outline-none focus:border-[#006085] font-sans shadow-xs"
+                  />
+
+                  {/* Input: Phone with Country Code */}
+                  <div className="w-full lg:flex-1 h-[48px] flex items-center rounded-[4px] bg-white border border-slate-200 overflow-hidden shadow-xs">
+                    <div className="flex items-center space-x-1 px-3.5 h-full bg-slate-50/80 border-r border-slate-200 text-slate-700 text-[13.5px] font-[600] shrink-0">
+                      <span>{countryCode}</span>
+                      <ChevronDown className="w-3.5 h-3.5 text-slate-500" />
+                    </div>
+                    <input
+                      type="tel"
+                      required
+                      placeholder="Mobile Number *"
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value)}
+                      className="w-full h-full px-3.5 text-slate-900 placeholder-slate-400 text-[13.5px] focus:outline-none font-sans"
+                    />
+                  </div>
+
+                  {/* Cloudflare Mock Badge */}
+                  <div className="h-[48px] bg-white border border-slate-200 rounded-[4px] px-3.5 flex items-center space-x-2 shrink-0 shadow-xs">
+                    <div className="w-4 h-4 rounded-full bg-emerald-500 text-white flex items-center justify-center text-[10px] font-bold">
+                      ✓
+                    </div>
+                    <span className="text-[11.5px] font-[600] text-slate-700 font-sans">Success!</span>
+                    <div className="border-l border-slate-200 pl-2 text-[9px] text-slate-400 font-sans leading-tight text-left">
+                      <span className="font-bold text-slate-700 block text-[9.5px]">CLOUDFLARE</span>
+                      <span>Privacy • Help</span>
+                    </div>
+                  </div>
+
+                  {/* Submit Button */}
+                  <button
+                    type="submit"
+                    className="w-full lg:w-auto h-[48px] px-8 rounded-[4px] bg-[#006085] hover:bg-[#004d6b] text-white font-[700] text-[14.5px] transition-all shadow-sm font-sans shrink-0"
+                  >
+                    {newsletterButtonText}
+                  </button>
+                </div>
+              </form>
+            )}
+          </Container>
+        </section>
+      )}
     </>
   );
 };

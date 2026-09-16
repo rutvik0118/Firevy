@@ -2,12 +2,10 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import SEO from '../common/SEO';
 import Container from '../common/Container';
-import ProcessWeFollow from '../common/ProcessWeFollow';
-import SuccessMatrix from '../common/SuccessMatrix';
+import WorkProcessGrid from '../home/WorkProcessGrid';
+import SuccessMatrixGrid from '../home/SuccessMatrixGrid';
 import TrustedBrandsGrid from '../common/TrustedBrandsGrid';
 import SapphireTechStackGrid from '../common/SapphireTechStackGrid';
-import SuccessStoriesSection from '../common/SuccessStoriesSection';
-import PremiumServicesGrid from '../common/PremiumServicesGrid';
 import BrandLogoMarquee from '../common/BrandLogoMarquee';
 import SapphireLightHeroBanner from '../common/SapphireLightHeroBanner';
 import DigitalTransformationCaseStudies from '../home/DigitalTransformationCaseStudies';
@@ -281,76 +279,205 @@ export const UberLikeAppDevelopmentService = () => {
     setFormSubmitted(true);
   };
 
-  // 3 Key Panels matching Sapphire Solutions Uber-Like App
+  // 3 Key Panels matching Sapphire Solutions Uber-Like App (Exact 1:1 Reference Match - 6 Cards Per Panel)
   const panelFeatures = {
     rider: [
-      { title: 'User Register & Sign In', desc: 'Allows users to sign up via social accounts (Google, Facebook, Apple) or mobile OTP instantly.' },
-      { title: 'Interactive Car Booking', desc: 'Displays an interactive live map, pickup location pin, cab categories (Economy, Luxury, SUV), and ETA.' },
-      { title: 'Fare Calculation', desc: 'Pre-trip transparent fare check available to passengers before confirming their ride request.' },
-      { title: 'Real-time Driver Tracking', desc: 'Riders track driver movement on live GPS map with exact arrival countdown and route navigation.' },
-      { title: 'In-App Multi-Payment', desc: 'Seamless payments using credit/debit cards, Apple Pay, Google Pay, PayPal, and cash wallets.' },
-      { title: 'Instant Push Alerts', desc: 'Keeps passengers updated on ride dispatch, driver arrival, trip start, and digital invoices.' }
+      {
+        title: 'User Register & Sign In',
+        icon: UserRegisterIcon,
+        desc: 'The app allows users to join Facebook, Twitter, Instagram, and other prominent social media networks.'
+      },
+      {
+        title: 'Car Booking',
+        icon: CarBookingIcon,
+        desc: 'The app displays customers an interactive map, defines the pickup place, chooses the kind of cab, and so on.'
+      },
+      {
+        title: 'Fare Calculation',
+        icon: FareCalculationIcon,
+        desc: 'A pre-trip pricing check is available to passengers as a standard feature of most transportation services.'
+      },
+      {
+        title: 'Driver Tracking',
+        icon: DriverTrackingIcon,
+        desc: 'The users can track the drivers to decide how much longer it will take before it arrives.'
+      },
+      {
+        title: 'Payment',
+        icon: PaymentIcon,
+        desc: 'Users can make payments using credit and debit cards, mobile payment services such as PayPal, Android Pay, and Apple Pay within the app.'
+      },
+      {
+        title: 'Push Alerts',
+        icon: PushAlertsIcon,
+        desc: 'The push alert keeps consumers updated on the trip request, vehicle time, the driver, and any other relevant information.'
+      }
     ],
     driver: [
-      { title: 'Dynamic Fare Management', desc: 'Drivers view dynamic pricing based on surge zones, peak hours, and location distance.' },
-      { title: 'Interactive Driver Dashboard', desc: 'One-stop dashboard to monitor trip requests, completed rides, pending earnings, and ratings.' },
-      { title: 'In-App Revenue Breakdown', desc: 'Drivers access daily, weekly, and monthly net profit reports and commission breakdowns.' },
-      { title: 'Ride Request Notifications', desc: 'Instant trip dispatch alerts allowing drivers to accept or decline rides within 15 seconds.' },
-      { title: 'Direct Bank Account Deposit', desc: 'Drivers link bank accounts within the app to receive automated weekly or instant payouts.' },
-      { title: 'Profile & Vehicle Control', desc: 'Manage driver licenses, vehicle registration documents, insurance, and active status.' }
+      {
+        title: 'Trip Requests',
+        icon: PushAlertsIcon,
+        desc: 'Drivers receive real-time notifications for nearby ride requests and can accept or decline trips.'
+      },
+      {
+        title: 'Route Navigation',
+        icon: CarBookingIcon,
+        desc: 'Built-in GPS map turn-by-turn navigation guides drivers along the fastest route to pickup and drop-off points.'
+      },
+      {
+        title: 'Driver Documents',
+        icon: UserRegisterIcon,
+        desc: 'Drivers can upload and manage their personal documents, vehicle registration, and driver licenses easily.'
+      },
+      {
+        title: 'Earnings Report',
+        icon: PaymentIcon,
+        desc: 'Drivers can view daily, weekly, and monthly earnings breakdowns, tips, and direct bank payouts.'
+      },
+      {
+        title: 'Driver Rating',
+        icon: DriverTrackingIcon,
+        desc: 'Passengers rate driver performance and leave feedback after every trip to maintain high service standards.'
+      },
+      {
+        title: 'Driver Support',
+        icon: PushAlertsIcon,
+        desc: 'Dedicated 24/7 in-app support hotline and emergency assistance button for drivers on duty.'
+      }
     ],
     admin: [
-      { title: 'One-Stop Central Dashboard', desc: 'Super Admin monitors all live rides, active drivers, riders, trip revenue, and city heat maps.' },
-      { title: 'Driver Document Verification', desc: 'Review and approve driver licenses, vehicle background checks, and fleet compliance.' },
-      { title: 'Ad & Surge Revenue Control', desc: 'Manage in-app banner ads, surge multipliers, promotional promo codes, and commission rates.' },
-      { title: 'User & Rider Management', desc: 'Manage system-registered riders and drivers with complete account suspension or audit tools.' },
-      { title: 'Vehicle Fleet Reports', desc: 'Generate real-time telemetry analytics, fuel expenditure, fleet maintenance, and ride logs.' },
-      { title: 'Role-Based Access Control', desc: 'Assign granular admin permissions for dispatch operators, billing managers, and support leads.' }
+      {
+        title: 'Central Dashboard',
+        icon: CarBookingIcon,
+        desc: 'Super admin can monitor live taxi dispatches, active drivers, rider activity, and total daily revenue.'
+      },
+      {
+        title: 'Driver Management',
+        icon: UserRegisterIcon,
+        desc: 'Verify driver credentials, manage vehicle licenses, inspect background documents, and control active status.'
+      },
+      {
+        title: 'Rider Management',
+        icon: DriverTrackingIcon,
+        desc: 'View customer profiles, ride histories, feedback ratings, and manage user account permissions.'
+      },
+      {
+        title: 'Fare & Surge Control',
+        icon: FareCalculationIcon,
+        desc: 'Configure base fares, distance rates, peak surge multipliers, and promo codes across operating cities.'
+      },
+      {
+        title: 'Analytics & Reports',
+        icon: PaymentIcon,
+        desc: 'Generate real-time business performance analytics, trip logs, commission payouts, and customer reports.'
+      },
+      {
+        title: 'Notification Center',
+        icon: PushAlertsIcon,
+        desc: 'Send broadcast push notifications, promotional discounts, and system alerts to riders and drivers.'
+      }
     ]
   };
 
-  // 6 Niche Uber Mobility Business Solutions (Sapphire Exact)
+  // 6 Niche Uber Mobility Business Solutions (Exact 1:1 Sapphire Reference Match)
   const nicheSolutions = [
     {
-      title: 'Uber For Delivery & Logistics',
-      icon: Truck,
-      desc: 'Enables users to send packages, parcels, and freight across cities. Perfect for packers & movers, courier firms, and eCommerce brands.'
+      title: 'Uber For Delivery Business',
+      icon: UberDeliveryBusinessIcon,
+      desc: 'Our Uber for delivery app helps users send any kind of package to any destination. Delivery businesses can use the app, packers and movers, eCommerce businesses, and other courier service providers to make a digital presence.'
     },
     {
-      title: 'Uber For Fleet & Taxi Business',
-      icon: Car,
-      desc: 'Complete white-label taxi dispatch software with automated trip routing, surge pricing, and corporate dispatch management.'
+      title: 'Uber For Transportation',
+      icon: UberTransportationIcon,
+      desc: 'We develop the Uber app for female safety that solely hires female drivers and only allows women and kids to ride along as passengers.'
     },
     {
       title: 'Uber For Female Safety',
-      icon: Shield,
-      desc: 'Specialized ride-hailing app employing verified female drivers exclusively for female passengers and children with SOS triggers.'
+      icon: UberFemaleSafetyIcon,
+      desc: 'Businesses can run ads to help users know about the latest offerings and earn money'
     },
     {
-      title: 'Uber For Cloud Kitchen & Food',
-      icon: Utensils,
-      desc: 'Allows cloud kitchens and restaurant chains to dispatch on-demand food deliveries with real-time driver tracking.'
+      title: 'Uber For Cloud Kitchen',
+      icon: UberCloudKitchenIcon,
+      desc: 'The user for cloud kitchen allows the business to run their cloud kitchen and enables users to order from nearby restaurants and pay directly to have food delivered.'
     },
     {
-      title: 'Uber For Child Safety Rides',
-      icon: Baby,
-      desc: 'Kid-focused ride-sharing service featuring verified drivers, live camera feeds, and real-time parent location monitoring.'
+      title: 'Uber For Child Safety',
+      icon: UberChildSafetyIcon,
+      desc: 'You can launch an Uber for child safety app to provide kid-focused ride-sharing service and offer a straightforward riding environment.'
     },
     {
-      title: 'Uber For Caregivers & Healthcare',
-      icon: HeartHandshake,
-      desc: 'On-demand platform matching patients and elderly families with verified home caregivers, nurses, and medical helpers.'
+      title: 'Uber For Caregivers',
+      icon: UberCaregiversIcon,
+      desc: 'Using Uber for caregivers, the app can search for verified caregivers, nurses, and domestic help, make bookings and submit payments.'
     }
   ];
 
-  // Comparative Analysis (Sapphire Custom vs Standard Off-the-shelf)
-  const comparativeFeatures = [
-    { feature: '100% Source Code Ownership', custom: true, standard: false },
-    { feature: 'Custom Brand UI/UX & White Label', custom: true, standard: false },
-    { feature: 'Real-time WebSockets GPS Engine', custom: true, standard: true },
-    { feature: 'Surge Pricing & Heat Map Analytics', custom: true, standard: false },
-    { feature: 'Multi-Payment & Wallet Integration', custom: true, standard: true },
-    { feature: 'Zero Monthly Revenue Royalty Fees', custom: true, standard: false }
+  // Comparative Analysis (1:1 Sapphire Reference Table Match)
+  const comparativeTableData = [
+    { metric: 'Time to get right developers', sapphire: '1 day – 2 weeks', inHouse: '4 – 12 weeks', freelance: '1 – 12 weeks' },
+    { metric: 'Time to start a project', sapphire: '1 day – 2 weeks', inHouse: '2 – 10 weeks', freelance: '1 – 10 weeks' },
+    { metric: 'Recurring cost of training & benefits', sapphire: '-', inHouse: '$10,000 – $25,000', freelance: '-' },
+    { metric: 'Time to scale size of team', sapphire: '48 hours – 1 week', inHouse: '4 – 16 weeks', freelance: '1 – 12 weeks' },
+    { metric: 'Pricing (weekly average)', sapphire: '1.5X', inHouse: '2X', freelance: '1X' },
+    { metric: 'Project failure risk', sapphire: 'Extremely low, we have 98% success ratio', inHouse: 'Low', freelance: 'Very High' },
+    { metric: 'Developers backed by a delivery team', sapphire: 'Yes', inHouse: 'Some', freelance: 'No' },
+    { metric: 'Dedicated resources', sapphire: 'Yes', inHouse: '-', freelance: 'Some' },
+    { metric: 'Quality Guarantee', sapphire: 'Yes', inHouse: 'High', freelance: 'High' },
+    { metric: 'Assured work rigor', sapphire: 'Yes', inHouse: 'Some', freelance: 'No' },
+    { metric: 'Tools and professional environment', sapphire: 'Yes', inHouse: 'High', freelance: 'Uncertain' }
+  ];
+
+  // Business Friendly Hiring Models (1:1 Reference Match)
+  const hiringModels = [
+    {
+      title: 'Fixed Price',
+      icon: FixedPriceIcon,
+      iconColor: 'text-[#9333EA]',
+      desc: 'If you represent a company with a project that needs dedicated attention, ask about dedicated teams. It\'s a pay-as-you-go monthly rolling contract.',
+      features: [
+        'Optimal flexibility',
+        'Agile team',
+        'Small projects',
+        'Complete control over budget'
+      ]
+    },
+    {
+      title: 'Time Material',
+      icon: TimeMaterialIcon,
+      iconColor: 'text-[#16A34A]',
+      desc: 'If you are represent a company with undefined projects and need ongoing work, ask about hourly. It\'s a pay-as-you-go hour-wise rolling contract.',
+      features: [
+        'No hidden costs',
+        'Working based hours',
+        'Monthly billing',
+        'Pay only for measurable work'
+      ]
+    },
+    {
+      title: 'Dedicated Team',
+      icon: DedicatedTeamIcon,
+      iconColor: 'text-[#EA580C]',
+      desc: 'If you represent a company with a project that needs dedicated attention, ask about dedicated teams. It\'s a pay-as-you-go monthly rolling contract.',
+      features: [
+        'No hidden costs',
+        '160 hours of assured work',
+        'Monthly billing',
+        'Pay only for measurable work'
+      ]
+    },
+    {
+      title: 'Buckets Approach',
+      icon: BucketsApproachIcon,
+      iconColor: 'text-[#0284C7]',
+      desc: 'A lot of businesses typically select our bucket approach which allow them for payment convenience once the project is finished and things are in place.',
+      features: [
+        'Direct Resource Monitoring',
+        'Less Risk',
+        'Less budget',
+        'Pay only for measurable work'
+      ]
+    }
   ];
 
   // Rich Technology Categories for Tech Stack Grid

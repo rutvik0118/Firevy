@@ -1,0 +1,57 @@
+<svg viewBox="0 0 540 360" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <!-- Isometric Base Platform (Light Blue Cyan) -->
+  <polygon points="270,70 510,190 270,310 30,190" fill="#E6F2FC" opacity="0.9" />
+  <polygon points="270,310 510,190 510,205 270,325 30,205 30,190" fill="#BAE1F9" />
+
+  <!-- Isometric Laptop Base & Screen -->
+  <polygon points="230,120 410,120 370,240 190,240" fill="#2B80C5" />
+  <polygon points="238,128 402,128 365,232 201,232" fill="#FFFFFF" />
+
+  <!-- Laptop Screen Content / Charts & Lines -->
+  <rect x="230" y="142" width="120" height="8" rx="2" fill="#38BDF8" />
+  <path d="M220 200 Q250 160 280 180 T340 150" stroke="#0284C7" stroke-width="4" fill="none" stroke-linecap="round" />
+  <path d="M220 215 Q260 185 300 205 T350 175" stroke="#38BDF8" stroke-width="3" fill="none" stroke-linecap="round" />
+
+  <!-- Isometric Keyboard Stand -->
+  <polygon points="190,240 370,240 430,290 250,290" fill="#1E5C91" />
+  <polygon points="200,245 360,245 415,285 255,285" fill="#0F385C" />
+
+  <!-- Isometric Floating Bar Chart Pillars (Cyan, Yellow, Purple) -->
+  <!-- Pillar 1 (Yellow) -->
+  <polygon points="90,190 120,175 150,190 120,205" fill="#FBBF24" />
+  <polygon points="90,190 120,205 120,245 90,230" fill="#D97706" />
+  <polygon points="120,205 150,190 150,230 120,245" fill="#F59E0B" />
+
+  <!-- Pillar 2 (Cyan) -->
+  <polygon points="125,160 155,145 185,160 155,175" fill="#38BDF8" />
+  <polygon points="125,160 155,175 155,225 125,210" fill="#0284C7" />
+  <polygon points="155,175 185,160 185,210 155,225" fill="#0369A1" />
+
+  <!-- Pillar 3 (Purple/Pink) -->
+  <polygon points="160,185 190,170 220,185 190,200" fill="#C084FC" />
+  <polygon points="160,185 190,200 190,245 160,230" fill="#9333EA" />
+  <polygon points="190,200 220,185 220,230 190,245" fill="#A855F7" />
+
+  <!-- Server Tower Unit in Front Right -->
+  <polygon points="380,260 410,245 440,260 410,275" fill="#38BDF8" />
+  <polygon points="380,260 410,275 410,315 380,300" fill="#0284C7" />
+  <polygon points="410,275 440,260 440,300 410,315" fill="#0369A1" />
+  <line x1="390" y1="275" x2="400" y2="280" stroke="#E0F2FE" stroke-width="2" stroke-linecap="round" />
+  <line x1="390" y1="285" x2="400" y2="290" stroke="#E0F2FE" stroke-width="2" stroke-linecap="round" />
+
+  <!-- Character 1 (Standing near bars) -->
+  <circle cx="95" cy="140" r="10" fill="#FED7AA" />
+  <path d="M85 152 C85 148 105 148 105 152 L107 180 L83 180 Z" fill="#3B82F6" />
+
+  <!-- Character 2 (Sitting on platform corner) -->
+  <circle cx="308" cy="195" r="10" fill="#FED7AA" />
+  <path d="M298 207 C298 203 318 203 318 207 L320 230 L296 230 Z" fill="#EF4444" />
+
+  <!-- Character 3 (Sitting at bottom right) -->
+  <circle cx="410" cy="180" r="10" fill="#FED7AA" />
+  <path d="M400 192 C400 188 420 188 420 192 L422 220 L398 220 Z" fill="#10B981" />
+
+  <!-- Floating Tech Widgets -->
+  <rect x="420" y="200" width="40" height="60" rx="6" fill="#60A5FA" stroke="#FFFFFF" stroke-width="2" />
+  <rect x="426" y="210" width="28" height="40" rx="3" fill="#FFFFFF" />
+</svg>

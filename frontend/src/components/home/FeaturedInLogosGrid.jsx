@@ -1,75 +1,27 @@
 import React from 'react';
 import Container from '../common/Container';
+import { getMediaUrl } from '../../utils/mediaUrl';
 
-export const FeaturedInLogosGrid = () => {
-  const logos = [
-    // Row 1
-    {
-      id: 'microsoft',
-      content: (
-        <div className="grid grid-cols-2 gap-1.5 w-14 h-14">
-          <div className="bg-[#94A3B8] rounded-[2px]" />
-          <div className="bg-[#94A3B8] rounded-[2px]" />
-          <div className="bg-[#94A3B8] rounded-[2px]" />
-          <div className="bg-[#94A3B8] rounded-[2px]" />
-        </div>
-      )
-    },
-    {
-      id: 'inc',
-      content: (
-        <span className="text-[34px] font-[900] text-slate-900 font-serif tracking-tight">
-          Inc.
-        </span>
-      )
-    },
-    {
-      id: 'google-play',
-      content: (
-        <div className="flex items-center space-x-2">
-          <svg viewBox="0 0 24 24" className="w-7 h-7" fill="none">
-            <path d="M4 3.5L14.5 12L4 20.5V3.5Z" fill="#64748B" />
-            <path d="M14.5 12L18.5 8L4 3.5L14.5 12Z" fill="#94A3B8" />
-            <path d="M14.5 12L18.5 16L4 20.5L14.5 12Z" fill="#475569" />
-            <path d="M18.5 8L21 10.5C21.8 11.2 21.8 12.8 21 13.5L18.5 16L14.5 12L18.5 8Z" fill="#334155" />
-          </svg>
-          <span className="text-[15px] font-[800] text-slate-800 font-sans tracking-tight">Google Play</span>
-        </div>
-      )
-    },
-    {
-      id: 'app-store',
-      content: (
-        <div className="flex items-center space-x-2">
-          <svg viewBox="0 0 24 24" className="w-7 h-7 fill-slate-900">
-            <path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 21.97C14.32 22 13.89 21.18 12.37 21.18C10.84 21.18 10.37 21.95 9.09997 22C7.78997 22.05 6.79997 20.68 5.95997 19.47C4.24997 17 2.93997 12.45 4.69997 9.39C5.56997 7.87 7.12997 6.91 8.81997 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.13 16.69C20.11 16.77 19.71 18.14 18.71 19.5ZM15.03 4.54C15.69 3.73 16.13 2.61 16.01 1.5C15.05 1.54 13.88 2.14 13.19 2.95C12.58 3.66 12.05 4.8 12.19 5.89C13.26 5.97 14.37 5.35 15.03 4.54Z" />
-          </svg>
-          <span className="text-[15px] font-[800] text-slate-900 font-sans tracking-tight">App Store</span>
-        </div>
-      )
-    },
-    {
-      id: 'forbes',
-      content: (
-        <div className="bg-[#475569] px-4 py-2 rounded-[4px]">
-          <span className="text-[20px] font-[900] text-white font-serif tracking-wider uppercase">
-            Forbes
-          </span>
-        </div>
-      )
-    },
-    {
-      id: 'bbb',
-      content: (
-        <div className="flex flex-col items-center leading-none">
-          <svg viewBox="0 0 24 24" className="w-8 h-8 fill-slate-700 mb-1">
-            <path d="M12 2L13.5 6.5C14.5 9.5 16 11 19 12C16 13 14.5 14.5 13.5 17.5L12 22L10.5 17.5C9.5 14.5 8 13 5 12C8 11 9.5 9.5 10.5 6.5L12 2Z" />
-          </svg>
-          <span className="text-[18px] font-[900] text-slate-800 font-sans tracking-tight">BBB</span>
-          <span className="text-[8px] font-[700] text-slate-500 uppercase tracking-tight">Start With Trust</span>
-        </div>
-      )
-    },
+const defaultLogos = [
+  { name: 'Microsoft', image: '/images/1.svg' },
+  { name: 'Inc.', image: '/images/2.svg' },
+  { name: 'Google Play', image: '/images/3.svg' },
+  { name: 'App Store', image: '/images/4.svg' },
+  { name: 'Forbes', image: '/images/5.svg' },
+  { name: 'BBB', image: '/images/6.svg' },
+  { name: 'YOURSTORY', image: '/images/7.svg' },
+  { name: 'Wikipedia', image: '/images/8.svg' },
+  { name: 'Entrepreneur', image: '/images/9.svg' },
+  { name: 'Mashable', image: '/images/10.svg' },
+  { name: 'Capterra', image: '/images/11.svg' },
+  { name: 'c|net', image: '/images/12.svg' },
+  { name: 'The New York Times', image: '/images/13.svg' },
+  { name: 'TechCrunch', image: '/images/14.svg' },
+  { name: 'Clutch', image: '/images/15.svg' },
+  { name: 'PCMag', image: '/images/16.svg' },
+  { name: 'G2 Crowd', image: '/images/17.svg' },
+  { name: 'The Telegraph', image: '/images/18.svg' }
+];
 
     // Row 2
     {
@@ -128,90 +80,51 @@ export const FeaturedInLogosGrid = () => {
       )
     },
 
-    // Row 3
-    {
-      id: 'nytimes',
-      content: (
-        <span className="text-[13px] sm:text-[14px] font-[900] text-slate-900 font-serif tracking-tight text-center leading-snug">
-          The New York Times
-        </span>
-      )
-    },
-    {
-      id: 'techcrunch',
-      content: (
-        <div className="flex items-center justify-center bg-[#64748B] w-16 h-12 rounded-[4px]">
-          <span className="text-[24px] font-[900] text-white font-sans tracking-tighter">TC</span>
-        </div>
-      )
-    },
-    {
-      id: 'clutch',
-      content: (
-        <div className="flex items-center space-x-0.5 font-[900] text-[24px] sm:text-[26px] tracking-tight text-slate-900 font-sans">
-          <span>Clut</span>
-          <span className="relative">
-            <span>c</span>
-            <span className="absolute -top-1 right-0.5 w-2 h-2 rounded-full bg-red-500 inline-block" />
-          </span>
-          <span>h</span>
-        </div>
-      )
-    },
-    {
-      id: 'pcmag',
-      content: (
-        <div className="bg-[#475569] w-14 h-14 rounded-[4px] flex flex-col items-center justify-center text-center">
-          <div className="text-[20px] font-[900] text-white font-sans leading-none">PC</div>
-          <div className="text-[7.5px] font-[700] text-slate-200 uppercase tracking-tighter font-sans leading-tight mt-0.5">PCMAG.COM</div>
-        </div>
-      )
-    },
-    {
-      id: 'g2crowd',
-      content: (
-        <div className="flex items-center space-x-1.5">
-          <div className="w-7 h-7 rounded-full bg-slate-800 flex items-center justify-center text-[12px] font-[900] text-white">
-            G2
-          </div>
-          <span className="text-[14px] font-[800] text-slate-800 font-sans tracking-wide">CROWD</span>
-        </div>
-      )
-    },
-    {
-      id: 'telegraph',
-      content: (
-        <span className="text-[14px] sm:text-[16px] font-[900] text-slate-900 font-serif tracking-tight text-center">
-          The Telegraph
-        </span>
-      )
-    }
-  ];
+  // Always display the 18 reference logos in 6x3 grid
+  const logos = (data?.logos && Array.isArray(data.logos) && data.logos.length >= 18)
+    ? data.logos.filter(l => l.isActive !== false)
+    : defaultLogos;
 
   return (
-    <section className="py-20 bg-white border-b border-slate-100 text-slate-900 relative font-sans">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        {/* Section Heading */}
-        <div className="text-center mb-12">
-          <h2 className="text-[34px] font-[800] tracking-tight text-slate-900 font-sans">
-            We Have Been Featured In
+    <section className="py-14 sm:py-18 bg-white border-b border-slate-200/80 text-slate-900 relative font-sans overflow-hidden">
+      <Container>
+        {/* Section Header */}
+        <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-12">
+          <h2 className="text-[28px] sm:text-[34px] lg:text-[38px] font-[900] tracking-tight text-slate-950 font-sans">
+            {displayTitle}
           </h2>
         </div>
 
-        {/* 6-Column x 3-Row Grid of 18 Exact 1:1 SQUARE Cards */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 sm:gap-5">
-          {logos.map((logo) => (
-            <div
-              key={logo.id}
-              className="aspect-square bg-white rounded-[16px] border border-slate-200/90 shadow-[0px_6px_20px_rgba(0,0,0,0.04)] hover:shadow-lg hover:border-[#006B8F]/40 transition-all duration-300 flex items-center justify-center p-4 group cursor-pointer"
-            >
-              <div className="group-hover:scale-105 transition-transform flex items-center justify-center text-center">
-                {logo.content}
+        {/* 6x3 Grid of 18 Exact Square White Cards (Matching Reference Screenshot 1) */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-5 lg:gap-5 max-w-[1240px] mx-auto">
+          {logos.map((logo, idx) => {
+            const rawSrc = logo.image || defaultLogos[idx % defaultLogos.length]?.image || `/images/${(idx % 18) + 1}.svg`;
+            const imgSrc = rawSrc ? getMediaUrl(rawSrc) : '';
+
+            return (
+              <div
+                key={idx}
+                className="bg-white rounded-[14px] sm:rounded-[16px] shadow-[0_4px_18px_rgba(0,0,0,0.05)] border border-slate-100 hover:border-[#006B8F]/40 flex items-center justify-center p-4 aspect-square w-full transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group cursor-pointer"
+              >
+                {imgSrc ? (
+                  <img
+                    src={imgSrc}
+                    alt={logo.name || `Publication Logo ${idx + 1}`}
+                    className="max-h-[44px] sm:max-h-[50px] max-w-[85%] object-contain transition-transform duration-300 group-hover:scale-105"
+                    onError={(e) => {
+                      e.target.style.display = 'none';
+                    }}
+                  />
+                ) : (
+                  <div className="flex items-center justify-center w-full h-full">
+                    {logo.content || <span className="text-base font-bold text-slate-800">{logo.name}</span>}
+                  </div>
+                )}
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
-      </div>
+      </Container>
     </section>
   );
 };

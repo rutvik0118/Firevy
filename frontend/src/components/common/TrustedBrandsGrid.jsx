@@ -10,7 +10,7 @@ export const TrustedBrandsGrid = () => {
     { name: 'CLP INDIA', logo: '/images/logo_clp_india.svg' },
     { name: 'adani', logo: '/images/logo_adani.svg' },
     { name: 'GFL', logo: '/images/logo_gfl.svg' },
-    
+
     { name: 'TOYOTA', logo: '/images/toyota_logo.webp' },
     { name: 'ACC LIMITED', logo: '/images/logo_acc.svg' },
     { name: 'Ambuja Cement', logo: '/images/logo_ambuja.svg' },
@@ -34,7 +34,7 @@ export const TrustedBrandsGrid = () => {
   ];
 
   return (
-    <section className="pt-12 pb-6 sm:pb-8 bg-white border-b border-slate-200 text-slate-900 text-left">
+    <section className="pt-12 pb-6 sm:pb-8 bg-white text-slate-900 text-left">
       <Container>
         {/* Centered Heading & Subtitle */}
         <div className="text-center max-w-4xl mx-auto mb-12 sm:mb-14 space-y-3">

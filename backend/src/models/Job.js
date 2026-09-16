@@ -10,6 +10,10 @@ const jobSchema = new mongoose.Schema({
   description: { type: String, required: true },
   requirements: [{ type: String }],
   responsibilities: [{ type: String }],
+  openings: { type: Number, default: 1 },
+  urgent: { type: Boolean, default: false },
+  order: { type: Number, default: 0 },
+  status: { type: String, enum: ['published', 'draft'], default: 'published' },
   isActive: { type: Boolean, default: true }
 }, {
   timestamps: true
