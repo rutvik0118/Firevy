@@ -22,6 +22,7 @@ import SectorsThrivingSection from './SectorsThrivingSection';
 import WhatSetsUsApartSection from '../common/WhatSetsUsApartSection';
 import ConversionCalloutBanner from '../home/ConversionCalloutBanner';
 import SubscribeNewsletterSection from '../home/SubscribeNewsletterSection';
+import IWatchChallengeCtaBanner from './IWatchChallengeCtaBanner';
 import {
   Clock,
   Calendar,
@@ -96,10 +97,10 @@ export const HireBootstrapDevelopersService = () => {
       saveText: null,
       badgeText: null,
       features: [
-        'hecked-engagement Billing cycle : Monthly',
+        'Billing cycle : Monthly',
         'Project Trackers : Daily Reports, Basecamp, Jira, Redmine etc.',
-        'checked-engagement 4 hours a day, 5 days a week',
-        'checked-engagement Minimum: 2 months'
+        '4 hours a day, 5 days a week',
+        'Minimum: 2 months'
       ]
     },
     {
@@ -113,8 +114,8 @@ export const HireBootstrapDevelopersService = () => {
       badgeText: null,
       features: [
         'Project Trackers : Daily Reports, Basecamp, Jira, Redmine etc',
-        'checked-engagement 4 hours a day, 5 days a week',
-        'checked-engagement Minimum: 2 months',
+        '4 hours a day, 5 days a week',
+        'Minimum: 2 months',
         'Hire Dedicated Bootstrap Developers that exclusively works for you'
       ]
     },
@@ -130,7 +131,7 @@ export const HireBootstrapDevelopersService = () => {
       features: [
         'Project Trackers : Daily Reports, Basecamp, Jira, Redmine etc.',
         'Payment based on hours worked',
-        'checked-engagement 4 hours a day, 5 days a week',
+        '4 hours a day, 5 days a week',
         'Billing cycle: Weekly/Monthly'
       ]
     },
@@ -144,10 +145,10 @@ export const HireBootstrapDevelopersService = () => {
       saveText: null,
       badgeText: null,
       features: [
-        'checked-engagement Billing cycle : Monthly',
+        'Billing cycle : Monthly',
         'Project Trackers : Daily Reports, Basecamp, Jira, Redmine etc.',
-        'checked-engagement 4 hours a day, 5 days a week',
-        'checked-engagement Minimum: 2 months'
+        '4 hours a day, 5 days a week',
+        'Minimum: 2 months'
       ]
     },
     {
@@ -160,10 +161,10 @@ export const HireBootstrapDevelopersService = () => {
       saveText: null,
       badgeText: null,
       features: [
-        'checked-engagement Billing cycle : Monthly',
+        'Billing cycle : Monthly',
         'Project Trackers : Daily Reports, Basecamp, Jira, Redmine etc.',
-        'checked-engagement 4 hours a day, 5 days a week',
-        'checked-engagement Minimum: 2 months'
+        '4 hours a day, 5 days a week',
+        'Minimum: 2 months'
       ]
     },
     {
@@ -176,10 +177,10 @@ export const HireBootstrapDevelopersService = () => {
       saveText: 'Save Up TO 20%',
       badgeText: 'Best Deal',
       features: [
-        'checked-engagement Billing cycle : Monthly',
+        'Billing cycle : Monthly',
         'Project Trackers : Daily Reports, Basecamp, Jira, Redmine etc.',
-        'checked-engagement 4 hours a day, 5 days a week',
-        'checked-engagement Minimum: 2 months'
+        '4 hours a day, 5 days a week',
+        'Minimum: 2 months'
       ]
     }
   ];
@@ -231,31 +232,47 @@ export const HireBootstrapDevelopersService = () => {
     setFormSubmitted(true);
   };
 
-  // Bootstrap FAQs
+  // Bootstrap FAQs (Exact Match to Sapphire Reference Site Image 1)
   const bootstrapFaqs = [
     {
-      q: '1. What hiring models do you offer for hiring Bootstrap developers?',
-      a: 'We offer flexible hiring models including Dedicated Developer Squads ($21/hr), Quarterly, Yearly, and Part-time plans tailored to your web application timeline.'
+      id: 1,
+      question: '1. Why is Bootstrap used?',
+      answer: 'Bootstrap helps designers and developers to create websites that are fully responsive rapidly. It is the most popular CSS framework for designing mobile-first and responsive apps.'
     },
     {
-      q: '2. How quickly can I hire and onboard a Bootstrap developer?',
-      a: 'We can match and onboard pre-screened senior Bootstrap developers within 24 to 48 hours to start work on your sprint immediately.'
+      id: 2,
+      question: '2. Is Bootstrap Necessary For Web Development?',
+      answer: 'While not strictly necessary, Bootstrap significantly speeds up front-end development by providing pre-built responsive grid systems, components, and utilities.'
     },
     {
-      q: '3. Do your Bootstrap developers work in my local timezone?',
-      a: 'Yes, our Bootstrap developers offer minimum 4-5 hours of daily timezone overlap across EST, CST, PST, GMT, and AEST business hours.'
+      id: 3,
+      question: '3. What is Bootstrap?',
+      answer: 'Bootstrap is an open-source front-end framework containing HTML, CSS, and JavaScript-based design templates for typography, forms, buttons, navigation, and other interface components.'
     },
     {
-      q: '4. Do you sign Non-Disclosure Agreements (NDAs)?',
-      a: 'Yes, we sign strict NDAs before sharing any project files or IP to guarantee complete data security and source code ownership.'
+      id: 4,
+      question: '4. What are Bootstrap Components?',
+      answer: 'Bootstrap components include navigation bars, modals, carousels, accordions, dropdowns, tooltips, cards, buttons, and alert badges designed for rapid web assembly.'
     },
     {
-      q: '5. Can your developers migrate our legacy website to Bootstrap 5?',
-      a: 'Absolutely. Our senior frontend developers specialize in refactoring legacy CSS/HTML frameworks to modern, clean, mobile-first Bootstrap 5.'
+      id: 5,
+      question: '5. Why is Bootstrap Preferred For Website Development?',
+      answer: 'Bootstrap is preferred for its mobile-first responsive grid system, cross-browser compatibility, extensive documentation, customizable SCSS variables, and strong community support.'
     },
     {
-      q: '6. What is the experience level of your Bootstrap developers?',
-      a: 'Our Bootstrap engineers have an average of 5+ years of experience in responsive web design, HTML5, CSS3, SCSS, JavaScript, and modern UI frameworks.'
+      id: 6,
+      question: '6. Why should I hire a Bootstrap developer from Sapphire Solutions?',
+      answer: 'Our dedicated Bootstrap developers have 5+ years of experience refactoring legacy UI, building custom responsive themes, optimizing web speed, and adhering to W3C standards.'
+    },
+    {
+      id: 7,
+      question: '7. Can I hire Bootstrap developers for an existing web project redesign?',
+      answer: 'Yes, our Bootstrap engineers specialize in modernizing legacy websites to Bootstrap 5, implementing clean responsive layouts, and improving lighthouse performance scores.'
+    },
+    {
+      id: 8,
+      question: '8. Are your Bootstrap developers experienced in working with other front-end frameworks?',
+      answer: 'Yes, our Bootstrap developers are proficient in HTML5, CSS3, SCSS, JavaScript, React.js, Vue.js, and modern build tools like Vite and Webpack.'
     }
   ];
 
@@ -337,79 +354,14 @@ export const HireBootstrapDevelopersService = () => {
               </div>
             </div>
 
-            {/* Right Column Monitor & Floating Bootstrap Badges */}
+            {/* Right Column Image Visual */}
             <div className="lg:col-span-5 relative flex items-center justify-center">
-              {/* Background translucent gears & accents */}
-              <div className="absolute -top-6 -left-2 w-28 h-28 bg-[#D4E8F5]/50 rounded-2xl pointer-events-none" />
-              <div className="absolute -bottom-6 -right-2 w-36 h-36 bg-[#D4E8F5]/60 rounded-2xl pointer-events-none" />
-
-              <div className="relative w-full max-w-[480px]">
-                {/* HTML5 Badge floating top-right */}
-                <div className="absolute -top-5 -right-3 z-20 bg-[#E34F26] text-white px-3 py-1.5 rounded-xl shadow-lg font-bold text-xs flex items-center space-x-1 border-2 border-white">
-                  <span className="bg-white text-[#E34F26] px-1 rounded font-extrabold text-xs">5</span>
-                  <span>HTML</span>
-                </div>
-
-                {/* CSS3 Badge floating bottom-right */}
-                <div className="absolute bottom-6 -right-4 z-20 bg-[#1572B6] text-white px-3 py-1.5 rounded-xl shadow-lg font-bold text-xs flex items-center space-x-1 border-2 border-white">
-                  <span className="bg-white text-[#1572B6] px-1 rounded font-extrabold text-xs">3</span>
-                  <span>CSS</span>
-                </div>
-
-                {/* Bootstrap Badge floating center-right */}
-                <div className="absolute top-1/3 -right-6 z-20 bg-[#7952B3] text-white px-3 py-2 rounded-xl shadow-xl font-bold text-sm flex items-center space-x-1.5 border-2 border-white">
-                  <span className="bg-white text-[#7952B3] w-5 h-5 rounded flex items-center justify-center font-extrabold text-xs">B</span>
-                  <span>Bootstrap</span>
-                </div>
-
-                {/* JS Badge floating left */}
-                <div className="absolute top-1/4 -left-6 z-20 bg-[#F7DF1E] text-slate-900 px-2.5 py-1.5 rounded-xl shadow-lg font-bold text-xs border-2 border-white">
-                  <span>JS</span>
-                </div>
-
-                {/* Vector Computer Desktop Monitor */}
-                <div className="relative z-10 drop-shadow-2xl">
-                  <svg viewBox="0 0 540 340" className="w-full h-auto">
-                    <defs>
-                      <linearGradient id="monBezel" x1="0%" y1="0%" x2="0%" y2="100%">
-                        <stop offset="0%" stopColor="#1E293B" />
-                        <stop offset="100%" stopColor="#0F172A" />
-                      </linearGradient>
-                    </defs>
-
-                    {/* Monitor Screen Frame */}
-                    <rect x="50" y="20" width="440" height="250" rx="12" fill="url(#monBezel)" stroke="#334155" strokeWidth="2" />
-                    {/* Screen Content Window */}
-                    <rect x="65" y="35" width="410" height="220" rx="6" fill="#FFFFFF" />
-
-                    {/* Code & Layout Wireframe preview */}
-                    <rect x="80" y="50" width="380" height="18" rx="4" fill="#F1F5F9" />
-                    <circle cx="92" cy="59" r="4" fill="#EF4444" />
-                    <circle cx="106" cy="59" r="4" fill="#F59E0B" />
-                    <circle cx="120" cy="59" r="4" fill="#10B981" />
-
-                    <rect x="80" y="80" width="220" height="8" rx="2" fill="#0083B0" opacity="0.8" />
-                    <rect x="80" y="96" width="180" height="6" rx="2" fill="#94A3B8" />
-                    <rect x="80" y="108" width="240" height="6" rx="2" fill="#CBD5E1" />
-
-                    {/* Grid Boxes simulating Bootstrap Grid */}
-                    <rect x="80" y="125" width="110" height="65" rx="6" fill="#F8FAFC" stroke="#E2E8F0" strokeWidth="2" />
-                    <rect x="200" y="125" width="110" height="65" rx="6" fill="#F8FAFC" stroke="#E2E8F0" strokeWidth="2" />
-                    <rect x="320" y="125" width="140" height="65" rx="6" fill="#F8FAFC" stroke="#E2E8F0" strokeWidth="2" />
-
-                    <rect x="90" y="140" width="60" height="8" rx="2" fill="#7952B3" />
-                    <rect x="210" y="140" width="60" height="8" rx="2" fill="#0083B0" />
-                    <rect x="330" y="140" width="80" height="8" rx="2" fill="#64748B" />
-
-                    {/* Code Lines at Bottom Screen */}
-                    <rect x="80" y="200" width="380" height="40" rx="4" fill="#0F172A" />
-                    <text x="95" y="225" fill="#38BDF8" fontFamily="monospace" fontSize="11">&lt;div className="container font-bold"&gt;...&lt;/div&gt;</text>
-
-                    {/* Stand & Base */}
-                    <path d="M 230 270 L 310 270 L 320 310 L 220 310 Z" fill="#94A3B8" />
-                    <ellipse cx="270" cy="310" rx="70" ry="10" fill="#CBD5E1" />
-                  </svg>
-                </div>
+              <div className="relative w-full max-w-[540px]">
+                <img
+                  src="/images/bootstrap_hero_illustration.jpg"
+                  alt="Hire Bootstrap Developer Illustration"
+                  className="w-full h-auto object-contain rounded-2xl shadow-2xl border border-slate-200/80 hover:shadow-indigo-500/10 transition-shadow duration-300"
+                />
               </div>
             </div>
 
@@ -429,111 +381,14 @@ export const HireBootstrapDevelopersService = () => {
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             
-            {/* Left Graphic Illustration (1:1 Copy of Sapphire Reference Site Illustration) */}
+            {/* Left Graphic Illustration Image */}
             <div className="lg:col-span-6 relative flex justify-center items-center">
               <div className="relative w-full max-w-[550px]">
-                <svg viewBox="0 0 600 380" className="w-full h-auto drop-shadow-md font-sans">
-                  {/* Ground Baseline */}
-                  <line x1="40" y1="350" x2="560" y2="350" stroke="#CBD5E1" strokeWidth="2" strokeLinecap="round" />
-
-                  {/* 1. LEFT SMARTPHONE GRAPHIC */}
-                  <g transform="translate(60, 120)">
-                    {/* Phone Bezel Body */}
-                    <rect x="0" y="0" width="115" height="225" rx="20" fill="#FFFFFF" stroke="#1E293B" strokeWidth="4" />
-                    {/* Speaker & Notch */}
-                    <rect x="44" y="8" width="28" height="4" rx="2" fill="#94A3B8" />
-                    {/* Blue Bird / Swift Logo Screen Container */}
-                    <rect x="15" y="24" width="85" height="90" rx="10" fill="#F0F7FF" />
-                    {/* Bird / Swift Icon Path */}
-                    <path d="M 40 45 C 50 35, 75 42, 80 50 C 70 52, 60 55, 50 62 C 42 68, 38 78, 35 85 C 45 78, 60 75, 70 76 C 55 85, 45 88, 30 70 Z" fill="#0284C7" />
-                    {/* Lower Screen Wireframe Cards */}
-                    <rect x="15" y="125" width="38" height="44" rx="6" fill="#F1F5F9" stroke="#E2E8F0" strokeWidth="1.5" />
-                    <circle cx="34" cy="140" r="6" fill="#CBD5E1" />
-                    <rect x="23" y="154" width="22" height="4" rx="2" fill="#E2E8F0" />
-                    
-                    <rect x="62" y="125" width="38" height="44" rx="6" fill="#F1F5F9" stroke="#E2E8F0" strokeWidth="1.5" />
-                    <circle cx="81" cy="140" r="6" fill="#CBD5E1" />
-                    <rect x="70" y="154" width="22" height="4" rx="2" fill="#E2E8F0" />
-                    {/* Home Bar */}
-                    <rect x="42" y="210" width="32" height="3" rx="1.5" fill="#CBD5E1" />
-                  </g>
-
-                  {/* 2. DESK & LAPTOP */}
-                  {/* Desk Top Surface */}
-                  <rect x="180" y="240" width="165" height="7" rx="3" fill="#0083B0" />
-                  {/* Desk Leg */}
-                  <rect x="258" y="247" width="8" height="103" rx="2" fill="#475569" />
-                  <rect x="235" y="348" width="54" height="4" rx="2" fill="#334155" />
-
-                  {/* Laptop on Desk */}
-                  <path d="M 195 240 L 212 202 L 254 202 L 246 240 Z" fill="#334155" /> {/* Screen lid */}
-                  <polygon points="190,240 252,240 257,244 185,244" fill="#94A3B8" /> {/* Base */}
-
-                  {/* FLOATING CODE EDITOR WINDOW ABOVE LAPTOP */}
-                  <g transform="translate(195, 105)">
-                    <rect x="0" y="0" width="135" height="80" rx="6" fill="#64B5F6" opacity="0.88" />
-                    {/* Code Lines inside editor */}
-                    <rect x="10" y="12" width="85" height="4" rx="2" fill="#FFFFFF" />
-                    <rect x="10" y="22" width="110" height="4" rx="2" fill="#E3F2FD" />
-                    <rect x="18" y="32" width="75" height="4" rx="2" fill="#E3F2FD" />
-                    <rect x="24" y="42" width="65" height="4" rx="2" fill="#E3F2FD" />
-                    <rect x="10" y="52" width="45" height="4" rx="2" fill="#FFFFFF" />
-                    <rect x="10" y="64" width="90" height="4" rx="2" fill="#E3F2FD" />
-                  </g>
-
-                  {/* FLOATING BADGES OVER CODE WINDOW */}
-                  {/* Left Badge: Cyan {} */}
-                  <g transform="translate(178, 95)">
-                    <rect x="0" y="0" width="26" height="22" rx="6" fill="#00B4D8" />
-                    <text x="13" y="15" fill="#FFFFFF" fontFamily="monospace" fontSize="12" fontWeight="bold" textAnchor="middle">{'{ }'}</text>
-                  </g>
-                  {/* Right Badge: Blue <\> */}
-                  <g transform="translate(322, 110)">
-                    <rect x="0" y="0" width="32" height="22" rx="6" fill="#0083B0" />
-                    <text x="16" y="15" fill="#FFFFFF" fontFamily="monospace" fontSize="11" fontWeight="bold" textAnchor="middle">&lt;\&gt;</text>
-                  </g>
-
-                  {/* 3. DEVELOPER CHARACTER SEATED ON CHAIR */}
-                  <g transform="translate(330, 200)">
-                    {/* Backrest */}
-                    <rect x="32" y="0" width="12" height="75" rx="6" fill="#0083B0" />
-                    {/* Seat Cushion */}
-                    <rect x="0" y="65" width="48" height="12" rx="4" fill="#0083B0" />
-                    {/* Chair Support Column & Base */}
-                    <rect x="20" y="77" width="6" height="73" fill="#334155" />
-                    <line x1="-5" y1="350" x2="45" y2="350" stroke="#334155" strokeWidth="4" />
-                    <circle cx="-5" cy="350" r="4" fill="#1E293B" />
-                    <circle cx="45" cy="350" r="4" fill="#1E293B" />
-                  </g>
-
-                  {/* Developer Person Body */}
-                  {/* Legs / Trousers */}
-                  <path d="M 320 255 L 295 310 L 268 310" stroke="#1E293B" strokeWidth="18" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-                  {/* Blue Shoes */}
-                  <path d="M 268 310 L 248 310 C 242 310, 242 316, 250 316 L 274 316 Z" fill="#0284C7" />
-                  <path d="M 315 310 L 295 310 C 290 310, 290 316, 298 316 L 320 316 Z" fill="#0284C7" />
-
-                  {/* Torso (Blue Shirt) */}
-                  <path d="M 320 190 C 295 190, 280 210, 290 255 L 340 255 C 345 220, 340 190, 320 190 Z" fill="#0284C7" />
-
-                  {/* Arms reaching out to keyboard */}
-                  <path d="M 310 205 L 250 235 L 230 238" stroke="#FFCC80" strokeWidth="10" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-                  <path d="M 310 205 L 250 235" stroke="#0284C7" strokeWidth="12" strokeLinecap="round" fill="none" />
-
-                  {/* Head & Hair */}
-                  <circle cx="322" cy="170" r="16" fill="#FFCC80" /> {/* Skin Face */}
-                  <path d="M 308 170 C 308 155, 324 150, 336 160 C 339 168, 334 175, 334 175 C 326 162, 314 164, 308 170 Z" fill="#1E293B" /> {/* Dark Hair */}
-
-                  {/* 4. PLANT POT ON THE RIGHT */}
-                  <g transform="translate(435, 275)">
-                    {/* Pot */}
-                    <polygon points="10,40 38,40 32,75 16,75" fill="#374151" />
-                    {/* Plant Leaves */}
-                    <path d="M 24 40 C 10 20, -10 10, 0 0 C 15 15, 20 30, 24 40 Z" fill="#0284C7" />
-                    <path d="M 24 40 C 38 15, 60 10, 48 -5 C 32 10, 27 25, 24 40 Z" fill="#0284C7" />
-                    <path d="M 24 40 C 22 15, 24 -10, 24 -22 C 29 -5, 28 15, 24 40 Z" fill="#38BDF8" />
-                  </g>
-                </svg>
+                <img
+                  src="/images/bootstrap_section2_illustration.jpg"
+                  alt="Bootstrap Developers Available For Hire"
+                  className="w-full h-auto object-contain rounded-2xl shadow-xl border border-slate-200/80 hover:shadow-cyan-500/10 transition-shadow duration-300"
+                />
               </div>
             </div>
 
@@ -785,97 +640,14 @@ export const HireBootstrapDevelopersService = () => {
               </div>
             </div>
 
-            {/* Right Column: 1:1 Copy Vector Illustration (3 Team Members Collaborating Around Desk) */}
+            {/* Right Column: Graphic Illustration Image */}
             <div className="lg:col-span-5 relative flex justify-center items-center">
               <div className="relative w-full max-w-[500px]">
-                <svg viewBox="0 0 540 360" className="w-full h-auto drop-shadow-sm font-sans">
-                  {/* Soft light blue background shape */}
-                  <path d="M 80 180 C 60 80, 200 40, 360 60 C 480 80, 520 220, 460 300 C 380 370, 160 350, 80 180 Z" fill="#D4E8F5" opacity="0.6" />
-
-                  {/* Dashed Arc line connecting Lightbulb and React Icon */}
-                  <path d="M 125 75 Q 260 -20 405 65" fill="none" stroke="#0284C7" strokeWidth="2.5" strokeDasharray="5,5" />
-
-                  {/* 1. TOP LEFT LIGHTBULB GRAPHIC */}
-                  <g transform="translate(110, 50)">
-                    <line x1="15" y1="0" x2="15" y2="-8" stroke="#38BDF8" strokeWidth="2.5" strokeLinecap="round" />
-                    <line x1="0" y1="8" x2="-6" y2="4" stroke="#38BDF8" strokeWidth="2.5" strokeLinecap="round" />
-                    <line x1="30" y1="8" x2="36" y2="4" stroke="#38BDF8" strokeWidth="2.5" strokeLinecap="round" />
-                    <circle cx="15" cy="18" r="14" fill="#38BDF8" />
-                    <path d="M 8 26 L 22 26 L 20 34 L 10 34 Z" fill="#0284C7" />
-                    <rect x="11" y="34" width="8" height="4" rx="1" fill="#64748B" />
-                  </g>
-
-                  {/* 2. SPEECH BUBBLE ABOVE LEFT PERSON */}
-                  <g transform="translate(180, 120)">
-                    <rect x="0" y="0" width="55" height="34" rx="14" fill="#0284C7" />
-                    <path d="M 12 33 L 8 42 L 20 34 Z" fill="#0284C7" />
-                    <circle cx="16" cy="17" r="3" fill="#FFFFFF" />
-                    <circle cx="27.5" cy="17" r="3" fill="#FFFFFF" />
-                    <circle cx="39" cy="17" r="3" fill="#FFFFFF" />
-                  </g>
-
-                  {/* 3. LEFT PERSON (Standing developer facing right) */}
-                  <g transform="translate(110, 150)">
-                    <rect x="22" y="110" width="14" height="90" rx="4" fill="#1E293B" />
-                    <rect x="42" y="110" width="14" height="90" rx="4" fill="#1E293B" />
-                    <ellipse cx="27" cy="200" rx="12" ry="5" fill="#0F172A" />
-                    <ellipse cx="51" cy="200" rx="12" ry="5" fill="#0F172A" />
-                    <path d="M 15 50 C 15 40, 60 40, 60 50 L 56 115 L 18 115 Z" fill="#38BDF8" />
-                    <path d="M 55 52 L 85 85 L 105 78" stroke="#FFCC80" strokeWidth="8" strokeLinecap="round" fill="none" />
-                    <path d="M 55 52 L 85 85" stroke="#38BDF8" strokeWidth="10" strokeLinecap="round" fill="none" />
-                    <path d="M 20 52 L 8 85 L 18 90" stroke="#FFCC80" strokeWidth="7" strokeLinecap="round" fill="none" />
-                    <path d="M 20 52 L 10 80" stroke="#38BDF8" strokeWidth="9" strokeLinecap="round" fill="none" />
-                    <circle cx="36" cy="28" r="15" fill="#FFCC80" />
-                    <path d="M 24 28 C 24 12, 40 10, 48 20 C 50 28, 44 32, 44 32 C 38 22, 28 22, 24 28 Z" fill="#1E293B" />
-                  </g>
-
-                  {/* 4. MIDDLE PERSON (Sitting developer at desk) */}
-                  <g transform="translate(230, 200)">
-                    <rect x="0" y="55" width="105" height="90" rx="6" fill="#0284C7" />
-                    <path d="M 25 15 C 25 5, 80 5, 80 15 L 75 58 L 30 58 Z" fill="#1E293B" />
-                    <rect x="35" y="32" width="45" height="28" rx="4" fill="#FFFFFF" stroke="#64748B" strokeWidth="2" />
-                    <circle cx="57.5" cy="46" r="4" fill="#0284C7" />
-                    <rect x="25" y="57" width="65" height="4" rx="2" fill="#CBD5E1" />
-                    <circle cx="52" cy="-4" r="14" fill="#FFCC80" />
-                    <path d="M 40 -4 C 40 -18, 55 -18, 64 -10 C 66 -2, 60 2, 60 2 C 54 -6, 44 -6, 40 -4 Z" fill="#1E293B" />
-                  </g>
-
-                  {/* 5. TOP RIGHT REACT ATOM GRAPHIC */}
-                  <g transform="translate(390, 40)">
-                    <circle cx="25" cy="25" r="24" fill="#FFFFFF" stroke="#BAE6FD" strokeWidth="2" />
-                    <ellipse cx="25" cy="25" rx="16" ry="6" fill="none" stroke="#0284C7" strokeWidth="2" transform="rotate(30 25 25)" />
-                    <ellipse cx="25" cy="25" rx="16" ry="6" fill="none" stroke="#0284C7" strokeWidth="2" transform="rotate(90 25 25)" />
-                    <ellipse cx="25" cy="25" rx="16" ry="6" fill="none" stroke="#0284C7" strokeWidth="2" transform="rotate(150 25 25)" />
-                    <circle cx="25" cy="25" r="3.5" fill="#0284C7" />
-                  </g>
-
-                  {/* 6. RIGHT PERSON (Standing developer with arms raised) */}
-                  <g transform="translate(350, 170)">
-                    <rect x="22" y="90" width="13" height="90" rx="4" fill="#38BDF8" />
-                    <rect x="40" y="90" width="13" height="90" rx="4" fill="#38BDF8" />
-                    <ellipse cx="27" cy="180" rx="11" ry="5" fill="#0F172A" />
-                    <ellipse cx="48" cy="180" rx="11" ry="5" fill="#0F172A" />
-                    <path d="M 16 35 C 16 25, 58 25, 58 35 L 54 95 L 18 95 Z" fill="#FF7A59" />
-                    <path d="M 20 38 L -10 20 L -25 30" stroke="#FFCC80" strokeWidth="7" strokeLinecap="round" fill="none" />
-                    <path d="M 20 38 L -8 22" stroke="#FF7A59" strokeWidth="9" strokeLinecap="round" fill="none" />
-                    <path d="M 52 38 L 75 25 L 85 35" stroke="#FFCC80" strokeWidth="7" strokeLinecap="round" fill="none" />
-                    <path d="M 52 38 L 72 27" stroke="#FF7A59" strokeWidth="9" strokeLinecap="round" fill="none" />
-                    <circle cx="36" cy="16" r="14" fill="#FFCC80" />
-                    <path d="M 24 16 C 24 0, 42 -2, 50 8 C 52 16, 46 20, 46 20 C 38 10, 28 10, 24 16 Z" fill="#1E293B" />
-                  </g>
-
-                  {/* 7. BOOKS & PLANT ON RIGHT FLOOR */}
-                  <g transform="translate(425, 305)">
-                    <rect x="0" y="0" width="35" height="8" rx="2" fill="#0284C7" />
-                    <rect x="3" y="-8" width="30" height="8" rx="2" fill="#F59E0B" />
-                    <rect x="1" y="-16" width="33" height="8" rx="2" fill="#10B981" />
-                  </g>
-                  <g transform="translate(470, 280)">
-                    <polygon points="5,35 30,35 25,60 10,60" fill="#1E293B" />
-                    <path d="M 17 35 C 5 15, -10 25, 2 5 C 15 15, 16 28, 17 35 Z" fill="#0284C7" />
-                    <path d="M 17 35 C 30 15, 45 25, 32 5 C 20 15, 18 28, 17 35 Z" fill="#38BDF8" />
-                  </g>
-                </svg>
+                <img
+                  src="/images/bootstrap_section8_illustration.jpg"
+                  alt="Who Exactly Is A Bootstrap Developer & Why Hire Them"
+                  className="w-full h-auto object-contain rounded-2xl shadow-xl border border-slate-200/80 hover:shadow-blue-500/10 transition-shadow duration-300"
+                />
               </div>
             </div>
 
@@ -1287,125 +1059,22 @@ export const HireBootstrapDevelopersService = () => {
                 {
                   id: 'vehicle-data',
                   title: 'Vehicle Data Logging Software',
-                  render: () => (
-                    <svg viewBox="0 0 400 250" className="w-full h-full">
-                      <rect x="0" y="0" width="400" height="250" rx="14" fill="#18191D" />
-                      <rect x="0" y="0" width="400" height="34" rx="14" fill="#25262B" />
-                      <rect x="0" y="20" width="400" height="14" fill="#25262B" />
-                      <text x="200" y="22" textAnchor="middle" fill="#94A3B8" fontSize="13" fontWeight="900" letterSpacing="1.5" fontFamily="sans-serif">VEHICLE-DATA-LOGGING</text>
-                      <circle cx="16" cy="17" r="4" fill="#EF4444" />
-                      <circle cx="28" cy="17" r="4" fill="#F59E0B" />
-                      <circle cx="40" cy="17" r="4" fill="#10B981" />
-
-                      <rect x="15" y="44" width="160" height="190" rx="8" fill="#212228" stroke="#334155" strokeWidth="1" />
-                      <path d="M 25 90 C 50 70, 90 120, 130 90 C 150 75, 160 110, 165 140" fill="none" stroke="#0083B0" strokeWidth="3" />
-                      <circle cx="90" cy="95" r="5" fill="#38BDF8" />
-                      <rect x="25" y="160" width="140" height="12" rx="3" fill="#0083B0" opacity="0.6" />
-
-                      <rect x="185" y="44" width="200" height="55" rx="8" fill="#212228" stroke="#334155" strokeWidth="1" />
-                      <rect x="195" y="54" width="50" height="35" rx="5" fill="#EF4444" />
-                      <text x="220" y="76" textAnchor="middle" fill="#FFFFFF" fontSize="11" fontWeight="900">98%</text>
-                      
-                      <rect x="255" y="54" width="50" height="35" rx="5" fill="#F59E0B" />
-                      <text x="280" y="76" textAnchor="middle" fill="#FFFFFF" fontSize="11" fontWeight="900">91%</text>
-                      
-                      <rect x="315" y="54" width="50" height="35" rx="5" fill="#10B981" />
-                      <text x="340" y="76" textAnchor="middle" fill="#FFFFFF" fontSize="11" fontWeight="900">34%</text>
-
-                      <rect x="185" y="108" width="200" height="126" rx="8" fill="#212228" stroke="#334155" strokeWidth="1" />
-                      <path d="M 195 200 L 220 180 L 250 190 L 280 150 L 310 165 L 340 135 L 375 160" fill="none" stroke="#38BDF8" strokeWidth="2.5" />
-                      <path d="M 195 200 L 220 180 L 250 190 L 280 150 L 310 165 L 340 135 L 375 160 L 375 220 L 195 220 Z" fill="#38BDF8" opacity="0.15" />
-                    </svg>
-                  )
+                  image: '/images/enterprise_app_mockup.jpg'
                 },
                 {
                   id: 'car-wash',
                   title: 'Car Wash App Development',
-                  render: () => (
-                    <svg viewBox="0 0 400 250" className="w-full h-full">
-                      <rect x="0" y="0" width="400" height="250" rx="14" fill="#F4F4F6" />
-                      <circle cx="35" cy="30" r="14" fill="#F59E0B" />
-                      <text x="35" y="34" textAnchor="middle" fill="#FFFFFF" fontSize="11" fontWeight="900">B</text>
-                      <text x="56" y="28" fill="#1E293B" fontSize="9" fontWeight="900">Bee Car</text>
-                      <text x="56" y="38" fill="#64748B" fontSize="7" fontWeight="700">CARE</text>
-
-                      <rect x="190" y="60" width="180" height="36" rx="6" fill="#FDE047" opacity="0.8" />
-                      <text x="280" y="84" textAnchor="middle" fill="#854D0E" fontSize="16" fontWeight="900" letterSpacing="1">CAR WASH</text>
-
-                      <g transform="translate(130, 70)">
-                        <rect x="0" y="0" width="85" height="165" rx="14" fill="#FFFFFF" stroke="#1E293B" strokeWidth="3" />
-                        <rect x="30" y="6" width="25" height="3" rx="1.5" fill="#94A3B8" />
-                        <rect x="10" y="18" width="65" height="40" rx="6" fill="#FEF08A" />
-                        <circle cx="24" cy="38" r="8" fill="#F59E0B" />
-                        <rect x="10" y="66" width="65" height="80" rx="6" fill="#F8FAFC" stroke="#E2E8F0" strokeWidth="1" />
-                        <rect x="18" y="74" width="49" height="6" rx="2" fill="#0284C7" />
-                        <rect x="18" y="86" width="38" height="5" rx="2" fill="#94A3B8" />
-                      </g>
-
-                      <g transform="translate(230, 110)">
-                        <path d="M 10 45 Q 25 20, 60 18 Q 95 18, 115 45 L 140 45 C 148 45, 150 55, 145 65 L 5 65 C 0 55, 2 45, 10 45 Z" fill="#EAB308" />
-                        <path d="M 32 40 Q 42 24, 65 24 L 65 40 Z" fill="#38BDF8" opacity="0.8" />
-                        <path d="M 70 24 Q 90 24, 102 40 L 70 40 Z" fill="#38BDF8" opacity="0.8" />
-                        <circle cx="35" cy="65" r="14" fill="#1E293B" />
-                        <circle cx="35" cy="65" r="6" fill="#94A3B8" />
-                        <circle cx="115" cy="65" r="14" fill="#1E293B" />
-                        <circle cx="115" cy="65" r="6" fill="#94A3B8" />
-                      </g>
-
-                      <circle cx="380" cy="140" r="3" fill="#38BDF8" />
-                      <circle cx="370" cy="125" r="4" fill="#0284C7" />
-                      <circle cx="385" cy="155" r="2.5" fill="#38BDF8" />
-
-                      <text x="280" y="215" textAnchor="middle" fill="#CBD5E1" fontSize="20" fontWeight="900" opacity="0.6">Car Wash Application</text>
-                    </svg>
-                  )
+                  image: '/images/car_wash_app_mockup.jpg'
                 },
                 {
                   id: 'taxi-booking',
                   title: 'Taxi Booking-App Development',
-                  render: () => (
-                    <svg viewBox="0 0 400 250" className="w-full h-full">
-                      <rect x="0" y="0" width="400" height="250" rx="14" fill="#EBECEC" />
-                      
-                      <text x="30" y="70" fill="#D1D5DB" fontSize="38" fontWeight="900">Quick</text>
-                      <text x="30" y="130" fill="#D1D5DB" fontSize="38" fontWeight="900">Booking</text>
-                      <text x="30" y="190" fill="#D1D5DB" fontSize="38" fontWeight="900">Application</text>
-
-                      <g transform="translate(30, 80)">
-                        <circle cx="6" cy="6" r="5" fill="#F97316" />
-                        <text x="18" y="10" fill="#1E293B" fontSize="16" fontWeight="900">Quick Taxi</text>
-                        <text x="18" y="28" fill="#F97316" fontSize="16" fontWeight="900">Booking</text>
-                        <circle cx="6" cy="42" r="5" fill="#F97316" />
-                        <text x="18" y="46" fill="#1E293B" fontSize="16" fontWeight="900">Application</text>
-                      </g>
-
-                      <g transform="translate(200, 30)">
-                        <rect x="0" y="0" width="90" height="185" rx="16" fill="#FFFFFF" stroke="#1E293B" strokeWidth="3" />
-                        <rect x="32" y="6" width="26" height="3" rx="1.5" fill="#94A3B8" />
-                        <rect x="8" y="18" width="74" height="155" rx="8" fill="#F1F5F9" />
-                        <path d="M 15 40 L 75 80 L 35 140 L 80 160" fill="none" stroke="#CBD5E1" strokeWidth="6" strokeLinecap="round" />
-                        <circle cx="45" cy="60" r="6" fill="#F97316" />
-                        <rect x="20" y="135" width="50" height="24" rx="6" fill="#1E293B" />
-                      </g>
-
-                      <g transform="translate(270, 45)">
-                        <rect x="0" y="0" width="92" height="185" rx="16" fill="#FFFFFF" stroke="#1E293B" strokeWidth="3.5" />
-                        <rect x="33" y="6" width="26" height="3" rx="1.5" fill="#94A3B8" />
-                        <rect x="8" y="18" width="76" height="155" rx="8" fill="#F8FAFC" />
-                        <rect x="26" y="55" width="40" height="30" rx="6" fill="#FFF7ED" stroke="#F97316" strokeWidth="1" />
-                        <path d="M 34 72 Q 40 62, 46 62 Q 52 62, 58 72 Z" fill="#F97316" />
-                        <circle cx="38" cy="76" r="3" fill="#1E293B" />
-                        <circle cx="54" cy="76" r="3" fill="#1E293B" />
-                        <rect x="18" y="138" width="56" height="22" rx="6" fill="#F97316" />
-                        <text x="46" y="153" textAnchor="middle" fill="#FFFFFF" fontSize="8" fontWeight="900">Confirm</text>
-                      </g>
-                    </svg>
-                  )
+                  image: '/images/taxi_booking_app_mockup.jpg'
                 }
               ].map((proj) => (
                 <div key={proj.id} className="bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-xs hover:shadow-md transition-all flex flex-col justify-between">
-                  <div className="h-52 w-full bg-slate-50 flex items-center justify-center p-2">
-                    {proj.render()}
+                  <div className="h-52 w-full bg-slate-50 flex items-center justify-center overflow-hidden">
+                    <img src={proj.image} alt={proj.title} className="w-full h-full object-cover hover:scale-105 transition-transform duration-300" />
                   </div>
                   <div className="p-4 text-center">
                     <h4 className="text-sm sm:text-base font-extrabold text-slate-900">{proj.title}</h4>
@@ -1580,7 +1249,7 @@ export const HireBootstrapDevelopersService = () => {
                   responsibilityTab === 'sapphire' ? 'bg-[#005F96] text-white shadow-sm' : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
-                Sapphire
+                Firevy.co
               </button>
               <button
                 onClick={() => setResponsibilityTab('client')}
@@ -1825,54 +1494,18 @@ export const HireBootstrapDevelopersService = () => {
       />
       <SuccessMatrixGrid />
       <InnovativeSolutionVideo />
-      <DigitalTransformationCaseStudies />
       <WorkProcessGrid />
-      <WhatSetsUsApartSection />
       <ClientReviewsDarkSection />
+      <DigitalTransformationCaseStudies />
 
       {/* ============================================================
-          FAQ SECTION
+          FAQ SECTION (Matching Sapphire Reference Site Image 1)
           ============================================================ */}
-      <section className="py-16 md:py-24 bg-white font-sans text-slate-900 border-b border-slate-200/60">
-        <Container>
-          <div className="max-w-4xl mx-auto space-y-8">
-            <div className="text-center space-y-3">
-              <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-[900] text-slate-900 tracking-tight">
-                Frequently Asked Questions
-              </h2>
-              <p className="text-sm sm:text-base text-slate-600">
-                Got questions about hiring dedicated Bootstrap developers? Here are fast answers.
-              </p>
-            </div>
-
-            <div className="space-y-4 pt-4">
-              {bootstrapFaqs.map((faq, idx) => (
-                <div
-                  key={idx}
-                  className="border border-slate-200 rounded-2xl overflow-hidden bg-slate-50/50 transition-all"
-                >
-                  <button
-                    onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
-                    className="w-full px-6 py-5 text-left font-bold text-slate-900 text-sm sm:text-base flex items-center justify-between space-x-4 hover:bg-slate-100/60 transition-colors"
-                  >
-                    <span>{faq.q}</span>
-                    <ChevronDown
-                      className={`w-5 h-5 text-[#0083B0] transition-transform duration-300 shrink-0 ${
-                        openFaq === idx ? 'rotate-180' : ''
-                      }`}
-                    />
-                  </button>
-                  {openFaq === idx && (
-                    <div className="px-6 pb-5 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200/60 bg-white">
-                      {faq.a}
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
-        </Container>
-      </section>
+      <SapphireFaqSection
+        faqList={bootstrapFaqs}
+        title="Frequently Asked Questions"
+        subtitle="We listen to query and provide solutions that captivate users. Feel free to contact us in case of any query which is not mention below."
+      />
 
       {/* ============================================================
           SOCIAL MEDIA & RECENT BLOGS
@@ -1881,112 +1514,19 @@ export const HireBootstrapDevelopersService = () => {
       <RecentBlogsSection />
 
       {/* ============================================================
-          QUOTE FORM & CTA
+          WHAT SETS US APART, CHALLENGE CTA & NEWSLETTER (1:1 Match to Sapphire Reference)
           ============================================================ */}
-      <section id="quote-form" className="py-16 md:py-24 bg-[#F0F6FB] font-sans text-slate-900">
-        <Container>
-          <div className="max-w-3xl mx-auto bg-white rounded-3xl p-8 sm:p-12 shadow-2xl border border-slate-200">
-            <div className="text-center space-y-3 mb-8">
-              <h2 className="text-2xl sm:text-3xl font-[900] text-slate-900">
-                Hire Dedicated Bootstrap Developers Today
-              </h2>
-              <p className="text-xs sm:text-sm text-slate-600">
-                Get top 1% Bootstrap talent working on your project at just <span className="font-bold text-[#0083B0]">$21/hour</span>.
-              </p>
-            </div>
+      <WhatSetsUsApartSection
+        title="What Sets Us Apart As Bootstrap Development Company?"
+        subtitle="Being unique is our quality! Sapphire Solutions believe in the things that give us an edge over our competitors. We are renowned software and mobile application development organization serving customers with end-to-end support. Our Idealization, feasibility assessment of the entire software development process stands us one level up the competitors."
+      />
 
-            {formSubmitted ? (
-              <div className="bg-emerald-50 border border-emerald-200 text-emerald-800 p-6 rounded-2xl text-center space-y-3">
-                <CheckCircle2 className="w-12 h-12 text-emerald-600 mx-auto" />
-                <h3 className="text-xl font-bold">Thank You!</h3>
-                <p className="text-sm">Our technical manager will reach out within 2 hours with developer profiles and custom quote.</p>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-5">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1.5">Your Full Name *</label>
-                    <input
-                      type="text"
-                      name="name"
-                      required
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      placeholder="John Doe"
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#0083B0]"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1.5">Business Email *</label>
-                    <input
-                      type="email"
-                      name="email"
-                      required
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      placeholder="john@company.com"
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#0083B0]"
-                    />
-                  </div>
-                </div>
+      <IWatchChallengeCtaBanner
+        title="Have Bootstrap Development Challenge To Address ?"
+        subtitle="Get access to top Bootstrap developers to transform your ideas into a robust application."
+        buttonText="Hire Now"
+      />
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1.5">Phone / WhatsApp</label>
-                    <input
-                      type="tel"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                      placeholder="+1 (555) 000-0000"
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#0083B0]"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1.5">Engagement Model</label>
-                    <select
-                      name="model"
-                      value={formData.model}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#0083B0] bg-white"
-                    >
-                      <option value="Dedicated Team ($21/hr)">Dedicated Team ($21/hr)</option>
-                      <option value="Quarterly Plan">Quarterly Plan</option>
-                      <option value="Yearly Plan">Yearly Plan</option>
-                      <option value="Part-time Developer">Part-time Developer</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1.5">Project Scope / Requirements</label>
-                  <textarea
-                    name="message"
-                    rows="4"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    placeholder="Describe your Bootstrap application needs, team size, or features required..."
-                    className="w-full px-4 py-3 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#0083B0]"
-                  ></textarea>
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full py-4 rounded-xl bg-[#0083B0] hover:bg-[#006095] text-white font-bold text-base transition-all shadow-lg shadow-[#0083B0]/20"
-                >
-                  Submit Quote & Get Profiles
-                </button>
-
-                <p className="text-center text-[11px] text-slate-500 font-medium">
-                  🔒 We sign NDA for all our projects. 100% Confidential & Secure.
-                </p>
-              </form>
-            )}
-          </div>
-        </Container>
-      </section>
-
-      <ConversionCalloutBanner />
       <SubscribeNewsletterSection />
     </div>
   );

@@ -102,13 +102,10 @@ export const RecentBlogsSection = () => {
 
                 {/* Left Text Content inside Banner */}
                 <div className="relative z-10 space-y-2 pr-2 flex-grow">
-                  {/* Sapphire Logo Header */}
+                  {/* Firevy.co Logo Header */}
                   <div className="flex items-center space-x-1">
                     <span className={`font-extrabold text-sm sm:text-base tracking-tight font-sans ${blog.textColor || 'text-white'}`}>
-                      Sapphire
-                    </span>
-                    <span className={`text-[8px] uppercase tracking-wider font-semibold block ${blog.textColor ? 'text-indigo-900/80' : 'text-slate-200'}`}>
-                      Software Solutions
+                      Firevy.co
                     </span>
                   </div>
 

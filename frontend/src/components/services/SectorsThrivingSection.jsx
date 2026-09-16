@@ -94,6 +94,190 @@ export const SectorsThrivingSection = ({ title }) => {
 
   const sectors = [
     {
+      id: 'agriculture',
+      icon: <Sprout className="w-5 h-5 text-white" strokeWidth={2} />,
+      title: 'Agriculture App Development Company',
+      desc: 'The progression of technology has made life a little bit simpler in recent years. Regardless of the goods or services you seek, there is almost nothing that cannot be acquired at the tip of your fingers in this day and age.',
+      featuresLeft: [
+        {
+          name: 'Analytics',
+          bg: 'bg-[#EDE9FE]',
+          iconColor: 'text-[#7C3AED]',
+          icon: <BarChart className="w-3.5 h-3.5" strokeWidth={2} />
+        },
+        {
+          name: 'List Of Diseases And Treatments',
+          bg: 'bg-[#FFEDD5]',
+          iconColor: 'text-[#EA580C]',
+          icon: <FileText className="w-3.5 h-3.5" strokeWidth={2} />
+        },
+        {
+          name: 'Camera And Machine Vision',
+          bg: 'bg-[#FCE7F3]',
+          iconColor: 'text-[#DB2777]',
+          icon: <Camera className="w-3.5 h-3.5" strokeWidth={2} />
+        }
+      ],
+      featuresRight: [
+        {
+          name: 'Payment Gateway',
+          bg: 'bg-[#DCFCE7]',
+          iconColor: 'text-[#16A34A]',
+          icon: <CreditCard className="w-3.5 h-3.5" strokeWidth={2} />
+        },
+        {
+          name: 'Broadcast And Video Calls',
+          bg: 'bg-[#FEF9C3]',
+          iconColor: 'text-[#CA8A04]',
+          icon: <Video className="w-3.5 h-3.5" strokeWidth={2} />
+        },
+        {
+          name: 'GPS Services',
+          bg: 'bg-[#CFFAFE]',
+          iconColor: 'text-[#0891B2]',
+          icon: <Navigation className="w-3.5 h-3.5" strokeWidth={2} />
+        }
+      ]
+    },
+    {
+      id: 'education',
+      icon: <GraduationCap className="w-5 h-5 text-white" strokeWidth={2} />,
+      title: 'Education App Development Services in USA',
+      desc: 'As an Education App Development Service Provider, we deliver unmatched Education App Development Services. We are an experienced Education App Development Agency with a team of professional mobile app developers.',
+      featuresLeft: [
+        {
+          name: 'Interactive eBooks',
+          bg: 'bg-[#EDE9FE]',
+          iconColor: 'text-[#7C3AED]',
+          icon: <BookOpen className="w-3.5 h-3.5" strokeWidth={2} />
+        },
+        {
+          name: 'Worksheet Apps',
+          bg: 'bg-[#FFEDD5]',
+          iconColor: 'text-[#EA580C]',
+          icon: <FileText className="w-3.5 h-3.5" strokeWidth={2} />
+        },
+        {
+          name: 'Skill Boosting Applications',
+          bg: 'bg-[#FCE7F3]',
+          iconColor: 'text-[#DB2777]',
+          icon: <Sparkles className="w-3.5 h-3.5" strokeWidth={2} />
+        }
+      ],
+      featuresRight: [
+        {
+          name: 'Puzzle-Solving Apps',
+          bg: 'bg-[#DCFCE7]',
+          iconColor: 'text-[#16A34A]',
+          icon: <Puzzle className="w-3.5 h-3.5" strokeWidth={2} />
+        },
+        {
+          name: 'Classroom Apps',
+          bg: 'bg-[#FEF9C3]',
+          iconColor: 'text-[#CA8A04]',
+          icon: <Users className="w-3.5 h-3.5" strokeWidth={2} />
+        },
+        {
+          name: 'Educational Application',
+          bg: 'bg-[#CFFAFE]',
+          iconColor: 'text-[#0891B2]',
+          icon: <GraduationCap className="w-3.5 h-3.5" strokeWidth={2} />
+        }
+      ]
+    },
+    {
+      id: 'retail',
+      icon: <ShoppingBag className="w-5 h-5 text-white" strokeWidth={2} />,
+      title: 'Retail App Development Company',
+      desc: 'The Retail App Development Market For Mobile Devices Is Growing Far More Quickly Than Anybody Could Have Anticipated. The Retail Industry Is Seeing A Meteoric Rise In Terms Of Growth Throughout Time.',
+      featuresLeft: [
+        {
+          name: 'Integrations',
+          bg: 'bg-[#EDE9FE]',
+          iconColor: 'text-[#7C3AED]',
+          icon: <Puzzle className="w-3.5 h-3.5" strokeWidth={2} />
+        },
+        {
+          name: 'Product Personalization',
+          bg: 'bg-[#FFEDD5]',
+          iconColor: 'text-[#EA580C]',
+          icon: <UserCheck className="w-3.5 h-3.5" strokeWidth={2} />
+        },
+        {
+          name: 'eCommerce Solutions',
+          bg: 'bg-[#FCE7F3]',
+          iconColor: 'text-[#DB2777]',
+          icon: <ShoppingCart className="w-3.5 h-3.5" strokeWidth={2} />
+        }
+      ],
+      featuresRight: [
+        {
+          name: 'Marketplace Solutions',
+          bg: 'bg-[#DCFCE7]',
+          iconColor: 'text-[#16A34A]',
+          icon: <ShoppingBag className="w-3.5 h-3.5" strokeWidth={2} />
+        },
+        {
+          name: 'Vendor Management System',
+          bg: 'bg-[#FEF9C3]',
+          iconColor: 'text-[#CA8A04]',
+          icon: <ClipboardList className="w-3.5 h-3.5" strokeWidth={2} />
+        },
+        {
+          name: 'VR Shopping',
+          bg: 'bg-[#CFFAFE]',
+          iconColor: 'text-[#0891B2]',
+          icon: <Glasses className="w-3.5 h-3.5" strokeWidth={2} />
+        }
+      ]
+    },
+    {
+      id: 'legal',
+      icon: <Scale className="w-5 h-5 text-white" strokeWidth={2} />,
+      title: 'Legal Website Development',
+      desc: 'Several businesses are operating at varying levels within the legal sector. To have a solid online presence, you must need a website.',
+      featuresLeft: [
+        {
+          name: 'Search Engine Optimization',
+          bg: 'bg-[#EDE9FE]',
+          iconColor: 'text-[#7C3AED]',
+          icon: <Search className="w-3.5 h-3.5" strokeWidth={2} />
+        },
+        {
+          name: 'Content Writing',
+          bg: 'bg-[#FFEDD5]',
+          iconColor: 'text-[#EA580C]',
+          icon: <PenTool className="w-3.5 h-3.5" strokeWidth={2} />
+        },
+        {
+          name: 'Responsive Web Design',
+          bg: 'bg-[#FCE7F3]',
+          iconColor: 'text-[#DB2777]',
+          icon: <MonitorSmartphone className="w-3.5 h-3.5" strokeWidth={2} />
+        }
+      ],
+      featuresRight: [
+        {
+          name: 'Web Design And Development',
+          bg: 'bg-[#DCFCE7]',
+          iconColor: 'text-[#16A34A]',
+          icon: <Code className="w-3.5 h-3.5" strokeWidth={2} />
+        },
+        {
+          name: 'Wordpress Experts',
+          bg: 'bg-[#FEF9C3]',
+          iconColor: 'text-[#CA8A04]',
+          icon: <Globe className="w-3.5 h-3.5" strokeWidth={2} />
+        },
+        {
+          name: 'Custom Web Design',
+          bg: 'bg-[#CFFAFE]',
+          iconColor: 'text-[#0891B2]',
+          icon: <Layout className="w-3.5 h-3.5" strokeWidth={2} />
+        }
+      ]
+    },
+    {
       id: 'healthcare',
       icon: <Stethoscope className="w-5 h-5 text-white" strokeWidth={2} />,
       title: 'Healthcare App Development Services',
@@ -182,98 +366,6 @@ export const SectorsThrivingSection = ({ title }) => {
           bg: 'bg-[#CFFAFE]',
           iconColor: 'text-[#0891B2]',
           icon: <MapPin className="w-3.5 h-3.5" strokeWidth={2} />
-        }
-      ]
-    },
-    {
-      id: 'ecommerce',
-      icon: <Store className="w-5 h-5 text-white" strokeWidth={2} />,
-      title: 'E-commerce Website Development Services',
-      desc: 'As a top ecommerce Website Development Company, we assist B2B and B2C businesses in increasing client fulfillment, traffic growth, and lead generation. Our client-centric approach help businesses reimagine the digital commerce. Contact us now!',
-      featuresLeft: [
-        {
-          name: 'Customer Testimonials',
-          bg: 'bg-[#EDE9FE]',
-          iconColor: 'text-[#7C3AED]',
-          icon: <Star className="w-3.5 h-3.5" strokeWidth={2} />
-        },
-        {
-          name: 'Dashboard In Real-Time',
-          bg: 'bg-[#FFEDD5]',
-          iconColor: 'text-[#EA580C]',
-          icon: <BarChart className="w-3.5 h-3.5" strokeWidth={2} />
-        },
-        {
-          name: 'Catalog Administration',
-          bg: 'bg-[#FCE7F3]',
-          iconColor: 'text-[#DB2777]',
-          icon: <ShoppingCart className="w-3.5 h-3.5" strokeWidth={2} />
-        }
-      ],
-      featuresRight: [
-        {
-          name: 'Login To Social Media',
-          bg: 'bg-[#DCFCE7]',
-          iconColor: 'text-[#16A34A]',
-          icon: <Share2 className="w-3.5 h-3.5" strokeWidth={2} />
-        },
-        {
-          name: 'Management Of Stores',
-          bg: 'bg-[#FEF9C3]',
-          iconColor: 'text-[#CA8A04]',
-          icon: <Store className="w-3.5 h-3.5" strokeWidth={2} />
-        },
-        {
-          name: 'Order Monitoring',
-          bg: 'bg-[#CFFAFE]',
-          iconColor: 'text-[#0891B2]',
-          icon: <Package className="w-3.5 h-3.5" strokeWidth={2} />
-        }
-      ]
-    },
-    {
-      id: 'tourism',
-      icon: <Compass className="w-5 h-5 text-white" strokeWidth={2} />,
-      title: 'Tourism App Development',
-      desc: 'Because of the continued expansion of the e-commerce industry, every company now needs tourism website development.',
-      featuresLeft: [
-        {
-          name: 'Ticket, Hotel Bookings',
-          bg: 'bg-[#EDE9FE]',
-          iconColor: 'text-[#7C3AED]',
-          icon: <Ticket className="w-3.5 h-3.5" strokeWidth={2} />
-        },
-        {
-          name: 'Car Booking',
-          bg: 'bg-[#FFEDD5]',
-          iconColor: 'text-[#EA580C]',
-          icon: <Car className="w-3.5 h-3.5" strokeWidth={2} />
-        },
-        {
-          name: 'Ad-Hoc Services',
-          bg: 'bg-[#FCE7F3]',
-          iconColor: 'text-[#DB2777]',
-          icon: <Sparkles className="w-3.5 h-3.5" strokeWidth={2} />
-        }
-      ],
-      featuresRight: [
-        {
-          name: 'Travel Planning',
-          bg: 'bg-[#DCFCE7]',
-          iconColor: 'text-[#16A34A]',
-          icon: <MapPin className="w-3.5 h-3.5" strokeWidth={2} />
-        },
-        {
-          name: 'CRM Platform',
-          bg: 'bg-[#FEF9C3]',
-          iconColor: 'text-[#CA8A04]',
-          icon: <Users className="w-3.5 h-3.5" strokeWidth={2} />
-        },
-        {
-          name: 'Virtual Reality',
-          bg: 'bg-[#CFFAFE]',
-          iconColor: 'text-[#0891B2]',
-          icon: <Glasses className="w-3.5 h-3.5" strokeWidth={2} />
         }
       ]
     },

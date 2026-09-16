@@ -125,7 +125,7 @@ const transformCards = [
   {
     id: 3,
     logoComp: BeeCarLogo,
-    desc: 'If you provide car washing services and need to reach a wide range of customers, the car wash app is your best bet. Sapphire Software Solutions has built a car wash application that allows...',
+    desc: 'If you provide car washing services and need to reach a wide range of customers, the car wash app is your best bet. Firevy.co has built a car wash application that allows...',
     bullets: [
       '96% customer retention rate',
       '82 % increase in service bookings',
@@ -232,7 +232,7 @@ export const DigitalTransformationSlider = () => {
           Digital Transformation Through Innovation and Collective Knowledge
         </h2>
         <p className="text-[13.5px] sm:text-[14.5px] text-[#475569] font-normal leading-relaxed mt-2.5 max-w-3xl mx-auto">
-          At Sapphire, we have a dedicated development team to deliver IT services and create solutions that surpass expectations.
+          At Firevy.co, we have a dedicated development team to deliver IT services and create solutions that surpass expectations.
         </p>
       </div>
 
