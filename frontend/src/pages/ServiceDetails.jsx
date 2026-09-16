@@ -55,9 +55,11 @@ import ReactJsDevelopmentService from '../components/services/ReactJsDevelopment
 import VueJsDevelopmentService from '../components/services/VueJsDevelopmentService';
 import SharePointDevelopmentService from '../components/services/SharePointDevelopmentService';
 import PowerAppsDevelopmentService from '../components/services/PowerAppsDevelopmentService';
-import PowerAutomateDevelopmentService from '../components/services/PowerAutomateDevelopmentService';
 import KotlinAppDevelopmentService from '../components/services/KotlinAppDevelopmentService';
 import HybridAppDevelopmentService from '../components/services/HybridAppDevelopmentService';
+import ItConsultingServices from '../components/services/ItConsultingServices';
+import HireKotlinDevelopersService from '../components/services/HireKotlinDevelopersService';
+import HireTechDevelopersService from '../components/services/HireTechDevelopersService';
 
 export const ServiceDetails = () => {
   const { slug } = useParams();
@@ -72,9 +74,22 @@ export const ServiceDetails = () => {
   const [error, setError] = useState(null);
   const [openFaq, setOpenFaq] = useState(0);
 
+  const isHireAndroid = currentSlug.includes('hire-android');
+  const isHireIonic = currentSlug.includes('hire-ionic') || currentSlug === 'ionic' || currentSlug === 'services/ionic';
+  const isHireFlutter = currentSlug.includes('hire-flutter');
+  const isHireIOS = currentSlug.includes('hire-ios');
+  const isHireSwift = currentSlug.includes('hire-swift') || currentSlug === 'swift' || currentSlug === 'services/swift';
+  const isHireMobile = currentSlug.includes('hire-mobile');
+  const isHireBlackberry = currentSlug.includes('hire-blackberry') || currentSlug.includes('blackberry');
+  const isHireFreelance = currentSlug.includes('hire-freelance');
+  const isHireAiApp = currentSlug.includes('hire-ai-application') || currentSlug.includes('hire-ai-app');
+  const isHireIphone = currentSlug.includes('hire-iphone');
+  const isHireKotlin = currentSlug.includes('hire-kotlin');
+  const isAnyDedicatedHire = isHireAndroid || isHireIonic || isHireFlutter || isHireIOS || isHireSwift || isHireMobile || isHireBlackberry || isHireFreelance || isHireAiApp || isHireIphone || isHireKotlin;
+
   const isXamarin = currentSlug.includes('xamarin');
   const isReactNative = currentSlug.includes('react-native') || currentSlug.includes('reactnative');
-  const isFlutter = currentSlug.includes('flutter');
+  const isFlutter = !isHireFlutter && currentSlug.includes('flutter');
   const isSitecore = currentSlug.includes('sitecore') || currentSlug.includes('hire-sitecore');
   const isSitefinity = currentSlug.includes('sitefinity') || currentSlug.includes('hire-sitefinity');
 
@@ -97,7 +112,7 @@ export const ServiceDetails = () => {
     currentSlug.includes('wp-development') ||
     currentSlug.includes('hire-wordpress');
 
-  const isAndroid = currentSlug.includes('android');
+  const isAndroid = !isHireAndroid && currentSlug.includes('android');
 
   const isHealthcare = currentSlug.includes('health-care') ||
     currentSlug.includes('healthcare');
@@ -139,7 +154,7 @@ export const ServiceDetails = () => {
 
   const isIPad = currentSlug.includes('ipad');
 
-  const isKotlin = currentSlug.includes('kotlin');
+  const isKotlin = !isHireKotlin && currentSlug.includes('kotlin');
 
   const isHybrid = currentSlug.includes('hybrid');
 
@@ -147,14 +162,15 @@ export const ServiceDetails = () => {
     currentSlug.includes('crossplatform') ||
     currentSlug.includes('multi-platform');
 
-  const isIOS = (currentSlug.includes('ios') ||
-    currentSlug.includes('iphone')) && !isIPad;
+  const isIOS = !isHireIOS && !isHireIphone && !isHireSwift && (currentSlug.includes('ios') || currentSlug.includes('iphone')) && !isIPad;
 
-  const isMobileApp = currentSlug === 'mobile-app-development' ||
+  const isMobileApp = !isHireMobile && (
+    currentSlug === 'mobile-app-development' ||
     currentSlug === 'mobile-app' ||
     currentSlug === 'mobile-application' ||
     currentSlug === 'mobile-application-development' ||
-    (currentSlug.includes('mobile-app') && !isReactNative && !isFlutter && !isIOS && !isAndroid && !isXamarin && !isIWatch && !isCrossPlatform && !isKotlin && !isHybrid);
+    (currentSlug.includes('mobile-app') && !isReactNative && !isFlutter && !isIOS && !isAndroid && !isXamarin && !isIWatch && !isCrossPlatform && !isKotlin && !isHybrid && !isIPad)
+  );
 
   const isNet = currentSlug === 'net' ||
     currentSlug.includes('dot-net') ||
@@ -184,7 +200,7 @@ export const ServiceDetails = () => {
     currentSlug.includes('genai') ||
     currentSlug.includes('gen-ai');
 
-  const isArtificialIntelligence = !isGenerativeAi && (
+  const isArtificialIntelligence = !isHireAiApp && !isGenerativeAi && (
     currentSlug.includes('artificial-intelligence') ||
     currentSlug.includes('ai-ml') ||
     currentSlug.includes('ai-development') ||
@@ -254,6 +270,11 @@ export const ServiceDetails = () => {
     currentSlug.includes('powerautomate') ||
     currentSlug.includes('hire-power-automate') ||
     currentSlug.includes('hire-powerautomate');
+
+  const isItConsulting = currentSlug === 'it-consulting-services' ||
+    currentSlug.includes('it-consulting') ||
+    currentSlug === 'tech-consulting-services' ||
+    currentSlug === 'services/it-consulting-services';
 
   const unslugify = (str) => {
     if (!str) return 'Enterprise Tech Solution';
@@ -350,13 +371,77 @@ export const ServiceDetails = () => {
   };
 
   useEffect(() => {
-    if (!isMobileApp && !isBootstrap && !isPowerAutomate && !isPowerApps && !isSharePoint && !isVue && !isReact && !isAngular && !isIot && !isPwa && !isRpa && !isVR && !isFullStack && !isBlockchain && !isArtificialIntelligence && !isGenerativeAi && !isNodeJs && !isJava && !isPhp && !isNet && !isXamarin && !isAndroid && !isReactNative && !isFlutter && !isIOS && !isHealthcare && !isEducation && !isUber && !isSpotify && !isZomato && !isAmazon && !isVisitor && !isWarehouse && !isClover && !isCSharp && !isIWatch && !isIPad && !isCrossPlatform && !isWordpress && !isDrupal && !isUmbraco && !isSitecore && !isSitefinity && !isMagento && !isShopify) {
+    if (!isAnyDedicatedHire && !isKotlin && !isHybrid && !isIPad && !isCrossPlatform && !isItConsulting && !isMobileApp && !isBootstrap && !isPowerAutomate && !isPowerApps && !isSharePoint && !isVue && !isReact && !isAngular && !isIot && !isPwa && !isRpa && !isVR && !isFullStack && !isBlockchain && !isArtificialIntelligence && !isGenerativeAi && !isNodeJs && !isJava && !isPhp && !isNet && !isXamarin && !isAndroid && !isReactNative && !isFlutter && !isIOS && !isHealthcare && !isEducation && !isUber && !isSpotify && !isZomato && !isAmazon && !isVisitor && !isWarehouse && !isClover && !isCSharp && !isIWatch && !isWordpress && !isDrupal && !isUmbraco && !isSitecore && !isSitefinity && !isMagento && !isShopify) {
       fetchServiceDetails();
     } else {
       setLoading(false);
     }
     window.scrollTo(0, 0);
   }, [currentSlug]);
+
+  if (isHireAndroid) {
+    return <HireTechDevelopersService techKey="hire-android-developers" />;
+  }
+
+  if (isHireIonic) {
+    return <HireTechDevelopersService techKey="hire-ionic-developers" />;
+  }
+
+  if (isHireFlutter) {
+    return <HireTechDevelopersService techKey="hire-flutter-developers" />;
+  }
+
+  if (isHireIOS) {
+    return <HireTechDevelopersService techKey="hire-ios-developers" />;
+  }
+
+  if (isHireSwift) {
+    return <HireTechDevelopersService techKey="hire-swift-developer" />;
+  }
+
+  if (isHireMobile) {
+    return <HireTechDevelopersService techKey="hire-mobile-app-developers" />;
+  }
+
+  if (isHireBlackberry) {
+    return <HireTechDevelopersService techKey="hire-blackberry-app-developers" />;
+  }
+
+  if (isHireFreelance) {
+    return <HireTechDevelopersService techKey="hire-freelance-app-developers" />;
+  }
+
+  if (isHireAiApp) {
+    return <HireTechDevelopersService techKey="hire-ai-application-developers" />;
+  }
+
+  if (isHireIphone) {
+    return <HireTechDevelopersService techKey="hire-iphone-app-developers" />;
+  }
+
+  if (isHireKotlin) {
+    return <HireKotlinDevelopersService />;
+  }
+
+  if (isKotlin) {
+    return <KotlinAppDevelopmentService />;
+  }
+
+  if (isIPad) {
+    return <IPadAppDevelopmentService />;
+  }
+
+  if (isHybrid) {
+    return <HybridAppDevelopmentService />;
+  }
+
+  if (isCrossPlatform) {
+    return <CrossPlatformAppDevelopmentService />;
+  }
+
+  if (isIWatch) {
+    return <IWatchAppDevelopmentService />;
+  }
 
   if (isMobileApp) {
     return <MobileAppDevelopmentService />;
@@ -380,6 +465,10 @@ export const ServiceDetails = () => {
 
   if (isNet) {
     return <DotNetDevelopmentService />;
+  }
+
+  if (isItConsulting) {
+    return <ItConsultingServices />;
   }
 
   if (isPowerAutomate) {
@@ -526,25 +615,7 @@ export const ServiceDetails = () => {
     return <HireCSharpDevelopersService />;
   }
 
-  if (isIWatch) {
-    return <IWatchAppDevelopmentService />;
-  }
 
-  if (isIPad) {
-    return <IPadAppDevelopmentService />;
-  }
-
-  if (isKotlin) {
-    return <KotlinAppDevelopmentService />;
-  }
-
-  if (isHybrid) {
-    return <HybridAppDevelopmentService />;
-  }
-
-  if (isCrossPlatform) {
-    return <CrossPlatformAppDevelopmentService />;
-  }
 
   if (loading) {
     return (

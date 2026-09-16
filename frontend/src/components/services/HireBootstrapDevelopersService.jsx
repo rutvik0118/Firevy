@@ -1817,12 +1817,17 @@ export const HireBootstrapDevelopersService = () => {
           STANDARD HOME PAGE SECTIONS
           ============================================================ */}
       <VideoTestimonialsStory />
-      <DigitalTransformationCaseStudies />
-      <WorkProcessGrid />
+      <EngagementModelsSection
+        data={{
+          title: "Business Friendly Hiring Models : Building Greater Futures Through Innovation",
+          description: "We offer three different types of hiring models that are designed to suit your diverse needs and budget. Take a look at our hiring models:"
+        }}
+      />
       <SuccessMatrixGrid />
       <InnovativeSolutionVideo />
+      <DigitalTransformationCaseStudies />
+      <WorkProcessGrid />
       <WhatSetsUsApartSection />
-      <EngagementModelsSection />
       <ClientReviewsDarkSection />
 
       {/* ============================================================
