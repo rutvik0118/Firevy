@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const statsList = [
   {
@@ -329,14 +330,16 @@ export const kotlinFaqList = [
 export const SapphireFaqSection = ({
   faqList,
   faqs,
+  customFaqs,
+  items,
   title = "Frequently Asked Questions",
   subtitle = "We listen to query and provide solutions that captivate users. Feel free to contact us in case of any query which is not mention below."
 }) => {
-  const activeFaqs = faqList || faqs || kotlinFaqList;
-  const [openId, setOpenId] = useState(1);
+  const activeFaqs = customFaqs || faqList || faqs || items || kotlinFaqList;
+  const [openIndex, setOpenIndex] = useState(null);
 
-  const toggleFaq = (id) => {
-    setOpenId((prevId) => (prevId === id ? null : id));
+  const toggleFaq = (index) => {
+    setOpenIndex((prev) => (prev === index ? null : index));
   };
 
   return (
@@ -437,47 +440,64 @@ export const SapphireFaqSection = ({
             {/* Right Column: Interactive FAQ Accordion List */}
             <div className="lg:col-span-7 space-y-0 text-left font-sans">
               {activeFaqs.map((faq, index) => {
-                const id = faq.id || index + 1;
-                let questionText = faq.question || faq.q || '';
-                const answerText = faq.answer || faq.a || '';
+                let questionText = faq.question || faq.q || faq.title || '';
+                const answerText = faq.answer || faq.a || faq.desc || '';
                 if (questionText && !/^\s*\d+\./.test(questionText)) {
                   questionText = `${index + 1}. ${questionText}`;
                 }
-                const isOpen = openId === id;
+                const isOpen = openIndex === index;
                 return (
                   <div
-                    key={id}
+                    key={index}
                     className="border-b border-slate-200/80 py-3.5 first:pt-0 last:border-b-0 transition-colors"
                   >
                     <button
-                      onClick={() => toggleFaq(id)}
-                      className="w-full text-left flex items-start justify-between space-x-3 group cursor-pointer focus:outline-none"
+                      type="button"
+                      onClick={() => toggleFaq(index)}
+                      className="w-full text-left flex items-center justify-between gap-4 group cursor-pointer focus:outline-none select-none py-0.5"
                     >
                       <h3
-                        className={`text-[13.5px] sm:text-[14.5px] font-[700] leading-snug transition-colors ${
+                        className={`text-[13.5px] sm:text-[14.5px] font-[700] leading-snug transition-colors flex-1 ${
                           isOpen ? 'text-[#005F96]' : 'text-[#0F172A] group-hover:text-[#005F96]'
                         }`}
                       >
                         {questionText}
                       </h3>
+                      <span
+                        className={`shrink-0 text-[18px] sm:text-[20px] font-bold leading-none transition-transform duration-200 ${
+                          isOpen ? 'text-[#005F96] rotate-45' : 'text-slate-400 group-hover:text-[#005F96]'
+                        }`}
+                      >
+                        +
+                      </span>
                     </button>
 
-                    {/* Expandable Answer */}
-                    {isOpen && (
-                      <div className="pt-2.5 pb-1 text-[12px] sm:text-[13px] text-[#475569] font-normal leading-[1.68] transition-all">
-                        {Array.isArray(faq.bullets) ? (
-                          <ul className="space-y-1.5 list-disc pl-5 my-1 text-slate-700">
-                            {faq.bullets.map((bulletItem, bIdx) => (
-                              <li key={bIdx} className="leading-relaxed">
-                                {bulletItem}
-                              </li>
-                            ))}
-                          </ul>
-                        ) : (
-                          <p>{answerText}</p>
-                        )}
-                      </div>
-                    )}
+                    {/* Smooth Expandable Answer */}
+                    <AnimatePresence initial={false}>
+                      {isOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: 'auto' }}
+                          exit={{ opacity: 0, height: 0 }}
+                          transition={{ duration: 0.25, ease: 'easeInOut' }}
+                          className="overflow-hidden"
+                        >
+                          <div className="pt-2.5 pb-1 text-[12.5px] sm:text-[13px] text-[#475569] font-normal leading-[1.68]">
+                            {Array.isArray(faq.bullets) ? (
+                              <ul className="space-y-1.5 list-disc pl-5 my-1 text-slate-700">
+                                {faq.bullets.map((bulletItem, bIdx) => (
+                                  <li key={bIdx} className="leading-relaxed">
+                                    {bulletItem}
+                                  </li>
+                                ))}
+                              </ul>
+                            ) : (
+                              <p>{answerText}</p>
+                            )}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </div>
                 );
               })}

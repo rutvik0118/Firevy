@@ -38,19 +38,26 @@ const hybridExpertiseCards = [
   }
 ];
 
-export const HybridAppExpertiseServices = () => {
+export const HybridAppExpertiseServices = ({
+  title = "The Expertise In Our Hybrid App Development Services",
+  subtitle = "As a famous hybrid app development company, we create different types of hybrid applications in less time. Their expertise includes:",
+  cards = hybridExpertiseCards,
+  showButton = true
+}) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
   const scrollContainerRef = useRef(null);
+
+  const activeCards = cards || hybridExpertiseCards;
 
   // Auto-scroll every 3 seconds (pauses on hover)
   useEffect(() => {
     if (isHovered) return;
     const interval = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % hybridExpertiseCards.length);
+      setCurrentIndex((prev) => (prev + 1) % activeCards.length);
     }, 3000);
     return () => clearInterval(interval);
-  }, [isHovered]);
+  }, [isHovered, activeCards.length]);
 
   // Smooth scroll sync
   useEffect(() => {
@@ -75,10 +82,10 @@ export const HybridAppExpertiseServices = () => {
           className="font-[800] text-[#0B0F19] tracking-tight leading-tight mb-3"
           style={{ fontSize: '32px' }}
         >
-          The Expertise In Our Hybrid App Development Services
+          {title}
         </h2>
         <p className="text-[13px] sm:text-[14px] text-[#475569] leading-relaxed max-w-3xl mx-auto font-normal">
-          As a famous hybrid app development company, we create different types of hybrid applications in less time. Their expertise includes:
+          {subtitle}
         </p>
       </div>
 
@@ -89,7 +96,7 @@ export const HybridAppExpertiseServices = () => {
           className="flex gap-5 sm:gap-6 overflow-x-auto scrollbar-none py-2 px-6 sm:px-12 md:px-16 lg:px-24 scroll-smooth"
           style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
-          {hybridExpertiseCards.map((card) => (
+          {activeCards.map((card) => (
             <div
               key={card.id}
               className="w-[310px] sm:w-[350px] lg:w-[385px] shrink-0 bg-[#DDF1FC] rounded-[10px] p-6 sm:p-7 flex flex-col justify-between shadow-2xs border border-[#CCE8F7] select-none min-h-[220px] sm:min-h-[235px] transition-all duration-300 hover:shadow-md"
@@ -103,14 +110,16 @@ export const HybridAppExpertiseServices = () => {
                 </p>
               </div>
 
-              <div className="pt-4 text-left">
-                <a
-                  href="#quote-form"
-                  className="inline-flex items-center justify-center px-5 py-2 rounded-[5px] bg-[#0078D7] hover:bg-[#005F96] text-white font-[700] text-[12.5px] sm:text-[13px] transition-all shadow-2xs cursor-pointer"
-                >
-                  View More
-                </a>
-              </div>
+              {showButton && (
+                <div className="pt-4 text-left">
+                  <a
+                    href="#quote-form"
+                    className="inline-flex items-center justify-center px-5 py-2 rounded-[5px] bg-[#0078D7] hover:bg-[#005F96] text-white font-[700] text-[12.5px] sm:text-[13px] transition-all shadow-2xs cursor-pointer"
+                  >
+                    View More
+                  </a>
+                </div>
+              )}
             </div>
           ))}
         </div>

@@ -250,6 +250,12 @@ export function App() {
                 <Route path="/kotlin-app-development" element={<ServiceDetails />} />
                 <Route path="/services/kotlin" element={<ServiceDetails />} />
                 <Route path="/kotlin" element={<ServiceDetails />} />
+                <Route path="/services/personal-fitness-app" element={<ServiceDetails />} />
+                <Route path="/personal-fitness-app" element={<ServiceDetails />} />
+                <Route path="/services/used-car-app-development" element={<ServiceDetails />} />
+                <Route path="/used-car-app-development" element={<ServiceDetails />} />
+                <Route path="/services/enneagram-test-app" element={<ServiceDetails />} />
+                <Route path="/enneagram-test-app" element={<ServiceDetails />} />
                 <Route path="/services/warehouse-management-system" element={<ServiceDetails />} />
                 <Route path="/warehouse-management-system" element={<ServiceDetails />} />
                 <Route path="/services/visitor-management-system" element={<ServiceDetails />} />
@@ -307,7 +313,7 @@ export function App() {
                 <Route path="/services/iwatch-app-development" element={<ServiceDetails />} />
                 <Route path="/ipad-app-development-services" element={<ServiceDetails />} />
                 <Route path="/services/ipad-app-development-services" element={<ServiceDetails />} />
-                 <Route path="/kotlin-app-development" element={<ServiceDetails />} />
+                <Route path="/kotlin-app-development" element={<ServiceDetails />} />
                 <Route path="/services/kotlin-app-development" element={<ServiceDetails />} />
                 <Route path="/hybrid-app-development" element={<ServiceDetails />} />
                 <Route path="/services/hybrid-app-development" element={<ServiceDetails />} />

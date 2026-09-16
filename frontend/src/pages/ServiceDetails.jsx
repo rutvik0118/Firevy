@@ -62,6 +62,10 @@ import SharePointDevelopmentService from '../components/services/SharePointDevel
 import PowerAppsDevelopmentService from '../components/services/PowerAppsDevelopmentService';
 import KotlinAppDevelopmentService from '../components/services/KotlinAppDevelopmentService';
 import HybridAppDevelopmentService from '../components/services/HybridAppDevelopmentService';
+import PersonalFitnessAppService from '../components/services/PersonalFitnessAppService';
+import UsedCarAppDevelopmentService from '../components/services/UsedCarAppDevelopmentService';
+import EnneagramTestAppService from '../components/services/EnneagramTestAppService';
+import CreditCardAppDevelopmentService from '../components/services/CreditCardAppDevelopmentService';
 import ItConsultingServices from '../components/services/ItConsultingServices';
 import AppDevelopmentConsultingService from '../components/services/AppDevelopmentConsultingService';
 import HireKotlinDevelopersService from '../components/services/HireKotlinDevelopersService';
@@ -168,6 +172,27 @@ export const ServiceDetails = () => {
 
   const isHybrid = currentSlug.includes('hybrid');
 
+  const isPersonalFitness = currentSlug === 'personal-fitness-app' ||
+    currentSlug.includes('personal-fitness') ||
+    currentSlug.includes('fitness-app') ||
+    currentSlug === 'services/personal-fitness-app';
+
+  const isUsedCar = currentSlug === 'used-car-app-development' ||
+    currentSlug === 'used-car-app' ||
+    currentSlug.includes('used-car') ||
+    currentSlug.includes('used-cars') ||
+    currentSlug === 'services/used-car-app-development';
+
+  const isEnneagram = currentSlug === 'enneagram-test-app' ||
+    currentSlug === 'enneagram-test' ||
+    currentSlug.includes('enneagram') ||
+    currentSlug === 'services/enneagram-test-app';
+
+  const isCreditCard = currentSlug === 'credit-card-app-development' ||
+    currentSlug === 'credit-card-app' ||
+    currentSlug.includes('credit-card') ||
+    currentSlug === 'services/credit-card-app-development';
+
   const isCrossPlatform = currentSlug.includes('cross-platform') ||
     currentSlug.includes('crossplatform') ||
     currentSlug.includes('multi-platform');
@@ -179,7 +204,7 @@ export const ServiceDetails = () => {
     currentSlug === 'mobile-app' ||
     currentSlug === 'mobile-application' ||
     currentSlug === 'mobile-application-development' ||
-    (currentSlug.includes('mobile-app') && !isReactNative && !isFlutter && !isIOS && !isAndroid && !isXamarin && !isIWatch && !isCrossPlatform && !isKotlin && !isHybrid && !isIPad)
+    (currentSlug.includes('mobile-app') && !isReactNative && !isFlutter && !isIOS && !isAndroid && !isXamarin && !isIWatch && !isCrossPlatform && !isKotlin && !isHybrid && !isIPad && !isPersonalFitness && !isUsedCar && !isEnneagram && !isCreditCard)
   );
 
   const isNet = currentSlug === 'net' ||
@@ -405,7 +430,7 @@ export const ServiceDetails = () => {
   };
 
   useEffect(() => {
-    if (!isAnyDedicatedHire && !isKotlin && !isHybrid && !isIPad && !isCrossPlatform && !isItConsulting && !isNext && !isExpress && !isMobileApp && !isBootstrap && !isCodeIgniter && !isEmber && !isLaravel && !isPowerAutomate && !isPowerApps && !isSharePoint && !isVue && !isReact && !isAngular && !isIot && !isPwa && !isRpa && !isVR && !isFullStack && !isBlockchain && !isArtificialIntelligence && !isGenerativeAi && !isNodeJs && !isJava && !isPhp && !isNet && !isXamarin && !isAndroid && !isReactNative && !isFlutter && !isIOS && !isHealthcare && !isEducation && !isUber && !isSpotify && !isZomato && !isAmazon && !isVisitor && !isWarehouse && !isClover && !isCSharp && !isIWatch && !isWordpress && !isDrupal && !isUmbraco && !isSitecore && !isSitefinity && !isMagento && !isShopify) {
+    if (!isAnyDedicatedHire && !isKotlin && !isHybrid && !isPersonalFitness && !isUsedCar && !isEnneagram && !isCreditCard && !isIPad && !isCrossPlatform && !isItConsulting && !isNext && !isExpress && !isMobileApp && !isBootstrap && !isCodeIgniter && !isEmber && !isLaravel && !isPowerAutomate && !isPowerApps && !isSharePoint && !isVue && !isReact && !isAngular && !isIot && !isPwa && !isRpa && !isVR && !isFullStack && !isBlockchain && !isArtificialIntelligence && !isGenerativeAi && !isNodeJs && !isJava && !isPhp && !isNet && !isXamarin && !isAndroid && !isReactNative && !isFlutter && !isIOS && !isHealthcare && !isEducation && !isUber && !isSpotify && !isZomato && !isAmazon && !isVisitor && !isWarehouse && !isClover && !isCSharp && !isIWatch && !isWordpress && !isDrupal && !isUmbraco && !isSitecore && !isSitefinity && !isMagento && !isShopify) {
       fetchServiceDetails();
     } else {
       setLoading(false);
@@ -471,6 +496,22 @@ export const ServiceDetails = () => {
 
   if (isHybrid) {
     return <HybridAppDevelopmentService />;
+  }
+
+  if (isPersonalFitness) {
+    return <PersonalFitnessAppService />;
+  }
+
+  if (isUsedCar) {
+    return <UsedCarAppDevelopmentService />;
+  }
+
+  if (isEnneagram) {
+    return <EnneagramTestAppService />;
+  }
+
+  if (isCreditCard) {
+    return <CreditCardAppDevelopmentService />;
   }
 
   if (isCrossPlatform) {

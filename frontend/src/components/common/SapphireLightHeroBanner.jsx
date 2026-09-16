@@ -58,7 +58,9 @@ export const SapphireLightHeroBanner = ({
   const isIPad = serviceCategory === 'ipad';
   const isKotlin = serviceCategory === 'kotlin';
   const isHybrid = serviceCategory === 'hybrid';
+  const isPwa = serviceCategory === 'pwa' || serviceCategory === 'progressive-web-app';
   const isCrossPlatform = serviceCategory === 'cross-platform' || serviceCategory === 'crossplatform' || serviceCategory === 'cross_platform';
+  const isFitness = serviceCategory === 'fitness' || serviceCategory === 'personal-fitness' || serviceCategory === 'personal-fitness-app';
 
   const defaultZomatoStats = [
     { value: '80+', label: 'Mobile App Developers' },
@@ -350,10 +352,10 @@ export const SapphireLightHeroBanner = ({
 
                 {/* Dual Overlapping Mobile Phones */}
                 <div className="relative flex items-center justify-center z-10">
-                  
+
                   {/* LEFT PHONE: Spotify Music Main Screen */}
                   <div className="w-[195px] sm:w-[220px] h-[390px] sm:h-[430px] rounded-[36px] bg-[#09090B] border-4 border-slate-800 p-2 shadow-2xl overflow-hidden flex flex-col justify-between text-white font-sans relative z-20 transform -rotate-1 hover:rotate-0 transition-transform duration-300">
-                    
+
                     {/* Status Bar & Header */}
                     <div>
                       <div className="flex items-center justify-between text-[7px] text-slate-400 px-2 pt-1 font-semibold">
@@ -445,7 +447,7 @@ export const SapphireLightHeroBanner = ({
 
                   {/* RIGHT PHONE: Spotify Music Player Screen */}
                   <div className="w-[190px] sm:w-[215px] h-[385px] sm:h-[425px] rounded-[36px] bg-[#09090B] border-4 border-slate-800 p-2 shadow-2xl overflow-hidden flex flex-col justify-between text-white font-sans relative z-10 -ml-8 sm:-ml-10 transform rotate-2 hover:rotate-0 transition-transform duration-300">
-                    
+
                     <div>
                       {/* Status Bar */}
                       <div className="flex items-center justify-between text-[7px] text-slate-400 px-2 pt-1 font-semibold">
@@ -940,12 +942,12 @@ export const SapphireLightHeroBanner = ({
               /* Cross-Platform App Development 1:1 Reference Vector Devices Graphic */
               <div className="relative w-full max-w-[560px] flex items-center justify-center min-h-[380px] py-4 select-none">
                 <div className="relative w-full max-w-[500px] flex items-center justify-center">
-                  
+
                   {/* LAPTOP (Center-Back) */}
                   <div className="relative z-10 w-[310px] sm:w-[350px] h-[200px] sm:h-[225px] bg-[#1E293B] rounded-t-2xl border-4 border-[#334155] p-2 pb-0 shadow-2xl flex flex-col justify-between">
                     {/* Screen Camera */}
                     <div className="w-2 h-2 rounded-full bg-[#475569] mx-auto mb-1" />
-                    
+
                     {/* Laptop Screen Content */}
                     <div className="w-full h-full bg-white rounded-t-lg p-2.5 flex flex-col justify-between border-t border-x border-slate-200 overflow-hidden">
                       {/* Top Header Placeholder */}
@@ -1099,6 +1101,26 @@ export const SapphireLightHeroBanner = ({
                   src="/images/hybrid_hero_illustration.jpg"
                   alt="Hybrid App Development Company in USA"
                   className="w-full h-auto max-w-[520px] object-contain"
+                  style={{ mixBlendMode: 'multiply' }}
+                />
+              </div>
+            ) : isPwa ? (
+              /* PWA Exact 1:1 Reference Illustration matching Screenshot 2 */
+              <div className="relative w-full max-w-[560px] flex items-center justify-center min-h-[380px] py-2 select-none">
+                <img
+                  src="/images/pwa_hero_laptop_illustration.jpg"
+                  alt="Progressive Web App Development Company in USA"
+                  className="w-full h-auto max-w-[520px] object-contain"
+                  style={{ mixBlendMode: 'multiply' }}
+                />
+              </div>
+            ) : isFitness ? (
+              /* Personal Fitness Coach App Development Vector Illustration matching Reference */
+              <div className="relative w-full max-w-[560px] flex items-center justify-center min-h-[380px] py-2 select-none">
+                <img
+                  src="/images/fitness_hero_coach_illustration.jpg"
+                  alt="Personal Fitness Coach App Development Company"
+                  className="w-full h-auto max-w-[540px] object-contain"
                   style={{ mixBlendMode: 'multiply' }}
                 />
               </div>

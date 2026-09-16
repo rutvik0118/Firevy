@@ -466,31 +466,28 @@ export const ZomatoLikeAppDevelopmentService = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8 max-w-5xl mx-auto">
               <button
                 onClick={() => setActivePanelTab('userApp')}
-                className={`w-full py-3.5 px-6 rounded-md text-base sm:text-lg font-extrabold text-center transition-all border-2 ${
-                  activePanelTab === 'userApp'
+                className={`w-full py-3.5 px-6 rounded-md text-base sm:text-lg font-extrabold text-center transition-all border-2 ${activePanelTab === 'userApp'
                     ? 'bg-[#005F96] text-white border-[#005F96] shadow-sm'
                     : 'bg-white text-[#005F96] border-[#005F96] hover:bg-slate-50'
-                }`}
+                  }`}
               >
                 User App
               </button>
               <button
                 onClick={() => setActivePanelTab('restaurant')}
-                className={`w-full py-3.5 px-6 rounded-md text-base sm:text-lg font-extrabold text-center transition-all border-2 ${
-                  activePanelTab === 'restaurant'
+                className={`w-full py-3.5 px-6 rounded-md text-base sm:text-lg font-extrabold text-center transition-all border-2 ${activePanelTab === 'restaurant'
                     ? 'bg-[#005F96] text-white border-[#005F96] shadow-sm'
                     : 'bg-white text-[#005F96] border-[#005F96] hover:bg-slate-50'
-                }`}
+                  }`}
               >
                 Restaurant Owners
               </button>
               <button
                 onClick={() => setActivePanelTab('admin')}
-                className={`w-full py-3.5 px-6 rounded-md text-base sm:text-lg font-extrabold text-center transition-all border-2 ${
-                  activePanelTab === 'admin'
+                className={`w-full py-3.5 px-6 rounded-md text-base sm:text-lg font-extrabold text-center transition-all border-2 ${activePanelTab === 'admin'
                     ? 'bg-[#005F96] text-white border-[#005F96] shadow-sm'
                     : 'bg-white text-[#005F96] border-[#005F96] hover:bg-slate-50'
-                }`}
+                  }`}
               >
                 Admin
               </button>
@@ -952,11 +949,10 @@ export const ZomatoLikeAppDevelopmentService = () => {
                 <button
                   key={category}
                   onClick={() => setExpertActiveCategory(category)}
-                  className={`px-4 py-2 rounded-full text-xs sm:text-[13px] font-[700] transition-all cursor-pointer ${
-                    expertActiveCategory === category
+                  className={`px-4 py-2 rounded-full text-xs sm:text-[13px] font-[700] transition-all cursor-pointer ${expertActiveCategory === category
                       ? 'bg-[#005F96] text-white shadow-xs'
                       : 'text-[#334155] hover:text-[#005F96] hover:bg-white/50'
-                  }`}
+                    }`}
                 >
                   {category}
                 </button>
@@ -1012,21 +1008,19 @@ export const ZomatoLikeAppDevelopmentService = () => {
                     <div className="flex items-center space-x-2 mb-3.5 text-left">
                       <button
                         onClick={() => setExpertTabs((prev) => ({ ...prev, [idx]: 'tech' }))}
-                        className={`text-xs font-[800] rounded-[6px] px-3.5 py-1.5 transition-all cursor-pointer ${
-                          currentTab === 'tech'
+                        className={`text-xs font-[800] rounded-[6px] px-3.5 py-1.5 transition-all cursor-pointer ${currentTab === 'tech'
                             ? 'bg-[#005F96] text-white shadow-xs'
                             : 'bg-white text-slate-700 hover:bg-slate-50'
-                        }`}
+                          }`}
                       >
                         Technologies
                       </button>
                       <button
                         onClick={() => setExpertTabs((prev) => ({ ...prev, [idx]: 'team' }))}
-                        className={`text-xs font-[700] rounded-[6px] px-3.5 py-1.5 transition-all cursor-pointer ${
-                          currentTab === 'team'
+                        className={`text-xs font-[700] rounded-[6px] px-3.5 py-1.5 transition-all cursor-pointer ${currentTab === 'team'
                             ? 'bg-[#005F96] text-white shadow-xs'
                             : 'bg-white text-slate-700 hover:bg-slate-50'
-                        }`}
+                          }`}
                       >
                         Team Composition
                       </button>
