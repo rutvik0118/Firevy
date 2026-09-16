@@ -27,8 +27,11 @@ const expertiseCards = [
 
 export const ExpertiseItConsultingSection = ({
   title = 'Expertise In Our IT Consulting Services',
-  subtitle = 'Our Information Technology (IT) Consulting Services are top-notch in quality. Some of our expertise include:'
+  subtitle = 'Our Information Technology (IT) Consulting Services are top-notch in quality. Some of our expertise include:',
+  cards
 }) => {
+  const cardsToRender = cards && cards.length > 0 ? cards : expertiseCards;
+
   return (
     <section className="py-12 sm:py-16 bg-white text-slate-900 font-sans text-left relative overflow-hidden border-b border-slate-100">
       <Container>
@@ -44,7 +47,7 @@ export const ExpertiseItConsultingSection = ({
 
         {/* 4 Light Blue Cards in a Row */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 max-w-[1240px] mx-auto">
-          {expertiseCards.map((card, idx) => (
+          {cardsToRender.map((card, idx) => (
             <div
               key={idx}
               className="bg-[#D9EFF9] rounded-[16px] p-5 sm:p-6 text-slate-900 shadow-2xs hover:shadow-md transition-all duration-200 flex flex-col justify-between text-left group border border-[#C5E6F5]"

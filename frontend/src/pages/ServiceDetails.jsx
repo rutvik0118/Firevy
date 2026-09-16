@@ -25,6 +25,7 @@ import ReactNativeAppDevelopmentService from '../components/services/ReactNative
 import FlutterAppDevelopmentService from '../components/services/FlutterAppDevelopmentService';
 import HireCSharpDevelopersService from '../components/services/HireCSharpDevelopersService';
 import HireBootstrapDevelopersService from '../components/services/HireBootstrapDevelopersService';
+import HireCodeIgniterDevelopersService from '../components/services/HireCodeIgniterDevelopersService';
 import IWatchAppDevelopmentService from '../components/services/IWatchAppDevelopmentService';
 import IPadAppDevelopmentService from '../components/services/IPadAppDevelopmentService';
 import CrossPlatformAppDevelopmentService from '../components/services/CrossPlatformAppDevelopmentService';
@@ -50,14 +51,19 @@ import VirtualRealityDevelopmentService from '../components/services/VirtualReal
 import IotDevelopmentService from '../components/services/IotDevelopmentService';
 import PwaDevelopmentService from '../components/services/PwaDevelopmentService';
 import RpaDevelopmentService from '../components/services/RpaDevelopmentService';
-import AngularDevelopmentService from '../components/services/AngularDevelopmentService';
-import ReactJsDevelopmentService from '../components/services/ReactJsDevelopmentService';
-import VueJsDevelopmentService from '../components/services/VueJsDevelopmentService';
+import HireAngularDevelopersService from '../components/services/HireAngularDevelopersService';
+import HireReactDevelopersService from '../components/services/HireReactDevelopersService';
+import HireVueDevelopersService from '../components/services/HireVueDevelopersService';
+import HireEmberDevelopersService from '../components/services/HireEmberDevelopersService';
+import HireLaravelDevelopersService from '../components/services/HireLaravelDevelopersService';
+import HireExpressJsDevelopersService from '../components/services/HireExpressJsDevelopersService';
+import HireNextJsDevelopersService from '../components/services/HireNextJsDevelopersService';
 import SharePointDevelopmentService from '../components/services/SharePointDevelopmentService';
 import PowerAppsDevelopmentService from '../components/services/PowerAppsDevelopmentService';
 import KotlinAppDevelopmentService from '../components/services/KotlinAppDevelopmentService';
 import HybridAppDevelopmentService from '../components/services/HybridAppDevelopmentService';
 import ItConsultingServices from '../components/services/ItConsultingServices';
+import AppDevelopmentConsultingService from '../components/services/AppDevelopmentConsultingService';
 import HireKotlinDevelopersService from '../components/services/HireKotlinDevelopersService';
 import HireTechDevelopersService from '../components/services/HireTechDevelopersService';
 
@@ -147,6 +153,10 @@ export const ServiceDetails = () => {
 
   const isBootstrap = currentSlug.includes('bootstrap') ||
     currentSlug.includes('hire-bootstrap');
+
+  const isCodeIgniter = currentSlug.includes('codeigniter') ||
+    currentSlug.includes('code-igniter') ||
+    currentSlug.includes('hire-codeigniter');
 
   const isIWatch = currentSlug.includes('iwatch') ||
     currentSlug.includes('apple-watch') ||
@@ -240,7 +250,12 @@ export const ServiceDetails = () => {
 
   const isAngular = currentSlug.includes('angular');
 
-  const isReact = !isReactNative && (
+  const isNext = currentSlug.includes('next') ||
+    currentSlug.includes('nextjs') ||
+    currentSlug.includes('next-js') ||
+    currentSlug.includes('hire-next');
+
+  const isReact = !isReactNative && !isNext && (
     currentSlug.includes('react-js') ||
     currentSlug.includes('reactjs') ||
     currentSlug.includes('react-development') ||
@@ -254,6 +269,20 @@ export const ServiceDetails = () => {
     currentSlug.includes('vue-js') ||
     currentSlug.includes('hire-vue') ||
     currentSlug.includes('nuxt');
+
+  const isEmber = currentSlug.includes('ember') ||
+    currentSlug.includes('emberjs') ||
+    currentSlug.includes('ember-js') ||
+    currentSlug.includes('hire-ember');
+
+  const isLaravel = currentSlug.includes('laravel') ||
+    currentSlug.includes('hire-laravel');
+
+  const isExpress = (currentSlug.includes('express') ||
+    currentSlug.includes('expressjs') ||
+    currentSlug.includes('express-js') ||
+    currentSlug.includes('hire-express')) &&
+    !currentSlug.includes('node');
 
   const isSharePoint = currentSlug.includes('sharepoint') ||
     currentSlug.includes('share-point') ||
@@ -275,6 +304,11 @@ export const ServiceDetails = () => {
     currentSlug.includes('it-consulting') ||
     currentSlug === 'tech-consulting-services' ||
     currentSlug === 'services/it-consulting-services';
+
+  const isAppConsulting = currentSlug === 'app-development-consulting' ||
+    currentSlug === 'app-development-consulting-services' ||
+    currentSlug.includes('app-development-consulting') ||
+    currentSlug === 'services/app-development-consulting';
 
   const unslugify = (str) => {
     if (!str) return 'Enterprise Tech Solution';
@@ -371,13 +405,17 @@ export const ServiceDetails = () => {
   };
 
   useEffect(() => {
-    if (!isAnyDedicatedHire && !isKotlin && !isHybrid && !isIPad && !isCrossPlatform && !isItConsulting && !isMobileApp && !isBootstrap && !isPowerAutomate && !isPowerApps && !isSharePoint && !isVue && !isReact && !isAngular && !isIot && !isPwa && !isRpa && !isVR && !isFullStack && !isBlockchain && !isArtificialIntelligence && !isGenerativeAi && !isNodeJs && !isJava && !isPhp && !isNet && !isXamarin && !isAndroid && !isReactNative && !isFlutter && !isIOS && !isHealthcare && !isEducation && !isUber && !isSpotify && !isZomato && !isAmazon && !isVisitor && !isWarehouse && !isClover && !isCSharp && !isIWatch && !isWordpress && !isDrupal && !isUmbraco && !isSitecore && !isSitefinity && !isMagento && !isShopify) {
+    if (!isAnyDedicatedHire && !isKotlin && !isHybrid && !isIPad && !isCrossPlatform && !isItConsulting && !isNext && !isExpress && !isMobileApp && !isBootstrap && !isCodeIgniter && !isEmber && !isLaravel && !isPowerAutomate && !isPowerApps && !isSharePoint && !isVue && !isReact && !isAngular && !isIot && !isPwa && !isRpa && !isVR && !isFullStack && !isBlockchain && !isArtificialIntelligence && !isGenerativeAi && !isNodeJs && !isJava && !isPhp && !isNet && !isXamarin && !isAndroid && !isReactNative && !isFlutter && !isIOS && !isHealthcare && !isEducation && !isUber && !isSpotify && !isZomato && !isAmazon && !isVisitor && !isWarehouse && !isClover && !isCSharp && !isIWatch && !isWordpress && !isDrupal && !isUmbraco && !isSitecore && !isSitefinity && !isMagento && !isShopify) {
       fetchServiceDetails();
     } else {
       setLoading(false);
     }
     window.scrollTo(0, 0);
   }, [currentSlug]);
+
+  if (isExpress) {
+    return <HireExpressJsDevelopersService />;
+  }
 
   if (isHireAndroid) {
     return <HireTechDevelopersService techKey="hire-android-developers" />;
@@ -451,6 +489,18 @@ export const ServiceDetails = () => {
     return <HireBootstrapDevelopersService />;
   }
 
+  if (isCodeIgniter) {
+    return <HireCodeIgniterDevelopersService />;
+  }
+
+  if (isEmber) {
+    return <HireEmberDevelopersService />;
+  }
+
+  if (isLaravel) {
+    return <HireLaravelDevelopersService />;
+  }
+
   if (isNodeJs) {
     return <NodeJsDevelopmentService />;
   }
@@ -471,6 +521,10 @@ export const ServiceDetails = () => {
     return <ItConsultingServices />;
   }
 
+  if (isAppConsulting) {
+    return <AppDevelopmentConsultingService />;
+  }
+
   if (isPowerAutomate) {
     return <PowerAutomateDevelopmentService />;
   }
@@ -483,16 +537,32 @@ export const ServiceDetails = () => {
     return <SharePointDevelopmentService />;
   }
 
+  if (isNext) {
+    return <HireNextJsDevelopersService />;
+  }
+
+  if (isExpress) {
+    return <HireExpressJsDevelopersService />;
+  }
+
+  if (isLaravel) {
+    return <HireLaravelDevelopersService />;
+  }
+
+  if (isEmber) {
+    return <HireEmberDevelopersService />;
+  }
+
   if (isVue) {
-    return <VueJsDevelopmentService />;
+    return <HireVueDevelopersService />;
   }
 
   if (isReact) {
-    return <ReactJsDevelopmentService />;
+    return <HireReactDevelopersService />;
   }
 
   if (isAngular) {
-    return <AngularDevelopmentService />;
+    return <HireAngularDevelopersService />;
   }
 
   if (isIot) {

@@ -10,6 +10,24 @@ import CustomItServicesSection from './CustomItServicesSection';
 import SectorsThrivingSection from './SectorsThrivingSection';
 import IndustryFocusedInsightsSection from './IndustryFocusedInsightsSection';
 import ExpertiseItConsultingSection from './ExpertiseItConsultingSection';
+import AndroidHiringModels from './AndroidHiringModels';
+import WhatOurClientsSaySection from './WhatOurClientsSaySection';
+import ProcessWeFollow from '../common/ProcessWeFollow';
+import TrustRecognitionBanner from '../home/TrustRecognitionBanner';
+import TechStackProficientGrid from '../common/TechStackProficientGrid';
+import DigitalTransformationSlider from '../common/DigitalTransformationSlider';
+import TrustedBrandsGrid from '../common/TrustedBrandsGrid';
+import TransformativeImpactSection from './TransformativeImpactSection';
+import AboutUsStats from './AboutUsStats';
+import FeaturedInBrandsSection from './FeaturedInBrandsSection';
+import SuccessMatrix from '../common/SuccessMatrix';
+import InnovativeVideoSlider from '../common/InnovativeVideoSlider';
+import FeaturedStoryVideoSection from './FeaturedStoryVideoSection';
+import SapphireFaqSection from '../common/SapphireFaqSection';
+import WhatSetsUsApartSection from '../common/WhatSetsUsApartSection';
+import ItConsultingRecentBlogsSection from './ItConsultingRecentBlogsSection';
+import HealthcareChallengeCtaBanner from '../common/HealthcareChallengeCtaBanner';
+import NewsletterSubscribeBanner from '../common/NewsletterSubscribeBanner';
 import {
   ShieldCheck,
   Zap,
@@ -527,6 +545,35 @@ export const ItConsultingServices = () => {
     }
   ];
 
+  // 13. IT Consulting Specific FAQs matching Image 4
+  const itConsultingFaqList = [
+    {
+      id: 1,
+      question: 'Why should startups invest in professional IT consulting services?',
+      answer: 'Startups benefit from IT consulting services by gaining expert guidance on infrastructure setup, cybersecurity, and scalable IT strategies without the cost of hiring full-time IT teams.'
+    },
+    {
+      id: 2,
+      question: 'How does an IT support company digital transformation initiatives?',
+      answer: 'An IT consulting and support company accelerates digital transformation by modernizing legacy architectures, automating core business workflows, integrating cloud pipelines, and implementing agile delivery standards.'
+    },
+    {
+      id: 3,
+      question: 'What role do IT strategy consulting firms play in business innovation?',
+      answer: 'IT strategy consulting firms identify disruptive technologies, design scalable technical roadmaps, align business goals with software capabilities, and de-risk major technology investments.'
+    },
+    {
+      id: 4,
+      question: 'Why are IT infrastructure consulting services critical for growing businesses?',
+      answer: 'Infrastructure consulting ensures high availability, resilient microservices, zero-downtime scalability during high-traffic surges, enterprise compliance, and optimal cloud cost governance.'
+    },
+    {
+      id: 5,
+      question: 'How do software implementation consulting services minimize risks during deployment?',
+      answer: 'Software implementation consultants establish rigorous CI/CD pipelines, automated testing suites, sandbox staging environments, rollback strategies, and comprehensive user acceptance testing (UAT).'
+    }
+  ];
+
   // 13. FAQs
   const faqs = [
     {
@@ -577,6 +624,37 @@ export const ItConsultingServices = () => {
       readTime: '5 min read',
       date: 'Aug 14, 2026',
       image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80'
+    }
+  ];
+
+  const itServiceTechStack = [
+    {
+      category: 'Frontend',
+      pills: ['HTML5', 'CSS3', 'JavaScript', 'Angular', 'React', 'Vue.js', 'Bootstrap', 'Typescript', 'Backbone.js']
+    },
+    {
+      category: 'Full-stack Frameworks',
+      pills: ['NestJS', 'Koa.js', 'Nuxt.js', 'MeteorJS', 'Next.js']
+    },
+    {
+      category: 'Backend Frameworks',
+      pills: ['Node.js', 'Express.js', 'PHP', 'Laravel', 'Python', 'Django', 'Flask', 'FastAPI']
+    },
+    {
+      category: 'Monitoring and Logging Tools',
+      pills: ['Prometheus', 'Grafana', 'Elasticsearch', 'Logstash', 'Kibana']
+    },
+    {
+      category: 'Code Management',
+      pills: ['Bitbucket', 'GitHub', 'GitLab', 'SonarQube', 'maven', 'Gradle']
+    },
+    {
+      category: 'Database',
+      pills: ['Firebase', 'Redis', 'PostgreSQL', 'MongoDB', 'MySQL', 'DynamoDB', 'SQLite']
+    },
+    {
+      category: 'Cloud',
+      pills: ['Amazon Web Services (AWS)', 'Microsoft Azure', 'Google Cloud Platform (GCP)']
     }
   ];
 
@@ -995,693 +1073,111 @@ export const ItConsultingServices = () => {
       <ExpertiseItConsultingSection />
 
       {/* ========================================================================= */}
-      {/* 6. WHY CHOOSE FIREVY FOR IT CONSULTING SERVICES */}
+      {/* 11. BUSINESS FRIENDLY HIRING MODELS (IMAGE 1) */}
       {/* ========================================================================= */}
-      <section className="py-20 bg-white">
-        <Container>
-          <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#005F96] bg-blue-50 px-3 py-1 rounded-md">
-              Value Proposition
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900">
-              Why Choose Us as Your Trusted IT Consulting Partner
-            </h2>
-            <p className="text-slate-600 text-sm sm:text-base">
-              Experience the strategic advantage of partnering with seasoned principal architects and industry advisors dedicated to your long-term technological success.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {whyChooseUs.map((item, idx) => {
-              const IconComp = item.icon;
-              return (
-                <div
-                  key={idx}
-                  className="bg-slate-50 p-6 rounded-2xl border border-slate-200/80 hover:border-[#005F96] hover:bg-white hover:shadow-lg transition-all"
-                >
-                  <div className="w-12 h-12 rounded-xl bg-blue-100/60 text-[#005F96] flex items-center justify-center mb-4">
-                    <IconComp className="w-6 h-6" />
-                  </div>
-                  <h3 className="text-base font-bold text-slate-900 mb-2">{item.title}</h3>
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">{item.desc}</p>
-                </div>
-              );
-            })}
-          </div>
-        </Container>
-      </section>
+      <AndroidHiringModels />
 
       {/* ========================================================================= */}
-      {/* 7. SPECIALIZED CONSULTING DOMAINS (INTERACTIVE TABS) */}
+      {/* 12. WHAT OUR CLIENTS SAY (IMAGE 2) */}
       {/* ========================================================================= */}
-      <section className="py-20 bg-gradient-to-b from-slate-50 to-white border-t border-slate-200">
-        <Container>
-          <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#005F96]">Specialized Practice Areas</span>
-            <h2 className="text-3xl font-extrabold text-slate-900">Domain-Specific IT Advisory</h2>
-            <p className="text-sm text-slate-600">Explore our targeted consulting practices designed for deep architectural transformation.</p>
-          </div>
-
-          {/* Tabs Bar */}
-          <div className="flex flex-wrap justify-center gap-2 mb-8">
-            {domainTabs.map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveDomainTab(tab.id)}
-                className={`px-4 py-2.5 rounded-lg text-xs sm:text-sm font-bold transition-all ${
-                  activeDomainTab === tab.id
-                    ? 'bg-[#005F96] text-white shadow-md'
-                    : 'bg-white text-slate-600 hover:bg-slate-100 border border-slate-200'
-                }`}
-              >
-                {tab.label}
-              </button>
-            ))}
-          </div>
-
-          {/* Active Tab Panel */}
-          {domainContent[activeDomainTab] && (
-            <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-md max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-              <div className="md:col-span-7 space-y-4">
-                <span className="text-xs font-bold text-[#005F96] uppercase tracking-wider bg-blue-50 px-2.5 py-1 rounded">
-                  {domainContent[activeDomainTab].tag}
-                </span>
-                <h3 className="text-xl font-extrabold text-slate-900">
-                  {domainContent[activeDomainTab].title}
-                </h3>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                  {domainContent[activeDomainTab].desc}
-                </p>
-                <div className="space-y-2 pt-2">
-                  {domainContent[activeDomainTab].features.map((feat, idx) => (
-                    <div key={idx} className="flex items-center space-x-2 text-xs sm:text-sm text-slate-700 font-medium">
-                      <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
-                      <span>{feat}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="md:col-span-5 bg-slate-50 p-6 rounded-xl border border-slate-200 text-center space-y-4">
-                <div className="w-14 h-14 mx-auto rounded-full bg-blue-100 text-[#005F96] flex items-center justify-center">
-                  <Compass className="w-7 h-7" />
-                </div>
-                <h4 className="text-sm font-bold text-slate-900">Need Custom Architecture Guidance?</h4>
-                <p className="text-xs text-slate-500">Book a 30-min strategy call with our principal domain architect.</p>
-                <a
-                  href="#consultation-form"
-                  className="inline-block w-full py-2.5 rounded-lg bg-[#005F96] text-white text-xs font-bold hover:bg-[#004A75] transition-colors"
-                >
-                  Consult an Expert
-                </a>
-              </div>
-            </div>
-          )}
-        </Container>
-      </section>
+      <WhatOurClientsSaySection />
 
       {/* ========================================================================= */}
-      {/* 8. FEATURED CASE STUDIES */}
+      {/* 13. PROCESS WE FOLLOW (IMAGE 1) */}
       {/* ========================================================================= */}
-      <section className="py-20 bg-white">
-        <Container>
-          <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#005F96]">Proven Impact</span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900">
-              Real-World IT Transformation Case Studies
-            </h2>
-            <p className="text-slate-600 text-sm">
-              Discover how our strategic IT advisory helped organizations lower infrastructure costs and scale reliably.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {caseStudies.map((cs, idx) => (
-              <div
-                key={idx}
-                className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition-all flex flex-col justify-between group"
-              >
-                <div className="p-6 space-y-4">
-                  <div className="flex items-center justify-between">
-                    <span className="text-[11px] font-extrabold text-[#005F96] bg-blue-50 px-2.5 py-1 rounded tracking-wider">
-                      {cs.badge}
-                    </span>
-                    <span className="text-xs font-black text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
-                      {cs.metric}
-                    </span>
-                  </div>
-
-                  <h3 className="text-base font-bold text-slate-900 group-hover:text-[#005F96] transition-colors leading-snug">
-                    {cs.title}
-                  </h3>
-
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                    {cs.result}
-                  </p>
-                </div>
-
-                <div className="p-6 bg-slate-50 border-t border-slate-100">
-                  <div className="flex flex-wrap gap-1.5">
-                    {cs.tech.map((t, tIdx) => (
-                      <span key={tIdx} className="text-[10px] font-semibold bg-white border border-slate-200 px-2 py-0.5 rounded text-slate-600">
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
+      <ProcessWeFollow />
 
       {/* ========================================================================= */}
-      {/* 9. BUSINESS BENEFITS GRID */}
+      {/* 14. PROUD TO HAVE PICKED THESE UP ALONG THE WAY (IMAGE 2) */}
       {/* ========================================================================= */}
-      <section className="py-20 bg-slate-900 text-white">
-        <Container>
-          <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
-            <span className="text-xs font-bold uppercase tracking-widest text-cyan-400">Measurable Outcomes</span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white">
-              Tangible Business Benefits of Our IT Advisory
-            </h2>
-            <p className="text-slate-400 text-sm">
-              We translate technological enhancements directly into business resilience, speed, and profitability.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {businessBenefits.map((item, idx) => (
-              <div
-                key={idx}
-                className="bg-white/5 border border-white/10 p-6 rounded-2xl hover:border-cyan-400/50 hover:bg-white/10 transition-all"
-              >
-                <span className="text-2xl font-black text-cyan-400 block mb-2">{item.num}</span>
-                <h3 className="text-base font-bold text-white mb-2">{item.title}</h3>
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
+      <TrustRecognitionBanner />
 
       {/* ========================================================================= */}
-      {/* 10. TECHNOLOGY STACK & CLOUD ECOSYSTEM */}
+      {/* 15. TECHNOLOGY STACK THAT SAPPHIRE IT SERVICE DEVELOPERS USE PROFICIENTLY (IMAGE 3) */}
       {/* ========================================================================= */}
-      <section className="py-20 bg-white">
-        <Container>
-          <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#005F96]">Technology Landscape</span>
-            <h2 className="text-3xl font-extrabold text-slate-900">Ecosystems & Tools We Advise On</h2>
-            <p className="text-sm text-slate-600">Enterprise-grade technologies and platforms we architect, optimize, and scale.</p>
-          </div>
-
-          {/* Tech Tabs */}
-          <div className="flex justify-center gap-2 mb-8">
-            {[
-              { id: 'cloud', label: 'Cloud & Infra' },
-              { id: 'backend', label: 'Backend & APIs' },
-              { id: 'database', label: 'Databases & Event Streams' },
-              { id: 'devops', label: 'DevOps & Tooling' }
-            ].map((tab) => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTechTab(tab.id)}
-                className={`px-4 py-2 rounded-lg text-xs sm:text-sm font-bold transition-all ${
-                  activeTechTab === tab.id
-                    ? 'bg-[#005F96] text-white shadow-md'
-                    : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
-                }`}
-              >
-                {tab.label}
-              </button>
-            ))}
-          </div>
-
-          {/* Tech Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
-            {techCategories[activeTechTab]?.map((tool, idx) => (
-              <div
-                key={idx}
-                className="bg-slate-50 border border-slate-200/80 p-5 rounded-xl text-center flex flex-col items-center justify-center space-y-3 hover:border-[#005F96] hover:bg-white hover:shadow-md transition-all"
-              >
-                <img src={tool.icon} alt={tool.name} className="w-10 h-10 object-contain" />
-                <span className="text-xs font-bold text-slate-800">{tool.name}</span>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
+      <TechStackProficientGrid
+        title="Technology Stack That Sapphire IT Service Developers Use Proficiently"
+        rows={itServiceTechStack}
+      />
 
       {/* ========================================================================= */}
-      {/* 11. ENGAGEMENT MODELS */}
+      {/* 16. DIGITAL TRANSFORMATION THROUGH INNOVATION (IMAGE 1) */}
       {/* ========================================================================= */}
-      <section className="py-20 bg-slate-50 border-y border-slate-200">
-        <Container>
-          <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#005F96]">Flexible Partnerships</span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900">
-              Our Agile IT Consulting Engagement Models
-            </h2>
-            <p className="text-slate-600 text-sm">
-              Choose the ideal collaboration model structured around your organizational dynamics and budget.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {engagementModels.map((model, idx) => (
-              <div
-                key={idx}
-                className="bg-white rounded-2xl border border-slate-200 p-6 flex flex-col justify-between hover:border-[#005F96] hover:shadow-xl transition-all"
-              >
-                <div className="space-y-4">
-                  <span className="text-[10px] font-extrabold text-[#005F96] bg-blue-50 px-2.5 py-1 rounded uppercase tracking-wider block w-fit">
-                    {model.badge}
-                  </span>
-                  <h3 className="text-base font-extrabold text-slate-900 leading-snug">{model.title}</h3>
-                  <p className="text-xs text-slate-600 leading-relaxed">{model.desc}</p>
-                  <ul className="space-y-2 pt-2 border-t border-slate-100">
-                    {model.points.map((pt, pIdx) => (
-                      <li key={pIdx} className="flex items-start text-xs text-slate-700">
-                        <Check className="w-3.5 h-3.5 text-emerald-500 mr-2 shrink-0 mt-0.5" />
-                        <span>{pt}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="pt-6 border-t border-slate-100 mt-4">
-                  <p className="text-[11px] text-slate-400 mb-3 italic">Ideal for: {model.ideal}</p>
-                  <a
-                    href="#consultation-form"
-                    className="block w-full py-2.5 rounded-lg bg-slate-100 hover:bg-[#005F96] hover:text-white text-slate-800 text-center text-xs font-bold transition-all"
-                  >
-                    Select Model
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
+      <DigitalTransformationSlider />
 
       {/* ========================================================================= */}
-      {/* 12. PROVEN 6-STEP IT CONSULTING METHODOLOGY */}
+      {/* 17. TRUSTED BY THE WORLD'S LEADING BRANDS (IMAGE 2) */}
       {/* ========================================================================= */}
-      <section className="py-20 bg-white">
-        <Container>
-          <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#005F96]">Structured Delivery</span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900">
-              Our Proven Step-by-Step Consulting Process
-            </h2>
-            <p className="text-slate-600 text-sm">
-              A transparent, milestone-driven framework that guarantees alignment, risk mitigation, and rapid execution.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {consultingSteps.map((step, idx) => (
-              <div
-                key={idx}
-                className="bg-slate-50 p-6 rounded-2xl border border-slate-200/80 relative hover:bg-white hover:border-[#005F96] hover:shadow-lg transition-all"
-              >
-                <div className="w-10 h-10 rounded-xl bg-[#005F96] text-white flex items-center justify-center font-black text-sm mb-4">
-                  {step.step}
-                </div>
-                <h3 className="text-base font-bold text-slate-900 mb-2">{step.title}</h3>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">{step.desc}</p>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
+      <TrustedBrandsGrid />
 
       {/* ========================================================================= */}
-      {/* 13. INDUSTRY VERTICALS WE EMPOWER */}
+      {/* 18. EXPLORE THE TRANSFORMATIVE IMPACT OF IT SERVICE DEVELOPMENT (IMAGE 3) */}
       {/* ========================================================================= */}
-      <section className="py-20 bg-slate-50 border-t border-slate-200">
-        <Container>
-          <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#005F96]">Industry Experience</span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900">
-              Industry Verticals We Empower
-            </h2>
-            <p className="text-slate-600 text-sm">
-              Domain-specific technology consulting compliant with global sector standards.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {industries.map((ind, idx) => {
-              const IconComp = ind.icon;
-              return (
-                <div key={idx} className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all">
-                  <div className="w-12 h-12 rounded-xl bg-blue-50 text-[#005F96] flex items-center justify-center mb-4">
-                    <IconComp className="w-6 h-6" />
-                  </div>
-                  <h3 className="text-base font-bold text-slate-900 mb-2">{ind.name}</h3>
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">{ind.desc}</p>
-                </div>
-              );
-            })}
-          </div>
-        </Container>
-      </section>
+      <TransformativeImpactSection
+        title="Explore The Transformative Impact Of IT Service Development On Your Business Success"
+      />
+      {/* ========================================================================= */}
+      {/* 19. ABOUT US (IMAGE 4) */}
+      {/* ========================================================================= */}
+      <AboutUsStats companyName="Sapphire" />
 
       {/* ========================================================================= */}
-      {/* 14. COMPARATIVE ANALYSIS TABLE */}
+      {/* 20. WE HAVE BEEN FEATURED IN (IMAGE 1) */}
       {/* ========================================================================= */}
-      <section className="py-20 bg-white">
-        <Container>
-          <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#005F96]">Why We Stand Apart</span>
-            <h2 className="text-3xl font-extrabold text-slate-900">
-              Firevy IT Advisory vs. Traditional Alternatives
-            </h2>
-            <p className="text-slate-600 text-sm">
-              See how our agile, architect-led consulting model outperforms generic agencies and solely in-house approaches.
-            </p>
-          </div>
+      <FeaturedInBrandsSection />
 
-          <div className="overflow-x-auto">
-            <table className="w-full text-left border-collapse border border-slate-200 rounded-xl overflow-hidden shadow-sm">
-              <thead>
-                <tr className="bg-[#004A75] text-white text-xs sm:text-sm">
-                  <th className="p-4 sm:p-5 font-bold">Advisory Capabilities</th>
-                  <th className="p-4 sm:p-5 font-black bg-[#005F96] text-cyan-200">Firevy IT Advisory</th>
-                  <th className="p-4 sm:p-5 font-semibold text-slate-300">Generic Consulting Agency</th>
-                  <th className="p-4 sm:p-5 font-semibold text-slate-300">In-House Only IT</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-200 text-xs sm:text-sm">
-                {comparisonRows.map((row, idx) => (
-                  <tr key={idx} className={idx % 2 === 0 ? 'bg-white' : 'bg-slate-50'}>
-                    <td className="p-4 font-bold text-slate-800">{row.feature}</td>
-                    <td className="p-4 bg-blue-50/60 font-black text-[#005F96]">
-                      {row.firevy ? (
-                        <span className="inline-flex items-center text-emerald-600 font-bold">
-                          <CheckCircle2 className="w-4 h-4 mr-1.5" /> Included & Guaranteed
-                        </span>
-                      ) : null}
-                    </td>
-                    <td className="p-4 text-slate-500">{row.traditionalAgency}</td>
-                    <td className="p-4 text-slate-500">{row.inHouse}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </Container>
-      </section>
 
       {/* ========================================================================= */}
-      {/* 15. CLIENT TESTIMONIALS */}
+      {/* 21. SUCCESS MATRIX (IMAGE 1) */}
       {/* ========================================================================= */}
-      <section className="py-20 bg-slate-900 text-white">
-        <Container>
-          <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
-            <span className="text-xs font-bold uppercase tracking-widest text-cyan-400">Client Endorsements</span>
-            <h2 className="text-3xl font-extrabold text-white">What Tech Leaders Say About Us</h2>
-            <p className="text-sm text-slate-400">Direct feedback from CTOs and engineering directors who scaled with Firevy.</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {reviews.map((rev, idx) => (
-              <div key={idx} className="bg-white/5 border border-white/10 p-6 rounded-2xl flex flex-col justify-between space-y-4">
-                <div className="space-y-3">
-                  <div className="flex space-x-1 text-amber-400">
-                    {[...Array(rev.rating)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-amber-400" />
-                    ))}
-                  </div>
-                  <p className="text-xs sm:text-sm text-slate-200 italic leading-relaxed">
-                    "{rev.quote}"
-                  </p>
-                </div>
-
-                <div className="pt-4 border-t border-white/10 flex items-center space-x-3">
-                  <div className="w-10 h-10 rounded-full bg-cyan-500/20 text-cyan-300 flex items-center justify-center font-bold text-xs">
-                    {rev.name.charAt(0)}
-                  </div>
-                  <div>
-                    <h4 className="text-xs sm:text-sm font-bold text-white">{rev.name}</h4>
-                    <p className="text-[11px] text-slate-400">{rev.role}, {rev.company}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
+      <SuccessMatrix />
 
       {/* ========================================================================= */}
-      {/* 16. FREQUENTLY ASKED QUESTIONS (ACCORDION) */}
+      {/* 22. UNVEILING OUR INNOVATIVE SOLUTION (IMAGE 2) */}
       {/* ========================================================================= */}
-      <section className="py-20 bg-white">
-        <Container>
-          <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
-            <span className="text-xs font-bold uppercase tracking-widest text-[#005F96]">Got Questions?</span>
-            <h2 className="text-3xl font-extrabold text-slate-900">Frequently Asked Questions</h2>
-            <p className="text-sm text-slate-600">Everything you need to know about our IT consulting process and agreements.</p>
-          </div>
-
-          <div className="max-w-3xl mx-auto space-y-4">
-            {faqs.map((faq, idx) => {
-              const isOpen = openFaq === idx;
-              return (
-                <div
-                  key={idx}
-                  className="border border-slate-200 rounded-xl overflow-hidden transition-all bg-slate-50"
-                >
-                  <button
-                    onClick={() => setOpenFaq(isOpen ? -1 : idx)}
-                    className="w-full text-left p-5 flex items-center justify-between font-bold text-sm sm:text-base text-slate-900 hover:text-[#005F96] transition-colors"
-                  >
-                    <span>{faq.q}</span>
-                    <ChevronDown className={`w-5 h-5 text-slate-400 transition-transform ${isOpen ? 'rotate-180 text-[#005F96]' : ''}`} />
-                  </button>
-
-                  {isOpen && (
-                    <div className="p-5 pt-0 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-slate-200/50 bg-white">
-                      {faq.a}
-                    </div>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-        </Container>
-      </section>
+      <InnovativeVideoSlider />
 
       {/* ========================================================================= */}
-      {/* 17. INTERACTIVE CONSULTATION & ESTIMATE REQUEST SECTION */}
+      {/* 23. OUR STORY, THEIR WORDS (IMAGE 3) */}
       {/* ========================================================================= */}
-      <section id="consultation-form" className="py-20 bg-gradient-to-br from-[#003859] via-[#004A75] to-[#005F96] text-white">
-        <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Left Value Pitch */}
-            <div className="lg:col-span-6 space-y-6">
-              <span className="text-xs font-extrabold uppercase tracking-widest text-cyan-300 bg-white/10 px-3 py-1 rounded-md">
-                Get Started Today
-              </span>
-
-              <h2 className="text-3xl sm:text-4xl font-black text-white leading-tight">
-                Schedule a Free 30-Minute Architecture Discovery Call
-              </h2>
-
-              <p className="text-sm sm:text-base text-slate-200 leading-relaxed">
-                Connect directly with a Senior Principal Architect to review your current tech stack, identify cost bottlenecks, and outline a tailored modernization roadmap.
-              </p>
-
-              <div className="space-y-3 pt-2">
-                {[
-                  'Strict mutual Non-Disclosure Agreement (NDA) upfront',
-                  'Actionable 5-point architecture review checklist',
-                  '100% vendor-agnostic recommendations',
-                  'No commitment or sales pressure'
-                ].map((pt, idx) => (
-                  <div key={idx} className="flex items-center space-x-3 text-xs sm:text-sm text-slate-100">
-                    <CheckCircle2 className="w-5 h-5 text-cyan-300 shrink-0" />
-                    <span>{pt}</span>
-                  </div>
-                ))}
-              </div>
-
-              <div className="p-4 bg-white/10 rounded-xl border border-white/15 flex items-center space-x-4">
-                <div className="p-2.5 rounded-lg bg-cyan-400 text-slate-900">
-                  <Phone className="w-5 h-5" />
-                </div>
-                <div>
-                  <p className="text-xs text-slate-200 font-medium">Need immediate assistance?</p>
-                  <p className="text-sm font-black text-white">Call +1 (800) 555-FIREVY</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Contact Form */}
-            <div className="lg:col-span-6">
-              <div className="bg-white text-slate-800 p-8 rounded-2xl shadow-2xl border border-blue-200/50">
-                <h3 className="text-xl font-extrabold text-slate-900 mb-1">Request IT Advisory Call</h3>
-                <p className="text-xs text-slate-500 mb-6">Our lead consultant will respond within 24 business hours.</p>
-
-                {formSubmitted ? (
-                  <div className="p-6 bg-emerald-50 border border-emerald-200 rounded-xl text-center space-y-2">
-                    <CheckCircle2 className="w-10 h-10 text-emerald-500 mx-auto" />
-                    <h4 className="text-base font-bold text-emerald-900">Consultation Request Received!</h4>
-                    <p className="text-xs text-emerald-700">Thank you. An IT Solutions Architect will contact you shortly.</p>
-                  </div>
-                ) : (
-                  <form onSubmit={handleSubmit} className="space-y-4">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div>
-                        <label className="text-xs font-bold text-slate-700 block mb-1">Full Name *</label>
-                        <input
-                          type="text"
-                          name="name"
-                          required
-                          value={formData.name}
-                          onChange={handleInputChange}
-                          placeholder="Jane Doe"
-                          className="w-full text-xs p-3 rounded-lg border border-slate-300 focus:outline-none focus:border-[#005F96]"
-                        />
-                      </div>
-                      <div>
-                        <label className="text-xs font-bold text-slate-700 block mb-1">Work Email *</label>
-                        <input
-                          type="email"
-                          name="email"
-                          required
-                          value={formData.email}
-                          onChange={handleInputChange}
-                          placeholder="jane@company.com"
-                          className="w-full text-xs p-3 rounded-lg border border-slate-300 focus:outline-none focus:border-[#005F96]"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      <div>
-                        <label className="text-xs font-bold text-slate-700 block mb-1">Phone Number</label>
-                        <input
-                          type="tel"
-                          name="phone"
-                          value={formData.phone}
-                          onChange={handleInputChange}
-                          placeholder="+1 (555) 000-0000"
-                          className="w-full text-xs p-3 rounded-lg border border-slate-300 focus:outline-none focus:border-[#005F96]"
-                        />
-                      </div>
-                      <div>
-                        <label className="text-xs font-bold text-slate-700 block mb-1">Company Name</label>
-                        <input
-                          type="text"
-                          name="company"
-                          value={formData.company}
-                          onChange={handleInputChange}
-                          placeholder="Acme Corp"
-                          className="w-full text-xs p-3 rounded-lg border border-slate-300 focus:outline-none focus:border-[#005F96]"
-                        />
-                      </div>
-                    </div>
-
-                    <div>
-                      <label className="text-xs font-bold text-slate-700 block mb-1">Primary Consulting Need *</label>
-                      <select
-                        name="serviceType"
-                        value={formData.serviceType}
-                        onChange={handleInputChange}
-                        className="w-full text-xs p-3 rounded-lg border border-slate-300 focus:outline-none focus:border-[#005F96] bg-white"
-                      >
-                        <option value="IT Strategy & Roadmapping">IT Strategy & Roadmapping</option>
-                        <option value="Cloud Migration & FinOps">Cloud Migration & FinOps</option>
-                        <option value="Enterprise Architecture Design">Enterprise Architecture Design</option>
-                        <option value="Cybersecurity & Compliance Audit">Cybersecurity & Compliance Audit</option>
-                        <option value="DevOps & Kubernetes Enablement">DevOps & Kubernetes Enablement</option>
-                        <option value="Fractional CTO & Advisory">Fractional CTO & Advisory</option>
-                      </select>
-                    </div>
-
-                    <div>
-                      <label className="text-xs font-bold text-slate-700 block mb-1">Briefly Describe Your Technical Goals</label>
-                      <textarea
-                        rows={3}
-                        name="message"
-                        value={formData.message}
-                        onChange={handleInputChange}
-                        placeholder="Tell us about your current stack, bottlenecks, or target timeline..."
-                        className="w-full text-xs p-3 rounded-lg border border-slate-300 focus:outline-none focus:border-[#005F96]"
-                      />
-                    </div>
-
-                    <button
-                      type="submit"
-                      className="w-full py-3.5 rounded-lg bg-[#005F96] text-white font-bold text-sm hover:bg-[#004A75] transition-colors shadow-lg"
-                    >
-                      Book Free Discovery Session
-                    </button>
-                  </form>
-                )}
-              </div>
-            </div>
-          </div>
-        </Container>
-      </section>
+      <FeaturedStoryVideoSection companyName="Sapphire" />
 
       {/* ========================================================================= */}
-      {/* 18. RECENT STRATEGIC INSIGHTS / BLOGS */}
+      {/* 24. FREQUENTLY ASKED QUESTIONS (IMAGE 4) */}
       {/* ========================================================================= */}
-      <section className="py-20 bg-white">
-        <Container>
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12">
-            <div>
-              <span className="text-xs font-bold uppercase tracking-widest text-[#005F96]">Thought Leadership</span>
-              <h2 className="text-3xl font-extrabold text-slate-900 mt-1">Strategic IT Insights & Guides</h2>
-            </div>
-            <Link
-              to="/company/blog"
-              className="inline-flex items-center text-xs sm:text-sm font-bold text-[#005F96] hover:underline mt-4 sm:mt-0"
-            >
-              <span>View All Articles</span>
-              <ArrowRight className="w-4 h-4 ml-1" />
-            </Link>
-          </div>
+      <SapphireFaqSection
+        faqList={itConsultingFaqList}
+        title="Frequently Asked Questions"
+        subtitle="We Listen To Query And Provide Solutions That Captivate Users. Feel Free To Contact Us In Case Of Any Query Which Is Not Mention Below"
+      />
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {blogs.map((blog, idx) => (
-              <div key={idx} className="bg-slate-50 rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-md transition-all group">
-                <div className="h-48 overflow-hidden">
-                  <img
-                    src={blog.image}
-                    alt={blog.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-                <div className="p-6 space-y-2">
-                  <div className="flex items-center justify-between text-[11px] text-slate-500">
-                    <span className="font-bold text-[#005F96]">{blog.category}</span>
-                    <span>{blog.readTime}</span>
-                  </div>
-                  <h3 className="text-sm font-bold text-slate-900 group-hover:text-[#005F96] transition-colors leading-snug">
-                    {blog.title}
-                  </h3>
-                  <p className="text-[11px] text-slate-400 pt-1">{blog.date}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
+      {/* ========================================================================= */}
+      {/* 25. WHAT SETS US APART AS IT CONSULTING SERVICES DEVELOPMENT? (IMAGE 5) */}
+      {/* ========================================================================= */}
+      <WhatSetsUsApartSection
+        title="What Sets Us Apart As IT Consulting Services Development?"
+        subtitle="Being unique is our quality! Sapphire Solutions believe in the things that give us an edge over our competitors. We are renowned software and mobile application development organization serving customers with end-to-end support. Our Idealization, feasibility assessment of the entire software development process stands us one level up the competitors."
+      />
 
-      {/* Global Client Marquee */}
-      <div className="py-10 bg-slate-50 border-t border-slate-200">
-        <Container>
-          <p className="text-center text-xs font-bold uppercase tracking-widest text-slate-400 mb-6">
-            Trusted by Forward-Thinking Global Brands
-          </p>
-          <BrandLogoMarquee />
-        </Container>
-      </div>
+      {/* ========================================================================= */}
+      {/* 26. OUR RECENT BLOGS (SCREENSHOT 1) */}
+      {/* ========================================================================= */}
+      <ItConsultingRecentBlogsSection />
+
+      {/* ========================================================================= */}
+      {/* 27. HAVE IT CONSULTING SERVICES CHALLENGE TO ADDRESS (SCREENSHOT 2) */}
+      {/* ========================================================================= */}
+      <HealthcareChallengeCtaBanner
+        title="Have IT Consulting Services Development Challenge To Address ?"
+        subtitle="Get access to top IT Consulting Services development to transform your ideas into a robust application."
+        buttonText="Hire Now"
+      />
+
+      {/* ========================================================================= */}
+      {/* 28. SUBSCRIBE US AND GET THE LATEST UPDATES AND NEWS (SCREENSHOT 2) */}
+      {/* ========================================================================= */}
+      <NewsletterSubscribeBanner />
+
     </div>
   );
 };

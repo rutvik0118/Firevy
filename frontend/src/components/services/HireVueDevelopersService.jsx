@@ -69,7 +69,7 @@ import {
   Scale
 } from 'lucide-react';
 
-export const HireBootstrapDevelopersService = () => {
+export const HireVueDevelopersService = () => {
   const [openFaq, setOpenFaq] = useState(0);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [cardSlideIndex, setCardSlideIndex] = useState(0);
@@ -116,7 +116,7 @@ export const HireBootstrapDevelopersService = () => {
         'Project Trackers : Daily Reports, Basecamp, Jira, Redmine etc',
         '4 hours a day, 5 days a week',
         'Minimum: 2 months',
-        'Hire Dedicated Bootstrap Developers that exclusively works for you'
+        'Hire Dedicated Vue Storefront Developers that exclusively works for you'
       ]
     },
     {
@@ -217,7 +217,7 @@ export const HireBootstrapDevelopersService = () => {
     email: '',
     phone: '',
     model: 'Dedicated Team ($21/hr)',
-    appType: 'Bootstrap Responsive App',
+    appType: 'Vue.js Responsive App',
     budget: '$10,000 - $25,000',
     message: ''
   });
@@ -232,56 +232,56 @@ export const HireBootstrapDevelopersService = () => {
     setFormSubmitted(true);
   };
 
-  // Bootstrap FAQs (Exact Match to Sapphire Reference Site Image 1)
-  const bootstrapFaqs = [
+  // Vue.js FAQs (Exact Match to Sapphire Reference Site Image 1)
+  const vueFaqs = [
     {
       id: 1,
-      question: '1. Why is Bootstrap used?',
-      answer: 'Bootstrap helps designers and developers to create websites that are fully responsive rapidly. It is the most popular CSS framework for designing mobile-first and responsive apps.'
+      question: '1. Why is Vue.js used?',
+      answer: 'Vue.js helps designers and developers to create websites that are fully responsive rapidly. It is the most popular CSS framework for designing mobile-first and responsive apps.'
     },
     {
       id: 2,
-      question: '2. Is Bootstrap Necessary For Web Development?',
-      answer: 'While not strictly necessary, Bootstrap significantly speeds up front-end development by providing pre-built responsive grid systems, components, and utilities.'
+      question: '2. Is Vue.js Necessary For Web Development?',
+      answer: 'While not strictly necessary, Vue.js significantly speeds up front-end development by providing pre-built responsive grid systems, components, and utilities.'
     },
     {
       id: 3,
-      question: '3. What is Bootstrap?',
-      answer: 'Bootstrap is an open-source front-end framework containing HTML, CSS, and JavaScript-based design templates for typography, forms, buttons, navigation, and other interface components.'
+      question: '3. What is Vue.js?',
+      answer: 'Vue.js is an open-source front-end framework containing HTML, CSS, and JavaScript-based design templates for typography, forms, buttons, navigation, and other interface components.'
     },
     {
       id: 4,
-      question: '4. What are Bootstrap Components?',
-      answer: 'Bootstrap components include navigation bars, modals, carousels, accordions, dropdowns, tooltips, cards, buttons, and alert badges designed for rapid web assembly.'
+      question: '4. What are Vue.js Components?',
+      answer: 'Vue.js components include navigation bars, modals, carousels, accordions, dropdowns, tooltips, cards, buttons, and alert badges designed for rapid web assembly.'
     },
     {
       id: 5,
-      question: '5. Why is Bootstrap Preferred For Website Development?',
-      answer: 'Bootstrap is preferred for its mobile-first responsive grid system, cross-browser compatibility, extensive documentation, customizable SCSS variables, and strong community support.'
+      question: '5. Why is Vue.js Preferred For Website Development?',
+      answer: 'Vue.js is preferred for its mobile-first responsive grid system, cross-browser compatibility, extensive documentation, customizable SCSS variables, and strong community support.'
     },
     {
       id: 6,
-      question: '6. Why should I hire a Bootstrap developer from Sapphire Solutions?',
-      answer: 'Our dedicated Bootstrap developers have 5+ years of experience refactoring legacy UI, building custom responsive themes, optimizing web speed, and adhering to W3C standards.'
+      question: '6. Why should I hire a Vue.js developer from Sapphire Solutions?',
+      answer: 'Our dedicated Vue.js developers have 5+ years of experience refactoring legacy UI, building custom responsive themes, optimizing web speed, and adhering to W3C standards.'
     },
     {
       id: 7,
-      question: '7. Can I hire Bootstrap developers for an existing web project redesign?',
-      answer: 'Yes, our Bootstrap engineers specialize in modernizing legacy websites to Bootstrap 5, implementing clean responsive layouts, and improving lighthouse performance scores.'
+      question: '7. Can I hire Vue.js developers for an existing web project redesign?',
+      answer: 'Yes, our Vue.js engineers specialize in modernizing legacy websites to Vue 3 & Nuxt 3, implementing clean responsive layouts, and improving lighthouse performance scores.'
     },
     {
       id: 8,
-      question: '8. Are your Bootstrap developers experienced in working with other front-end frameworks?',
-      answer: 'Yes, our Bootstrap developers are proficient in HTML5, CSS3, SCSS, JavaScript, React.js, Vue.js, and modern build tools like Vite and Webpack.'
+      question: '8. Are your Vue.js developers experienced in working with other front-end frameworks?',
+      answer: 'Yes, our Vue.js developers are proficient in HTML5, CSS3, SCSS, JavaScript, React.js, Vue.js, and modern build tools like Vite and Webpack.'
     }
   ];
 
   return (
     <div className="bg-white text-slate-900 font-sans min-h-screen">
       <SEO
-        title="Hire Bootstrap Developer | Dedicated Bootstrap Web Developers at $21/Hr"
-        description="Hire dedicated Bootstrap developers from Firevy.co. We are among the leading providers of bootstrap development services tailored for responsive web & mobile apps."
-        canonical="/services/hire-bootstrap-developers"
+        title="Hire Vue.js Developer | Dedicated Vue.js Web Developers at $21/Hr"
+        description="Hire dedicated Vue.js developers from Firevy.co. We are among the leading providers of vue development services tailored for responsive web & mobile apps."
+        canonical="/services/hire-vue-developers"
       />
 
       {/* ============================================================
@@ -290,14 +290,14 @@ export const HireBootstrapDevelopersService = () => {
       <section className="pt-32 pb-20 bg-[#F0F6FB] text-slate-900 relative overflow-hidden font-sans border-b border-slate-200/60">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
+
             {/* Left Column Text & Action */}
             <div className="lg:col-span-7 space-y-6 text-left">
               <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-[900] text-slate-900 tracking-tight leading-tight">
-                Hire Bootstrap Developer
+                Hire Vue.js Developer
               </h1>
               <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal max-w-2xl">
-                We are among the leading providers of bootstrap development services. As a reputable Bootstrap Web Development Company, we have tailored our services to satisfy the demands of companies seeking creative mobile applications.
+                We are among the leading providers of vue development services. As a reputable Vue.js Web Development Company, we have tailored our services to satisfy the demands of companies seeking creative mobile applications.
               </p>
 
               {/* 4 Metrics / Stats Row */}
@@ -358,8 +358,8 @@ export const HireBootstrapDevelopersService = () => {
             <div className="lg:col-span-5 relative flex items-center justify-center">
               <div className="relative w-full max-w-[540px]">
                 <img
-                  src="/images/bootstrap_hero_illustration.jpg"
-                  alt="Hire Bootstrap Developer Illustration"
+                  src="/images/react_hero_illustration.jpg"
+                  alt="Hire Vue.js Developer Illustration"
                   className="w-full h-auto object-contain rounded-2xl shadow-2xl border border-slate-200/80 hover:shadow-indigo-500/10 transition-shadow duration-300"
                 />
               </div>
@@ -375,18 +375,18 @@ export const HireBootstrapDevelopersService = () => {
       <BrandLogoMarquee />
 
       {/* ============================================================
-          SECTION 2: Bootstrap Developers Are Available For Hire (Screenshot 2)
+          SECTION 2: Vue.js Developers Are Available For Hire (Screenshot 2)
           ============================================================ */}
       <section className="py-16 md:py-24 bg-white font-sans text-slate-900 border-b border-slate-100">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
+
             {/* Left Graphic Illustration Image */}
             <div className="lg:col-span-6 relative flex justify-center items-center">
               <div className="relative w-full max-w-[550px]">
                 <img
-                  src="/images/bootstrap_section2_illustration.jpg"
-                  alt="Bootstrap Developers Available For Hire"
+                  src="/images/react_section2_illustration.jpg"
+                  alt="Vue.js Developers Available For Hire"
                   className="w-full h-auto object-contain rounded-2xl shadow-xl border border-slate-200/80 hover:shadow-cyan-500/10 transition-shadow duration-300"
                 />
               </div>
@@ -395,10 +395,10 @@ export const HireBootstrapDevelopersService = () => {
             {/* Right Text Column */}
             <div className="lg:col-span-6 space-y-6">
               <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-[900] text-slate-900 tracking-tight leading-snug">
-                Bootstrap Developers Are Available For Hire
+                Vue.js Developers Are Available For Hire
               </h2>
               <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
-                Hire Dedicated Bootstrap Developers with extensive expertise in the Bootstrap framework. We assist you in developing scalable applications that promote growth. Our team of bootstrap developers can create attractive web and mobile apps regardless of the kind of company or sector. With us, adaptation and flexibility will never be a concern since the applications developed by our bootstrap web developer are highly configurable. Using a single codebase, Bootstrap reduces development time and costs, assuring the implementation of scalable business solutions. In addition, the framework includes templates that may be used to construct site components such as forms and buttons.
+                Hire Dedicated Vue.js & Vue Storefront Developers with extensive expertise in the Vue.js framework & ecosystem. We assist you in developing scalable applications that promote growth. Our team of vue developers can create attractive web and mobile apps regardless of the kind of company or sector. With us, adaptation and flexibility will never be a concern since the applications developed by our vue web developer are highly configurable. Using a single codebase, Vue.js reduces development time and costs, assuring the implementation of scalable business solutions. In addition, the framework includes templates that may be used to construct site components such as forms and buttons.
               </p>
 
               <div className="pt-2">
@@ -410,7 +410,7 @@ export const HireBootstrapDevelopersService = () => {
                   }}
                   className="inline-flex items-center space-x-2 bg-[#0083B0] hover:bg-[#006095] text-white font-bold px-7 py-3 rounded-xl text-sm transition-all shadow-md"
                 >
-                  <span>Hire Dedicated Bootstrap Developers</span>
+                  <span>Hire Dedicated Vue.js & Vue Storefront Developers</span>
                   <ArrowRight className="w-4 h-4" />
                 </a>
               </div>
@@ -430,7 +430,7 @@ export const HireBootstrapDevelopersService = () => {
               Our Flexible Hiring Models: Find the Perfect Fit For Your Project
             </h2>
             <p className="text-sm sm:text-base text-slate-600 font-medium">
-              Hire Bootstrap Developers from Firevy.co Starts from,
+              Hire Vue.js Developers from Firevy.co Starts from,
             </p>
           </div>
 
@@ -455,11 +455,10 @@ export const HireBootstrapDevelopersService = () => {
                     className="w-full md:w-1/2 lg:w-1/3 shrink-0 px-3 py-4"
                   >
                     <div
-                      className={`h-full bg-white rounded-2xl p-6 sm:p-8 flex flex-col justify-between relative transition-all duration-300 ${
-                        card.isFeatured
+                      className={`h-full bg-white rounded-2xl p-6 sm:p-8 flex flex-col justify-between relative transition-all duration-300 ${card.isFeatured
                           ? 'border-2 border-[#0083B0] shadow-xl ring-4 ring-[#0083B0]/10 scale-[1.02]'
                           : 'border border-slate-200/80 shadow-md hover:shadow-xl'
-                      }`}
+                        }`}
                     >
                       {/* Top Save text or badge */}
                       {card.saveText && (
@@ -507,11 +506,10 @@ export const HireBootstrapDevelopersService = () => {
                             e.preventDefault();
                             document.getElementById('quote-form')?.scrollIntoView({ behavior: 'smooth' });
                           }}
-                          className={`w-full inline-flex items-center justify-center font-bold py-3 px-6 rounded-xl transition-all shadow-sm ${
-                            card.isFeatured
+                          className={`w-full inline-flex items-center justify-center font-bold py-3 px-6 rounded-xl transition-all shadow-sm ${card.isFeatured
                               ? 'bg-[#0083B0] hover:bg-[#006095] text-white shadow-md'
                               : 'bg-[#006095] hover:bg-[#0083B0] text-white'
-                          }`}
+                            }`}
                         >
                           Hire Now
                         </a>
@@ -557,7 +555,7 @@ export const HireBootstrapDevelopersService = () => {
               Hire Dedicated Developers To Empower Your Business with our Development Proficiency
             </h2>
             <p className="text-sm sm:text-base text-slate-600 font-medium">
-              Hire Bootstrap Developers to meet your business perks by leveraging our technical elegance.
+              Hire Vue.js Developers to meet your business perks by leveraging our technical elegance.
             </p>
           </div>
 
@@ -623,19 +621,19 @@ export const HireBootstrapDevelopersService = () => {
       <section className="py-16 md:py-24 bg-white font-sans text-slate-900 border-b border-slate-100">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
+
             {/* Left Text Column */}
             <div className="lg:col-span-7 space-y-6">
               <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-[900] text-slate-900 tracking-tight leading-snug">
-                Brief About Our Bootstrap Development Services
+                Brief About Our Vue.js Development Services
               </h2>
-              
+
               <div className="space-y-4 text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
                 <p>
-                  Hire Our Bootstrap Developers To Get App and Web Development Services. Benefits of Hiring them include:Our developers will produce your Bootstrap project in real-time and with 100 percent correctness.Our Bootstrap developers must have a history of completing all project deadlines on time and providing complete customer satisfaction.
+                  Hire Our Vue.js Developers To Get App and Web Development Services. Benefits of Hiring them include:Our developers will produce your Vue.js project in real-time and with 100 percent correctness.Our Vue.js developers must have a history of completing all project deadlines on time and providing complete customer satisfaction.
                 </p>
                 <p>
-                  Experience well-structured code and construct a next-generation solution with our safe, scalable, dependable, and high-quality software development services at an accessible price. Our Bootstrap developers have the most extraordinary communication abilities, so working with us will be effortless.
+                  Experience well-structured code and construct a next-generation solution with our safe, scalable, dependable, and high-quality software development services at an accessible price. Our Vue.js developers have the most extraordinary communication abilities, so working with us will be effortless.
                 </p>
               </div>
             </div>
@@ -644,8 +642,8 @@ export const HireBootstrapDevelopersService = () => {
             <div className="lg:col-span-5 relative flex justify-center items-center">
               <div className="relative w-full max-w-[500px]">
                 <img
-                  src="/images/bootstrap_section8_illustration.jpg"
-                  alt="Who Exactly Is A Bootstrap Developer & Why Hire Them"
+                  src="/images/react_section8_illustration.jpg"
+                  alt="Who Exactly Is A Vue.js Developer & Why Hire Them"
                   className="w-full h-auto object-contain rounded-2xl shadow-xl border border-slate-200/80 hover:shadow-blue-500/10 transition-shadow duration-300"
                 />
               </div>
@@ -658,7 +656,7 @@ export const HireBootstrapDevelopersService = () => {
       {/* ============================================================
           SECTION 6: WORLD WIDE TOP RATED BOOTSTRAP DEVELOPMENT COMPANY ON CLUTCH (Auto-scroll Marquee Awards Banner)
           ============================================================ */}
-      <ClutchTopRatedBanner title="World Wide Top Rated Bootstrap Development Company on Clutch" />
+      <ClutchTopRatedBanner title="World Wide Top Rated Vue.js Development Company on Clutch" />
 
       {/* ============================================================
           SECTION 7: WHO EXACTLY IS A BOOTSTRAP DEVELOPER? (Screenshot 1 Copy to Copy)
@@ -667,11 +665,11 @@ export const HireBootstrapDevelopersService = () => {
         <Container>
           {/* Section Title */}
           <h2 className="text-2xl sm:text-3xl lg:text-[40px] font-[900] text-slate-900 tracking-tight leading-tight text-center mb-12 sm:mb-16">
-            Who Exactly Is A Bootstrap Developer?
+            Who Exactly Is A Vue.js Developer?
           </h2>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
-            
+
             {/* Left Box with Quote & Bold Text */}
             <div className="lg:col-span-5 bg-[#F0F7FC] rounded-2xl p-8 sm:p-12 flex flex-col justify-center relative overflow-hidden border border-cyan-100/60 shadow-xs">
               {/* Background Wavy Subtle Pattern */}
@@ -701,10 +699,10 @@ export const HireBootstrapDevelopersService = () => {
             <div className="lg:col-span-7 flex flex-col justify-between space-y-6">
               <div className="space-y-5 text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
                 <p>
-                  Whether for Bootstrap UI design or bootstrap web applications, businesses need to hire bootstrap programmers with a high level of expertise who can provide high-quality work. The latter should align with the company's strategic objectives and customer needs. This is why front-end developers, particularly Bootstrap developers, constantly find it difficult to provide an appealing experience. Testing and debugging are crucial steps in the front-end development process, and we have Bootstrap Developers for Hire.
+                  Whether for Vue.js UI design or vue web applications, businesses need to hire vue programmers with a high level of expertise who can provide high-quality work. The latter should align with the company's strategic objectives and customer needs. This is why front-end developers, particularly Vue.js developers, constantly find it difficult to provide an appealing experience. Testing and debugging are crucial steps in the front-end development process, and we have Vue.js Developers for Hire.
                 </p>
                 <p>
-                  To minimize functional misunderstanding, testing and debugging tools exist in frameworks, which must be used with care. Hire Bootstrap Developers in India to increase web speed, such as compressing pictures and deleting extraneous code characters, without affecting the website's functionality. These factors may make a substantial impact when selecting a bootstrap programmer. Hire Bootstrap Developers in USA to develop a website that is both feature-rich and instantly deployable since it includes a variety of layouts and pre-built templates. Bootstrap is an open-source framework that allows developers to alter and tailor applications easily.
+                  To minimize functional misunderstanding, testing and debugging tools exist in frameworks, which must be used with care. Hire Vue.js Developers in India to increase web speed, such as compressing pictures and deleting extraneous code characters, without affecting the website's functionality. These factors may make a substantial impact when selecting a vue programmer. Hire Vue.js Developers in USA to develop a website that is both feature-rich and instantly deployable since it includes a variety of layouts and pre-built templates. Vue.js is an open-source framework that allows developers to alter and tailor applications easily.
                 </p>
               </div>
 
@@ -763,11 +761,10 @@ export const HireBootstrapDevelopersService = () => {
                     setExpertActiveCategory(cat);
                     setExpertCarouselIndex(0);
                   }}
-                  className={`px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${
-                    expertActiveCategory === cat
+                  className={`px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${expertActiveCategory === cat
                       ? 'bg-[#006095] text-white shadow-md'
                       : 'bg-slate-100 text-slate-600 hover:bg-slate-200/70'
-                  }`}
+                    }`}
                 >
                   {cat}
                 </button>
@@ -821,17 +818,15 @@ export const HireBootstrapDevelopersService = () => {
                       <div className="flex items-center space-x-2 mb-4">
                         <button
                           onClick={() => setExpertTabs((prev) => ({ ...prev, [team.id]: 'tech' }))}
-                          className={`px-3 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
-                            currentTab === 'tech' ? 'bg-[#006095] text-white shadow-xs' : 'bg-white text-slate-600 border border-slate-200/60'
-                          }`}
+                          className={`px-3 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${currentTab === 'tech' ? 'bg-[#006095] text-white shadow-xs' : 'bg-white text-slate-600 border border-slate-200/60'
+                            }`}
                         >
                           Technologies
                         </button>
                         <button
                           onClick={() => setExpertTabs((prev) => ({ ...prev, [team.id]: 'composition' }))}
-                          className={`px-3 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
-                            currentTab === 'composition' ? 'bg-[#006095] text-white shadow-xs' : 'bg-white text-slate-600 border border-slate-200/60'
-                          }`}
+                          className={`px-3 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${currentTab === 'composition' ? 'bg-[#006095] text-white shadow-xs' : 'bg-white text-slate-600 border border-slate-200/60'
+                            }`}
                         >
                           Team Composition
                         </button>
@@ -840,15 +835,15 @@ export const HireBootstrapDevelopersService = () => {
                       <div className="flex flex-wrap gap-2 mb-6 min-h-[70px]">
                         {currentTab === 'tech'
                           ? team.techs.map((t, idx) => (
-                              <span key={idx} className="bg-white text-slate-800 text-xs font-semibold px-3 py-1 rounded-full border border-slate-200">
-                                {t}
-                              </span>
-                            ))
+                            <span key={idx} className="bg-white text-slate-800 text-xs font-semibold px-3 py-1 rounded-full border border-slate-200">
+                              {t}
+                            </span>
+                          ))
                           : team.composition.map((c, idx) => (
-                              <span key={idx} className="bg-white text-[#006095] text-xs font-bold px-3 py-1 rounded-full border border-slate-200">
-                                • {c}
-                              </span>
-                            ))}
+                            <span key={idx} className="bg-white text-[#006095] text-xs font-bold px-3 py-1 rounded-full border border-slate-200">
+                              • {c}
+                            </span>
+                          ))}
                       </div>
                     </div>
 
@@ -922,7 +917,7 @@ export const HireBootstrapDevelopersService = () => {
           <div className="space-y-8">
             <div className="text-center max-w-4xl mx-auto space-y-4">
               <h2 className="text-2xl sm:text-3xl lg:text-[38px] font-[900] text-slate-900 tracking-tight leading-tight">
-                Leverage The Expertise of Sapphire Dedicated Developers
+                Leverage The Expertise of Firevy.co Dedicated Developers
               </h2>
 
               <div className="flex justify-center space-x-2 bg-slate-200/60 p-1.5 rounded-full max-w-md mx-auto">
@@ -930,9 +925,8 @@ export const HireBootstrapDevelopersService = () => {
                   <button
                     key={idx}
                     onClick={() => setLeverageTab(idx)}
-                    className={`px-5 py-2 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${
-                      leverageTab === idx ? 'bg-[#006095] text-white shadow-md' : 'text-slate-700 hover:text-[#006095]'
-                    }`}
+                    className={`px-5 py-2 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${leverageTab === idx ? 'bg-[#006095] text-white shadow-md' : 'text-slate-700 hover:text-[#006095]'
+                      }`}
                   >
                     {tabName}
                   </button>
@@ -1030,9 +1024,8 @@ export const HireBootstrapDevelopersService = () => {
                   <button
                     key={ind}
                     onClick={() => setActiveInsightIndustry(ind)}
-                    className={`px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
-                      activeInsightIndustry === ind ? 'bg-[#005C8A] text-white font-bold shadow-xs' : 'bg-white text-slate-700 hover:bg-slate-50'
-                    }`}
+                    className={`px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all cursor-pointer ${activeInsightIndustry === ind ? 'bg-[#005C8A] text-white font-bold shadow-xs' : 'bg-white text-slate-700 hover:bg-slate-50'
+                      }`}
                   >
                     {ind}
                   </button>
@@ -1043,9 +1036,8 @@ export const HireBootstrapDevelopersService = () => {
                   <button
                     key={ind}
                     onClick={() => setActiveInsightIndustry(ind)}
-                    className={`px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
-                      activeInsightIndustry === ind ? 'bg-[#005C8A] text-white font-bold shadow-xs' : 'bg-white text-slate-700 hover:bg-slate-50'
-                    }`}
+                    className={`px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all cursor-pointer ${activeInsightIndustry === ind ? 'bg-[#005C8A] text-white font-bold shadow-xs' : 'bg-white text-slate-700 hover:bg-slate-50'
+                      }`}
                   >
                     {ind}
                   </button>
@@ -1111,7 +1103,7 @@ export const HireBootstrapDevelopersService = () => {
                 About Us
               </h2>
               <p className="text-sm sm:text-base text-cyan-100 font-medium leading-relaxed">
-                Sapphire delivers cutting-edge digital solutions that drive our clients to achieve unparalleled success
+                Firevy.co delivers cutting-edge digital solutions that drive our clients to achieve unparalleled success
               </p>
             </div>
 
@@ -1184,7 +1176,7 @@ export const HireBootstrapDevelopersService = () => {
       {/* ============================================================
           SECTION 13: SECTORS THRIVING THROUGH SAPPHIRE'S BESPOKE DEDICATED DEVELOPERS (Screenshot 2 Match)
           ============================================================ */}
-      <SectorsThrivingSection title="Sectors Thriving Through Sapphire's Bespoke Dedicated Developers" />
+      <SectorsThrivingSection title="Sectors Thriving Through Firevy.co's Bespoke Dedicated Developers" />
 
       {/* ============================================================
           SECTION 14: EMPLOY THE ADVANCED PROFICIENCY OF SAPPHIRE'S DEDICATED DEVELOPMENT TEAM (Screenshot 3 Match)
@@ -1193,10 +1185,10 @@ export const HireBootstrapDevelopersService = () => {
         <Container className="max-w-6xl">
           <div className="text-center max-w-3xl mx-auto mb-10 space-y-2">
             <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-[900] text-slate-900 tracking-tight leading-tight">
-              Employ the Advanced Proficiency of Sapphire’s Dedicated Development Team
+              Employ the Advanced Proficiency of Firevy.co’s Dedicated Development Team
             </h2>
             <p className="text-xs sm:text-sm text-slate-600 font-normal max-w-2xl mx-auto">
-              At Sapphire, we have a dedicated development team to deliver IT services and create solutions that surpass expectations.
+              At Firevy.co, we have a dedicated development team to deliver IT services and create solutions that surpass expectations.
             </p>
           </div>
 
@@ -1245,17 +1237,15 @@ export const HireBootstrapDevelopersService = () => {
             <div className="inline-flex items-center bg-[#EBF4FA] rounded-xl p-1.5 border border-blue-100 shadow-xs">
               <button
                 onClick={() => setResponsibilityTab('sapphire')}
-                className={`px-8 py-2 rounded-lg font-bold text-xs sm:text-sm transition-all cursor-pointer ${
-                  responsibilityTab === 'sapphire' ? 'bg-[#005F96] text-white shadow-sm' : 'text-slate-600 hover:text-slate-900'
-                }`}
+                className={`px-8 py-2 rounded-lg font-bold text-xs sm:text-sm transition-all cursor-pointer ${responsibilityTab === 'sapphire' ? 'bg-[#005F96] text-white shadow-sm' : 'text-slate-600 hover:text-slate-900'
+                  }`}
               >
                 Firevy.co
               </button>
               <button
                 onClick={() => setResponsibilityTab('client')}
-                className={`px-8 py-2 rounded-lg font-bold text-xs sm:text-sm transition-all cursor-pointer ${
-                  responsibilityTab === 'client' ? 'bg-[#005F96] text-white shadow-sm' : 'text-slate-600 hover:text-slate-900'
-                }`}
+                className={`px-8 py-2 rounded-lg font-bold text-xs sm:text-sm transition-all cursor-pointer ${responsibilityTab === 'client' ? 'bg-[#005F96] text-white shadow-sm' : 'text-slate-600 hover:text-slate-900'
+                  }`}
               >
                 Client
               </button>
@@ -1265,21 +1255,21 @@ export const HireBootstrapDevelopersService = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 max-w-6xl mx-auto">
             {(responsibilityTab === 'sapphire'
               ? [
-                  { title: 'Create a dedicated team', IconComp: Users },
-                  { title: 'Gather required access', IconComp: Lock },
-                  { title: 'Plan project resources', IconComp: Sliders },
-                  { title: 'Create a standard delivery practice', IconComp: Clock },
-                  { title: 'Regular communication between stakeholders', IconComp: MessageSquare },
-                  { title: 'Research on competitors', IconComp: Flag }
-                ]
+                { title: 'Create a dedicated team', IconComp: Users },
+                { title: 'Gather required access', IconComp: Lock },
+                { title: 'Plan project resources', IconComp: Sliders },
+                { title: 'Create a standard delivery practice', IconComp: Clock },
+                { title: 'Regular communication between stakeholders', IconComp: MessageSquare },
+                { title: 'Research on competitors', IconComp: Flag }
+              ]
               : [
-                  { title: 'End-to-end ownership', IconComp: Handshake },
-                  { title: 'Manage the project roadmap', IconComp: Milestone },
-                  { title: 'Streamline feedback & review', IconComp: Star },
-                  { title: 'System for feedback & changes', IconComp: RefreshCw },
-                  { title: 'Project life cycle tracking', IconComp: RotateCw },
-                  { title: 'Ensure on-time delivery', IconComp: Calendar }
-                ]
+                { title: 'End-to-end ownership', IconComp: Handshake },
+                { title: 'Manage the project roadmap', IconComp: Milestone },
+                { title: 'Streamline feedback & review', IconComp: Star },
+                { title: 'System for feedback & changes', IconComp: RefreshCw },
+                { title: 'Project life cycle tracking', IconComp: RotateCw },
+                { title: 'Ensure on-time delivery', IconComp: Calendar }
+              ]
             ).map((card, cIdx) => {
               const CardIcon = card.IconComp;
               return (
@@ -1303,7 +1293,7 @@ export const HireBootstrapDevelopersService = () => {
       {/* ============================================================
           SECTION 16: TECHNOLOGY STACK THAT SAPPHIRE DEDICATED DEVELOPERS USE PROFICIENTLY
           ============================================================ */}
-      <TechStackProficientGrid title="Technology Stack That Sapphire Dedicated Developers Use Proficiently" />
+      <TechStackProficientGrid title="Technology Stack That Firevy.co Dedicated Developers Use Proficiently" />
 
       {/* ============================================================
           SECTION 17: THE EXPERTISE OF OUR BOOTSTRAP DEVELOPMENT SERVICES (Screenshot 1 Match)
@@ -1313,46 +1303,46 @@ export const HireBootstrapDevelopersService = () => {
           <div className="space-y-12">
             <div className="text-center max-w-4xl mx-auto space-y-3">
               <h2 className="text-2xl sm:text-3xl lg:text-[38px] font-[900] text-slate-900 tracking-tight leading-tight">
-                The Expertise Of Our Bootstrap Development Services
+                The Expertise Of Our Vue.js Development Services
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 font-medium max-w-3xl mx-auto">
-                Our Bootstrap Developers Are Available On An Hourly Basis At Very Affordable Rates. Their Expertise Includes:
+                Our Vue.js Developers Are Available On An Hourly Basis At Very Affordable Rates. Their Expertise Includes:
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
               {[
                 {
-                  title: 'Bootstrap Consultation',
-                  desc: 'Hire Bootstrap Developers in UK who will assist you in mastering Bootstrap. Our professionals will guide you through the process and assist you in making more intelligent decisions.',
+                  title: 'Vue.js Consultation',
+                  desc: 'Hire Vue.js Developers in UK who will assist you in mastering Vue.js. Our professionals will guide you through the process and assist you in making more intelligent decisions.',
                   bgColor: 'bg-purple-50',
                   iconColor: 'text-purple-600',
                   IconComp: Laptop
                 },
                 {
                   title: 'App Designing',
-                  desc: 'If you have a concept and have chosen to go forward with bootstrap development, our expert designers will assist you in creating a visual representation. This signifies that our front-end developers will develop a prototype of your application.',
+                  desc: 'If you have a concept and have chosen to go forward with vue development, our expert designers will assist you in creating a visual representation. This signifies that our front-end developers will develop a prototype of your application.',
                   bgColor: 'bg-emerald-50',
                   iconColor: 'text-emerald-600',
                   IconComp: LayoutGrid
                 },
                 {
                   title: 'App Development',
-                  desc: 'Hire Bootstrap Developers in Australia to create responsive apps with ease. Our developers are well-versed in widgets and templates, ensuring optimal implementation.',
+                  desc: 'Hire Vue.js Developers in Australia to create responsive apps with ease. Our developers are well-versed in widgets and templates, ensuring optimal implementation.',
                   bgColor: 'bg-orange-50',
                   iconColor: 'text-orange-600',
                   IconComp: Code2
                 },
                 {
                   title: 'App Customization',
-                  desc: 'We can alter an old solution, including contemporary features, and enhance its efficacy. Hire Bootstrap Developers in Canada if you seek professional assistance to improve and optimize the application.',
+                  desc: 'We can alter an old solution, including contemporary features, and enhance its efficacy. Hire Vue.js Developers in Canada if you seek professional assistance to improve and optimize the application.',
                   bgColor: 'bg-amber-50',
                   iconColor: 'text-amber-600',
                   IconComp: Sliders
                 },
                 {
                   title: 'Application Recording',
-                  desc: 'Whether a tiny start-up or a well-established business, Hire Bootstrap Developers in UAE who will assist you with website re-coding at affordable prices.',
+                  desc: 'Whether a tiny start-up or a well-established business, Hire Vue.js Developers in UAE who will assist you with website re-coding at affordable prices.',
                   bgColor: 'bg-pink-50',
                   iconColor: 'text-pink-600',
                   IconComp: Cpu
@@ -1478,8 +1468,8 @@ export const HireBootstrapDevelopersService = () => {
       </section>
 
       <HireDeveloper4Steps
-        title="Hire Bootstrap Developer In 4 Easy Steps"
-        subtitle="Bootstrap Developer Offers a number of advantages over another platform. Some of them are:"
+        title="Hire Vue.js Developer In 4 Easy Steps"
+        subtitle="Vue.js Developer Offers a number of advantages over another platform. Some of them are:"
       />
 
       {/* ============================================================
@@ -1502,7 +1492,7 @@ export const HireBootstrapDevelopersService = () => {
           FAQ SECTION (Matching Sapphire Reference Site Image 1)
           ============================================================ */}
       <SapphireFaqSection
-        faqList={bootstrapFaqs}
+        faqList={vueFaqs}
         title="Frequently Asked Questions"
         subtitle="We listen to query and provide solutions that captivate users. Feel free to contact us in case of any query which is not mention below."
       />
@@ -1517,13 +1507,13 @@ export const HireBootstrapDevelopersService = () => {
           WHAT SETS US APART, CHALLENGE CTA & NEWSLETTER (1:1 Match to Sapphire Reference)
           ============================================================ */}
       <WhatSetsUsApartSection
-        title="What Sets Us Apart As Bootstrap Development Company?"
-        subtitle="Being unique is our quality! Sapphire Solutions believe in the things that give us an edge over our competitors. We are renowned software and mobile application development organization serving customers with end-to-end support. Our Idealization, feasibility assessment of the entire software development process stands us one level up the competitors."
+        title="What Sets Us Apart As Vue.js Development Company?"
+        subtitle="Being unique is our quality! Firevy.co believes in the things that give us an edge over our competitors. We are renowned software and mobile application development organization serving customers with end-to-end support. Our Idealization, feasibility assessment of the entire software development process stands us one level up the competitors."
       />
 
       <IWatchChallengeCtaBanner
-        title="Have Bootstrap Development Challenge To Address ?"
-        subtitle="Get access to top Bootstrap developers to transform your ideas into a robust application."
+        title="Have Vue.js Development Challenge To Address ?"
+        subtitle="Get access to top Vue.js developers to transform your ideas into a robust application."
         buttonText="Hire Now"
       />
 
@@ -1532,4 +1522,4 @@ export const HireBootstrapDevelopersService = () => {
   );
 };
 
-export default HireBootstrapDevelopersService;
+export default HireVueDevelopersService;

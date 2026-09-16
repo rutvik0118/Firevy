@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom';
 import Container from './Container';
 
 export const TechStackProficientGrid = ({
-  title = "Technology Stack That Sapphire Dedicated Developers Use Proficiently"
+  title = "Technology Stack That Firevy.co Dedicated Developers Use Proficiently",
+  rows
 }) => {
-  const stackRows = [
+  const defaultStackRows = [
     {
       category: "Languages",
       pills: [
@@ -78,6 +79,8 @@ export const TechStackProficientGrid = ({
       ]
     }
   ];
+
+  const stackRows = rows || defaultStackRows;
 
   return (
     <section className="py-16 sm:py-20 bg-white text-slate-900 font-sans border-b border-slate-200">

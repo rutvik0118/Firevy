@@ -69,7 +69,7 @@ import {
   Scale
 } from 'lucide-react';
 
-export const HireBootstrapDevelopersService = () => {
+export const HireEmberDevelopersService = () => {
   const [openFaq, setOpenFaq] = useState(0);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [cardSlideIndex, setCardSlideIndex] = useState(0);
@@ -116,7 +116,7 @@ export const HireBootstrapDevelopersService = () => {
         'Project Trackers : Daily Reports, Basecamp, Jira, Redmine etc',
         '4 hours a day, 5 days a week',
         'Minimum: 2 months',
-        'Hire Dedicated Bootstrap Developers that exclusively works for you'
+        'Hire Dedicated Ember.js Developers that exclusively works for you'
       ]
     },
     {
@@ -217,7 +217,7 @@ export const HireBootstrapDevelopersService = () => {
     email: '',
     phone: '',
     model: 'Dedicated Team ($21/hr)',
-    appType: 'Bootstrap Responsive App',
+    appType: 'Ember.js Responsive App',
     budget: '$10,000 - $25,000',
     message: ''
   });
@@ -232,56 +232,56 @@ export const HireBootstrapDevelopersService = () => {
     setFormSubmitted(true);
   };
 
-  // Bootstrap FAQs (Exact Match to Sapphire Reference Site Image 1)
-  const bootstrapFaqs = [
+  // Ember.js FAQs (Exact Match to Sapphire Reference Site Image 1)
+  const emberFaqs = [
     {
       id: 1,
-      question: '1. Why is Bootstrap used?',
-      answer: 'Bootstrap helps designers and developers to create websites that are fully responsive rapidly. It is the most popular CSS framework for designing mobile-first and responsive apps.'
+      question: '1. Why is Ember.js used?',
+      answer: 'Ember.js helps designers and developers to create websites that are fully responsive rapidly. It is the most popular CSS framework for designing mobile-first and responsive apps.'
     },
     {
       id: 2,
-      question: '2. Is Bootstrap Necessary For Web Development?',
-      answer: 'While not strictly necessary, Bootstrap significantly speeds up front-end development by providing pre-built responsive grid systems, components, and utilities.'
+      question: '2. Is Ember.js Necessary For Web Development?',
+      answer: 'While not strictly necessary, Ember.js significantly speeds up front-end development by providing pre-built responsive grid systems, components, and utilities.'
     },
     {
       id: 3,
-      question: '3. What is Bootstrap?',
-      answer: 'Bootstrap is an open-source front-end framework containing HTML, CSS, and JavaScript-based design templates for typography, forms, buttons, navigation, and other interface components.'
+      question: '3. What is Ember.js?',
+      answer: 'Ember.js is an open-source front-end framework containing HTML, CSS, and JavaScript-based design templates for typography, forms, buttons, navigation, and other interface components.'
     },
     {
       id: 4,
-      question: '4. What are Bootstrap Components?',
-      answer: 'Bootstrap components include navigation bars, modals, carousels, accordions, dropdowns, tooltips, cards, buttons, and alert badges designed for rapid web assembly.'
+      question: '4. What are Ember.js Components?',
+      answer: 'Ember.js components include navigation bars, modals, carousels, accordions, dropdowns, tooltips, cards, buttons, and alert badges designed for rapid web assembly.'
     },
     {
       id: 5,
-      question: '5. Why is Bootstrap Preferred For Website Development?',
-      answer: 'Bootstrap is preferred for its mobile-first responsive grid system, cross-browser compatibility, extensive documentation, customizable SCSS variables, and strong community support.'
+      question: '5. Why is Ember.js Preferred For Website Development?',
+      answer: 'Ember.js is preferred for its mobile-first responsive grid system, cross-browser compatibility, extensive documentation, customizable SCSS variables, and strong community support.'
     },
     {
       id: 6,
-      question: '6. Why should I hire a Bootstrap developer from Sapphire Solutions?',
-      answer: 'Our dedicated Bootstrap developers have 5+ years of experience refactoring legacy UI, building custom responsive themes, optimizing web speed, and adhering to W3C standards.'
+      question: '6. Why should I hire a Ember.js developer from Sapphire Solutions?',
+      answer: 'Our dedicated Ember.js developers have 5+ years of experience refactoring legacy UI, building custom responsive themes, optimizing web speed, and adhering to W3C standards.'
     },
     {
       id: 7,
-      question: '7. Can I hire Bootstrap developers for an existing web project redesign?',
-      answer: 'Yes, our Bootstrap engineers specialize in modernizing legacy websites to Bootstrap 5, implementing clean responsive layouts, and improving lighthouse performance scores.'
+      question: '7. Can I hire Ember.js developers for an existing web project redesign?',
+      answer: 'Yes, our Ember.js engineers specialize in modernizing legacy websites to Ember 5, implementing clean responsive layouts, and improving lighthouse performance scores.'
     },
     {
       id: 8,
-      question: '8. Are your Bootstrap developers experienced in working with other front-end frameworks?',
-      answer: 'Yes, our Bootstrap developers are proficient in HTML5, CSS3, SCSS, JavaScript, React.js, Vue.js, and modern build tools like Vite and Webpack.'
+      question: '8. Are your Ember.js developers experienced in working with other front-end frameworks?',
+      answer: 'Yes, our Ember.js developers are proficient in HTML5, CSS3, SCSS, JavaScript, React.js, Vue.js, and modern build tools like Vite and Webpack.'
     }
   ];
 
   return (
     <div className="bg-white text-slate-900 font-sans min-h-screen">
       <SEO
-        title="Hire Bootstrap Developer | Dedicated Bootstrap Web Developers at $21/Hr"
-        description="Hire dedicated Bootstrap developers from Firevy.co. We are among the leading providers of bootstrap development services tailored for responsive web & mobile apps."
-        canonical="/services/hire-bootstrap-developers"
+        title="Hire Ember.js Developer | Dedicated Ember.js Web Developers at $21/Hr"
+        description="Hire dedicated Ember.js developers from Firevy.co. We are among the leading providers of ember development services tailored for responsive web & mobile apps."
+        canonical="/services/hire-ember-developers"
       />
 
       {/* ============================================================
@@ -294,10 +294,10 @@ export const HireBootstrapDevelopersService = () => {
             {/* Left Column Text & Action */}
             <div className="lg:col-span-7 space-y-6 text-left">
               <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-[900] text-slate-900 tracking-tight leading-tight">
-                Hire Bootstrap Developer
+                Hire Ember.js Developer
               </h1>
               <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal max-w-2xl">
-                We are among the leading providers of bootstrap development services. As a reputable Bootstrap Web Development Company, we have tailored our services to satisfy the demands of companies seeking creative mobile applications.
+                We are among the leading providers of ember development services. As a reputable Ember.js Web Development Company, we have tailored our services to satisfy the demands of companies seeking creative mobile applications.
               </p>
 
               {/* 4 Metrics / Stats Row */}
@@ -358,8 +358,8 @@ export const HireBootstrapDevelopersService = () => {
             <div className="lg:col-span-5 relative flex items-center justify-center">
               <div className="relative w-full max-w-[540px]">
                 <img
-                  src="/images/bootstrap_hero_illustration.jpg"
-                  alt="Hire Bootstrap Developer Illustration"
+                  src="/images/react_hero_illustration.jpg"
+                  alt="Hire Ember.js Developer Illustration"
                   className="w-full h-auto object-contain rounded-2xl shadow-2xl border border-slate-200/80 hover:shadow-indigo-500/10 transition-shadow duration-300"
                 />
               </div>
@@ -375,7 +375,7 @@ export const HireBootstrapDevelopersService = () => {
       <BrandLogoMarquee />
 
       {/* ============================================================
-          SECTION 2: Bootstrap Developers Are Available For Hire (Screenshot 2)
+          SECTION 2: Ember.js Developers Are Available For Hire (Screenshot 2)
           ============================================================ */}
       <section className="py-16 md:py-24 bg-white font-sans text-slate-900 border-b border-slate-100">
         <Container>
@@ -385,8 +385,8 @@ export const HireBootstrapDevelopersService = () => {
             <div className="lg:col-span-6 relative flex justify-center items-center">
               <div className="relative w-full max-w-[550px]">
                 <img
-                  src="/images/bootstrap_section2_illustration.jpg"
-                  alt="Bootstrap Developers Available For Hire"
+                  src="/images/react_section2_illustration.jpg"
+                  alt="Ember.js Developers Available For Hire"
                   className="w-full h-auto object-contain rounded-2xl shadow-xl border border-slate-200/80 hover:shadow-cyan-500/10 transition-shadow duration-300"
                 />
               </div>
@@ -395,10 +395,10 @@ export const HireBootstrapDevelopersService = () => {
             {/* Right Text Column */}
             <div className="lg:col-span-6 space-y-6">
               <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-[900] text-slate-900 tracking-tight leading-snug">
-                Bootstrap Developers Are Available For Hire
+                Ember.js Developers Are Available For Hire
               </h2>
               <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
-                Hire Dedicated Bootstrap Developers with extensive expertise in the Bootstrap framework. We assist you in developing scalable applications that promote growth. Our team of bootstrap developers can create attractive web and mobile apps regardless of the kind of company or sector. With us, adaptation and flexibility will never be a concern since the applications developed by our bootstrap web developer are highly configurable. Using a single codebase, Bootstrap reduces development time and costs, assuring the implementation of scalable business solutions. In addition, the framework includes templates that may be used to construct site components such as forms and buttons.
+                Hire Dedicated Ember.js Developers with extensive expertise in the Ember.js framework. We assist you in developing scalable applications that promote growth. Our team of ember developers can create attractive web and mobile apps regardless of the kind of company or sector. With us, adaptation and flexibility will never be a concern since the applications developed by our ember web developer are highly configurable. Using a single codebase, Ember.js reduces development time and costs, assuring the implementation of scalable business solutions. In addition, the framework includes templates that may be used to construct site components such as forms and buttons.
               </p>
 
               <div className="pt-2">
@@ -410,7 +410,7 @@ export const HireBootstrapDevelopersService = () => {
                   }}
                   className="inline-flex items-center space-x-2 bg-[#0083B0] hover:bg-[#006095] text-white font-bold px-7 py-3 rounded-xl text-sm transition-all shadow-md"
                 >
-                  <span>Hire Dedicated Bootstrap Developers</span>
+                  <span>Hire Dedicated Ember.js Developers</span>
                   <ArrowRight className="w-4 h-4" />
                 </a>
               </div>
@@ -420,202 +420,7 @@ export const HireBootstrapDevelopersService = () => {
         </Container>
       </section>
 
-      {/* ============================================================
-          SECTION 3: Flexible Hiring Models (Screenshot 3 - Carousel)
-          ============================================================ */}
-      <section className="py-16 md:py-24 bg-[#F8FAFC] font-sans text-slate-900 border-b border-slate-200/70">
-        <Container>
-          <div className="text-center max-w-3xl mx-auto space-y-3 mb-12">
-            <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-[900] text-slate-900 tracking-tight leading-tight">
-              Our Flexible Hiring Models: Find the Perfect Fit For Your Project
-            </h2>
-            <p className="text-sm sm:text-base text-slate-600 font-medium">
-              Hire Bootstrap Developers from Firevy.co Starts from,
-            </p>
-          </div>
 
-          {/* Cards Carousel Container */}
-          <div
-            className="overflow-hidden relative"
-            onMouseEnter={() => setIsCarouselHovered(true)}
-            onMouseLeave={() => setIsCarouselHovered(false)}
-          >
-            <div
-              className={`flex transition-transform duration-500 ease-in-out ${!enableTransition ? 'transition-none' : ''}`}
-              style={{
-                transform: `translateX(-${cardSlideIndex * (100 / 3)}%)`
-              }}
-              onTransitionEnd={handleTransitionEnd}
-            >
-              {[...hiringModelCards, ...hiringModelCards, ...hiringModelCards].map((card, index) => {
-                const IconComp = card.IconComp;
-                return (
-                  <div
-                    key={`${card.id}-${index}`}
-                    className="w-full md:w-1/2 lg:w-1/3 shrink-0 px-3 py-4"
-                  >
-                    <div
-                      className={`h-full bg-white rounded-2xl p-6 sm:p-8 flex flex-col justify-between relative transition-all duration-300 ${
-                        card.isFeatured
-                          ? 'border-2 border-[#0083B0] shadow-xl ring-4 ring-[#0083B0]/10 scale-[1.02]'
-                          : 'border border-slate-200/80 shadow-md hover:shadow-xl'
-                      }`}
-                    >
-                      {/* Top Save text or badge */}
-                      {card.saveText && (
-                        <div className="text-center font-bold text-xs text-[#0083B0] tracking-wider uppercase mb-2">
-                          {card.saveText}
-                        </div>
-                      )}
-
-                      <div className="space-y-4">
-                        {/* Header Icon Circle */}
-                        <div className="w-12 h-12 rounded-full bg-cyan-50 border border-cyan-100 flex items-center justify-center text-[#0083B0] mx-auto shadow-xs">
-                          <IconComp className="w-6 h-6 stroke-[2]" />
-                        </div>
-
-                        {/* Title & Badge */}
-                        <div className="text-center space-y-1">
-                          <div className="flex items-center justify-center space-x-2">
-                            <h3 className="text-xl font-[800] text-slate-900">{card.title}</h3>
-                            {card.badgeText && (
-                              <span className="bg-cyan-100 text-[#0083B0] text-[11px] font-bold px-2.5 py-0.5 rounded-full">
-                                {card.badgeText}
-                              </span>
-                            )}
-                          </div>
-                          <div className="text-xs text-slate-500 font-medium">{card.subtitle}</div>
-                          <div className="text-2xl font-[900] text-slate-900 pt-1">{card.price}</div>
-                        </div>
-
-                        {/* Feature Bullets */}
-                        <ul className="space-y-3 pt-4 border-t border-slate-100 text-xs sm:text-sm text-slate-600">
-                          {card.features.map((feat, fIdx) => (
-                            <li key={fIdx} className="flex items-start space-x-2.5">
-                              <CheckCircle2 className="w-4 h-4 text-[#0083B0] shrink-0 mt-0.5" />
-                              <span className="leading-snug">{feat}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-
-                      {/* Card Footer Button */}
-                      <div className="pt-6 mt-6 border-t border-slate-100 text-center space-y-2">
-                        <a
-                          href="#quote-form"
-                          onClick={(e) => {
-                            e.preventDefault();
-                            document.getElementById('quote-form')?.scrollIntoView({ behavior: 'smooth' });
-                          }}
-                          className={`w-full inline-flex items-center justify-center font-bold py-3 px-6 rounded-xl transition-all shadow-sm ${
-                            card.isFeatured
-                              ? 'bg-[#0083B0] hover:bg-[#006095] text-white shadow-md'
-                              : 'bg-[#006095] hover:bg-[#0083B0] text-white'
-                          }`}
-                        >
-                          Hire Now
-                        </a>
-                        <div className="text-[11px] text-slate-500 font-medium pt-1">
-                          We sign NDA for all our projects.
-                        </div>
-                      </div>
-
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* Bottom Center Navigation Controls (Exact Match to Sapphire Reference Screenshot 1) */}
-          <div className="flex items-center justify-center space-x-6 pt-8">
-            <button
-              onClick={handlePrevCard}
-              className="text-[#0083B0] hover:text-[#006095] p-2 transition-all group cursor-pointer"
-              aria-label="Previous card"
-            >
-              <ArrowLeft className="w-7 h-7 stroke-[2.5] group-hover:-translate-x-1 transition-transform" />
-            </button>
-            <button
-              onClick={handleNextCard}
-              className="text-[#0083B0] hover:text-[#006095] p-2 transition-all group cursor-pointer"
-              aria-label="Next card"
-            >
-              <ArrowRight className="w-7 h-7 stroke-[2.5] group-hover:translate-x-1 transition-transform" />
-            </button>
-          </div>
-        </Container>
-      </section>
-
-      {/* ============================================================
-          SECTION 4: Comparison Table (Screenshot 4)
-          ============================================================ */}
-      <section className="py-16 md:py-24 bg-white font-sans text-slate-900 border-b border-slate-200/60">
-        <Container>
-          <div className="text-center max-w-3xl mx-auto space-y-4 mb-12">
-            <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-[900] text-slate-900 tracking-tight leading-tight">
-              Hire Dedicated Developers To Empower Your Business with our Development Proficiency
-            </h2>
-            <p className="text-sm sm:text-base text-slate-600 font-medium">
-              Hire Bootstrap Developers to meet your business perks by leveraging our technical elegance.
-            </p>
-          </div>
-
-          {/* Comparison Table */}
-          <div className="max-w-5xl mx-auto overflow-hidden rounded-2xl border border-slate-200 shadow-xl">
-            <div className="overflow-x-auto">
-              <table className="w-full text-left border-collapse">
-                <thead>
-                  <tr className="bg-[#005C8A] text-white font-bold text-sm sm:text-base">
-                    <th className="py-4 px-6 border-r border-cyan-800/50 w-1/4">Range of Developers</th>
-                    <th className="py-4 px-6 border-r border-cyan-800/50 w-1/4 text-center">Junior Developers</th>
-                    <th className="py-4 px-6 border-r border-cyan-800/50 w-1/4 text-center">Mid-Level Developers</th>
-                    <th className="py-4 px-6 w-1/4 text-center">Senior Developers</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-slate-200 text-xs sm:text-sm text-slate-700 font-medium">
-                  <tr className="hover:bg-slate-50 transition-colors">
-                    <td className="py-4 px-6 font-bold text-slate-900 bg-slate-50/80 border-r border-slate-200">Approx Cost</td>
-                    <td className="py-4 px-6 text-center font-extrabold text-[#0083B0] border-r border-slate-200">$17</td>
-                    <td className="py-4 px-6 text-center font-extrabold text-[#0083B0] border-r border-slate-200">$22</td>
-                    <td className="py-4 px-6 text-center font-extrabold text-[#0083B0]">$29</td>
-                  </tr>
-                  <tr className="hover:bg-slate-50 transition-colors">
-                    <td className="py-4 px-6 font-bold text-slate-900 bg-slate-50/80 border-r border-slate-200">Years of Experience</td>
-                    <td className="py-4 px-6 text-center border-r border-slate-200">1-3 Years</td>
-                    <td className="py-4 px-6 text-center border-r border-slate-200">3-5 Years</td>
-                    <td className="py-4 px-6 text-center">5+ Years</td>
-                  </tr>
-                  <tr className="hover:bg-slate-50 transition-colors">
-                    <td className="py-4 px-6 font-bold text-slate-900 bg-slate-50/80 border-r border-slate-200">Project Manager</td>
-                    <td className="py-4 px-6 text-center font-bold text-emerald-600 border-r border-slate-200">Yes</td>
-                    <td className="py-4 px-6 text-center font-bold text-emerald-600 border-r border-slate-200">Yes</td>
-                    <td className="py-4 px-6 text-center font-bold text-emerald-600">Yes</td>
-                  </tr>
-                  <tr className="hover:bg-slate-50 transition-colors">
-                    <td className="py-4 px-6 font-bold text-slate-900 bg-slate-50/80 border-r border-slate-200">Time Zone Flexibility</td>
-                    <td className="py-4 px-6 text-center font-bold text-emerald-600 border-r border-slate-200">Yes</td>
-                    <td className="py-4 px-6 text-center font-bold text-emerald-600 border-r border-slate-200">Yes</td>
-                    <td className="py-4 px-6 text-center font-bold text-emerald-600">Yes</td>
-                  </tr>
-                  <tr className="hover:bg-slate-50 transition-colors">
-                    <td className="py-4 px-6 font-bold text-slate-900 bg-slate-50/80 border-r border-slate-200">Quality Guarantee</td>
-                    <td className="py-4 px-6 text-center font-bold text-emerald-600 border-r border-slate-200">Yes</td>
-                    <td className="py-4 px-6 text-center font-bold text-emerald-600 border-r border-slate-200">Yes</td>
-                    <td className="py-4 px-6 text-center font-bold text-emerald-600">Yes</td>
-                  </tr>
-                  <tr className="hover:bg-slate-50 transition-colors">
-                    <td className="py-4 px-6 font-bold text-slate-900 bg-slate-50/80 border-r border-slate-200">Working Hours</td>
-                    <td className="py-4 px-6 text-center border-r border-slate-200">40 hours/ Week</td>
-                    <td className="py-4 px-6 text-center border-r border-slate-200">40 hours/ Week</td>
-                    <td className="py-4 px-6 text-center">40 hours/ Week</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </Container>
-      </section>
 
       {/* ============================================================
           SECTION 5: BRIEF ABOUT OUR BOOTSTRAP DEVELOPMENT SERVICES (Screenshot 1 Copy to Copy)
@@ -627,15 +432,15 @@ export const HireBootstrapDevelopersService = () => {
             {/* Left Text Column */}
             <div className="lg:col-span-7 space-y-6">
               <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-[900] text-slate-900 tracking-tight leading-snug">
-                Brief About Our Bootstrap Development Services
+                Brief About Our Ember.js Development Services
               </h2>
               
               <div className="space-y-4 text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
                 <p>
-                  Hire Our Bootstrap Developers To Get App and Web Development Services. Benefits of Hiring them include:Our developers will produce your Bootstrap project in real-time and with 100 percent correctness.Our Bootstrap developers must have a history of completing all project deadlines on time and providing complete customer satisfaction.
+                  Hire Our Ember.js Developers To Get App and Web Development Services. Benefits of Hiring them include:Our developers will produce your Ember.js project in real-time and with 100 percent correctness.Our Ember.js developers must have a history of completing all project deadlines on time and providing complete customer satisfaction.
                 </p>
                 <p>
-                  Experience well-structured code and construct a next-generation solution with our safe, scalable, dependable, and high-quality software development services at an accessible price. Our Bootstrap developers have the most extraordinary communication abilities, so working with us will be effortless.
+                  Experience well-structured code and construct a next-generation solution with our safe, scalable, dependable, and high-quality software development services at an accessible price. Our Ember.js developers have the most extraordinary communication abilities, so working with us will be effortless.
                 </p>
               </div>
             </div>
@@ -644,8 +449,8 @@ export const HireBootstrapDevelopersService = () => {
             <div className="lg:col-span-5 relative flex justify-center items-center">
               <div className="relative w-full max-w-[500px]">
                 <img
-                  src="/images/bootstrap_section8_illustration.jpg"
-                  alt="Who Exactly Is A Bootstrap Developer & Why Hire Them"
+                  src="/images/react_section8_illustration.jpg"
+                  alt="Who Exactly Is A Ember.js Developer & Why Hire Them"
                   className="w-full h-auto object-contain rounded-2xl shadow-xl border border-slate-200/80 hover:shadow-blue-500/10 transition-shadow duration-300"
                 />
               </div>
@@ -658,7 +463,7 @@ export const HireBootstrapDevelopersService = () => {
       {/* ============================================================
           SECTION 6: WORLD WIDE TOP RATED BOOTSTRAP DEVELOPMENT COMPANY ON CLUTCH (Auto-scroll Marquee Awards Banner)
           ============================================================ */}
-      <ClutchTopRatedBanner title="World Wide Top Rated Bootstrap Development Company on Clutch" />
+      <ClutchTopRatedBanner title="World Wide Top Rated Ember.js Development Company on Clutch" />
 
       {/* ============================================================
           SECTION 7: WHO EXACTLY IS A BOOTSTRAP DEVELOPER? (Screenshot 1 Copy to Copy)
@@ -667,7 +472,7 @@ export const HireBootstrapDevelopersService = () => {
         <Container>
           {/* Section Title */}
           <h2 className="text-2xl sm:text-3xl lg:text-[40px] font-[900] text-slate-900 tracking-tight leading-tight text-center mb-12 sm:mb-16">
-            Who Exactly Is A Bootstrap Developer?
+            Who Exactly Is A Ember.js Developer?
           </h2>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
@@ -701,10 +506,10 @@ export const HireBootstrapDevelopersService = () => {
             <div className="lg:col-span-7 flex flex-col justify-between space-y-6">
               <div className="space-y-5 text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
                 <p>
-                  Whether for Bootstrap UI design or bootstrap web applications, businesses need to hire bootstrap programmers with a high level of expertise who can provide high-quality work. The latter should align with the company's strategic objectives and customer needs. This is why front-end developers, particularly Bootstrap developers, constantly find it difficult to provide an appealing experience. Testing and debugging are crucial steps in the front-end development process, and we have Bootstrap Developers for Hire.
+                  Whether for Ember.js UI design or ember web applications, businesses need to hire ember programmers with a high level of expertise who can provide high-quality work. The latter should align with the company's strategic objectives and customer needs. This is why front-end developers, particularly Ember.js developers, constantly find it difficult to provide an appealing experience. Testing and debugging are crucial steps in the front-end development process, and we have Ember.js Developers for Hire.
                 </p>
                 <p>
-                  To minimize functional misunderstanding, testing and debugging tools exist in frameworks, which must be used with care. Hire Bootstrap Developers in India to increase web speed, such as compressing pictures and deleting extraneous code characters, without affecting the website's functionality. These factors may make a substantial impact when selecting a bootstrap programmer. Hire Bootstrap Developers in USA to develop a website that is both feature-rich and instantly deployable since it includes a variety of layouts and pre-built templates. Bootstrap is an open-source framework that allows developers to alter and tailor applications easily.
+                  To minimize functional misunderstanding, testing and debugging tools exist in frameworks, which must be used with care. Hire Ember.js Developers in India to increase web speed, such as compressing pictures and deleting extraneous code characters, without affecting the website's functionality. These factors may make a substantial impact when selecting a ember programmer. Hire Ember.js Developers in USA to develop a website that is both feature-rich and instantly deployable since it includes a variety of layouts and pre-built templates. Ember.js is an open-source framework that allows developers to alter and tailor applications easily.
                 </p>
               </div>
 
@@ -1313,46 +1118,46 @@ export const HireBootstrapDevelopersService = () => {
           <div className="space-y-12">
             <div className="text-center max-w-4xl mx-auto space-y-3">
               <h2 className="text-2xl sm:text-3xl lg:text-[38px] font-[900] text-slate-900 tracking-tight leading-tight">
-                The Expertise Of Our Bootstrap Development Services
+                The Expertise Of Our Ember.js Development Services
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 font-medium max-w-3xl mx-auto">
-                Our Bootstrap Developers Are Available On An Hourly Basis At Very Affordable Rates. Their Expertise Includes:
+                Our Ember.js Developers Are Available On An Hourly Basis At Very Affordable Rates. Their Expertise Includes:
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
               {[
                 {
-                  title: 'Bootstrap Consultation',
-                  desc: 'Hire Bootstrap Developers in UK who will assist you in mastering Bootstrap. Our professionals will guide you through the process and assist you in making more intelligent decisions.',
+                  title: 'Ember.js Consultation',
+                  desc: 'Hire Ember.js Developers in UK who will assist you in mastering Ember.js. Our professionals will guide you through the process and assist you in making more intelligent decisions.',
                   bgColor: 'bg-purple-50',
                   iconColor: 'text-purple-600',
                   IconComp: Laptop
                 },
                 {
                   title: 'App Designing',
-                  desc: 'If you have a concept and have chosen to go forward with bootstrap development, our expert designers will assist you in creating a visual representation. This signifies that our front-end developers will develop a prototype of your application.',
+                  desc: 'If you have a concept and have chosen to go forward with ember development, our expert designers will assist you in creating a visual representation. This signifies that our front-end developers will develop a prototype of your application.',
                   bgColor: 'bg-emerald-50',
                   iconColor: 'text-emerald-600',
                   IconComp: LayoutGrid
                 },
                 {
                   title: 'App Development',
-                  desc: 'Hire Bootstrap Developers in Australia to create responsive apps with ease. Our developers are well-versed in widgets and templates, ensuring optimal implementation.',
+                  desc: 'Hire Ember.js Developers in Australia to create responsive apps with ease. Our developers are well-versed in widgets and templates, ensuring optimal implementation.',
                   bgColor: 'bg-orange-50',
                   iconColor: 'text-orange-600',
                   IconComp: Code2
                 },
                 {
                   title: 'App Customization',
-                  desc: 'We can alter an old solution, including contemporary features, and enhance its efficacy. Hire Bootstrap Developers in Canada if you seek professional assistance to improve and optimize the application.',
+                  desc: 'We can alter an old solution, including contemporary features, and enhance its efficacy. Hire Ember.js Developers in Canada if you seek professional assistance to improve and optimize the application.',
                   bgColor: 'bg-amber-50',
                   iconColor: 'text-amber-600',
                   IconComp: Sliders
                 },
                 {
                   title: 'Application Recording',
-                  desc: 'Whether a tiny start-up or a well-established business, Hire Bootstrap Developers in UAE who will assist you with website re-coding at affordable prices.',
+                  desc: 'Whether a tiny start-up or a well-established business, Hire Ember.js Developers in UAE who will assist you with website re-coding at affordable prices.',
                   bgColor: 'bg-pink-50',
                   iconColor: 'text-pink-600',
                   IconComp: Cpu
@@ -1478,8 +1283,8 @@ export const HireBootstrapDevelopersService = () => {
       </section>
 
       <HireDeveloper4Steps
-        title="Hire Bootstrap Developer In 4 Easy Steps"
-        subtitle="Bootstrap Developer Offers a number of advantages over another platform. Some of them are:"
+        title="Hire Ember.js Developer In 4 Easy Steps"
+        subtitle="Ember.js Developer Offers a number of advantages over another platform. Some of them are:"
       />
 
       {/* ============================================================
@@ -1502,7 +1307,7 @@ export const HireBootstrapDevelopersService = () => {
           FAQ SECTION (Matching Sapphire Reference Site Image 1)
           ============================================================ */}
       <SapphireFaqSection
-        faqList={bootstrapFaqs}
+        faqList={emberFaqs}
         title="Frequently Asked Questions"
         subtitle="We listen to query and provide solutions that captivate users. Feel free to contact us in case of any query which is not mention below."
       />
@@ -1517,13 +1322,13 @@ export const HireBootstrapDevelopersService = () => {
           WHAT SETS US APART, CHALLENGE CTA & NEWSLETTER (1:1 Match to Sapphire Reference)
           ============================================================ */}
       <WhatSetsUsApartSection
-        title="What Sets Us Apart As Bootstrap Development Company?"
+        title="What Sets Us Apart As Ember.js Development Company?"
         subtitle="Being unique is our quality! Sapphire Solutions believe in the things that give us an edge over our competitors. We are renowned software and mobile application development organization serving customers with end-to-end support. Our Idealization, feasibility assessment of the entire software development process stands us one level up the competitors."
       />
 
       <IWatchChallengeCtaBanner
-        title="Have Bootstrap Development Challenge To Address ?"
-        subtitle="Get access to top Bootstrap developers to transform your ideas into a robust application."
+        title="Have Ember.js Development Challenge To Address ?"
+        subtitle="Get access to top Ember.js developers to transform your ideas into a robust application."
         buttonText="Hire Now"
       />
 
@@ -1532,4 +1337,4 @@ export const HireBootstrapDevelopersService = () => {
   );
 };
 
-export default HireBootstrapDevelopersService;
+export default HireEmberDevelopersService;

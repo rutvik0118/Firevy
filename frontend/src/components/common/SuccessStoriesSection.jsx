@@ -165,7 +165,7 @@ const defaultCards = [
 
 export const SuccessStoriesSection = ({
   category,
-  subtitle = "Know Sapphire journey from concept to success. Explore how we’ve brought ideas to life and achieved remarkable results for our clients."
+  subtitle = "Know Firevy.co's journey from concept to success. Explore how we’ve brought ideas to life and achieved remarkable results for our clients."
 }) => {
   const cards = category === 'education' ? educationCards : defaultCards;
 
