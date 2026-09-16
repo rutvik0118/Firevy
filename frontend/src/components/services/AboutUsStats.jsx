@@ -58,13 +58,13 @@ export const AboutUsStats = ({ companyName = "Sapphire" }) => {
       <Container>
         {/* Section Heading & Subtitle */}
         <div className="text-center max-w-4xl mx-auto mb-6 sm:mb-8 space-y-1.5">
-          <h2 
+          <h2
             className="font-[800] text-white tracking-tight leading-tight"
             style={{ fontSize: '30px' }}
           >
             About Us
           </h2>
-          <p 
+          <p
             className="font-normal text-white/90"
             style={{ fontSize: '14px' }}
           >
@@ -91,13 +91,13 @@ export const AboutUsStats = ({ companyName = "Sapphire" }) => {
 
               {/* Statistic Number & Description on Right */}
               <div className="flex-1 flex flex-col justify-center min-w-0">
-                <div 
+                <div
                   className="font-[800] text-[#005F96] tracking-tight leading-none mb-1"
                   style={{ fontSize: '23px' }}
                 >
                   {item.number}
                 </div>
-                <div 
+                <div
                   className="font-[600] text-[#1E293B] leading-tight truncate"
                   style={{ fontSize: '12.5px' }}
                 >

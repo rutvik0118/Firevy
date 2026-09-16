@@ -55,6 +55,10 @@ export const SapphireLightHeroBanner = ({
   const isWarehouse = serviceCategory === 'warehouse' || serviceCategory === 'wms' || serviceCategory === 'inventory';
   const isClover = serviceCategory === 'clover' || serviceCategory === 'pos';
   const isIWatch = serviceCategory === 'iwatch' || serviceCategory === 'watch';
+  const isIPad = serviceCategory === 'ipad';
+  const isKotlin = serviceCategory === 'kotlin';
+  const isHybrid = serviceCategory === 'hybrid';
+  const isCrossPlatform = serviceCategory === 'cross-platform' || serviceCategory === 'crossplatform' || serviceCategory === 'cross_platform';
 
   const defaultZomatoStats = [
     { value: '80+', label: 'Mobile App Developers' },
@@ -106,13 +110,13 @@ export const SapphireLightHeroBanner = ({
 
             {/* Stats Grid if provided or isZomato */}
             {activeStats && (
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 py-3 border-t border-b border-slate-200/80 my-3">
+              <div className={`grid grid-cols-2 sm:grid-cols-4 gap-3 py-2 my-2 ${isHybrid ? '' : 'border-t border-b border-slate-200/80 py-3 my-3'}`}>
                 {activeStats.map((st, idx) => (
                   <div key={idx} className="space-y-0.5">
-                    <div className="text-2xl sm:text-3xl font-black text-[#005F96] tracking-tight">
+                    <div className="text-2xl sm:text-3xl font-[900] text-[#005F96] tracking-tight">
                       {st.value}
                     </div>
-                    <div className="text-[11px] sm:text-xs font-bold text-slate-700 leading-tight">
+                    <div className="text-[11px] sm:text-xs font-semibold text-slate-700 leading-tight">
                       {st.label}
                     </div>
                   </div>
@@ -932,6 +936,134 @@ export const SapphireLightHeroBanner = ({
                   </svg>
                 </div>
               </div>
+            ) : isCrossPlatform ? (
+              /* Cross-Platform App Development 1:1 Reference Vector Devices Graphic */
+              <div className="relative w-full max-w-[560px] flex items-center justify-center min-h-[380px] py-4 select-none">
+                <div className="relative w-full max-w-[500px] flex items-center justify-center">
+                  
+                  {/* LAPTOP (Center-Back) */}
+                  <div className="relative z-10 w-[310px] sm:w-[350px] h-[200px] sm:h-[225px] bg-[#1E293B] rounded-t-2xl border-4 border-[#334155] p-2 pb-0 shadow-2xl flex flex-col justify-between">
+                    {/* Screen Camera */}
+                    <div className="w-2 h-2 rounded-full bg-[#475569] mx-auto mb-1" />
+                    
+                    {/* Laptop Screen Content */}
+                    <div className="w-full h-full bg-white rounded-t-lg p-2.5 flex flex-col justify-between border-t border-x border-slate-200 overflow-hidden">
+                      {/* Top Header Placeholder */}
+                      <div className="flex items-center justify-between pb-1 border-b border-slate-100">
+                        <div className="flex items-center space-x-1.5">
+                          <div className="w-2 h-2 rounded-full bg-slate-300" />
+                          <div className="w-12 h-1.5 rounded bg-slate-200" />
+                        </div>
+                        <div className="w-14 h-1.5 rounded bg-slate-100" />
+                      </div>
+
+                      {/* Screen UI Cards */}
+                      <div className="grid grid-cols-2 gap-2 my-auto">
+                        <div className="h-12 rounded-lg bg-[#BAE6FD]/60 border border-[#7DD3FC]/40 p-1.5 space-y-1">
+                          <div className="w-8 h-1.5 rounded bg-[#38BDF8]" />
+                          <div className="w-12 h-1 rounded bg-[#7DD3FC]" />
+                        </div>
+                        <div className="h-12 rounded-lg bg-[#F1F5F9] border border-slate-200 p-1.5 space-y-1">
+                          <div className="w-10 h-1.5 rounded bg-slate-300" />
+                          <div className="w-12 h-1 rounded bg-slate-200" />
+                        </div>
+                      </div>
+
+                      {/* Bottom Coral/Red & Blue Card */}
+                      <div className="grid grid-cols-2 gap-2 mt-auto">
+                        <div className="h-9 rounded-lg bg-[#FDA4AF]/50 border border-[#F43F5E]/30 p-1" />
+                        <div className="h-9 rounded-lg bg-[#BAE6FD]/60 border border-[#7DD3FC]/40 p-1" />
+                      </div>
+                    </div>
+
+                    {/* Laptop Base Stand */}
+                    <div className="absolute -bottom-2.5 left-1/2 -translate-x-1/2 w-[350px] sm:w-[400px] h-2.5 bg-[#64748B] rounded-b-xl shadow-md flex items-center justify-center">
+                      <div className="w-16 h-1 bg-[#475569] rounded-full" />
+                    </div>
+                  </div>
+
+                  {/* LEFT PHONE (iPhone Style) */}
+                  <div className="absolute -bottom-2 -left-2 sm:left-2 z-20 w-[115px] sm:w-[135px] h-[210px] sm:h-[240px] bg-[#0F172A] rounded-[26px] border-4 border-[#334155] p-1.5 shadow-2xl flex flex-col justify-between overflow-hidden">
+                    {/* Screen */}
+                    <div className="w-full h-full bg-white rounded-[20px] p-2 flex flex-col justify-between border border-slate-100">
+                      {/* Notch / Speaker */}
+                      <div className="flex items-center justify-center space-x-1 mb-1">
+                        <div className="w-6 h-1 bg-slate-300 rounded-full" />
+                        <div className="w-1.5 h-1.5 rounded-full bg-slate-400" />
+                      </div>
+
+                      {/* Phone UI Cards */}
+                      <div className="space-y-1.5 my-auto">
+                        {/* Avatar & Header */}
+                        <div className="flex items-center space-x-1.5 pb-1 border-b border-slate-100">
+                          <div className="w-3.5 h-3.5 rounded-full bg-[#BAE6FD]" />
+                          <div className="w-10 h-1 rounded bg-slate-200" />
+                        </div>
+                        {/* Blue Main Card */}
+                        <div className="h-12 rounded-lg bg-[#BAE6FD]/70 border border-[#7DD3FC]/50 p-1" />
+                        {/* Coral Red Card */}
+                        <div className="h-10 rounded-lg bg-[#FDA4AF]/60 border border-[#F43F5E]/40 p-1" />
+                        {/* Small Pill Card */}
+                        <div className="h-6 rounded-lg bg-[#F1F5F9] border border-slate-200 p-1" />
+                      </div>
+
+                      {/* Home Indicator */}
+                      <div className="w-8 h-1 bg-slate-300 rounded-full mx-auto mt-1" />
+                    </div>
+                  </div>
+
+                  {/* RIGHT PHONE / TABLET (Android Style) */}
+                  <div className="absolute -bottom-2 -right-2 sm:right-2 z-20 w-[120px] sm:w-[140px] h-[220px] sm:h-[250px] bg-[#0F172A] rounded-[26px] border-4 border-[#334155] p-1.5 shadow-2xl flex flex-col justify-between overflow-hidden">
+                    {/* Screen */}
+                    <div className="w-full h-full bg-white rounded-[20px] p-2 flex flex-col justify-between border border-slate-100">
+                      {/* Top Camera Dot */}
+                      <div className="w-1.5 h-1.5 rounded-full bg-slate-400 mx-auto mb-1" />
+
+                      {/* UI Cards */}
+                      <div className="space-y-1.5 my-auto">
+                        {/* Search Bar */}
+                        <div className="h-2.5 rounded-full bg-slate-100 border border-slate-200" />
+                        {/* Large Blue Card */}
+                        <div className="h-16 rounded-lg bg-[#BAE6FD]/70 border border-[#7DD3FC]/50 p-1" />
+                        {/* Bottom Row Cards */}
+                        <div className="grid grid-cols-2 gap-1">
+                          <div className="h-8 rounded-md bg-[#FDA4AF]/60 border border-[#F43F5E]/40" />
+                          <div className="h-8 rounded-md bg-[#BAE6FD]/60 border border-[#7DD3FC]/40" />
+                        </div>
+                      </div>
+
+                      {/* Android Navigation Dots */}
+                      <div className="flex items-center justify-center space-x-1.5 mt-1">
+                        <div className="w-1 h-1 rounded-full bg-slate-300" />
+                        <div className="w-1 h-1 rounded-full bg-slate-300" />
+                        <div className="w-1 h-1 rounded-full bg-slate-300" />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* FLOATING BADGE 1: Windows Logo (Top-Center of Laptop) */}
+                  <div className="absolute -top-3 right-20 sm:right-28 z-30 w-9 h-9 rounded-xl bg-white shadow-xl border border-slate-100 flex items-center justify-center transform hover:scale-110 transition-transform">
+                    <svg className="w-4 h-4" viewBox="0 0 88 88" fill="none">
+                      <path d="M0 12.4L35.6 7.5V41.7H0V12.4ZM0 46.3H35.6V80.5L0 75.6V46.3ZM40.1 6.9L87.5 0V41.7H40.1V6.9ZM40.1 46.3H87.5V88L40.1 81.1V46.3Z" fill="#00A4EF" />
+                    </svg>
+                  </div>
+
+                  {/* FLOATING BADGE 2: Apple Logo (Above Left iPhone) */}
+                  <div className="absolute top-14 left-20 sm:left-24 z-30 w-9 h-9 rounded-xl bg-white shadow-xl border border-slate-100 flex items-center justify-center transform hover:scale-110 transition-transform">
+                    <svg className="w-4 h-4 fill-slate-900" viewBox="0 0 170 170">
+                      <path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.74 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.35.13-9.16-1.9-14.42-6.08-3.7-3.04-7.6-7.73-11.71-14.07-5.99-9.24-10.63-19.78-13.91-31.62-3.28-11.83-4.92-22.9-4.92-33.2 0-14.2 3.65-26.05 10.95-35.53 7.3-9.48 16.32-14.33 27.06-14.56 4.91 0 10.25 1.25 16.03 3.76 5.78 2.51 9.4 3.82 10.87 3.94 1.83-.24 5.64-1.63 11.44-4.17 5.8-2.54 11.14-3.71 16.03-3.52 8.78.47 16.53 3.52 23.24 9.17 6.72 5.64 11.05 12.63 12.99 20.95-7.85 4.74-11.72 11.38-11.62 19.92.1 7.42 2.87 13.79 8.3 19.12 5.43 5.33 11.96 8.33 19.59 9.01-1.7 5.48-3.87 11.27-6.51 17.38zM119.22 33.15c0-5.36 1.93-10.42 5.8-15.17 3.87-4.75 8.7-8.15 14.5-10.19-.3 2.68-.9 5.31-1.8 7.89-.9 2.58-2.22 5.09-3.96 7.53-3.69 5.16-8.28 8.7-13.77 10.62-.26-.23-.52-.45-.77-.68z" />
+                    </svg>
+                  </div>
+
+                  {/* FLOATING BADGE 3: Android Logo (Beside Right Android Tablet) */}
+                  <div className="absolute top-24 right-20 sm:right-24 z-30 w-9 h-9 rounded-xl bg-white shadow-xl border border-slate-100 flex items-center justify-center transform hover:scale-110 transition-transform">
+                    <svg className="w-4 h-4 fill-[#78C257]" viewBox="0 0 24 24">
+                      <path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.551 0 .9993.4482.9993.9993.0001.5511-.4483.9997-.9993.9997m-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993 0 .5511-.4482.9997-.9993.9997m11.4045-6.02l1.9973-3.4592a.416.416 0 00-.1521-.5676.416.416 0 00-.5676.1521l-2.0223 3.503C15.5902 8.4126 13.8533 8.082 12 8.082s-3.5902.3306-5.1367.8677L4.841 5.4467a.4161.4161 0 00-.5677-.1521.4157.4157 0 00-.1521.5676l1.9973 3.4592C2.6889 11.1867.3432 14.6589 0 18.761h24c-.3432-4.1021-2.6889-7.5743-6.1185-9.4396" />
+                    </svg>
+                  </div>
+
+                </div>
+              </div>
             ) : isIWatch ? (
               /* iWatch App Development 1:1 Reference Image */
               <div className="relative w-full max-w-[560px] flex items-center justify-center min-h-[380px] py-2 select-none">
@@ -939,6 +1071,35 @@ export const SapphireLightHeroBanner = ({
                   src="/images/iwatch_hero_illustration.png"
                   alt="Best iWatch App Development company in USA"
                   className="w-full h-auto max-w-[500px] object-contain drop-shadow-sm"
+                />
+              </div>
+            ) : isIPad ? (
+              /* iPad App Development Exact 1:1 Reference Illustration */
+              <div className="relative w-full max-w-[560px] flex items-center justify-center min-h-[380px] py-2 select-none">
+                <img
+                  src="/images/ipad_hero_illustration.png"
+                  alt="iPad App Development Services in USA"
+                  className="w-full h-auto max-w-[520px] object-contain mix-blend-multiply"
+                />
+              </div>
+            ) : isKotlin ? (
+              /* Kotlin App Development Exact 1:1 Reference Illustration */
+              <div className="relative w-full max-w-[560px] flex items-center justify-center min-h-[380px] py-2 select-none">
+                <img
+                  src="/images/kotlin_hero_illustration.jpg"
+                  alt="Kotlin App Development Company in USA"
+                  className="w-full h-auto max-w-[520px] object-contain"
+                  style={{ mixBlendMode: 'multiply' }}
+                />
+              </div>
+            ) : isHybrid ? (
+              /* Hybrid App Development Exact 1:1 Reference Illustration */
+              <div className="relative w-full max-w-[560px] flex items-center justify-center min-h-[380px] py-2 select-none">
+                <img
+                  src="/images/hybrid_hero_illustration.jpg"
+                  alt="Hybrid App Development Company in USA"
+                  className="w-full h-auto max-w-[520px] object-contain"
+                  style={{ mixBlendMode: 'multiply' }}
                 />
               </div>
             ) : (
