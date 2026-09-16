@@ -276,69 +276,27 @@ export const AppDevelopmentConsultingService = () => {
       />
 
       {/* ========================================================================= */}
-      {/* 1. HERO SECTION (1:1 SAPPHIRE / FIREVY REFERENCE) */}
+      {/* 1. HERO SECTION (EXACT 1:1 REFERENCE IMAGE 1) */}
       {/* ========================================================================= */}
-      <section className="relative overflow-hidden bg-[#EEF5FB] pt-8 sm:pt-10 pb-12 sm:pb-16 border-b border-slate-200/60">
+      <section className="relative overflow-hidden bg-[#F2F7FA] py-14 sm:py-16 lg:py-20 border-b border-slate-200/60">
         <Container>
-          {/* Breadcrumb */}
-          <div className="flex items-center space-x-2 text-xs text-slate-500 mb-6 font-medium">
-            <Link to="/" className="hover:text-[#005F96] transition-colors">Home</Link>
-            <ChevronRight className="w-3 h-3 text-slate-400" />
-            <Link to="/services" className="hover:text-[#005F96] transition-colors">Services</Link>
-            <ChevronRight className="w-3 h-3 text-slate-400" />
-            <span className="text-slate-600">Tech Consulting Services</span>
-            <ChevronRight className="w-3 h-3 text-slate-400" />
-            <span className="text-[#005F96] font-semibold">App Development Consulting</span>
-          </div>
-
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             {/* Left Content */}
-            <div className="lg:col-span-6 space-y-5">
-              <h1
-                className="text-slate-900 tracking-tight font-extrabold text-3xl sm:text-4xl lg:text-[42px] leading-[1.2]"
-              >
-                App Development Consulting Services in USA
+            <div className="lg:col-span-6 space-y-6 text-left">
+              <h1 className="text-slate-900 tracking-tight font-extrabold text-3xl sm:text-4xl lg:text-[44px] leading-[1.15]">
+                App Development Consulting <br className="hidden sm:inline" />
+                Services in USA
               </h1>
 
-              <p
-                className="text-slate-600 max-w-xl text-sm sm:text-base leading-relaxed font-normal"
-              >
-                Are you ready to turn your app concept into a reality? Or looking to revamp your current mobile solution? Look no further! At Firevy, we provide top-notch mobile app development consulting services to help you make informed decisions, mitigate risks, and build standout mobile experiences.
+              <p className="text-slate-600 max-w-xl text-sm sm:text-[15px] leading-relaxed font-normal">
+                Our app development consulting is geared toward the business needs of startups, small and medium-sized businesses, and large, well-established Best app consultants for startups companies.
               </p>
 
-              {/* Stats Bar (Exact 1:1 Sapphire Reference) */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 py-3">
-                <div className="space-y-0.5">
-                  <div className="text-2xl sm:text-3xl font-black text-[#005F96] tracking-tight">200+</div>
-                  <div className="text-xs sm:text-[13px] font-semibold text-slate-700 leading-snug">
-                    Dedicated<br />Developers
-                  </div>
-                </div>
-                <div className="space-y-0.5">
-                  <div className="text-2xl sm:text-3xl font-black text-[#005F96] tracking-tight">20+</div>
-                  <div className="text-xs sm:text-[13px] font-semibold text-slate-700 leading-snug">
-                    Fortunes 500<br />Companies
-                  </div>
-                </div>
-                <div className="space-y-0.5">
-                  <div className="text-2xl sm:text-3xl font-black text-[#005F96] tracking-tight">2800+</div>
-                  <div className="text-xs sm:text-[13px] font-semibold text-slate-700 leading-snug">
-                    Projects<br />Completed
-                  </div>
-                </div>
-                <div className="space-y-0.5">
-                  <div className="text-2xl sm:text-3xl font-black text-[#005F96] tracking-tight">320+</div>
-                  <div className="text-xs sm:text-[13px] font-semibold text-slate-700 leading-snug">
-                    5-Star Clutch<br />Reviews
-                  </div>
-                </div>
-              </div>
-
-              {/* CTA Button */}
+              {/* CTA Button matching reference */}
               <div className="pt-2">
                 <a
                   href="#consultation-form"
-                  className="inline-flex items-center justify-center px-7 py-3.5 rounded-lg bg-[#005F96] text-white font-bold text-sm sm:text-base hover:bg-[#004A75] transition-all shadow-md hover:shadow-lg transform active:scale-95 group"
+                  className="inline-flex items-center justify-center px-7 py-3.5 rounded-lg bg-[#005F96] text-white font-bold text-sm sm:text-base hover:bg-[#004A75] transition-all shadow-sm hover:shadow-md transform active:scale-95 group"
                 >
                   <span>Discuss Your Project</span>
                   <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -346,17 +304,13 @@ export const AppDevelopmentConsultingService = () => {
               </div>
             </div>
 
-            {/* Right Hero Meeting Illustration (Exact Sapphire / Firevy Scene) */}
+            {/* Right Hero Meeting Vector Illustration (Exact 1:1 Image_1.svg from reference) */}
             <div className="lg:col-span-6 flex justify-center items-center">
-              <div className="relative w-full max-w-[620px] rounded-2xl overflow-hidden p-2">
+              <div className="w-full max-w-[580px] flex justify-center">
                 <img
-                  src="/images/app_consulting_hero.jpg"
-                  alt="App Development Consulting Team Collaboration"
-                  className="w-full h-auto object-contain rounded-xl shadow-lg border border-slate-200/60 bg-white"
-                  onError={(e) => {
-                    e.target.onerror = null;
-                    e.target.src = "/images/c_sharp_developer_illustration.png";
-                  }}
+                  src="/images/sapphire_mobile_app_development_company_in_usa/Image_1.svg"
+                  alt="App Development Consulting Services Team"
+                  className="w-full h-auto object-contain max-h-[360px]"
                 />
               </div>
             </div>
