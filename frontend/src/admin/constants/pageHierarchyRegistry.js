@@ -1291,6 +1291,25 @@ export const PAGE_HIERARCHY_REGISTRY = {
           { key: 'faqs', title: 'Frequently Asked Questions', category: 'Accordion', description: 'Interactive FAQ accordion on timelines, IP, NDAs, and deliverables.', type: 'faq' },
           { key: 'ctaForm', title: 'Discovery Call Request Form', category: 'Form', description: 'Interactive 30-min discovery session booking form.', type: 'form' }
         ]
+      },
+      {
+        key: 'app-development-consulting',
+        title: 'App Development Consulting',
+        category: 'Tech Consulting Services',
+        description: 'Strategic mobile advisory, native iOS/Android, Flutter, React Native, UI/UX audits, and mobile cloud backends.',
+        icon: Smartphone,
+        slug: 'app-development-consulting',
+        publicRoute: '/services/app-development-consulting',
+        sections: [
+          { key: 'hero', title: 'Hero Banner', category: 'Hero', description: 'App Consulting headline, stats counter, and discovery call CTA.', type: 'hero' },
+          { key: 'overview', title: 'Mobile Consulting Overview', category: 'Overview', description: 'Mobile strategy, tech stack evaluation, and collaborative illustrations.', type: 'cards' },
+          { key: 'customAppServices', title: 'Custom Mobile App Consulting', category: 'Cards Grid', description: 'iOS, Android, Cross-platform, Enterprise mobility, UI/UX, and legacy modernization.', type: 'cards' },
+          { key: 'cuttingEdgeTech', title: 'Cutting-Edge Mobile Technologies', category: 'Slider', description: 'Swift, Kotlin, Flutter, React Native, GraphQL, Firebase slider.', type: 'slider' },
+          { key: 'expertiseCards', title: 'Key Practice Domains', category: 'Cards Grid', description: 'Discovery, architecture advisory, security & compliance, ASO strategy.', type: 'cards' },
+          { key: 'techStack', title: 'Mobile Ecosystem & Tools', category: 'Tech Grid', description: 'iOS, Android, Cross-platform, Cloud, DevOps, and QA tools.', type: 'cards' },
+          { key: 'faqs', title: 'Frequently Asked Questions', category: 'Accordion', description: 'Interactive FAQ accordion covering native vs cross-platform, security, and PRD.', type: 'faq' },
+          { key: 'ctaForm', title: 'Consultation Booking Form', category: 'Form', description: 'Interactive 30-min strategy session booking form.', type: 'form' }
+        ]
       }
     ]
   },

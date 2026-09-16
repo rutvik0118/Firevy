@@ -55,6 +55,7 @@ import SharePointDevelopmentService from '../components/services/SharePointDevel
 import PowerAppsDevelopmentService from '../components/services/PowerAppsDevelopmentService';
 import PowerAutomateDevelopmentService from '../components/services/PowerAutomateDevelopmentService';
 import ItConsultingServices from '../components/services/ItConsultingServices';
+import AppDevelopmentConsultingService from '../components/services/AppDevelopmentConsultingService';
 
 export const ServiceDetails = () => {
   const { slug } = useParams();
@@ -247,6 +248,11 @@ export const ServiceDetails = () => {
     currentSlug === 'tech-consulting-services' ||
     currentSlug === 'services/it-consulting-services';
 
+  const isAppConsulting = currentSlug === 'app-development-consulting' ||
+    currentSlug === 'app-development-consulting-services' ||
+    currentSlug.includes('app-development-consulting') ||
+    currentSlug === 'services/app-development-consulting';
+
   const unslugify = (str) => {
     if (!str) return 'Enterprise Tech Solution';
     return str
@@ -376,6 +382,10 @@ export const ServiceDetails = () => {
 
   if (isItConsulting) {
     return <ItConsultingServices />;
+  }
+
+  if (isAppConsulting) {
+    return <AppDevelopmentConsultingService />;
   }
 
   if (isPowerAutomate) {

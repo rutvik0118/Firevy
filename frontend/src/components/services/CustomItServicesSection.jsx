@@ -31,11 +31,13 @@ const customItServicesData = [
 export const CustomItServicesSection = ({
   companyName = 'Sapphire',
   title,
-  subtitle
+  subtitle,
+  services
 }) => {
   const displayTitle = title || `${companyName} Custom IT Service`;
   const defaultSubtitle = `${companyName} developers thrive at developing compelling mobile applications by utilizing our knowledge of the latest app development frameworks. ${companyName} provides complete customized It Services to meet your requirements.`;
   const displaySubtitle = subtitle || defaultSubtitle;
+  const cardsToRender = services && services.length > 0 ? services : customItServicesData;
 
   return (
     <section className="py-14 sm:py-18 lg:py-20 bg-[#005F96] text-white font-sans text-left relative overflow-hidden">
@@ -52,7 +54,7 @@ export const CustomItServicesSection = ({
 
         {/* 6 White Rectangular Cards Grid (2 rows x 3 cols on desktop) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 max-w-[1240px] mx-auto">
-          {customItServicesData.map((card, idx) => (
+          {cardsToRender.map((card, idx) => (
             <div
               key={idx}
               className="bg-white rounded-[16px] sm:rounded-[18px] p-6 sm:p-7 text-slate-900 shadow-md hover:shadow-xl transition-all duration-200 flex flex-col justify-start text-left group"

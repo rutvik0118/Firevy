@@ -138,6 +138,8 @@ export function App() {
                 <Route path="/services/:slug" element={<ServiceDetails />} />
                 <Route path="/services/it-consulting-services" element={<ServiceDetails />} />
                 <Route path="/it-consulting-services" element={<ServiceDetails />} />
+                <Route path="/services/app-development-consulting" element={<ServiceDetails />} />
+                <Route path="/app-development-consulting" element={<ServiceDetails />} />
                 <Route path="/services/tech-consulting-services" element={<ServiceDetails />} />
                 <Route path="/services/hire-bootstrap-developers" element={<ServiceDetails />} />
                 <Route path="/services/hire-bootstrap-developer" element={<ServiceDetails />} />
