@@ -24,6 +24,13 @@ import SuccessMatrixGrid from '../components/home/SuccessMatrixGrid';
 import ProcessWeFollowPillStages from '../components/common/ProcessWeFollowPillStages';
 import { BrandLogoMarquee } from '../components/common/BrandLogoMarquee';
 import InnovativeSolutionVideo from '../components/home/InnovativeSolutionVideo';
+import ClientStoryVideoSlider from '../components/common/ClientStoryVideoSlider';
+import AboutKeyMetrics from '../components/home/AboutKeyMetrics';
+import TrustedBrandsGrid from '../components/common/TrustedBrandsGrid';
+import FeaturedInLogosGrid from '../components/home/FeaturedInLogosGrid';
+import TrustRecognitionBanner from '../components/home/TrustRecognitionBanner';
+import OurOfficesGrid from '../components/common/OurOfficesGrid';
+import ClientReviewsDarkSection from '../components/home/ClientReviewsDarkSection';
 
 export const Contact = () => {
   // Form State
@@ -744,17 +751,38 @@ export const Contact = () => {
         </Container>
       </section>
 
+      {/* Success Matrix Grid Component */}
+      <SuccessMatrixGrid />
+
       {/* Unveiling Our Innovative Solution */}
       <InnovativeSolutionVideo />
 
       {/* Brand Logo Marquee */}
       <BrandLogoMarquee />
 
-      {/* Success Matrix Grid Component (Below Our Global Presence) */}
-      <SuccessMatrixGrid />
-
       {/* Process We Follow 5-Pill Stages Component */}
       <ProcessWeFollowPillStages />
+
+      {/* Our Story, Their Words (Video Testimonials) */}
+      <ClientStoryVideoSlider />
+
+      {/* Glance through our creations and presence */}
+      <AboutKeyMetrics />
+
+      {/* Trusted By The World's Leading Brands */}
+      <TrustedBrandsGrid />
+
+      {/* Proud To Have Picked These Up Along The Way */}
+      <TrustRecognitionBanner />
+
+      {/* We Have Been Featured In */}
+      <FeaturedInLogosGrid />
+
+      {/* Our Offices */}
+      <OurOfficesGrid />
+
+      {/* What Our Clients Say (Clutch Reviews Dark Carousel) */}
+      <ClientReviewsDarkSection />
 
       {/* Subscribe Newsletter Banner */}
       <NewsletterSubscribeBanner />
