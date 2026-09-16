@@ -3,8 +3,38 @@ import React, { useState, useEffect, useRef } from 'react';
 const clientReviews = [
   {
     id: 1,
-    headline: "They were excellent at finding the right level of detail in implementation and critical thinking to give good...",
-    body: "Sapphire Software Solutions impressed the client with the quality of their deliverables. They provided high-end designs, achieved the client's goals in record days, and prioritized the website's...",
+    headline: "Impressed by their ability to communicate effectively.",
+    body: "Sapphire Software Solutions delivered a user-friendly app that looked great. The client received positive feedback from users during the app's testing phase. The team have technical skills to build a complex app and...",
+    name: "David K",
+    location: "Australia",
+    avatar: "/images/bhavesh_patel.webp",
+    rating: "5.0",
+    metrics: {
+      quality: "5.0",
+      schedule: "5.0",
+      cost: "5.0",
+      willingToRefer: "5.0"
+    }
+  },
+  {
+    id: 2,
+    headline: "Their mobile app skills, helpfulness, and overall problem-solving blew me away.",
+    body: "Sapphire Software Solutions created a platform that the client was happy with. They were easy to talk to, responsive, and attentive to the client's needs. They also provided a result-oriented approach that was helpful an...",
+    name: "Vid Randjelovic",
+    location: "Phuket, Thailand",
+    avatar: "/images/derrick_surratt.webp",
+    rating: "5.0",
+    metrics: {
+      quality: "5.0",
+      schedule: "5.0",
+      cost: "5.0",
+      willingToRefer: "5.0"
+    }
+  },
+  {
+    id: 3,
+    headline: "They were excellent at finding the right level of detail in implementation and critical thinking to give good advice.",
+    body: "Sapphire Software Solutions impressed the client with the quality of their deliverables. They provided excellent designs, achieved the client's goals in unique ways, and prioritized the website's accessibility. The client also...",
     name: "Smit Shah",
     location: "Parkland, Florida",
     avatar: "/images/smit_shah.webp",
@@ -17,7 +47,7 @@ const clientReviews = [
     }
   },
   {
-    id: 2,
+    id: 4,
     headline: "The team's spirit is nice, and I've found the team cooperative at each step of the project.",
     body: "While the project is ongoing, the results thus far have met the expectations of the internal team. Sapphire Software Solutions has been prepared to accommodate requests and changes in the...",
     name: "Hesham Abdelfattah",
@@ -32,57 +62,12 @@ const clientReviews = [
     }
   },
   {
-    id: 3,
+    id: 5,
     headline: "Sapphire delivered flawlessly what we envisioned. We were astonished by their work.",
     body: "The product was delivered within budget and timeframe. Sapphire Software Solutions was able to work around the client's budget limitations. Their team provided excellent customer service and...",
     name: "Hamendra Shah",
     location: "Kenya",
-    avatar: "/images/derrick_surratt.webp",
-    rating: "5.0",
-    metrics: {
-      quality: "5.0",
-      schedule: "5.0",
-      cost: "5.0",
-      willingToRefer: "5.0"
-    }
-  },
-  {
-    id: 4,
-    headline: "Their communication and project management were top-notch throughout our mobile development.",
-    body: "The team demonstrated stellar commitment and deep technical proficiency in building our iOS and Android mobile apps. Highly recommended for enterprise development.",
-    name: "Manish Shah",
-    location: "United States",
     avatar: "/images/manish_shah.webp",
-    rating: "5.0",
-    metrics: {
-      quality: "5.0",
-      schedule: "5.0",
-      cost: "5.0",
-      willingToRefer: "5.0"
-    }
-  },
-  {
-    id: 5,
-    headline: "Reliable partner for complex software engineering and seamless integration.",
-    body: "Sapphire Software Solutions has delivered phenomenal results across all project milestones on time and within budget, showing excellent agility and technical maturity.",
-    name: "Bhavesh Patel",
-    location: "Australia",
-    avatar: "/images/bhavesh_patel.webp",
-    rating: "5.0",
-    metrics: {
-      quality: "5.0",
-      schedule: "5.0",
-      cost: "5.0",
-      willingToRefer: "5.0"
-    }
-  },
-  {
-    id: 6,
-    headline: "Exceptional dedication to UI/UX quality and smooth performance.",
-    body: "From prototype validation to production deployment, Sapphire delivered our digital vision flawlessly with outstanding post-launch support and responsiveness.",
-    name: "Sandeep Sodha",
-    location: "Canada",
-    avatar: "/images/sandeep_sodha.webp",
     rating: "5.0",
     metrics: {
       quality: "5.0",

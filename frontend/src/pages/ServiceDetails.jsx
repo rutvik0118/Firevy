@@ -26,6 +26,8 @@ import FlutterAppDevelopmentService from '../components/services/FlutterAppDevel
 import HireCSharpDevelopersService from '../components/services/HireCSharpDevelopersService';
 import HireBootstrapDevelopersService from '../components/services/HireBootstrapDevelopersService';
 import IWatchAppDevelopmentService from '../components/services/IWatchAppDevelopmentService';
+import IPadAppDevelopmentService from '../components/services/IPadAppDevelopmentService';
+import CrossPlatformAppDevelopmentService from '../components/services/CrossPlatformAppDevelopmentService';
 import IOSAppDevelopmentService from '../components/services/IOSAppDevelopmentService';
 import MobileAppDevelopmentService from '../components/services/MobileAppDevelopmentService';
 import XamarinAppDevelopmentService from '../components/services/XamarinAppDevelopmentService';
@@ -54,6 +56,8 @@ import VueJsDevelopmentService from '../components/services/VueJsDevelopmentServ
 import SharePointDevelopmentService from '../components/services/SharePointDevelopmentService';
 import PowerAppsDevelopmentService from '../components/services/PowerAppsDevelopmentService';
 import PowerAutomateDevelopmentService from '../components/services/PowerAutomateDevelopmentService';
+import KotlinAppDevelopmentService from '../components/services/KotlinAppDevelopmentService';
+import HybridAppDevelopmentService from '../components/services/HybridAppDevelopmentService';
 
 export const ServiceDetails = () => {
   const { slug } = useParams();
@@ -133,14 +137,24 @@ export const ServiceDetails = () => {
     currentSlug.includes('apple-watch') ||
     currentSlug.includes('watchos');
 
-  const isIOS = currentSlug.includes('ios') ||
-    currentSlug.includes('iphone');
+  const isIPad = currentSlug.includes('ipad');
+
+  const isKotlin = currentSlug.includes('kotlin');
+
+  const isHybrid = currentSlug.includes('hybrid');
+
+  const isCrossPlatform = currentSlug.includes('cross-platform') ||
+    currentSlug.includes('crossplatform') ||
+    currentSlug.includes('multi-platform');
+
+  const isIOS = (currentSlug.includes('ios') ||
+    currentSlug.includes('iphone')) && !isIPad;
 
   const isMobileApp = currentSlug === 'mobile-app-development' ||
     currentSlug === 'mobile-app' ||
     currentSlug === 'mobile-application' ||
     currentSlug === 'mobile-application-development' ||
-    (currentSlug.includes('mobile-app') && !isReactNative && !isFlutter && !isIOS && !isAndroid && !isXamarin && !isIWatch);
+    (currentSlug.includes('mobile-app') && !isReactNative && !isFlutter && !isIOS && !isAndroid && !isXamarin && !isIWatch && !isCrossPlatform && !isKotlin && !isHybrid);
 
   const isNet = currentSlug === 'net' ||
     currentSlug.includes('dot-net') ||
@@ -336,7 +350,7 @@ export const ServiceDetails = () => {
   };
 
   useEffect(() => {
-    if (!isMobileApp && !isBootstrap && !isPowerAutomate && !isPowerApps && !isSharePoint && !isVue && !isReact && !isAngular && !isIot && !isPwa && !isRpa && !isVR && !isFullStack && !isBlockchain && !isArtificialIntelligence && !isGenerativeAi && !isNodeJs && !isJava && !isPhp && !isNet && !isXamarin && !isAndroid && !isReactNative && !isFlutter && !isIOS && !isHealthcare && !isEducation && !isUber && !isSpotify && !isZomato && !isAmazon && !isVisitor && !isWarehouse && !isClover && !isCSharp && !isIWatch && !isWordpress && !isDrupal && !isUmbraco && !isSitecore && !isSitefinity && !isMagento && !isShopify) {
+    if (!isMobileApp && !isBootstrap && !isPowerAutomate && !isPowerApps && !isSharePoint && !isVue && !isReact && !isAngular && !isIot && !isPwa && !isRpa && !isVR && !isFullStack && !isBlockchain && !isArtificialIntelligence && !isGenerativeAi && !isNodeJs && !isJava && !isPhp && !isNet && !isXamarin && !isAndroid && !isReactNative && !isFlutter && !isIOS && !isHealthcare && !isEducation && !isUber && !isSpotify && !isZomato && !isAmazon && !isVisitor && !isWarehouse && !isClover && !isCSharp && !isIWatch && !isIPad && !isCrossPlatform && !isWordpress && !isDrupal && !isUmbraco && !isSitecore && !isSitefinity && !isMagento && !isShopify) {
       fetchServiceDetails();
     } else {
       setLoading(false);
@@ -514,6 +528,22 @@ export const ServiceDetails = () => {
 
   if (isIWatch) {
     return <IWatchAppDevelopmentService />;
+  }
+
+  if (isIPad) {
+    return <IPadAppDevelopmentService />;
+  }
+
+  if (isKotlin) {
+    return <KotlinAppDevelopmentService />;
+  }
+
+  if (isHybrid) {
+    return <HybridAppDevelopmentService />;
+  }
+
+  if (isCrossPlatform) {
+    return <CrossPlatformAppDevelopmentService />;
   }
 
   if (loading) {

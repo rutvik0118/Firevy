@@ -194,6 +194,15 @@ export function App() {
                 <Route path="/shopify-plus" element={<ServiceDetails />} />
                 <Route path="/hire-shopify-developers" element={<ServiceDetails />} />
                 <Route path="/iwatch-app-development" element={<ServiceDetails />} />
+                <Route path="/services/iwatch-app-development" element={<ServiceDetails />} />
+                <Route path="/ipad-app-development-services" element={<ServiceDetails />} />
+                <Route path="/services/ipad-app-development-services" element={<ServiceDetails />} />
+                 <Route path="/kotlin-app-development" element={<ServiceDetails />} />
+                <Route path="/services/kotlin-app-development" element={<ServiceDetails />} />
+                <Route path="/hybrid-app-development" element={<ServiceDetails />} />
+                <Route path="/services/hybrid-app-development" element={<ServiceDetails />} />
+                <Route path="/hybrid-app" element={<ServiceDetails />} />
+                <Route path="/services/hybrid-app" element={<ServiceDetails />} />
                 <Route path="/generative-ai-development-company" element={<ServiceDetails />} />
                 <Route path="/services/generative-ai-development-company" element={<ServiceDetails />} />
                 <Route path="/generative-ai" element={<ServiceDetails />} />

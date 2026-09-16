@@ -7,14 +7,34 @@ import SuccessMatrix from '../common/SuccessMatrix';
 import TrustedBrandsGrid from '../common/TrustedBrandsGrid';
 import SapphireTechStackGrid from '../common/SapphireTechStackGrid';
 import BrandLogoMarquee from '../common/BrandLogoMarquee';
+import MobileAppProficientTechStackSection from './MobileAppProficientTechStackSection';
+import OurMobileAppExpertiseServices from './OurMobileAppExpertiseServices';
 import ProudAwardsBanner from './ProudAwardsBanner';
+import MobileAppMarketStatsSection from './MobileAppMarketStatsSection';
+import DeliveringImpactfulMobileServices from './DeliveringImpactfulMobileServices';
+import MobileAppAwardsMarqueeBanner from './MobileAppAwardsMarqueeBanner';
+import CreatingExcellentMobileAppsSection from './CreatingExcellentMobileAppsSection';
+import MobileAppCuttingEdgeTechnologiesSection from './MobileAppCuttingEdgeTechnologiesSection';
+import PremiumServicesGrid from '../common/PremiumServicesGrid';
+import SuccessStoriesSection from '../common/SuccessStoriesSection';
+import AboutUsStats from './AboutUsStats';
+import SectorsThrivingSection from './SectorsThrivingSection';
+import SapphireSeasonedExpertsSection from './SapphireSeasonedExpertsSection';
+import IndustryFocusedInsightsSection from './IndustryFocusedInsightsSection';
+import TransformativeImpactSection from './TransformativeImpactSection';
+import MobileAppExpertiseServices from './MobileAppExpertiseServices';
+import BestMobileAppCompanyShowcase from './BestMobileAppCompanyShowcase';
+import MobileAppCompanyBenefits from './MobileAppCompanyBenefits';
+import MobileAppComparativeAnalysis from './MobileAppComparativeAnalysis';
+import AndroidHiringModels from './AndroidHiringModels';
 import InnovativeSolutionsVideoSection from './InnovativeSolutionsVideoSection';
 import OurStoryTheirWordsSection from './OurStoryTheirWordsSection';
 import FeaturedInBrandsSection from './FeaturedInBrandsSection';
+import WhatOurClientsSaySection from './WhatOurClientsSaySection';
 import DigitalTransformationSlider from '../common/DigitalTransformationSlider';
 import SapphireFaqSection from '../common/SapphireFaqSection';
-import IWatchRecentBlogsSection from './IWatchRecentBlogsSection';
-import IWatchWhatSetsUsApartSection from './IWatchWhatSetsUsApartSection';
+import MobileAppRecentBlogsSection from './MobileAppRecentBlogsSection';
+import MobileAppWhatSetsUsApartSection from './MobileAppWhatSetsUsApartSection';
 import IWatchChallengeCtaBanner from './IWatchChallengeCtaBanner';
 import {
   Smartphone,
@@ -71,7 +91,7 @@ export const MobileAppDevelopmentService = () => {
       <section className="pt-8 pb-12 sm:pt-12 sm:pb-16 lg:pt-16 lg:pb-20 bg-[#F4F8FA] text-slate-900 text-left font-sans relative overflow-hidden">
         <Container className="max-w-7xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-            
+
             {/* Left Column: Heading, Subtitle & 2 Dark Blue Action Buttons */}
             <div className="lg:col-span-7 space-y-6 text-left">
               {/* Main Title */}
@@ -113,7 +133,7 @@ export const MobileAppDevelopmentService = () => {
                 <img
                   src="/images/mobile_app_hero_vector.png"
                   alt="Best Mobile App Development Company"
-                  className="w-full h-auto object-contain drop-shadow-xl"
+                  className="w-full h-auto object-contain drop-shadow-xl transition-transform duration-500 ease-out hover:scale-105 cursor-pointer"
                   loading="eager"
                 />
               </div>
@@ -126,8 +146,65 @@ export const MobileAppDevelopmentService = () => {
       {/* Brand Logo Marquee Line */}
       <BrandLogoMarquee />
 
+      {/* SECTION: Mobile App Market Stats & Market Size (1:1 Screenshot Match) */}
+      <MobileAppMarketStatsSection />
+
+      {/* SECTION: Delivering Impactful Mobile Application Services (1:1 Screenshot Match) */}
+      <DeliveringImpactfulMobileServices />
+
+      {/* SECTION: World Wide Top Rated Clutch Awards Bar (1:1 Screenshot Match) */}
+      <MobileAppAwardsMarqueeBanner />
+
+      {/* SECTION: Creating Excellent Mobile Apps for Every Business (1:1 Screenshot Match) */}
+      <CreatingExcellentMobileAppsSection />
+
+      {/* SECTION: Cutting Edge Technologies Sapphire Use For Mobile App Development (1:1 Screenshot Match) */}
+      <MobileAppCuttingEdgeTechnologiesSection />
+
+      {/* SECTION: Our Premium Services Grid (1:1 Screenshot Match) */}
+      <PremiumServicesGrid companyName="Firevy.co" />
+
+      {/* SECTION: Meet Sapphire's Exceptional Team of Seasoned Experts (1:1 Screenshot Match) */}
+      <SapphireSeasonedExpertsSection />
+
+      {/* SECTION: Industry-Focused Insights To Elevate Your Business (1:1 Screenshot Match) */}
+      <IndustryFocusedInsightsSection subtitle="Trending Industries that Use Mobile App Development" />
+
+      {/* SECTION: Explore The Transformative Impact Of Mobile App On Your Business Success (1:1 Screenshot Match) */}
+      <TransformativeImpactSection title="Explore The Transformative Impact Of Mobile App On Your Business Success" />
+
+      {/* SECTION: About Us Stats 8-Card Grid (1:1 Screenshot Match) */}
+      <AboutUsStats companyName="Sapphire" />
+
+      {/* SECTION: Sectors Thriving Through Sapphire’s Bespoke Mobile App Development Services (1:1 Screenshot Match) */}
+      <SectorsThrivingSection title="Sectors Thriving Through Sapphire’s Bespoke Mobile App Development Services" />
+
+      {/* SECTION: Success Stories Portfolio & Metrics */}
+      <SuccessStoriesSection />
+
+      {/* SECTION: The Expertise of Our Mobile App Development Services */}
+      <MobileAppExpertiseServices />
+
+      {/* SECTION: Best Mobile App Development Company Showcase (1:1 Screenshot Match) */}
+      <BestMobileAppCompanyShowcase />
+
+      {/* SECTION: Technology Stack That Sapphire Mobile Developers Use Proficiently (1:1 Screenshot Match) */}
+      <MobileAppProficientTechStackSection />
+
+      {/* SECTION: Our Expertise in Mobile App Development Services (1:1 Screenshot Match) */}
+      <OurMobileAppExpertiseServices />
+
       {/* SECTION: Proud Awards & Recognition Banner */}
       <ProudAwardsBanner />
+
+      {/* SECTION: Benefits of the Best Mobile App Development Company */}
+      <MobileAppCompanyBenefits />
+
+      {/* SECTION: Business Friendly Hiring Models */}
+      <AndroidHiringModels />
+
+      {/* SECTION: Comparative Analysis (1:1 Screenshot Match) */}
+      <MobileAppComparativeAnalysis />
 
       {/* SECTION: Innovative Solutions Video Section */}
       <InnovativeSolutionsVideoSection />
@@ -144,8 +221,8 @@ export const MobileAppDevelopmentService = () => {
       {/* SECTION: Success Matrix */}
       <SuccessMatrix />
 
-      {/* SECTION: Technology Stack */}
-      <SapphireTechStackGrid domainName="mobile app" richTechCategories={techCategories} />
+      {/* SECTION: What Our Clients Say Clutch Reviews Carousel (1:1 Screenshot Match) */}
+      <WhatOurClientsSaySection />
 
       {/* SECTION: We Have Been Featured In */}
       <FeaturedInBrandsSection />
@@ -159,11 +236,11 @@ export const MobileAppDevelopmentService = () => {
         subtitle="We listen to query and provide solutions that captivate users. Feel free to contact us in case of any query which is not mention below."
       />
 
-      {/* SECTION: Our Recent Blogs */}
-      <IWatchRecentBlogsSection />
+      {/* SECTION: Our Recent Blogs (1:1 Screenshot Match) */}
+      <MobileAppRecentBlogsSection />
 
-      {/* SECTION: What Sets Us Apart */}
-      <IWatchWhatSetsUsApartSection />
+      {/* SECTION: What Sets Us Apart (1:1 Screenshot Match) */}
+      <MobileAppWhatSetsUsApartSection />
 
       {/* SECTION: Challenge CTA Banner */}
       <IWatchChallengeCtaBanner

@@ -43,20 +43,6 @@ export const TransformativeImpactSection = ({
 
   const defaultCards = [
     {
-      bgColor: 'bg-[#D9F5E5]',
-      iconBg: 'bg-[#10B981]',
-      icon: <Award className="w-5 h-5 text-white" strokeWidth={2} />,
-      title: 'Increased Brand Visibility',
-      desc: 'By actively interacting with your audience across many channels, you can use social media platforms to raise brand awareness for your mobile application.'
-    },
-    {
-      bgColor: 'bg-[#D7EDFB]',
-      iconBg: 'bg-[#0284C7]',
-      icon: <Star className="w-5 h-5 text-white" strokeWidth={2} />,
-      title: 'Improve Customer Loyalty and Retention',
-      desc: 'Mobile apps aid in customer understanding and the creation of pleasurable shopping experiences. Customers are more loyal when they receive personalized recommendations and early access to promotions.'
-    },
-    {
       bgColor: 'bg-[#E5DAF6]',
       iconBg: 'bg-[#9867E9]',
       icon: <BarChart3 className="w-5 h-5 text-white" strokeWidth={2} />,
@@ -71,20 +57,6 @@ export const TransformativeImpactSection = ({
       desc: 'You can interact with your customers using mobile apps, meet them where they are, ask them for ratings or feedback and get real-time analytics to act accordingly.'
     },
     {
-      bgColor: 'bg-[#FEF3C7]',
-      iconBg: 'bg-[#D97706]',
-      icon: <Users className="w-5 h-5 text-white" strokeWidth={2} />,
-      title: 'Enhanced Customer Engagement',
-      desc: 'Mobile application give businesses the ability to give their users a more immersive and engaging experience by giving them a direct and personalized communication channel.'
-    },
-    {
-      bgColor: 'bg-[#D9F5E5]',
-      iconBg: 'bg-[#10B981]',
-      icon: <ShieldCheck className="w-5 h-5 text-white" strokeWidth={2.2} />,
-      title: 'Ensure Security and Compliance',
-      desc: 'Ensure Security and Compliance Using mobile apps, businesses can ensure that user data is never inadvertently disclosed to hackers or unscrupulous commercial vendors by employing secure analytics providers & executing advertising in ethical manner.'
-    },
-    {
       bgColor: 'bg-[#F8D3E3]',
       iconBg: 'bg-[#DE5B8F]',
       icon: <ThumbsUp className="w-5 h-5 text-white" strokeWidth={2} />,
@@ -96,7 +68,35 @@ export const TransformativeImpactSection = ({
       iconBg: 'bg-[#E67E3F]',
       icon: <Smartphone className="w-5 h-5 text-white" strokeWidth={2} />,
       title: 'Innovate and Stay Competitive',
-      desc: 'Investigating react native app development services can be a calculated move for companies looking to take advantage of the benefits of mobile applications to boost client engagement and productivity.'
+      desc: 'Investigating flutter app development services can be a calculated move for companies looking to take advantage of the benefits of mobile applications to boost client engagement and productivity.'
+    },
+    {
+      bgColor: 'bg-[#D9F5E5]',
+      iconBg: 'bg-[#10B981]',
+      icon: <ShieldCheck className="w-5 h-5 text-white" strokeWidth={2.2} />,
+      title: 'Ensure Security and Compliance',
+      desc: 'Ensure Security and Compliance Using mobile apps, businesses can ensure that user data is never inadvertently disclosed to hackers or unscrupulous commercial vendors by employing secure analytics providers & executing advertising in ethical manner.'
+    },
+    {
+      bgColor: 'bg-[#D7EDFB]',
+      iconBg: 'bg-[#0284C7]',
+      icon: <Star className="w-5 h-5 text-white" strokeWidth={2} />,
+      title: 'Improve Customer Loyalty and Retention',
+      desc: 'Mobile apps aid in customer understanding and the creation of pleasurable shopping experiences. Customers are more loyal when they receive personalized recommendations and early access to promotions.'
+    },
+    {
+      bgColor: 'bg-[#FEF3C7]',
+      iconBg: 'bg-[#D97706]',
+      icon: <Users className="w-5 h-5 text-white" strokeWidth={2} />,
+      title: 'Enhanced Customer Engagement',
+      desc: 'Mobile application give businesses the ability to give their users a more immersive and engaging experience by giving them a direct and personalized communication channel.'
+    },
+    {
+      bgColor: 'bg-[#D9F5E5]',
+      iconBg: 'bg-[#10B981]',
+      icon: <Award className="w-5 h-5 text-white" strokeWidth={2} />,
+      title: 'Increased Brand Visibility',
+      desc: 'By actively interacting with your audience across many channels, you can use social media platforms to raise brand awareness for your mobile application.'
     }
   ];
 

@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Container from '../common/Container';
 
-export const IndustryFocusedInsightsSection = () => {
+export const IndustryFocusedInsightsSection = ({
+  subtitle = 'Trending Industries that Use Mobile App Development'
+}) => {
   const [activeIndustry, setActiveIndustry] = useState('Automotive');
 
   const row1Industries = [

@@ -7,11 +7,12 @@ const hiringModelsData = [
     title: 'Fixed Price',
     desc: "If you represent a company with a project that needs dedicated attention, ask about dedicated teams. It's a pay-as-you-go monthly rolling contract.",
     icon: (
-      <img
-        src="/images/ic_fixed_price.svg"
-        alt="Fixed Price"
-        className="w-10 h-10 object-contain select-none"
-      />
+      <svg viewBox="0 0 48 48" className="w-11 h-11 text-[#8B5CF6]" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M19 12 C19 9 20.8 7 24 7 C27.2 7 29 9 29 12 Z" />
+        <ellipse cx="24" cy="13" rx="7" ry="2" />
+        <path d="M17 13 C12 18 10 24 10 32 C10 40 16 43 24 43 C32 43 38 40 38 32 C38 24 36 18 31 13 Z" />
+        <text x="24" y="32" fill="currentColor" stroke="none" fontSize="13" fontWeight="bold" textAnchor="middle">$</text>
+      </svg>
     ),
     features: [
       'Optimal flexibility',
@@ -25,11 +26,14 @@ const hiringModelsData = [
     title: 'Time Material',
     desc: "If you are represent a company with undefined projects and need ongoing work, ask about hourly. It's a pay-as-you-go hour-wise rolling contract.",
     icon: (
-      <img
-        src="/images/ic_time_material.svg"
-        alt="Time Material"
-        className="w-10 h-10 object-contain select-none"
-      />
+      <svg viewBox="0 0 48 48" className="w-11 h-11 text-[#10B981]" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="24" cy="27" r="14" />
+        <path d="M24 13 V8" />
+        <path d="M20 8 H28" />
+        <path d="M34 17 L37 14" />
+        <path d="M24 27 L24 20" />
+        <path d="M24 27 L29 30" />
+      </svg>
     ),
     features: [
       'No hidden costs',
@@ -43,24 +47,13 @@ const hiringModelsData = [
     title: 'Dedicated Team',
     desc: "If you represent a company with a project that needs dedicated attention, ask about dedicated teams. It's a pay-as-you-go monthly rolling contract.",
     icon: (
-      <svg
-        viewBox="0 0 40 40"
-        className="w-10 h-10 text-[#FF7A59]"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2.2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        {/* Center Main Person */}
-        <circle cx="20" cy="13" r="4.2" />
-        <path d="M13 27 C13 21.5 16 20 20 20 C24 20 27 21.5 27 27" />
-        {/* Left Person Behind */}
-        <circle cx="11" cy="16" r="3.4" />
-        <path d="M5 28 C5 24 7.5 22.8 10.5 22.8 C11.5 22.8 12.4 23.1 13.2 23.6" />
-        {/* Right Person Behind */}
-        <circle cx="29" cy="16" r="3.4" />
-        <path d="M26.8 23.6 C27.6 23.1 28.5 22.8 29.5 22.8 C32.5 22.8 35 24 35 28" />
+      <svg viewBox="0 0 48 48" className="w-11 h-11 text-[#F97316]" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="24" cy="15" r="4.5" />
+        <path d="M17 29 C17 24.5 20 22.5 24 22.5 C28 22.5 31 24.5 31 29" />
+        <circle cx="14" cy="19" r="3.5" />
+        <path d="M8 31 C8 27 11 25.5 14 25.5 C15.2 25.5 16.3 25.9 17.2 26.6" />
+        <circle cx="34" cy="19" r="3.5" />
+        <path d="M30.8 26.6 C31.7 25.9 32.8 25.5 34 25.5 C37 25.5 40 27 40 31" />
       </svg>
     ),
     features: [
@@ -75,11 +68,14 @@ const hiringModelsData = [
     title: 'Buckets Approach',
     desc: 'A lot of businesses typically select our bucket approach which allow them for payment convenience once the project is finished and things are in place.',
     icon: (
-      <img
-        src="/images/bucketapproch.svg"
-        alt="Buckets Approach"
-        className="w-10 h-10 object-contain select-none"
-      />
+      <svg viewBox="0 0 48 48" className="w-11 h-11 text-[#06B6D4]" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+        {/* Main Cog */}
+        <circle cx="19" cy="27" r="7" />
+        <path d="M19 18 V20 M19 34 V36 M10 27 H12 M26 27 H28 M12.5 20.5 L14 22 M24 32 L25.5 33.5 M12.5 33.5 L14 32 M24 22 L25.5 20.5" strokeWidth="2.2" />
+        {/* Small Cog */}
+        <circle cx="31" cy="17" r="4.5" />
+        <path d="M31 11 V12.5 M31 21.5 V23 M25 17 H26.5 M35.5 17 H37 M26.8 12.8 L28 14 M34 20 L35.2 21.2 M26.8 21.2 L28 20 M34 14 L35.2 12.8" strokeWidth="1.8" />
+      </svg>
     ),
     features: [
       'Direct Resource Monitoring',
