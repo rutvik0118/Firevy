@@ -331,63 +331,33 @@ export const AppDevelopmentConsultingService = () => {
       </div>
 
       {/* ========================================================================= */}
-      {/* 2. TOP-NOTCH MOBILE APP SERVICES AND CONSULTING COMPANY (1:1 REFERENCE) */}
+      {/* 2. LEADING MOBILE APP DEVELOPMENT CONSULTING COMPANY (EXACT 1:1 REFERENCE) */}
       {/* ========================================================================= */}
       <section className="py-16 lg:py-24 bg-white">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-            {/* Left Graphic */}
-            <div className="lg:col-span-6 order-2 lg:order-1 flex justify-center">
-              <div className="relative w-full max-w-[580px] rounded-2xl overflow-hidden p-2">
+            {/* Left Graphic: Mobile wireframe with developers */}
+            <div className="lg:col-span-6 flex justify-center items-center">
+              <div className="w-full max-w-[560px] flex justify-center">
                 <img
-                  src="/images/app_consulting_office.jpg"
-                  alt="Mobile App Development Strategy Meeting"
-                  className="w-full h-auto object-contain rounded-xl shadow-lg border border-slate-200/60 bg-white"
-                  onError={(e) => {
-                    e.target.onerror = null;
-                    e.target.src = "/images/c_sharp_expertise_illustration.png";
-                  }}
+                  src="/images/leading_mobile_app_consulting.jpg"
+                  alt="Leading Mobile App Development Consulting Team"
+                  className="w-full h-auto object-contain"
                 />
               </div>
             </div>
 
-            {/* Right Copy */}
-            <div className="lg:col-span-6 order-1 lg:order-2 space-y-6">
-              <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-blue-50 text-[#005F96] text-xs font-bold uppercase tracking-wider border border-blue-200/60">
-                <Smartphone className="w-3.5 h-3.5" />
-                <span>Mobile Strategy & Engineering</span>
-              </div>
-
-              <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-extrabold text-slate-900 tracking-tight leading-tight">
-                Top-Notch Mobile App Development Consulting Company
+            {/* Right Copy matching reference Image 1 */}
+            <div className="lg:col-span-6 space-y-6 text-left">
+              <h2 className="text-3xl sm:text-4xl lg:text-[40px] xl:text-[44px] font-extrabold text-slate-900 tracking-tight leading-[1.2]">
+                Leading Mobile App <br />
+                Development Consulting <br />
+                Company
               </h2>
 
-              <p className="text-slate-600 text-sm sm:text-[15px] leading-relaxed font-normal">
-                In today's fast-moving mobile landscape, having an intuitive, lightning-fast mobile application is the definitive cornerstone of consumer engagement and business agility. As a premier app development consulting firm, Firevy partners with ambitious startups and Fortune 500 enterprises to conceptualize, design, and architect custom mobile solutions that drive market growth.
+              <p className="text-slate-600 text-[14.5px] sm:text-[15.5px] leading-[1.75] font-normal">
+                Our App strategy and consulting firm use their knowledge of the latest industry trends and technology to provide recommendations for app solutions that are likely to result in the most favorable outcomes for <strong className="text-[#005F96] font-semibold">best android app development company</strong> in the context of competitive growth. All industry practices are included in the finished items that we create. To provide Enterprise App Development Consulting Services with a primary emphasis on conversion and success, we go the additional mile while analyzing your target market, company competitors, user personas, and a great deal more should you choose to use our consulting services.
               </p>
-
-              <p className="text-slate-600 text-sm sm:text-[15px] leading-relaxed font-normal">
-                Our seasoned mobile strategists bridge the divide between innovative business visions and robust technical realities. From selecting the ideal tech stack to optimizing App Store performance and cloud backend architecture, we safeguard your product investments against costly dead-ends.
-              </p>
-
-              {/* Checklist */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
-                {[
-                  'Product Discovery & Market Feasibility',
-                  'Native (Swift/Kotlin) vs. Cross-Platform Evaluation',
-                  'UI/UX User Journey Mapping & Audits',
-                  'Enterprise Security, OWASP & Compliance',
-                  'High-Concurrency Microservices Backends',
-                  'App Store Optimization (ASO) & Telemetry'
-                ].map((item, idx) => (
-                  <div key={idx} className="flex items-center space-x-2.5">
-                    <div className="w-5 h-5 rounded-full bg-emerald-100 flex items-center justify-center shrink-0">
-                      <Check className="w-3.5 h-3.5 text-emerald-600 stroke-[3]" />
-                    </div>
-                    <span className="text-xs sm:text-sm font-semibold text-slate-800">{item}</span>
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
         </Container>
