@@ -175,8 +175,12 @@ export function App() {
                 <Route path="/hire-mobile-developers" element={<ServiceDetails />} />
                 <Route path="/services/hire-blackberry-app-developers" element={<ServiceDetails />} />
                 <Route path="/services/hire-blackberry-app-developer" element={<ServiceDetails />} />
+                <Route path="/services/hire-blackberry-developers" element={<ServiceDetails />} />
+                <Route path="/services/blackberry-app-development" element={<ServiceDetails />} />
                 <Route path="/hire-blackberry-app-developers" element={<ServiceDetails />} />
                 <Route path="/hire-blackberry-app-developer" element={<ServiceDetails />} />
+                <Route path="/hire-blackberry-developers" element={<ServiceDetails />} />
+                <Route path="/blackberry-app-development" element={<ServiceDetails />} />
                 <Route path="/services/hire-freelance-app-developers" element={<ServiceDetails />} />
                 <Route path="/services/hire-freelance-app-developer" element={<ServiceDetails />} />
                 <Route path="/hire-freelance-app-developers" element={<ServiceDetails />} />

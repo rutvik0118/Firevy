@@ -751,16 +751,18 @@ export const techConfigs = {
   },
 
   'hire-mobile-app-developers': {
-    title: 'Hire Mobile App Developers',
-    metaTitle: 'Hire Mobile App Developers in USA | Dedicated Mobile Programmers',
-    metaDesc: 'Hire certified mobile app developers from Sapphire / Firevy. Build custom native (iOS & Android) and cross-platform mobile apps for startups and enterprises.',
+    title: 'Hire Dedicated Mobile App Developers',
+    metaTitle: 'Hire Dedicated Mobile App Developers in USA | Vetted Mobile Programmers',
+    metaDesc: 'Hire certified mobile app developers from Firevy. Build custom native (iOS & Android) and cross-platform mobile apps for startups and enterprises.',
     canonical: '/services/hire-mobile-app-developers',
-    heroTag: 'Hire Mobile App Developers',
-    heroDesc: 'When you employ skilled mobile app developers from us, we will collaborate with you throughout all phases to create high-performance, engaging, and scalable mobile solutions.',
+    heroTag: 'Hire Dedicated Mobile App Developers',
+    heroDesc: 'We have a team of talented and skilled team of mobile app developers who are well-versed in creating mobile applications. Get Best App Developers for Startups and free quote now!',
+    heroImage: '/images/hire_mobdev_img_1.svg',
     hourlyRate: '$21/Hourly*',
-    remoteTitle: 'Quickly Hire Remote Mobile App Developers From Us',
-    remoteDesc: 'Our flexible hiring methods allow you to hire Mobile App developers in India based on your budget and project specifications. We offer professional developers to resolve mission-critical business issues and complete projects on schedule. When you hire Dedicated Mobile App Experts from us, you receive access to our expertise in mobile app development across various industries.',
-    remoteCta: 'Connect With Mobile App Experts',
+    remoteTitle: 'Professional Mobile App Developers Available For Hire',
+    remoteDesc: "To make your app concept a reality and stay up with the intense competition, you must maximize the optimal combination of high-end development talents and long-lasting user experiences. Hire AI-Powered Mobile App Developers to smartly and effectively implement industry best practices and high-quality outputs that significantly boost your company appoint best app developers for startups in USA. You can hire dedicated mobile app developers from Firevy on an hourly basis who are familiar with the industry's most recent trends and strategies. Our trained app programmers in USA have worked on various scalable and secure mobile app solutions for our specialized and international customers.",
+    remoteImage: '/images/hire_mobdev_img_2.svg',
+    remoteCta: 'Hire Mobile App Developers',
     briefTitle: 'Brief About Our Mobile App Development Services',
     briefP1: 'Modern mobile applications require seamless UI responsiveness, cloud scalability, strict cybersecurity, and cross-device compatibility. Whether your roadmap demands native iOS/Android development or cross-platform Flutter/React Native solutions, our team delivers end-to-end excellence.',
     briefP2: 'When you hire mobile app developers from our team, you gain access to cross-functional mobile squads comprising senior architects, UI/UX designers, backend cloud engineers, and QA automation specialists dedicated to your digital success.',
@@ -884,19 +886,23 @@ export const techConfigs = {
   },
 
   'hire-blackberry-app-developers': {
-    title: 'Hire Blackberry App Developers',
+    title: 'Hire BlackBerry App Developer',
     metaTitle: 'Hire BlackBerry App Developers in USA | Enterprise Mobility Programmers',
-    metaDesc: 'Hire certified BlackBerry & Enterprise Mobility developers from Sapphire / Firevy. Build secure, containerized enterprise apps using BlackBerry Dynamics SDK & UEM.',
+    metaDesc: 'Hire certified BlackBerry developers from Firevy. Build secure, containerized enterprise apps using BlackBerry Dynamics SDK & UEM.',
     canonical: '/services/hire-blackberry-app-developers',
-    heroTag: 'Hire Blackberry App Developers',
-    heroDesc: 'When you employ skilled BlackBerry & Enterprise Mobility developers from us, we will collaborate with you to create military-grade secure, containerized enterprise mobile solutions.',
+    heroTag: 'Hire BlackBerry App Developer',
+    heroDesc: 'We are renowned for our innovative blackberry app development company, with qualified and experienced blackberry app developers that offer superior blackberry app development services',
+    heroImage: '/images/hire_mobdev_img_1.svg',
     hourlyRate: '$21/Hourly*',
-    remoteTitle: 'Quickly Hire Remote BlackBerry App Developers From Us',
-    remoteDesc: 'Our flexible hiring methods allow you to hire BlackBerry and enterprise mobility developers based on your budget and project specifications. We offer professional developers to resolve mission-critical business issues and complete projects on schedule. When you hire Dedicated BlackBerry Experts from us, you receive access to our expertise in secure enterprise mobility across various industries.',
+    showDirectHireButton: true,
+    remoteTitle: 'Hire A Dedicated Blackberry Application Developer From Us',
+    remoteDesc: "You may hire Blackberry developers on a full-time or part-time basis. Hire Blackberry App Developers with a wealth of knowledge and experience to produce superior mobile apps. Using the most recent tools and technologies, they develop world-class Blackberry applications tailored to the client's business requirements and budget. If you hire Blackberry Application Developers from us, you will get the highest quality bespoke Blackberry application development at affordable prices. We offer numerous flexible employment alternatives for Blackberry app developers.",
+    remoteImage: '/images/hire_mobdev_img_2.svg',
     remoteCta: 'Connect With BlackBerry Experts',
-    briefTitle: 'Brief About Our BlackBerry Development Services',
-    briefP1: 'BlackBerry Dynamics and BlackBerry Unified Endpoint Management (UEM) provide the gold standard in enterprise mobile security for government, defense, financial services, and healthcare sectors. Developing secure containerized applications requires specialized knowledge of cryptographic protocols and MDM/MAM policies.',
-    briefP2: 'Our enterprise mobility engineers possess deep expertise in integrating the BlackBerry Dynamics SDK across iOS, Android, and cross-platform frameworks, ensuring airtight data-at-rest and data-in-transit encryption without sacrificing productivity.',
+    briefTitle: 'Brief About Our BlackBerry App Development Services',
+    briefP1: 'Our blackberry developers are pretty efficient and hold years of expertise. Other perks of hiring our developers include: We enable you to communicate with your development team in real-time and directly using Skype. You are free to receive demonstrations whenever it is convenient for you. Stop wishing things are going according to plan and start realizing they are. From the initial conception to the final invoicing of your projects, you will have the ability to see the whole process personally.',
+    briefP2: 'Hire Dedicated Blackberry Mobile App Developers who have received instruction in efficient communication and are always accessible to speak with you in real-time. Without mutual trust, there can be no successful collaboration. Trust was the foundation upon which Firevy was formed, and we are aware that it is something that must be gained, appreciated, and maintained.',
+    briefImage: '/images/hire_mobdev_img_3.svg',
     whyHireTitle: 'Why Hire Dedicated BlackBerry App Developers?',
     whyHireSubtitle: 'Hiring dedicated enterprise mobility developers guarantees compliance with the strictest government, banking, and healthcare security regulations.',
     stepsTitle: 'Hire BlackBerry App Developers In 4 Easy Steps',
@@ -1659,26 +1665,38 @@ export const HireTechDevelopersService = ({ techKey }) => {
                 </div>
               </div>
 
-              {/* Call-to-action pill box */}
-              <div className="space-y-3 pt-3">
-                <div className="text-sm sm:text-[15px] font-[700] text-[#006095]">
-                  Get Top Talent Work for you At
-                </div>
-                <div className="inline-flex items-center justify-between bg-[#0089a8] rounded-[16px] p-2 pl-3.5 pr-2 w-full max-w-[410px] shadow-lg shadow-[#0089a8]/25">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center shrink-0 shadow-sm">
-                      <Clock className="w-4 h-4 text-[#0089a8] stroke-[2.5]" />
-                    </div>
-                    <span className="text-xl sm:text-[22px] font-[800] text-white tracking-tight">{config.hourlyRate}</span>
-                  </div>
+              {/* Call-to-action */}
+              {config.showDirectHireButton ? (
+                <div className="pt-2">
                   <Link
                     to="/contact"
-                    className="bg-white text-[#006095] hover:bg-slate-50 font-[700] px-6 py-2.5 rounded-[10px] text-[15px] transition-all shadow-sm flex items-center justify-center cursor-pointer"
+                    className="inline-flex items-center space-x-2 px-7 py-3 rounded-[6px] bg-[#005F96] hover:bg-[#004B77] text-white font-[700] text-sm sm:text-base transition-all shadow-sm hover:shadow-md cursor-pointer"
                   >
-                    Hire Team
+                    <span>Hire Team</span>
+                    <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>
-              </div>
+              ) : (
+                <div className="space-y-3 pt-3">
+                  <div className="text-sm sm:text-[15px] font-[700] text-[#006095]">
+                    Get Top Talent Work for you At
+                  </div>
+                  <div className="inline-flex items-center justify-between bg-[#0089a8] rounded-[16px] p-2 pl-3.5 pr-2 w-full max-w-[410px] shadow-lg shadow-[#0089a8]/25">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center shrink-0 shadow-sm">
+                        <Clock className="w-4 h-4 text-[#0089a8] stroke-[2.5]" />
+                      </div>
+                      <span className="text-xl sm:text-[22px] font-[800] text-white tracking-tight">{config.hourlyRate}</span>
+                    </div>
+                    <Link
+                      to="/contact"
+                      className="bg-white text-[#006095] hover:bg-slate-50 font-[700] px-6 py-2.5 rounded-[10px] text-[15px] transition-all shadow-sm flex items-center justify-center cursor-pointer"
+                    >
+                      Hire Team
+                    </Link>
+                  </div>
+                </div>
+              )}
             </div>
 
             {/* Right Column Graphic */}
@@ -1932,9 +1950,9 @@ export const HireTechDevelopersService = ({ techKey }) => {
             {/* Right Graphic Illustration */}
             <div className="lg:col-span-6 relative flex justify-center items-center">
               <img
-                src="/images/kotlin_developer_sitting.png"
+                src={config.briefImage || "/images/hire_mobdev_img_3.svg"}
                 alt={config.briefTitle}
-                className="w-full max-w-[500px] h-auto object-contain mx-auto"
+                className="w-full max-w-[520px] h-auto object-contain mx-auto drop-shadow-md"
               />
             </div>
           </div>

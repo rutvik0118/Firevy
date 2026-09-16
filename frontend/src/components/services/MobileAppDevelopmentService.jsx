@@ -97,13 +97,13 @@ export const MobileAppDevelopmentService = () => {
                   <span className="text-base font-bold">→</span>
                 </a>
 
-                <a
-                  href="#contact"
+                <Link
+                  to="/services/hire-mobile-app-developers"
                   className="inline-flex items-center space-x-2 px-6 sm:px-7 py-3 rounded-[6px] bg-[#005F96] hover:bg-[#004B77] text-white font-[700] text-[13.5px] sm:text-[14px] shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer"
                 >
                   <span>Hire Mobile Developers</span>
                   <span className="text-base font-bold">→</span>
-                </a>
+                </Link>
               </div>
             </div>
 
