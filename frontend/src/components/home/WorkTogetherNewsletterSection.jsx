@@ -19,19 +19,25 @@ export const WorkTogetherNewsletterSection = () => {
 
   return (
     <>
-      {/* 1. Sapphire Blue Work Together CTA Banner */}
-      <section className="py-16 bg-[#006B8F] text-white text-center relative overflow-hidden font-sans border-b border-cyan-800">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6">
-          <h2 className="text-[32px] sm:text-[38px] font-[800] text-white tracking-tight leading-tight font-sans mb-3">
-            Let's Work Together On Your Next Digital Project
+      {/* 1. Sapphire Blue Work Together / Prove Our Mettle CTA Banner */}
+      <section className="py-14 sm:py-16 bg-[#006587] text-white text-center relative overflow-hidden font-sans border-b border-cyan-800">
+        {/* Decorative Geometric Background Watermarks */}
+        <div className="absolute inset-0 pointer-events-none opacity-10 flex items-center justify-between px-10">
+          <div className="w-48 h-48 rounded-3xl bg-white/20 -rotate-12 transform -translate-x-12" />
+          <div className="w-56 h-56 rounded-3xl bg-white/20 rotate-12 transform translate-x-16" />
+        </div>
+
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
+          <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-[800] text-white tracking-tight leading-tight font-sans mb-3">
+            Hope You Will Provide Us A Chance To Prove Our Mettle.
           </h2>
-          <p className="text-[16px] font-[400] text-blue-100 leading-relaxed max-w-3xl mx-auto mb-8 font-sans">
-            Book a meeting with our specialists today to learn more about how firevy.co can help you unlock technology visions and drive your product strategy.
+          <p className="text-sm sm:text-base font-[400] text-blue-100/90 leading-relaxed max-w-3xl mx-auto mb-7 font-sans">
+            Contact us by booking an appointment with our proficient techs today to learn more about how Sapphire can help you unlock technology visions and drive your product strategy.
           </p>
           <div>
             <Link
               to="/contact"
-              className="inline-flex items-center justify-center px-8 py-3.5 rounded-[6px] bg-white hover:bg-slate-100 text-[#004A75] font-[700] text-[14px] transition-all shadow-md font-sans"
+              className="inline-flex items-center justify-center px-7 py-3 rounded-[6px] bg-white hover:bg-slate-100 text-[#006587] font-[700] text-sm transition-all shadow-md font-sans"
             >
               Request A Free Quote
             </Link>
@@ -39,17 +45,17 @@ export const WorkTogetherNewsletterSection = () => {
         </div>
       </section>
 
-      {/* 2. Subscribe and Get Latest Updates Banner */}
-      <section className="py-16 bg-[#DFEEF7] text-slate-900 text-center relative font-sans border-b border-slate-200">
+      {/* 2. Subscribe us and Get the latest updates and news Banner */}
+      <section className="py-12 sm:py-14 bg-[#E5F2F7] text-slate-900 text-center relative font-sans border-b border-slate-200">
         <Container>
-          <h2 className="text-[28px] sm:text-[34px] font-[800] text-slate-900 tracking-tight font-sans mb-8">
+          <h2 className="text-xl sm:text-2xl lg:text-[28px] font-[800] text-slate-900 tracking-tight font-sans mb-7">
             Subscribe us and Get the latest updates and news
           </h2>
 
           {subscribed ? (
-            <div className="p-6 rounded-[12px] bg-white border border-emerald-200 text-emerald-700 max-w-lg mx-auto flex items-center justify-center space-x-2 font-[600]">
+            <div className="p-5 rounded-[10px] bg-white border border-emerald-200 text-emerald-700 max-w-lg mx-auto flex items-center justify-center space-x-2 font-[600] text-sm">
               <CheckCircle2 className="w-5 h-5 text-emerald-500" />
-              <span>Thank you for subscribing to our tech updates!</span>
+              <span>Thank you for subscribing to our latest updates!</span>
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="max-w-6xl mx-auto">
@@ -61,7 +67,7 @@ export const WorkTogetherNewsletterSection = () => {
                   placeholder="Your name *"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="w-full lg:w-64 px-4 py-3 rounded-[6px] bg-white border border-slate-300 text-slate-900 placeholder-slate-400 text-[13px] focus:outline-none focus:border-[#006B8F] font-sans"
+                  className="w-full lg:w-60 px-4 py-2.5 rounded-[4px] bg-white border border-slate-300 text-slate-900 placeholder-slate-400 text-xs sm:text-sm focus:outline-none focus:border-[#006587] font-sans"
                 />
 
                 {/* Input: Email */}
@@ -71,12 +77,12 @@ export const WorkTogetherNewsletterSection = () => {
                   placeholder="Your Email ID *"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full lg:w-64 px-4 py-3 rounded-[6px] bg-white border border-slate-300 text-slate-900 placeholder-slate-400 text-[13px] focus:outline-none focus:border-[#006B8F] font-sans"
+                  className="w-full lg:w-60 px-4 py-2.5 rounded-[4px] bg-white border border-slate-300 text-slate-900 placeholder-slate-400 text-xs sm:text-sm focus:outline-none focus:border-[#006587] font-sans"
                 />
 
                 {/* Input: Phone with Country Code */}
-                <div className="w-full lg:w-72 flex items-center rounded-[6px] bg-white border border-slate-300 overflow-hidden">
-                  <div className="flex items-center space-x-1 px-3 py-3 bg-slate-50 border-r border-slate-200 text-slate-700 text-[13px] font-[600] shrink-0">
+                <div className="w-full lg:w-72 flex items-center rounded-[4px] bg-white border border-slate-300 overflow-hidden">
+                  <div className="flex items-center space-x-1 px-3 py-2.5 bg-slate-50 border-r border-slate-200 text-slate-700 text-xs sm:text-sm font-[600] shrink-0">
                     <span>{countryCode}</span>
                     <ChevronDown className="w-3.5 h-3.5 text-slate-400" />
                   </div>
@@ -86,26 +92,26 @@ export const WorkTogetherNewsletterSection = () => {
                     placeholder="Mobile Number *"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
-                    className="w-full px-3 py-3 text-slate-900 placeholder-slate-400 text-[13px] focus:outline-none font-sans"
+                    className="w-full px-3 py-2.5 text-slate-900 placeholder-slate-400 text-xs sm:text-sm focus:outline-none font-sans"
                   />
                 </div>
 
                 {/* Cloudflare Mock Badge */}
-                <div className="bg-white border border-slate-300 rounded-[6px] px-3.5 py-2 flex items-center space-x-2 shrink-0">
+                <div className="bg-white border border-slate-300 rounded-[4px] px-3 py-1.5 flex items-center space-x-2 shrink-0">
                   <div className="w-4 h-4 rounded-full bg-emerald-500 text-white flex items-center justify-center text-[10px] font-bold">
                     ✓
                   </div>
-                  <span className="text-[11px] font-[600] text-slate-700 font-sans">Success!</span>
+                  <span className="text-xs font-[600] text-slate-700 font-sans">Success!</span>
                   <div className="border-l border-slate-200 pl-2 text-[9px] text-slate-400 font-sans leading-tight text-left">
-                    <span className="font-bold text-slate-600 block">CLOUDFLARE</span>
-                    <span>Privacy • Help</span>
+                    <span className="font-bold text-[#F38020] block">CLOUDFLARE</span>
+                    <span>Privacy • Terms</span>
                   </div>
                 </div>
 
                 {/* Submit Button */}
                 <button
                   type="submit"
-                  className="w-full lg:w-auto px-9 py-3 rounded-[6px] bg-[#006B8F] hover:bg-[#005478] text-white font-[700] text-[14px] transition-all shadow-md shrink-0 font-sans"
+                  className="w-full lg:w-auto px-8 py-2.5 rounded-[4px] bg-[#006587] hover:bg-[#00526E] text-white font-[700] text-xs sm:text-sm transition-all shadow-sm shrink-0 font-sans"
                 >
                   Subscribe
                 </button>
@@ -119,3 +125,4 @@ export const WorkTogetherNewsletterSection = () => {
 };
 
 export default WorkTogetherNewsletterSection;
+

@@ -84,11 +84,11 @@ export const FeaturedInLogosGrid = () => {
       id: 'wikipedia',
       content: (
         <div className="flex items-center justify-center">
-          <svg viewBox="0 0 40 40" className="w-16 h-16">
-            <circle cx="20" cy="20" r="17" fill="none" stroke="#64748B" strokeWidth="1.5" strokeDasharray="3 2" />
-            <path d="M13 27L17 13H19L23 27M14 23H22" stroke="#334155" strokeWidth="1.8" fill="none" />
-            <path d="M21 27L25 13H27L31 27M22 23H30" stroke="#334155" strokeWidth="1.8" fill="none" />
-          </svg>
+          <img
+            src="/images/wikipedia_globe.svg"
+            alt="Wikipedia"
+            className="w-16 h-16 sm:w-20 sm:h-20 object-contain"
+          />
         </div>
       )
     },

@@ -22,6 +22,8 @@ import WarehouseManagementSystemService from '../components/services/WarehouseMa
 import CloverAppDevelopmentService from '../components/services/CloverAppDevelopmentService';
 import HireCSharpDevelopersService from '../components/services/HireCSharpDevelopersService';
 import IWatchAppDevelopmentService from '../components/services/IWatchAppDevelopmentService';
+import CovidTrackerAppDevelopmentService from '../components/services/CovidTrackerAppDevelopmentService';
+import EcommerceMobileAppDevelopmentService from '../components/services/EcommerceMobileAppDevelopmentService';
 
 export const ServiceDetails = () => {
   const { slug } = useParams();
@@ -66,8 +68,6 @@ export const ServiceDetails = () => {
   const isAmazon = slug && (
     slug.toLowerCase().includes('amazon-like') ||
     slug.toLowerCase().includes('amazon-clone') ||
-    slug.toLowerCase().includes('ecommerce') ||
-    slug.toLowerCase().includes('e-commerce') ||
     slug.toLowerCase() === 'amazon'
   );
 
@@ -100,6 +100,18 @@ export const ServiceDetails = () => {
     slug.toLowerCase().includes('iwatch') ||
     slug.toLowerCase().includes('apple-watch') ||
     slug.toLowerCase().includes('watchos')
+  );
+
+  const isCovid = slug && (
+    slug.toLowerCase().includes('covid') ||
+    slug.toLowerCase().includes('covid-tracker') ||
+    slug.toLowerCase().includes('covid-tracking')
+  );
+
+  const isEcommerceApp = slug && (
+    slug.toLowerCase().includes('ecommerce') ||
+    slug.toLowerCase().includes('e-commerce') ||
+    slug.toLowerCase().includes('clown-polska')
   );
 
   const unslugify = (str) => {
@@ -192,13 +204,17 @@ export const ServiceDetails = () => {
   };
 
   useEffect(() => {
-    if (!isHealthcare && !isEducation && !isUber && !isSpotify && !isZomato && !isAmazon && !isVisitor && !isWarehouse && !isClover && !isCSharp && !isIWatch) {
+    if (!isHealthcare && !isEducation && !isUber && !isSpotify && !isZomato && !isAmazon && !isVisitor && !isWarehouse && !isClover && !isCSharp && !isIWatch && !isCovid && !isEcommerceApp) {
       fetchServiceDetails();
     } else {
       setLoading(false);
     }
     window.scrollTo(0, 0);
   }, [slug]);
+
+  if (isEcommerceApp) {
+    return <EcommerceMobileAppDevelopmentService />;
+  }
 
   if (isHealthcare) {
     return <HealthcareAppDevelopmentService />;
@@ -242,6 +258,10 @@ export const ServiceDetails = () => {
 
   if (isIWatch) {
     return <IWatchAppDevelopmentService />;
+  }
+
+  if (isCovid) {
+    return <CovidTrackerAppDevelopmentService />;
   }
 
   if (loading) return <LoadingSpinner fullPage message="Loading service details..." />;
