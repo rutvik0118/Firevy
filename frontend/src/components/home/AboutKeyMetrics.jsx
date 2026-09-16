@@ -8,38 +8,38 @@ const defaultCards = [
     image: '/images/first.webp'
   },
   {
-    metric: '600+',
-    label: 'Schools Digitalized Globally',
-    image: '/images/homeinnovation/second.webp'
+    metric: '320+',
+    label: '5-Star Clutch Reviews',
+    image: '/images/first.webp'
   },
   {
-    metric: '750+',
-    label: 'Software & Mobile Apps Developed',
+    metric: '20+',
+    label: 'Fortunes 500 Companies',
     image: '/images/third.webp'
   },
   {
-    metric: '100+',
-    label: 'Countries Served Worldwide',
+    metric: '200+',
+    label: 'IT Professional',
+    image: '/images/awards/hdimages/client_seven.webp'
+  },
+  {
+    metric: '95%',
+    label: 'Client Retention',
+    image: '/images/sixth.webp'
+  },
+  {
+    metric: '18+',
+    label: 'Industry Served',
     image: '/images/fourth.webp'
   },
   {
     metric: '2800+',
-    label: 'Satisfied Enterprise Clients',
+    label: 'Satisfied Clients',
     image: '/images/fifth.webp'
   },
   {
-    metric: '95%',
-    label: 'Client Retention Rate',
-    image: '/images/sixth.webp'
-  },
-  {
-    metric: '200+',
-    label: 'Skilled IT Professionals',
-    image: '/images/awards/hdimages/client_seven.webp'
-  },
-  {
-    metric: '1498+',
-    label: 'Completed Digital Projects',
+    metric: '1500+',
+    label: 'Completed Projects',
     image: '/images/awards/hdimages/clienttestimonial3.webp'
   }
 ];

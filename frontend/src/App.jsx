@@ -136,6 +136,11 @@ export function App() {
                 <Route path="/blog" element={<CompanySubDetails />} />
                 <Route path="/services" element={<Services />} />
                 <Route path="/services/:slug" element={<ServiceDetails />} />
+                <Route path="/services/it-consulting-services" element={<ServiceDetails />} />
+                <Route path="/it-consulting-services" element={<ServiceDetails />} />
+                <Route path="/services/app-development-consulting" element={<ServiceDetails />} />
+                <Route path="/app-development-consulting" element={<ServiceDetails />} />
+                <Route path="/services/tech-consulting-services" element={<ServiceDetails />} />
                 <Route path="/services/hire-bootstrap-developers" element={<ServiceDetails />} />
                 <Route path="/services/hire-bootstrap-developer" element={<ServiceDetails />} />
                 <Route path="/hire-bootstrap-developers" element={<ServiceDetails />} />
@@ -195,6 +200,56 @@ export function App() {
                 <Route path="/hire-laravel-developer" element={<ServiceDetails />} />
                 <Route path="/laravel-development" element={<ServiceDetails />} />
                 <Route path="/laravel" element={<ServiceDetails />} />
+                <Route path="/services/hire-kotlin-developers" element={<ServiceDetails />} />
+                <Route path="/services/hire-kotlin-developer" element={<ServiceDetails />} />
+                <Route path="/hire-kotlin-developers" element={<ServiceDetails />} />
+                <Route path="/hire-kotlin-developer" element={<ServiceDetails />} />
+                <Route path="/services/hire-android-developers" element={<ServiceDetails />} />
+                <Route path="/services/hire-android-developer" element={<ServiceDetails />} />
+                <Route path="/hire-android-developers" element={<ServiceDetails />} />
+                <Route path="/hire-android-developer" element={<ServiceDetails />} />
+                <Route path="/services/hire-ionic-developers" element={<ServiceDetails />} />
+                <Route path="/services/hire-ionic-developer" element={<ServiceDetails />} />
+                <Route path="/hire-ionic-developers" element={<ServiceDetails />} />
+                <Route path="/hire-ionic-developer" element={<ServiceDetails />} />
+                <Route path="/services/hire-flutter-developers" element={<ServiceDetails />} />
+                <Route path="/services/hire-flutter-developer" element={<ServiceDetails />} />
+                <Route path="/hire-flutter-developers" element={<ServiceDetails />} />
+                <Route path="/hire-flutter-developer" element={<ServiceDetails />} />
+                <Route path="/services/hire-ios-developers" element={<ServiceDetails />} />
+                <Route path="/services/hire-ios-developer" element={<ServiceDetails />} />
+                <Route path="/hire-ios-developers" element={<ServiceDetails />} />
+                <Route path="/hire-ios-developer" element={<ServiceDetails />} />
+                <Route path="/services/hire-swift-developer" element={<ServiceDetails />} />
+                <Route path="/services/hire-swift-developers" element={<ServiceDetails />} />
+                <Route path="/hire-swift-developer" element={<ServiceDetails />} />
+                <Route path="/hire-swift-developers" element={<ServiceDetails />} />
+                <Route path="/services/hire-mobile-app-developers" element={<ServiceDetails />} />
+                <Route path="/services/hire-mobile-app-developer" element={<ServiceDetails />} />
+                <Route path="/services/hire-mobile-developers" element={<ServiceDetails />} />
+                <Route path="/hire-mobile-app-developers" element={<ServiceDetails />} />
+                <Route path="/hire-mobile-app-developer" element={<ServiceDetails />} />
+                <Route path="/hire-mobile-developers" element={<ServiceDetails />} />
+                <Route path="/services/hire-blackberry-app-developers" element={<ServiceDetails />} />
+                <Route path="/services/hire-blackberry-app-developer" element={<ServiceDetails />} />
+                <Route path="/hire-blackberry-app-developers" element={<ServiceDetails />} />
+                <Route path="/hire-blackberry-app-developer" element={<ServiceDetails />} />
+                <Route path="/services/hire-freelance-app-developers" element={<ServiceDetails />} />
+                <Route path="/services/hire-freelance-app-developer" element={<ServiceDetails />} />
+                <Route path="/hire-freelance-app-developers" element={<ServiceDetails />} />
+                <Route path="/hire-freelance-app-developer" element={<ServiceDetails />} />
+                <Route path="/services/hire-ai-application-developers" element={<ServiceDetails />} />
+                <Route path="/services/hire-ai-application-developer" element={<ServiceDetails />} />
+                <Route path="/hire-ai-application-developers" element={<ServiceDetails />} />
+                <Route path="/hire-ai-application-developer" element={<ServiceDetails />} />
+                <Route path="/services/hire-iphone-app-developers" element={<ServiceDetails />} />
+                <Route path="/services/hire-iphone-app-developer" element={<ServiceDetails />} />
+                <Route path="/hire-iphone-app-developers" element={<ServiceDetails />} />
+                <Route path="/hire-iphone-app-developer" element={<ServiceDetails />} />
+                <Route path="/services/kotlin-app-development" element={<ServiceDetails />} />
+                <Route path="/kotlin-app-development" element={<ServiceDetails />} />
+                <Route path="/services/kotlin" element={<ServiceDetails />} />
+                <Route path="/kotlin" element={<ServiceDetails />} />
                 <Route path="/services/warehouse-management-system" element={<ServiceDetails />} />
                 <Route path="/warehouse-management-system" element={<ServiceDetails />} />
                 <Route path="/services/visitor-management-system" element={<ServiceDetails />} />
@@ -249,6 +304,15 @@ export function App() {
                 <Route path="/shopify-plus" element={<ServiceDetails />} />
                 <Route path="/hire-shopify-developers" element={<ServiceDetails />} />
                 <Route path="/iwatch-app-development" element={<ServiceDetails />} />
+                <Route path="/services/iwatch-app-development" element={<ServiceDetails />} />
+                <Route path="/ipad-app-development-services" element={<ServiceDetails />} />
+                <Route path="/services/ipad-app-development-services" element={<ServiceDetails />} />
+                 <Route path="/kotlin-app-development" element={<ServiceDetails />} />
+                <Route path="/services/kotlin-app-development" element={<ServiceDetails />} />
+                <Route path="/hybrid-app-development" element={<ServiceDetails />} />
+                <Route path="/services/hybrid-app-development" element={<ServiceDetails />} />
+                <Route path="/hybrid-app" element={<ServiceDetails />} />
+                <Route path="/services/hybrid-app" element={<ServiceDetails />} />
                 <Route path="/generative-ai-development-company" element={<ServiceDetails />} />
                 <Route path="/services/generative-ai-development-company" element={<ServiceDetails />} />
                 <Route path="/generative-ai" element={<ServiceDetails />} />

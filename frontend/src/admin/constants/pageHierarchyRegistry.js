@@ -1267,6 +1267,49 @@ export const PAGE_HIERARCHY_REGISTRY = {
           { key: 'servicesCards', title: 'Services Showcase Cards', category: 'Cards Grid', description: 'Feature cards with icons, descriptions, and deep-dive links for all services.', type: 'cards' },
           { key: 'cta', title: 'Get Started CTA', category: 'Call to Action', description: 'Partner with Firevy engineering pods.', type: 'cta' }
         ]
+      },
+      {
+        key: 'it-consulting-services',
+        title: 'IT Consulting Services',
+        category: 'Tech Consulting Services',
+        description: 'Strategic IT advisory, cloud migration, enterprise architecture, cybersecurity, and digital transformation.',
+        icon: Compass,
+        slug: 'it-consulting-services',
+        publicRoute: '/services/it-consulting-services',
+        sections: [
+          { key: 'hero', title: 'Hero Banner', category: 'Hero', description: 'IT Consulting headline, stats counter, and free consultation CTA.', type: 'hero' },
+          { key: 'overview', title: 'Advisory Overview', category: 'Overview', description: 'Digital transformation highlights, checklist, and collaborative illustrations.', type: 'cards' },
+          { key: 'coreServices', title: 'Core IT Consulting Offerings', category: 'Cards Grid', description: 'Digital transformation, Cloud strategy, Enterprise architecture, DevOps, Cybersecurity, TCO.', type: 'cards' },
+          { key: 'whyChooseUs', title: 'Why Choose Firevy IT Advisory', category: 'Cards Grid', description: '23+ years experience, certified principal architects, vendor-agnostic advice.', type: 'cards' },
+          { key: 'domains', title: 'Specialized Practice Domains', category: 'Tabs', description: 'Cloud, Architecture, Security, DevOps, Data & AI, Enterprise Systems.', type: 'cards' },
+          { key: 'caseStudies', title: 'Real-World Transformation Case Studies', category: 'Case Studies', description: 'FinTech cloud migration, healthcare EHR, logistics IoT architecture.', type: 'cards' },
+          { key: 'benefits', title: 'Business Benefits', category: 'Metrics Grid', description: 'Faster time-to-market, cost reduction, security hardening, scalability.', type: 'cards' },
+          { key: 'techStack', title: 'Technology & Cloud Ecosystem', category: 'Tech Grid', description: 'AWS, Azure, GCP, Kubernetes, Docker, Node.js, Python, PostgreSQL.', type: 'cards' },
+          { key: 'models', title: 'Agile Engagement Models', category: 'Cards Grid', description: 'Fractional CTO, Project-Based, Dedicated Squad, SME Augmentation.', type: 'cards' },
+          { key: 'process', title: '6-Step IT Consulting Methodology', category: 'Process Steps', description: 'Discovery, Gap Analysis, Blueprint, PoC, Execution, Governance.', type: 'process' },
+          { key: 'comparison', title: 'Comparative Analysis Matrix', category: 'Table', description: 'Firevy vs Generic Agencies vs In-House IT.', type: 'table' },
+          { key: 'faqs', title: 'Frequently Asked Questions', category: 'Accordion', description: 'Interactive FAQ accordion on timelines, IP, NDAs, and deliverables.', type: 'faq' },
+          { key: 'ctaForm', title: 'Discovery Call Request Form', category: 'Form', description: 'Interactive 30-min discovery session booking form.', type: 'form' }
+        ]
+      },
+      {
+        key: 'app-development-consulting',
+        title: 'App Development Consulting',
+        category: 'Tech Consulting Services',
+        description: 'Strategic mobile advisory, native iOS/Android, Flutter, React Native, UI/UX audits, and mobile cloud backends.',
+        icon: Smartphone,
+        slug: 'app-development-consulting',
+        publicRoute: '/services/app-development-consulting',
+        sections: [
+          { key: 'hero', title: 'Hero Banner', category: 'Hero', description: 'App Consulting headline, stats counter, and discovery call CTA.', type: 'hero' },
+          { key: 'overview', title: 'Mobile Consulting Overview', category: 'Overview', description: 'Mobile strategy, tech stack evaluation, and collaborative illustrations.', type: 'cards' },
+          { key: 'customAppServices', title: 'Custom Mobile App Consulting', category: 'Cards Grid', description: 'iOS, Android, Cross-platform, Enterprise mobility, UI/UX, and legacy modernization.', type: 'cards' },
+          { key: 'cuttingEdgeTech', title: 'Cutting-Edge Mobile Technologies', category: 'Slider', description: 'Swift, Kotlin, Flutter, React Native, GraphQL, Firebase slider.', type: 'slider' },
+          { key: 'expertiseCards', title: 'Key Practice Domains', category: 'Cards Grid', description: 'Discovery, architecture advisory, security & compliance, ASO strategy.', type: 'cards' },
+          { key: 'techStack', title: 'Mobile Ecosystem & Tools', category: 'Tech Grid', description: 'iOS, Android, Cross-platform, Cloud, DevOps, and QA tools.', type: 'cards' },
+          { key: 'faqs', title: 'Frequently Asked Questions', category: 'Accordion', description: 'Interactive FAQ accordion covering native vs cross-platform, security, and PRD.', type: 'faq' },
+          { key: 'ctaForm', title: 'Consultation Booking Form', category: 'Form', description: 'Interactive 30-min strategy session booking form.', type: 'form' }
+        ]
       }
     ]
   },

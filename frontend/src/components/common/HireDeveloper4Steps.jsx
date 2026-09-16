@@ -1,123 +1,154 @@
 import React from 'react';
 import Container from './Container';
-import { FileText, UserCheck, MessageSquare, UserPlus, ArrowUp } from 'lucide-react';
+import { FileText, Contact2, HelpCircle, UserCheck } from 'lucide-react';
 
 export const HireDeveloper4Steps = ({
-  title = "Hire C# Developer In 4 Easy Steps",
-  subtitle = "C# offers a number of advantages over another platform. Some of them are:"
+  title = "Hire Kotlin Developers In 4 Easy Steps",
+  subtitle = "Kotlin Development offers a number of advantages over another platform. Some of them are:"
 }) => {
   const steps = [
     {
       stepNum: "Step 01",
       title: "Send Us Your Detailed Project Requirement",
-      icon: FileText
+      icon: FileText,
+      badgeBg: "bg-[#00507a]",
+      chevronBg: "bg-[#00507a]"
     },
     {
       stepNum: "Step 02",
       title: "Select Candidate for Screening Process",
-      icon: UserPlus
+      icon: Contact2,
+      badgeBg: "bg-[#0084ad]",
+      chevronBg: "bg-[#0084ad]"
     },
     {
       stepNum: "Step 03",
       title: "Take Interview of Selected Candidates",
-      icon: MessageSquare
+      icon: HelpCircle,
+      badgeBg: "bg-[#006095]",
+      chevronBg: "bg-[#006095]"
     },
     {
       stepNum: "Step 04",
       title: "Initiate Project On-Boarding & Assign",
-      icon: UserCheck
+      icon: UserCheck,
+      badgeBg: "bg-[#00486c]",
+      chevronBg: "bg-[#00486c]"
     }
   ];
 
   return (
-    <section className="py-16 sm:py-20 bg-white text-slate-900 font-sans border-b border-slate-200 overflow-hidden">
+    <section className="py-16 sm:py-24 bg-white text-slate-900 font-sans border-b border-slate-100 overflow-hidden">
       <Container className="max-w-6xl">
         {/* Section Header */}
-        <div className="text-center max-w-4xl mx-auto mb-12 sm:mb-16">
-          <h2 className="text-2xl sm:text-3xl lg:text-[38px] font-[900] text-slate-900 tracking-tight leading-tight mb-2">
+        <div className="text-center max-w-4xl mx-auto mb-14 sm:mb-16">
+          <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-[900] text-slate-900 tracking-tight leading-tight mb-2">
             {title}
           </h2>
-          <p className="text-xs sm:text-sm text-slate-600 font-[400]">
+          <p className="text-xs sm:text-sm md:text-[15px] text-slate-600 font-normal">
             {subtitle}
           </p>
         </div>
 
-        {/* 4 Easy Steps Diagram Graphic */}
+        {/* 4 Easy Steps Looping Graphic Container */}
         <div className="relative max-w-5xl mx-auto mb-12">
           
-          {/* Outer Looping SVG Track Ellipse & Arrows (Desktop & Tablet) */}
+          {/* Outer Looping Racetrack SVG (Desktop & Tablet) */}
           <div className="absolute inset-0 pointer-events-none hidden md:block">
-            <svg className="w-full h-full" viewBox="0 0 900 320" fill="none" preserveAspectRatio="none">
-              {/* Outer Loop Ellipse */}
+            <svg className="w-full h-full" viewBox="0 0 920 340" fill="none" preserveAspectRatio="none">
+              {/* Top Half Track (Light Sky Blue) */}
               <path
-                d="M 120 70 L 780 70 C 850 70, 870 160, 780 240 L 120 240 C 30 240, 50 70, 120 70 Z"
-                stroke="#7DD3FC"
-                strokeWidth="3"
+                d="M 80 180 C 80 80, 160 50, 240 50 L 680 50 C 760 50, 840 80, 840 180"
+                stroke="#BAE6FD"
+                strokeWidth="4"
+                strokeLinecap="round"
                 fill="none"
               />
-              {/* Left Arrow Up */}
-              <path d="M 46 160 L 52 145 L 58 160" stroke="#005F96" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" />
-              {/* Right Arrow Down */}
-              <path d="M 854 160 L 848 175 L 842 160" stroke="#005F96" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" />
+              {/* Arrow on right going down */}
+              <path d="M 840 190 L 832 170 L 848 170 Z" fill="#BAE6FD" />
+
+              {/* Bottom Half Track (Dark Ocean Blue) */}
+              <path
+                d="M 840 180 C 840 280, 760 290, 680 290 L 240 290 C 160 290, 80 280, 80 180"
+                stroke="#006095"
+                strokeWidth="4"
+                strokeLinecap="round"
+                fill="none"
+              />
+              {/* Arrow on left going up */}
+              <path d="M 80 170 L 72 190 L 88 190 Z" fill="#006095" />
+
+              {/* Left arrow near bottom return track */}
+              <path d="M 280 290 L 295 284 L 295 296 Z" fill="#006095" />
+              <path d="M 640 290 L 655 284 L 655 296 Z" fill="#006095" />
             </svg>
           </div>
 
-          {/* Steps Content Grid */}
-          <div className="relative z-10 py-6 px-4">
+          {/* Steps Content Body */}
+          <div className="relative z-10 py-6 px-4 md:px-12">
             
-            {/* Top Row: 4 Blue Icon Circles with Upward Arrows */}
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-4 mb-4 text-center">
+            {/* Top Row: 4 Circular Badges */}
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-4 mb-3 text-center">
               {steps.map((item, idx) => {
-                const IconComponent = item.icon;
+                const IconComp = item.icon;
                 return (
                   <div key={idx} className="flex flex-col items-center">
                     {/* Circle Icon Badge */}
-                    <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-[#006095] text-white flex items-center justify-center shadow-lg border-4 border-white mb-3 group hover:scale-110 transition-transform">
-                      <IconComponent className="w-8 h-8 sm:w-9 sm:h-9 stroke-[2]" />
+                    <div className={`w-16 h-16 sm:w-[72px] sm:h-[72px] rounded-full ${item.badgeBg} text-white flex items-center justify-center shadow-lg border-[3.5px] border-white mb-2 transition-transform hover:scale-105`}>
+                      <IconComp className="w-7 h-7 sm:w-8 sm:h-8 stroke-[2.2]" />
                     </div>
 
-                    {/* Upward Connector Arrow Pointer */}
+                    {/* Upward Connector Arrow */}
                     <div className="hidden md:flex flex-col items-center text-[#006095]">
-                      <ArrowUp className="w-5 h-5 stroke-[3] -mb-1 animate-pulse" />
+                      <svg width="14" height="18" viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7 17V3M7 3L2 8M7 3L12 8" stroke="#006095" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
                     </div>
                   </div>
                 );
               })}
             </div>
 
-            {/* Middle Row: Connected Dark Blue Chevron Arrow Banner */}
-            <div className="my-3 hidden md:block">
-              <div className="flex items-center rounded-lg overflow-hidden shadow-md bg-[#006095] text-white font-[900] text-sm sm:text-base">
+            {/* Middle Row: Connected Colored Chevron Arrow Ribbon Banner */}
+            <div className="my-2 hidden md:block">
+              <div className="flex items-center rounded-lg overflow-visible shadow-sm">
                 {steps.map((item, idx) => (
                   <div
                     key={idx}
-                    className={`flex-1 py-4 text-center relative border-r border-[#0284C7]/40 flex items-center justify-center ${
+                    className={`flex-1 py-4 text-center relative flex items-center justify-center text-white font-[800] text-sm sm:text-[16px] tracking-wide ${item.chevronBg} ${
                       idx === 0 ? 'rounded-l-lg' : ''
                     }`}
+                    style={{
+                      clipPath: idx === 0
+                        ? 'polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%)'
+                        : 'polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%, 10% 50%)',
+                      marginLeft: idx > 0 ? '-14px' : '0',
+                      zIndex: 10 - idx
+                    }}
                   >
-                    <span>{item.stepNum}</span>
-                    {/* Chevron Arrow Pointer between steps */}
-                    {idx < 3 && (
-                      <div className="absolute right-0 top-0 bottom-0 z-10 flex items-center translate-x-1/2 pointer-events-none">
-                        <div className="w-0 h-0 border-y-[24px] border-y-transparent border-l-[16px] border-l-[#006095]" />
-                      </div>
-                    )}
+                    <span className={idx > 0 ? 'pl-3' : ''}>{item.stepNum}</span>
                   </div>
                 ))}
-                {/* Right Arrow End Pointer */}
-                <div className="w-0 h-0 border-y-[26px] border-y-transparent border-l-[20px] border-l-[#7DD3FC] shrink-0" />
+                {/* Ghost End Arrow */}
+                <div
+                  className="w-10 h-14 bg-[#BAE6FD]/60 shrink-0"
+                  style={{
+                    clipPath: 'polygon(0% 0%, 60% 0%, 100% 50%, 60% 100%, 0% 100%, 40% 50%)',
+                    marginLeft: '-10px'
+                  }}
+                />
               </div>
             </div>
 
-            {/* Bottom Row: Step Titles & Descriptions */}
+            {/* Bottom Row: Step Descriptions */}
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-4 text-center pt-2">
               {steps.map((item, idx) => (
-                <div key={idx} className="flex flex-col items-center space-y-1">
-                  {/* Step Num Badge for Mobile */}
-                  <span className="md:hidden inline-block bg-[#006095] text-white font-[900] text-xs px-3 py-1 rounded-full mb-1">
+                <div key={idx} className="flex flex-col items-center">
+                  {/* Step Num for Mobile view */}
+                  <span className="md:hidden inline-block bg-[#006095] text-white font-[800] text-xs px-3 py-1 rounded-full mb-1.5">
                     {item.stepNum}
                   </span>
-                  <h3 className="text-xs sm:text-sm font-[800] text-[#006095] leading-snug max-w-[200px]">
+                  <h3 className="text-xs sm:text-[13.5px] font-[800] text-slate-800 leading-snug max-w-[190px]">
                     {item.title}
                   </h3>
                 </div>
@@ -125,8 +156,8 @@ export const HireDeveloper4Steps = ({
             </div>
 
             {/* Loop Bottom "NOT SATISFIED?" Pill */}
-            <div className="mt-12 text-center">
-              <div className="inline-block bg-[#E0F2FE] border-2 border-[#006095] text-[#006095] font-[900] text-xs sm:text-sm px-6 py-2 rounded-full shadow-sm">
+            <div className="mt-10 sm:mt-12 text-center relative z-20">
+              <div className="inline-block bg-[#CBE8F6] border-2 border-[#00507a] text-[#00507a] font-[900] text-xs sm:text-[13px] px-7 py-1.5 rounded-full shadow-xs tracking-wider uppercase">
                 NOT SATISFIED?
               </div>
             </div>
@@ -135,19 +166,19 @@ export const HireDeveloper4Steps = ({
         </div>
 
         {/* Bottom CTA Button */}
-        <div className="text-center">
+        <div className="text-center pt-2">
           <a
-            href="#quote-form"
+            href="#contact"
             onClick={(e) => {
               e.preventDefault();
-              const el = document.getElementById('quote-form');
+              const el = document.getElementById('contact-quote') || document.getElementById('quote-form');
               if (el) {
                 el.scrollIntoView({ behavior: 'smooth' });
               } else {
                 window.location.href = '/contact';
               }
             }}
-            className="inline-block bg-[#006095] hover:bg-[#004B77] text-white font-[800] text-sm sm:text-base px-8 sm:px-10 py-3.5 rounded-lg shadow-md transition-all hover:scale-105"
+            className="inline-block bg-[#006095] hover:bg-[#004f7a] text-white font-[700] text-sm sm:text-[15px] px-8 py-3 rounded-lg shadow-md hover:shadow-lg transition-all cursor-pointer"
           >
             Talk With Our Expert Now
           </a>

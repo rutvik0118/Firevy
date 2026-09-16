@@ -278,14 +278,62 @@ export const iwatchFaqList = [
   }
 ];
 
+export const kotlinFaqList = [
+  {
+    id: 1,
+    question: '1. Which programming language, Kotlin or Java, is more advantageous and why?',
+    answer: "Java is an older programming language that has been used for a long time to power web and android applications. Because of this, Kotlin is a far more sophisticated and superior language than Java. Nevertheless, Kotlin addresses a variety of Java's flaws and deficiencies that are present in the language. If you want to construct an application that won't ever become unstable and is simple to keep up-to-date, you have no choice but to hire Kotlin developers from our company to work on your project."
+  },
+  {
+    id: 2,
+    question: '2. How can I hire developers that specialize in Kotlin?',
+    answer: 'We make hiring Kotlin developers simple and transparent: 1) Share your project requirements and tech stack scope. 2) We provide candidate profiles matching your seniority needs. 3) Conduct technical interviews with short-listed developers. 4) Select your team and begin onboarding within 48 to 72 hours with zero upfront recruitment fees.'
+  },
+  {
+    id: 3,
+    question: '3. Is Kotlin a language used for a website’s front-end or back-end?',
+    answer: 'JetBrains, the industry standard bearer when it comes to the creation of IDEs, is responsible for the development of the back-end programming language known as Kotlin. In addition, it develops improved features on top of existing ones to create incredible futuristic applications for your one-of-a-kind ideas. Particularly noteworthy is that the language is seen as a potential successor to Java.'
+  },
+  {
+    id: 4,
+    question: '4. What are the benefits of hiring Kotlin developers from Sapphire Solutions?',
+    answer: 'Hiring Kotlin developers from Sapphire Solutions gives you access to experienced professionals who specialize in modern Android development, cross-platform integration, and clean, scalable code—all while ensuring on-time delivery and cost efficiency.'
+  },
+  {
+    id: 5,
+    question: '5. How can I hire dedicated Kotlin developers for my mobile app project?',
+    answer: 'You can hire Kotlin developers by simply reaching out through our contact form or consultation link. Our team will analyze your requirements and assign expert Kotlin developers accordingly, with flexible engagement models.'
+  },
+  {
+    id: 6,
+    question: '6. Do your Kotlin developers have experience with cross-platform frameworks like Kotlin Multiplatform?',
+    answer: 'Yes, our Kotlin developers are well-versed in Kotlin Multiplatform and can build apps that share code across Android, iOS, and web, ensuring faster development and lower costs.'
+  },
+  {
+    id: 7,
+    question: '7. Can I hire a Kotlin developer on an hourly or monthly basis?',
+    answer: 'Absolutely. We offer flexible hiring models—hourly, part-time, or full-time—to meet your project’s scope, budget, and timeline.'
+  },
+  {
+    id: 8,
+    question: '8. How do you ensure the quality and security of Kotlin applications?',
+    answer: 'We follow strict quality assurance protocols, perform code reviews, implement secure coding practices, and ensure all Kotlin-based applications meet the latest security standards and compliance requirements.'
+  },
+  {
+    id: 9,
+    question: '9. Why choose Sapphire Solutions as your Kotlin development partner?',
+    answer: 'Sapphire Solutions is a trusted Kotlin development company known for its proven track record, agile methodology, global clientele, and end-to-end Kotlin app development services tailored to modern business needs.'
+  }
+];
+
 export const SapphireFaqSection = ({
   faqList,
   faqs,
   title = "Frequently Asked Questions",
   subtitle = "We listen to query and provide solutions that captivate users. Feel free to contact us in case of any query which is not mention below."
 }) => {
-  const activeFaqs = faqList || faqs || iwatchFaqList;
-  const [openId, setOpenId] = useState(null);
+  const activeFaqs = faqList || faqs || kotlinFaqList;
+  const [openId, setOpenId] = useState(1);
 
   const toggleFaq = (id) => {
     setOpenId((prevId) => (prevId === id ? null : id));

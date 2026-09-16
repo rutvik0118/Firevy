@@ -4,10 +4,10 @@ import { Star, ArrowLeft, ArrowRight } from 'lucide-react';
 const defaultReviews = [
   {
     id: 1,
-    title: "Sapphire Software Solutions' team communicated effectively...",
-    comment: "Sapphire Software Solutions successfully implemented all UX and design features on the app. The team has consistently delivered on...",
-    author: "Derrick Surratt",
-    location: "Arkansas",
+    title: "...mobile app skills, helpfulness, overall problem-solving blew away.",
+    comment: "Sapphire Software Solutions created a platform client was happy with. They were easy, responsive, and attentive to the needs. They also provided a result-oriented approach and stellar execution.",
+    author: "David Randjelovic",
+    location: "Phuket, Thailand",
     avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80",
     score: "5.0",
     stars: 5,
@@ -15,6 +15,39 @@ const defaultReviews = [
   },
   {
     id: 2,
+    title: "They were excellent at finding the right level of detail in implementation and critical...",
+    comment: "Sapphire Software Solutions impressed the client with the quality of their deliverables. They provided excellent designs, achieved the client's goals in unique ways, and prioritized the...",
+    author: "Smit Shah",
+    location: "Parkland, Florida",
+    avatar: "/images/smit_shah.webp",
+    score: "5.0",
+    stars: 5,
+    ratings: { quality: "5.0", schedule: "5.0", cost: "5.0", refer: "5.0" }
+  },
+  {
+    id: 3,
+    title: "The team's spirit is nice, and I've found the team cooperative at each step of the project.",
+    comment: "While the project is ongoing, the results thus far have met the expectations of the internal team. Sapphire Software Solutions has been prepared to accommodate requests and changes in the...",
+    author: "Hesham Abdelfattah",
+    location: "London, United Kingdom",
+    avatar: "/images/hesham_abdelfattah.webp",
+    score: "5.0",
+    stars: 5,
+    ratings: { quality: "5.0", schedule: "5.0", cost: "5.0", refer: "5.0" }
+  },
+  {
+    id: 4,
+    title: "Sapphire Software Solutions' team communicated effectively...",
+    comment: "Sapphire Software Solutions successfully implemented all UX and design features on the app. The team has consistently delivered on...",
+    author: "Derrick Surratt",
+    location: "Arkansas",
+    avatar: "/images/derrick_surratt.webp",
+    score: "5.0",
+    stars: 5,
+    ratings: { quality: "5.0", schedule: "5.0", cost: "5.0", refer: "5.0" }
+  },
+  {
+    id: 5,
     title: "They're able to listen to customer requests and attend to urgent matters.",
     comment: "Sapphire Software Solutions' updates improved a product's UX per the end customer's requests. The team is personable, reaches their...",
     author: "Hamidah Nalwoga",
@@ -25,45 +58,12 @@ const defaultReviews = [
     ratings: { quality: "5.0", schedule: "5.0", cost: "5.0", refer: "5.0" }
   },
   {
-    id: 3,
-    title: "Our communication was very smooth, and the deliverables were done o...",
+    id: 6,
+    title: "Our communication was very smooth, and the deliverables were done on time.",
     comment: "The client is happy with Sapphire Software Solutions. The team has met all expectations in terms of website design and feature...",
     author: "Lino Barahona",
     location: "Portugal",
     avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80",
-    score: "5.0",
-    stars: 5,
-    ratings: { quality: "5.0", schedule: "5.0", cost: "5.0", refer: "5.0" }
-  },
-  {
-    id: 4,
-    title: "...were excellent at providing the right level of detail in implementation...",
-    comment: "Sapphire Software Solutions impressed the client with the quality of their deliverables. They provided consistent designs, achieved the...",
-    author: "Smit Shah",
-    location: "Parkland, Florida",
-    avatar: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=150&q=80",
-    score: "5.0",
-    stars: 5,
-    ratings: { quality: "5.0", schedule: "5.0", cost: "5.0", refer: "5.0" }
-  },
-  {
-    id: 5,
-    title: "The technical support team was very responsive.",
-    comment: "Sapphire Software Solutions delivered the software in a timely manner. The team was responsive to requests and feedback and...",
-    author: "AMR ELATTAR",
-    location: "Saudi Arabia",
-    avatar: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=150&q=80",
-    score: "4.5",
-    stars: 5,
-    ratings: { quality: "4.5", schedule: "4.5", cost: "4.5", refer: "5.0" }
-  },
-  {
-    id: 6,
-    title: "...time and effort the Sapphire Software Solutions team put into m...",
-    comment: "Sapphire Software Solutions uploaded the app successfully to app stores. The team was highly responsive, delivered on time, and...",
-    author: "Christina Wälchli",
-    location: "Germany",
-    avatar: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80",
     score: "5.0",
     stars: 5,
     ratings: { quality: "5.0", schedule: "5.0", cost: "5.0", refer: "5.0" }
@@ -129,11 +129,23 @@ export const ClientReviewsDarkSection = ({ data }) => {
               {/* Left Section: Clutch, Quote, Desc, Author */}
               <div className="flex-1 flex flex-col justify-between pr-4 sm:pr-5 min-w-0">
                 <div>
-                  {/* Clutch Logo with Red Dot */}
-                  <div className="flex items-center text-slate-900 font-black text-[24px] sm:text-[26px] tracking-tight font-sans mb-3">
-                    <span>Clutc</span>
-                    <span className="text-[#DE281F]">h</span>
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#DE281F] ml-0.5 mb-2 inline-block" />
+                  {/* Clutch Logo with SVG and fallback */}
+                  <div className="mb-3">
+                    <img
+                      src="/images/clutch_new.svg"
+                      alt="Clutch"
+                      className="h-6 sm:h-6.5 object-contain"
+                      onError={(e) => {
+                        e.target.onerror = null;
+                        e.target.style.display = 'none';
+                        if (e.target.nextSibling) e.target.nextSibling.style.display = 'flex';
+                      }}
+                    />
+                    <div className="hidden items-center text-slate-900 font-black text-[24px] tracking-tight font-sans">
+                      <span>Clutc</span>
+                      <span className="text-[#DE281F]">h</span>
+                      <span className="w-2.5 h-2.5 rounded-full bg-[#DE281F] ml-0.5 mb-2 inline-block" />
+                    </div>
                   </div>
 
                   {/* Main Quote Title */}
