@@ -24,14 +24,9 @@ import IWatchChallengeCtaBanner from './IWatchChallengeCtaBanner';
 // Custom Sections
 import PatientManagementCuttingEdgeTechSection from './PatientManagementCuttingEdgeTechSection';
 import PatientManagementExpertiseServices from './PatientManagementExpertiseServices';
+import SapphireFaqSection from '../common/SapphireFaqSection';
 
 export const PatientManagementService = () => {
-  const [activeFaq, setActiveFaq] = useState(null);
-
-  const toggleFaq = (index) => {
-    setActiveFaq(activeFaq === index ? null : index);
-  };
-
   // 6 Custom Patient Management Solutions
   const patientSolutions = [
     {
@@ -240,43 +235,31 @@ export const PatientManagementService = () => {
     }
   ];
 
-  // 9 Complete FAQs (Firevy.co Branded)
+  // FAQs matching reference screenshot 1:1
   const patientFaqs = [
     {
-      question: '1. What is a Patient Management System (PMS) and why is it essential?',
-      answer: 'A Patient Management System (PMS) is an integrated healthcare software platform that coordinates patient registration, appointment scheduling, electronic health records (EHR), clinical charting, medical billing, and lab orders. It eliminates administrative bottlenecks, reduces medical errors, accelerates revenue cycles, and enhances the patient care experience.'
+      question: '1. What is a Patient Management System?',
+      answer: 'A Patient Management System is a software platform that helps healthcare providers manage patient information, appointments, medical histories, billing, and communication in a centralized system.'
     },
     {
-      question: '2. Is Firevy.co’s Patient Management System HIPAA and GDPR compliant?',
-      answer: 'Yes, absolutely. We design healthcare architectures with zero-trust security principles. All patient data is encrypted with AES-256 at rest and TLS 1.3 in transit. Our solutions include role-based access controls (RBAC), multi-factor authentication, tamper-proof audit trails, and strict compliance with HIPAA, HITECH, and GDPR mandates.'
+      question: '2. What makes your Patient Record Management System secure?',
+      answer: 'Our solutions implement AES-256 encryption at rest and TLS 1.3 in transit, role-based access control, multi-factor authentication, audit logging, and strict compliance with HIPAA, HITECH, and GDPR mandates.'
     },
     {
-      question: '3. Can your system integrate with existing EHRs like Epic, Cerner, or Allscripts?',
-      answer: 'Yes. We build interoperable systems utilizing industry standards such as HL7 (v2 & v3) and HL7 FHIR (Fast Healthcare Interoperability Resources). This enables smooth bi-directional synchronization of patient demographics, clinical notes, diagnostic test orders, and medical histories with leading hospital EHRs.'
+      question: '3. Can your system be integrated with existing hospital software?',
+      answer: 'Yes, we support HL7 and FHIR standards to integrate seamlessly with legacy hospital information systems, EHRs, laboratory equipment, and third-party diagnostic tools.'
     },
     {
-      question: '4. Do you support specialized clinics like Dental, Ophthalmology, or Pediatrics?',
-      answer: 'Yes. We engineer customized practice management software tailored to specific clinical specialties. For instance, our dental PMS solutions include graphical tooth charting, periodontal exams, lab cases, and tailored treatment plans alongside standard appointment and billing modules.'
+      question: '4. How scalable is your Patient Data Management System?',
+      answer: 'Built on cloud-native microservices architecture, our platform effortlessly scales to support high-volume patient intake, multiple hospital departments, and distributed multi-clinic networks.'
     },
     {
-      question: '5. Does the software include patient self-service portals and mobile apps?',
-      answer: 'Yes. We build responsive web portals and native iOS/Android mobile applications that enable patients to book appointments, complete digital intake forms, view diagnostic results, conduct virtual teleconsultations, and pay copays securely.'
+      question: '5. What platforms do you support — web or mobile?',
+      answer: 'We provide responsive web applications for clinical workstations along with native and cross-platform mobile apps for iOS and Android for doctors, nurses, and patients.'
     },
     {
-      question: '6. How does automated insurance claim billing work in your system?',
-      answer: 'Our software automates the Revenue Cycle Management (RCM) workflow by validating ICD-10 and CPT codes, checking real-time patient insurance eligibility via EDI 270/271, submitting electronic ANSI 837 claims to clearinghouses, and reconciling EDI 835 payment remittances automatically.'
-    },
-    {
-      question: '7. Can the platform support telemedicine and virtual consultations?',
-      answer: 'Yes. We integrate secure WebRTC audio/video teleconsultations directly into the patient portal and doctor scheduling dashboard, complete with digital screen sharing, in-call clinical notes, and electronic prescription (eRx) generation.'
-    },
-    {
-      question: '8. How long does it take to develop and deploy a custom Patient Management System?',
-      answer: 'A modular clinic PMS MVP typically deploys within 6 to 10 weeks, while an enterprise-wide multi-facility hospital information system with custom integrations usually requires 12 to 20 weeks. We provide phased rollouts to ensure uninterrupted patient care.'
-    },
-    {
-      question: '9. How can we get started with Firevy.co for our healthcare organization?',
-      answer: 'You can reach out through our contact form to schedule an initial architecture consultation. Our healthcare software specialists will review your clinical workflows, compliance requirements, and integration needs to provide a tailored blueprint and cost estimate within 24 hours.'
+      question: '6. Can patients access their health records online?',
+      answer: 'Yes, patients have access to secure 24/7 self-service patient portals to view medical records, lab reports, schedule appointments, request prescription refills, and communicate with healthcare providers.'
     }
   ];
 
@@ -571,48 +554,13 @@ export const PatientManagementService = () => {
       <DigitalTransformationSlider />
 
       {/* ========================================================================= */}
-      {/* 17. 9 COMPREHENSIVE PATIENT MANAGEMENT SYSTEM FAQS                         */}
+      {/* 17. FREQUENTLY ASKED QUESTIONS (SapphireFaqSection 1:1 Match)              */}
       {/* ========================================================================= */}
-      <section className="py-14 sm:py-20 bg-white font-sans text-left overflow-hidden border-t border-slate-100">
-        <Container className="max-w-4xl">
-          <div className="text-center mb-10 sm:mb-14">
-            <h2 className="text-[26px] sm:text-[32px] lg:text-[36px] font-[800] text-[#0B0F19] tracking-tight leading-tight mb-3">
-              Frequently Asked Questions
-            </h2>
-            <p className="text-[13.5px] sm:text-[14.5px] text-[#475569] font-normal leading-relaxed max-w-2xl mx-auto">
-              Everything you need to know about our Patient Management System software engineering services, HIPAA compliance, and integrations.
-            </p>
-          </div>
-
-          <div className="space-y-3.5">
-            {patientFaqs.map((faq, index) => {
-              const isOpen = activeFaq === index;
-              return (
-                <div
-                  key={index}
-                  className="rounded-[12px] border border-slate-200 overflow-hidden bg-white transition-all duration-200"
-                >
-                  <button
-                    onClick={() => toggleFaq(index)}
-                    className="w-full flex items-center justify-between p-4 sm:p-5 text-left font-[700] text-[15px] sm:text-[16px] text-[#0B0F19] hover:text-[#005F96] transition-colors cursor-pointer"
-                  >
-                    <span>{faq.question}</span>
-                    <span className="text-xl font-bold text-[#005F96] ml-4 shrink-0">
-                      {isOpen ? '−' : '+'}
-                    </span>
-                  </button>
-
-                  {isOpen && (
-                    <div className="px-4 sm:px-5 pb-5 text-[13px] sm:text-[14px] text-[#475569] leading-relaxed font-normal border-t border-slate-100 pt-3">
-                      {faq.answer}
-                    </div>
-                  )}
-                </div>
-              );
-            })}
-          </div>
-        </Container>
-      </section>
+      <SapphireFaqSection
+        title="Frequently Asked Questions"
+        subtitle="We listen to query and provide solutions that captivate users. Feel free to contact us in case of any query which is not mention below."
+        faqs={patientFaqs}
+      />
 
       {/* ========================================================================= */}
       {/* 18. RECENT HEALTHCARE BLOGS & INSIGHTS                                    */}
