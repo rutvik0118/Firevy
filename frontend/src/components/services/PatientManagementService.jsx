@@ -110,78 +110,110 @@ export const PatientManagementService = () => {
     }
   ];
 
-  // 6 Benefits of Patient Management Services
-  const patientBenefits = [
+  // 6 Why Choose Us Cards (Exact 1:1 Match to Reference Screenshot)
+  const whyChoosePatientManagement = [
     {
-      title: 'Streamlined Patient Onboarding & Intake',
-      desc: 'Digitize patient registration with touchless self-check-in kiosks and mobile intake forms, cutting lobby wait times by over 45% and eliminating duplicate records.',
+      title: 'HIPAA-Compliant Security',
+      desc: 'Our solutions are compliant with international compliance standards such as HIPAA, GDPR, and HL7 standards to secure patient data.',
       icon: (
-        <svg viewBox="0 0 48 48" className="w-11 h-11 text-[#0084D1]" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-          <circle cx="24" cy="14" r="6" />
-          <path d="M12 36v-3a8 8 0 0 1 16 0v3" />
-          <path d="M30 18l4 4 8-8" />
+        <svg viewBox="0 0 48 48" className="w-12 h-12 text-[#0084D1]" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 8a2 2 0 0 1 2-2h14l8 8v24a2 2 0 0 1-2 2H14a2 2 0 0 1-2-2V8z" />
+          <polyline points="28 6 28 16 36 16" />
+          <line x1="18" y1="22" x2="24" y2="22" />
+          <line x1="18" y1="28" x2="22" y2="28" />
+          <path d="M26 24c0 6 6 10 6 10s6-4 6-10v-4l-6-2-6 2v4z" fill="#E0F2FE" />
+          <path d="M29 27l2 2 4-4" stroke="#0084D1" strokeWidth="1.8" />
         </svg>
       )
     },
     {
-      title: 'Real-Time Bed & Resource Optimization',
-      desc: 'Live visual hospital dashboards track bed availability, operating theater schedules, nurse assignments, and medical equipment utilization to maximize facility efficiency.',
+      title: 'Cloud-Based Scalability',
+      desc: 'Scale your Patient Management System effortlessly across departments and geographies without performance constraints.',
       icon: (
-        <svg viewBox="0 0 48 48" className="w-11 h-11 text-[#0084D1]" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-          <rect x="8" y="14" width="32" height="22" rx="3" />
-          <path d="M12 24h6M12 30h14" />
-          <circle cx="32" cy="27" r="3" />
-          <path d="M14 10v4M34 10v4" />
+        <svg viewBox="0 0 48 48" className="w-12 h-12 text-[#0084D1]" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="19" y="19" width="10" height="10" rx="2" fill="#E0F2FE" stroke="#0084D1" />
+          <circle cx="24" cy="24" r="2" fill="#0084D1" />
+          <path d="M24 19V10" />
+          <path d="M20 12l4-4 4 4" />
+          <path d="M24 29v9" />
+          <path d="M20 36l4 4 4-4" />
+          <path d="M19 24h-9" />
+          <path d="M12 20l-4 4 4 4" />
+          <path d="M29 24h9" />
+          <path d="M36 20l4 4-4 4" />
+          <circle cx="14" cy="14" r="1.5" fill="#0084D1" />
+          <circle cx="34" cy="14" r="1.5" fill="#0084D1" />
+          <circle cx="14" cy="34" r="1.5" fill="#0084D1" />
+          <circle cx="34" cy="34" r="1.5" fill="#0084D1" />
         </svg>
       )
     },
     {
-      title: 'Full HIPAA, GDPR & HL7/FHIR Compliance',
-      desc: 'Bank-grade AES-256 data encryption, role-based access control, comprehensive audit trails, and strict adherence to healthcare privacy mandates give you complete security peace of mind.',
+      title: 'Real-Time Data Access',
+      desc: 'Physicians, nurses, and staff can view and update patient data in real-time, ensuring smooth coordination.',
       icon: (
-        <svg viewBox="0 0 48 48" className="w-11 h-11 text-[#0084D1]" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M24 6L10 12v10c0 10 5.8 17.2 14 19 8.2-1.8 14-9 14-19V12L24 6z" />
-          <path d="M18 23l4 4 8-8" />
+        <svg viewBox="0 0 48 48" className="w-12 h-12 text-[#0084D1]" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="8" y="10" width="26" height="20" rx="2.5" />
+          <line x1="8" y1="24" x2="34" y2="24" />
+          <circle cx="13" cy="17" r="1.5" fill="#0084D1" />
+          <rect x="26" y="22" width="14" height="11" rx="2" fill="#E0F2FE" stroke="#0084D1" />
+          <path d="M29 22v-3a4 4 0 0 1 8 0v3" />
+          <circle cx="33" cy="27" r="1.5" fill="#0084D1" />
+          <path d="M20 33l-3 4-2-2" />
+          <line x1="16" y1="30" x2="22" y2="30" />
+          <path d="M18 30v6" />
+          <line x1="14" y1="36" x2="22" y2="36" />
         </svg>
       )
     },
     {
-      title: 'Automated Billing & Rapid Claim Reimbursement',
-      desc: 'Drastically reduce claim rejection rates with automated medical coding validation, ANSI EDI 837 claim batching, and automated patient payment gateway integration.',
+      title: 'Improved Patient Engagement',
+      desc: 'Engage patients with easy-to-use portals for appointments, prescriptions, and communication with providers.',
       icon: (
-        <svg viewBox="0 0 48 48" className="w-11 h-11 text-[#0084D1]" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-          <rect x="11" y="9" width="26" height="32" rx="3" />
-          <path d="M18 9V6a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v3" />
-          <path d="M16 19l2 2 4-4" />
-          <line x1="25" y1="19" x2="31" y2="19" />
-          <path d="M16 27l2 2 4-4" />
-          <line x1="25" y1="27" x2="31" y2="27" />
-          <path d="M16 35l2 2 4-4" />
-          <line x1="25" y1="35" x2="31" y2="35" />
+        <svg viewBox="0 0 48 48" className="w-12 h-12 text-[#0084D1]" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="24" cy="12" r="6" fill="#E0F2FE" stroke="#0084D1" />
+          <path d="M24 9v6M21 12h6" stroke="#0084D1" strokeWidth="1.8" strokeLinecap="round" />
+          <circle cx="24" cy="26" r="3.5" />
+          <path d="M18 38c0-3.3 2.7-6 6-6s6 2.7 6 6" />
+          <circle cx="13" cy="28" r="2.8" />
+          <path d="M8 38c0-2.8 2.2-5 5-5 1.2 0 2.3.4 3.1 1.2" />
+          <circle cx="35" cy="28" r="2.8" />
+          <path d="M32 34.2c.8-.8 1.9-1.2 3.1-1.2 2.8 0 5 2.2 5 5" />
         </svg>
       )
     },
     {
-      title: 'Integrated Teleconsultation & Virtual Care',
-      desc: 'Expand clinical reach beyond hospital walls with one-click browser and mobile video visits, digital prescription dispatches, and secure remote patient vital sync.',
+      title: 'Advanced Analytics & Reporting',
+      desc: 'Create actionable insights from patient information using integrated analytics for enhanced decision-making and treatment planning.',
       icon: (
-        <svg viewBox="0 0 48 48" className="w-11 h-11 text-[#0084D1]" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-          <rect x="8" y="12" width="22" height="20" rx="3" />
-          <path d="M30 18l10-5v18l-10-5v-8z" />
-          <path d="M13 22h3l2-4 3 8 2-4h3" />
+        <svg viewBox="0 0 48 48" className="w-12 h-12 text-[#0084D1]" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="7" y="8" width="28" height="24" rx="2.5" />
+          <path d="M13 24l4-5 4 3 6-7" stroke="#0084D1" strokeWidth="1.8" />
+          <rect x="11" y="21" width="3" height="6" fill="#E0F2FE" stroke="#0084D1" />
+          <rect x="18" y="17" width="3" height="10" fill="#E0F2FE" stroke="#0084D1" />
+          <rect x="25" y="13" width="3" height="14" fill="#E0F2FE" stroke="#0084D1" />
+          <circle cx="33" cy="31" r="7" fill="white" stroke="#0084D1" strokeWidth="2" />
+          <path d="M38 36l5 5" stroke="#0084D1" strokeWidth="2.5" strokeLinecap="round" />
+          <path d="M30 31h6M33 28v6" stroke="#0084D1" strokeWidth="1.5" />
         </svg>
       )
     },
     {
-      title: 'Actionable Clinical Insights & Reporting',
-      desc: 'Interactive BI dashboards deliver real-time metrics on patient recovery trends, clinical outcomes, physician productivity, and department-level financial performance.',
+      title: 'Personalized Modules for Each Facility',
+      desc: 'From major hospitals to specialty clinics, our system is modular and designed to address particular operational requirements.',
       icon: (
-        <svg viewBox="0 0 48 48" className="w-11 h-11 text-[#0084D1]" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-          <rect x="8" y="8" width="32" height="32" rx="4" />
-          <line x1="16" y1="32" x2="16" y2="24" />
-          <line x1="24" y1="32" x2="24" y2="16" />
-          <line x1="32" y1="32" x2="32" y2="20" />
-          <circle cx="32" cy="16" r="2" fill="#0084D1" />
+        <svg viewBox="0 0 48 48" className="w-12 h-12 text-[#0084D1]" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="16" cy="18" r="10" fill="#E0F2FE" stroke="#0084D1" />
+          <circle cx="16" cy="15" r="3.5" />
+          <path d="M10 24c0-2.8 2.7-4 6-4s6 1.2 6 4" />
+          <line x1="30" y1="14" x2="42" y2="14" />
+          <circle cx="34" cy="14" r="2.5" fill="#0084D1" />
+          <line x1="30" y1="22" x2="42" y2="22" />
+          <circle cx="39" cy="22" r="2.5" fill="#0084D1" />
+          <line x1="30" y1="30" x2="42" y2="30" />
+          <circle cx="33" cy="30" r="2.5" fill="#0084D1" />
+          <rect x="6" y="32" width="20" height="7" rx="2" fill="white" stroke="#0084D1" />
+          <line x1="10" y1="35.5" x2="22" y2="35.5" />
         </svg>
       )
     }
@@ -470,33 +502,33 @@ export const PatientManagementService = () => {
       <ProudAwardsBanner />
 
       {/* ========================================================================= */}
-      {/* 10. BENEFITS OF OUR PATIENT MANAGEMENT SYSTEM SERVICES                    */}
+      {/* 10. WHY CHOOSE US FOR PATIENT MANAGEMENT SYSTEM (1:1 MATCH TO REFERENCE)  */}
       {/* ========================================================================= */}
-      <section className="py-14 sm:py-20 bg-white font-sans text-left overflow-hidden border-t border-slate-100">
+      <section className="py-14 sm:py-20 bg-[#F8FAFC] font-sans text-left overflow-hidden border-t border-slate-200/70">
         <Container className="max-w-6xl">
           <div className="text-center max-w-4xl mx-auto mb-12 sm:mb-16">
-            <h2 className="text-[26px] sm:text-[32px] lg:text-[36px] font-[800] text-[#0B0F19] tracking-tight leading-tight mb-3">
-              Benefits of Our Patient Management System Development Services
+            <h2 className="text-[26px] sm:text-[32px] lg:text-[36px] font-[800] text-[#0B0F19] tracking-tight leading-tight mb-3 font-sans">
+              Why Choose Us for Patient Management System
             </h2>
-            <p className="text-[13.5px] sm:text-[14.5px] text-[#475569] font-normal leading-relaxed max-w-3xl mx-auto">
-              Our Patient Management Software engineering services give hospitals, clinics, and medical practices the technology to eliminate paper bottlenecks, accelerate care delivery, and improve bottom-line revenue.
+            <p className="text-[13.5px] sm:text-[14.5px] text-[#475569] font-normal leading-relaxed max-w-3xl mx-auto font-sans">
+              When it comes to developing an industry-leading Patient Data Management System, our strength is strategic thinking, profound domain knowledge, and steady delivery of outcomes.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {patientBenefits.map((benefit, index) => (
+            {whyChoosePatientManagement.map((item, index) => (
               <div
                 key={index}
-                className="rounded-[16px] bg-[#F8FAFC] p-6 sm:p-7 border border-slate-100 shadow-2xs hover:shadow-lg hover:border-[#CCE8FA] hover:bg-[#F0F7FC] transition-all duration-300 flex flex-col justify-start group cursor-pointer text-left"
+                className="rounded-[16px] bg-white p-6 sm:p-7 border border-slate-200/70 shadow-xs hover:shadow-lg hover:border-[#CCE8FA] transition-all duration-300 flex flex-col justify-start group cursor-pointer text-left"
               >
-                <div className="mb-4 transition-transform duration-300 group-hover:scale-110">
-                  {benefit.icon}
+                <div className="mb-4 transition-transform duration-300 group-hover:scale-105">
+                  {item.icon}
                 </div>
-                <h3 className="font-[800] text-[17px] sm:text-[18px] text-[#0B0F19] mb-2 leading-snug tracking-tight">
-                  {benefit.title}
+                <h3 className="font-[800] text-[17px] sm:text-[18px] text-[#0B0F19] mb-2 leading-snug tracking-tight font-sans">
+                  {item.title}
                 </h3>
-                <p className="text-[#475569] text-[12.5px] sm:text-[13px] leading-[1.65] font-normal">
-                  {benefit.desc}
+                <p className="text-[#475569] text-[13px] sm:text-[13.5px] leading-[1.68] font-normal font-sans">
+                  {item.desc}
                 </p>
               </div>
             ))}
