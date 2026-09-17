@@ -20,6 +20,25 @@ const educationCards = [
   }
 ];
 
+const digitalMarketingCards = [
+  {
+    id: 1,
+    title: 'News Application Development',
+    image: '/images/success_stories/epaper.svg',
+    badge: 'Case Study'
+  },
+  {
+    id: 2,
+    title: 'Message App Development',
+    image: '/images/success_stories/message_app.svg'
+  },
+  {
+    id: 3,
+    title: 'Advertising App Development',
+    image: '/images/success_stories/advertising_app_development.svg'
+  }
+];
+
 const defaultCards = [
   {
     id: 1,
@@ -165,9 +184,14 @@ const defaultCards = [
 
 export const SuccessStoriesSection = ({
   category,
+  cards: customCards,
   subtitle = "Know Firevy.co's journey from concept to success. Explore how we’ve brought ideas to life and achieved remarkable results for our clients."
 }) => {
-  const cards = category === 'education' ? educationCards : defaultCards;
+  const cards = customCards || (
+    category === 'education' ? educationCards :
+    category === 'digital-marketing' ? digitalMarketingCards :
+    defaultCards
+  );
 
   return (
     <section className="py-8 sm:py-10 lg:py-12 bg-[#EDF5F9] text-slate-900 font-sans border-b border-slate-200/80 text-left">
@@ -204,6 +228,11 @@ export const SuccessStoriesSection = ({
             <div key={item.id} className="flex flex-col items-center group cursor-pointer w-full">
               {/* Large Rounded Image / UI Mockup Frame */}
               <div className="w-full h-[220px] sm:h-[240px] rounded-[16px] overflow-hidden shadow-sm border border-slate-200/80 group-hover:shadow-md transition-shadow duration-200 relative bg-white">
+                {item.badge && (
+                  <div className="absolute top-3 right-3 z-20 bg-[#BAE6FD] text-[#0369A1] font-bold text-[11px] px-2.5 py-1 rounded-md shadow-xs">
+                    {item.badge}
+                  </div>
+                )}
                 {item.image ? (
                   <img
                     src={item.image}

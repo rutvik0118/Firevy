@@ -64,6 +64,14 @@ import KotlinAppDevelopmentService from '../components/services/KotlinAppDevelop
 import HybridAppDevelopmentService from '../components/services/HybridAppDevelopmentService';
 import ItConsultingServices from '../components/services/ItConsultingServices';
 import AppDevelopmentConsultingService from '../components/services/AppDevelopmentConsultingService';
+import StartupConsultingServices from '../components/services/StartupConsultingServices';
+import EpicorErpConsultingServices from '../components/services/EpicorErpConsultingServices';
+import DevOpsConsultingServices from '../components/services/DevOpsConsultingServices';
+import GenerativeAiConsultingCompany from '../components/services/GenerativeAiConsultingCompany';
+import MicroservicesConsultingServices from '../components/services/MicroservicesConsultingServices';
+import AiConsultingServices from '../components/services/AiConsultingServices';
+import UiUxDesignService from '../components/services/UiUxDesignService';
+import DigitalMarketingService from '../components/services/DigitalMarketingService';
 import HireKotlinDevelopersService from '../components/services/HireKotlinDevelopersService';
 import HireTechDevelopersService from '../components/services/HireTechDevelopersService';
 
@@ -310,6 +318,63 @@ export const ServiceDetails = () => {
     currentSlug.includes('app-development-consulting') ||
     currentSlug === 'services/app-development-consulting';
 
+  const isStartupConsulting = currentSlug === 'startup-consulting-services' ||
+    currentSlug === 'startup-consulting' ||
+    currentSlug.includes('startup-consulting') ||
+    currentSlug === 'services/startup-consulting-services';
+
+  const isEpicorErpConsulting = currentSlug === 'epicor-erp-consulting-services' ||
+    currentSlug === 'epicor-erp-consulting' ||
+    currentSlug.includes('epicor-erp') ||
+    currentSlug.includes('epicor') ||
+    currentSlug === 'services/epicor-erp-consulting-services';
+
+  const isDevOpsConsulting = currentSlug === 'devops-consulting-service' ||
+    currentSlug === 'devops-consulting-services' ||
+    currentSlug === 'devops-consulting' ||
+    currentSlug.includes('devops-consulting') ||
+    currentSlug === 'services/devops-consulting-service' ||
+    currentSlug === 'services/devops-consulting-services' ||
+    currentSlug === 'services/devops-consulting';
+
+  const isGenerativeAiConsulting = currentSlug === 'generative-ai-consulting-company' ||
+    currentSlug === 'generative-ai-consulting' ||
+    currentSlug === 'generative-ai-consulting-services' ||
+    currentSlug === 'generative-ai-consulting-service' ||
+    currentSlug.includes('generative-ai-consulting') ||
+    currentSlug === 'services/generative-ai-consulting-company' ||
+    currentSlug === 'services/generative-ai-consulting';
+
+  const isMicroservicesConsulting = currentSlug === 'microservices-consulting-services' ||
+    currentSlug === 'microservices-consulting-service' ||
+    currentSlug === 'microservices-consulting' ||
+    currentSlug.includes('microservices-consulting') ||
+    currentSlug === 'services/microservices-consulting-services' ||
+    currentSlug === 'services/microservices-consulting';
+
+  const isAiConsulting = (currentSlug === 'ai-consulting-services' ||
+    currentSlug === 'ai-consulting-service' ||
+    currentSlug === 'ai-consulting' ||
+    currentSlug.includes('ai-consulting') ||
+    currentSlug === 'services/ai-consulting-services' ||
+    currentSlug === 'services/ai-consulting') && !currentSlug.includes('generative');
+
+  const isUiUxDesign = currentSlug === 'ui-ux-design' ||
+    currentSlug === 'ui-ux-design-services' ||
+    currentSlug === 'ui-ux-design-service' ||
+    currentSlug === 'ui-ux' ||
+    currentSlug === 'ui-ux-services' ||
+    currentSlug.includes('ui-ux-design') ||
+    currentSlug === 'services/ui-ux-design' ||
+    currentSlug === 'services/ui-ux-design-services';
+
+  const isDigitalMarketing = currentSlug === 'digital-marketing' ||
+    currentSlug === 'digital-marketing-services' ||
+    currentSlug === 'digital-marketing-service' ||
+    currentSlug.includes('digital-marketing') ||
+    currentSlug === 'services/digital-marketing' ||
+    currentSlug === 'services/digital-marketing-services';
+
   const unslugify = (str) => {
     if (!str) return 'Enterprise Tech Solution';
     return str
@@ -523,6 +588,38 @@ export const ServiceDetails = () => {
 
   if (isAppConsulting) {
     return <AppDevelopmentConsultingService />;
+  }
+
+  if (isStartupConsulting) {
+    return <StartupConsultingServices />;
+  }
+
+  if (isEpicorErpConsulting) {
+    return <EpicorErpConsultingServices />;
+  }
+
+  if (isDevOpsConsulting) {
+    return <DevOpsConsultingServices />;
+  }
+
+  if (isGenerativeAiConsulting) {
+    return <GenerativeAiConsultingCompany />;
+  }
+
+  if (isMicroservicesConsulting) {
+    return <MicroservicesConsultingServices />;
+  }
+
+  if (isAiConsulting) {
+    return <AiConsultingServices />;
+  }
+
+  if (isUiUxDesign) {
+    return <UiUxDesignService />;
+  }
+
+  if (isDigitalMarketing) {
+    return <DigitalMarketingService />;
   }
 
   if (isPowerAutomate) {

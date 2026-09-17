@@ -11,8 +11,6 @@ import TrustRecognitionBanner from '../home/TrustRecognitionBanner';
 import SapphireTechStackGrid from '../common/SapphireTechStackGrid';
 import DigitalTransformationSlider from '../common/DigitalTransformationSlider';
 import TrustedBrandsGrid from '../common/TrustedBrandsGrid';
-import TransformativeImpactSection from './TransformativeImpactSection';
-import AboutUsStats from './AboutUsStats';
 import FeaturedInBrandsSection from './FeaturedInBrandsSection';
 import SuccessMatrix from '../common/SuccessMatrix';
 import InnovativeVideoSlider from '../common/InnovativeVideoSlider';
@@ -22,37 +20,32 @@ import WhatSetsUsApartSection from '../common/WhatSetsUsApartSection';
 import AppDevelopmentRecentBlogsSection from './AppDevelopmentRecentBlogsSection';
 import NewsletterSubscribeBanner from '../common/NewsletterSubscribeBanner';
 import {
-  ShieldCheck,
-  Zap,
+  Palette,
+  Layout,
+  Eye,
+  Smartphone,
+  Layers,
+  Sparkles,
   ArrowRight,
   CheckCircle2,
   Check,
   ChevronRight,
-  ArrowLeft,
-  Smartphone,
-  Layers,
-  Sparkles,
-  Code2,
-  Cloud,
-  Lock,
-  Cpu,
-  RefreshCw,
-  Compass,
-  Award,
   Users,
-  DollarSign,
+  Compass,
+  Zap,
   TrendingUp,
   BarChart3,
+  Award,
   Globe
 } from 'lucide-react';
 
-export const AppDevelopmentConsultingService = () => {
+export const UiUxDesignService = () => {
 
-  // 1. Expertise In Our App Development Consulting (6 cards matching Image 1)
-  const appExpertiseCards = [
+  // 1. Expertise In Our UI/UX Design Services (6 cards matching layout)
+  const uiUxExpertiseCards = [
     {
-      title: 'MVP',
-      desc: 'Consult with our industry professionals on the viability of your Mobile App Development Services in light of the most recent market and technological developments so that you may create a feature-rich minimum viable product version.',
+      title: 'User Research & Persona Mapping',
+      desc: 'Conduct qualitative stakeholder interviews, competitor benchmarks, user empathy mapping, and heuristic audits to uncover behavioral pain points and define actionable user personas.',
       bg: 'bg-[#F3E8FF]',
       icon: (
         <svg className="w-6 h-6 text-[#9333EA]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -66,8 +59,8 @@ export const AppDevelopmentConsultingService = () => {
       )
     },
     {
-      title: 'Competitor Analysis',
-      desc: 'To establish a product design and development strategy that is pertinent and realistic, we do a parameterized investigation of all of the essential traits shared by your primary rivals.',
+      title: 'Information Architecture & Wireframing',
+      desc: 'Structure intuitive navigation hierarchies, site maps, and low-fidelity wireframes that organize complex application data and establish clear user journey flows before visual design.',
       bg: 'bg-[#DCFCE7]',
       icon: (
         <svg className="w-6 h-6 text-[#16A34A]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -79,8 +72,8 @@ export const AppDevelopmentConsultingService = () => {
       )
     },
     {
-      title: 'Technology Stack',
-      desc: 'After we have gathered all of the criteria for the project, our app development specialists will assist you in selecting the technological stack that is both the most suitable and resourceful, ensuring the highest possible level of product effectiveness.',
+      title: 'UI Design & Interactive Prototyping',
+      desc: 'Craft pixel-perfect visual interfaces, elegant color palettes, modern typography scales, and clickable high-fidelity prototypes in Figma to simulate genuine product experiences.',
       bg: 'bg-[#FFEDD5]',
       icon: (
         <svg className="w-6 h-6 text-[#EA580C]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -91,8 +84,8 @@ export const AppDevelopmentConsultingService = () => {
       )
     },
     {
-      title: 'Ecosystem Integration',
-      desc: 'We assist companies in the incorporation of safe and reliable third-party APIs, legacy enterprise software, payment gateways, and device peripherals into their mobile architectures.',
+      title: 'Design Systems & Component Libraries',
+      desc: 'Develop comprehensive, scalable design systems with atomic component libraries, responsive grids, and design tokens that streamline cross-platform development and maintain consistency.',
       bg: 'bg-[#FEF9C3]',
       icon: (
         <svg className="w-6 h-6 text-[#CA8A04]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -101,8 +94,8 @@ export const AppDevelopmentConsultingService = () => {
       )
     },
     {
-      title: 'Post-Delivery Support',
-      desc: 'Your post-delivery project needs will be visualized by an innovative team of mobile maintenance professionals ensuring high availability, continuous OS upgrades, and security patching.',
+      title: 'Usability Testing & UX Audits',
+      desc: 'Perform moderated usability tests, heatmap analysis, task success tracking, and heuristic UX audits to eliminate cognitive friction and enhance conversion rates.',
       bg: 'bg-[#FCE7F3]',
       icon: (
         <svg className="w-6 h-6 text-[#DB2777]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -111,8 +104,8 @@ export const AppDevelopmentConsultingService = () => {
       )
     },
     {
-      title: 'Testing',
-      desc: 'Using a testing strategy that is more focused on experience, our app testing specialists execute comprehensive functional, regression, UI/UX, security, and automated performance testing.',
+      title: 'Accessibility & WCAG 2.1 Compliance',
+      desc: 'Ensure universal digital access through rigorous contrast validation, screen reader optimization, keyboard navigation support, and full ADA & WCAG 2.1 compliance.',
       bg: 'bg-[#E0F2FE]',
       icon: (
         <svg className="w-6 h-6 text-[#0284C7]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -123,11 +116,11 @@ export const AppDevelopmentConsultingService = () => {
     }
   ];
 
-  // 4. Benefits of App Development Consulting Services (6 cards matching Image 3)
-  const appBenefitsData = [
+  // 2. Benefits of UI/UX Design Services (6 cards matching layout)
+  const uiUxBenefitsData = [
     {
-      title: 'Strategy and Roadmap',
-      desc: 'We collaborate with you to create an app development strategy that meets your company goals. Our consultants utilize industry trends, customer demands, and competitor offers to design a roadmap for development from idea to launch and beyond.',
+      title: 'Higher Conversion Rates & ROI',
+      desc: 'Streamlined user flows, clear calls-to-action, and frictionless checkout/signup paths directly boost conversion rates and maximize digital revenue.',
       icon: (
         <svg className="w-8 h-8 text-[#0284C7]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M3 3v18h18" />
@@ -136,8 +129,8 @@ export const AppDevelopmentConsultingService = () => {
       )
     },
     {
-      title: 'Tech Choice and Architecture Design',
-      desc: 'Choosing the correct technology stack and architecture is critical for app success. Our App Development Consulting Services help you choose the best technologies and create a scalable and efficient architecture for your app’s needs and growth.',
+      title: 'Lower Engineering Costs & Fewer Redesigns',
+      desc: 'Validating interactive prototypes with real end-users prior to development eliminates costly code rework and accelerates engineering sprint velocities by up to 50%.',
       icon: (
         <svg className="w-8 h-8 text-[#0284C7]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <rect width="18" height="18" x="3" y="3" rx="2" />
@@ -147,8 +140,8 @@ export const AppDevelopmentConsultingService = () => {
       )
     },
     {
-      title: 'Designing User Experience and Interface',
-      desc: 'App success depends on UX and interface design. Our experts design intuitive, engaging, and usable interfaces that please users. We study users, produce wireframes and prototypes, and refine designs to make your app great.',
+      title: 'Strengthened Brand Loyalty & Trust',
+      desc: 'A modern, polished aesthetic combined with effortless usability fosters customer delight, elevating brand perception and establishing long-term customer loyalty.',
       icon: (
         <svg className="w-8 h-8 text-[#0284C7]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
@@ -159,8 +152,8 @@ export const AppDevelopmentConsultingService = () => {
       )
     },
     {
-      title: 'Agile Development Methodologies',
-      desc: 'Our Agile consulting methodologies foster rapid, iterative development sprints, transparent stakeholder feedback loops, and continuous delivery, minimizing risks and accelerating time-to-market.',
+      title: 'Intuitive & Frictionless User Journeys',
+      desc: 'Users navigate your digital product effortlessly with zero cognitive load, leading to reduced onboarding friction and minimal customer support tickets.',
       icon: (
         <svg className="w-8 h-8 text-[#0284C7]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" />
@@ -170,8 +163,8 @@ export const AppDevelopmentConsultingService = () => {
       )
     },
     {
-      title: 'Testing and QA',
-      desc: 'Our dedicated quality assurance engineers perform end-to-end automated and manual testing across real Android and iOS devices, identifying critical vulnerabilities, memory leaks, and performance bottlenecks before release.',
+      title: 'Seamless Cross-Platform Consistency',
+      desc: 'Deliver a harmonious visual language and responsive design across desktop browsers, smartphones, tablets, and smart wearables.',
       icon: (
         <svg className="w-8 h-8 text-[#0284C7]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <rect width="20" height="14" x="2" y="3" rx="2" />
@@ -182,8 +175,8 @@ export const AppDevelopmentConsultingService = () => {
       )
     },
     {
-      title: 'Optimization and Launch Strategy for App Store',
-      desc: 'We assist you with comprehensive App Store Optimization (ASO), metadata refinement, compliance guidelines auditing, and coordinated launch roadmaps to maximize organic visibility and downloads across Google Play and Apple App Store.',
+      title: 'Effortless Developer Handoff',
+      desc: 'Complete design specs, auto-layout tokens, CSS styling values, and organized asset exports empower front-end engineers to implement designs with 100% fidelity.',
       icon: (
         <svg className="w-8 h-8 text-[#0284C7]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="m4.5 16.5-1.5 1.5 3 3 1.5-1.5" />
@@ -195,45 +188,45 @@ export const AppDevelopmentConsultingService = () => {
     }
   ];
 
-  // 5. FAQ List tailored specifically for Mobile App Development Consulting
-  const appConsultingFaqList = [
+  // 3. FAQ List tailored specifically for UI/UX Design Services
+  const uiUxConsultingFaqList = [
     {
       id: 1,
-      question: 'Why should businesses hire a mobile app development consultant before building?',
-      answer: 'Mobile app consulting de-risks your investment by validating market feasibility, defining an optimal tech stack, architecting scalable backend systems, and establishing an accurate budget and roadmap before costly development begins.'
+      question: 'What is the key difference between UI and UX design?',
+      answer: 'UX (User Experience) design focuses on the overall feel, structure, user research, navigation architecture, and journey flows. UI (User Interface) design concentrates on the visual elements—typography, color palettes, micro-interactions, icons, and aesthetic appeal.'
     },
     {
       id: 2,
-      question: 'How do your consultants help choose between Native and Cross-Platform development?',
-      answer: 'We analyze your required device integrations, performance needs, launch timeline, and budget. If your app requires heavy hardware access or intensive 3D/AR graphics, we recommend Native (Swift/Kotlin). For faster time-to-market and shared codebases, we evaluate Flutter or React Native.'
+      question: 'Which design tools and platforms does your design team use?',
+      answer: 'We primarily design and collaborate in Figma for real-time prototyping, design systems, and developer inspection. We also utilize Adobe Creative Cloud, Sketch, InVision, Zeplin, Miro for journey mapping, and Principle/Framer for advanced micro-interactions.'
     },
     {
       id: 3,
-      question: 'How do app consultants ensure mobile application security and compliance?',
-      answer: 'We perform end-to-end security audits following OWASP Mobile Security standards, verify API authentication tokens, secure local data storage, and ensure full compliance with GDPR, HIPAA, and PCI-DSS requirements.'
+      question: 'How do you ensure designs are fully responsive across all screen sizes?',
+      answer: 'We employ fluid grid systems, mobile-first design methodologies, and adaptive layout breakpoints in Figma. Each screen is designed and tested for mobile, tablet, desktop, and ultra-wide viewports.'
     },
     {
       id: 4,
-      question: 'Can you assess and modernize our existing, underperforming mobile app?',
-      answer: 'Yes. We conduct complete code audits, latency and crash diagnostics, UI/UX usability assessments, and formulate step-by-step refactoring roadmaps to elevate app performance and user retention.'
+      question: 'Can you redesign and modernize an existing, outdated application?',
+      answer: 'Yes. We conduct a thorough UX heuristic audit to identify friction points and drop-off bottlenecks in your current product. We then construct an updated wireframe and modernized design system to elevate usability and conversion.'
     },
     {
       id: 5,
-      question: 'What deliverables will we receive from a mobile app consulting engagement?',
-      answer: 'Deliverables include a Product Requirement Document (PRD), Architecture Blueprint, Wireframes and Clickable Prototypes, Tech Stack Recommendations, Security & Compliance Audit, and a Phased Development Roadmap.'
+      question: 'What deliverables are included at the end of the design phase?',
+      answer: 'Deliverables include user persona documentation, user journey maps, wireframes, interactive Figma prototypes, a production-ready Design System (components, tokens, styles), and comprehensive developer handoff assets.'
     }
   ];
 
   return (
     <div className="bg-white min-h-screen text-slate-800 font-sans selection:bg-[#005F96] selection:text-white">
       <SEO
-        title="App Development Consulting Services | Mobile App Strategy | Firevy.co"
-        description="Accelerate your mobile product journey with Firevy's App Development Consulting Services. Native iOS, Android, Flutter, React Native, UI/UX audits, and scalable cloud architecture."
-        keywords="app development consulting, mobile app consulting, mobile app strategy, iOS consulting, Android consulting, Flutter consulting, React Native advisory, mobile product roadmap"
+        title="UI/UX Design Services | Top UI/UX Design Company in USA | Firevy.co"
+        description="Transform your digital products with Firevy's UI/UX Design Services. User research, wireframing, high-fidelity interactive prototyping, and enterprise design systems in Figma."
+        keywords="ui ux design services, ui ux design company, user experience design, user interface design, figma prototyping, design system, mobile app design, web design company"
       />
 
       {/* ========================================================================= */}
-      {/* 1. HERO SECTION (EXACT 1:1 REFERENCE IMAGE 1) */}
+      {/* 1. HERO SECTION (MATCHING APP CONSULTING BANNER & LAYOUT) */}
       {/* ========================================================================= */}
       <section className="relative overflow-hidden bg-[#F2F7FA] py-14 sm:py-16 lg:py-20 border-b border-slate-200/60">
         <Container>
@@ -241,15 +234,15 @@ export const AppDevelopmentConsultingService = () => {
             {/* Left Content */}
             <div className="lg:col-span-6 space-y-5 text-left">
               <h1
-                className="text-slate-900 tracking-tight font-extrabold text-3xl sm:text-4xl lg:text-[42px] leading-[1.2]"
+                className="text-slate-900 tracking-tight font-extrabold text-3xl sm:text-4xl lg:text-[41px] leading-[1.2]"
               >
-                App Development Consulting Services in USA
+                UI/UX Design Services in USA
               </h1>
 
               <p
                 className="text-slate-600 max-w-xl text-sm sm:text-base leading-relaxed font-normal"
               >
-                Our app development consulting is geared toward the business needs of startups, small and medium-sized businesses, and large, well-established Best app consultants for startups companies.
+                Our UI/UX design services are geared toward creating intuitive, engaging, and human-centric digital experiences. From user research and wireframing to high-fidelity interactive prototypes, we craft interfaces that captivate users and accelerate business growth.
               </p>
 
               {/* CTA Button */}
@@ -264,13 +257,13 @@ export const AppDevelopmentConsultingService = () => {
               </div>
             </div>
 
-            {/* Right Hero Meeting Vector Illustration (Exact 1:1 Image_1.svg from reference) */}
+            {/* Right Hero Meeting Vector Illustration */}
             <div className="lg:col-span-6 flex justify-center items-center">
               <div className="w-full max-w-[580px] flex justify-center">
                 <img
-                  src="/images/sapphire_mobile_app_development_company_in_usa/Image_1.svg"
-                  alt="App Development Consulting Services Team"
-                  className="w-full h-auto object-contain max-h-[360px]"
+                  src="/images/ui_ux_hero_illustration.jpg"
+                  alt="UI/UX Design Services - Wireframes and Prototypes"
+                  className="w-full h-auto object-contain max-h-[380px] rounded-2xl shadow-sm"
                 />
               </div>
             </div>
@@ -288,32 +281,31 @@ export const AppDevelopmentConsultingService = () => {
       </div>
 
       {/* ========================================================================= */}
-      {/* 2. LEADING MOBILE APP DEVELOPMENT CONSULTING COMPANY (EXACT 1:1 REFERENCE) */}
+      {/* 2. AFFORDABLE UI/UX DESIGN SERVICES */}
       {/* ========================================================================= */}
       <section className="py-16 lg:py-24 bg-white">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-            {/* Left Graphic: Mobile wireframe with developers */}
+            {/* Left Graphic */}
             <div className="lg:col-span-6 flex justify-center items-center">
               <div className="w-full max-w-[560px] flex justify-center">
                 <img
-                  src="/images/leading_mobile_app_consulting.jpg"
-                  alt="Leading Mobile App Development Consulting Team"
+                  src="/images/ui_ux_design_vector.svg"
+                  alt="Affordable UI/UX Design Services"
                   className="w-full h-auto object-contain"
                 />
               </div>
             </div>
 
-            {/* Right Copy matching reference Image 1 */}
+            {/* Right Copy */}
             <div className="lg:col-span-6 space-y-6 text-left">
               <h2 className="text-3xl sm:text-4xl lg:text-[40px] xl:text-[44px] font-extrabold text-slate-900 tracking-tight leading-[1.2]">
-                Leading Mobile App <br />
-                Development Consulting <br />
-                Company
+                Affordable UI/UX Design <br />
+                Services
               </h2>
 
               <p className="text-slate-600 text-[14.5px] sm:text-[15.5px] leading-[1.75] font-normal">
-                Our App strategy and consulting firm use their knowledge of the latest industry trends and technology to provide recommendations for app solutions that are likely to result in the most favorable outcomes for <strong className="text-[#005F96] font-semibold">best android app development company</strong> in the context of competitive growth. All industry practices are included in the finished items that we create. To provide Enterprise App Development Consulting Services with a primary emphasis on conversion and success, we go the additional mile while analyzing your target market, company competitors, user personas, and a great deal more should you choose to use our consulting services.
+                We consider user requirements and UI/UX Design Experts for Product Development at the center of our efforts focusing on designing usable, pleasant, effective, and pleasurable experiences. From user onboarding to feedback and review, our products consist of an integrated set of experiences working together seamlessly. We follow industry standards and design principals for UI/UX design.
               </p>
             </div>
           </div>
@@ -321,33 +313,33 @@ export const AppDevelopmentConsultingService = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* 3. BRIEF ABOUT BEST APP CONSULTANTS FOR STARTUPS (IMAGE 1) */}
+      {/* 3. BRIEF ABOUT BEST UI/UX DESIGNERS FOR ENTERPRISES */}
       {/* ========================================================================= */}
       <section className="py-16 lg:py-24 bg-white">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-            {/* Left Copy matching Image 1 */}
+            {/* Left Copy */}
             <div className="lg:col-span-6 space-y-6 text-left">
               <h2 className="text-3xl sm:text-4xl lg:text-[40px] xl:text-[44px] font-extrabold text-slate-900 tracking-tight leading-[1.2]">
-                Brief About Best App <br />
-                Consultants For Startups
+                Brief About Best UI/UX <br />
+                Designers For Enterprises
               </h2>
 
               <p className="text-slate-600 text-[14.5px] sm:text-[15.5px] leading-[1.75] font-normal">
-                Our mobile app development consultants use the appropriate technologies to analyze the audience in-depth, taking into account their routines, geographic location, preferences, age, employment, and other factors.
+                Our UI/UX designers analyze user behaviors in-depth, taking into account user demographics, psychological journey maps, usability pain points, and task completion pathways.
               </p>
 
               <p className="text-slate-600 text-[14.5px] sm:text-[15.5px] leading-[1.75] font-normal">
-                As an Affordable App Development and Consulting Agency, we plan a user-first interface and user experience (UI and UX) for your solution optimized for increased user engagement.
+                As an Affordable and Enterprise-Grade UI/UX Design Agency, we engineer intuitive wireframes, clickable prototypes, and micro-interactions optimized for maximum user satisfaction and engagement.
               </p>
             </div>
 
-            {/* Right Graphic: Woman looking at floating mobile wireframes */}
+            {/* Right Graphic */}
             <div className="lg:col-span-6 flex justify-center items-center">
               <div className="w-full max-w-[560px] flex justify-center">
                 <img
-                  src="/images/brief_app_consultants.jpg"
-                  alt="Brief About Best App Consultants For Startups"
+                  src="/images/ui_ux_design_vector.svg"
+                  alt="Brief About Best UI/UX Designers"
                   className="w-full h-auto object-contain"
                 />
               </div>
@@ -357,19 +349,19 @@ export const AppDevelopmentConsultingService = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* 4. CLUTCH TOP-RATED BANNER (IMAGE 2 TOP) */}
+      {/* 4. CLUTCH TOP-RATED BANNER */}
       {/* ========================================================================= */}
       <ClutchTopRatedBanner />
 
       {/* ========================================================================= */}
-      {/* 5. GET 100% CUSTOMIZABLE APP DEVELOPMENT CONSULTING EXPERTS (IMAGE 2) */}
+      {/* 5. GET 100% CUSTOMIZABLE UI/UX DESIGN EXPERTS */}
       {/* ========================================================================= */}
       <section className="py-16 lg:py-20 bg-white text-slate-900 font-sans text-left border-b border-slate-100">
         <Container>
           {/* Centered H2 Title */}
           <div className="text-center w-full max-w-5xl mx-auto mb-10 sm:mb-14">
             <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-[900] text-[#0F172A] tracking-tight leading-tight">
-              Get 100% Customizable App Development Consulting Experts
+              Get 100% Customizable UI/UX Design Experts
             </h2>
           </div>
 
@@ -396,18 +388,18 @@ export const AppDevelopmentConsultingService = () => {
 
               {/* Heading Inside Card */}
               <h3 className="text-[24px] sm:text-[27px] lg:text-[29px] font-[900] text-[#005F96] tracking-tight leading-[1.3] relative z-10">
-                Research, Suggest, And Implement Improvements
+                Research, Wireframe, Prototype, And Elevate User Experiences
               </h3>
             </div>
 
-            {/* Right Column: Paragraph Content (Exact 1:1 Match from screenshot) */}
+            {/* Right Column: Paragraph Content */}
             <div className="lg:col-span-8 space-y-4 text-left flex flex-col justify-center">
               <p className="text-[14px] sm:text-[15px] text-[#475569] leading-[1.8] font-normal">
-                Even if you have an excellent concept for an app, it alone will not guarantee that the app will be successful unless you also have a solid digital strategy and a roadmap. When assessing <strong className="text-[#005F96] font-semibold">ios iphone app development</strong> concepts and deciding on revenue models, you need the direction and assistance of an expert Best App Development Consulting Company to avoid potential traps. Our Mobile App Consulting Services assist customers in determining whether or not their proposal is viable, developing a plan, and outlining the likely compliances, in addition to selecting the appropriate technology stacks, processes, and trends to achieve the desired outcomes.
+                Even if you have powerful backend architecture, a poor user interface or confusing navigation will drive users away. When evaluating <strong className="text-[#005F96] font-semibold">product design systems</strong> and user retention models, you need the direction and artistic mastery of an expert UI/UX Design Company to avoid high abandonment rates. Our UI/UX Design Services assist clients in establishing user-first interaction paradigms, conducting qualitative usability testing, and selecting modern design systems.
               </p>
 
               <p className="text-[14px] sm:text-[15px] text-[#475569] leading-[1.8] font-normal">
-                Utilize the software development and consulting services we provide for the web, Android, or iOS to identify potential problems, discover solutions to those problems, and formulate a mobile strategy to ensure the success of your app. If you want the most benefits from your concept, you should hire app development consultant for business through our Mobile Application Development Consulting Services, regardless of whether you run a startup or an enterprise firm. Our Mobile App Development Consulting Company will assist you in determining your target audience, budget, and various strategies for developing your mobile app.
+                Utilize our design thinking workshops and rapid prototyping sprints to identify friction points, streamline conversion funnels, and formulate an omni-channel design strategy. Whether you run an agile startup or a global enterprise, hiring our senior UI/UX designers ensures your digital products deliver memorable, frictionless experiences.
               </p>
             </div>
           </div>
@@ -415,12 +407,12 @@ export const AppDevelopmentConsultingService = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* 6. OUR PREMIUM SERVICES (IMAGE 3) */}
+      {/* 6. OUR PREMIUM SERVICES */}
       {/* ========================================================================= */}
       <PremiumServicesGrid companyName="Sapphire" />
 
       {/* ========================================================================= */}
-      {/* 7. SUCCESS STORIES + 4 STAT BOXES (IMAGES 4 & 5) */}
+      {/* 7. SUCCESS STORIES + 4 STAT BOXES */}
       {/* ========================================================================= */}
       <section className="py-20 bg-[#DDF1FB] text-center font-sans border-t border-cyan-100">
         <Container>
@@ -435,7 +427,7 @@ export const AppDevelopmentConsultingService = () => {
 
           {/* 3 Case Study Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-            {/* Card 1: Healthcare Mobile App Development Company */}
+            {/* Card 1 */}
             <div className="text-center group">
               <div className="relative rounded-[20px] overflow-hidden bg-white shadow-sm border border-slate-200/80 p-2 group-hover:shadow-md transition-all">
                 <div className="absolute top-4 right-4 z-10 bg-[#005F96] text-white text-[11px] font-[700] px-3 py-1 rounded-md shadow-2xs">
@@ -443,40 +435,40 @@ export const AppDevelopmentConsultingService = () => {
                 </div>
                 <img
                   src="/images/adani.webp"
-                  alt="Healthcare Mobile App Development Company"
+                  alt="FinTech Dashboard & Mobile Banking UX"
                   className="w-full h-[220px] object-cover rounded-[14px]"
                 />
               </div>
               <h3 className="text-[16px] font-[800] text-slate-900 mt-4 font-sans text-left">
-                Healthcare Mobile App Development Company
+                FinTech Dashboard & Mobile Banking UX
               </h3>
             </div>
 
-            {/* Card 2: Federal Forecasting App */}
+            {/* Card 2 */}
             <div className="text-center group">
               <div className="rounded-[20px] overflow-hidden bg-white shadow-sm border border-slate-200/80 p-2 group-hover:shadow-md transition-all">
                 <img
                   src="/images/federal_forecasting_app.jpg"
-                  alt="Federal Forecasting App"
+                  alt="Healthcare Telehealth Patient Portal UI"
                   className="w-full h-[220px] object-cover rounded-[14px]"
                 />
               </div>
               <h3 className="text-[16px] font-[800] text-slate-900 mt-4 font-sans text-left">
-                Federal Forecasting App
+                Healthcare Telehealth Patient Portal UI
               </h3>
             </div>
 
-            {/* Card 3: Stress Management App */}
+            {/* Card 3 */}
             <div className="text-center group">
               <div className="rounded-[20px] overflow-hidden bg-white shadow-sm border border-slate-200/80 p-2 group-hover:shadow-md transition-all">
                 <img
                   src="/images/stress_management_app.jpg"
-                  alt="Stress Management App"
+                  alt="E-Commerce Multi-Brand Design System"
                   className="w-full h-[220px] object-cover rounded-[14px]"
                 />
               </div>
               <h3 className="text-[16px] font-[800] text-slate-900 mt-4 font-sans text-left">
-                Stress Management App
+                E-Commerce Multi-Brand Design System
               </h3>
             </div>
           </div>
@@ -491,9 +483,9 @@ export const AppDevelopmentConsultingService = () => {
             </Link>
           </div>
 
-          {/* 4 Colorful Highlight Boxes (Purple, Mint Green, Peach, Deep Blue CTA) */}
+          {/* 4 Colorful Highlight Boxes */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {/* Box 1: Purple (23+ Years Experience) */}
+            {/* Box 1: Purple */}
             <div className="bg-[#D8C7FF] rounded-[18px] p-6 text-center flex flex-col justify-center items-center shadow-xs">
               <div className="text-[36px] sm:text-[40px] font-[900] text-slate-900 tracking-tight leading-none mb-1 font-sans">
                 23+
@@ -503,7 +495,7 @@ export const AppDevelopmentConsultingService = () => {
               </div>
             </div>
 
-            {/* Box 2: Mint Green (250+ 5-Star Clutch Reviews) */}
+            {/* Box 2: Mint Green */}
             <div className="bg-[#A3E8D2] rounded-[18px] p-6 text-center flex flex-col justify-center items-center shadow-xs">
               <div className="text-[36px] sm:text-[40px] font-[900] text-slate-900 tracking-tight leading-none mb-1 font-sans">
                 250+
@@ -513,7 +505,7 @@ export const AppDevelopmentConsultingService = () => {
               </div>
             </div>
 
-            {/* Box 3: Peach/Coral (2800+ Satisfied Clients) */}
+            {/* Box 3: Peach/Coral */}
             <div className="bg-[#FFBCB0] rounded-[18px] p-6 text-center flex flex-col justify-center items-center shadow-xs">
               <div className="text-[36px] sm:text-[40px] font-[900] text-slate-900 tracking-tight leading-none mb-1 font-sans">
                 2800+
@@ -523,7 +515,7 @@ export const AppDevelopmentConsultingService = () => {
               </div>
             </div>
 
-            {/* Box 4: Deep Blue (Want to start Projects -> Get Estimation) */}
+            {/* Box 4: Deep Blue */}
             <div className="bg-[#005E82] rounded-[18px] p-6 text-center flex flex-col justify-center items-center shadow-md">
               <div className="text-[18px] sm:text-[19px] font-[800] text-white tracking-tight leading-tight mb-3 font-sans">
                 Want to start Projects
@@ -540,23 +532,23 @@ export const AppDevelopmentConsultingService = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* 8. EXPERTISE IN OUR APP DEVELOPMENT CONSULTING (IMAGE 1) */}
+      {/* 8. EXPERTISE IN OUR UI/UX DESIGN SERVICES */}
       {/* ========================================================================= */}
       <section className="py-16 lg:py-20 bg-[#F4F9FD] text-slate-900 font-sans text-left relative overflow-hidden border-b border-slate-100">
         <Container>
           {/* Section Heading & Subtitle */}
           <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-12 space-y-2 px-4">
             <h2 className="text-2xl sm:text-3xl md:text-[34px] lg:text-[38px] font-[800] text-[#0B0F19] tracking-tight leading-tight">
-              Expertise In Our App Development Consulting
+              Expertise In Our UI/UX Design Services
             </h2>
             <p className="text-xs sm:text-sm md:text-[15px] text-[#475569] font-normal max-w-2xl mx-auto">
-              As a Leading Mobile App Consulting Company, we have years of experience in this field. Our expertise include:
+              As a Leading UI/UX Design Company, we have years of experience creating digital experiences. Our expertise include:
             </p>
           </div>
 
           {/* 6 White Cards in 3x2 Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-[1240px] mx-auto mb-10">
-            {appExpertiseCards.map((card, idx) => (
+            {uiUxExpertiseCards.map((card, idx) => (
               <div
                 key={idx}
                 className="bg-white rounded-[16px] p-7 text-slate-900 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col justify-between text-left border border-slate-100"
@@ -576,7 +568,7 @@ export const AppDevelopmentConsultingService = () => {
             ))}
           </div>
 
-          {/* Centered Button (Get A Free Quote For Your Project) */}
+          {/* Centered Button */}
           <div className="text-center">
             <a
               href="#consultation-form"
@@ -589,28 +581,28 @@ export const AppDevelopmentConsultingService = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* 13. PROUD TO HAVE PICKED THESE UP ALONG THE WAY (IMAGE 2) */}
+      {/* 9. PROUD TO HAVE PICKED THESE UP ALONG THE WAY */}
       {/* ========================================================================= */}
       <TrustRecognitionBanner />
 
       {/* ========================================================================= */}
-      {/* 14. BENEFITS OF APP DEVELOPMENT CONSULTING SERVICES (IMAGE 3) */}
+      {/* 10. BENEFITS OF UI/UX DESIGN SERVICES */}
       {/* ========================================================================= */}
       <section className="py-16 lg:py-20 bg-[#F4F9FD] text-slate-900 font-sans text-left relative overflow-hidden border-b border-slate-100">
         <Container>
           {/* Section Heading & Subtitle */}
           <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-12 space-y-2 px-4">
             <h2 className="text-2xl sm:text-3xl md:text-[34px] lg:text-[38px] font-[800] text-[#0B0F19] tracking-tight leading-tight">
-              Benefits of App Development Consulting Services
+              Benefits of UI/UX Design Services
             </h2>
             <p className="text-xs sm:text-sm md:text-[15px] text-[#475569] font-normal max-w-3xl mx-auto">
-              Our App Development Consulting Services help companies develop their app concepts and succeed in the digital age. Benefits of app development consulting:
+              Our UI/UX Design Services help companies create engaging digital products and succeed in the modern user-centric market. Benefits include:
             </p>
           </div>
 
           {/* 6 White Cards in 3x2 Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-[1240px] mx-auto">
-            {appBenefitsData.map((card, idx) => (
+            {uiUxBenefitsData.map((card, idx) => (
               <div
                 key={idx}
                 className="bg-white rounded-[16px] p-7 text-slate-900 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col justify-start text-left border border-slate-100"
@@ -631,76 +623,74 @@ export const AppDevelopmentConsultingService = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* 15. BUSINESS FRIENDLY HIRING MODELS (IMAGE 4) */}
+      {/* 11. BUSINESS FRIENDLY HIRING MODELS */}
       {/* ========================================================================= */}
       <AndroidHiringModels />
 
       {/* ========================================================================= */}
-      {/* 16. UNVEILING OUR INNOVATIVE SOLUTION (IMAGE 5) */}
+      {/* 12. UNVEILING OUR INNOVATIVE SOLUTION */}
       {/* ========================================================================= */}
       <InnovativeVideoSlider />
 
       {/* ========================================================================= */}
-      {/* 17. PROCESS WE FOLLOW (SCREENSHOT 1) */}
+      {/* 13. PROCESS WE FOLLOW */}
       {/* ========================================================================= */}
       <ProcessWeFollow />
 
       {/* ========================================================================= */}
-      {/* 18. OUR STORY, THEIR WORDS (SCREENSHOT 2) */}
+      {/* 14. OUR STORY, THEIR WORDS */}
       {/* ========================================================================= */}
       <VideoTestimonialsStory />
 
       {/* ========================================================================= */}
-      {/* 19. TRUSTED BY THE WORLD'S LEADING BRANDS (SCREENSHOT 3) */}
+      {/* 15. TRUSTED BY THE WORLD'S LEADING BRANDS */}
       {/* ========================================================================= */}
       <TrustedBrandsGrid />
 
       {/* ========================================================================= */}
-      {/* 20. SUCCESS MATRIX (SCREENSHOT 4) */}
+      {/* 16. SUCCESS MATRIX */}
       {/* ========================================================================= */}
       <SuccessMatrix />
 
       {/* ========================================================================= */}
-      {/* 21. TECHNOLOGY STACK (SCREENSHOT 5) */}
+      {/* 17. TECHNOLOGY STACK */}
       {/* ========================================================================= */}
-      <SapphireTechStackGrid domainName="App development consulting" />
+      <SapphireTechStackGrid domainName="UI/UX design" />
 
       {/* ========================================================================= */}
-      {/* 22. WE HAVE BEEN FEATURED IN (SCREENSHOT 1) */}
+      {/* 18. WE HAVE BEEN FEATURED IN */}
       {/* ========================================================================= */}
       <FeaturedInBrandsSection />
 
       {/* ========================================================================= */}
-      {/* 23. DIGITAL TRANSFORMATION THROUGH INNOVATION (SCREENSHOT 2) */}
+      {/* 19. DIGITAL TRANSFORMATION THROUGH INNOVATION */}
       {/* ========================================================================= */}
       <DigitalTransformationSlider />
 
       {/* ========================================================================= */}
-      {/* 24. FREQUENTLY ASKED QUESTIONS (SCREENSHOT 3) */}
+      {/* 20. FREQUENTLY ASKED QUESTIONS */}
       {/* ========================================================================= */}
       <SapphireFaqSection
-        faqList={appConsultingFaqList}
+        faqList={uiUxConsultingFaqList}
         title="Frequently Asked Questions"
-        subtitle="We listen to query and provide solutions that captivate users. Feel free to contact us in case of any query which is not mention below."
+        subtitle="We listen to queries and provide designs that captivate users. Feel free to contact us in case of any query not mentioned below."
       />
 
       {/* ========================================================================= */}
-      {/* 25. OUR RECENT BLOGS (SCREENSHOT 4) */}
+      {/* 21. OUR RECENT BLOGS */}
       {/* ========================================================================= */}
       <AppDevelopmentRecentBlogsSection />
 
       {/* ========================================================================= */}
-      {/* 26. WHAT SETS US APART AS APP DEVELOPMENT CONSULTING? (SCREENSHOT 5) */}
+      {/* 22. WHAT SETS US APART AS UI/UX DESIGN COMPANY */}
       {/* ========================================================================= */}
       <WhatSetsUsApartSection
-        title="What Sets Us Apart As App Development Consulting?"
-        subtitle="Being unique is our quality! Sapphire Solutions believe in the things that give us an edge over our competitors. We are renowned software and mobile application development organization serving customers with end-to-end support. Our Idealization, feasibility assessment of the entire software development process stands us one level up the competitors."
+        title="What Sets Us Apart As UI/UX Design Company?"
+        subtitle="Being unique is our quality! Sapphire Solutions believe in the things that give us an edge over our competitors. We are renowned design and software development organization serving customers with end-to-end support. Our Idealization, feasibility assessment of the entire design process stands us one level up the competitors."
       />
 
-
-
       {/* ========================================================================= */}
-      {/* 27. GET ACCESS TO TOP APP DEVELOPMENT CONSULTING (CTA BANNER) */}
+      {/* 23. GET ACCESS TO TOP UI/UX DESIGNERS (CTA BANNER) */}
       {/* ========================================================================= */}
       <section className="relative w-full max-w-full py-9 sm:py-11 bg-[#005D95] text-white text-center font-sans overflow-hidden border-b border-slate-200">
         {/* Background Floating Geometric Circle & Square Overlay Graphics */}
@@ -713,7 +703,7 @@ export const AppDevelopmentConsultingService = () => {
 
         <div className="relative z-10 w-full max-w-5xl px-4 mx-auto text-center space-y-4">
           <p className="text-base sm:text-lg lg:text-[20px] font-[600] text-white leading-relaxed">
-            Get access to top App development consulting to transform your ideas into a robust application.
+            Get access to top UI/UX designers to transform your digital products into intuitive user experiences.
           </p>
           <div>
             <a
@@ -727,11 +717,11 @@ export const AppDevelopmentConsultingService = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* 28. SUBSCRIBE US AND GET THE LATEST UPDATES AND NEWS */}
+      {/* 24. SUBSCRIBE US AND GET THE LATEST UPDATES AND NEWS */}
       {/* ========================================================================= */}
       <NewsletterSubscribeBanner />
     </div>
   );
 };
 
-export default AppDevelopmentConsultingService;
+export default UiUxDesignService;

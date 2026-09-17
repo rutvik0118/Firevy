@@ -30,7 +30,9 @@ import {
   FolderKanban,
   TrendingUp,
   Newspaper,
-  Compass
+  Compass,
+  Rocket,
+  Palette
 } from 'lucide-react';
 
 /**
@@ -1269,6 +1271,43 @@ export const PAGE_HIERARCHY_REGISTRY = {
         ]
       },
       {
+        key: 'ui-ux-design',
+        title: 'UI/UX Design',
+        category: 'Other Services',
+        description: 'Comprehensive UI/UX design, user research, wireframing, high-fidelity Figma prototyping, and design systems.',
+        icon: Palette,
+        slug: 'ui-ux-design',
+        publicRoute: '/services/ui-ux-design',
+        sections: [
+          { key: 'hero', title: 'Hero Banner', category: 'Hero', description: 'UI/UX design headline, design excellence badge, and discovery call CTA.', type: 'hero' },
+          { key: 'overview', title: 'Design Advisory Overview', category: 'Overview', description: 'User-centric product design, interactive prototypes, and collaborative illustrations.', type: 'cards' },
+          { key: 'expertiseCards', title: 'UI/UX Practice Domains', category: 'Cards Grid', description: 'User research, wireframing, UI prototyping, design systems, usability testing, accessibility.', type: 'cards' },
+          { key: 'benefits', title: 'Enterprise Business Benefits', category: 'Cards Grid', description: 'Higher conversion rates, lower dev costs, brand loyalty, frictionless journeys, cross-platform consistency.', type: 'cards' },
+          { key: 'techStack', title: 'Design Ecosystem & Tooling', category: 'Tech Grid', description: 'Figma, Adobe XD, Sketch, Miro, InVision, Zeplin, Framer, Principle.', type: 'cards' },
+          { key: 'faqs', title: 'Frequently Asked Questions', category: 'Accordion', description: 'Interactive FAQ accordion covering UI vs UX, design tools, responsiveness, and deliverables.', type: 'faq' },
+          { key: 'ctaForm', title: 'Design Consultation Booking Form', category: 'Form', description: 'Interactive 30-min product design strategy session booking form.', type: 'form' }
+        ]
+      },
+      {
+        key: 'digital-marketing',
+        title: 'Digital Marketing',
+        category: 'Other Services',
+        description: 'Comprehensive digital marketing, performance marketing, SEO, PPC, social media management, and conversion rate optimization.',
+        icon: TrendingUp,
+        slug: 'digital-marketing',
+        publicRoute: '/services/digital-marketing',
+        sections: [
+          { key: 'hero', title: 'Hero Banner', category: 'Hero', description: 'Digital Marketing headline, AI-powered strategy description, and consultation CTA.', type: 'hero' },
+          { key: 'ecommerceMarketing', title: '360-Degree Ecommerce Marketing', category: 'Overview', description: 'PPC, keyword research, competitive analysis, and sponsored listings.', type: 'cards' },
+          { key: 'customSolutions', title: 'Custom Digital Marketing Solutions', category: 'Overview', description: 'Organic reach, consumer interaction, and social media marketing.', type: 'cards' },
+          { key: 'benefits', title: 'Key Benefits of Digital Marketing', category: 'Cards Grid', description: 'Online visibility, brand recognition, cost effectiveness, targeted traffic, marketing ROI.', type: 'cards' },
+          { key: 'hiringModels', title: 'Agile Engagement Models', category: 'Cards Grid', description: 'Fixed Price, Time & Material, Dedicated Team, Buckets Approach.', type: 'cards' },
+          { key: 'techStack', title: 'Technology & Marketing Tooling Stack', category: 'Tech Grid', description: 'Google Analytics, SEMrush, Ahrefs, Meta Ads, HubSpot, GA4.', type: 'cards' },
+          { key: 'faqs', title: 'Frequently Asked Questions', category: 'Accordion', description: 'Interactive FAQ accordion covering digital marketing ROI, services, and strategies.', type: 'faq' },
+          { key: 'ctaForm', title: 'Marketing Consultation Booking Form', category: 'Form', description: 'Interactive performance marketing consultation booking form.', type: 'form' }
+        ]
+      },
+      {
         key: 'it-consulting-services',
         title: 'IT Consulting Services',
         category: 'Tech Consulting Services',
@@ -1309,6 +1348,114 @@ export const PAGE_HIERARCHY_REGISTRY = {
           { key: 'techStack', title: 'Mobile Ecosystem & Tools', category: 'Tech Grid', description: 'iOS, Android, Cross-platform, Cloud, DevOps, and QA tools.', type: 'cards' },
           { key: 'faqs', title: 'Frequently Asked Questions', category: 'Accordion', description: 'Interactive FAQ accordion covering native vs cross-platform, security, and PRD.', type: 'faq' },
           { key: 'ctaForm', title: 'Consultation Booking Form', category: 'Form', description: 'Interactive 30-min strategy session booking form.', type: 'form' }
+        ]
+      },
+      {
+        key: 'startup-consulting-services',
+        title: 'Startup Consulting Services',
+        category: 'Tech Consulting Services',
+        description: 'Strategic startup tech advisory, rapid MVP scoping, cloud architecture, fractional CTO, and investor due diligence.',
+        icon: Rocket,
+        slug: 'startup-consulting-services',
+        publicRoute: '/services/startup-consulting-services',
+        sections: [
+          { key: 'hero', title: 'Hero Banner', category: 'Hero', description: 'Startup Consulting headline, stats counter, and discovery call CTA.', type: 'hero' },
+          { key: 'overview', title: 'Startup Consulting Overview', category: 'Overview', description: 'Lean startup strategy, product-market fit, and rapid validation sprints.', type: 'cards' },
+          { key: 'expertiseCards', title: 'Startup Practice Domains', category: 'Cards Grid', description: 'Idea validation, competitor analysis, scalable tech stack, fractional CTO, runway management.', type: 'cards' },
+          { key: 'benefits', title: 'Startup Business Benefits', category: 'Cards Grid', description: 'De-risked capital, 8-12 week MVP, investor-ready diligence, human-centered UI/UX.', type: 'cards' },
+          { key: 'techStack', title: 'Startup Cloud & Tech Ecosystem', category: 'Tech Grid', description: 'Modern scalable frameworks, cloud infrastructure, and DevOps pipelines.', type: 'cards' },
+          { key: 'faqs', title: 'Frequently Asked Questions', category: 'Accordion', description: 'Interactive FAQ accordion covering MVP timeline, fractional CTO, and IP ownership.', type: 'faq' },
+          { key: 'ctaForm', title: 'Discovery Session Booking Form', category: 'Form', description: 'Interactive 30-min strategy session booking form.', type: 'form' }
+        ]
+      },
+      {
+        key: 'epicor-erp-consulting-services',
+        title: 'Epicor ERP Consulting Services',
+        category: 'Tech Consulting Services',
+        description: 'Strategic Epicor Kinetic and Prophet 21 implementation, custom BPM workflows, REST API integration, and cloud migrations.',
+        icon: Database,
+        slug: 'epicor-erp-consulting-services',
+        publicRoute: '/services/epicor-erp-consulting-services',
+        sections: [
+          { key: 'hero', title: 'Hero Banner', category: 'Hero', description: 'Epicor ERP headline, operational stats, and discovery call CTA.', type: 'hero' },
+          { key: 'overview', title: 'Epicor Advisory Overview', category: 'Overview', description: 'Manufacturing & distribution ERP strategy and kinetic modernization.', type: 'cards' },
+          { key: 'expertiseCards', title: 'Epicor Practice Domains', category: 'Cards Grid', description: 'Kinetic upgrades, Prophet 21, BPM customization, REST APIs, MES telemetry.', type: 'cards' },
+          { key: 'benefits', title: 'Enterprise Business Benefits', category: 'Cards Grid', description: 'Lower TCO, automated shop floor workflows, clean data migration, ISO compliance.', type: 'cards' },
+          { key: 'techStack', title: 'Epicor Ecosystem & Integrations', category: 'Tech Grid', description: 'Kinetic, P21, EDA/EDD, REST v2, C#, SQL Server, Azure cloud.', type: 'cards' },
+          { key: 'faqs', title: 'Frequently Asked Questions', category: 'Accordion', description: 'Interactive FAQ accordion covering Kinetic vs P21, version upgrades, and ongoing SLAs.', type: 'faq' },
+          { key: 'ctaForm', title: 'ERP Consultation Booking Form', category: 'Form', description: 'Interactive 30-min ERP architecture session booking form.', type: 'form' }
+        ]
+      },
+      {
+        key: 'devops-consulting-service',
+        title: 'DevOps Consulting Service',
+        category: 'Tech Consulting Services',
+        description: 'Enterprise DevOps consulting, CI/CD pipeline automation, Kubernetes container orchestration, Infrastructure as Code, and 24/7 SRE monitoring.',
+        icon: Cloud,
+        slug: 'devops-consulting-service',
+        publicRoute: '/services/devops-consulting-service',
+        sections: [
+          { key: 'hero', title: 'Hero Banner', category: 'Hero', description: 'DevOps headline, reliability stats, and project discussion CTA.', type: 'hero' },
+          { key: 'overview', title: 'DevOps & Cloud Advisory Overview', category: 'Overview', description: 'Enterprise CI/CD automation, cloud infrastructure, and collaborative illustrations.', type: 'cards' },
+          { key: 'expertiseCards', title: 'DevOps Practice Domains', category: 'Cards Grid', description: 'Kubernetes orchestration, Terraform IaC, multi-cloud strategy, DevSecOps compliance.', type: 'cards' },
+          { key: 'benefits', title: 'Enterprise Business Benefits', category: 'Cards Grid', description: 'Faster time-to-market, zero-downtime releases, cloud cost optimization, SRE observability.', type: 'cards' },
+          { key: 'techStack', title: 'DevOps Ecosystem & Tools', category: 'Tech Grid', description: 'Kubernetes, Docker, Terraform, AWS, Azure, GCP, Prometheus, Grafana.', type: 'cards' },
+          { key: 'faqs', title: 'Frequently Asked Questions', category: 'Accordion', description: 'Interactive FAQ accordion covering zero-downtime deployments, cloud migration, and SLAs.', type: 'faq' },
+          { key: 'ctaForm', title: 'DevOps Consultation Booking Form', category: 'Form', description: 'Interactive 30-min cloud & DevOps strategy session booking form.', type: 'form' }
+        ]
+      },
+      {
+        key: 'generative-ai-consulting-company',
+        title: 'Generative AI Consulting Company',
+        category: 'Tech Consulting Services',
+        description: 'Enterprise Generative AI consulting, LLM fine-tuning, RAG architecture, autonomous AI agents, and secure AI governance.',
+        icon: Sparkles,
+        slug: 'generative-ai-consulting-company',
+        publicRoute: '/services/generative-ai-consulting-company',
+        sections: [
+          { key: 'hero', title: 'Hero Banner', category: 'Hero', description: 'Generative AI headline, model deployment stats, and discovery call CTA.', type: 'hero' },
+          { key: 'overview', title: 'Generative AI Advisory Overview', category: 'Overview', description: 'Enterprise LLM strategy, multimodal models, and collaborative illustrations.', type: 'cards' },
+          { key: 'expertiseCards', title: 'Generative AI Practice Domains', category: 'Cards Grid', description: 'Custom model fine-tuning, RAG, multi-agent swarms, AI security & red-teaming.', type: 'cards' },
+          { key: 'benefits', title: 'Enterprise Business Benefits', category: 'Cards Grid', description: '10x velocity, zero-hallucination accuracy, data sovereignty, compute optimization.', type: 'cards' },
+          { key: 'techStack', title: 'AI Ecosystem & Foundation Models', category: 'Tech Grid', description: 'OpenAI, Claude, Gemini, Llama 3, LangChain, Pinecone, vLLM.', type: 'cards' },
+          { key: 'faqs', title: 'Frequently Asked Questions', category: 'Accordion', description: 'Interactive FAQ accordion covering data privacy, RAG vs fine-tuning, and model safety.', type: 'faq' },
+          { key: 'ctaForm', title: 'AI Consultation Booking Form', category: 'Form', description: 'Interactive 30-min AI transformation strategy session booking form.', type: 'form' }
+        ]
+      },
+      {
+        key: 'microservices-consulting-services',
+        title: 'Microservices Consulting Services',
+        category: 'Tech Consulting Services',
+        description: 'Enterprise Microservices consulting, monolith-to-microservices migration, Kubernetes orchestration, Docker, Domain-Driven Design, and API Gateways.',
+        icon: Server,
+        slug: 'microservices-consulting-services',
+        publicRoute: '/services/microservices-consulting-services',
+        sections: [
+          { key: 'hero', title: 'Hero Banner', category: 'Hero', description: 'Microservices headline, elasticity stats, and project discussion CTA.', type: 'hero' },
+          { key: 'overview', title: 'Microservices Advisory Overview', category: 'Overview', description: 'Monolith decomposition, container orchestration, and collaborative illustrations.', type: 'cards' },
+          { key: 'expertiseCards', title: 'Microservices Practice Domains', category: 'Cards Grid', description: 'Monolith decomposition, DDD, API gateway, event-driven messaging, Kubernetes, observability.', type: 'cards' },
+          { key: 'benefits', title: 'Enterprise Business Benefits', category: 'Cards Grid', description: 'Independent scalability, fault isolation, CI/CD velocity, polyglot flexibility, zero-trust security.', type: 'cards' },
+          { key: 'techStack', title: 'Microservices Ecosystem & Cloud Tools', category: 'Tech Grid', description: 'Kubernetes, Docker, Kafka, Istio, Kong, RabbitMQ, OpenTelemetry, AWS, GCP.', type: 'cards' },
+          { key: 'faqs', title: 'Frequently Asked Questions', category: 'Accordion', description: 'Interactive FAQ accordion covering monolith decomposition, data consistency, and service mesh.', type: 'faq' },
+          { key: 'ctaForm', title: 'Microservices Consultation Booking Form', category: 'Form', description: 'Interactive 30-min distributed systems strategy session booking form.', type: 'form' }
+        ]
+      },
+      {
+        key: 'ai-consulting-services',
+        title: 'AI Consulting Services',
+        category: 'Tech Consulting Services',
+        description: 'Strategic AI advisory, machine learning model engineering, predictive analytics, computer vision, NLP, and enterprise MLOps.',
+        icon: Cpu,
+        slug: 'ai-consulting-services',
+        publicRoute: '/services/ai-consulting-services',
+        sections: [
+          { key: 'hero', title: 'Hero Banner', category: 'Hero', description: 'AI consulting headline, operational stats, and project discussion CTA.', type: 'hero' },
+          { key: 'overview', title: 'AI Advisory Overview', category: 'Overview', description: 'Cognitive systems, machine learning strategy, and collaborative illustrations.', type: 'cards' },
+          { key: 'expertiseCards', title: 'AI Practice Domains', category: 'Cards Grid', description: 'Machine learning, predictive forecasting, computer vision, NLP, AI strategy, MLOps.', type: 'cards' },
+          { key: 'benefits', title: 'Enterprise Business Benefits', category: 'Cards Grid', description: 'Data-driven forecasting, automation, hyper-personalization, scalable MLOps, security & governance.', type: 'cards' },
+          { key: 'techStack', title: 'AI Ecosystem & ML Frameworks', category: 'Tech Grid', description: 'PyTorch, TensorFlow, Scikit-Learn, OpenCV, Hugging Face, SageMaker, Vertex AI.', type: 'cards' },
+          { key: 'faqs', title: 'Frequently Asked Questions', category: 'Accordion', description: 'Interactive FAQ accordion covering feasibility, legacy integration, data privacy, and PoC timelines.', type: 'faq' },
+          { key: 'ctaForm', title: 'AI Consultation Booking Form', category: 'Form', description: 'Interactive 30-min AI strategy session booking form.', type: 'form' }
         ]
       }
     ]

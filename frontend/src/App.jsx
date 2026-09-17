@@ -140,6 +140,38 @@ export function App() {
                 <Route path="/it-consulting-services" element={<ServiceDetails />} />
                 <Route path="/services/app-development-consulting" element={<ServiceDetails />} />
                 <Route path="/app-development-consulting" element={<ServiceDetails />} />
+                <Route path="/services/startup-consulting-services" element={<ServiceDetails />} />
+                <Route path="/startup-consulting-services" element={<ServiceDetails />} />
+                <Route path="/services/epicor-erp-consulting-services" element={<ServiceDetails />} />
+                <Route path="/epicor-erp-consulting-services" element={<ServiceDetails />} />
+                <Route path="/services/devops-consulting-service" element={<ServiceDetails />} />
+                <Route path="/devops-consulting-service" element={<ServiceDetails />} />
+                <Route path="/services/devops-consulting-services" element={<ServiceDetails />} />
+                <Route path="/devops-consulting-services" element={<ServiceDetails />} />
+                <Route path="/services/devops-consulting" element={<ServiceDetails />} />
+                <Route path="/devops-consulting" element={<ServiceDetails />} />
+                <Route path="/services/generative-ai-consulting-company" element={<ServiceDetails />} />
+                <Route path="/generative-ai-consulting-company" element={<ServiceDetails />} />
+                <Route path="/services/generative-ai-consulting" element={<ServiceDetails />} />
+                <Route path="/generative-ai-consulting" element={<ServiceDetails />} />
+                <Route path="/services/generative-ai-consulting-services" element={<ServiceDetails />} />
+                <Route path="/generative-ai-consulting-services" element={<ServiceDetails />} />
+                <Route path="/services/microservices-consulting-services" element={<ServiceDetails />} />
+                <Route path="/microservices-consulting-services" element={<ServiceDetails />} />
+                <Route path="/services/microservices-consulting" element={<ServiceDetails />} />
+                <Route path="/microservices-consulting" element={<ServiceDetails />} />
+                <Route path="/services/ai-consulting-services" element={<ServiceDetails />} />
+                <Route path="/ai-consulting-services" element={<ServiceDetails />} />
+                <Route path="/services/ai-consulting" element={<ServiceDetails />} />
+                <Route path="/ai-consulting" element={<ServiceDetails />} />
+                <Route path="/services/ui-ux-design" element={<ServiceDetails />} />
+                <Route path="/ui-ux-design" element={<ServiceDetails />} />
+                <Route path="/services/ui-ux-design-services" element={<ServiceDetails />} />
+                <Route path="/ui-ux-design-services" element={<ServiceDetails />} />
+                <Route path="/services/digital-marketing" element={<ServiceDetails />} />
+                <Route path="/digital-marketing" element={<ServiceDetails />} />
+                <Route path="/services/digital-marketing-services" element={<ServiceDetails />} />
+                <Route path="/digital-marketing-services" element={<ServiceDetails />} />
                 <Route path="/services/tech-consulting-services" element={<ServiceDetails />} />
                 <Route path="/services/hire-bootstrap-developers" element={<ServiceDetails />} />
                 <Route path="/services/hire-bootstrap-developer" element={<ServiceDetails />} />
