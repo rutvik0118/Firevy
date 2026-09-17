@@ -7,6 +7,7 @@ import MobileAppMarketStatsSection from './MobileAppMarketStatsSection';
 import DeliveringImpactfulMobileServices from './DeliveringImpactfulMobileServices';
 import MobileAppAwardsMarqueeBanner from './MobileAppAwardsMarqueeBanner';
 import CreatingExcellentMobileAppsSection from './CreatingExcellentMobileAppsSection';
+import MobileAppCuttingEdgeTechnologiesSection from './MobileAppCuttingEdgeTechnologiesSection';
 import PremiumServicesGrid from '../common/PremiumServicesGrid';
 import AndroidHiringModels from './AndroidHiringModels';
 import ProcessWeFollow from '../common/ProcessWeFollow';
@@ -181,7 +182,12 @@ export const MobileAppPortingService = () => {
       <CreatingExcellentMobileAppsSection />
 
       {/* ========================================================================= */}
-      {/* 7. DEDICATED MOBILE APP PORTING CAPABILITIES                              */}
+      {/* 7. CUTTING EDGE TECHNOLOGIES FIREVY USE (Image 2)                         */}
+      {/* ========================================================================= */}
+      <MobileAppCuttingEdgeTechnologiesSection companyName="Firevy.co" />
+
+      {/* ========================================================================= */}
+      {/* 8. DEDICATED MOBILE APP PORTING CAPABILITIES                              */}
       {/* ========================================================================= */}
       <section className="py-16 sm:py-20 bg-[#F8FAFC] border-t border-slate-100 text-left">
         <Container className="max-w-6xl">
