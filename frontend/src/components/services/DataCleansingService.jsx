@@ -6,6 +6,7 @@ import BrandLogoMarquee from '../common/BrandLogoMarquee';
 import ClutchTopRatedBanner from '../common/ClutchTopRatedBanner';
 import PremiumServicesGrid from '../common/PremiumServicesGrid';
 import DataCleansingCuttingEdgeTechSection from './DataCleansingCuttingEdgeTechSection';
+import ProudAwardsBanner from './ProudAwardsBanner';
 import AndroidHiringModels from './AndroidHiringModels';
 import ProcessWeFollow from '../common/ProcessWeFollow';
 import TrustedBrandsGrid from '../common/TrustedBrandsGrid';
@@ -409,7 +410,12 @@ export const DataCleansingService = () => {
       />
 
       {/* ========================================================================= */}
-      {/* 10. 6 SPECIALIZED DATA CLEANSING CAPABILITIES                             */}
+      {/* 10. PROUD AWARDS BANNER (PROUD TO HAVE PICKED THESE UP ALONG THE WAY)     */}
+      {/* ========================================================================= */}
+      <ProudAwardsBanner />
+
+      {/* ========================================================================= */}
+      {/* 11. 6 SPECIALIZED DATA CLEANSING CAPABILITIES                             */}
       {/* ========================================================================= */}
       <section className="py-16 sm:py-20 bg-[#F8FAFC] border-t border-slate-100 text-left">
         <Container className="max-w-6xl">
