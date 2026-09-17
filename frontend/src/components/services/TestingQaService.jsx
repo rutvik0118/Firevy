@@ -369,14 +369,14 @@ export const TestingQaService = () => {
 
 
       {/* ========================================================================= */}
-      {/* 4. FUNCTIONAL TESTING SECTION (IMAGE 2) */}
+      {/* 4. FUNCTIONAL TESTING SECTION */}
       {/* ========================================================================= */}
-      <section className="py-16 lg:py-24 bg-[#F8FAFC] border-t border-slate-100">
+      <section className="py-8 sm:py-10 lg:py-12 bg-white">
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             {/* Left Diagram */}
             <div className="lg:col-span-6 flex justify-center items-center">
-              <div className="w-full max-w-[460px] relative aspect-square flex items-center justify-center select-none p-4">
+              <div className="w-full max-w-[380px] sm:max-w-[420px] relative aspect-square flex items-center justify-center select-none p-2 sm:p-4">
                 <svg className="absolute inset-0 w-full h-full" viewBox="0 0 400 400">
                   <circle cx="200" cy="200" r="140" fill="none" stroke="#E2E8F0" strokeWidth="2" strokeDasharray="4 4" />
                   <line x1="200" y1="200" x2="80" y2="100" stroke="#0084D1" strokeWidth="1.5" strokeOpacity="0.4" />
@@ -387,40 +387,40 @@ export const TestingQaService = () => {
                   <line x1="200" y1="200" x2="320" y2="300" stroke="#0084D1" strokeWidth="1.5" strokeOpacity="0.4" />
                 </svg>
 
-                <div className="relative z-10 w-36 h-36 rounded-full bg-white border-2 border-slate-300 shadow-xl flex flex-col items-center justify-center p-3 text-center">
-                  <h3 className="text-base sm:text-[17px] font-extrabold text-slate-900 leading-tight">
+                <div className="relative z-10 w-32 sm:w-36 h-32 sm:h-36 rounded-full bg-white border-2 border-slate-300 shadow-xl flex flex-col items-center justify-center p-3 text-center">
+                  <h3 className="text-sm sm:text-base font-extrabold text-slate-900 leading-tight">
                     Functional <br /> Testing
                   </h3>
                 </div>
 
-                <div className="absolute top-[8%] left-[6%] z-20 w-22 h-22 rounded-full bg-[#0084D1] text-white p-2 text-center flex items-center justify-center shadow-md">
-                  <span className="text-[10.5px] font-bold leading-tight">Testing on Main functions</span>
+                <div className="absolute top-[8%] left-[6%] z-20 w-20 sm:w-22 h-20 sm:h-22 rounded-full bg-[#0084D1] text-white p-2 text-center flex items-center justify-center shadow-md">
+                  <span className="text-[10px] sm:text-[10.5px] font-bold leading-tight">Testing on Main functions</span>
                 </div>
-                <div className="absolute top-[8%] right-[6%] z-20 w-22 h-22 rounded-full bg-[#0084D1] text-white p-2 text-center flex items-center justify-center shadow-md">
-                  <span className="text-[10.5px] font-bold leading-tight">Execute The Test cases</span>
+                <div className="absolute top-[8%] right-[6%] z-20 w-20 sm:w-22 h-20 sm:h-22 rounded-full bg-[#0084D1] text-white p-2 text-center flex items-center justify-center shadow-md">
+                  <span className="text-[10px] sm:text-[10.5px] font-bold leading-tight">Execute The Test cases</span>
                 </div>
-                <div className="absolute top-[40%] left-[-2%] z-20 w-22 h-22 rounded-full bg-[#0084D1] text-white p-2 text-center flex items-center justify-center shadow-md">
-                  <span className="text-[10.5px] font-bold leading-tight">Identify The Functions</span>
+                <div className="absolute top-[40%] left-[-2%] z-20 w-20 sm:w-22 h-20 sm:h-22 rounded-full bg-[#0084D1] text-white p-2 text-center flex items-center justify-center shadow-md">
+                  <span className="text-[10px] sm:text-[10.5px] font-bold leading-tight">Identify The Functions</span>
                 </div>
-                <div className="absolute top-[40%] right-[-2%] z-20 w-22 h-22 rounded-full bg-[#0084D1] text-white p-2 text-center flex items-center justify-center shadow-md">
-                  <span className="text-[10.5px] font-bold leading-tight">Check the Error Conditions</span>
+                <div className="absolute top-[40%] right-[-2%] z-20 w-20 sm:w-22 h-20 sm:h-22 rounded-full bg-[#0084D1] text-white p-2 text-center flex items-center justify-center shadow-md">
+                  <span className="text-[10px] sm:text-[10.5px] font-bold leading-tight">Check the Error Conditions</span>
                 </div>
-                <div className="absolute bottom-[8%] left-[6%] z-20 w-22 h-22 rounded-full bg-[#0084D1] text-white p-2 text-center flex items-center justify-center shadow-md">
-                  <span className="text-[10px] font-bold leading-tight">Checks the accessibility of the system</span>
+                <div className="absolute bottom-[8%] left-[6%] z-20 w-20 sm:w-22 h-20 sm:h-22 rounded-full bg-[#0084D1] text-white p-2 text-center flex items-center justify-center shadow-md">
+                  <span className="text-[9.5px] sm:text-[10px] font-bold leading-tight">Checks the accessibility of the system</span>
                 </div>
-                <div className="absolute bottom-[8%] right-[6%] z-20 w-22 h-22 rounded-full bg-[#0084D1] text-white p-2 text-center flex items-center justify-center shadow-md">
-                  <span className="text-[10px] font-bold leading-tight">Compare output with Expected Results</span>
+                <div className="absolute bottom-[8%] right-[6%] z-20 w-20 sm:w-22 h-20 sm:h-22 rounded-full bg-[#0084D1] text-white p-2 text-center flex items-center justify-center shadow-md">
+                  <span className="text-[9.5px] sm:text-[10px] font-bold leading-tight">Compare output with Expected Results</span>
                 </div>
               </div>
             </div>
 
             {/* Right Copy */}
-            <div className="lg:col-span-6 space-y-6 text-left">
-              <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-slate-900 tracking-tight leading-[1.2]">
+            <div className="lg:col-span-6 space-y-3 sm:space-y-4 text-left">
+              <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-extrabold text-slate-900 tracking-tight leading-snug">
                 Functional Testing
               </h2>
 
-              <p className="text-slate-600 text-[15px] sm:text-[16px] leading-[1.8] font-normal">
+              <p className="text-slate-600 text-[14.5px] sm:text-[15.5px] leading-relaxed font-normal">
                 Our experienced QA professionals implement functional testing to majorly focus on user interface, database, security, API's, client or server application and similar functionalities of the application. Validating the software system to conform each functional requirement of the application meets the expected output.
               </p>
             </div>
@@ -429,27 +429,27 @@ export const TestingQaService = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* 5. PERFORMANCE TESTING SECTION (IMAGE 2 BOTTOM) */}
+      {/* 5. PERFORMANCE TESTING SECTION */}
       {/* ========================================================================= */}
-      <section className="py-16 lg:py-24 bg-white border-t border-slate-100">
+      <section className="py-8 sm:py-10 lg:py-12 bg-white">
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             {/* Left Copy */}
-            <div className="lg:col-span-6 space-y-6 text-left">
-              <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-slate-900 tracking-tight leading-[1.2]">
+            <div className="lg:col-span-6 space-y-3 sm:space-y-4 text-left">
+              <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-extrabold text-slate-900 tracking-tight leading-snug">
                 Performance Testing
               </h2>
 
-              <p className="text-slate-600 text-[15px] sm:text-[16px] leading-[1.8] font-normal">
+              <p className="text-slate-600 text-[14.5px] sm:text-[15.5px] leading-relaxed font-normal">
                 Finding out the bottlenecks in terms of usage loads impacting the quality and functioning of the product. Performance testing services are carried to determine how the components of a system perform under a certain condition. Resource usage, responsivity, scalability, and reliability of the product are validated under this testing. We ensure a reliable, scalable, robust and predictable application behaviour using tools like JMeter, RPT, and HP LR.
               </p>
 
-              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 shadow-sm space-y-1">
-                <div className="flex items-center space-x-2 text-[#005F96] font-bold text-sm">
-                  <Gauge className="w-4 h-4" />
+              <div className="p-3.5 sm:p-4 rounded-xl bg-slate-50 border border-slate-200/80 shadow-xs space-y-1">
+                <div className="flex items-center space-x-2 text-[#005F96] font-bold text-xs sm:text-sm">
+                  <Gauge className="w-4 h-4 shrink-0" />
                   <span>{performanceTypes[activePerfTab].name} Focus</span>
                 </div>
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed">
                   {performanceTypes[activePerfTab].desc}
                 </p>
               </div>
@@ -457,9 +457,9 @@ export const TestingQaService = () => {
 
             {/* Right Graphic: Speedometer + Ascending Bars */}
             <div className="lg:col-span-6 flex flex-col items-center justify-center">
-              <div className="w-full max-w-[520px] bg-[#F8FAFC] rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-lg space-y-6">
-                <div className="relative flex justify-center items-center py-2">
-                  <svg className="w-48 sm:w-56 h-auto" viewBox="0 0 200 110">
+              <div className="w-full max-w-[480px] bg-[#F8FAFC] rounded-2xl p-5 sm:p-6 border border-slate-200/80 shadow-md space-y-4">
+                <div className="relative flex justify-center items-center py-1">
+                  <svg className="w-40 sm:w-48 h-auto" viewBox="0 0 200 110">
                     <path d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="#E2E8F0" strokeWidth="16" strokeLinecap="round" />
                     <path d="M 20 100 A 80 80 0 0 1 140 32" fill="none" stroke="url(#perfGaugeGrad2)" strokeWidth="16" strokeLinecap="round" />
                     <defs>
@@ -473,7 +473,7 @@ export const TestingQaService = () => {
                   </svg>
                 </div>
 
-                <div className="grid grid-cols-6 gap-2 sm:gap-3 items-end h-36 pt-4 px-2 border-b border-slate-300">
+                <div className="grid grid-cols-6 gap-2 sm:gap-3 items-end h-28 sm:h-32 pt-2 px-2 border-b border-slate-300">
                   {performanceTypes.map((item, idx) => (
                     <div
                       key={idx}
@@ -495,7 +495,7 @@ export const TestingQaService = () => {
                     <button
                       key={idx}
                       onClick={() => setActivePerfTab(idx)}
-                      className={`text-[9.5px] font-bold leading-tight ${activePerfTab === idx ? 'text-[#005F96]' : 'text-slate-600'}`}
+                      className={`text-[9px] sm:text-[9.5px] font-bold leading-tight ${activePerfTab === idx ? 'text-[#005F96]' : 'text-slate-600'}`}
                     >
                       {item.name}
                     </button>
@@ -508,83 +508,83 @@ export const TestingQaService = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* 6. SECURITY TESTING SECTION (IMAGE 3) */}
+      {/* 6. SECURITY TESTING SECTION */}
       {/* ========================================================================= */}
-      <section className="py-16 lg:py-24 bg-white border-t border-slate-100">
+      <section className="py-8 sm:py-10 lg:py-12 bg-white">
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             {/* Left Diagram */}
             <div className="lg:col-span-6 flex justify-center items-center">
-              <div className="w-full max-w-[480px] relative aspect-square flex items-center justify-center p-4">
+              <div className="w-full max-w-[380px] sm:max-w-[420px] relative aspect-square flex items-center justify-center p-2 sm:p-4 select-none">
                 <svg className="absolute inset-0 w-full h-full" viewBox="0 0 400 400">
                   <circle cx="200" cy="200" r="145" fill="none" stroke="#E2E8F0" strokeWidth="2" strokeDasharray="6 6" />
                 </svg>
 
-                <div className="relative z-10 w-32 h-36 flex flex-col items-center justify-center text-center">
-                  <div className="w-20 h-24 rounded-b-2xl bg-gradient-to-b from-[#78350F] via-[#92400E] to-[#451A03] flex items-center justify-center shadow-lg border-2 border-amber-300/60 text-white">
-                    <Lock className="w-9 h-9 text-amber-300 drop-shadow" />
+                <div className="relative z-10 w-28 sm:w-32 h-32 sm:h-36 flex flex-col items-center justify-center text-center">
+                  <div className="w-16 sm:w-20 h-20 sm:h-24 rounded-b-2xl bg-gradient-to-b from-[#78350F] via-[#92400E] to-[#451A03] flex items-center justify-center shadow-lg border-2 border-amber-300/60 text-white">
+                    <Lock className="w-8 sm:w-9 h-8 sm:h-9 text-amber-300 drop-shadow" />
                   </div>
                   <span className="text-xs font-extrabold text-slate-800 mt-2">Security Testing</span>
                 </div>
 
                 <div className="absolute top-[3%] left-[50%] -translate-x-1/2 z-20 flex flex-col items-center">
-                  <span className="text-[11px] font-bold text-slate-800 mb-1">Define Scope</span>
-                  <div className="w-12 h-12 rounded-full bg-[#0084D1] text-white flex items-center justify-center shadow-md">
-                    <Search className="w-5 h-5" />
+                  <span className="text-[10px] sm:text-[11px] font-bold text-slate-800 mb-1">Define Scope</span>
+                  <div className="w-10 sm:w-11 h-10 sm:h-11 rounded-full bg-[#0084D1] text-white flex items-center justify-center shadow-md">
+                    <Search className="w-4 sm:w-5 h-4 sm:h-5" />
                   </div>
                 </div>
 
                 <div className="absolute top-[20%] right-[3%] z-20 flex flex-col items-center">
-                  <div className="w-12 h-12 rounded-full bg-[#0084D1] text-white flex items-center justify-center shadow-md">
-                    <Server className="w-5 h-5" />
+                  <div className="w-10 sm:w-11 h-10 sm:h-11 rounded-full bg-[#0084D1] text-white flex items-center justify-center shadow-md">
+                    <Server className="w-4 sm:w-5 h-4 sm:h-5" />
                   </div>
-                  <span className="text-[10.5px] font-bold text-slate-800 mt-1">Information Gathering</span>
+                  <span className="text-[9.5px] sm:text-[10.5px] font-bold text-slate-800 mt-1">Information Gathering</span>
                 </div>
 
                 <div className="absolute bottom-[22%] right-[5%] z-20 flex flex-col items-center">
-                  <div className="w-12 h-12 rounded-full bg-[#0084D1] text-white flex items-center justify-center shadow-md">
-                    <FileText className="w-5 h-5" />
+                  <div className="w-10 sm:w-11 h-10 sm:h-11 rounded-full bg-[#0084D1] text-white flex items-center justify-center shadow-md">
+                    <FileText className="w-4 sm:w-5 h-4 sm:h-5" />
                   </div>
-                  <span className="text-[10.5px] font-bold text-slate-800 mt-1">Planning & Analysis</span>
+                  <span className="text-[9.5px] sm:text-[10.5px] font-bold text-slate-800 mt-1">Planning & Analysis</span>
                 </div>
 
                 <div className="absolute bottom-[2%] right-[28%] z-20 flex flex-col items-center">
-                  <div className="w-12 h-12 rounded-full bg-[#0084D1] text-white flex items-center justify-center shadow-md">
-                    <Search className="w-5 h-5" />
+                  <div className="w-10 sm:w-11 h-10 sm:h-11 rounded-full bg-[#0084D1] text-white flex items-center justify-center shadow-md">
+                    <Search className="w-4 sm:w-5 h-4 sm:h-5" />
                   </div>
-                  <span className="text-[10.5px] font-bold text-slate-800 mt-1">Vulnerability Detection</span>
+                  <span className="text-[9.5px] sm:text-[10.5px] font-bold text-slate-800 mt-1">Vulnerability Detection</span>
                 </div>
 
                 <div className="absolute bottom-[20%] left-[6%] z-20 flex flex-col items-center">
-                  <div className="w-12 h-12 rounded-full bg-[#0084D1] text-white flex items-center justify-center shadow-md">
-                    <Zap className="w-5 h-5" />
+                  <div className="w-10 sm:w-11 h-10 sm:h-11 rounded-full bg-[#0084D1] text-white flex items-center justify-center shadow-md">
+                    <Zap className="w-4 sm:w-5 h-4 sm:h-5" />
                   </div>
-                  <span className="text-[10.5px] font-bold text-slate-800 mt-1">Penetration Testing</span>
+                  <span className="text-[9.5px] sm:text-[10.5px] font-bold text-slate-800 mt-1">Penetration Testing</span>
                 </div>
 
                 <div className="absolute top-[36%] left-[0%] z-20 flex flex-col items-center">
-                  <span className="text-[10.5px] font-bold text-slate-800 mb-1">Report & Analysis</span>
-                  <div className="w-12 h-12 rounded-full bg-[#0084D1] text-white flex items-center justify-center shadow-md">
-                    <BarChart3 className="w-5 h-5" />
+                  <span className="text-[9.5px] sm:text-[10.5px] font-bold text-slate-800 mb-1">Report & Analysis</span>
+                  <div className="w-10 sm:w-11 h-10 sm:h-11 rounded-full bg-[#0084D1] text-white flex items-center justify-center shadow-md">
+                    <BarChart3 className="w-4 sm:w-5 h-4 sm:h-5" />
                   </div>
                 </div>
 
                 <div className="absolute top-[16%] left-[8%] z-20 flex flex-col items-center">
-                  <span className="text-[10.5px] font-bold text-slate-800 mb-1">Remediation Testing</span>
-                  <div className="w-12 h-12 rounded-full bg-[#0084D1] text-white flex items-center justify-center shadow-md">
-                    <CheckCircle2 className="w-5 h-5" />
+                  <span className="text-[9.5px] sm:text-[10.5px] font-bold text-slate-800 mb-1">Remediation Testing</span>
+                  <div className="w-10 sm:w-11 h-10 sm:h-11 rounded-full bg-[#0084D1] text-white flex items-center justify-center shadow-md">
+                    <CheckCircle2 className="w-4 sm:w-5 h-4 sm:h-5" />
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Right Copy */}
-            <div className="lg:col-span-6 space-y-6 text-left">
-              <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-slate-900 tracking-tight leading-[1.2]">
+            <div className="lg:col-span-6 space-y-3 sm:space-y-4 text-left">
+              <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-extrabold text-slate-900 tracking-tight leading-snug">
                 Security Testing
               </h2>
 
-              <p className="text-slate-600 text-[15px] sm:text-[16px] leading-[1.8] font-normal">
+              <p className="text-slate-600 text-[14.5px] sm:text-[15.5px] leading-relaxed font-normal">
                 Security testing has become one of the most essential prerequisites for an organization. For effective security testing Firevy has implemented the latest industry standards and testing methodologies which uses the tools like AppScan, HP Fortify and so on. Our talented pool of test engineers performs risk assessment and penetration testing to shield application from hackers or malicious threats by detecting all possible security risks in the system.
               </p>
             </div>
@@ -593,33 +593,36 @@ export const TestingQaService = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* 7. USABILITY TESTING SECTION (IMAGE 3 BOTTOM) */}
+      {/* 7. USABILITY TESTING SECTION */}
       {/* ========================================================================= */}
-      <section className="py-16 lg:py-24 bg-[#F8FAFC]">
+      <section className="py-8 sm:py-10 lg:py-12 bg-white">
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-            <div className="lg:col-span-5 space-y-6 text-left">
-              <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-slate-900 tracking-tight leading-[1.2]">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            <div className="lg:col-span-5 space-y-3 sm:space-y-4 text-left">
+              <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-extrabold text-slate-900 tracking-tight leading-snug">
                 Usability Testing
               </h2>
 
-              <p className="text-slate-600 text-[15px] sm:text-[16px] leading-[1.8] font-normal">
+              <p className="text-slate-600 text-[14.5px] sm:text-[15.5px] leading-relaxed font-normal">
                 Poor usability can affect your customer loyalty, putting a direct impact on your sales and brand reputation. Firevy team of Usability experts will help you with in-depth analysis of user behavior patterns, identifies potential usability issues with the user-experience of your application and come up with a Usability test strategy based on the type of users, demographics, key business scenarios, etc.
               </p>
             </div>
 
             <div className="lg:col-span-7">
-              <div className="grid grid-cols-2 sm:grid-cols-5 gap-3 sm:gap-2 items-center text-center">
+              <div className="grid grid-cols-2 sm:grid-cols-5 gap-2.5 sm:gap-2 items-center text-center">
                 {usabilitySteps.map((step, idx) => (
-                  <div key={idx} className="bg-white rounded-xl p-4 border border-slate-200 shadow-sm flex flex-col items-center justify-between min-h-[145px]">
-                    <div className="w-12 h-12 rounded-lg bg-slate-50 border border-slate-100 flex items-center justify-center mb-2">
+                  <div key={idx} className="bg-white rounded-xl p-3 sm:p-3.5 border border-slate-200/90 shadow-xs flex flex-col items-center justify-between min-h-[125px] sm:min-h-[135px]">
+                    <div className="w-10 sm:w-11 h-10 sm:h-11 rounded-lg bg-slate-50 border border-slate-100 flex items-center justify-center mb-1.5">
                       {step.icon}
                     </div>
-                    <span className="text-[12px] font-extrabold text-slate-800 leading-tight">
+                    <span className="text-[11px] sm:text-[11.5px] font-bold text-slate-800 leading-snug">
                       {step.title}
                     </span>
                   </div>
                 ))}
+              </div>
+              <div className="text-center font-bold text-slate-700 text-xs sm:text-sm mt-3 tracking-wide">
+                Usability Testing
               </div>
             </div>
           </div>
@@ -627,14 +630,14 @@ export const TestingQaService = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* 8. COMPATIBILITY TESTING SECTION (IMAGE 4) */}
+      {/* 8. COMPATIBILITY TESTING SECTION */}
       {/* ========================================================================= */}
-      <section className="py-16 lg:py-24 bg-white border-t border-slate-100">
+      <section className="py-8 sm:py-10 lg:py-12 bg-white">
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             {/* Left Diagram */}
             <div className="lg:col-span-6 flex justify-center items-center">
-              <div className="w-full max-w-[460px] relative aspect-square flex items-center justify-center p-4">
+              <div className="w-full max-w-[380px] sm:max-w-[420px] relative aspect-square flex items-center justify-center p-2 sm:p-4 select-none">
                 <svg className="absolute inset-0 w-full h-full" viewBox="0 0 400 400">
                   <circle cx="200" cy="200" r="145" fill="none" stroke="#94A3B8" strokeWidth="1.8" />
                   <line x1="200" y1="200" x2="200" y2="55" stroke="#94A3B8" strokeWidth="1.2" />
@@ -647,75 +650,75 @@ export const TestingQaService = () => {
                   <line x1="200" y1="200" x2="85" y2="95" stroke="#94A3B8" strokeWidth="1.2" />
                 </svg>
 
-                <div className="relative z-10 w-44 h-38 bg-white rounded-xl border border-slate-200 shadow-xl p-3 flex flex-col items-center justify-center text-center">
+                <div className="relative z-10 w-36 sm:w-40 h-32 sm:h-36 bg-white rounded-xl border border-slate-200 shadow-xl p-2.5 sm:p-3 flex flex-col items-center justify-center text-center">
                   <div className="flex items-end justify-center space-x-1.5 mb-1.5">
-                    <Monitor className="w-10 h-10 text-slate-700" />
-                    <Tablet className="w-7 h-7 text-slate-600" />
-                    <Smartphone className="w-5 h-5 text-slate-500" />
+                    <Monitor className="w-8 sm:w-9 h-8 sm:h-9 text-slate-700" />
+                    <Tablet className="w-6 sm:w-7 h-6 sm:h-7 text-slate-600" />
+                    <Smartphone className="w-4 sm:w-5 h-4 sm:h-5 text-slate-500" />
                   </div>
-                  <span className="text-xs sm:text-[13px] font-extrabold text-slate-900 leading-tight">
+                  <span className="text-[11.5px] sm:text-xs font-extrabold text-slate-900 leading-tight">
                     Compatibility Testing
                   </span>
                 </div>
 
                 <div className="absolute top-[8%] left-[10%] z-20 flex items-center space-x-1.5">
-                  <span className="text-xs font-bold text-slate-700">Browser</span>
-                  <div className="w-12 h-12 rounded-full bg-[#0084D1] text-white flex items-center justify-center shadow-md">
-                    <Globe className="w-6 h-6" />
+                  <span className="text-[11px] sm:text-xs font-bold text-slate-700">Browser</span>
+                  <div className="w-10 sm:w-11 h-10 sm:h-11 rounded-full bg-[#0084D1] text-white flex items-center justify-center shadow-md">
+                    <Globe className="w-5 sm:w-6 h-5 sm:h-6" />
                   </div>
                 </div>
 
                 <div className="absolute top-[8%] right-[10%] z-20 flex items-center space-x-1.5">
-                  <div className="w-12 h-12 rounded-full bg-[#0084D1] text-white flex items-center justify-center shadow-md">
-                    <Smartphone className="w-6 h-6" />
+                  <div className="w-10 sm:w-11 h-10 sm:h-11 rounded-full bg-[#0084D1] text-white flex items-center justify-center shadow-md">
+                    <Smartphone className="w-5 sm:w-6 h-5 sm:h-6" />
                   </div>
-                  <span className="text-xs font-bold text-slate-700">Devices</span>
+                  <span className="text-[11px] sm:text-xs font-bold text-slate-700">Devices</span>
                 </div>
 
                 <div className="absolute top-[42%] right-[0%] z-20 flex items-center space-x-1.5">
-                  <div className="w-12 h-12 rounded-full bg-[#0084D1] text-white flex items-center justify-center shadow-md">
-                    <Monitor className="w-6 h-6" />
+                  <div className="w-10 sm:w-11 h-10 sm:h-11 rounded-full bg-[#0084D1] text-white flex items-center justify-center shadow-md">
+                    <Monitor className="w-5 sm:w-6 h-5 sm:h-6" />
                   </div>
-                  <span className="text-xs font-bold text-slate-700 max-w-[60px]">Operating System</span>
+                  <span className="text-[11px] sm:text-xs font-bold text-slate-700 max-w-[55px] leading-tight">Operating System</span>
                 </div>
 
                 <div className="absolute bottom-[18%] right-[5%] z-20 flex items-center space-x-1.5">
-                  <div className="w-12 h-12 rounded-full bg-[#0084D1] text-white flex items-center justify-center shadow-md">
-                    <Radio className="w-6 h-6" />
+                  <div className="w-10 sm:w-11 h-10 sm:h-11 rounded-full bg-[#0084D1] text-white flex items-center justify-center shadow-md">
+                    <Radio className="w-5 sm:w-6 h-5 sm:h-6" />
                   </div>
-                  <span className="text-xs font-bold text-slate-700">Network</span>
+                  <span className="text-[11px] sm:text-xs font-bold text-slate-700">Network</span>
                 </div>
 
                 <div className="absolute bottom-[0%] left-[50%] -translate-x-1/2 z-20 flex flex-col items-center">
-                  <div className="w-12 h-12 rounded-full bg-[#0084D1] text-white flex items-center justify-center shadow-md mb-1">
-                    <Smartphone className="w-6 h-6" />
+                  <div className="w-10 sm:w-11 h-10 sm:h-11 rounded-full bg-[#0084D1] text-white flex items-center justify-center shadow-md mb-1">
+                    <Smartphone className="w-5 sm:w-6 h-5 sm:h-6" />
                   </div>
-                  <span className="text-xs font-bold text-slate-700">Mobile</span>
+                  <span className="text-[11px] sm:text-xs font-bold text-slate-700">Mobile</span>
                 </div>
 
                 <div className="absolute bottom-[18%] left-[5%] z-20 flex items-center space-x-1.5">
-                  <span className="text-xs font-bold text-slate-700">Versions</span>
-                  <div className="w-12 h-12 rounded-full bg-[#0084D1] text-white flex items-center justify-center shadow-md">
-                    <Layers className="w-6 h-6" />
+                  <span className="text-[11px] sm:text-xs font-bold text-slate-700">Versions</span>
+                  <div className="w-10 sm:w-11 h-10 sm:h-11 rounded-full bg-[#0084D1] text-white flex items-center justify-center shadow-md">
+                    <Layers className="w-5 sm:w-6 h-5 sm:h-6" />
                   </div>
                 </div>
 
                 <div className="absolute top-[42%] left-[0%] z-20 flex items-center space-x-1.5">
-                  <span className="text-xs font-bold text-slate-700">Software</span>
-                  <div className="w-12 h-12 rounded-full bg-[#0084D1] text-white flex items-center justify-center shadow-md">
-                    <Server className="w-6 h-6" />
+                  <span className="text-[11px] sm:text-xs font-bold text-slate-700">Software</span>
+                  <div className="w-10 sm:w-11 h-10 sm:h-11 rounded-full bg-[#0084D1] text-white flex items-center justify-center shadow-md">
+                    <Server className="w-5 sm:w-6 h-5 sm:h-6" />
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Right Copy */}
-            <div className="lg:col-span-6 space-y-6 text-left">
-              <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-slate-900 tracking-tight leading-[1.2]">
+            <div className="lg:col-span-6 space-y-3 sm:space-y-4 text-left">
+              <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-extrabold text-slate-900 tracking-tight leading-snug">
                 Compatibility Testing
               </h2>
 
-              <p className="text-slate-600 text-[15px] sm:text-[16px] leading-[1.8] font-normal">
+              <p className="text-slate-600 text-[14.5px] sm:text-[15.5px] leading-relaxed font-normal">
                 Firevy provides complete Compatibility Testing services across a variety of hardware, operating system, servers, browsers, databases, different versions, configurations, display resolutions, etc. We have compatibility lab covering the latest operating systems, platforms, peripherals and hardware to ensure that your software or application can work on wide range of technical specifications without flaws.
               </p>
             </div>
