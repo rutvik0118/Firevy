@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import SEO from '../common/SEO';
 import Container from '../common/Container';
 import BrandLogoMarquee from '../common/BrandLogoMarquee';
-import TrustRecognitionBanner from '../home/TrustRecognitionBanner';
+import ClutchTopRatedBanner from '../common/ClutchTopRatedBanner';
 import PremiumServicesGrid from '../common/PremiumServicesGrid';
 import AndroidHiringModels from './AndroidHiringModels';
 import ProcessWeFollow from '../common/ProcessWeFollow';
@@ -164,18 +164,14 @@ export const DataCleansingService = () => {
       <section className="pt-8 pb-12 sm:pt-12 sm:pb-16 bg-white overflow-hidden text-left border-b border-slate-100">
         <Container className="max-w-7xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            
+
             {/* Left Column: Heading + Tagline + Metrics + CTA */}
             <div className="lg:col-span-7 space-y-6">
-              <span className="text-xs font-bold text-[#005F96] uppercase tracking-wider block font-sans">
-                Professional Data Quality Solutions
-              </span>
-
               <h1
                 className="font-[800] text-[#0B0F19] tracking-tight leading-[1.14] font-sans"
-                style={{ fontSize: 'clamp(30px, 4vw, 46px)' }}
+                style={{ fontSize: 'clamp(30px, 4vw, 40px)' }}
               >
-                Best Data Cleansing Services &<br />Database Cleansing Company
+                #1 Data Cleansing Services Worldwide
               </h1>
 
               <p className="text-[14px] sm:text-[15.5px] text-[#475569] font-normal leading-[1.7] max-w-2xl font-sans">
@@ -318,19 +314,24 @@ export const DataCleansingService = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* 5. AWARDS & TRUST RECOGNITION BANNER                                      */}
+      {/* 5. AWARDS & TRUST RECOGNITION CLUTCH BANNER                               */}
       {/* ========================================================================= */}
-      <TrustRecognitionBanner />
+      <ClutchTopRatedBanner title="World Wide Top Rated IT Company on Clutch" />
 
       {/* ========================================================================= */}
       {/* 6. 100% CUSTOMIZABLE DATA CLEANING SERVICES (Quote Card + Narrative)      */}
       {/* ========================================================================= */}
       <section className="py-14 sm:py-20 bg-white text-slate-900 font-sans text-left overflow-hidden">
         <Container className="max-w-6xl">
+          {/* Centered Main Section Heading Matching Reference Screenshot */}
+          <h2 className="text-center text-[26px] sm:text-[32px] lg:text-[36px] font-[800] text-[#0B0F19] tracking-tight leading-tight mb-10 sm:mb-14">
+            Get 100% Customizable Data Cleaning Services
+          </h2>
+
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            
-            {/* Left Column: Soft Blue Quote Card */}
-            <div className="lg:col-span-5 bg-[#F0F8FF] border border-[#BAE6FD]/80 rounded-[16px] p-8 sm:p-10 flex flex-col justify-center relative overflow-hidden shadow-xs min-h-[320px] group transition-all duration-300 hover:shadow-md">
+
+            {/* Left Column: Soft Blue Quote Card with Topographic Lines & Speech Pointer */}
+            <div className="lg:col-span-5 bg-[#EFF7FE] border border-[#BAE6FD]/90 rounded-[16px] p-8 sm:p-10 flex flex-col justify-center relative shadow-xs min-h-[320px] group transition-all duration-300 hover:shadow-md">
               <svg
                 className="absolute inset-0 w-full h-full pointer-events-none opacity-20 transition-transform duration-700 group-hover:scale-105"
                 viewBox="0 0 340 340"
@@ -341,22 +342,23 @@ export const DataCleansingService = () => {
                 <path d="M-20 300 C80 260, 160 340, 240 290 C290 260, 320 330, 360 300" stroke="#005F96" strokeWidth="2" />
               </svg>
 
+              {/* Speech bubble pointer arrow pointing right towards narrative */}
+              <div className="hidden lg:block absolute -right-3 top-1/2 -translate-y-1/2 w-0 h-0 border-y-[10px] border-y-transparent border-l-[12px] border-l-[#EFF7FE] z-20" />
+              <div className="hidden lg:block absolute -right-[14px] top-1/2 -translate-y-1/2 w-0 h-0 border-y-[11px] border-y-transparent border-l-[14px] border-l-[#BAE6FD] z-10" />
+
               <div className="text-[#005F96] text-6xl sm:text-7xl font-serif font-black leading-none mb-3 select-none relative z-10">
                 “
               </div>
 
-              <h3 className="text-[24px] sm:text-[28px] lg:text-[30px] font-[800] text-[#005F96] leading-[1.25] tracking-tight relative z-10 font-sans">
-                Clean and accurate<br />data guarantee
+              <h3 className="text-[26px] sm:text-[30px] lg:text-[32px] font-[800] text-[#005F96] leading-[1.22] tracking-tight relative z-10 font-sans">
+                Clean and<br />accurate data<br />guarantee
               </h3>
             </div>
 
-            {/* Right Column: Detailed Narrative */}
+            {/* Right Column: Detailed Narrative (Exact 1:1 Match to Screenshot) */}
             <div className="lg:col-span-7 flex flex-col justify-center space-y-4 text-[13.5px] sm:text-[14.5px] text-[#475569] leading-[1.78] font-normal text-left">
-              <h2 className="text-[24px] sm:text-[28px] font-[800] text-[#0B0F19] tracking-tight leading-tight">
-                Get 100% Customizable Data Cleaning Services
-              </h2>
               <p>
-                Making educated judgments in the data-driven world of today depends on reliable and clean data for companies. Raw data may, however, also include mistakes, inconsistencies, duplication, and missing values that cause inaccurate conclusions and ineffective analysis. As a Data Cleaning Company, we offer customizable data cleaning services that come in really handy.
+                Making educated judgments in the data-driven world of today depends on reliable and clean data for companies. Raw data may, however, also include mistakes, inconsistencies, duplication, and missing values that cause inaccurate conclusions and ineffective analysis. As a Data Cleaning Company, we offer customizable data cleaning services then come in really handy.
               </p>
               <p>
                 Our 100% personalized Data Cleansing Solutions are meant for your particular company requirements. Our services guarantee that data is clean, orderly, and ready for analysis, whether your needs are for standardizing data, removing duplicates, fixing formatting problems, or filling in missing information. Our knowledgeable staff offers solutions that strengthen data integrity, advance decision-making, and maximize company performance to companies in many different sectors.
