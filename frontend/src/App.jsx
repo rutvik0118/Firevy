@@ -203,6 +203,12 @@ export function App() {
                 <Route path="/data-annotation-services" element={<ServiceDetails />} />
                 <Route path="/services/data-annotation" element={<ServiceDetails />} />
                 <Route path="/data-annotation" element={<ServiceDetails />} />
+                <Route path="/services/patient-management-system" element={<ServiceDetails />} />
+                <Route path="/patient-management-system" element={<ServiceDetails />} />
+                <Route path="/services/patient-management-system-development-company" element={<ServiceDetails />} />
+                <Route path="/patient-management-system-development-company" element={<ServiceDetails />} />
+                <Route path="/services/patient-management-software" element={<ServiceDetails />} />
+                <Route path="/patient-management-software" element={<ServiceDetails />} />
                 <Route path="/services/tech-consulting-services" element={<ServiceDetails />} />
                 <Route path="/services/hire-bootstrap-developers" element={<ServiceDetails />} />
                 <Route path="/services/hire-bootstrap-developer" element={<ServiceDetails />} />

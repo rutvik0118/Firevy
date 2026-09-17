@@ -86,6 +86,7 @@ import NintexDevelopmentService from '../components/services/NintexDevelopmentSe
 import MobileAppPortingService from '../components/services/MobileAppPortingService';
 import DataCleansingService from '../components/services/DataCleansingService';
 import DataAnnotationService from '../components/services/DataAnnotationService';
+import PatientManagementService from '../components/services/PatientManagementService';
 import HireKotlinDevelopersService from '../components/services/HireKotlinDevelopersService';
 import HireTechDevelopersService from '../components/services/HireTechDevelopersService';
 import HireMetaverseDevelopersService from '../components/services/HireMetaverseDevelopersService';
@@ -250,6 +251,14 @@ export const ServiceDetails = () => {
     currentSlug === 'services/data-annotation-services' ||
     currentSlug.includes('data-annotation') ||
     currentSlug.includes('data-labeling');
+
+  const isPatientManagement = currentSlug === 'patient-management-system' ||
+    currentSlug === 'patient-management-system-development-company' ||
+    currentSlug === 'patient-management-systems' ||
+    currentSlug === 'patient-management-software' ||
+    currentSlug === 'patient-management' ||
+    currentSlug === 'services/patient-management-system' ||
+    currentSlug.includes('patient-management');
 
   const isMobileApp = !isHireMobile && !isMobileAppPorting && (
     currentSlug === 'mobile-app-development' ||
@@ -811,6 +820,10 @@ export const ServiceDetails = () => {
 
   if (isDataAnnotation) {
     return <DataAnnotationService />;
+  }
+
+  if (isPatientManagement) {
+    return <PatientManagementService />;
   }
 
   if (isPowerAutomate) {
