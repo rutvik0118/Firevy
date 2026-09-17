@@ -42,31 +42,107 @@ import {
 } from 'lucide-react';
 
 export const DataCleansingService = () => {
-  // 6 Benefits Cards Grid
+  // 6 Benefits Cards Grid (Exact 1:1 Match to Reference Screenshot)
   const dataCleansingBenefits = [
     {
-      title: 'Seasoned Data Professionals',
-      desc: 'Data processing, analytics, and cleansing techniques are among the subjects our engineers know deeply. Working both with organized and unstructured data, they guarantee great dependability.'
+      title: 'Seasoned data professionals',
+      desc: 'Data processing, analytics, and cleansing techniques are among the subjects our engineers are well familiar with. Working both with organized and unstructured data, they guarantee great dependability and accuracy.',
+      icon: (
+        <svg viewBox="0 0 48 48" className="w-11 h-11 text-[#0084D1]" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="8" y="7" width="32" height="13" rx="2" />
+          <line x1="13" y1="13.5" x2="15" y2="13.5" strokeWidth="2.5" />
+          <line x1="18" y1="13.5" x2="20" y2="13.5" strokeWidth="2.5" />
+          <line x1="23" y1="13.5" x2="25" y2="13.5" strokeWidth="2.5" />
+          <circle cx="34" cy="13.5" r="1.3" fill="#0084D1" />
+          <circle cx="30" cy="13.5" r="1.3" fill="#0084D1" />
+          
+          <rect x="8" y="25" width="32" height="13" rx="2" />
+          <line x1="13" y1="31.5" x2="15" y2="31.5" strokeWidth="2.5" />
+          <line x1="18" y1="31.5" x2="20" y2="31.5" strokeWidth="2.5" />
+          <line x1="23" y1="31.5" x2="25" y2="31.5" strokeWidth="2.5" />
+          <circle cx="34" cy="31.5" r="1.3" fill="#0084D1" />
+          <circle cx="30" cy="31.5" r="1.3" fill="#0084D1" />
+
+          <path d="M14 20v5M34 20v5" />
+        </svg>
+      )
     },
     {
-      title: 'Mastery of Leading Tools & Tech',
-      desc: 'To execute exact and effective data cleaning activities, our team makes use of modern technologies like Python, SQL, Pandas, OpenRefine, Snowflake, and AI-driven automation.'
+      title: 'Mastery of Leading Tools & Technologies',
+      desc: 'To execute exact and effective data cleaning activities, our team makes use of modern technologies like Python, SQL, Pandas, OpenRefine, and AI-driven automation software.',
+      icon: (
+        <svg viewBox="0 0 48 48" className="w-11 h-11 text-[#0084D1]" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M10 16 L38 16 L28 28 L28 38 L20 38 L20 28 Z" />
+          <line x1="15" y1="7" x2="15" y2="12" />
+          <circle cx="15" cy="6" r="1.8" fill="#0084D1" />
+          <line x1="24" y1="4" x2="24" y2="12" />
+          <circle cx="24" cy="3" r="1.8" fill="#0084D1" />
+          <line x1="33" y1="7" x2="33" y2="12" />
+          <circle cx="33" cy="6" r="1.8" fill="#0084D1" />
+          <circle cx="24" cy="43" r="1.5" fill="#0084D1" />
+        </svg>
+      )
     },
     {
-      title: 'Agile & Collaborative Approach',
-      desc: 'Working directly with your team, we use an agile approach to identify your data difficulties and provide tailored solutions fit for your company goals.'
+      title: 'Agile and group approach',
+      desc: 'Working directly with your team, we use an agile approach to identify your data difficulties and provide tailored solutions fit for your company goals.',
+      icon: (
+        <svg viewBox="0 0 48 48" className="w-11 h-11 text-[#0084D1]" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M24 7 A 17 17 0 1 1 9 24" />
+          <polyline points="5 14 9 24 19 20" />
+          <circle cx="24" cy="24" r="5" />
+          <path d="M24 16v2M24 30v2M16 24h2M30 24h2M18.5 18.5l1.4 1.4M28.1 28.1l1.4 1.4M18.5 29.5l1.4-1.4M28.1 19.9l1.4-1.4" />
+        </svg>
+      )
     },
     {
       title: 'Testing for Quality Assurance',
-      desc: 'To guarantee accuracy and completeness, every data cleaning job goes through thorough testing and validation. Quality control techniques maintain high data integrity.'
+      desc: 'To guarantee accuracy and completeness every data cleaning job goes through thorough testing and validation. Quality control techniques maintain high data integrity.',
+      icon: (
+        <svg viewBox="0 0 48 48" className="w-11 h-11 text-[#0084D1]" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="11" y="9" width="26" height="32" rx="3" />
+          <path d="M18 9V6a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v3" />
+          <path d="M16 19l2 2 4-4" />
+          <line x1="25" y1="19" x2="31" y2="19" />
+          <path d="M16 27l2 2 4-4" />
+          <line x1="25" y1="27" x2="31" y2="27" />
+          <path d="M16 35l2 2 4-4" />
+          <line x1="25" y1="35" x2="31" y2="35" />
+          <circle cx="37" cy="11" r="3" />
+          <path d="M37 6v2M37 14v2M32 11h2M40 11h2" />
+        </svg>
+      )
     },
     {
-      title: 'Future-Ready, Scalable Solutions',
-      desc: 'Our developers provide scalable solutions meant to expand with your company. We guarantee seamless implementation for batch or real-time data streaming.'
+      title: 'Future-ready, scalable solutions',
+      desc: 'Our developers provide scalable solutions meant to expand with your company. Our staff guarantees seamless implementation for batch or real-time data streaming.',
+      icon: (
+        <svg viewBox="0 0 48 48" className="w-11 h-11 text-[#0084D1]" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="18" y="8" width="12" height="12" rx="2" />
+          <circle cx="24" cy="14" r="2" fill="#0084D1" />
+          <line x1="24" y1="4" x2="24" y2="8" />
+          <line x1="14" y1="14" x2="18" y2="14" />
+          <line x1="30" y1="14" x2="34" y2="14" />
+          <line x1="20" y1="4" x2="20" y2="8" />
+          <line x1="28" y1="4" x2="28" y2="8" />
+          <path d="M9 34c4-2 9-2 13-2h4a6 6 0 0 1 6 6v3H7v-3a4 4 0 0 1 2-4z" />
+          <path d="M22 32l3-5a2 2 0 0 1 3.5 2l-2 3" />
+        </svg>
+      )
     },
     {
-      title: 'Constant Support & Data Audits',
-      desc: 'We provide ongoing assistance for Data Cleansing Services to maintain the current and optimal state of your data. Available for troubleshooting, improvement, and routine audits.'
+      title: 'Constant Support & Repair',
+      desc: 'We provide ongoing assistance for Data Cleansing Services to maintain the current and optimal state of your data. Available for troubleshooting, improvement, and routine audits.',
+      icon: (
+        <svg viewBox="0 0 48 48" className="w-11 h-11 text-[#0084D1]" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M14 26V20a10 10 0 0 1 20 0v6" />
+          <rect x="11" y="24" width="6" height="10" rx="2" />
+          <rect x="31" y="24" width="6" height="10" rx="2" />
+          <path d="M34 32v2a4 4 0 0 1-4 4h-6" />
+          <circle cx="21" cy="38" r="2" fill="#0084D1" />
+          <path d="M21 14l3-3a2 2 0 0 1 3 3l-3 3" />
+        </svg>
+      )
     }
   ];
 
@@ -375,7 +451,7 @@ export const DataCleansingService = () => {
       <ProudAwardsBanner />
 
       {/* ========================================================================= */}
-      {/* 11. BENEFITS OF OUR DATA CLEANSING SERVICES (6 Cards Grid)                */}
+      {/* 11. BENEFITS OF OUR DATA CLEANING SERVICES (EXACT 1:1 MATCH TO IMAGE 2)   */}
       {/* ========================================================================= */}
       <section className="py-16 sm:py-20 bg-white text-left">
         <Container className="max-w-6xl">
@@ -388,33 +464,23 @@ export const DataCleansingService = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {dataCleansingBenefits.map((benefit, i) => (
               <div
                 key={i}
-                className="bg-white rounded-2xl p-7 sm:p-8 shadow-[0_4px_25px_rgba(0,0,0,0.04)] border border-slate-100 hover:border-slate-200 hover:shadow-xl transition-all duration-300 flex flex-col justify-start group"
+                className="bg-white rounded-[16px] p-7 sm:p-8 shadow-[0_4px_25px_rgba(0,0,0,0.03)] border border-slate-100/90 hover:border-slate-200 hover:shadow-lg transition-all duration-300 flex flex-col justify-start group"
               >
-                <div className="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center mb-4 text-[#005F96] font-bold text-sm">
-                  0{i + 1}
+                <div className="mb-5 transition-transform duration-300 group-hover:scale-105">
+                  {benefit.icon}
                 </div>
-                <h3 className="text-lg font-bold text-[#0B0F19] mb-2 group-hover:text-[#005F96] transition-colors font-sans">
+                <h3 className="text-[17px] sm:text-[18.5px] font-[800] text-[#0B0F19] mb-3 leading-snug tracking-tight font-sans">
                   {benefit.title}
                 </h3>
-                <p className="text-slate-600 text-sm leading-relaxed font-normal font-sans">
+                <p className="text-[#475569] text-[13px] sm:text-[13.8px] leading-[1.68] font-normal font-sans">
                   {benefit.desc}
                 </p>
               </div>
             ))}
-          </div>
-
-          <div className="text-center">
-            <a
-              href="#contact"
-              className="inline-flex items-center space-x-2 px-8 py-3.5 rounded-[6px] bg-[#005F96] hover:bg-[#004B77] text-white font-[700] text-sm sm:text-base shadow-sm hover:shadow transition-all duration-200 cursor-pointer"
-            >
-              <span>Connect Now</span>
-              <ArrowRight className="w-4 h-4" />
-            </a>
           </div>
         </Container>
       </section>
