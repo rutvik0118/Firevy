@@ -8,6 +8,7 @@ import BrandLogoMarquee from '../common/BrandLogoMarquee';
 import ClutchTopRatedBanner from '../common/ClutchTopRatedBanner';
 import PremiumServicesGrid from '../common/PremiumServicesGrid';
 import SuccessStoriesSection from '../common/SuccessStoriesSection';
+import ProcessWeFollow from '../common/ProcessWeFollow';
 import ProudAwardsBanner from './ProudAwardsBanner';
 import AndroidHiringModels from './AndroidHiringModels';
 import InnovativeSolutionsVideoSection from './InnovativeSolutionsVideoSection';
@@ -552,48 +553,9 @@ export const PatientManagementService = () => {
       <InnovativeSolutionsVideoSection />
 
       {/* ========================================================================= */}
-      {/* 14. PROCESS WE FOLLOW (8-Step Healthcare Software Lifecycle)             */}
+      {/* 14. PROCESS WE FOLLOW (1:1 MATCH TO REFERENCE COMPONENT)                  */}
       {/* ========================================================================= */}
-      <section className="py-14 sm:py-20 bg-white font-sans text-left overflow-hidden border-t border-slate-100">
-        <Container className="max-w-6xl">
-          <div className="text-center max-w-4xl mx-auto mb-12 sm:mb-16">
-            <h2 className="text-[26px] sm:text-[32px] lg:text-[36px] font-[800] text-[#0B0F19] tracking-tight leading-tight mb-3">
-              Process We Follow
-            </h2>
-            <p className="text-[13.5px] sm:text-[14.5px] text-[#475569] font-normal leading-relaxed max-w-3xl mx-auto">
-              Our proven 8-step healthcare software development lifecycle guarantees regulatory compliance, architectural integrity, clinical accuracy, and seamless hospital adoption.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
-            {[
-              { step: '01', title: 'Clinical Discovery & Compliance', desc: 'Analyzing clinical workflows, HIPAA/GDPR constraints, hospital IT infrastructure, and HL7/FHIR requirements.' },
-              { step: '02', title: 'User Experience & Clinical UI', desc: 'Designing intuitive doctor, nurse, and patient interfaces optimized for speed, clarity, and zero data entry errors.' },
-              { step: '03', title: 'Cloud Architecture & Security', desc: 'Architecting zero-trust microservices on HIPAA-compliant cloud hosting with AES-256 encryption at rest and in transit.' },
-              { step: '04', title: 'EHR, FHIR & API Integration', desc: 'Connecting legacy hospital databases, laboratory machines, pharmacy inventories, and third-party EHR systems.' },
-              { step: '05', title: 'Clinical Testing & QA Validation', desc: 'Rigorous end-to-end testing including stress simulations, penetration audits, and patient journey validation.' },
-              { step: '06', title: 'Pilot Department Deployment', desc: 'Staged departmental rollout with hands-on staff training to ensure frictionless adoption and care continuity.' },
-              { step: '07', title: 'Full Hospital Go-Live', desc: 'Production deployment, secure historical data migration, and live monitoring across all clinical workstations.' },
-              { step: '08', title: '24/7 SLA Support & Updates', desc: 'Continuous compliance maintenance, security patch management, performance tuning, and 24/7 technical assistance.' }
-            ].map((item, idx) => (
-              <div
-                key={idx}
-                className="bg-[#F8FAFC] rounded-[16px] p-5 sm:p-6 border border-slate-100 hover:border-[#CCE8FA] hover:bg-[#F0F7FC] transition-all duration-300 text-left shadow-2xs group cursor-pointer"
-              >
-                <div className="text-2xl font-[900] text-[#0084D1] mb-2 group-hover:scale-105 transition-transform duration-300">
-                  {item.step}
-                </div>
-                <h3 className="font-[800] text-[15.5px] text-[#0B0F19] mb-1.5 leading-snug">
-                  {item.title}
-                </h3>
-                <p className="text-[#475569] text-[12px] sm:text-[12.5px] leading-relaxed font-normal">
-                  {item.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
+      <ProcessWeFollow />
 
       {/* ========================================================================= */}
       {/* 15. CLIENT TESTIMONIALS (Our Story, Their Words)                          */}
