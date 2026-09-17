@@ -47,37 +47,86 @@ import {
 } from 'lucide-react';
 
 export const NintexDevelopmentService = () => {
-  // Services We Offer Cards
+  // Services We Offer Active Card (defaults to 1 = 'Support For Nintex' matching reference image 1)
+  const [activeServiceCard, setActiveServiceCard] = useState(1);
+
+  // Services We Offer Cards (Matching Image 1: colorful icon boxes & exact styling)
   const servicesWeOffer = [
     {
       title: 'Nintex Development',
       desc: 'We provide end-to-end Nintex development services that are customized to your specifications. If necessary, our team of specialists can manage and deliver your solution entirely.',
-      icon: <Workflow className="w-8 h-8 text-[#005D95]" />
+      iconBg: 'bg-[#F2EAFF]',
+      icon: (
+        <svg className="w-6 h-6 text-[#7C3AED]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <rect width="18" height="14" x="3" y="3" rx="2" />
+          <path d="m8 10-2 2 2 2" />
+          <path d="m12 10 2 2-2 2" />
+          <circle cx="17" cy="12" r="1.5" />
+        </svg>
+      )
     },
     {
       title: 'Support For Nintex',
       desc: "If you've encountered a roadblock or need more resources to complete your project, we are extremely experienced in all facets of Nintex design, implementation, and training.",
-      icon: <ShieldCheck className="w-8 h-8 text-[#005D95]" />
+      iconBg: 'bg-[#E8F8EE]',
+      icon: (
+        <svg className="w-6 h-6 text-[#16A34A]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+          <polyline points="14 2 14 8 20 8" />
+          <circle cx="12" cy="14" r="2.5" />
+          <path d="M12 10.5v1M12 16.5v1M8.5 14h1M14.5 14h1" />
+        </svg>
+      )
     },
     {
       title: 'Nintex Health Checks',
       desc: 'Our Nintex health check team will evaluate your current Nintex configuration and provide recommendations for enhancements where required in no time.',
-      icon: <Zap className="w-8 h-8 text-[#005D95]" />
+      iconBg: 'bg-[#FFF0E6]',
+      icon: (
+        <svg className="w-6 h-6 text-[#EA580C]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <rect width="20" height="14" x="2" y="3" rx="2" />
+          <path d="M12 17v4M8 21h8" />
+          <path d="M6 10h2.5l2-3 3 6 2-3H18" />
+        </svg>
+      )
     },
     {
       title: 'Nintex Training',
       desc: 'By providing expert-led training tailored to your specific needs, we help your team learn best practices and acquire the capacity to execute successful Nintex projects regularly.',
-      icon: <GraduationCap className="w-8 h-8 text-[#005D95]" />
+      iconBg: 'bg-[#FEF8E7]',
+      icon: (
+        <svg className="w-6 h-6 text-[#D97706]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="8" cy="8" r="3" />
+          <circle cx="16" cy="8" r="3" />
+          <circle cx="12" cy="16" r="3" />
+          <path d="M10 8h4M10 10l2 4M14 10l-2 4" strokeDasharray="1 1" />
+        </svg>
+      )
     },
     {
       title: 'Nintex Licensing',
       desc: "We assist you in determining the most suitable Nintex license for your business's needs and achieve your process automation objectives in the most cost-effective manner possible.",
-      icon: <Award className="w-8 h-8 text-[#005D95]" />
+      iconBg: 'bg-[#FDF0F5]',
+      icon: (
+        <svg className="w-6 h-6 text-[#DB2777]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <rect width="18" height="14" x="3" y="3" rx="2" />
+          <path d="M3 7h18" />
+          <circle cx="12" cy="12" r="2" />
+          <path d="M10.5 13.5 9 16l3-1 3 1-1.5-2.5" />
+        </svg>
+      )
     },
     {
       title: 'Nintex Upgrade',
       desc: 'Our Nintex up-gradation team will assist you with implementing all of the newest Nintex platform updates orderly and seamlessly to help you stay competitive.',
-      icon: <RefreshCw className="w-8 h-8 text-[#005D95]" />
+      iconBg: 'bg-[#EBF7FD]',
+      icon: (
+        <svg className="w-6 h-6 text-[#0284C7]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <rect width="18" height="14" x="3" y="3" rx="2" />
+          <path d="M3 7h18" />
+          <path d="M9 13a3 3 0 1 1 5.5 1.5M15 11v3.5h-3.5" />
+        </svg>
+      )
     }
   ];
 
@@ -445,36 +494,45 @@ export const NintexDevelopmentService = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* 8. SERVICES WE OFFER */}
+      {/* 8. SERVICES WE OFFER (1:1 MATCH WITH REFERENCE IMAGE 1) */}
       {/* ========================================================================= */}
-      <section className="py-16 lg:py-24 bg-slate-50 border-t border-slate-200/80">
+      <section className="py-16 sm:py-20 bg-white">
         <Container>
-          <div className="text-center max-w-3xl mx-auto mb-14">
-            <h2 className="text-2xl sm:text-3xl lg:text-[38px] font-[800] text-[#0B0F19] tracking-tight leading-snug mb-3">
+          <div className="text-center max-w-4xl mx-auto mb-12 sm:mb-14">
+            <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-extrabold text-[#0B0F19] tracking-tight leading-tight mb-3 font-sans">
               Services We Offer
             </h2>
-            <p className="text-sm sm:text-base text-slate-600 font-normal">
+            <p className="text-sm sm:text-[15.5px] text-slate-600 font-normal leading-relaxed font-sans max-w-3xl mx-auto">
               We have a wide range of Nintex development services that you can avail as per your needs and budget. Take a look at our services range.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-            {servicesWeOffer.map((item, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl border border-slate-200/80 hover:border-[#005D95]/40 transition-all duration-300 flex flex-col text-left group"
-              >
-                <div className="w-14 h-14 rounded-xl bg-[#EBF6FB] flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  {item.icon}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 mb-12">
+            {servicesWeOffer.map((item, index) => {
+              const isActive = activeServiceCard === index;
+              return (
+                <div
+                  key={index}
+                  onMouseEnter={() => setActiveServiceCard(index)}
+                  onClick={() => setActiveServiceCard(index)}
+                  className={`rounded-2xl p-7 sm:p-8 text-left transition-all duration-300 flex flex-col cursor-pointer ${
+                    isActive
+                      ? 'bg-[#E5F5FD] border border-[#38BDF8] border-b-[4px] border-b-[#0284C7] shadow-md'
+                      : 'bg-white border border-slate-200/80 hover:border-slate-300 shadow-sm hover:shadow-md'
+                  }`}
+                >
+                  <div className={`w-12 h-12 rounded-[10px] ${item.iconBg} flex items-center justify-center mb-5 shrink-0 transition-transform duration-300`}>
+                    {item.icon}
+                  </div>
+                  <h3 className="text-[18px] sm:text-[19px] font-bold text-[#0B0F19] mb-3 leading-snug font-sans">
+                    {item.title}
+                  </h3>
+                  <p className="text-slate-600 text-sm leading-[1.65] font-normal font-sans flex-1">
+                    {item.desc}
+                  </p>
                 </div>
-                <h3 className="text-xl font-[800] text-[#0B0F19] mb-3 group-hover:text-[#005D95] transition-colors">
-                  {item.title}
-                </h3>
-                <p className="text-slate-600 text-sm leading-relaxed font-normal flex-1">
-                  {item.desc}
-                </p>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           <div className="text-center">
