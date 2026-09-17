@@ -85,6 +85,7 @@ import TestingQaService from '../components/services/TestingQaService';
 import NintexDevelopmentService from '../components/services/NintexDevelopmentService';
 import MobileAppPortingService from '../components/services/MobileAppPortingService';
 import DataCleansingService from '../components/services/DataCleansingService';
+import DataAnnotationService from '../components/services/DataAnnotationService';
 import HireKotlinDevelopersService from '../components/services/HireKotlinDevelopersService';
 import HireTechDevelopersService from '../components/services/HireTechDevelopersService';
 import HireMetaverseDevelopersService from '../components/services/HireMetaverseDevelopersService';
@@ -238,6 +239,17 @@ export const ServiceDetails = () => {
     currentSlug === 'services/data-cleansing-services' ||
     currentSlug.includes('data-cleansing') ||
     currentSlug.includes('database-cleansing');
+
+  const isDataAnnotation = currentSlug === 'data-annotation-company' ||
+    currentSlug === 'data-annotation-services' ||
+    currentSlug === 'data-annotation' ||
+    currentSlug === 'data-annotation-service' ||
+    currentSlug === 'data-labeling-services' ||
+    currentSlug === 'data-labeling-company' ||
+    currentSlug === 'services/data-annotation-company' ||
+    currentSlug === 'services/data-annotation-services' ||
+    currentSlug.includes('data-annotation') ||
+    currentSlug.includes('data-labeling');
 
   const isMobileApp = !isHireMobile && !isMobileAppPorting && (
     currentSlug === 'mobile-app-development' ||
@@ -795,6 +807,10 @@ export const ServiceDetails = () => {
 
   if (isDataCleansing) {
     return <DataCleansingService />;
+  }
+
+  if (isDataAnnotation) {
+    return <DataAnnotationService />;
   }
 
   if (isPowerAutomate) {

@@ -197,6 +197,12 @@ export function App() {
                 <Route path="/data-cleansing" element={<ServiceDetails />} />
                 <Route path="/services/database-cleansing-services" element={<ServiceDetails />} />
                 <Route path="/database-cleansing-services" element={<ServiceDetails />} />
+                <Route path="/services/data-annotation-company" element={<ServiceDetails />} />
+                <Route path="/data-annotation-company" element={<ServiceDetails />} />
+                <Route path="/services/data-annotation-services" element={<ServiceDetails />} />
+                <Route path="/data-annotation-services" element={<ServiceDetails />} />
+                <Route path="/services/data-annotation" element={<ServiceDetails />} />
+                <Route path="/data-annotation" element={<ServiceDetails />} />
                 <Route path="/services/tech-consulting-services" element={<ServiceDetails />} />
                 <Route path="/services/hire-bootstrap-developers" element={<ServiceDetails />} />
                 <Route path="/services/hire-bootstrap-developer" element={<ServiceDetails />} />
