@@ -11,8 +11,6 @@ import TrustRecognitionBanner from '../home/TrustRecognitionBanner';
 import SapphireTechStackGrid from '../common/SapphireTechStackGrid';
 import DigitalTransformationSlider from '../common/DigitalTransformationSlider';
 import TrustedBrandsGrid from '../common/TrustedBrandsGrid';
-import TransformativeImpactSection from './TransformativeImpactSection';
-import AboutUsStats from './AboutUsStats';
 import FeaturedInBrandsSection from './FeaturedInBrandsSection';
 import SuccessMatrix from '../common/SuccessMatrix';
 import InnovativeVideoSlider from '../common/InnovativeVideoSlider';
@@ -29,8 +27,7 @@ import {
   Check,
   ChevronRight,
   ArrowLeft,
-  Smartphone,
-  Layers,
+  Bot,
   Sparkles,
   Code2,
   Cloud,
@@ -46,13 +43,13 @@ import {
   Globe
 } from 'lucide-react';
 
-export const AppDevelopmentConsultingService = () => {
+export const AiConsultingServices = () => {
 
-  // 1. Expertise In Our App Development Consulting (6 cards matching Image 1)
-  const appExpertiseCards = [
+  // 1. Expertise In Our AI Consulting (6 cards matching App Consulting style)
+  const aiExpertiseCards = [
     {
-      title: 'MVP',
-      desc: 'Consult with our industry professionals on the viability of your Mobile App Development Services in light of the most recent market and technological developments so that you may create a feature-rich minimum viable product version.',
+      title: 'Machine Learning & Deep Learning',
+      desc: 'Build, train, and deploy advanced supervised and unsupervised neural network models tailored to your business datasets, enabling automated cognitive classification and real-time operational inference.',
       bg: 'bg-[#F3E8FF]',
       icon: (
         <svg className="w-6 h-6 text-[#9333EA]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -66,8 +63,8 @@ export const AppDevelopmentConsultingService = () => {
       )
     },
     {
-      title: 'Competitor Analysis',
-      desc: 'To establish a product design and development strategy that is pertinent and realistic, we do a parameterized investigation of all of the essential traits shared by your primary rivals.',
+      title: 'Predictive Analytics & Forecasting',
+      desc: 'Harness historical enterprise data to anticipate customer churn, forecast supply chain demands, optimize pricing algorithms, and identify market risks before they impact your balance sheet.',
       bg: 'bg-[#DCFCE7]',
       icon: (
         <svg className="w-6 h-6 text-[#16A34A]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -79,8 +76,8 @@ export const AppDevelopmentConsultingService = () => {
       )
     },
     {
-      title: 'Technology Stack',
-      desc: 'After we have gathered all of the criteria for the project, our app development specialists will assist you in selecting the technological stack that is both the most suitable and resourceful, ensuring the highest possible level of product effectiveness.',
+      title: 'Computer Vision & Video Analytics',
+      desc: 'Implement intelligent object detection, facial recognition, automated quality inspection, and spatial video processing powered by state-of-the-art vision models and edge AI hardware.',
       bg: 'bg-[#FFEDD5]',
       icon: (
         <svg className="w-6 h-6 text-[#EA580C]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -91,8 +88,8 @@ export const AppDevelopmentConsultingService = () => {
       )
     },
     {
-      title: 'Ecosystem Integration',
-      desc: 'We assist companies in the incorporation of safe and reliable third-party APIs, legacy enterprise software, payment gateways, and device peripherals into their mobile architectures.',
+      title: 'Natural Language Processing (NLP)',
+      desc: 'Deploy custom conversational AI, multilingual semantic search engines, automated document classification, and sentiment intelligence to streamline knowledge discovery and support interactions.',
       bg: 'bg-[#FEF9C3]',
       icon: (
         <svg className="w-6 h-6 text-[#CA8A04]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -101,8 +98,8 @@ export const AppDevelopmentConsultingService = () => {
       )
     },
     {
-      title: 'Post-Delivery Support',
-      desc: 'Your post-delivery project needs will be visualized by an innovative team of mobile maintenance professionals ensuring high availability, continuous OS upgrades, and security patching.',
+      title: 'AI Strategy & Feasibility Roadmap',
+      desc: 'Evaluate your organization’s data readiness, technical infrastructure, and ROI feasibility to formulate a step-by-step AI implementation roadmap that mitigates deployment risks.',
       bg: 'bg-[#FCE7F3]',
       icon: (
         <svg className="w-6 h-6 text-[#DB2777]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -111,8 +108,8 @@ export const AppDevelopmentConsultingService = () => {
       )
     },
     {
-      title: 'Testing',
-      desc: 'Using a testing strategy that is more focused on experience, our app testing specialists execute comprehensive functional, regression, UI/UX, security, and automated performance testing.',
+      title: 'MLOps & Enterprise Governance',
+      desc: 'Set up end-to-end continuous training, automated model registry, drift monitoring, latency optimization, and ethical AI safety guardrails to ensure production-grade compliance and stability.',
       bg: 'bg-[#E0F2FE]',
       icon: (
         <svg className="w-6 h-6 text-[#0284C7]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -123,11 +120,11 @@ export const AppDevelopmentConsultingService = () => {
     }
   ];
 
-  // 4. Benefits of App Development Consulting Services (6 cards matching Image 3)
-  const appBenefitsData = [
+  // 2. Benefits of AI Consulting Services (6 cards matching App Consulting style)
+  const aiBenefitsData = [
     {
-      title: 'Strategy and Roadmap',
-      desc: 'We collaborate with you to create an app development strategy that meets your company goals. Our consultants utilize industry trends, customer demands, and competitor offers to design a roadmap for development from idea to launch and beyond.',
+      title: 'Data-Driven Decision Making & Forecasting',
+      desc: 'Replace guesswork with empirical predictive modeling. Our AI solutions uncover hidden data trends, allowing leadership to make proactive, highly accurate strategic decisions.',
       icon: (
         <svg className="w-8 h-8 text-[#0284C7]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M3 3v18h18" />
@@ -136,8 +133,8 @@ export const AppDevelopmentConsultingService = () => {
       )
     },
     {
-      title: 'Tech Choice and Architecture Design',
-      desc: 'Choosing the correct technology stack and architecture is critical for app success. Our App Development Consulting Services help you choose the best technologies and create a scalable and efficient architecture for your app’s needs and growth.',
+      title: 'Intelligent Automation & Cost Reduction',
+      desc: 'Automate repetitive, high-volume tasks across operations, customer support, and financial reporting, driving down manual overhead and drastically elevating operational productivity.',
       icon: (
         <svg className="w-8 h-8 text-[#0284C7]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <rect width="18" height="18" x="3" y="3" rx="2" />
@@ -147,8 +144,8 @@ export const AppDevelopmentConsultingService = () => {
       )
     },
     {
-      title: 'Designing User Experience and Interface',
-      desc: 'App success depends on UX and interface design. Our experts design intuitive, engaging, and usable interfaces that please users. We study users, produce wireframes and prototypes, and refine designs to make your app great.',
+      title: 'Hyper-Personalized Customer Experiences',
+      desc: 'Deliver real-time personalized product recommendations, dynamic content, and contextual support that maximize customer engagement, conversion rates, and long-term brand loyalty.',
       icon: (
         <svg className="w-8 h-8 text-[#0284C7]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
@@ -159,8 +156,8 @@ export const AppDevelopmentConsultingService = () => {
       )
     },
     {
-      title: 'Agile Development Methodologies',
-      desc: 'Our Agile consulting methodologies foster rapid, iterative development sprints, transparent stakeholder feedback loops, and continuous delivery, minimizing risks and accelerating time-to-market.',
+      title: 'Scalable MLOps & Continuous Learning',
+      desc: 'Our modular AI pipelines retrain on new data streams autonomously, preventing model drift and ensuring your predictive engines become more intelligent as your business expands.',
       icon: (
         <svg className="w-8 h-8 text-[#0284C7]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" />
@@ -170,8 +167,8 @@ export const AppDevelopmentConsultingService = () => {
       )
     },
     {
-      title: 'Testing and QA',
-      desc: 'Our dedicated quality assurance engineers perform end-to-end automated and manual testing across real Android and iOS devices, identifying critical vulnerabilities, memory leaks, and performance bottlenecks before release.',
+      title: 'Enterprise Security & Responsible AI',
+      desc: 'Safeguard intellectual property and sensitive customer data with on-premise or sovereign cloud model deployments, rigorous bias auditing, and zero data leakage compliance.',
       icon: (
         <svg className="w-8 h-8 text-[#0284C7]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <rect width="20" height="14" x="2" y="3" rx="2" />
@@ -182,8 +179,8 @@ export const AppDevelopmentConsultingService = () => {
       )
     },
     {
-      title: 'Optimization and Launch Strategy for App Store',
-      desc: 'We assist you with comprehensive App Store Optimization (ASO), metadata refinement, compliance guidelines auditing, and coordinated launch roadmaps to maximize organic visibility and downloads across Google Play and Apple App Store.',
+      title: 'Maximized ROI & Competitive Advantage',
+      desc: 'Avoid costly R&D false starts. Our seasoned consultants guide you toward high-impact AI use cases that deliver measurable revenue growth and distinct market leadership.',
       icon: (
         <svg className="w-8 h-8 text-[#0284C7]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="m4.5 16.5-1.5 1.5 3 3 1.5-1.5" />
@@ -195,45 +192,45 @@ export const AppDevelopmentConsultingService = () => {
     }
   ];
 
-  // 5. FAQ List tailored specifically for Mobile App Development Consulting
-  const appConsultingFaqList = [
+  // 3. FAQ List tailored specifically for AI Consulting Services
+  const aiFaqList = [
     {
       id: 1,
-      question: 'Why should businesses hire a mobile app development consultant before building?',
-      answer: 'Mobile app consulting de-risks your investment by validating market feasibility, defining an optimal tech stack, architecting scalable backend systems, and establishing an accurate budget and roadmap before costly development begins.'
+      question: 'How do your AI consultants determine if a project is feasible?',
+      answer: 'We conduct a comprehensive AI Readiness Assessment evaluating your existing data volume, data hygiene, latency constraints, cloud infrastructure, and business KPI objectives before writing a single line of model code.'
     },
     {
       id: 2,
-      question: 'How do your consultants help choose between Native and Cross-Platform development?',
-      answer: 'We analyze your required device integrations, performance needs, launch timeline, and budget. If your app requires heavy hardware access or intensive 3D/AR graphics, we recommend Native (Swift/Kotlin). For faster time-to-market and shared codebases, we evaluate Flutter or React Native.'
+      question: 'Can you integrate AI models into our existing legacy enterprise systems?',
+      answer: 'Yes. We build lightweight REST/gRPC API microservices and secure message queues that allow modern machine learning and cognitive models to communicate seamlessly with existing ERPs, CRMs, and on-premise databases.'
     },
     {
       id: 3,
-      question: 'How do app consultants ensure mobile application security and compliance?',
-      answer: 'We perform end-to-end security audits following OWASP Mobile Security standards, verify API authentication tokens, secure local data storage, and ensure full compliance with GDPR, HIPAA, and PCI-DSS requirements.'
+      question: 'How do you ensure enterprise data privacy and IP protection?',
+      answer: 'We enforce zero data sharing with public foundational model providers. Your proprietary training datasets and embeddings remain exclusively within your dedicated cloud tenant (AWS, Azure, GCP) or private on-premise infrastructure.'
     },
     {
       id: 4,
-      question: 'Can you assess and modernize our existing, underperforming mobile app?',
-      answer: 'Yes. We conduct complete code audits, latency and crash diagnostics, UI/UX usability assessments, and formulate step-by-step refactoring roadmaps to elevate app performance and user retention.'
+      question: 'What is the typical timeline for an AI Consulting proof-of-concept (PoC)?',
+      answer: 'A standard discovery, data preprocessing, and MVP/PoC deployment typically spans 4 to 8 weeks, providing tangible benchmarked accuracy metrics and demonstrating concrete business ROI.'
     },
     {
       id: 5,
-      question: 'What deliverables will we receive from a mobile app consulting engagement?',
-      answer: 'Deliverables include a Product Requirement Document (PRD), Architecture Blueprint, Wireframes and Clickable Prototypes, Tech Stack Recommendations, Security & Compliance Audit, and a Phased Development Roadmap.'
+      question: 'What deliverables are included in an AI Consulting engagement?',
+      answer: 'Deliverables include an AI Strategy & Architecture Blueprint, Data Audit & Feature Engineering Pipeline, Trained Model Weights, Benchmark Accuracy Reports, MLOps Deployment Scripts, and Staff Training Workshops.'
     }
   ];
 
   return (
     <div className="bg-white min-h-screen text-slate-800 font-sans selection:bg-[#005F96] selection:text-white">
       <SEO
-        title="App Development Consulting Services | Mobile App Strategy | Firevy.co"
-        description="Accelerate your mobile product journey with Firevy's App Development Consulting Services. Native iOS, Android, Flutter, React Native, UI/UX audits, and scalable cloud architecture."
-        keywords="app development consulting, mobile app consulting, mobile app strategy, iOS consulting, Android consulting, Flutter consulting, React Native advisory, mobile product roadmap"
+        title="AI Consulting Services | Artificial Intelligence Advisory | Firevy.co"
+        description="Accelerate enterprise transformation with Firevy's AI Consulting Services. Machine learning, predictive analytics, computer vision, NLP, and scalable MLOps architecture."
+        keywords="ai consulting services, artificial intelligence consulting, machine learning consulting, ai advisory, mlops, predictive analytics, enterprise ai strategy, deep learning consulting"
       />
 
       {/* ========================================================================= */}
-      {/* 1. HERO SECTION (EXACT 1:1 REFERENCE IMAGE 1) */}
+      {/* 1. HERO SECTION (MATCHING APP CONSULTING BANNER & LAYOUT) */}
       {/* ========================================================================= */}
       <section className="relative overflow-hidden bg-[#F2F7FA] py-14 sm:py-16 lg:py-20 border-b border-slate-200/60">
         <Container>
@@ -241,15 +238,15 @@ export const AppDevelopmentConsultingService = () => {
             {/* Left Content */}
             <div className="lg:col-span-6 space-y-5 text-left">
               <h1
-                className="text-slate-900 tracking-tight font-extrabold text-3xl sm:text-4xl lg:text-[42px] leading-[1.2]"
+                className="text-slate-900 tracking-tight font-extrabold text-3xl sm:text-4xl lg:text-[41px] leading-[1.2]"
               >
-                App Development Consulting Services in USA
+                AI Consulting Services in USA
               </h1>
 
               <p
                 className="text-slate-600 max-w-xl text-sm sm:text-base leading-relaxed font-normal"
               >
-                Our app development consulting is geared toward the business needs of startups, small and medium-sized businesses, and large, well-established Best app consultants for startups companies.
+                Our AI consulting is geared toward the business needs of startups, high-growth tech companies, and global enterprises seeking to harness machine learning, predictive analytics, and cognitive intelligence to drive exponential growth.
               </p>
 
               {/* CTA Button */}
@@ -264,12 +261,12 @@ export const AppDevelopmentConsultingService = () => {
               </div>
             </div>
 
-            {/* Right Hero Meeting Vector Illustration (Exact 1:1 Image_1.svg from reference) */}
+            {/* Right Hero Meeting Vector Illustration */}
             <div className="lg:col-span-6 flex justify-center items-center">
               <div className="w-full max-w-[580px] flex justify-center">
                 <img
                   src="/images/sapphire_mobile_app_development_company_in_usa/Image_1.svg"
-                  alt="App Development Consulting Services Team"
+                  alt="AI Consulting Services Team"
                   className="w-full h-auto object-contain max-h-[360px]"
                 />
               </div>
@@ -288,32 +285,32 @@ export const AppDevelopmentConsultingService = () => {
       </div>
 
       {/* ========================================================================= */}
-      {/* 2. LEADING MOBILE APP DEVELOPMENT CONSULTING COMPANY (EXACT 1:1 REFERENCE) */}
+      {/* 2. LEADING ARTIFICIAL INTELLIGENCE CONSULTING COMPANY */}
       {/* ========================================================================= */}
       <section className="py-16 lg:py-24 bg-white">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-            {/* Left Graphic: Mobile wireframe with developers */}
+            {/* Left Graphic */}
             <div className="lg:col-span-6 flex justify-center items-center">
               <div className="w-full max-w-[560px] flex justify-center">
                 <img
                   src="/images/leading_mobile_app_consulting.jpg"
-                  alt="Leading Mobile App Development Consulting Team"
+                  alt="Leading AI Consulting Team"
                   className="w-full h-auto object-contain"
                 />
               </div>
             </div>
 
-            {/* Right Copy matching reference Image 1 */}
+            {/* Right Copy */}
             <div className="lg:col-span-6 space-y-6 text-left">
               <h2 className="text-3xl sm:text-4xl lg:text-[40px] xl:text-[44px] font-extrabold text-slate-900 tracking-tight leading-[1.2]">
-                Leading Mobile App <br />
-                Development Consulting <br />
+                Leading Artificial <br />
+                Intelligence Consulting <br />
                 Company
               </h2>
 
               <p className="text-slate-600 text-[14.5px] sm:text-[15.5px] leading-[1.75] font-normal">
-                Our App strategy and consulting firm use their knowledge of the latest industry trends and technology to provide recommendations for app solutions that are likely to result in the most favorable outcomes for <strong className="text-[#005F96] font-semibold">best android app development company</strong> in the context of competitive growth. All industry practices are included in the finished items that we create. To provide Enterprise App Development Consulting Services with a primary emphasis on conversion and success, we go the additional mile while analyzing your target market, company competitors, user personas, and a great deal more should you choose to use our consulting services.
+                Our AI strategy and machine learning consulting firm uses deep domain knowledge and cutting-edge cognitive technology to provide recommendations for intelligent software systems that yield the highest operational resilience for <strong className="text-[#005F96] font-semibold">best enterprise software development company</strong> in competitive market environments. We engineer modular, high-accuracy AI models that empower cross-functional squads to automate decisions and optimize customer engagement. From predictive forecasting to custom neural network architectures, we analyze your data pipelines and compute requirements to ensure a seamless transformation.
               </p>
             </div>
           </div>
@@ -321,34 +318,39 @@ export const AppDevelopmentConsultingService = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* 3. BRIEF ABOUT BEST APP CONSULTANTS FOR STARTUPS (IMAGE 1) */}
+      {/* 3. ARTIFICIAL INTELLIGENCE MARKET STATS */}
       {/* ========================================================================= */}
       <section className="py-16 lg:py-24 bg-white">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-            {/* Left Copy matching Image 1 */}
+            {/* Left Copy */}
             <div className="lg:col-span-6 space-y-6 text-left">
               <h2 className="text-3xl sm:text-4xl lg:text-[40px] xl:text-[44px] font-extrabold text-slate-900 tracking-tight leading-[1.2]">
-                Brief About Best App <br />
-                Consultants For Startups
+                Artificial Intelligence <br />
+                Market Stats
               </h2>
 
               <p className="text-slate-600 text-[14.5px] sm:text-[15.5px] leading-[1.75] font-normal">
-                Our mobile app development consultants use the appropriate technologies to analyze the audience in-depth, taking into account their routines, geographic location, preferences, age, employment, and other factors.
+                The global artificial intelligence (AI) market was estimated to be worth US$119.78 billion in 2022. It is anticipated to reach US$1,591.03 billion by 2030, with a compound annual growth rate (CAGR) of 38.1% from 2022 to 2030.
               </p>
 
-              <p className="text-slate-600 text-[14.5px] sm:text-[15.5px] leading-[1.75] font-normal">
-                As an Affordable App Development and Consulting Agency, we plan a user-first interface and user experience (UI and UX) for your solution optimized for increased user engagement.
-              </p>
+              <div className="pt-2">
+                <a
+                  href="#consultation-form"
+                  className="inline-flex items-center justify-center px-7 py-3.5 rounded-lg bg-[#005F96] text-white font-bold text-sm sm:text-base hover:bg-[#004A75] transition-all shadow-md hover:shadow-lg transform active:scale-95 group"
+                >
+                  <span>Connect With An Expert</span>
+                </a>
+              </div>
             </div>
 
-            {/* Right Graphic: Woman looking at floating mobile wireframes */}
+            {/* Right Graphic: AI Market Stats Stacked Bar Chart */}
             <div className="lg:col-span-6 flex justify-center items-center">
               <div className="w-full max-w-[560px] flex justify-center">
                 <img
-                  src="/images/brief_app_consultants.jpg"
-                  alt="Brief About Best App Consultants For Startups"
-                  className="w-full h-auto object-contain"
+                  src="/images/software_market_volume_chart.png"
+                  alt="Software Market Volume (USD Billion)"
+                  className="w-full h-auto object-contain rounded-xl shadow-sm border border-slate-100"
                 />
               </div>
             </div>
@@ -357,19 +359,19 @@ export const AppDevelopmentConsultingService = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* 4. CLUTCH TOP-RATED BANNER (IMAGE 2 TOP) */}
+      {/* 4. CLUTCH TOP-RATED BANNER */}
       {/* ========================================================================= */}
       <ClutchTopRatedBanner />
 
       {/* ========================================================================= */}
-      {/* 5. GET 100% CUSTOMIZABLE APP DEVELOPMENT CONSULTING EXPERTS (IMAGE 2) */}
+      {/* 5. GET 100% CUSTOMIZABLE AI CONSULTING EXPERTS */}
       {/* ========================================================================= */}
       <section className="py-16 lg:py-20 bg-white text-slate-900 font-sans text-left border-b border-slate-100">
         <Container>
           {/* Centered H2 Title */}
           <div className="text-center w-full max-w-5xl mx-auto mb-10 sm:mb-14">
             <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-[900] text-[#0F172A] tracking-tight leading-tight">
-              Get 100% Customizable App Development Consulting Experts
+              Get 100% Customizable AI Consulting Experts
             </h2>
           </div>
 
@@ -396,18 +398,18 @@ export const AppDevelopmentConsultingService = () => {
 
               {/* Heading Inside Card */}
               <h3 className="text-[24px] sm:text-[27px] lg:text-[29px] font-[900] text-[#005F96] tracking-tight leading-[1.3] relative z-10">
-                Research, Suggest, And Implement Improvements
+                Strategize, Automate, And Scale With Artificial Intelligence
               </h3>
             </div>
 
-            {/* Right Column: Paragraph Content (Exact 1:1 Match from screenshot) */}
+            {/* Right Column: Paragraph Content */}
             <div className="lg:col-span-8 space-y-4 text-left flex flex-col justify-center">
               <p className="text-[14px] sm:text-[15px] text-[#475569] leading-[1.8] font-normal">
-                Even if you have an excellent concept for an app, it alone will not guarantee that the app will be successful unless you also have a solid digital strategy and a roadmap. When assessing <strong className="text-[#005F96] font-semibold">ios iphone app development</strong> concepts and deciding on revenue models, you need the direction and assistance of an expert Best App Development Consulting Company to avoid potential traps. Our Mobile App Consulting Services assist customers in determining whether or not their proposal is viable, developing a plan, and outlining the likely compliances, in addition to selecting the appropriate technology stacks, processes, and trends to achieve the desired outcomes.
+                Even if your organization collects petabytes of data, data alone will not produce competitive advantage unless you have an actionable AI strategy and enterprise-grade machine learning pipelines. When assessing <strong className="text-[#005F96] font-semibold">AI software development</strong> models and calculating compute budgets, you need the guidance of a proven AI Consulting Company to avoid costly technical debt. Our AI Advisory Services assist clients in evaluating business use cases, auditing data infrastructure, and choosing the optimal frameworks.
               </p>
 
               <p className="text-[14px] sm:text-[15px] text-[#475569] leading-[1.8] font-normal">
-                Utilize the software development and consulting services we provide for the web, Android, or iOS to identify potential problems, discover solutions to those problems, and formulate a mobile strategy to ensure the success of your app. If you want the most benefits from your concept, you should hire app development consultant for business through our Mobile Application Development Consulting Services, regardless of whether you run a startup or an enterprise firm. Our Mobile App Development Consulting Company will assist you in determining your target audience, budget, and various strategies for developing your mobile app.
+                Utilize our specialized machine learning consulting to uncover operational efficiencies, automate complex workflows, and deploy production models across AWS SageMaker, Google Cloud Vertex AI, or Azure AI. Whether you are an agile startup or a multinational enterprise, our AI Development Consulting Company will help you identify high-ROI initiatives and implement resilient AI solutions.
               </p>
             </div>
           </div>
@@ -415,12 +417,12 @@ export const AppDevelopmentConsultingService = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* 6. OUR PREMIUM SERVICES (IMAGE 3) */}
+      {/* 6. OUR PREMIUM SERVICES */}
       {/* ========================================================================= */}
       <PremiumServicesGrid companyName="Sapphire" />
 
       {/* ========================================================================= */}
-      {/* 7. SUCCESS STORIES + 4 STAT BOXES (IMAGES 4 & 5) */}
+      {/* 7. SUCCESS STORIES + 4 STAT BOXES */}
       {/* ========================================================================= */}
       <section className="py-20 bg-[#DDF1FB] text-center font-sans border-t border-cyan-100">
         <Container>
@@ -435,7 +437,7 @@ export const AppDevelopmentConsultingService = () => {
 
           {/* 3 Case Study Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-            {/* Card 1: Healthcare Mobile App Development Company */}
+            {/* Card 1 */}
             <div className="text-center group">
               <div className="relative rounded-[20px] overflow-hidden bg-white shadow-sm border border-slate-200/80 p-2 group-hover:shadow-md transition-all">
                 <div className="absolute top-4 right-4 z-10 bg-[#005F96] text-white text-[11px] font-[700] px-3 py-1 rounded-md shadow-2xs">
@@ -443,40 +445,40 @@ export const AppDevelopmentConsultingService = () => {
                 </div>
                 <img
                   src="/images/adani.webp"
-                  alt="Healthcare Mobile App Development Company"
+                  alt="Predictive Enterprise Analytics Platform"
                   className="w-full h-[220px] object-cover rounded-[14px]"
                 />
               </div>
               <h3 className="text-[16px] font-[800] text-slate-900 mt-4 font-sans text-left">
-                Healthcare Mobile App Development Company
+                Predictive Enterprise Analytics Platform
               </h3>
             </div>
 
-            {/* Card 2: Federal Forecasting App */}
+            {/* Card 2 */}
             <div className="text-center group">
               <div className="rounded-[20px] overflow-hidden bg-white shadow-sm border border-slate-200/80 p-2 group-hover:shadow-md transition-all">
                 <img
                   src="/images/federal_forecasting_app.jpg"
-                  alt="Federal Forecasting App"
+                  alt="Computer Vision Defect Inspection System"
                   className="w-full h-[220px] object-cover rounded-[14px]"
                 />
               </div>
               <h3 className="text-[16px] font-[800] text-slate-900 mt-4 font-sans text-left">
-                Federal Forecasting App
+                Computer Vision Defect Inspection System
               </h3>
             </div>
 
-            {/* Card 3: Stress Management App */}
+            {/* Card 3 */}
             <div className="text-center group">
               <div className="rounded-[20px] overflow-hidden bg-white shadow-sm border border-slate-200/80 p-2 group-hover:shadow-md transition-all">
                 <img
                   src="/images/stress_management_app.jpg"
-                  alt="Stress Management App"
+                  alt="Conversational AI & NLP Support Platform"
                   className="w-full h-[220px] object-cover rounded-[14px]"
                 />
               </div>
               <h3 className="text-[16px] font-[800] text-slate-900 mt-4 font-sans text-left">
-                Stress Management App
+                Conversational AI & NLP Support Platform
               </h3>
             </div>
           </div>
@@ -491,9 +493,9 @@ export const AppDevelopmentConsultingService = () => {
             </Link>
           </div>
 
-          {/* 4 Colorful Highlight Boxes (Purple, Mint Green, Peach, Deep Blue CTA) */}
+          {/* 4 Colorful Highlight Boxes */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {/* Box 1: Purple (23+ Years Experience) */}
+            {/* Box 1: Purple */}
             <div className="bg-[#D8C7FF] rounded-[18px] p-6 text-center flex flex-col justify-center items-center shadow-xs">
               <div className="text-[36px] sm:text-[40px] font-[900] text-slate-900 tracking-tight leading-none mb-1 font-sans">
                 23+
@@ -503,7 +505,7 @@ export const AppDevelopmentConsultingService = () => {
               </div>
             </div>
 
-            {/* Box 2: Mint Green (250+ 5-Star Clutch Reviews) */}
+            {/* Box 2: Mint Green */}
             <div className="bg-[#A3E8D2] rounded-[18px] p-6 text-center flex flex-col justify-center items-center shadow-xs">
               <div className="text-[36px] sm:text-[40px] font-[900] text-slate-900 tracking-tight leading-none mb-1 font-sans">
                 250+
@@ -513,7 +515,7 @@ export const AppDevelopmentConsultingService = () => {
               </div>
             </div>
 
-            {/* Box 3: Peach/Coral (2800+ Satisfied Clients) */}
+            {/* Box 3: Peach/Coral */}
             <div className="bg-[#FFBCB0] rounded-[18px] p-6 text-center flex flex-col justify-center items-center shadow-xs">
               <div className="text-[36px] sm:text-[40px] font-[900] text-slate-900 tracking-tight leading-none mb-1 font-sans">
                 2800+
@@ -523,7 +525,7 @@ export const AppDevelopmentConsultingService = () => {
               </div>
             </div>
 
-            {/* Box 4: Deep Blue (Want to start Projects -> Get Estimation) */}
+            {/* Box 4: Deep Blue */}
             <div className="bg-[#005E82] rounded-[18px] p-6 text-center flex flex-col justify-center items-center shadow-md">
               <div className="text-[18px] sm:text-[19px] font-[800] text-white tracking-tight leading-tight mb-3 font-sans">
                 Want to start Projects
@@ -540,23 +542,23 @@ export const AppDevelopmentConsultingService = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* 8. EXPERTISE IN OUR APP DEVELOPMENT CONSULTING (IMAGE 1) */}
+      {/* 8. EXPERTISE IN OUR AI CONSULTING */}
       {/* ========================================================================= */}
       <section className="py-16 lg:py-20 bg-[#F4F9FD] text-slate-900 font-sans text-left relative overflow-hidden border-b border-slate-100">
         <Container>
           {/* Section Heading & Subtitle */}
           <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-12 space-y-2 px-4">
             <h2 className="text-2xl sm:text-3xl md:text-[34px] lg:text-[38px] font-[800] text-[#0B0F19] tracking-tight leading-tight">
-              Expertise In Our App Development Consulting
+              Expertise In Our AI Consulting
             </h2>
             <p className="text-xs sm:text-sm md:text-[15px] text-[#475569] font-normal max-w-2xl mx-auto">
-              As a Leading Mobile App Consulting Company, we have years of experience in this field. Our expertise include:
+              As a Leading AI Consulting Company, we have years of experience in this field. Our expertise include:
             </p>
           </div>
 
           {/* 6 White Cards in 3x2 Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-[1240px] mx-auto mb-10">
-            {appExpertiseCards.map((card, idx) => (
+            {aiExpertiseCards.map((card, idx) => (
               <div
                 key={idx}
                 className="bg-white rounded-[16px] p-7 text-slate-900 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col justify-between text-left border border-slate-100"
@@ -576,7 +578,7 @@ export const AppDevelopmentConsultingService = () => {
             ))}
           </div>
 
-          {/* Centered Button (Get A Free Quote For Your Project) */}
+          {/* Centered Button */}
           <div className="text-center">
             <a
               href="#consultation-form"
@@ -589,28 +591,28 @@ export const AppDevelopmentConsultingService = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* 13. PROUD TO HAVE PICKED THESE UP ALONG THE WAY (IMAGE 2) */}
+      {/* 9. PROUD TO HAVE PICKED THESE UP ALONG THE WAY */}
       {/* ========================================================================= */}
       <TrustRecognitionBanner />
 
       {/* ========================================================================= */}
-      {/* 14. BENEFITS OF APP DEVELOPMENT CONSULTING SERVICES (IMAGE 3) */}
+      {/* 10. BENEFITS OF AI CONSULTING SERVICES */}
       {/* ========================================================================= */}
       <section className="py-16 lg:py-20 bg-[#F4F9FD] text-slate-900 font-sans text-left relative overflow-hidden border-b border-slate-100">
         <Container>
           {/* Section Heading & Subtitle */}
           <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-12 space-y-2 px-4">
             <h2 className="text-2xl sm:text-3xl md:text-[34px] lg:text-[38px] font-[800] text-[#0B0F19] tracking-tight leading-tight">
-              Benefits of App Development Consulting Services
+              Benefits of AI Consulting Services
             </h2>
             <p className="text-xs sm:text-sm md:text-[15px] text-[#475569] font-normal max-w-3xl mx-auto">
-              Our App Development Consulting Services help companies develop their app concepts and succeed in the digital age. Benefits of app development consulting:
+              Our AI Consulting Services help companies formulate their data strategy and succeed in the intelligent automation era. Benefits of AI consulting:
             </p>
           </div>
 
           {/* 6 White Cards in 3x2 Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-[1240px] mx-auto">
-            {appBenefitsData.map((card, idx) => (
+            {aiBenefitsData.map((card, idx) => (
               <div
                 key={idx}
                 className="bg-white rounded-[16px] p-7 text-slate-900 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col justify-start text-left border border-slate-100"
@@ -631,76 +633,74 @@ export const AppDevelopmentConsultingService = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* 15. BUSINESS FRIENDLY HIRING MODELS (IMAGE 4) */}
+      {/* 11. BUSINESS FRIENDLY HIRING MODELS */}
       {/* ========================================================================= */}
       <AndroidHiringModels />
 
       {/* ========================================================================= */}
-      {/* 16. UNVEILING OUR INNOVATIVE SOLUTION (IMAGE 5) */}
+      {/* 12. UNVEILING OUR INNOVATIVE SOLUTION */}
       {/* ========================================================================= */}
       <InnovativeVideoSlider />
 
       {/* ========================================================================= */}
-      {/* 17. PROCESS WE FOLLOW (SCREENSHOT 1) */}
+      {/* 13. PROCESS WE FOLLOW */}
       {/* ========================================================================= */}
       <ProcessWeFollow />
 
       {/* ========================================================================= */}
-      {/* 18. OUR STORY, THEIR WORDS (SCREENSHOT 2) */}
+      {/* 14. OUR STORY, THEIR WORDS */}
       {/* ========================================================================= */}
       <VideoTestimonialsStory />
 
       {/* ========================================================================= */}
-      {/* 19. TRUSTED BY THE WORLD'S LEADING BRANDS (SCREENSHOT 3) */}
+      {/* 15. TRUSTED BY THE WORLD'S LEADING BRANDS */}
       {/* ========================================================================= */}
       <TrustedBrandsGrid />
 
       {/* ========================================================================= */}
-      {/* 20. SUCCESS MATRIX (SCREENSHOT 4) */}
+      {/* 16. SUCCESS MATRIX */}
       {/* ========================================================================= */}
       <SuccessMatrix />
 
       {/* ========================================================================= */}
-      {/* 21. TECHNOLOGY STACK (SCREENSHOT 5) */}
+      {/* 17. TECHNOLOGY STACK */}
       {/* ========================================================================= */}
-      <SapphireTechStackGrid domainName="App development consulting" />
+      <SapphireTechStackGrid domainName="AI consulting" />
 
       {/* ========================================================================= */}
-      {/* 22. WE HAVE BEEN FEATURED IN (SCREENSHOT 1) */}
+      {/* 18. WE HAVE BEEN FEATURED IN */}
       {/* ========================================================================= */}
       <FeaturedInBrandsSection />
 
       {/* ========================================================================= */}
-      {/* 23. DIGITAL TRANSFORMATION THROUGH INNOVATION (SCREENSHOT 2) */}
+      {/* 19. DIGITAL TRANSFORMATION THROUGH INNOVATION */}
       {/* ========================================================================= */}
       <DigitalTransformationSlider />
 
       {/* ========================================================================= */}
-      {/* 24. FREQUENTLY ASKED QUESTIONS (SCREENSHOT 3) */}
+      {/* 20. FREQUENTLY ASKED QUESTIONS */}
       {/* ========================================================================= */}
       <SapphireFaqSection
-        faqList={appConsultingFaqList}
+        faqList={aiFaqList}
         title="Frequently Asked Questions"
-        subtitle="We listen to query and provide solutions that captivate users. Feel free to contact us in case of any query which is not mention below."
+        subtitle="We listen to queries and provide architectures that empower scalable growth. Feel free to contact us in case of any query not mentioned below."
       />
 
       {/* ========================================================================= */}
-      {/* 25. OUR RECENT BLOGS (SCREENSHOT 4) */}
+      {/* 21. OUR RECENT BLOGS */}
       {/* ========================================================================= */}
       <AppDevelopmentRecentBlogsSection />
 
       {/* ========================================================================= */}
-      {/* 26. WHAT SETS US APART AS APP DEVELOPMENT CONSULTING? (SCREENSHOT 5) */}
+      {/* 22. WHAT SETS US APART AS AI CONSULTING */}
       {/* ========================================================================= */}
       <WhatSetsUsApartSection
-        title="What Sets Us Apart As App Development Consulting?"
-        subtitle="Being unique is our quality! Sapphire Solutions believe in the things that give us an edge over our competitors. We are renowned software and mobile application development organization serving customers with end-to-end support. Our Idealization, feasibility assessment of the entire software development process stands us one level up the competitors."
+        title="What Sets Us Apart As AI Consulting?"
+        subtitle="Being unique is our quality! Sapphire Solutions believe in the things that give us an edge over our competitors. We are renowned software and artificial intelligence organization serving customers with end-to-end support. Our Idealization, feasibility assessment of the entire machine learning process stands us one level up the competitors."
       />
 
-
-
       {/* ========================================================================= */}
-      {/* 27. GET ACCESS TO TOP APP DEVELOPMENT CONSULTING (CTA BANNER) */}
+      {/* 23. GET ACCESS TO TOP AI CONSULTING (CTA BANNER) */}
       {/* ========================================================================= */}
       <section className="relative w-full max-w-full py-9 sm:py-11 bg-[#005D95] text-white text-center font-sans overflow-hidden border-b border-slate-200">
         {/* Background Floating Geometric Circle & Square Overlay Graphics */}
@@ -713,7 +713,7 @@ export const AppDevelopmentConsultingService = () => {
 
         <div className="relative z-10 w-full max-w-5xl px-4 mx-auto text-center space-y-4">
           <p className="text-base sm:text-lg lg:text-[20px] font-[600] text-white leading-relaxed">
-            Get access to top App development consulting to transform your ideas into a robust application.
+            Get access to top AI consulting to transform your enterprise data into intelligent automated workflows.
           </p>
           <div>
             <a
@@ -727,11 +727,11 @@ export const AppDevelopmentConsultingService = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* 28. SUBSCRIBE US AND GET THE LATEST UPDATES AND NEWS */}
+      {/* 24. SUBSCRIBE US AND GET THE LATEST UPDATES AND NEWS */}
       {/* ========================================================================= */}
       <NewsletterSubscribeBanner />
     </div>
   );
 };
 
-export default AppDevelopmentConsultingService;
+export default AiConsultingServices;

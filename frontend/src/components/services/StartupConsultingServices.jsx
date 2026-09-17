@@ -37,22 +37,23 @@ import {
   Lock,
   Cpu,
   RefreshCw,
+  BarChart3,
+  Globe,
+  Rocket,
   Compass,
-  Award,
-  Users,
   DollarSign,
   TrendingUp,
-  BarChart3,
-  Globe
+  Award,
+  Users
 } from 'lucide-react';
 
-export const AppDevelopmentConsultingService = () => {
+export const StartupConsultingServices = () => {
 
-  // 1. Expertise In Our App Development Consulting (6 cards matching Image 1)
-  const appExpertiseCards = [
+  // 1. Expertise In Our Startup Consulting Services (6 cards in 3x2 grid with pastel badges)
+  const startupExpertiseCards = [
     {
-      title: 'MVP',
-      desc: 'Consult with our industry professionals on the viability of your Mobile App Development Services in light of the most recent market and technological developments so that you may create a feature-rich minimum viable product version.',
+      title: 'Idea Validation & MVP Scoping',
+      desc: 'Consult with seasoned tech startup strategists to evaluate market feasibility, target demographics, and unit economics before defining a lean, laser-focused Minimum Viable Product (MVP).',
       bg: 'bg-[#F3E8FF]',
       icon: (
         <svg className="w-6 h-6 text-[#9333EA]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -66,8 +67,8 @@ export const AppDevelopmentConsultingService = () => {
       )
     },
     {
-      title: 'Competitor Analysis',
-      desc: 'To establish a product design and development strategy that is pertinent and realistic, we do a parameterized investigation of all of the essential traits shared by your primary rivals.',
+      title: 'Competitor & Market Landscape',
+      desc: 'Gain unmatched tactical intelligence with granular benchmarking of established incumbents, niche contenders, revenue models, and underserved user pain points.',
       bg: 'bg-[#DCFCE7]',
       icon: (
         <svg className="w-6 h-6 text-[#16A34A]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -79,8 +80,8 @@ export const AppDevelopmentConsultingService = () => {
       )
     },
     {
-      title: 'Technology Stack',
-      desc: 'After we have gathered all of the criteria for the project, our app development specialists will assist you in selecting the technological stack that is both the most suitable and resourceful, ensuring the highest possible level of product effectiveness.',
+      title: 'Scalable Architecture & Tech Stack',
+      desc: 'Select the optimal programming languages, cloud providers (AWS, GCP, Azure), database schemas, and microservices frameworks engineered for rapid growth without premature optimization.',
       bg: 'bg-[#FFEDD5]',
       icon: (
         <svg className="w-6 h-6 text-[#EA580C]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -91,43 +92,44 @@ export const AppDevelopmentConsultingService = () => {
       )
     },
     {
-      title: 'Ecosystem Integration',
-      desc: 'We assist companies in the incorporation of safe and reliable third-party APIs, legacy enterprise software, payment gateways, and device peripherals into their mobile architectures.',
+      title: 'Fractional CTO & Tech Due Diligence',
+      desc: 'Empower non-technical founders with fractional CTO leadership, technical roadmap governance, investor pitch deck preparation, code auditing, and investor due-diligence readiness.',
       bg: 'bg-[#FEF9C3]',
       icon: (
         <svg className="w-6 h-6 text-[#CA8A04]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M19.439 7.85c-.049-.322.059-.648.289-.878l1.568-1.568a1.5 1.5 0 0 0-2.121-2.121l-1.568 1.568a1.002 1.002 0 0 1-.878.29c-.792-.12-1.637-.12-2.428 0a1.002 1.002 0 0 1-.878-.29L11.854 3.28a1.5 1.5 0 0 0-2.121 2.121l1.568 1.568c.23.23.338.556.29.878-.12.791-.12 1.636 0 2.428a1.002 1.002 0 0 1-.29.878l-1.568 1.568a1.5 1.5 0 0 0 2.121 2.121l1.568-1.568c.23-.23.556-.338.878-.29.791.12 1.636.12 2.428 0 .322-.049.648.059.878.289l1.568 1.568a1.5 1.5 0 0 0 2.121-2.121l-1.568-1.568a1.002 1.002 0 0 1-.289-.878c.12-.792.12-1.637 0-2.428z" />
+          <circle cx="12" cy="12" r="10" />
+          <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
         </svg>
       )
     },
     {
-      title: 'Post-Delivery Support',
-      desc: 'Your post-delivery project needs will be visualized by an innovative team of mobile maintenance professionals ensuring high availability, continuous OS upgrades, and security patching.',
+      title: 'Product-Market Fit & Agile Sprints',
+      desc: 'Transition smoothly from initial prototype to continuous iteration through rapid 2-week agile sprints, real-time analytics instrumentation, and direct user feedback telemetry.',
       bg: 'bg-[#FCE7F3]',
       icon: (
         <svg className="w-6 h-6 text-[#DB2777]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+          <path d="M12 2v20" />
+          <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
         </svg>
       )
     },
     {
-      title: 'Testing',
-      desc: 'Using a testing strategy that is more focused on experience, our app testing specialists execute comprehensive functional, regression, UI/UX, security, and automated performance testing.',
+      title: 'Cost Optimization & Runway Management',
+      desc: 'Maximize engineering runway with lean cloud budgeting, efficient third-party API licensing, and automated DevOps infrastructure that scales dynamically with active user volume.',
       bg: 'bg-[#E0F2FE]',
       icon: (
         <svg className="w-6 h-6 text-[#0284C7]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M9 11l3 3L22 4" />
-          <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+          <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
         </svg>
       )
     }
   ];
 
-  // 4. Benefits of App Development Consulting Services (6 cards matching Image 3)
-  const appBenefitsData = [
+  // 2. Benefits of Startup Consulting Services (6 cards in 3x2 grid matching theme)
+  const startupBenefitsData = [
     {
       title: 'Strategy and Roadmap',
-      desc: 'We collaborate with you to create an app development strategy that meets your company goals. Our consultants utilize industry trends, customer demands, and competitor offers to design a roadmap for development from idea to launch and beyond.',
+      desc: 'We collaborate with founders to construct an actionable tech roadmap aligned with fundraising milestones, risk mitigation, and go-to-market priorities from concept to series funding.',
       icon: (
         <svg className="w-8 h-8 text-[#0284C7]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M3 3v18h18" />
@@ -136,8 +138,8 @@ export const AppDevelopmentConsultingService = () => {
       )
     },
     {
-      title: 'Tech Choice and Architecture Design',
-      desc: 'Choosing the correct technology stack and architecture is critical for app success. Our App Development Consulting Services help you choose the best technologies and create a scalable and efficient architecture for your app’s needs and growth.',
+      title: 'De-Risked Capital & Lean Runway',
+      desc: 'Avoid the #1 startup failure mode of building features nobody wants. Our lean consulting frameworks prioritize high-conviction product experiments that validate demand while preserving cash.',
       icon: (
         <svg className="w-8 h-8 text-[#0284C7]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <rect width="18" height="18" x="3" y="3" rx="2" />
@@ -147,8 +149,8 @@ export const AppDevelopmentConsultingService = () => {
       )
     },
     {
-      title: 'Designing User Experience and Interface',
-      desc: 'App success depends on UX and interface design. Our experts design intuitive, engaging, and usable interfaces that please users. We study users, produce wireframes and prototypes, and refine designs to make your app great.',
+      title: 'Human-Centered UI/UX Prototyping',
+      desc: 'Drive rapid early adopter signups and high retention with clickable Figma wireframes and conversion-engineered interfaces designed to delight users and impress angel investors.',
       icon: (
         <svg className="w-8 h-8 text-[#0284C7]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
@@ -159,8 +161,8 @@ export const AppDevelopmentConsultingService = () => {
       )
     },
     {
-      title: 'Agile Development Methodologies',
-      desc: 'Our Agile consulting methodologies foster rapid, iterative development sprints, transparent stakeholder feedback loops, and continuous delivery, minimizing risks and accelerating time-to-market.',
+      title: 'Rapid 8-12 Week MVP Delivery',
+      desc: 'Leverage pre-architected cloud microservices, authentication libraries, and payment rails to build and launch production-grade minimum viable products in record time.',
       icon: (
         <svg className="w-8 h-8 text-[#0284C7]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" />
@@ -170,8 +172,8 @@ export const AppDevelopmentConsultingService = () => {
       )
     },
     {
-      title: 'Testing and QA',
-      desc: 'Our dedicated quality assurance engineers perform end-to-end automated and manual testing across real Android and iOS devices, identifying critical vulnerabilities, memory leaks, and performance bottlenecks before release.',
+      title: 'Investor-Ready Tech Due Diligence',
+      desc: 'Instill complete confidence in venture capitalists and angel networks with pristine documentation, robust IP ownership frameworks, OWASP security compliance, and clean code.',
       icon: (
         <svg className="w-8 h-8 text-[#0284C7]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <rect width="20" height="14" x="2" y="3" rx="2" />
@@ -182,8 +184,8 @@ export const AppDevelopmentConsultingService = () => {
       )
     },
     {
-      title: 'Optimization and Launch Strategy for App Store',
-      desc: 'We assist you with comprehensive App Store Optimization (ASO), metadata refinement, compliance guidelines auditing, and coordinated launch roadmaps to maximize organic visibility and downloads across Google Play and Apple App Store.',
+      title: 'Scalable Growth & Cloud Architecture',
+      desc: 'Ensure your application effortlessly scales from its first 100 beta users to millions of global requests with zero latency degradations, automated containerization, and auto-scaling.',
       icon: (
         <svg className="w-8 h-8 text-[#0284C7]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="m4.5 16.5-1.5 1.5 3 3 1.5-1.5" />
@@ -195,45 +197,45 @@ export const AppDevelopmentConsultingService = () => {
     }
   ];
 
-  // 5. FAQ List tailored specifically for Mobile App Development Consulting
-  const appConsultingFaqList = [
+  // 3. FAQ List tailored specifically for Startup Consulting Services
+  const startupConsultingFaqList = [
     {
       id: 1,
-      question: 'Why should businesses hire a mobile app development consultant before building?',
-      answer: 'Mobile app consulting de-risks your investment by validating market feasibility, defining an optimal tech stack, architecting scalable backend systems, and establishing an accurate budget and roadmap before costly development begins.'
+      question: 'Why should early-stage founders engage a startup tech consultant before hiring developers?',
+      answer: 'A startup tech consultant prevents costly architectural blunders and premature hiring. We validate product feasibility, scope a lean MVP, select a cost-effective cloud stack, and protect your precious pre-seed and seed runway.'
     },
     {
       id: 2,
-      question: 'How do your consultants help choose between Native and Cross-Platform development?',
-      answer: 'We analyze your required device integrations, performance needs, launch timeline, and budget. If your app requires heavy hardware access or intensive 3D/AR graphics, we recommend Native (Swift/Kotlin). For faster time-to-market and shared codebases, we evaluate Flutter or React Native.'
+      question: 'How fast can you help our startup build and launch a functional MVP?',
+      answer: 'Our average timeline for scoping, designing, and launching a market-ready Minimum Viable Product ranges from 8 to 12 weeks, depending on core feature complexity and third-party integrations.'
     },
     {
       id: 3,
-      question: 'How do app consultants ensure mobile application security and compliance?',
-      answer: 'We perform end-to-end security audits following OWASP Mobile Security standards, verify API authentication tokens, secure local data storage, and ensure full compliance with GDPR, HIPAA, and PCI-DSS requirements.'
+      question: 'Can you serve as our Fractional CTO during investor pitches and technical diligence?',
+      answer: 'Yes. We frequently act as fractional CTOs for non-technical founders, presenting product architecture, data security standards, scalability roadmaps, and answering technical inquiries from angel investors and VCs.'
     },
     {
       id: 4,
-      question: 'Can you assess and modernize our existing, underperforming mobile app?',
-      answer: 'Yes. We conduct complete code audits, latency and crash diagnostics, UI/UX usability assessments, and formulate step-by-step refactoring roadmaps to elevate app performance and user retention.'
+      question: 'How do you ensure full Intellectual Property (IP) ownership for our startup?',
+      answer: 'All source code, design files, documentation, and cloud assets created during our engagement are 100% owned by your startup under comprehensive intellectual property assignment and strict Non-Disclosure Agreements (NDAs).'
     },
     {
       id: 5,
-      question: 'What deliverables will we receive from a mobile app consulting engagement?',
-      answer: 'Deliverables include a Product Requirement Document (PRD), Architecture Blueprint, Wireframes and Clickable Prototypes, Tech Stack Recommendations, Security & Compliance Audit, and a Phased Development Roadmap.'
+      question: 'What engagement models work best for bootstrapped or seed-funded startups?',
+      answer: 'We offer flexible fixed-price MVP sprints, agile sprint retainers, and dedicated developer pods that allow you to scale team velocity up or down based on your current funding round and milestone needs.'
     }
   ];
 
   return (
     <div className="bg-white min-h-screen text-slate-800 font-sans selection:bg-[#005F96] selection:text-white">
       <SEO
-        title="App Development Consulting Services | Mobile App Strategy | Firevy.co"
-        description="Accelerate your mobile product journey with Firevy's App Development Consulting Services. Native iOS, Android, Flutter, React Native, UI/UX audits, and scalable cloud architecture."
-        keywords="app development consulting, mobile app consulting, mobile app strategy, iOS consulting, Android consulting, Flutter consulting, React Native advisory, mobile product roadmap"
+        title="Startup Consulting Services | MVP, Tech Strategy & Scale | Firevy.co"
+        description="Accelerate your startup journey with Firevy's Startup Consulting Services. Ideation, rapid MVP development, scalable cloud architecture, pitch deck tech due diligence, and go-to-market execution."
+        keywords="startup consulting services, startup tech consulting, MVP development consulting, fractional CTO services, startup advisory, lean startup consulting, tech due diligence for startups"
       />
 
       {/* ========================================================================= */}
-      {/* 1. HERO SECTION (EXACT 1:1 REFERENCE IMAGE 1) */}
+      {/* 1. HERO SECTION */}
       {/* ========================================================================= */}
       <section className="relative overflow-hidden bg-[#F2F7FA] py-14 sm:py-16 lg:py-20 border-b border-slate-200/60">
         <Container>
@@ -243,13 +245,13 @@ export const AppDevelopmentConsultingService = () => {
               <h1
                 className="text-slate-900 tracking-tight font-extrabold text-3xl sm:text-4xl lg:text-[42px] leading-[1.2]"
               >
-                App Development Consulting Services in USA
+                Startup Consulting Services in USA
               </h1>
 
               <p
                 className="text-slate-600 max-w-xl text-sm sm:text-base leading-relaxed font-normal"
               >
-                Our app development consulting is geared toward the business needs of startups, small and medium-sized businesses, and large, well-established Best app consultants for startups companies.
+                Our startup consulting is geared toward the business needs of pre-seed, early-stage, and venture-backed founders to validate product concepts, engineer resilient MVPs, and scale sustainable tech foundations for hyper-growth.
               </p>
 
               {/* CTA Button */}
@@ -258,18 +260,18 @@ export const AppDevelopmentConsultingService = () => {
                   href="#consultation-form"
                   className="inline-flex items-center justify-center px-7 py-3.5 rounded-lg bg-[#005F96] text-white font-bold text-sm sm:text-base hover:bg-[#004A75] transition-all shadow-md hover:shadow-lg transform active:scale-95 group"
                 >
-                  <span>Discuss Your Project</span>
+                  <span>Discuss Your Startup Project</span>
                   <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                 </a>
               </div>
             </div>
 
-            {/* Right Hero Meeting Vector Illustration (Exact 1:1 Image_1.svg from reference) */}
+            {/* Right Hero Meeting Vector Illustration */}
             <div className="lg:col-span-6 flex justify-center items-center">
               <div className="w-full max-w-[580px] flex justify-center">
                 <img
                   src="/images/sapphire_mobile_app_development_company_in_usa/Image_1.svg"
-                  alt="App Development Consulting Services Team"
+                  alt="Startup Consulting Services Team"
                   className="w-full h-auto object-contain max-h-[360px]"
                 />
               </div>
@@ -288,32 +290,36 @@ export const AppDevelopmentConsultingService = () => {
       </div>
 
       {/* ========================================================================= */}
-      {/* 2. LEADING MOBILE APP DEVELOPMENT CONSULTING COMPANY (EXACT 1:1 REFERENCE) */}
+      {/* 2. LEADING STARTUP CONSULTING COMPANY SECTION */}
       {/* ========================================================================= */}
       <section className="py-16 lg:py-24 bg-white">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-            {/* Left Graphic: Mobile wireframe with developers */}
+            {/* Left Graphic */}
             <div className="lg:col-span-6 flex justify-center items-center">
               <div className="w-full max-w-[560px] flex justify-center">
                 <img
                   src="/images/leading_mobile_app_consulting.jpg"
-                  alt="Leading Mobile App Development Consulting Team"
+                  alt="Leading Startup Product & Technology Consulting Company"
                   className="w-full h-auto object-contain"
                 />
               </div>
             </div>
 
-            {/* Right Copy matching reference Image 1 */}
+            {/* Right Copy */}
             <div className="lg:col-span-6 space-y-6 text-left">
               <h2 className="text-3xl sm:text-4xl lg:text-[40px] xl:text-[44px] font-extrabold text-slate-900 tracking-tight leading-[1.2]">
-                Leading Mobile App <br />
-                Development Consulting <br />
+                Leading Startup Product & <br />
+                Technology Consulting <br />
                 Company
               </h2>
 
               <p className="text-slate-600 text-[14.5px] sm:text-[15.5px] leading-[1.75] font-normal">
-                Our App strategy and consulting firm use their knowledge of the latest industry trends and technology to provide recommendations for app solutions that are likely to result in the most favorable outcomes for <strong className="text-[#005F96] font-semibold">best android app development company</strong> in the context of competitive growth. All industry practices are included in the finished items that we create. To provide Enterprise App Development Consulting Services with a primary emphasis on conversion and success, we go the additional mile while analyzing your target market, company competitors, user personas, and a great deal more should you choose to use our consulting services.
+                Our startup strategy and technology advisory firm combines deep domain knowledge, agile engineering, and venture-building frameworks to help ambitious founders build market-defining digital products. We work alongside founders from the earliest napkin sketch through series funding rounds, conducting rigorous customer persona analysis, unit economic modeling, and technical feasibility audits.
+              </p>
+
+              <p className="text-slate-600 text-[14.5px] sm:text-[15.5px] leading-[1.75] font-normal">
+                To provide Enterprise Startup Development Consulting Services with a primary emphasis on traction and scalability, we go the extra mile while analyzing your competitive moat, monetization models, and go-to-market channels so you can pitch with unshakeable conviction.
               </p>
             </div>
           </div>
@@ -321,33 +327,33 @@ export const AppDevelopmentConsultingService = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* 3. BRIEF ABOUT BEST APP CONSULTANTS FOR STARTUPS (IMAGE 1) */}
+      {/* 3. BRIEF ABOUT BEST STARTUP CONSULTANTS */}
       {/* ========================================================================= */}
       <section className="py-16 lg:py-24 bg-white">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-            {/* Left Copy matching Image 1 */}
+            {/* Left Copy */}
             <div className="lg:col-span-6 space-y-6 text-left">
               <h2 className="text-3xl sm:text-4xl lg:text-[40px] xl:text-[44px] font-extrabold text-slate-900 tracking-tight leading-[1.2]">
-                Brief About Best App <br />
+                Brief About Best Tech <br />
                 Consultants For Startups
               </h2>
 
               <p className="text-slate-600 text-[14.5px] sm:text-[15.5px] leading-[1.75] font-normal">
-                Our mobile app development consultants use the appropriate technologies to analyze the audience in-depth, taking into account their routines, geographic location, preferences, age, employment, and other factors.
+                Our startup tech consultants use lean startup principles and rapid validation sprints to test hypotheses before committing substantial development capital, taking into account user behaviors, viral distribution loops, and retention drivers.
               </p>
 
               <p className="text-slate-600 text-[14.5px] sm:text-[15.5px] leading-[1.75] font-normal">
-                As an Affordable App Development and Consulting Agency, we plan a user-first interface and user experience (UI and UX) for your solution optimized for increased user engagement.
+                As an Affordable Startup Advisory and Engineering Agency, we plan a user-first interface and experience (UI and UX) optimized for rapid customer acquisition, high conversion, and organic word-of-mouth growth.
               </p>
             </div>
 
-            {/* Right Graphic: Woman looking at floating mobile wireframes */}
+            {/* Right Graphic */}
             <div className="lg:col-span-6 flex justify-center items-center">
               <div className="w-full max-w-[560px] flex justify-center">
                 <img
                   src="/images/brief_app_consultants.jpg"
-                  alt="Brief About Best App Consultants For Startups"
+                  alt="Brief About Best Tech Consultants For Startups"
                   className="w-full h-auto object-contain"
                 />
               </div>
@@ -357,19 +363,19 @@ export const AppDevelopmentConsultingService = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* 4. CLUTCH TOP-RATED BANNER (IMAGE 2 TOP) */}
+      {/* 4. CLUTCH TOP-RATED BANNER */}
       {/* ========================================================================= */}
       <ClutchTopRatedBanner />
 
       {/* ========================================================================= */}
-      {/* 5. GET 100% CUSTOMIZABLE APP DEVELOPMENT CONSULTING EXPERTS (IMAGE 2) */}
+      {/* 5. GET 100% CUSTOMIZABLE STARTUP CONSULTING EXPERTS */}
       {/* ========================================================================= */}
       <section className="py-16 lg:py-20 bg-white text-slate-900 font-sans text-left border-b border-slate-100">
         <Container>
           {/* Centered H2 Title */}
           <div className="text-center w-full max-w-5xl mx-auto mb-10 sm:mb-14">
             <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-[900] text-[#0F172A] tracking-tight leading-tight">
-              Get 100% Customizable App Development Consulting Experts
+              Get 100% Customizable Startup Development Consulting Experts
             </h2>
           </div>
 
@@ -396,18 +402,18 @@ export const AppDevelopmentConsultingService = () => {
 
               {/* Heading Inside Card */}
               <h3 className="text-[24px] sm:text-[27px] lg:text-[29px] font-[900] text-[#005F96] tracking-tight leading-[1.3] relative z-10">
-                Research, Suggest, And Implement Improvements
+                Validate, Architect, And Accelerate Go-To-Market
               </h3>
             </div>
 
-            {/* Right Column: Paragraph Content (Exact 1:1 Match from screenshot) */}
+            {/* Right Column: Paragraph Content */}
             <div className="lg:col-span-8 space-y-4 text-left flex flex-col justify-center">
               <p className="text-[14px] sm:text-[15px] text-[#475569] leading-[1.8] font-normal">
-                Even if you have an excellent concept for an app, it alone will not guarantee that the app will be successful unless you also have a solid digital strategy and a roadmap. When assessing <strong className="text-[#005F96] font-semibold">ios iphone app development</strong> concepts and deciding on revenue models, you need the direction and assistance of an expert Best App Development Consulting Company to avoid potential traps. Our Mobile App Consulting Services assist customers in determining whether or not their proposal is viable, developing a plan, and outlining the likely compliances, in addition to selecting the appropriate technology stacks, processes, and trends to achieve the desired outcomes.
+                Even if you have an innovative concept for a digital startup, product brilliance alone will not guarantee market success without a solid technical roadmap and scalable execution. When architecting <strong className="text-[#005F96] font-semibold">venture-scale SaaS and mobile applications</strong>, founders need the seasoned guidance of an expert Startup Consulting Partner to avoid costly rewrites and premature architectural lock-ins.
               </p>
 
               <p className="text-[14px] sm:text-[15px] text-[#475569] leading-[1.8] font-normal">
-                Utilize the software development and consulting services we provide for the web, Android, or iOS to identify potential problems, discover solutions to those problems, and formulate a mobile strategy to ensure the success of your app. If you want the most benefits from your concept, you should hire app development consultant for business through our Mobile Application Development Consulting Services, regardless of whether you run a startup or an enterprise firm. Our Mobile App Development Consulting Company will assist you in determining your target audience, budget, and various strategies for developing your mobile app.
+                Utilize our startup consulting services for web, cloud, and cross-platform mobile to identify potential engineering bottlenecks, formulate lean product sprints, and extend your cash runway. If you want maximum returns on your seed capital, partnering with our Startup Development Consultants gives you the strategic firepower of a high-tier Silicon Valley engineering team at an accessible cost structure.
               </p>
             </div>
           </div>
@@ -415,12 +421,12 @@ export const AppDevelopmentConsultingService = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* 6. OUR PREMIUM SERVICES (IMAGE 3) */}
+      {/* 6. OUR PREMIUM SERVICES */}
       {/* ========================================================================= */}
-      <PremiumServicesGrid companyName="Sapphire" />
+      <PremiumServicesGrid companyName="Firevy" />
 
       {/* ========================================================================= */}
-      {/* 7. SUCCESS STORIES + 4 STAT BOXES (IMAGES 4 & 5) */}
+      {/* 7. SUCCESS STORIES + 4 STAT BOXES */}
       {/* ========================================================================= */}
       <section className="py-20 bg-[#DDF1FB] text-center font-sans border-t border-cyan-100">
         <Container>
@@ -429,7 +435,7 @@ export const AppDevelopmentConsultingService = () => {
               Success Stories
             </h2>
             <p className="text-[15px] sm:text-[16px] font-[400] text-slate-700 leading-relaxed font-sans">
-              Know Sapphire journey from concept to success. Explore how we've brought ideas to life and achieved remarkable results for our clients.
+              Discover Firevy's journey from early MVP to venture scale. Explore how we've helped startup founders raise millions and achieve remarkable market traction.
             </p>
           </div>
 
@@ -443,12 +449,12 @@ export const AppDevelopmentConsultingService = () => {
                 </div>
                 <img
                   src="/images/adani.webp"
-                  alt="Healthcare Mobile App Development Company"
+                  alt="FinTech MVP & Regulatory Compliance Engine"
                   className="w-full h-[220px] object-cover rounded-[14px]"
                 />
               </div>
               <h3 className="text-[16px] font-[800] text-slate-900 mt-4 font-sans text-left">
-                Healthcare Mobile App Development Company
+                FinTech MVP & Regulatory Compliance Engine
               </h3>
             </div>
 
@@ -457,12 +463,12 @@ export const AppDevelopmentConsultingService = () => {
               <div className="rounded-[20px] overflow-hidden bg-white shadow-sm border border-slate-200/80 p-2 group-hover:shadow-md transition-all">
                 <img
                   src="/images/federal_forecasting_app.jpg"
-                  alt="Federal Forecasting App"
+                  alt="AI-Driven B2B SaaS Workflow Platform"
                   className="w-full h-[220px] object-cover rounded-[14px]"
                 />
               </div>
               <h3 className="text-[16px] font-[800] text-slate-900 mt-4 font-sans text-left">
-                Federal Forecasting App
+                AI-Driven B2B SaaS Workflow Platform
               </h3>
             </div>
 
@@ -471,12 +477,12 @@ export const AppDevelopmentConsultingService = () => {
               <div className="rounded-[20px] overflow-hidden bg-white shadow-sm border border-slate-200/80 p-2 group-hover:shadow-md transition-all">
                 <img
                   src="/images/stress_management_app.jpg"
-                  alt="Stress Management App"
+                  alt="HealthTech Telehealth & Patient Portal App"
                   className="w-full h-[220px] object-cover rounded-[14px]"
                 />
               </div>
               <h3 className="text-[16px] font-[800] text-slate-900 mt-4 font-sans text-left">
-                Stress Management App
+                HealthTech Telehealth & Patient Portal App
               </h3>
             </div>
           </div>
@@ -491,7 +497,7 @@ export const AppDevelopmentConsultingService = () => {
             </Link>
           </div>
 
-          {/* 4 Colorful Highlight Boxes (Purple, Mint Green, Peach, Deep Blue CTA) */}
+          {/* 4 Colorful Highlight Boxes */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {/* Box 1: Purple (23+ Years Experience) */}
             <div className="bg-[#D8C7FF] rounded-[18px] p-6 text-center flex flex-col justify-center items-center shadow-xs">
@@ -540,23 +546,23 @@ export const AppDevelopmentConsultingService = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* 8. EXPERTISE IN OUR APP DEVELOPMENT CONSULTING (IMAGE 1) */}
+      {/* 8. EXPERTISE IN OUR STARTUP CONSULTING (6 CARDS IN 3X2 GRID) */}
       {/* ========================================================================= */}
       <section className="py-16 lg:py-20 bg-[#F4F9FD] text-slate-900 font-sans text-left relative overflow-hidden border-b border-slate-100">
         <Container>
           {/* Section Heading & Subtitle */}
           <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-12 space-y-2 px-4">
             <h2 className="text-2xl sm:text-3xl md:text-[34px] lg:text-[38px] font-[800] text-[#0B0F19] tracking-tight leading-tight">
-              Expertise In Our App Development Consulting
+              Expertise In Our Startup Consulting
             </h2>
             <p className="text-xs sm:text-sm md:text-[15px] text-[#475569] font-normal max-w-2xl mx-auto">
-              As a Leading Mobile App Consulting Company, we have years of experience in this field. Our expertise include:
+              As a Leading Startup Technology Consulting Company, we possess decades of venture engineering experience. Our expertise includes:
             </p>
           </div>
 
           {/* 6 White Cards in 3x2 Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-[1240px] mx-auto mb-10">
-            {appExpertiseCards.map((card, idx) => (
+            {startupExpertiseCards.map((card, idx) => (
               <div
                 key={idx}
                 className="bg-white rounded-[16px] p-7 text-slate-900 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col justify-between text-left border border-slate-100"
@@ -576,41 +582,41 @@ export const AppDevelopmentConsultingService = () => {
             ))}
           </div>
 
-          {/* Centered Button (Get A Free Quote For Your Project) */}
+          {/* Centered Button */}
           <div className="text-center">
             <a
               href="#consultation-form"
               className="inline-flex items-center justify-center px-8 py-3.5 rounded-[6px] bg-[#005F96] hover:bg-[#004A75] text-white font-[700] text-[14.5px] transition-all shadow-md hover:shadow-lg"
             >
-              Get A Free Quote For Your Project
+              Get A Free Quote For Your Startup
             </a>
           </div>
         </Container>
       </section>
 
       {/* ========================================================================= */}
-      {/* 13. PROUD TO HAVE PICKED THESE UP ALONG THE WAY (IMAGE 2) */}
+      {/* 9. PROUD TO HAVE PICKED THESE UP ALONG THE WAY */}
       {/* ========================================================================= */}
       <TrustRecognitionBanner />
 
       {/* ========================================================================= */}
-      {/* 14. BENEFITS OF APP DEVELOPMENT CONSULTING SERVICES (IMAGE 3) */}
+      {/* 10. BENEFITS OF STARTUP CONSULTING SERVICES */}
       {/* ========================================================================= */}
       <section className="py-16 lg:py-20 bg-[#F4F9FD] text-slate-900 font-sans text-left relative overflow-hidden border-b border-slate-100">
         <Container>
           {/* Section Heading & Subtitle */}
           <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-12 space-y-2 px-4">
             <h2 className="text-2xl sm:text-3xl md:text-[34px] lg:text-[38px] font-[800] text-[#0B0F19] tracking-tight leading-tight">
-              Benefits of App Development Consulting Services
+              Benefits of Startup Consulting Services
             </h2>
             <p className="text-xs sm:text-sm md:text-[15px] text-[#475569] font-normal max-w-3xl mx-auto">
-              Our App Development Consulting Services help companies develop their app concepts and succeed in the digital age. Benefits of app development consulting:
+              Our Startup Consulting Services help visionary founders de-risk tech execution and build sustainable competitive advantages. Key benefits include:
             </p>
           </div>
 
           {/* 6 White Cards in 3x2 Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-[1240px] mx-auto">
-            {appBenefitsData.map((card, idx) => (
+            {startupBenefitsData.map((card, idx) => (
               <div
                 key={idx}
                 className="bg-white rounded-[16px] p-7 text-slate-900 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col justify-start text-left border border-slate-100"
@@ -631,76 +637,74 @@ export const AppDevelopmentConsultingService = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* 15. BUSINESS FRIENDLY HIRING MODELS (IMAGE 4) */}
+      {/* 11. BUSINESS FRIENDLY HIRING MODELS */}
       {/* ========================================================================= */}
       <AndroidHiringModels />
 
       {/* ========================================================================= */}
-      {/* 16. UNVEILING OUR INNOVATIVE SOLUTION (IMAGE 5) */}
+      {/* 12. UNVEILING OUR INNOVATIVE SOLUTION */}
       {/* ========================================================================= */}
       <InnovativeVideoSlider />
 
       {/* ========================================================================= */}
-      {/* 17. PROCESS WE FOLLOW (SCREENSHOT 1) */}
+      {/* 14. PROCESS WE FOLLOW */}
       {/* ========================================================================= */}
       <ProcessWeFollow />
 
       {/* ========================================================================= */}
-      {/* 18. OUR STORY, THEIR WORDS (SCREENSHOT 2) */}
+      {/* 15. OUR STORY, THEIR WORDS (EXACT HOME PAGE VIDEO TESTIMONIALS CAROUSEL) */}
       {/* ========================================================================= */}
       <VideoTestimonialsStory />
 
       {/* ========================================================================= */}
-      {/* 19. TRUSTED BY THE WORLD'S LEADING BRANDS (SCREENSHOT 3) */}
+      {/* 16. TRUSTED BY THE WORLD'S LEADING BRANDS */}
       {/* ========================================================================= */}
       <TrustedBrandsGrid />
 
       {/* ========================================================================= */}
-      {/* 20. SUCCESS MATRIX (SCREENSHOT 4) */}
+      {/* 17. SUCCESS MATRIX */}
       {/* ========================================================================= */}
       <SuccessMatrix />
 
       {/* ========================================================================= */}
-      {/* 21. TECHNOLOGY STACK (SCREENSHOT 5) */}
+      {/* 18. TECHNOLOGY STACK */}
       {/* ========================================================================= */}
-      <SapphireTechStackGrid domainName="App development consulting" />
+      <SapphireTechStackGrid domainName="Startup consulting" />
 
       {/* ========================================================================= */}
-      {/* 22. WE HAVE BEEN FEATURED IN (SCREENSHOT 1) */}
+      {/* 19. WE HAVE BEEN FEATURED IN */}
       {/* ========================================================================= */}
       <FeaturedInBrandsSection />
 
       {/* ========================================================================= */}
-      {/* 23. DIGITAL TRANSFORMATION THROUGH INNOVATION (SCREENSHOT 2) */}
+      {/* 20. DIGITAL TRANSFORMATION THROUGH INNOVATION */}
       {/* ========================================================================= */}
       <DigitalTransformationSlider />
 
       {/* ========================================================================= */}
-      {/* 24. FREQUENTLY ASKED QUESTIONS (SCREENSHOT 3) */}
+      {/* 21. FREQUENTLY ASKED QUESTIONS */}
       {/* ========================================================================= */}
       <SapphireFaqSection
-        faqList={appConsultingFaqList}
+        faqList={startupConsultingFaqList}
         title="Frequently Asked Questions"
         subtitle="We listen to query and provide solutions that captivate users. Feel free to contact us in case of any query which is not mention below."
       />
 
       {/* ========================================================================= */}
-      {/* 25. OUR RECENT BLOGS (SCREENSHOT 4) */}
+      {/* 22. OUR RECENT BLOGS */}
       {/* ========================================================================= */}
       <AppDevelopmentRecentBlogsSection />
 
       {/* ========================================================================= */}
-      {/* 26. WHAT SETS US APART AS APP DEVELOPMENT CONSULTING? (SCREENSHOT 5) */}
+      {/* 23. WHAT SETS US APART AS STARTUP CONSULTING? */}
       {/* ========================================================================= */}
       <WhatSetsUsApartSection
-        title="What Sets Us Apart As App Development Consulting?"
-        subtitle="Being unique is our quality! Sapphire Solutions believe in the things that give us an edge over our competitors. We are renowned software and mobile application development organization serving customers with end-to-end support. Our Idealization, feasibility assessment of the entire software development process stands us one level up the competitors."
+        title="What Sets Us Apart As Startup Consulting?"
+        subtitle="Being unique is our quality! Firevy Solutions believe in the things that give founders an edge over the market. We are renowned software and mobile application development organization serving startups with end-to-end support. Our Idealization, feasibility assessment of the entire software development process stands us one level up the competitors."
       />
 
-
-
       {/* ========================================================================= */}
-      {/* 27. GET ACCESS TO TOP APP DEVELOPMENT CONSULTING (CTA BANNER) */}
+      {/* 24. GET ACCESS TO TOP STARTUP CONSULTING (CTA BANNER) */}
       {/* ========================================================================= */}
       <section className="relative w-full max-w-full py-9 sm:py-11 bg-[#005D95] text-white text-center font-sans overflow-hidden border-b border-slate-200">
         {/* Background Floating Geometric Circle & Square Overlay Graphics */}
@@ -713,7 +717,7 @@ export const AppDevelopmentConsultingService = () => {
 
         <div className="relative z-10 w-full max-w-5xl px-4 mx-auto text-center space-y-4">
           <p className="text-base sm:text-lg lg:text-[20px] font-[600] text-white leading-relaxed">
-            Get access to top App development consulting to transform your ideas into a robust application.
+            Get access to top Startup consulting to transform your vision into a venture-scale company.
           </p>
           <div>
             <a
@@ -727,11 +731,11 @@ export const AppDevelopmentConsultingService = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* 28. SUBSCRIBE US AND GET THE LATEST UPDATES AND NEWS */}
+      {/* 25. SUBSCRIBE US AND GET THE LATEST UPDATES AND NEWS */}
       {/* ========================================================================= */}
       <NewsletterSubscribeBanner />
     </div>
   );
 };
 
-export default AppDevelopmentConsultingService;
+export default StartupConsultingServices;
