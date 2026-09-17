@@ -337,9 +337,124 @@ export const DigitalMarketingService = () => {
       <PremiumServicesGrid />
 
       {/* ========================================================================= */}
-      {/* 7. SUCCESS STORIES */}
+      {/* 7. SUCCESS STORIES (MATCHING SECOND IMAGE) */}
       {/* ========================================================================= */}
-      <SuccessStoriesSection category="digital-marketing" />
+      <section className="py-20 bg-[#DDF1FB] text-center font-sans border-t border-cyan-100">
+        <Container>
+          <div className="max-w-3xl mx-auto mb-12">
+            <h2 className="text-[34px] sm:text-[40px] font-[800] text-slate-900 tracking-tight leading-tight font-sans mb-3">
+              Success Stories
+            </h2>
+            <p className="text-[15px] sm:text-[16px] font-[400] text-slate-700 leading-relaxed font-sans">
+              Know Sapphire journey from concept to success. Explore how we've brought ideas to life and achieved remarkable results for our clients.
+            </p>
+          </div>
+
+          {/* 3 Case Study Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+            {/* Card 1: Healthcare Mobile App Development Company */}
+            <div className="text-center group">
+              <div className="relative rounded-[20px] overflow-hidden bg-white shadow-sm border border-slate-200/80 p-2 group-hover:shadow-md transition-all">
+                <div className="absolute top-4 right-4 z-10 bg-[#005F96] text-white text-[11px] font-[700] px-3 py-1 rounded-md shadow-2xs">
+                  Case Study
+                </div>
+                <img
+                  src="/images/adani.webp"
+                  alt="Healthcare Mobile App Development Company"
+                  className="w-full h-[220px] object-cover rounded-[14px]"
+                />
+              </div>
+              <h3 className="text-[16px] font-[800] text-slate-900 mt-4 font-sans text-left">
+                Healthcare Mobile App Development Company
+              </h3>
+            </div>
+
+            {/* Card 2: Federal Forecasting App */}
+            <div className="text-center group">
+              <div className="rounded-[20px] overflow-hidden bg-white shadow-sm border border-slate-200/80 p-2 group-hover:shadow-md transition-all">
+                <img
+                  src="/images/federal_forecasting_app.jpg"
+                  alt="Federal Forecasting App"
+                  className="w-full h-[220px] object-cover rounded-[14px]"
+                />
+              </div>
+              <h3 className="text-[16px] font-[800] text-slate-900 mt-4 font-sans text-left">
+                Federal Forecasting App
+              </h3>
+            </div>
+
+            {/* Card 3: Stress Management App */}
+            <div className="text-center group">
+              <div className="rounded-[20px] overflow-hidden bg-white shadow-sm border border-slate-200/80 p-2 group-hover:shadow-md transition-all">
+                <img
+                  src="/images/stress_management_app.jpg"
+                  alt="Stress Management App"
+                  className="w-full h-[220px] object-cover rounded-[14px]"
+                />
+              </div>
+              <h3 className="text-[16px] font-[800] text-slate-900 mt-4 font-sans text-left">
+                Stress Management App
+              </h3>
+            </div>
+          </div>
+
+          {/* Centered "View All Portfolio" Button */}
+          <div className="mb-14">
+            <Link
+              to="/portfolio"
+              className="inline-flex items-center justify-center px-9 py-3 rounded-[6px] bg-[#006B8F] hover:bg-[#005478] text-white font-[700] text-[14.5px] transition-all shadow-md font-sans"
+            >
+              View All Portfolio
+            </Link>
+          </div>
+
+          {/* 4 Colorful Highlight Boxes */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {/* Box 1: Purple (23+ Years Experience) */}
+            <div className="bg-[#D8C7FF] rounded-[18px] p-6 text-center flex flex-col justify-center items-center shadow-xs">
+              <div className="text-[36px] sm:text-[40px] font-[900] text-slate-900 tracking-tight leading-none mb-1 font-sans">
+                23+
+              </div>
+              <div className="text-[14px] font-[700] text-slate-800 font-sans">
+                Years Experience
+              </div>
+            </div>
+
+            {/* Box 2: Mint Green (250+ 5-Star Clutch Reviews) */}
+            <div className="bg-[#A3E8D2] rounded-[18px] p-6 text-center flex flex-col justify-center items-center shadow-xs">
+              <div className="text-[36px] sm:text-[40px] font-[900] text-slate-900 tracking-tight leading-none mb-1 font-sans">
+                250+
+              </div>
+              <div className="text-[14px] font-[700] text-slate-800 font-sans">
+                5-Star Clutch Reviews
+              </div>
+            </div>
+
+            {/* Box 3: Peach/Coral (2800+ Satisfied Clients) */}
+            <div className="bg-[#FFBCB0] rounded-[18px] p-6 text-center flex flex-col justify-center items-center shadow-xs">
+              <div className="text-[36px] sm:text-[40px] font-[900] text-slate-900 tracking-tight leading-none mb-1 font-sans">
+                2800+
+              </div>
+              <div className="text-[14px] font-[700] text-slate-800 font-sans">
+                Satisfied Clients
+              </div>
+            </div>
+
+            {/* Box 4: Deep Blue (Want to start Projects -> Get Estimation) */}
+            <div className="bg-[#005E82] rounded-[18px] p-6 text-center flex flex-col justify-center items-center shadow-md">
+              <div className="text-[18px] sm:text-[19px] font-[800] text-white tracking-tight leading-tight mb-3 font-sans">
+                Want to start Projects
+              </div>
+              <Link
+                to="/contact-us"
+                className="bg-white text-[#005E82] hover:bg-slate-100 px-6 py-2 rounded-[6px] font-[800] text-[13.5px] transition-all shadow-sm font-sans"
+              >
+                Get Estimation
+              </Link>
+            </div>
+          </div>
+        </Container>
+      </section>
 
       {/* ========================================================================= */}
       {/* 8. SEO SERVICES VIDEO SHOWCASE */}

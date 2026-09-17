@@ -86,6 +86,14 @@ import MicroservicesConsultingServices from '../components/services/Microservice
 import AiConsultingServices from '../components/services/AiConsultingServices';
 import UiUxDesignService from '../components/services/UiUxDesignService';
 import DigitalMarketingService from '../components/services/DigitalMarketingService';
+import TestingQaService from '../components/services/TestingQaService';
+import NintexDevelopmentService from '../components/services/NintexDevelopmentService';
+import MobileAppPortingService from '../components/services/MobileAppPortingService';
+import DataCleansingService from '../components/services/DataCleansingService';
+import DataAnnotationService from '../components/services/DataAnnotationService';
+import PatientManagementService from '../components/services/PatientManagementService';
+import DigitalTwinSolutionsService from '../components/services/DigitalTwinSolutionsService';
+import ArtistCollaborationPlatformService from '../components/services/ArtistCollaborationPlatformService';
 import HireKotlinDevelopersService from '../components/services/HireKotlinDevelopersService';
 import HireTechDevelopersService from '../components/services/HireTechDevelopersService';
 import HireMetaverseDevelopersService from '../components/services/HireMetaverseDevelopersService';
@@ -231,7 +239,58 @@ export const ServiceDetails = () => {
     currentSlug.includes('clown-polska')
   );
 
-  const isMobileApp = !isHireMobile && !isEcommerceApp && (
+  const isMobileAppPorting = currentSlug === 'mobile-app-porting' ||
+    currentSlug === 'mobile-app-porting-services' ||
+    currentSlug === 'mobile-app-porting-service' ||
+    currentSlug === 'app-porting' ||
+    currentSlug.includes('porting');
+
+  const isDataCleansing = currentSlug === 'data-cleansing-services' ||
+    currentSlug === 'data-cleansing-service' ||
+    currentSlug === 'data-cleansing' ||
+    currentSlug === 'database-cleansing' ||
+    currentSlug === 'database-cleansing-services' ||
+    currentSlug === 'services/data-cleansing-services' ||
+    currentSlug.includes('data-cleansing') ||
+    currentSlug.includes('database-cleansing');
+
+  const isDataAnnotation = currentSlug === 'data-annotation-company' ||
+    currentSlug === 'data-annotation-services' ||
+    currentSlug === 'data-annotation' ||
+    currentSlug === 'data-annotation-service' ||
+    currentSlug === 'data-labeling-services' ||
+    currentSlug === 'data-labeling-company' ||
+    currentSlug === 'services/data-annotation-company' ||
+    currentSlug === 'services/data-annotation-services' ||
+    currentSlug.includes('data-annotation') ||
+    currentSlug.includes('data-labeling');
+
+  const isPatientManagement = currentSlug === 'patient-management-system' ||
+    currentSlug === 'patient-management-system-development-company' ||
+    currentSlug === 'patient-management-systems' ||
+    currentSlug === 'patient-management-software' ||
+    currentSlug === 'patient-management' ||
+    currentSlug === 'services/patient-management-system' ||
+    currentSlug.includes('patient-management');
+
+  const isDigitalTwin = currentSlug === 'digital-twin-solutions-company' ||
+    currentSlug === 'digital-twin-solutions' ||
+    currentSlug === 'digital-twin' ||
+    currentSlug === 'digital-twin-services' ||
+    currentSlug === 'digital-twin-company' ||
+    currentSlug === 'digital-twin-development' ||
+    currentSlug === 'services/digital-twin-solutions-company' ||
+    currentSlug === 'services/digital-twin-solutions' ||
+    currentSlug.includes('digital-twin');
+
+  const isArtistCollaboration = currentSlug === 'artist-collaboration-platform-development' ||
+    currentSlug === 'artist-collaboration-platform' ||
+    currentSlug === 'artist-collaboration' ||
+    currentSlug === 'services/artist-collaboration-platform-development' ||
+    currentSlug === 'services/artist-collaboration-platform' ||
+    currentSlug.includes('artist-collaboration');
+
+  const isMobileApp = !isHireMobile && !isEcommerceApp && !isMobileAppPorting && (
     currentSlug === 'mobile-app-development' ||
     currentSlug === 'mobile-app' ||
     currentSlug === 'mobile-application' ||
@@ -467,6 +526,26 @@ export const ServiceDetails = () => {
     currentSlug === 'services/digital-marketing' ||
     currentSlug === 'services/digital-marketing-services';
 
+  const isTestingQa = currentSlug === 'testing-qa' ||
+    currentSlug === 'testing-and-qa' ||
+    currentSlug === 'software-testing-qa' ||
+    currentSlug === 'qa-testing' ||
+    currentSlug === 'software-qa-testing' ||
+    currentSlug === 'software-testing' ||
+    currentSlug.includes('testing-qa') ||
+    currentSlug.includes('qa-testing') ||
+    currentSlug === 'services/testing-qa' ||
+    currentSlug === 'services/software-testing-qa' ||
+    (currentSlug.includes('testing') && !currentSlug.includes('podcast') && !currentSlug.includes('methodolog'));
+
+  const isNintex = currentSlug === 'nintex-development-services' ||
+    currentSlug === 'nintex-development-service' ||
+    currentSlug === 'nintex-development' ||
+    currentSlug === 'nintex' ||
+    currentSlug.includes('nintex') ||
+    currentSlug === 'services/nintex-development-services' ||
+    currentSlug === 'services/nintex-development';
+
   const unslugify = (str) => {
     if (!str) return 'Enterprise Tech Solution';
     return str
@@ -568,7 +647,7 @@ export const ServiceDetails = () => {
   const isChatGpt = currentSlug.includes('chatgpt') || currentSlug.includes('chat-gpt') || currentSlug.includes('hire-chatgpt');
 
   useEffect(() => {
-    if (!isBarberApp && !isLanguageLearningApp && !isChatGpt && !isSoftwareDevelopers && !isDedicatedDevelopers && !isMetaverse && !isEmbeddedSoftware && !isAlexaSkills && !isDataScientist && !isAnyDedicatedHire && !isKotlin && !isHybrid && !isPersonalFitness && !isUsedCar && !isEnneagram && !isCreditCard && !isIPad && !isCrossPlatform && !isItConsulting && !isNext && !isExpress && !isMobileApp && !isBootstrap && !isCodeIgniter && !isEmber && !isLaravel && !isPowerAutomate && !isPowerApps && !isSharePoint && !isVue && !isReact && !isAngular && !isIot && !isPwa && !isRpa && !isVR && !isFullStack && !isBlockchain && !isArtificialIntelligence && !isGenerativeAi && !isNodeJs && !isJava && !isPhp && !isNet && !isXamarin && !isAndroid && !isReactNative && !isFlutter && !isIOS && !isHealthcare && !isEducation && !isUber && !isSpotify && !isZomato && !isAmazon && !isVisitor && !isWarehouse && !isClover && !isCSharp && !isIWatch && !isWordpress && !isDrupal && !isUmbraco && !isSitecore && !isSitefinity && !isMagento && !isShopify && !isCovid && !isEcommerceApp && !isProductFinderApp && !isEyelashBookingApp) {
+    if (!isOnDemandApp && !isBarberApp && !isLanguageLearningApp && !isNintex && !isTestingQa && !isDigitalMarketing && !isUiUxDesign && !isChatGpt && !isSoftwareDevelopers && !isDedicatedDevelopers && !isMetaverse && !isEmbeddedSoftware && !isAlexaSkills && !isDataScientist && !isAnyDedicatedHire && !isKotlin && !isHybrid && !isPersonalFitness && !isUsedCar && !isEnneagram && !isCreditCard && !isIPad && !isCrossPlatform && !isItConsulting && !isNext && !isExpress && !isMobileApp && !isBootstrap && !isCodeIgniter && !isEmber && !isLaravel && !isPowerAutomate && !isPowerApps && !isSharePoint && !isVue && !isReact && !isAngular && !isIot && !isPwa && !isRpa && !isVR && !isFullStack && !isBlockchain && !isArtificialIntelligence && !isGenerativeAi && !isNodeJs && !isJava && !isPhp && !isNet && !isXamarin && !isAndroid && !isReactNative && !isFlutter && !isIOS && !isHealthcare && !isEducation && !isUber && !isSpotify && !isZomato && !isAmazon && !isVisitor && !isWarehouse && !isClover && !isCSharp && !isIWatch && !isWordpress && !isDrupal && !isUmbraco && !isSitecore && !isSitefinity && !isMagento && !isShopify && !isCovid && !isEcommerceApp && !isProductFinderApp && !isEyelashBookingApp && !isDataCleansing && !isDataAnnotation && !isPatientManagement && !isDigitalTwin && !isArtistCollaboration && !isMobileAppPorting) {
       fetchServiceDetails();
     } else {
       setLoading(false);
@@ -794,6 +873,38 @@ export const ServiceDetails = () => {
 
   if (isDigitalMarketing) {
     return <DigitalMarketingService />;
+  }
+
+  if (isTestingQa) {
+    return <TestingQaService />;
+  }
+
+  if (isNintex) {
+    return <NintexDevelopmentService />;
+  }
+
+  if (isMobileAppPorting) {
+    return <MobileAppPortingService />;
+  }
+
+  if (isDataCleansing) {
+    return <DataCleansingService />;
+  }
+
+  if (isDataAnnotation) {
+    return <DataAnnotationService />;
+  }
+
+  if (isPatientManagement) {
+    return <PatientManagementService />;
+  }
+
+  if (isDigitalTwin) {
+    return <DigitalTwinSolutionsService />;
+  }
+
+  if (isArtistCollaboration) {
+    return <ArtistCollaborationPlatformService />;
   }
 
   if (isPowerAutomate) {

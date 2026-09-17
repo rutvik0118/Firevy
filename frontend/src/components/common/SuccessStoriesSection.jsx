@@ -250,6 +250,7 @@ export const SuccessStoriesSection = ({
                     Case Study
                   </span>
                 </div>
+
                 <div className="relative z-10 flex items-center justify-between my-auto px-1">
                   <div className="space-y-1 text-amber-900/40">
                     <span className="text-xl font-black block leading-none opacity-40">Taxi Booking App</span>
@@ -258,6 +259,7 @@ export const SuccessStoriesSection = ({
                       <span className="text-xs font-bold text-slate-900">NGcab</span>
                     </div>
                   </div>
+
                   <div className="relative flex items-end">
                     <div className="w-22 h-36 bg-slate-900 rounded-xl p-1 shadow-lg border border-slate-700">
                       <div className="bg-white w-full h-full rounded-lg overflow-hidden p-1 flex flex-col justify-between text-[6px]">
@@ -370,6 +372,7 @@ export const SuccessStoriesSection = ({
                 Ai Powered Language Learning App Development
               </h3>
             </div>
+
             <div className="flex flex-col justify-between group cursor-pointer">
               <div className="h-64 sm:h-72 rounded-2xl overflow-hidden shadow-md group-hover:shadow-xl transition-all duration-300 relative border border-slate-200/80 bg-white">
                 <img

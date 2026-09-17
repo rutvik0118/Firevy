@@ -1,5 +1,5 @@
-import React, { useState, useCallback, useEffect } from 'react';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
+import React, { useState, useEffect, useCallback } from 'react';
+import { ArrowLeft, ArrowRight, ChevronsRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export const DigitalTransformationCaseStudies = ({ data }) => {
@@ -438,12 +438,12 @@ export const DigitalTransformationCaseStudies = ({ data }) => {
 
   const total = caseStudies.length;
 
-  const goNext = useCallback(() => {
-    setCurrentIndex((prev) => (prev === total - 1 ? 0 : prev + 1));
-  }, [total]);
-
   const goPrev = useCallback(() => {
     setCurrentIndex((prev) => (prev === 0 ? total - 1 : prev - 1));
+  }, [total]);
+
+  const goNext = useCallback(() => {
+    setCurrentIndex((prev) => (prev + 1) % total);
   }, [total]);
 
   // 2.5-second auto-scroll interval

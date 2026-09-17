@@ -178,6 +178,51 @@ export function App() {
                 <Route path="/digital-marketing" element={<ServiceDetails />} />
                 <Route path="/services/digital-marketing-services" element={<ServiceDetails />} />
                 <Route path="/digital-marketing-services" element={<ServiceDetails />} />
+                <Route path="/services/testing-qa" element={<ServiceDetails />} />
+                <Route path="/testing-qa" element={<ServiceDetails />} />
+                <Route path="/services/testing-and-qa" element={<ServiceDetails />} />
+                <Route path="/testing-and-qa" element={<ServiceDetails />} />
+                <Route path="/services/software-testing-qa" element={<ServiceDetails />} />
+                <Route path="/software-testing-qa" element={<ServiceDetails />} />
+                <Route path="/services/qa-testing" element={<ServiceDetails />} />
+                <Route path="/qa-testing" element={<ServiceDetails />} />
+                <Route path="/services/software-qa-testing" element={<ServiceDetails />} />
+                <Route path="/software-qa-testing" element={<ServiceDetails />} />
+                <Route path="/services/nintex-development-services" element={<ServiceDetails />} />
+                <Route path="/nintex-development-services" element={<ServiceDetails />} />
+                <Route path="/services/nintex-development" element={<ServiceDetails />} />
+                <Route path="/nintex-development" element={<ServiceDetails />} />
+                <Route path="/services/nintex" element={<ServiceDetails />} />
+                <Route path="/services/mobile-app-porting" element={<ServiceDetails />} />
+                <Route path="/mobile-app-porting" element={<ServiceDetails />} />
+                <Route path="/services/mobile-app-porting-services" element={<ServiceDetails />} />
+                <Route path="/mobile-app-porting-services" element={<ServiceDetails />} />
+                <Route path="/services/data-cleansing-services" element={<ServiceDetails />} />
+                <Route path="/data-cleansing-services" element={<ServiceDetails />} />
+                <Route path="/services/data-cleansing" element={<ServiceDetails />} />
+                <Route path="/data-cleansing" element={<ServiceDetails />} />
+                <Route path="/services/database-cleansing-services" element={<ServiceDetails />} />
+                <Route path="/database-cleansing-services" element={<ServiceDetails />} />
+                <Route path="/services/data-annotation-company" element={<ServiceDetails />} />
+                <Route path="/data-annotation-company" element={<ServiceDetails />} />
+                <Route path="/services/data-annotation-services" element={<ServiceDetails />} />
+                <Route path="/data-annotation-services" element={<ServiceDetails />} />
+                <Route path="/services/data-annotation" element={<ServiceDetails />} />
+                <Route path="/data-annotation" element={<ServiceDetails />} />
+                <Route path="/services/patient-management-system" element={<ServiceDetails />} />
+                <Route path="/patient-management-system" element={<ServiceDetails />} />
+                <Route path="/services/patient-management-system-development-company" element={<ServiceDetails />} />
+                <Route path="/patient-management-system-development-company" element={<ServiceDetails />} />
+                <Route path="/services/patient-management-software" element={<ServiceDetails />} />
+                <Route path="/patient-management-software" element={<ServiceDetails />} />
+                <Route path="/services/digital-twin-solutions-company" element={<ServiceDetails />} />
+                <Route path="/digital-twin-solutions-company" element={<ServiceDetails />} />
+                <Route path="/services/digital-twin-solutions" element={<ServiceDetails />} />
+                <Route path="/digital-twin-solutions" element={<ServiceDetails />} />
+                <Route path="/services/artist-collaboration-platform-development" element={<ServiceDetails />} />
+                <Route path="/artist-collaboration-platform-development" element={<ServiceDetails />} />
+                <Route path="/services/artist-collaboration-platform" element={<ServiceDetails />} />
+                <Route path="/artist-collaboration-platform" element={<ServiceDetails />} />
                 <Route path="/services/tech-consulting-services" element={<ServiceDetails />} />
                 <Route path="/services/hire-bootstrap-developers" element={<ServiceDetails />} />
                 <Route path="/services/hire-bootstrap-developer" element={<ServiceDetails />} />

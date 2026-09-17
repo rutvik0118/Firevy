@@ -1,7 +1,7 @@
 import React from 'react';
 import Container from '../common/Container';
 
-export const DeliveringImpactfulMobileServices = () => {
+export const DeliveringImpactfulMobileServices = ({ imageSrc = "/images/delivering_impactful_mobile_services.jpg" }) => {
   return (
     <section className="py-10 sm:py-14 bg-white text-slate-900 font-sans text-left overflow-hidden">
       <Container className="max-w-6xl">
@@ -11,7 +11,7 @@ export const DeliveringImpactfulMobileServices = () => {
           <div className="lg:col-span-6 flex justify-center items-center">
             <div className="relative w-full max-w-[480px] flex items-center justify-center select-none overflow-hidden rounded-2xl group">
               <img
-                src="/images/delivering_impactful_mobile_services.jpg"
+                src={imageSrc}
                 alt="Delivering Impactful Mobile Application Services"
                 className="w-full h-auto object-contain max-h-[420px] transition-transform duration-500 ease-out group-hover:scale-105 cursor-pointer rounded-2xl drop-shadow-sm"
                 loading="lazy"
