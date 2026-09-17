@@ -41,40 +41,6 @@ import {
 } from 'lucide-react';
 
 export const DataCleansingService = () => {
-  // 6 Specialized Data Cleansing Capabilities
-  const dataCleansingCapabilities = [
-    {
-      title: 'Modern Data Cleaning Methods',
-      desc: 'We effectively clean and arrange your data using cutting-edge technologies like rule-based processing, automation, and machine learning models.',
-      icon: <Filter className="w-8 h-8 text-[#005F96]" />
-    },
-    {
-      title: 'Flexible and Scalable Fixes',
-      desc: 'Your firm may grow with our data cleaning services. Our solutions can efficiently manage massive volumes of structured and unstructured datasets.',
-      icon: <Layers className="w-8 h-8 text-[#005F96]" />
-    },
-    {
-      title: 'Industry-Specific Data Cleansing',
-      desc: 'Data architectures and compliance criteria vary throughout sectors. We guarantee data follows industry standards with customized domain cleansing.',
-      icon: <Workflow className="w-8 h-8 text-[#005F96]" />
-    },
-    {
-      title: 'Data Scrubbing Services',
-      desc: 'We make Data Scrubbing Services effective and easier by automated pipelines; personal developer review guarantees accuracy in mission-critical areas.',
-      icon: <FileCheck2 className="w-8 h-8 text-[#005F96]" />
-    },
-    {
-      title: 'Concurrent with Corporate Systems',
-      desc: 'Our data cleaning solutions smoothly interact with your CRM, ERP, data warehouses, and BI systems to provide continuous real-time synchronizing.',
-      icon: <Server className="w-8 h-8 text-[#005F96]" />
-    },
-    {
-      title: 'Compliance and Data Security',
-      desc: 'Our top focus is data security, making sure your private records are safeguarded during the entire cleaning procedure under GDPR & HIPAA standards.',
-      icon: <ShieldCheck className="w-8 h-8 text-[#005F96]" />
-    }
-  ];
-
   // 6 Benefits Cards Grid
   const dataCleansingBenefits = [
     {
@@ -413,50 +379,6 @@ export const DataCleansingService = () => {
       {/* 10. PROUD AWARDS BANNER (PROUD TO HAVE PICKED THESE UP ALONG THE WAY)     */}
       {/* ========================================================================= */}
       <ProudAwardsBanner />
-
-      {/* ========================================================================= */}
-      {/* 11. 6 SPECIALIZED DATA CLEANSING CAPABILITIES                             */}
-      {/* ========================================================================= */}
-      <section className="py-16 sm:py-20 bg-[#F8FAFC] border-t border-slate-100 text-left">
-        <Container className="max-w-6xl">
-          <div className="text-center max-w-3xl mx-auto mb-14">
-            <span className="text-xs font-bold text-[#005F96] uppercase tracking-wider block mb-2 font-sans">
-              High-Precision Data Solutions
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#0B0F19] tracking-tight leading-tight mb-3.5 font-sans">
-              Our Data Cleansing Solutions
-            </h2>
-            <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed font-sans">
-              Our Data Cleansing Company specializes in creating and putting into use focused data cleaning solutions for companies of all kinds.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {dataCleansingCapabilities.map((capability, idx) => (
-              <div
-                key={idx}
-                className="bg-white rounded-2xl p-7 sm:p-8 shadow-[0_4px_25px_rgba(0,0,0,0.04)] border border-slate-100 hover:border-slate-200 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
-              >
-                <div>
-                  <div className="w-14 h-14 rounded-xl bg-blue-50/80 flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
-                    {capability.icon}
-                  </div>
-                  <h3 className="text-lg sm:text-[19px] font-bold text-[#0B0F19] mb-2.5 group-hover:text-[#005F96] transition-colors font-sans">
-                    {capability.title}
-                  </h3>
-                  <p className="text-slate-600 text-sm leading-relaxed font-normal font-sans">
-                    {capability.desc}
-                  </p>
-                </div>
-                <div className="pt-5 border-t border-slate-100 mt-6 flex items-center text-xs font-bold text-[#005F96] group-hover:translate-x-1 transition-transform">
-                  <span>Explore Solution</span>
-                  <ArrowRight className="w-3.5 h-3.5 ml-1.5" />
-                </div>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
 
       {/* ========================================================================= */}
       {/* 11. DATA ENGINEERING TOOLS & TECH STACK STRIP                             */}
