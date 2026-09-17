@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { ArrowLeft, ArrowRight, ChevronsRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -559,8 +559,12 @@ export const DigitalTransformationCaseStudies = ({ data }) => {
 
   const total = caseStudies.length;
 
-  const handlePrev = useCallback(() => {
+  const goPrev = useCallback(() => {
     setCurrentIndex((prev) => (prev === 0 ? total - 1 : prev - 1));
+  }, [total]);
+
+  const goNext = useCallback(() => {
+    setCurrentIndex((prev) => (prev + 1) % total);
   }, [total]);
 
   // 2.5-second auto-scroll interval
