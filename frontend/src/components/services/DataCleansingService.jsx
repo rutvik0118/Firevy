@@ -5,6 +5,7 @@ import Container from '../common/Container';
 import BrandLogoMarquee from '../common/BrandLogoMarquee';
 import ClutchTopRatedBanner from '../common/ClutchTopRatedBanner';
 import PremiumServicesGrid from '../common/PremiumServicesGrid';
+import DataCleansingCuttingEdgeTechSection from './DataCleansingCuttingEdgeTechSection';
 import AndroidHiringModels from './AndroidHiringModels';
 import ProcessWeFollow from '../common/ProcessWeFollow';
 import TrustedBrandsGrid from '../common/TrustedBrandsGrid';
@@ -106,6 +107,26 @@ export const DataCleansingService = () => {
     'Python', 'Pandas & NumPy', 'SQL Server', 'PostgreSQL', 'MongoDB',
     'OpenRefine', 'Apache Spark', 'Snowflake', 'Databricks', 'Power BI',
     'Tableau', 'AWS Glue', 'Azure Data Factory', 'Google BigQuery'
+  ];
+
+  // Success Stories (Exact 1:1 Match to Reference Screenshot)
+  const dataCleansingSuccessCards = [
+    {
+      id: 1,
+      title: 'Enterprise Microservices & Cloud-Native Data Cleansing Pipeline',
+      image: '/images/success_stories/redetect.svg',
+      badge: 'Case Study'
+    },
+    {
+      id: 2,
+      title: 'Automated Real-Time File Sharing Application',
+      image: '/images/success_stories/file_sharing_application.svg'
+    },
+    {
+      id: 3,
+      title: 'Data.Analytics Website & Enterprise Intelligence Platform',
+      image: '/images/success_stories/data_analytics.svg'
+    }
   ];
 
   // 9 Complete FAQs (Firevy.co Branded)
@@ -370,7 +391,25 @@ export const DataCleansingService = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* 7. 6 SPECIALIZED DATA CLEANSING CAPABILITIES                              */}
+      {/* 7. CUTTING EDGE TECHNOLOGIES SECTION (MATCHING REFERENCE SCREENSHOT)      */}
+      {/* ========================================================================= */}
+      <DataCleansingCuttingEdgeTechSection companyName="Firevy.co" />
+
+      {/* ========================================================================= */}
+      {/* 8. OUR PREMIUM SERVICES (MATCHING REFERENCE SCREENSHOT)                   */}
+      {/* ========================================================================= */}
+      <PremiumServicesGrid companyName="Firevy.co" />
+
+      {/* ========================================================================= */}
+      {/* 9. SUCCESS STORIES (MATCHING REFERENCE SCREENSHOT)                        */}
+      {/* ========================================================================= */}
+      <SuccessStoriesSection
+        cards={dataCleansingSuccessCards}
+        subtitle="Know Firevy.co journey from concept to success. Explore how we've brought ideas to life and achieved remarkable results for our clients."
+      />
+
+      {/* ========================================================================= */}
+      {/* 10. 6 SPECIALIZED DATA CLEANSING CAPABILITIES                             */}
       {/* ========================================================================= */}
       <section className="py-16 sm:py-20 bg-[#F8FAFC] border-t border-slate-100 text-left">
         <Container className="max-w-6xl">
@@ -414,7 +453,7 @@ export const DataCleansingService = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* 8. DATA ENGINEERING TOOLS & TECH STACK STRIP                              */}
+      {/* 11. DATA ENGINEERING TOOLS & TECH STACK STRIP                             */}
       {/* ========================================================================= */}
       <section className="py-12 bg-[#004A75] text-white">
         <Container className="max-w-6xl text-center">
@@ -433,11 +472,6 @@ export const DataCleansingService = () => {
           </div>
         </Container>
       </section>
-
-      {/* ========================================================================= */}
-      {/* 9. SUCCESS STORIES SECTION                                                */}
-      {/* ========================================================================= */}
-      <SuccessStoriesSection />
 
       {/* ========================================================================= */}
       {/* 10. BENEFITS OF OUR DATA CLEANSING SERVICES (6 Cards Grid)                */}
