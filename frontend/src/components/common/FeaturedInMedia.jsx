@@ -63,10 +63,11 @@ const YourStoryLogo = () => (
 
 const WikipediaLogo = () => (
   <div className="flex items-center justify-center">
-    <svg className="w-20 h-20 text-slate-800" viewBox="0 0 100 100" fill="none" stroke="currentColor">
-      <circle cx="50" cy="50" r="42" strokeWidth="2.5" strokeDasharray="5 3" opacity="0.8" />
-      <path d="M 30 35 L 42 70 L 50 48 L 58 70 L 70 35" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
+    <img
+      src="/images/wikipedia_globe.svg"
+      alt="Wikipedia"
+      className="w-16 h-16 sm:w-20 sm:h-20 object-contain"
+    />
   </div>
 );
 

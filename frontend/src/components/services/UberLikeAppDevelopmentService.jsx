@@ -8,20 +8,13 @@ import TrustedBrandsGrid from '../common/TrustedBrandsGrid';
 import SapphireTechStackGrid from '../common/SapphireTechStackGrid';
 import BrandLogoMarquee from '../common/BrandLogoMarquee';
 import SapphireLightHeroBanner from '../common/SapphireLightHeroBanner';
-import ClutchTopRatedBanner from '../common/ClutchTopRatedBanner';
-import PremiumServicesGrid from '../common/PremiumServicesGrid';
-import InnovativeVideoSlider from '../common/InnovativeVideoSlider';
-import ClientStoryVideoSlider from '../common/ClientStoryVideoSlider';
-import FeaturedInMedia from '../common/FeaturedInMedia';
-import DigitalTransformationSlider from '../common/DigitalTransformationSlider';
-import SapphireFaqSection, { uberFaqList } from '../common/SapphireFaqSection';
-import RecentBlogsSection from '../common/RecentBlogsSection';
-import WhatSetsUsApartSection from '../common/WhatSetsUsApartSection';
-import HealthcareChallengeCtaBanner from '../common/HealthcareChallengeCtaBanner';
-import NewsletterSubscribeBanner from '../common/NewsletterSubscribeBanner';
-import SuccessStoriesSection from '../common/SuccessStoriesSection';
-import UberQuoteOverview from '../common/UberQuoteOverview';
-import ClientReviewsDarkSection from '../home/ClientReviewsDarkSection';
+import DigitalTransformationCaseStudies from '../home/DigitalTransformationCaseStudies';
+import UnveilingInnovativeSolutionsVideoSlider from '../home/UnveilingInnovativeSolutionsVideoSlider';
+import WhatOurClientsSayClutchSlider from '../home/WhatOurClientsSayClutchSlider';
+import OurStoryTheirWordsVideoTestimonialsSlider from '../home/OurStoryTheirWordsVideoTestimonialsSlider';
+import SapphireFaqWithStatBadges from '../home/SapphireFaqWithStatBadges';
+import WeHaveBeenFeaturedInGrid from '../home/WeHaveBeenFeaturedInGrid';
+import WorkTogetherNewsletterSection from '../home/WorkTogetherNewsletterSection';
 import {
   Car,
   Navigation,
@@ -50,161 +43,222 @@ import {
   DollarSign,
   Bell,
   Sliders,
-  CheckSquare
+  CheckSquare,
+  PhoneCall,
+  Percent,
+  Share2,
+  FileText,
+  Play
 } from 'lucide-react';
 
-// 1:1 Reference Match Hiring Models SVG Icon Components
-const FixedPriceIcon = ({ className = "w-12 h-12" }) => (
-  <svg viewBox="0 0 48 48" fill="none" className={className} xmlns="http://www.w3.org/2000/svg">
-    <path d="M 20 10 C 20 8, 28 8, 28 10 L 30 15 H 18 L 20 10 Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" fill="none" />
-    <path d="M 17 15 H 31" stroke="currentColor" strokeWidth="1.5" />
-    <path d="M 14 19 C 12 28, 14 40, 24 40 C 34 40, 36 28, 34 19 C 34 16, 14 16, 14 19 Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" fill="none" />
-    <text x="24" y="32" textAnchor="middle" fontSize="15" fontWeight="bold" fill="currentColor" fontFamily="sans-serif">$</text>
-  </svg>
-);
+/* Super Ride Taxi – Cab Booking App Video Showcase Component (1:1 Screenshot Match) */
+const SuperRideTaxiVideoShowcase = () => {
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
 
-const TimeMaterialIcon = ({ className = "w-12 h-12" }) => (
-  <svg viewBox="0 0 48 48" fill="none" className={className} xmlns="http://www.w3.org/2000/svg">
-    <circle cx="26" cy="27" r="12" stroke="currentColor" strokeWidth="2" fill="none" />
-    <path d="M 26 20 V 27 L 31 30" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-    <path d="M 23 8 H 29 M 26 8 V 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-    <path d="M 10 14 L 14 17" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-    <path d="M 7 21 H 11 M 7 28 H 11 M 9 35 L 13 32" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-  </svg>
-);
+  return (
+    <section className="py-16 bg-white border-b border-slate-200 text-slate-900 font-sans">
+      <Container>
+        {/* Title */}
+        <div className="text-center max-w-3xl mx-auto mb-8">
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-[900] text-slate-900 tracking-tight font-sans">
+            Super Ride Taxi – Cab Booking App
+          </h2>
+        </div>
 
-const DedicatedTeamIcon = ({ className = "w-12 h-12" }) => (
-  <svg viewBox="0 0 48 48" fill="none" className={className} xmlns="http://www.w3.org/2000/svg">
-    <circle cx="24" cy="14" r="4.5" stroke="currentColor" strokeWidth="2" />
-    <path d="M 16 32 C 16 25, 32 25, 32 32" stroke="currentColor" strokeWidth="2" strokeLinecap="round" fill="none" />
-    <circle cx="13" cy="18" r="3.5" stroke="currentColor" strokeWidth="1.8" />
-    <path d="M 7 33 C 7 28, 17 28, 17 33" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" fill="none" />
-    <circle cx="35" cy="18" r="3.5" stroke="currentColor" strokeWidth="1.8" />
-    <path d="M 31 33 C 31 28, 41 28, 41 33" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" fill="none" />
-  </svg>
-);
+        {/* Video Banner Container with Floating Soft Pastel Background Blobs */}
+        <div className="relative max-w-4xl mx-auto px-4">
+          
+          {/* Top-Left Soft Cyan Blob */}
+          <div className="absolute -top-8 -left-6 w-44 h-44 rounded-full bg-[#D4F1F9]/70 blur-xs -z-0 pointer-events-none" />
 
-const BucketsApproachIcon = ({ className = "w-12 h-12" }) => (
-  <svg viewBox="0 0 48 48" fill="none" className={className} xmlns="http://www.w3.org/2000/svg">
-    <circle cx="19" cy="19" r="6.5" stroke="currentColor" strokeWidth="2" fill="none" />
-    <circle cx="19" cy="19" r="2" stroke="currentColor" strokeWidth="1.5" fill="none" />
-    <path d="M 19 10 V 12.5 M 19 25.5 V 28 M 10 19 H 12.5 M 25.5 19 H 28 M 12.5 12.5 L 14.5 14.5 M 23.5 23.5 L 25.5 25.5 M 25.5 12.5 L 23.5 14.5 M 14.5 23.5 L 12.5 25.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-    
-    <circle cx="32" cy="30" r="5" stroke="currentColor" strokeWidth="1.8" fill="none" />
-    <circle cx="32" cy="30" r="1.5" stroke="currentColor" strokeWidth="1.2" fill="none" />
-    <path d="M 32 23.5 V 25 M 32 35 V 36.5 M 25.5 30 H 27 M 37 30 H 38.5 M 27.5 25.5 L 28.5 26.5 M 35.5 33.5 L 36.5 34.5 M 36.5 25.5 L 35.5 26.5 M 28.5 33.5 L 27.5 34.5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
-  </svg>
-);
+          {/* Bottom-Right Soft Pink Blob */}
+          <div className="absolute -bottom-8 -right-6 w-48 h-48 rounded-full bg-[#FFE5EC]/70 blur-xs -z-0 pointer-events-none" />
 
-// 1:1 Reference Match Section 3 SVG Icon Components
-const UserRegisterIcon = ({ className = "w-7 h-7" }) => (
-  <svg viewBox="0 0 36 36" fill="none" className={className} xmlns="http://www.w3.org/2000/svg">
-    <rect x="12" y="5" width="16" height="26" rx="3" stroke="currentColor" strokeWidth="2" fill="none" />
-    <path d="M 6 18 H 20 M 15 13 L 20 18 L 15 23" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-);
+          {/* Main Interactive Card */}
+          <div
+            onClick={() => setIsVideoModalOpen(true)}
+            className="relative z-10 rounded-[28px] sm:rounded-[36px] bg-white border-[6px] sm:border-[8px] border-white shadow-2xl overflow-hidden cursor-pointer group hover:shadow-3xl transition-all duration-300"
+          >
+            <div className="relative w-full h-[280px] sm:h-[380px] md:h-[420px] overflow-hidden">
+              <img
+                src="/images/super_ride_taxi_video_banner_v3.png"
+                alt="Super Ride Taxi Cab Booking App"
+                className="w-full h-full object-cover object-center group-hover:scale-[1.02] transition-transform duration-300"
+              />
 
-const CarBookingIcon = ({ className = "w-7 h-7" }) => (
-  <svg viewBox="0 0 36 36" fill="none" className={className} xmlns="http://www.w3.org/2000/svg">
-    <path d="M 10 16 L 13 9 H 23 L 26 16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-    <rect x="7" y="16" width="22" height="10" rx="2" stroke="currentColor" strokeWidth="2" fill="none" />
-    <circle cx="11" cy="21" r="1.8" fill="currentColor" />
-    <circle cx="25" cy="21" r="1.8" fill="currentColor" />
-    <path d="M 9 26 V 28 M 27 26 V 28" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-    <rect x="14" y="6" width="8" height="3" rx="1" stroke="currentColor" strokeWidth="1.5" />
-  </svg>
-);
+              {/* Center Interactive Translucent Play Button Overlay */}
+              <div className="absolute inset-0 flex items-center justify-center z-30 pointer-events-none">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-[#0080B0]/85 text-white shadow-2xl border-2 border-white/60 flex items-center justify-center group-hover:scale-110 transition-transform duration-300 backdrop-blur-xs">
+                  <Play className="w-8 h-8 sm:w-10 sm:h-10 fill-current ml-1" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Container>
 
-const FareCalculationIcon = ({ className = "w-7 h-7" }) => (
-  <svg viewBox="0 0 36 36" fill="none" className={className} xmlns="http://www.w3.org/2000/svg">
-    <rect x="8" y="5" width="20" height="26" rx="3" stroke="currentColor" strokeWidth="2" fill="none" />
-    <rect x="12" y="9" width="12" height="6" rx="1" stroke="currentColor" strokeWidth="1.5" />
-    <circle cx="13.5" cy="19.5" r="1.2" fill="currentColor" />
-    <circle cx="18" cy="19.5" r="1.2" fill="currentColor" />
-    <circle cx="22.5" cy="19.5" r="1.2" fill="currentColor" />
-    <circle cx="13.5" cy="24" r="1.2" fill="currentColor" />
-    <circle cx="18" cy="24" r="1.2" fill="currentColor" />
-    <path d="M 21 23 H 24 M 21 25 H 24" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-  </svg>
-);
+      {/* Interactive Video Modal Popup */}
+      {isVideoModalOpen && (
+        <div className="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
+          <div className="relative w-full max-w-4xl bg-black rounded-2xl overflow-hidden shadow-2xl border border-white/20">
+            {/* Close Button */}
+            <button
+              onClick={() => setIsVideoModalOpen(false)}
+              className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-white/20 hover:bg-white/40 text-white flex items-center justify-center font-bold text-lg transition-colors"
+            >
+              ✕
+            </button>
 
-const DriverTrackingIcon = ({ className = "w-7 h-7" }) => (
-  <svg viewBox="0 0 36 36" fill="none" className={className} xmlns="http://www.w3.org/2000/svg">
-    <circle cx="16" cy="15" r="8" stroke="currentColor" strokeWidth="2" fill="none" />
-    <path d="M 22 21 L 28 27" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-    <path d="M 16 10 C 14.5 10 13.5 11.2 13.5 12.8 C 13.5 15 16 17 16 17 C 16 17 18.5 15 18.5 12.8 C 18.5 11.2 17.5 10 16 10 Z" stroke="currentColor" strokeWidth="1.5" fill="none" />
-    <circle cx="16" cy="12.8" r="0.8" fill="currentColor" />
-  </svg>
-);
-
-const PaymentIcon = ({ className = "w-7 h-7" }) => (
-  <svg viewBox="0 0 36 36" fill="none" className={className} xmlns="http://www.w3.org/2000/svg">
-    <rect x="9" y="5" width="18" height="26" rx="3.5" stroke="currentColor" strokeWidth="2" fill="none" />
-    <circle cx="18" cy="16" r="4.5" stroke="currentColor" strokeWidth="1.5" fill="none" />
-    <path d="M 18 13.5 V 18.5 M 16.5 14.8 H 19 C 19.5 14.8 19.5 16 18 16 C 16.5 16 16.5 17.2 19.5 17.2 H 17" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-    <path d="M 13 25 H 23" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-  </svg>
-);
-
-const PushAlertsIcon = ({ className = "w-7 h-7" }) => (
-  <svg viewBox="0 0 36 36" fill="none" className={className} xmlns="http://www.w3.org/2000/svg">
-    <path d="M 18 6 C 14 6 11 9 11 14 V 20 L 8 23 H 28 L 25 20 V 14 C 25 9 22 6 18 6 Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" fill="none" />
-    <path d="M 15 26 C 15 27.5 16.5 29 18 29 C 19.5 29 21 27.5 21 26" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-    <path d="M 18 3 V 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-  </svg>
-);
-
-// 1:1 Reference Match Section 4 Uber For On-Demand Businesses SVG Icons
-const UberDeliveryBusinessIcon = ({ className = "w-7 h-7" }) => (
-  <svg viewBox="0 0 36 36" fill="none" className={className} xmlns="http://www.w3.org/2000/svg">
-    <rect x="7" y="10" width="14" height="18" rx="2" stroke="currentColor" strokeWidth="2" fill="none" />
-    <circle cx="14" cy="19" r="3.5" stroke="currentColor" strokeWidth="1.5" />
-    <path d="M 14 17 V 21 M 12.8 18 H 15.2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-    <path d="M 23 14 H 29 V 24 C 29 25.5 28 26 26.5 26 H 23" stroke="currentColor" strokeWidth="2" strokeLinecap="round" fill="none" />
-  </svg>
-);
-
-const UberTransportationIcon = ({ className = "w-7 h-7" }) => (
-  <svg viewBox="0 0 36 36" fill="none" className={className} xmlns="http://www.w3.org/2000/svg">
-    <path d="M 6 12 H 20 V 24 H 6 Z" stroke="currentColor" strokeWidth="2" fill="none" />
-    <path d="M 20 16 H 26 L 29 20 V 24 H 20 Z" stroke="currentColor" strokeWidth="2" fill="none" />
-    <circle cx="11" cy="24" r="2" fill="currentColor" />
-    <circle cx="24" cy="24" r="2" fill="currentColor" />
-  </svg>
-);
-
-const UberFemaleSafetyIcon = ({ className = "w-7 h-7" }) => (
-  <svg viewBox="0 0 36 36" fill="none" className={className} xmlns="http://www.w3.org/2000/svg">
-    <path d="M 18 5 L 29 9.5 V 19 C 29 25.5 18 30.5 18 30.5 C 18 30.5 7 25.5 7 19 V 9.5 L 18 5 Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" fill="none" />
-    <circle cx="18" cy="14" r="3" stroke="currentColor" strokeWidth="1.5" />
-    <path d="M 14 22 C 14 19.5 16 18 18 18 C 20 18 22 19.5 22 22" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-  </svg>
-);
-
-const UberCloudKitchenIcon = ({ className = "w-7 h-7" }) => (
-  <svg viewBox="0 0 36 36" fill="none" className={className} xmlns="http://www.w3.org/2000/svg">
-    <path d="M 11 23 C 8 23 6 20.5 6 18 C 6 15.5 8 13.5 10.5 13.5 C 11.5 10 14.5 8 18 8 C 22.5 8 26 11 26 15 C 28.5 15 30 17 30 19.5 C 30 22 28 23 25.5 23 Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" fill="none" />
-  </svg>
-);
-
-const UberChildSafetyIcon = ({ className = "w-7 h-7" }) => (
-  <svg viewBox="0 0 36 36" fill="none" className={className} xmlns="http://www.w3.org/2000/svg">
-    <path d="M 7 17 C 7 11 18 6 18 6 C 18 6 29 11 29 17 H 7 Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" fill="none" />
-    <path d="M 18 17 V 27 C 18 29 16 30 14.5 29" stroke="currentColor" strokeWidth="2" strokeLinecap="round" fill="none" />
-  </svg>
-);
-
-const UberCaregiversIcon = ({ className = "w-7 h-7" }) => (
-  <svg viewBox="0 0 36 36" fill="none" className={className} xmlns="http://www.w3.org/2000/svg">
-    <path d="M 18 13 C 16.5 10 12 10 10.5 13 C 9 16 11.5 19 18 24 C 24.5 19 27 16 25.5 13 C 24 10 19.5 10 18 13 Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" fill="none" />
-    <path d="M 7 24 C 11 28 14 29 18 29 C 22 29 25 28 29 24" stroke="currentColor" strokeWidth="2" strokeLinecap="round" fill="none" />
-  </svg>
-);
+            {/* Video Player Embed */}
+            <div className="relative aspect-video w-full">
+              <iframe
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
+                title="Super Ride Taxi - Cab Booking App Demo"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+          </div>
+        </div>
+      )}
+    </section>
+  );
+};
 
 export const UberLikeAppDevelopmentService = () => {
   const [activePanelTab, setActivePanelTab] = useState('rider');
+  const [principalTab, setPrincipalTab] = useState('rider');
+  const [activeCard, setActiveCard] = useState(null);
   const [openFaq, setOpenFaq] = useState(0);
   const [formSubmitted, setFormSubmitted] = useState(false);
+
+  // 1:1 Reference Match - Principal Features of Ride-sharing app development Data
+  const principalFeatures = {
+    rider: {
+      left: [
+        {
+          title: 'Driver Verification',
+          icon: ShieldCheck,
+          desc: "The driver's data such as name, permit number, and photographs are made accessible to the rider. The driver needs to enter an OTP, which is shipped on rider's number."
+        },
+        {
+          title: 'SOS',
+          icon: PhoneCall,
+          desc: "SOS is a security highlight in the application that permits riders to send an SMS of threat. The alarm message bears the driver's name, contact, and other information."
+        },
+        {
+          title: 'Promotion Code',
+          icon: Percent,
+          desc: "Riders are granted exceptional limits for elevating the application to others. After a fruitful advancement, the riders can apply the code and get a markdown on their booking."
+        },
+        {
+          title: 'Share Ride Details',
+          icon: Share2,
+          desc: "If the budget to ride is low, they can also share with other riders travelling at the same or nearby places. This can be done by selecting an option within the app to share or use personal ride selection."
+        }
+      ],
+      right: [
+        {
+          title: 'Real Time Tracking',
+          icon: Navigation,
+          desc: "It uses high-exactness GPS that permits riders to rapidly look into the precise area of close by drivers and also while onboard can track whether they are driven on a right path."
+        },
+        {
+          title: 'Easy Payment',
+          icon: CreditCard,
+          desc: "Riders can make the installment for their ride by utilizing money, or an assortment of e-wallets. A wide scope of installment choices is vital to draw in an enormous crowd."
+        },
+        {
+          title: 'Fare Estimator',
+          icon: FileText,
+          desc: "Fare estimator is a valuable component that permits riders to know the expense of their outing before affirming a booking. To get a gauge, the riders need to enter their pickup area and the ride-type."
+        }
+      ]
+    },
+    driver: {
+      left: [
+        {
+          title: 'Register',
+          icon: FileText,
+          desc: "A web interface is introduced to the driver to transfer confirmation archives for enlistment. When the check is finished, the driver can begin offering rides."
+        },
+        {
+          title: 'Booking',
+          icon: CheckSquare,
+          desc: "New in demand module that allocates on a previously started ride premise. The drivers can see the pickup point and the drop-off area to design their excursion ahead of time."
+        },
+        {
+          title: 'Route',
+          icon: Navigation,
+          desc: "The drivers can utilize the route highlight to arrive at the rider's area. The driver can choose either the application's in-fabricated route or decide to divert to Google Maps."
+        }
+      ],
+      right: [
+        {
+          title: 'Booking History',
+          icon: Clock,
+          desc: "Drivers reserving history is kept for speedy reference. Here the driver can bring insights concerning the status of the multitude of outings, including the dropped ones."
+        },
+        {
+          title: 'Rating & Review',
+          icon: Star,
+          desc: "The rating and audit area permit the drivers to share their experience i.e., leave remarks about rider's conductor an extraordinary solicitation for certain element expansion."
+        },
+        {
+          title: 'Easy Sign-In/Out',
+          icon: User,
+          desc: "Once sign in and verified by administration, driver gets access to get offer of rides. This permits them to set up their timetable and exercise the most extreme adaptability."
+        },
+        {
+          title: 'Status',
+          icon: FileText,
+          desc: "Drivers can send message to rider in case of traffic stuck or any emergency stops on a way to pick up. In addition, they can also chat if rider is not found nearby the pickup spot."
+        }
+      ]
+    },
+    admin: {
+      left: [
+        {
+          title: 'Profile Management',
+          icon: User,
+          desc: "This helps administrator to oversee everything from the rating, survey, history, etc. of all rides for both drivers and riders on the platform. Total rider and driver controller panel."
+        },
+        {
+          title: 'Ride Details',
+          icon: FileText,
+          desc: "Under ride details, the administrator can pull up the historical backdrop of the multitude of rides alongside the name of drivers and riders.Also can able to see total earns."
+        },
+        {
+          title: 'Transaction Management',
+          icon: DollarSign,
+          desc: "Payment transaction for administrator to separate reports of absolute acquiring by the business inside a predefined period. This demonstrates help in the resulting strategic plan."
+        }
+      ],
+      right: [
+        {
+          title: 'Secure Authentication',
+          icon: Lock,
+          desc: "Drivers are sent a special one-time secret word or OPT through SMS to finish the enrollment and login in order to stay away from bad effectiveness of online business."
+        },
+        {
+          title: 'Manage CMS content',
+          icon: Sliders,
+          desc: "The administrator can set/change SMTP mail settings, oversee site settings, online media layouts, installment passages, etc. according to his/her one-of-a-kind necessities."
+        },
+        {
+          title: 'Fare Management',
+          icon: BarChart3,
+          desc: "To see the charges of urban communities depending of the type of vehicle. What could be empowered next that will depend upon the arrival of the week and season of day."
+        },
+        {
+          title: 'Geo-Fencing',
+          icon: MapPin,
+          desc: "Regardless of whether it's the beginning or cessation in a current region, the administrator can add/eliminate urban communities/areas or states with relative ease."
+        }
+      ]
+    }
+  };
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -465,6 +519,46 @@ export const UberLikeAppDevelopmentService = () => {
     ]
   };
 
+  // Official Sapphire Taxi Booking App FAQs (Exact 9 Questions matching screenshot 1:1)
+  const sapphireFaqs = [
+    {
+      q: '1. Can taxi app be used for corporate employee to manage their travelling?',
+      a: 'Yes, it will be a best way to save your company travelling expenses through a dedicated panel. Your business can also retain and attract more corporate customers.'
+    },
+    {
+      q: '2. How I can get the currency into my local currency?',
+      a: 'Our taxi app supports multi-currency and multi-language payment gateways like Stripe, PayPal, and Razorpay so payments auto-convert into your local currency seamlessly.'
+    },
+    {
+      q: '3. How much secure is White label taxi app especially for payment gateways?',
+      a: 'All payment transactions are encrypted using PCI-DSS compliant SSL protocols and tokenized security for complete peace of mind.'
+    },
+    {
+      q: '4. Can you set up the modules as per my needs?',
+      a: 'Yes! Our white-label taxi app is 100% customizable. We tailor rider, driver, and admin modules according to your precise business requirements.'
+    },
+    {
+      q: '5. Will my taxi booking application be deployed after the development?',
+      a: 'Yes, our team handles end-to-end deployment to your Apple App Store, Google Play Store, and web server infrastructure with zero hassle.'
+    },
+    {
+      q: '6. What services does Sapphire Software Solutions offer for taxi booking app development?',
+      a: 'We offer complete custom development, white-label taxi dispatch software, real-time GPS tracking integration, driver payout systems, and 24/7 post-launch maintenance.'
+    },
+    {
+      q: '7. Can Sapphire Software Solutions build an Uber-like taxi app for iOS and Android?',
+      a: 'Absolutely! We build native iOS (Swift), Android (Kotlin), and cross-platform (Flutter/React Native) taxi booking apps tailored to your target audience.'
+    },
+    {
+      q: '8. How long does it take to develop a custom taxi booking app?',
+      a: 'We deliver MVP taxi apps in 8 to 12 weeks, while complex multi-city dispatch platforms take 4 to 6 months.'
+    },
+    {
+      q: '9. Does Sapphire Software Solutions offer white-label taxi booking app solutions?',
+      a: 'Yes, we provide 100% white-label taxi booking solutions with complete source code ownership, custom branding, and logo integration.'
+    }
+  ];
+
   return (
     <div className="bg-white text-slate-900 font-sans min-h-screen">
       <SEO
@@ -473,11 +567,11 @@ export const UberLikeAppDevelopmentService = () => {
         canonical="/services/uber-like-app-development"
       />
 
-      {/* Sapphire Light Hero Banner */}
+      {/* Sapphire Light Hero Banner matching Taxi Booking App 1:1 */}
       <SapphireLightHeroBanner
-        title="Uber Like App Development Services in USA"
-        subtitle="Rapidly transforming urban mobility, White Label Custom Uber Like App Development Services empower ride hailing businesses and taxi fleets with real-time GPS dispatch, driver allocation, fare estimation, and 1-tap booking."
-        ctaText="Discuss Your Project"
+        title="Taxi Booking App Development Company"
+        subtitle="Our dedicated team of taxi app developers has built 50+ taxi and ride-sharing apps. Contact us to give your customers the best possible user experience and expand your revenue with our on-demand taxi booking app development services."
+        ctaText="Let's Talk →"
         ctaLink="#quote-form"
         serviceCategory="uber"
       />
@@ -485,397 +579,804 @@ export const UberLikeAppDevelopmentService = () => {
       {/* Brand Logo Marquee Right Below Hero Banner */}
       <BrandLogoMarquee />
 
-      {/* Review & Ratings Bar */}
-      <section className="py-6 bg-[#F8FAFC] border-b border-slate-200 text-slate-900 font-sans">
+      {/* About The Taxi Booking App Solution Section (Exact 1:1 Screenshot Match) */}
+      <section className="py-16 sm:py-20 bg-white border-b border-slate-200/80 text-left font-sans">
         <Container>
-          <div className="flex flex-wrap items-center justify-around gap-6 text-center">
-            <div className="space-y-0.5">
-              <div className="text-base sm:text-lg font-extrabold text-[#005F96] flex items-center justify-center space-x-1">
-                <span>900+ GOOGLE REVIEWS</span>
-                <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
-              </div>
-              <p className="text-xs text-slate-500 font-medium">4.9 / 5.0 Rating</p>
-            </div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            {/* Left Graphic: Circular Map + Smartphone Graphic (1:1 Reference Match) */}
+            <div className="lg:col-span-6 flex justify-center relative">
+              <div className="relative w-full max-w-[460px] flex items-center justify-center">
+                
+                {/* Outer Circular Map Graphic Container */}
+                <div className="w-[360px] h-[360px] sm:w-[410px] sm:h-[410px] rounded-full bg-gradient-to-br from-[#EAF3FA] via-[#F2F7FC] to-[#E5EFF8] p-4 relative flex items-center justify-center border border-blue-100/60 shadow-inner overflow-hidden">
+                  
+                  {/* Map Grid Roads Vector Background */}
+                  <svg className="absolute inset-0 w-full h-full text-slate-200/90 pointer-events-none" viewBox="0 0 400 400" fill="none">
+                    <polygon points="40,60 120,40 160,110 80,140" fill="#DDECF8" opacity="0.6" />
+                    <polygon points="220,50 340,80 310,180 200,140" fill="#E2F0FA" opacity="0.6" />
+                    <polygon points="60,200 180,180 150,320 50,300" fill="#E2F0FA" opacity="0.6" />
+                    <polygon points="220,220 340,200 360,340 240,350" fill="#DDECF8" opacity="0.6" />
 
-            <div className="space-y-0.5">
-              <div className="text-base sm:text-lg font-extrabold text-[#005F96] flex items-center justify-center space-x-1">
-                <span>320+ CLUTCH REVIEWS</span>
-                <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
-              </div>
-              <p className="text-xs text-slate-500 font-medium">Top Mobility App Developer</p>
-            </div>
+                    <path d="M 0 120 Q 200 100 400 150" stroke="#FFFFFF" strokeWidth="16" />
+                    <path d="M 120 0 Q 150 200 110 400" stroke="#FFFFFF" strokeWidth="14" />
+                    <path d="M 280 0 Q 260 200 310 400" stroke="#FFFFFF" strokeWidth="14" />
+                    <path d="M 0 280 Q 200 250 400 300" stroke="#FFFFFF" strokeWidth="16" />
 
-            <div className="space-y-0.5">
-              <div className="text-base sm:text-lg font-extrabold text-[#005F96] flex items-center justify-center space-x-1">
-                <span>200+ GOODFIRMS REVIEWS</span>
-                <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
-              </div>
-              <p className="text-xs text-slate-500 font-medium">Verified On-Demand IT Partner</p>
-            </div>
-          </div>
-        </Container>
-      </section>
+                    <path d="M 30 30 L 370 370" stroke="#FFFFFF" strokeWidth="8" />
+                    <path d="M 370 30 L 30 370" stroke="#FFFFFF" strokeWidth="8" />
+                  </svg>
 
-      {/* Section 3: Get Fully Customized White Labelled Uber-Like Apps (Dual Mobile Phone UI Layout 1:1 Sapphire Match) */}
-      <section id="panels-section" className="py-16 md:py-20 bg-[#F4F8FA] border-b border-slate-200 text-left">
-        <Container>
-          <div className="text-center max-w-4xl mx-auto mb-12 space-y-3">
-            <h2
-              className="text-slate-900 tracking-tight section-content-title"
-              style={{
-                fontFamily: "'Poppins', sans-serif",
-                fontWeight: 800,
-                fontSize: '34px',
-                lineHeight: '41px'
-              }}
-            >
-              Get Fully Customized White Labelled Uber-Like Apps
-            </h2>
-            <p
-              className="text-slate-600 section-content-desc max-w-3xl mx-auto"
-              style={{
-                fontFamily: "'Poppins', sans-serif",
-                fontWeight: 400,
-                fontSize: '15px',
-                lineHeight: '26px'
-              }}
-            >
-              Our uber like app development company understands how to make an app like Uber and what it takes to establish a taxi app. Whether you own a small or large taxi startup firm, on demand taxi booking app developers provides taxi app solution can benefit your business. We can create a taxi app and <span className="font-bold text-[#005F96]">audio streaming app like Spotify</span> to provide on-demand towing app development like uber to help you skyrocket your business.
-            </p>
-
-            {/* 3 Main Panel Pill Tabs */}
-            <div className="flex justify-center space-x-4 pt-4 max-w-2xl mx-auto">
-              <button
-                onClick={() => setActivePanelTab('rider')}
-                className={`flex-1 py-3 px-6 rounded-lg text-sm font-extrabold transition-all border ${
-                  activePanelTab === 'rider'
-                    ? 'bg-[#005F96] text-white border-[#005F96] shadow-md'
-                    : 'bg-white text-[#005F96] border-[#005F96]/40 hover:bg-slate-50'
-                }`}
-              >
-                Uber for Riders
-              </button>
-              <button
-                onClick={() => setActivePanelTab('driver')}
-                className={`flex-1 py-3 px-6 rounded-lg text-sm font-extrabold transition-all border ${
-                  activePanelTab === 'driver'
-                    ? 'bg-[#005F96] text-white border-[#005F96] shadow-md'
-                    : 'bg-white text-[#005F96] border-[#005F96]/40 hover:bg-slate-50'
-                }`}
-              >
-                Uber for Driver
-              </button>
-              <button
-                onClick={() => setActivePanelTab('admin')}
-                className={`flex-1 py-3 px-6 rounded-lg text-sm font-extrabold transition-all border ${
-                  activePanelTab === 'admin'
-                    ? 'bg-[#005F96] text-white border-[#005F96] shadow-md'
-                    : 'bg-white text-[#005F96] border-[#005F96]/40 hover:bg-slate-50'
-                }`}
-              >
-                Uber for Admin
-              </button>
-            </div>
-          </div>
-
-          {/* Dual Phone Layout + Left 3 Cards + Right 3 Cards (Exact 1:1 Reference Match) */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center max-w-6xl mx-auto pt-6">
-            {/* Left 3 Feature Cards */}
-            <div className="lg:col-span-4 space-y-8 sm:space-y-10">
-              {panelFeatures[activePanelTab].slice(0, 3).map((item, idx) => {
-                const IconComp = item.icon;
-                return (
-                  <div key={idx} className="flex items-start space-x-4 group">
-                    <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-[#E0F2FE] border border-[#BAE6FD]/60 flex items-center justify-center text-[#005F96] shrink-0 group-hover:scale-105 transition-transform duration-200">
-                      <IconComp className="w-7 h-7 sm:w-8 sm:h-8" />
-                    </div>
-                    <div>
-                      <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-1.5 font-sans group-hover:text-[#005F96] transition-colors">{item.title}</h3>
-                      <p className="text-xs sm:text-[14px] text-slate-600 leading-[1.65] font-normal font-sans">{item.desc}</p>
-                    </div>
+                  {/* Floating Elements on Map Circle */}
+                  {/* 1. Top-Left Compass / Speedometer Badge */}
+                  <div className="absolute top-6 left-12 w-12 h-12 rounded-full bg-slate-800 text-white border-2 border-white shadow-lg flex items-center justify-center z-20">
+                    <svg className="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <circle cx="12" cy="12" r="9" />
+                      <polygon points="12 6 15 12 12 18 9 12" fill="#EF4444" stroke="#EF4444" />
+                      <circle cx="12" cy="12" r="1.5" fill="white" />
+                    </svg>
                   </div>
-                );
-              })}
-            </div>
 
-            {/* Center Dual Mobile Phone Screens (1:1 Sapphire Visual Mockup) */}
-            <div className="lg:col-span-4 flex items-center justify-center relative py-4">
-              <div className="flex items-center -space-x-8 sm:-space-x-10">
-                {/* Phone 1: Rider Map Screen */}
-                <div className="w-[210px] sm:w-[225px] h-[430px] sm:h-[450px] rounded-[38px] bg-slate-900 border-[5px] border-slate-800 p-2 shadow-2xl relative overflow-hidden text-left z-20">
-                  <div className="bg-white w-full h-full rounded-[30px] p-3 flex flex-col justify-between text-slate-900 text-[10px]">
-                    <div className="space-y-1">
-                      <div className="flex items-center justify-between text-[9px] font-bold text-slate-500">
-                        <span>9:41</span>
-                        <span>5G 100%</span>
-                      </div>
-                      <div className="font-bold text-slate-800 text-[11px]">Good morning, Mark</div>
-                      <div className="text-slate-400 font-semibold text-[10px]">Where are you going?</div>
-                    </div>
+                  {/* 2. Top-Right Yellow Chat/Speech Bubble Badge */}
+                  <div className="absolute top-8 right-14 px-3 py-2 rounded-lg bg-[#FFC107] text-white shadow-md z-20 flex flex-col space-y-1">
+                    <div className="w-6 h-1 bg-white/90 rounded-full" />
+                    <div className="w-4 h-1 bg-white/90 rounded-full" />
+                  </div>
 
-                    {/* Live GPS Map Representation */}
-                    <div className="my-1.5 h-44 bg-blue-50/80 rounded-xl border border-blue-100 relative p-2 overflow-hidden flex flex-col justify-between">
-                      <div className="absolute inset-0 bg-[radial-gradient(#005F96_1px,transparent_1px)] [background-size:10px_10px] opacity-25" />
-                      <div className="w-full text-center text-[#005F96] font-bold text-[9.5px] z-10 bg-white/90 py-0.5 rounded shadow-sm border border-blue-100">Swastik Society ➔</div>
+                  {/* 3. Right Blue Navigation Arrow Icon */}
+                  <div className="absolute top-1/2 right-4 transform -translate-y-1/2 w-9 h-9 rounded-full bg-[#0284C7] text-white shadow-md flex items-center justify-center z-20">
+                    <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                      <path d="M12 2L4.5 20.29l.71.71L12 18l6.79 3 .71-.71z" />
+                    </svg>
+                  </div>
+
+                  {/* 4. Left Yellow Speech Bubble Badge */}
+                  <div className="absolute bottom-28 left-6 p-2.5 rounded-lg bg-[#FFC107] text-white shadow-md z-20 flex flex-col space-y-1">
+                    <div className="w-5 h-1 bg-white/90 rounded-full" />
+                    <div className="w-3 h-1 bg-white/90 rounded-full" />
+                  </div>
+
+                  {/* 5. Orange Pins around map */}
+                  <div className="absolute top-24 right-24 text-amber-500 z-10">
+                    <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                    </svg>
+                  </div>
+
+                  <div className="absolute bottom-16 left-24 text-amber-500 z-10">
+                    <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                    </svg>
+                  </div>
+
+                  <div className="absolute bottom-8 right-28 text-amber-500 z-10">
+                    <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                    </svg>
+                  </div>
+
+                  {/* 6. Bottom-Right Crosshair / Target Icon */}
+                  <div className="absolute bottom-20 right-12 w-9 h-9 rounded-full bg-slate-800 text-white shadow-md flex items-center justify-center z-20">
+                    <svg className="w-5 h-5 stroke-current fill-none" viewBox="0 0 24 24" strokeWidth="2">
+                      <circle cx="12" cy="12" r="7" />
+                      <line x1="12" y1="2" x2="12" y2="5" />
+                      <line x1="12" y1="19" x2="12" y2="22" />
+                      <line x1="2" y1="12" x2="5" y2="12" />
+                      <line x1="19" y1="12" x2="22" y2="12" />
+                    </svg>
+                  </div>
+
+                  {/* Central Phone Screen Graphic (1:1 Screenshot Match) */}
+                  <div className="relative w-[180px] sm:w-[200px] h-[330px] sm:h-[360px] rounded-[34px] bg-slate-900 border-4 border-slate-900 p-1.5 shadow-2xl overflow-hidden z-30 font-sans">
+                    <div className="bg-white text-slate-900 w-full h-full rounded-[26px] flex flex-col justify-between overflow-hidden relative text-center">
                       
-                      {/* Cab icon & route pin */}
-                      <div className="relative h-20 my-auto z-10 flex items-center justify-between px-2">
-                        <div className="w-6 h-6 rounded-full bg-slate-900 text-amber-400 flex items-center justify-center font-bold text-[8px] shadow-md">📍</div>
-                        <div className="flex-1 border-b-2 border-dashed border-[#005F96] mx-1 relative">
-                          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-amber-400 text-slate-900 text-[7px] font-black px-1 rounded">🚖 3 MIN</div>
+                      {/* Top Speaker Notch */}
+                      <div className="w-12 h-2 bg-slate-900 rounded-full mx-auto mt-1 z-10" />
+
+                      {/* Phone Display Map Background */}
+                      <div className="relative flex-1 bg-gradient-to-b from-[#FFF5ED] via-[#FFEADB] to-[#FCE3D2] flex flex-col items-center justify-center p-3">
+                        
+                        {/* Soft Concentric Radar Rings */}
+                        <div className="absolute inset-0 flex items-center justify-center pointer-events-none opacity-40">
+                          <div className="w-48 h-48 rounded-full border border-orange-300/80" />
+                          <div className="w-36 h-36 rounded-full border border-orange-300/80 absolute" />
+                          <div className="w-24 h-24 rounded-full border border-orange-300/80 absolute" />
                         </div>
-                        <div className="w-6 h-6 rounded-full bg-[#005F96] text-white flex items-center justify-center font-bold text-[8px] shadow-md">🏁</div>
+
+                        {/* Orange Location Pin at top inside screen */}
+                        <div className="text-[#E07A5F] mb-1 relative z-10">
+                          <svg className="w-8 h-8 fill-current drop-shadow" viewBox="0 0 24 24">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                          </svg>
+                        </div>
+
+                        {/* White Front Taxi Car Graphic */}
+                        <div className="w-24 h-16 bg-white rounded-xl shadow-lg border border-orange-200 flex flex-col items-center justify-center p-1.5 relative z-10 mb-6">
+                          {/* TAXI Sign */}
+                          <div className="w-8 h-2.5 bg-slate-800 rounded-xs flex items-center justify-center text-[5.5px] text-amber-400 font-black mb-0.5">
+                            TAXI
+                          </div>
+                          {/* Car Windshield */}
+                          <div className="w-16 h-5 bg-slate-800 rounded-t-sm opacity-90 mb-1" />
+                          {/* Headlights */}
+                          <div className="w-full flex justify-between px-1">
+                            <div className="w-2.5 h-1 bg-amber-400 rounded-xs" />
+                            <div className="w-2.5 h-1 bg-amber-400 rounded-xs" />
+                          </div>
+                        </div>
+
+                        {/* Two Action Buttons: DRIVER APP & RIDER APP (1:1 Reference Match) */}
+                        <div className="w-full space-y-2 z-10 px-2">
+                          <button className="w-full py-2 rounded-full bg-[#D97736] text-white font-extrabold text-[10px] tracking-wider uppercase shadow-md hover:bg-[#C86A2E] transition-colors">
+                            DRIVER APP
+                          </button>
+                          <button className="w-full py-2 rounded-full bg-white text-[#D97736] font-extrabold text-[10px] tracking-wider uppercase shadow-md hover:bg-slate-50 transition-colors border border-orange-100">
+                            RIDER APP
+                          </button>
+                        </div>
+
                       </div>
 
-                      <div className="w-full flex justify-between items-center text-[9px] font-bold text-slate-700 z-10">
-                        <span className="bg-amber-400 text-slate-900 px-1.5 py-0.5 rounded font-black shadow-xs">Standard ₹133</span>
-                        <span className="text-slate-500">Comfort ₹170</span>
-                      </div>
-                    </div>
-
-                    {/* Bottom Car Selection & Confirm Button */}
-                    <div className="space-y-1.5">
-                      <div className="flex items-center justify-between text-[9px] text-slate-500 font-semibold px-0.5">
-                        <span>Payment: <strong className="text-slate-800">💵 Cash</strong></span>
-                        <span className="text-[#005F96] font-bold cursor-pointer">Change ›</span>
-                      </div>
-                      <button className="w-full py-2 rounded-lg bg-[#F59E0B] hover:bg-[#D97706] text-white font-extrabold text-xs text-center shadow-md">
-                        Confirm Ride
-                      </button>
                     </div>
                   </div>
-                </div>
 
-                {/* Phone 2: Driver Bill & Rating Screen */}
-                <div className="w-[195px] sm:w-[205px] h-[395px] sm:h-[415px] rounded-[34px] bg-slate-900 border-[5px] border-slate-800 p-2 shadow-xl relative overflow-hidden text-left z-10">
-                  <div className="bg-white w-full h-full rounded-[26px] p-3 flex flex-col justify-between text-slate-900 text-[10px]">
-                    <div className="text-center space-y-0.5">
-                      <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wider">Ride Experience</span>
-                      <div className="text-[10px] text-slate-500 font-medium">Your bill is</div>
-                      <div className="text-2xl font-black text-slate-900 leading-none py-1">₹108</div>
-                      <div className="text-[8.5px] text-slate-400 font-medium">March 25, 2026 at 10:38 am</div>
-                    </div>
-
-                    <div className="text-center space-y-1 py-1 border-y border-slate-100 my-1">
-                      <div className="w-8 h-8 rounded-full bg-[#005F96] text-white mx-auto font-bold flex items-center justify-center text-[10px] shadow-sm">AG</div>
-                      <div className="font-bold text-slate-800 text-[10px]">Avinash Gupta</div>
-                      <div className="flex justify-center text-amber-400 text-xs">★★★★★</div>
-                      <p className="text-[8px] text-slate-400">Great driver? Consider giving a tip.</p>
-                      
-                      <div className="flex justify-center gap-1 pt-0.5">
-                        <span className="px-2 py-0.5 rounded border border-slate-200 text-[8.5px] font-bold text-slate-600">₹10</span>
-                        <span className="px-2 py-0.5 rounded bg-amber-100 border border-amber-300 text-[8.5px] font-bold text-amber-800">₹15</span>
-                        <span className="px-2 py-0.5 rounded border border-slate-200 text-[8.5px] font-bold text-slate-600">₹20</span>
-                      </div>
-                    </div>
-
-                    <div className="space-y-1">
-                      <input
-                        type="text"
-                        readOnly
-                        value="Type your review..."
-                        className="w-full text-[8.5px] text-slate-400 border border-slate-200 rounded px-2 py-1 bg-slate-50"
-                      />
-                      <button className="w-full py-1.5 rounded-lg bg-[#F59E0B] text-white font-extrabold text-[10px] text-center shadow-sm">
-                        Submit
-                      </button>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
 
-            {/* Right 3 Feature Cards */}
-            <div className="lg:col-span-4 space-y-8 sm:space-y-10">
-              {panelFeatures[activePanelTab].slice(3, 6).map((item, idx) => {
+            {/* Right Content: Title + Paragraphs + CTA Button (1:1 Reference Match) */}
+            <div className="lg:col-span-6 space-y-5">
+              <h2 className="text-3xl sm:text-4xl font-[800] text-slate-900 tracking-tight leading-tight font-sans">
+                About The Taxi Booking App Solution
+              </h2>
+
+              <div className="space-y-4 text-sm sm:text-base text-slate-600 font-[400] leading-relaxed font-sans">
+                <p>
+                  We develop a modified stage to serve the various accomplices in the taxi business. The method is performed after iOS, Android, and web stages. As a professional taxi booking mobile app and cab booking app development company, we identify the challenges going on in the way of development and work to improve for the betterment of the production. Our gathering's regional capacity in the taxi stage helped with fitting the necessities into our adequately open flexible design, which has encouraged the application improvement measure. The client expected a structure that could manage a lot of drivers inside a short season of a half year. To gather all accomplices, our gathering proposed an unquestionable online taxi booking application arrangement with three applications, one for the driver, one for the rider, and one for admin, all powered by reliable taxi booking app software.
+                </p>
+              </div>
+
+              <div className="pt-3">
+                <a
+                  href="#quote-form"
+                  className="inline-flex items-center justify-center px-7 py-3.5 rounded-[6px] bg-[#0080B0] hover:bg-[#006B94] text-white font-[700] text-sm sm:text-base transition-all shadow-md font-sans"
+                >
+                  Talk To An Expert Now
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </Container>
+      </section>
+
+      {/* World Wide Top Rated Mobile App Development Company on Clutch Banner (1:1 Reference Match) */}
+      <section className="py-7 bg-[#005F96] text-white font-sans overflow-hidden">
+        <Container className="max-w-7xl">
+          <div className="flex flex-col lg:flex-row items-center gap-4 sm:gap-6 w-full">
+            {/* Left Header & Golden 3D Trophy Laurel Wreath */}
+            <div className="flex items-center space-x-4 text-left shrink-0">
+              <h2 className="text-xl sm:text-2xl lg:text-[26px] font-[900] text-white tracking-tight leading-[1.15]">
+                World Wide Top Rated<br />
+                Mobile App Development<br />
+                Company on Clutch
+              </h2>
+              {/* Golden 3D Trophy Laurel Wreath Icon */}
+              <div className="relative w-16 h-16 sm:w-20 sm:h-20 shrink-0 flex items-center justify-center">
+                <svg viewBox="0 0 100 100" className="w-full h-full drop-shadow-md">
+                  <defs>
+                    <linearGradient id="gold3DGradTaxi" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#FFF176" />
+                      <stop offset="40%" stopColor="#FFD700" />
+                      <stop offset="75%" stopColor="#FFA000" />
+                      <stop offset="100%" stopColor="#FF8F00" />
+                    </linearGradient>
+                    <linearGradient id="goldCupGradTaxi" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" stopColor="#FFF9C4" />
+                      <stop offset="50%" stopColor="#FFD700" />
+                      <stop offset="100%" stopColor="#E65100" />
+                    </linearGradient>
+                  </defs>
+
+                  {/* Laurel Wreath Stems */}
+                  <path d="M50 80 C32 78 18 64 18 45 C18 30 28 18 42 14" stroke="url(#gold3DGradTaxi)" strokeWidth="3" strokeLinecap="round" fill="none" />
+                  <path d="M50 80 C68 78 82 64 82 45 C82 30 72 18 58 14" stroke="url(#gold3DGradTaxi)" strokeWidth="3" strokeLinecap="round" fill="none" />
+
+                  {/* Laurel Leaves Left */}
+                  <ellipse cx="40" cy="15" rx="3.5" ry="7" transform="rotate(-40 40 15)" fill="url(#gold3DGradTaxi)" />
+                  <ellipse cx="32" cy="22" rx="3.5" ry="7" transform="rotate(-30 32 22)" fill="url(#gold3DGradTaxi)" />
+                  <ellipse cx="25" cy="32" rx="3.5" ry="7" transform="rotate(-15 25 32)" fill="url(#gold3DGradTaxi)" />
+                  <ellipse cx="21" cy="44" rx="3.5" ry="7" transform="rotate(0 21 44)" fill="url(#gold3DGradTaxi)" />
+                  <ellipse cx="22" cy="56" rx="3.5" ry="7" transform="rotate(15 22 56)" fill="url(#gold3DGradTaxi)" />
+                  <ellipse cx="28" cy="67" rx="3.5" ry="7" transform="rotate(30 28 67)" fill="url(#gold3DGradTaxi)" />
+                  <ellipse cx="36" cy="75" rx="3.5" ry="7" transform="rotate(45 36 75)" fill="url(#gold3DGradTaxi)" />
+
+                  {/* Laurel Leaves Right */}
+                  <ellipse cx="60" cy="15" rx="3.5" ry="7" transform="rotate(40 60 15)" fill="url(#gold3DGradTaxi)" />
+                  <ellipse cx="68" cy="22" rx="3.5" ry="7" transform="rotate(30 68 22)" fill="url(#gold3DGradTaxi)" />
+                  <ellipse cx="75" cy="32" rx="3.5" ry="7" transform="rotate(15 75 32)" fill="url(#gold3DGradTaxi)" />
+                  <ellipse cx="79" cy="44" rx="3.5" ry="7" transform="rotate(0 79 44)" fill="url(#gold3DGradTaxi)" />
+                  <ellipse cx="78" cy="56" rx="3.5" ry="7" transform="rotate(-15 78 56)" fill="url(#gold3DGradTaxi)" />
+                  <ellipse cx="72" cy="67" rx="3.5" ry="7" transform="rotate(-30 72 67)" fill="url(#gold3DGradTaxi)" />
+                  <ellipse cx="64" cy="75" rx="3.5" ry="7" transform="rotate(-45 64 75)" fill="url(#gold3DGradTaxi)" />
+
+                  {/* Bottom Diamond Accent */}
+                  <polygon points="50,77 54,81 50,85 46,81" fill="url(#gold3DGradTaxi)" />
+
+                  {/* Center Trophy Cup */}
+                  <path d="M38 67 H62 L60 72 H40 Z" fill="url(#goldCupGradTaxi)" />
+                  <rect x="42" y="64" width="16" height="3" fill="url(#gold3DGradTaxi)" />
+                  <rect x="47" y="55" width="6" height="9" fill="url(#gold3DGradTaxi)" />
+                  <path d="M35 28 H65 V46 C65 53 57 58 50 58 C43 58 35 53 35 46 Z" fill="url(#goldCupGradTaxi)" />
+                  <ellipse cx="50" cy="28" rx="15" ry="3" fill="#FFFDE7" />
+                  <path d="M35 32 C26 32 26 44 35 46" stroke="url(#gold3DGradTaxi)" strokeWidth="3" fill="none" strokeLinecap="round" />
+                  <path d="M65 32 C74 32 74 44 65 46" stroke="url(#gold3DGradTaxi)" strokeWidth="3" fill="none" strokeLinecap="round" />
+                </svg>
+              </div>
+            </div>
+
+            {/* Right Award Ribbon & Badge Marquee */}
+            <div className="relative overflow-hidden flex-1 min-w-0 w-full">
+              <div
+                className="flex space-x-3.5 w-max py-1 hover:[animation-play-state:paused]"
+                style={{ animation: 'marquee 13s linear infinite' }}
+              >
+                {[
+                  { title: 'IPHONE APP DEVELOPMENT COMPANY', isRed: true },
+                  { title: 'TOP MOBILE APP DEVELOPMENT COMPANY', isBlue: true },
+                  { title: 'TOP MOBILE APP DEVELOPERS 2022', isClutch: true },
+                  { title: 'MOBILE APP DEVELOPMENT COMPANIES', isRed: true },
+                  { title: 'APP DEVELOPMENT COMPANY', isRed: true },
+                  { title: 'WEB DEVELOPMENT', isRed: true },
+                  { title: 'IPHONE APP DEVELOPMENT COMPANY', isRed: true },
+                  { title: 'TOP MOBILE APP DEVELOPMENT COMPANY', isBlue: true },
+                  { title: 'TOP MOBILE APP DEVELOPERS 2022', isClutch: true },
+                  { title: 'MOBILE APP DEVELOPMENT COMPANIES', isRed: true },
+                  { title: 'APP DEVELOPMENT COMPANY', isRed: true },
+                  { title: 'WEB DEVELOPMENT', isRed: true }
+                ].map((badge, idx) => (
+                  badge.isBlue ? (
+                    /* Blue Round Badge */
+                    <div key={idx} className="w-[105px] sm:w-[115px] shrink-0 flex flex-col items-center justify-center p-1.5 bg-white text-slate-900 rounded-full shadow-lg border-2 border-blue-400 text-center cursor-pointer hover:-translate-y-1 transition-transform">
+                      <div className="w-full h-full rounded-full bg-blue-50 border border-blue-200 p-2 flex flex-col items-center justify-center">
+                        <span className="text-[6.5px] font-bold text-blue-900 uppercase leading-none">TOP MOBILE APP</span>
+                        <span className="text-[7.5px] font-black text-blue-600 leading-tight my-0.5 uppercase">DEVELOPMENT</span>
+                        <span className="text-[6px] font-bold text-slate-600 uppercase leading-none">COMPANY</span>
+                      </div>
+                    </div>
+                  ) : badge.isClutch ? (
+                    /* Hexagonal Clutch Badge */
+                    <div key={idx} className="w-[105px] sm:w-[115px] shrink-0 bg-[#1E293B] text-white p-2 rounded-lg border border-cyan-400/40 shadow-lg text-center flex flex-col items-center justify-center cursor-pointer hover:-translate-y-1 transition-transform">
+                      <span className="text-[6.5px] font-extrabold text-cyan-300 uppercase">TOP MOBILE APP</span>
+                      <span className="text-[12px] font-black text-white leading-tight my-0.5">Clutch</span>
+                      <span className="text-[6.5px] font-bold text-slate-300 uppercase">DEVELOPERS 2022</span>
+                    </div>
+                  ) : (
+                    /* Red Ribbon Shield Badge */
+                    <div
+                      key={idx}
+                      className="bg-white text-slate-900 shadow-xl overflow-hidden w-[105px] sm:w-[115px] shrink-0 border-t-[5px] border-[#8C1D40] flex flex-col justify-between p-2.5 pb-4 text-center relative group hover:-translate-y-1 transition-all cursor-pointer"
+                      style={{ clipPath: 'polygon(0 0, 100% 0, 100% 88%, 50% 100%, 0 88%)' }}
+                    >
+                      <div className="text-[7.5px] font-bold text-slate-400 uppercase tracking-tight">MOST REVIEWED</div>
+                      <div className="text-[8.5px] font-black text-[#8C1D40] leading-tight my-1.5 uppercase min-h-[26px] flex items-center justify-center">
+                        {badge.title}
+                      </div>
+                      <div className="flex items-center justify-center space-x-0.5 my-1 text-[#8C1D40]">
+                        <span className="text-[7px]">★</span>
+                        <div className="w-3.5 h-3.5 rounded-full bg-[#8C1D40] text-white flex items-center justify-center text-[7px] font-bold">
+                          ★
+                        </div>
+                        <span className="text-[7px]">★</span>
+                      </div>
+                      <div className="text-[7px] font-extrabold text-slate-400 tracking-tighter uppercase mt-1">
+                        THE MANIFEST
+                      </div>
+                    </div>
+                  )
+                ))}
+              </div>
+            </div>
+          </div>
+        </Container>
+      </section>
+      {/* World Wide Top Rated Mobile App Development Company on Clutch Banner */}
+
+      {/* Principal Features of Ride-sharing app development Section (1:1 Reference Match) */}
+      <section className="py-16 sm:py-20 bg-white border-b border-slate-200 text-left font-sans">
+        <Container>
+          {/* Centered H2 Title */}
+          <div className="text-center max-w-3xl mx-auto mb-10">
+            <h2 className="text-3xl sm:text-4xl font-[900] text-slate-900 tracking-tight font-sans">
+              Principal Features of Ride-sharing app development
+            </h2>
+          </div>
+
+          {/* 3 Interactive Tab Pills (Rider App, Driver App, Admin Panel) */}
+          <div className="flex justify-center items-center space-x-3 sm:space-x-6 max-w-2xl mx-auto mb-16">
+            <button
+              onClick={() => setPrincipalTab('rider')}
+              className={`flex-1 py-3 px-6 rounded-lg text-sm sm:text-base font-[800] transition-all border ${
+                principalTab === 'rider'
+                  ? 'bg-[#0080B0] text-white border-[#0080B0] shadow-md'
+                  : 'bg-[#EBF4F9] text-[#0080B0] border-[#90CDF4] hover:bg-blue-100/60'
+              }`}
+            >
+              Rider App
+            </button>
+            <button
+              onClick={() => setPrincipalTab('driver')}
+              className={`flex-1 py-3 px-6 rounded-lg text-sm sm:text-base font-[800] transition-all border ${
+                principalTab === 'driver'
+                  ? 'bg-[#0080B0] text-white border-[#0080B0] shadow-md'
+                  : 'bg-[#EBF4F9] text-[#0080B0] border-[#90CDF4] hover:bg-blue-100/60'
+              }`}
+            >
+              Driver App
+            </button>
+            <button
+              onClick={() => setPrincipalTab('admin')}
+              className={`flex-1 py-3 px-6 rounded-lg text-sm sm:text-base font-[800] transition-all border ${
+                principalTab === 'admin'
+                  ? 'bg-[#0080B0] text-white border-[#0080B0] shadow-md'
+                  : 'bg-[#EBF4F9] text-[#0080B0] border-[#90CDF4] hover:bg-blue-100/60'
+              }`}
+            >
+              Admin Panel
+            </button>
+          </div>
+
+          {/* 3-Column Grid: Left 4 Features + Center Dual Phone Graphic + Right 3 Features */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start max-w-6xl mx-auto">
+            
+            {/* Left Column Features (4 Cards) */}
+            <div className="lg:col-span-4 space-y-4">
+              {principalFeatures[principalTab].left.map((item, idx) => {
                 const IconComp = item.icon;
+                const cardId = `left-${idx}`;
+                const isSelected = activeCard === cardId;
+
                 return (
-                  <div key={idx} className="flex items-start space-x-4 group">
-                    <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-[#E0F2FE] border border-[#BAE6FD]/60 flex items-center justify-center text-[#005F96] shrink-0 group-hover:scale-105 transition-transform duration-200">
-                      <IconComp className="w-7 h-7 sm:w-8 sm:h-8" />
+                  <div
+                    key={idx}
+                    onMouseEnter={() => setActiveCard(cardId)}
+                    onMouseLeave={() => setActiveCard(null)}
+                    onClick={() => setActiveCard(cardId)}
+                    className={`p-4 rounded-2xl transition-all duration-300 flex items-start space-x-3.5 cursor-pointer group ${
+                      isSelected
+                        ? 'bg-[#0080B0] text-white shadow-xl scale-[1.02]'
+                        : 'bg-white border border-transparent hover:bg-[#0080B0] hover:text-white hover:shadow-xl hover:scale-[1.02]'
+                    }`}
+                  >
+                    <div
+                      className={`w-11 h-11 rounded-xl flex items-center justify-center shrink-0 border transition-all mt-0.5 ${
+                        isSelected
+                          ? 'bg-white/20 text-white border-white/40'
+                          : 'bg-[#EAF5FA] text-[#0080B0] border-blue-100 group-hover:bg-white/20 group-hover:text-white group-hover:border-white/40'
+                      }`}
+                    >
+                      <IconComp className="w-5 h-5 stroke-[2.2]" />
                     </div>
                     <div>
-                      <h3 className="text-base sm:text-lg font-bold text-slate-900 mb-1.5 font-sans group-hover:text-[#005F96] transition-colors">{item.title}</h3>
-                      <p className="text-xs sm:text-[14px] text-slate-600 leading-[1.65] font-normal font-sans">{item.desc}</p>
+                      <h3
+                        className={`text-base sm:text-lg font-[800] leading-tight transition-colors ${
+                          isSelected ? 'text-white' : 'text-slate-900 group-hover:text-white'
+                        }`}
+                      >
+                        {item.title}
+                      </h3>
+                      <p
+                        className={`text-xs sm:text-[13px] mt-1.5 leading-relaxed transition-colors ${
+                          isSelected ? 'text-sky-100' : 'text-slate-600 group-hover:text-sky-100'
+                        }`}
+                      >
+                        {item.desc}
+                      </p>
                     </div>
                   </div>
                 );
               })}
             </div>
-          </div>
-        </Container>
-      </section>
 
-      {/* Section 4: Uber For On-Demand Businesses (6 Niche Solutions - 1:1 Sapphire Reference Match) */}
-      <section className="py-16 md:py-20 bg-[#F4F8FA] border-b border-slate-200 text-left">
-        <Container>
-          <div className="text-center max-w-4xl mx-auto mb-12 sm:mb-14 space-y-3">
-            <h2
-              className="text-slate-900 tracking-tight section-content-title"
-              style={{
-                fontFamily: "'Poppins', sans-serif",
-                fontWeight: 800,
-                fontSize: '34px',
-                lineHeight: '41px'
-              }}
-            >
-              Uber For On-Demand Businesses
-            </h2>
-            <p
-              className="text-slate-600 section-content-desc max-w-3xl mx-auto"
-              style={{
-                fontFamily: "'Poppins', sans-serif",
-                fontWeight: 400,
-                fontSize: '15px',
-                lineHeight: '26px'
-              }}
-            >
-              Whether you are looking to start a cloud kitchen business, <span className="font-bold text-[#005F96]">food delivery app development like zomato</span> or your own cab booking app, our Uber for on-demand businesses app will allow businesses to create a strong digital presence and stay engaged with their customers.
-            </p>
-          </div>
+            {/* Center Column: Dual Smartphone / Mockup Graphic (Sticky inside component) */}
+            <div className="lg:col-span-4 flex justify-center items-start relative lg:sticky lg:top-28 lg:self-start z-10 py-1 transition-all duration-300">
+              
+              {/* RIDER APP CENTER MOCKUP */}
+              {principalTab === 'rider' && (
+                <div className="flex items-center -space-x-10 sm:-space-x-12">
+                  {/* Left/Back Phone Screen (Driver Rating & Bill Screen) */}
+                  <div className="w-[185px] sm:w-[200px] h-[370px] sm:h-[390px] rounded-[34px] bg-slate-900 border-4 border-slate-900 p-1.5 shadow-xl relative overflow-hidden text-left z-10 opacity-95">
+                    <div className="bg-white w-full h-full rounded-[26px] p-3 flex flex-col justify-between text-slate-900 text-[10px] font-sans">
+                      <div className="text-center space-y-1 pt-1">
+                        <span className="text-[9px] font-bold text-slate-400">Ride Experience</span>
+                        <div className="text-xs text-slate-500 font-semibold">Your bill is</div>
+                        <div className="text-2xl font-black text-slate-900">₹108</div>
+                        <div className="text-[8.5px] text-slate-400">March 25, 2026 at 10:38 am</div>
+                      </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
-            {nicheSolutions.map((item, idx) => {
-              const IconComp = item.icon;
-              return (
-                <div
-                  key={idx}
-                  className="p-7 sm:p-8 rounded-2xl bg-white border border-slate-100 shadow-[0_4px_25px_rgba(0,0,0,0.04)] hover:shadow-[0_12px_35px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col justify-start group"
-                >
-                  {/* Light Cyan Pastel Icon Box */}
-                  <div className="w-14 h-14 rounded-2xl bg-[#E0F2FE] border border-[#BAE6FD]/60 flex items-center justify-center text-[#005F96] mb-5 shrink-0 group-hover:scale-105 transition-transform duration-300">
-                    <IconComp className="w-7 h-7" />
+                      <div className="text-center space-y-1 my-2">
+                        <div className="w-9 h-9 rounded-full bg-slate-200 mx-auto font-bold text-[#0080B0] flex items-center justify-center text-[11px] shadow-xs">
+                          AG
+                        </div>
+                        <div className="font-bold text-slate-800 text-[10.5px]">Avinash Gupta</div>
+                        <div className="flex justify-center text-amber-400 text-xs">★★★★★</div>
+                      </div>
+
+                      <button className="w-full py-2 rounded-lg bg-amber-500 text-white font-black text-[10px] text-center shadow-sm">
+                        Submit Rating
+                      </button>
+                    </div>
                   </div>
 
-                  {/* Card Title */}
-                  <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-3 font-sans group-hover:text-[#005F96] transition-colors">
-                    {item.title}
-                  </h3>
+                  {/* Right/Front Phone Screen (Live GPS Search & Route Screen) */}
+                  <div className="w-[205px] sm:w-[225px] h-[400px] sm:h-[420px] rounded-[38px] bg-slate-900 border-[5px] border-slate-900 p-1.5 shadow-2xl relative overflow-hidden text-left z-20 font-sans">
+                    <div className="bg-white text-slate-900 w-full h-full rounded-[30px] flex flex-col justify-between overflow-hidden relative">
+                      
+                      {/* Status Bar & Greeting Header */}
+                      <div className="px-3 pt-2 pb-1 space-y-1 bg-white border-b border-slate-100 z-10">
+                        <div className="flex items-center justify-between text-[8px] font-bold text-slate-400 px-1">
+                          <span>9:41</span>
+                          <div className="w-10 h-2 bg-slate-900 rounded-full mx-auto" />
+                          <span>5G 100%</span>
+                        </div>
+                        <div className="pt-0.5">
+                          <div className="text-[10px] font-bold text-slate-800 leading-none">Good morning, Mark</div>
+                          <div className="text-[9px] text-slate-400 font-medium">Where are you going?</div>
+                        </div>
+                      </div>
 
-                  {/* Verbatim Description */}
-                  <p className="text-xs sm:text-[14px] text-slate-600 leading-[1.7] font-normal font-sans">
-                    {item.desc}
-                  </p>
+                      {/* Interactive GPS Map Screen */}
+                      <div className="relative flex-1 bg-[#EEF4F8] overflow-hidden p-2">
+                        <svg className="absolute inset-0 w-full h-full text-slate-200" viewBox="0 0 200 180" fill="none">
+                          <path d="M -10 40 L 210 60" stroke="#FFFFFF" strokeWidth="12" />
+                          <path d="M 40 -10 L 60 190" stroke="#FFFFFF" strokeWidth="10" />
+                          <path d="M 140 -10 L 130 190" stroke="#FFFFFF" strokeWidth="8" />
+                          <path d="M -10 130 C 60 120, 120 150, 210 140" stroke="#FFFFFF" strokeWidth="10" />
+
+                          <path
+                            d="M 50 130 L 55 70 Q 60 50 90 55 L 135 60 L 130 130"
+                            stroke="#334155"
+                            strokeWidth="2.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+
+                          <circle cx="70" cy="53" r="3" fill="#0F172A" />
+                          <circle cx="132" cy="95" r="3" fill="#0F172A" />
+                        </svg>
+
+                        <div className="relative z-10 space-y-1.5 pt-1">
+                          <div className="bg-white/95 backdrop-blur-xs rounded-lg p-1.5 shadow-sm border border-slate-200/80 flex items-center justify-between">
+                            <span className="text-[9px] font-bold text-slate-700">Swastik society &gt;</span>
+                          </div>
+                          <div className="bg-white/95 backdrop-blur-xs rounded-lg p-1.5 shadow-sm border border-slate-200/80 flex items-center justify-between w-3/4 ml-auto">
+                            <span className="text-[8.5px] font-semibold text-slate-600">My Location &gt;</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Bottom Choose Car Card */}
+                      <div className="bg-white p-2.5 border-t border-slate-200/80 space-y-1.5 z-10">
+                        <div className="text-[10px] font-black text-slate-900 leading-none">Choose your car</div>
+                        <div className="bg-[#FF9F1C] text-white p-1.5 rounded-lg shadow-xs flex items-center justify-between">
+                          <span className="text-[9px] font-black">Standard</span>
+                          <span className="text-[7.5px] font-bold">3 MIN</span>
+                        </div>
+                        <button className="w-full py-1.5 rounded-lg bg-[#FF9F1C] text-white font-black text-[10px] text-center shadow-sm">
+                          Confirm Ride
+                        </button>
+                      </div>
+
+                    </div>
+                  </div>
                 </div>
-              );
-            })}
+              )}
+
+              {/* DRIVER APP CENTER MOCKUP (Matching Image 2 1:1) */}
+              {principalTab === 'driver' && (
+                <div className="flex items-center -space-x-10 sm:-space-x-12">
+                  {/* Left/Back Phone Screen (Driver Earnings & Shift Stats Screen) */}
+                  <div className="w-[185px] sm:w-[200px] h-[370px] sm:h-[390px] rounded-[34px] bg-slate-900 border-4 border-slate-900 p-1.5 shadow-xl relative overflow-hidden text-left z-10 opacity-95">
+                    <div className="bg-white w-full h-full rounded-[26px] p-2.5 flex flex-col justify-between text-slate-900 text-[10px] font-sans">
+                      <div className="flex items-center justify-between border-b border-slate-100 pb-1.5">
+                        <span className="text-xs font-black text-slate-800">Earning</span>
+                        <span className="text-[8px] font-bold bg-emerald-100 text-emerald-700 px-1.5 py-0.5 rounded-full">Active</span>
+                      </div>
+
+                      <div className="my-2 space-y-1">
+                        <span className="text-[9px] text-slate-400 font-semibold">Total Revenue</span>
+                        <div className="text-xl font-black text-slate-900">$154.75</div>
+                        <div className="flex items-end space-x-1 h-16 pt-2 border-b border-slate-100 pb-1">
+                          {[40, 65, 30, 85, 50, 90, 70].map((h, i) => (
+                            <div key={i} className="flex-1 bg-amber-400 rounded-t-xs" style={{ height: `${h}%` }} />
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className="space-y-1.5 text-[8.5px]">
+                        <div className="flex justify-between items-center text-slate-600 font-medium">
+                          <span>Trips Completed</span>
+                          <span className="font-bold text-slate-900">14 Trips</span>
+                        </div>
+                        <div className="flex justify-between items-center text-slate-600 font-medium">
+                          <span>Acceptance Rate</span>
+                          <span className="font-bold text-emerald-600">98.5%</span>
+                        </div>
+                      </div>
+
+                      <div className="w-full py-1.5 rounded-lg bg-slate-800 text-white font-bold text-[9px] text-center shadow-xs">
+                        Total Earnings
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Right/Front Phone Screen (Live Pickup Route & Driver Order Screen - 1:1 Image 2 Match) */}
+                  <div className="w-[205px] sm:w-[225px] h-[400px] sm:h-[420px] rounded-[38px] bg-slate-900 border-[5px] border-slate-900 p-1.5 shadow-2xl relative overflow-hidden text-left z-20 font-sans">
+                    <div className="bg-white text-slate-900 w-full h-full rounded-[30px] flex flex-col justify-between overflow-hidden relative">
+                      
+                      {/* Top Status & Destination Input Card (Exact Image 2 Match) */}
+                      <div className="p-2 bg-white z-10 space-y-1 border-b border-slate-100">
+                        <div className="flex items-center justify-between text-[8px] font-bold text-slate-400 px-1">
+                          <span>9:41</span>
+                          <div className="w-9 h-2 bg-slate-900 rounded-full mx-auto" />
+                          <span>5G</span>
+                        </div>
+                        <div className="bg-slate-50 border border-slate-200 rounded-lg p-1.5 flex items-center space-x-1.5 shadow-xs">
+                          <div className="w-2 h-2 rounded-full bg-amber-500 shrink-0" />
+                          <div className="text-[7.5px] font-semibold text-slate-700 leading-tight truncate">
+                            1 Ash Park, Pembroke Dock, SA7234, Cleary Lane, Oldham, OL9 9PR
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Map Section with Pickup Pin & Route */}
+                      <div className="relative flex-1 bg-[#F1F5F9] overflow-hidden">
+                        <svg className="absolute inset-0 w-full h-full text-slate-300/80" viewBox="0 0 200 180" fill="none">
+                          <path d="M -10 30 L 210 50" stroke="#FFFFFF" strokeWidth="14" />
+                          <path d="M 60 -10 L 40 190" stroke="#FFFFFF" strokeWidth="12" />
+                          <path d="M 150 -10 L 140 190" stroke="#FFFFFF" strokeWidth="10" />
+                          <path d="M -10 140 Q 100 130 210 150" stroke="#FFFFFF" strokeWidth="12" />
+
+                          {/* Route line */}
+                          <path d="M 50 120 L 52 45 L 140 45 L 140 110" stroke="#475569" strokeWidth="3" strokeLinecap="round" strokeDasharray="3 3" />
+                        </svg>
+
+                        {/* Blue Pickup Circle */}
+                        <div className="absolute top-10 left-[44px] w-5 h-5 rounded-full bg-blue-500/20 flex items-center justify-center border border-blue-600 z-10">
+                          <div className="w-2.5 h-2.5 rounded-full bg-blue-600" />
+                        </div>
+
+                        {/* Orange Destination Pin */}
+                        <div className="absolute bottom-14 right-[50px] text-amber-500 z-10">
+                          <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                          </svg>
+                        </div>
+                      </div>
+
+                      {/* Bottom Dispatch Action Sheet (Exact Image 2 Match) */}
+                      <div className="bg-white p-2 border-t border-slate-200/90 space-y-1.5 z-10">
+                        <div className="flex items-center justify-between">
+                          <div>
+                            <div className="text-[12px] font-black text-slate-900 leading-none">01:59</div>
+                            <div className="text-[7.5px] font-semibold text-slate-400">Waiting for rider</div>
+                          </div>
+                          <div className="text-right">
+                            <div className="text-[9px] font-bold text-slate-800">2 min | 0.5 mi</div>
+                            <div className="text-[7px] text-slate-400">Arrived Redetax</div>
+                          </div>
+                        </div>
+
+                        <div className="flex items-center space-x-1.5 pt-0.5">
+                          <div className="w-7 h-7 rounded-full bg-slate-100 text-slate-700 flex items-center justify-center shrink-0 border border-slate-200">
+                            <PhoneCall className="w-3.5 h-3.5" />
+                          </div>
+                          <button className="flex-1 py-1.5 rounded-lg bg-[#FF9F1C] text-white font-black text-[10px] text-center shadow-xs">
+                            Start
+                          </button>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* ADMIN PANEL CENTER MOCKUP (Matching Image 3 1:1) */}
+              {principalTab === 'admin' && (
+                <div className="flex items-center justify-center relative w-full py-2">
+                  <div className="relative w-full max-w-[340px] sm:max-w-[370px]">
+                    
+                    {/* Back Smartphone Graphic */}
+                    <div className="absolute top-2 left-0 w-[140px] sm:w-[155px] h-[270px] sm:h-[290px] rounded-[28px] bg-slate-900 border-4 border-slate-900 p-1 shadow-lg overflow-hidden opacity-90 z-10">
+                      <div className="bg-white w-full h-full rounded-[22px] p-2 flex flex-col justify-between">
+                        <div className="flex items-center justify-between text-[7px] font-bold text-slate-400">
+                          <span>9:41</span>
+                          <span className="text-[#0080B0] font-black">ADMIN APP</span>
+                        </div>
+                        <div className="relative flex-1 bg-slate-100 rounded-lg my-1 overflow-hidden">
+                          <svg className="w-full h-full text-slate-300" viewBox="0 0 100 120" fill="none">
+                            <path d="M 10 20 L 90 40" stroke="#FFFFFF" strokeWidth="8" />
+                            <path d="M 30 0 L 30 120" stroke="#FFFFFF" strokeWidth="6" />
+                            <path d="M 70 0 L 70 120" stroke="#FFFFFF" strokeWidth="6" />
+                            <circle cx="30" cy="40" r="4" fill="#0080B0" />
+                            <circle cx="70" cy="80" r="4" fill="#FF9F1C" />
+                          </svg>
+                        </div>
+                        <div className="bg-amber-500 text-white py-1 rounded-md text-[8px] font-extrabold text-center">
+                          Live Fleet Map
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Front Laptop / Web Admin Dashboard (Exact Image 3 Match) */}
+                    <div className="relative ml-auto w-[240px] sm:w-[270px] z-20">
+                      {/* Laptop Screen Bezel */}
+                      <div className="bg-slate-900 rounded-t-xl p-2 border-2 border-slate-800 shadow-2xl">
+                        <div className="bg-white rounded-lg p-2 font-sans space-y-2 text-slate-900">
+                          
+                          {/* Web Header */}
+                          <div className="flex items-center justify-between border-b border-slate-100 pb-1.5">
+                            <div className="flex items-center space-x-1">
+                              <div className="w-2.5 h-2.5 rounded-full bg-amber-500" />
+                              <span className="text-[9px] font-black text-slate-800 tracking-tight">Dispatch SuperAdmin</span>
+                            </div>
+                            <div className="flex items-center space-x-1 text-[7px] text-slate-400 font-medium">
+                              <div className="w-3.5 h-3.5 rounded-full bg-slate-200 text-slate-700 flex items-center justify-center font-bold">
+                                SA
+                              </div>
+                            </div>
+                          </div>
+
+                          {/* 3 Metric Cards */}
+                          <div className="grid grid-cols-3 gap-1">
+                            <div className="bg-amber-50 p-1 rounded-md border border-amber-200/60 text-center">
+                              <div className="text-[6.5px] font-bold text-amber-700">Revenue</div>
+                              <div className="text-[9px] font-black text-slate-900">$1.5k</div>
+                            </div>
+                            <div className="bg-blue-50 p-1 rounded-md border border-blue-200/60 text-center">
+                              <div className="text-[6.5px] font-bold text-blue-700">Total Rides</div>
+                              <div className="text-[9px] font-black text-slate-900">$5.1k</div>
+                            </div>
+                            <div className="bg-slate-50 p-1 rounded-md border border-slate-200/60 text-center">
+                              <div className="text-[6.5px] font-bold text-slate-600">Active Drivers</div>
+                              <div className="text-[9px] font-black text-slate-900">120</div>
+                            </div>
+                          </div>
+
+                          {/* Analytics Section: Circular Donut Chart (52%) + Mini Bar Charts */}
+                          <div className="grid grid-cols-12 gap-1.5 items-center bg-slate-50 p-1.5 rounded-md border border-slate-100">
+                            {/* 52% Circular Donut Chart (Image 3 Match) */}
+                            <div className="col-span-5 flex flex-col items-center justify-center relative py-1">
+                              <svg className="w-12 h-12 transform -rotate-90" viewBox="0 0 36 36">
+                                <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#E2E8F0" strokeWidth="4" />
+                                <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="#FF9F1C" strokeWidth="4" strokeDasharray="52, 100" />
+                              </svg>
+                              <div className="absolute inset-0 flex items-center justify-center text-[8.5px] font-black text-slate-800">
+                                52%
+                              </div>
+                            </div>
+
+                            {/* Bar Graph */}
+                            <div className="col-span-7 space-y-1">
+                              <div className="text-[7px] font-bold text-slate-600">Weekly Performance</div>
+                              <div className="flex items-end space-x-1 h-7">
+                                {[35, 60, 45, 90, 75, 40].map((h, i) => (
+                                  <div key={i} className="flex-1 bg-[#FF9F1C] rounded-t-xs" style={{ height: `${h}%` }} />
+                                ))}
+                              </div>
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+                      {/* Laptop Base Stand */}
+                      <div className="w-[270px] sm:w-[300px] h-2.5 bg-slate-700 rounded-b-lg -ml-4 border-t border-slate-600 shadow-md flex justify-center items-center">
+                        <div className="w-10 h-0.5 bg-slate-500 rounded-full" />
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              )}
+
+            </div>
+
+            {/* Right Column Features (3 Cards) */}
+            <div className="lg:col-span-4 space-y-4">
+              {principalFeatures[principalTab].right.map((item, idx) => {
+                const IconComp = item.icon;
+                const cardId = `right-${idx}`;
+                const isSelected = activeCard === cardId;
+
+                return (
+                  <div
+                    key={idx}
+                    onMouseEnter={() => setActiveCard(cardId)}
+                    onMouseLeave={() => setActiveCard(null)}
+                    onClick={() => setActiveCard(cardId)}
+                    className={`p-4 rounded-2xl transition-all duration-300 flex items-start space-x-3.5 cursor-pointer group ${
+                      isSelected
+                        ? 'bg-[#0080B0] text-white shadow-xl scale-[1.02]'
+                        : 'bg-white border border-transparent hover:bg-[#0080B0] hover:text-white hover:shadow-xl hover:scale-[1.02]'
+                    }`}
+                  >
+                    <div
+                      className={`w-11 h-11 rounded-xl flex items-center justify-center shrink-0 border transition-all mt-0.5 ${
+                        isSelected
+                          ? 'bg-white/20 text-white border-white/40'
+                          : 'bg-[#EAF5FA] text-[#0080B0] border-blue-100 group-hover:bg-white/20 group-hover:text-white group-hover:border-white/40'
+                      }`}
+                    >
+                      <IconComp className="w-5 h-5 stroke-[2.2]" />
+                    </div>
+                    <div>
+                      <h3
+                        className={`text-base sm:text-lg font-[800] leading-tight transition-colors ${
+                          isSelected ? 'text-white' : 'text-slate-900 group-hover:text-white'
+                        }`}
+                      >
+                        {item.title}
+                      </h3>
+                      <p
+                        className={`text-xs sm:text-[13px] mt-1.5 leading-relaxed transition-colors ${
+                          isSelected ? 'text-sky-100' : 'text-slate-600 group-hover:text-sky-100'
+                        }`}
+                      >
+                        {item.desc}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
           </div>
         </Container>
       </section>
 
-      {/* Unveiling Our Innovative Solution - Auto Moving Video Slider Section */}
-      <InnovativeVideoSlider />
-
-      {/* Success Stories & Stat Cards */}
-      <SuccessStoriesSection category="uber" />
-
-      {/* Our Premium Services 10-Card Section */}
+      {/* Our Premium Services 10-Card Section (Moved right below Principal Features) */}
       <PremiumServicesGrid />
 
-      {/* Section 5: Comparative Analysis (Exact 1:1 Sapphire Reference Table Match) */}
-      <section className="py-16 md:py-20 bg-white border-b border-slate-200 text-left font-sans">
-        <Container className="max-w-5xl">
-          <div className="text-center max-w-4xl mx-auto mb-12 sm:mb-14 space-y-3">
-            <h2
-              className="text-slate-900 tracking-tight section-content-title"
-              style={{
-                fontFamily: "'Poppins', sans-serif",
-                fontWeight: 800,
-                fontSize: '34px',
-                lineHeight: '41px'
-              }}
-            >
-              Comparative Analysis
-            </h2>
-            <p
-              className="text-slate-600 section-content-desc max-w-3xl mx-auto"
-              style={{
-                fontFamily: "'Poppins', sans-serif",
-                fontWeight: 400,
-                fontSize: '15px',
-                lineHeight: '26px'
-              }}
-            >
-              We provide tailored, robust, scalable and secure Android development solutions that delight users and deliver engagement.
-            </p>
-          </div>
+      {/* Super Ride Taxi – Cab Booking App Video Showcase Component (1:1 Screenshot Match) */}
+      <SuperRideTaxiVideoShowcase />
 
-          <div className="rounded-xl border border-slate-200 overflow-hidden shadow-sm bg-white">
-            <div className="overflow-x-auto">
-              <table className="w-full text-left border-collapse min-w-[640px]">
-                <thead>
-                  <tr className="text-sm font-bold">
-                    <th className="p-4 sm:p-5 bg-white w-1/4 border-b border-slate-200"></th>
-                    <th className="p-4 sm:p-5 bg-[#005F96] text-white text-center w-1/4 font-extrabold text-sm sm:text-base border-b border-[#005F96]">
-                      Sapphire Software Solutions
-                    </th>
-                    <th className="p-4 sm:p-5 bg-[#9E9E9E] text-white text-center w-1/4 font-extrabold text-sm sm:text-base border-b border-[#9E9E9E]">
-                      In-House
-                    </th>
-                    <th className="p-4 sm:p-5 bg-[#D6D6D6] text-slate-900 text-center w-1/4 font-extrabold text-sm sm:text-base border-b border-[#D6D6D6]">
-                      Freelance
-                    </th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-slate-200 text-xs sm:text-sm font-medium">
-                  {comparativeTableData.map((row, idx) => (
-                    <tr key={idx} className={idx % 2 === 0 ? 'bg-white' : 'bg-slate-50/50'}>
-                      <td className="p-4 sm:p-5 font-bold text-slate-800 border-r border-slate-200">
-                        {row.metric}
-                      </td>
-                      <td className="p-4 sm:p-5 text-center font-semibold text-slate-900 bg-blue-50/20 border-r border-slate-200">
-                        {row.sapphire}
-                      </td>
-                      <td className="p-4 sm:p-5 text-center text-slate-700 border-r border-slate-200">
-                        {row.inHouse}
-                      </td>
-                      <td className="p-4 sm:p-5 text-center text-slate-700">
-                        {row.freelance}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
+      {/* Success Stories & Stat Cards (1:1 Taxi Showcase Match) */}
+      <SuccessStoriesSection category="taxi" />
 
-          {/* Bottom Consultation Button */}
-          <div className="text-center mt-10">
-            <a
-              href="#quote-form"
-              className="inline-block px-8 py-3.5 rounded-lg bg-[#005F96] hover:bg-[#004b78] text-white font-extrabold text-sm transition-all shadow-md hover:shadow-lg font-sans cursor-pointer"
-            >
-              Get Your Free Consultation
-            </a>
-          </div>
-        </Container>
-      </section>
+      {/* Digital Transformation Case Studies Carousel (1:1 Match to 1st image with peek & 2.5s auto-scroll) */}
+      <DigitalTransformationCaseStudies />
 
-      {/* Our Story, Their Words - Client Video Testimonials Slider Section */}
-      <ClientStoryVideoSlider />
+      {/* Unveiling Our Innovative Solution Video Slider (17 Videos, Interactive Modal, 3s Auto Scroll) */}
+      <UnveilingInnovativeSolutionsVideoSlider />
 
-      {/* Frequently Asked Questions - Sapphire Signature 2-Column FAQ Section */}
-      <SapphireFaqSection faqList={uberFaqList} />
-
-      {/* Technology Stack We Use For Uber Like App Development Section */}
-      <SapphireTechStackGrid domainName="Uber-like app" richTechCategories={techCategories} />
-
-      {/* What Our Clients Say / Clutch Client Testimonials Slider Section */}
-      <ClientReviewsDarkSection />
-
-      {/* Get Uber-Like App Development With 100% Guaranteed Success Section */}
-      <UberQuoteOverview />
-
-      {/* Have Uber Like App Development Challenge To Address CTA Banner Section */}
-      <HealthcareChallengeCtaBanner
-        title="Have Uber-Like App development Challenge To Address ?"
-        subtitle="Get access to top Uber-Like App development to transform your ideas into a robust application."
-        buttonText="Hire Now"
+      {/* Process We Follow - Sapphire 8-Step Timeline (Moved directly below Video Slider) */}
+      <ProcessWeFollow
+        title="Process We Follow"
+        subtitle="Process-oriented execution from initial blueprinting to UAT, deployment, and ongoing SLA maintenance."
       />
 
-      {/* Subscribe us and Get the latest updates and news */}
-      <NewsletterSubscribeBanner />
+      {/* What Our Clients Say - Clutch Client Reviews Slider (9 Reviews, 2.5s Auto Scroll, 1:1 Match) */}
+      <WhatOurClientsSayClutchSlider />
 
+      {/* Sapphire Success Matrix (Moved directly below What Our Clients Say) */}
+      <SuccessMatrix />
+
+      {/* Our Story, Their Words Video Testimonials Slider (11 Video Reviews, Interactive Modal, 2.5s Auto Scroll) */}
+      <OurStoryTheirWordsVideoTestimonialsSlider />
+
+      {/* Sapphire FAQ with 8 Stat Badges & 3 Review Badges (1:1 Match to Screenshot) */}
+      <SapphireFaqWithStatBadges
+        title="Frequently Asked Questions"
+        subtitle="We listen to query and provide solutions that captivate users. Feel free to contact us in case of any query which is not mention below."
+        faqs={sapphireFaqs}
+      />
+
+      {/* We Have Been Featured In Grid (18 Brand Cards, 1:1 Match to Screenshot) */}
+      <WeHaveBeenFeaturedInGrid />
+
+      {/* Hope You Will Provide Us A Chance CTA & Newsletter Subscription Banners (1:1 Match to Screenshot) */}
+      <WorkTogetherNewsletterSection />
     </div>
   );
 };

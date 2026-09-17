@@ -112,9 +112,9 @@ export const Footer = () => {
     solutions: {
       title: 'Solutions',
       links: [
-        { name: 'Taxi Booking App', path: '/portfolio' },
-        { name: 'Covid Tracker App', path: '/portfolio' },
-        { name: 'E-Commerce App', path: '/portfolio' },
+        { name: 'Taxi Booking App', path: '/services/taxi-booking-app-development' },
+        { name: 'Covid Tracker App', path: '/services/covid-tracker-app-development' },
+        { name: 'E-Commerce App', path: '/services/ecommerce-mobile-app-development' },
         { name: 'Product Finder App', path: '/portfolio' },
         { name: 'Eyelash Booking App', path: '/portfolio' },
         { name: 'Language Learning App', path: '/portfolio' },

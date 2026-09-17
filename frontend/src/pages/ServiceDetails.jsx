@@ -27,6 +27,8 @@ import HireCSharpDevelopersService from '../components/services/HireCSharpDevelo
 import HireBootstrapDevelopersService from '../components/services/HireBootstrapDevelopersService';
 import HireCodeIgniterDevelopersService from '../components/services/HireCodeIgniterDevelopersService';
 import IWatchAppDevelopmentService from '../components/services/IWatchAppDevelopmentService';
+import CovidTrackerAppDevelopmentService from '../components/services/CovidTrackerAppDevelopmentService';
+import EcommerceMobileAppDevelopmentService from '../components/services/EcommerceMobileAppDevelopmentService';
 import IPadAppDevelopmentService from '../components/services/IPadAppDevelopmentService';
 import CrossPlatformAppDevelopmentService from '../components/services/CrossPlatformAppDevelopmentService';
 import IOSAppDevelopmentService from '../components/services/IOSAppDevelopmentService';
@@ -363,6 +365,18 @@ export const ServiceDetails = () => {
     currentSlug.includes('app-development-consulting') ||
     currentSlug === 'services/app-development-consulting';
 
+  const isCovid = (slug || currentSlug) && (
+    (slug && slug.toLowerCase().includes('covid')) ||
+    currentSlug.includes('covid-tracker') ||
+    currentSlug.includes('covid-tracking')
+  );
+
+  const isEcommerceApp = (slug || currentSlug) && (
+    (slug && slug.toLowerCase().includes('ecommerce')) ||
+    currentSlug.includes('e-commerce') ||
+    currentSlug.includes('clown-polska')
+  );
+
   const isStartupConsulting = currentSlug === 'startup-consulting-services' ||
     currentSlug === 'startup-consulting' ||
     currentSlug.includes('startup-consulting') ||
@@ -533,7 +547,7 @@ export const ServiceDetails = () => {
   const isChatGpt = currentSlug.includes('chatgpt') || currentSlug.includes('chat-gpt') || currentSlug.includes('hire-chatgpt');
 
   useEffect(() => {
-    if (!isTestingQa && !isDigitalMarketing && !isUiUxDesign && !isChatGpt && !isSoftwareDevelopers && !isDedicatedDevelopers && !isMetaverse && !isEmbeddedSoftware && !isAlexaSkills && !isDataScientist && !isAnyDedicatedHire && !isKotlin && !isHybrid && !isPersonalFitness && !isUsedCar && !isEnneagram && !isCreditCard && !isIPad && !isCrossPlatform && !isItConsulting && !isNext && !isExpress && !isMobileApp && !isBootstrap && !isCodeIgniter && !isEmber && !isLaravel && !isPowerAutomate && !isPowerApps && !isSharePoint && !isVue && !isReact && !isAngular && !isIot && !isPwa && !isRpa && !isVR && !isFullStack && !isBlockchain && !isArtificialIntelligence && !isGenerativeAi && !isNodeJs && !isJava && !isPhp && !isNet && !isXamarin && !isAndroid && !isReactNative && !isFlutter && !isIOS && !isHealthcare && !isEducation && !isUber && !isSpotify && !isZomato && !isAmazon && !isVisitor && !isWarehouse && !isClover && !isCSharp && !isIWatch && !isWordpress && !isDrupal && !isUmbraco && !isSitecore && !isSitefinity && !isMagento && !isShopify) {
+    if (!isTestingQa && !isDigitalMarketing && !isUiUxDesign && !isChatGpt && !isSoftwareDevelopers && !isDedicatedDevelopers && !isMetaverse && !isEmbeddedSoftware && !isAlexaSkills && !isDataScientist && !isAnyDedicatedHire && !isKotlin && !isHybrid && !isPersonalFitness && !isUsedCar && !isEnneagram && !isCreditCard && !isIPad && !isCrossPlatform && !isItConsulting && !isNext && !isExpress && !isMobileApp && !isBootstrap && !isCodeIgniter && !isEmber && !isLaravel && !isPowerAutomate && !isPowerApps && !isSharePoint && !isVue && !isReact && !isAngular && !isIot && !isPwa && !isRpa && !isVR && !isFullStack && !isBlockchain && !isArtificialIntelligence && !isGenerativeAi && !isNodeJs && !isJava && !isPhp && !isNet && !isXamarin && !isAndroid && !isReactNative && !isFlutter && !isIOS && !isHealthcare && !isEducation && !isUber && !isSpotify && !isZomato && !isAmazon && !isVisitor && !isWarehouse && !isClover && !isCSharp && !isIWatch && !isWordpress && !isDrupal && !isUmbraco && !isSitecore && !isSitefinity && !isMagento && !isShopify && !isCovid && !isEcommerceApp) {
       fetchServiceDetails();
     } else {
       setLoading(false);
@@ -865,6 +879,10 @@ export const ServiceDetails = () => {
     return <FlutterAppDevelopmentService />;
   }
 
+  if (isEcommerceApp) {
+    return <EcommerceMobileAppDevelopmentService />;
+  }
+
   if (isHealthcare) {
     return <HealthcareAppDevelopmentService />;
   }
@@ -915,7 +933,12 @@ export const ServiceDetails = () => {
     );
   }
 
-  const currentService = service || generateFallbackService(slug);
+  if (isCovid) {
+    return <CovidTrackerAppDevelopmentService />;
+  }
+
+  if (loading) return <LoadingSpinner fullPage message="Loading service details..." />;
+  if (error || !service) return <Container className="py-20"><ErrorState message={error || 'Service not found.'} onRetry={fetchServiceDetails} /></Container>;
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 font-sans selection:bg-[#005F96] selection:text-white">

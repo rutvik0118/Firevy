@@ -48,7 +48,7 @@ export const WorkTogetherNewsletterSection = ({
 
   return (
     <>
-      {/* 1. Sapphire Blue Work Together CTA Banner with Translucent Tile Shapes (Image 1 1:1 Match) */}
+      {/* 1. Sapphire Blue Work Together CTA Banner with Translucent Tile Shapes */}
       {!hideBanner && showBanner && (
         <section className="py-14 sm:py-16 bg-[#006085] text-white text-center relative overflow-hidden font-sans border-b border-cyan-900">
           {/* Background Decorative Translucent Tile Shapes */}

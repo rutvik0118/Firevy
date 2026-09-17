@@ -48,1081 +48,271 @@ export const SapphireLightHeroBanner = ({
   stats = null
 }) => {
   const isEducation = serviceCategory === 'education';
-  const isSpotify = serviceCategory === 'spotify';
-  const isZomato = serviceCategory === 'zomato' || serviceCategory === 'food';
-  const isAmazon = serviceCategory === 'amazon' || serviceCategory === 'ecommerce';
-  const isVisitor = serviceCategory === 'visitor' || serviceCategory === 'vms' || serviceCategory === 'gatepass';
-  const isWarehouse = serviceCategory === 'warehouse' || serviceCategory === 'wms' || serviceCategory === 'inventory';
-  const isClover = serviceCategory === 'clover' || serviceCategory === 'pos';
-  const isIWatch = serviceCategory === 'iwatch' || serviceCategory === 'watch';
-  const isIPad = serviceCategory === 'ipad';
-  const isKotlin = serviceCategory === 'kotlin';
-  const isHybrid = serviceCategory === 'hybrid';
-  const isPwa = serviceCategory === 'pwa' || serviceCategory === 'progressive-web-app';
-  const isCrossPlatform = serviceCategory === 'cross-platform' || serviceCategory === 'crossplatform' || serviceCategory === 'cross_platform';
-  const isFitness = serviceCategory === 'fitness' || serviceCategory === 'personal-fitness' || serviceCategory === 'personal-fitness-app';
-
-  const defaultZomatoStats = [
-    { value: '80+', label: 'Mobile App Developers' },
-    { value: '20+', label: 'Fortunes 500 Companies' },
-    { value: '800+', label: 'Project Completed in Mobile Technology' },
-    { value: '320+', label: '5-Star Clutch Reviews' }
-  ];
-
-  const defaultCloverStats = [
-    { value: '80+', label: 'Mobile App Developers' },
-    { value: '20+', label: 'Fortunes 500 Companies' },
-    { value: '800+', label: 'Project Completed in Mobile Technology' },
-    { value: '320+', label: '5-Star Clutch Reviews' }
-  ];
-
-  const activeStats = stats || (isZomato ? defaultZomatoStats : isClover ? defaultCloverStats : null);
+  const isUber = serviceCategory === 'uber' || serviceCategory === 'taxi';
 
   return (
     <section className="pt-20 sm:pt-24 pb-8 sm:pb-12 bg-[#EEF5FB] text-slate-900 relative overflow-hidden text-left font-sans border-b border-slate-200/60">
       <Container className="relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           {/* Left Text & CTA */}
-          <div className="lg:col-span-6 space-y-5">
-            <h1
-              className="text-slate-900 tracking-tight max-w-lg page-hero-title font-sans"
-              style={{
-                fontFamily: "'Poppins', sans-serif",
-                fontStyle: 'normal',
-                fontWeight: 800,
-                fontSize: '34px',
-                lineHeight: '41px'
-              }}
-            >
+          <div className="lg:col-span-6 space-y-6">
+            <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-[800] text-slate-900 tracking-tight leading-[1.18] max-w-xl font-sans">
               {title}
             </h1>
 
-            <p
-              className="text-slate-600 max-w-xl page-hero-desc font-sans"
-              style={{
-                fontFamily: "'Poppins', sans-serif",
-                fontStyle: 'normal',
-                fontWeight: 400,
-                fontSize: '15px',
-                lineHeight: '26px'
-              }}
-            >
+            <p className="text-xs sm:text-sm lg:text-base text-slate-600 font-normal leading-relaxed max-w-lg font-sans">
               {subtitle}
             </p>
 
-            {/* Stats Grid if provided or isZomato */}
-            {activeStats && (
-              <div className={`grid grid-cols-2 sm:grid-cols-4 gap-3 py-2 my-2 ${isHybrid ? '' : 'border-t border-b border-slate-200/80 py-3 my-3'}`}>
-                {activeStats.map((st, idx) => (
-                  <div key={idx} className="space-y-0.5">
-                    <div className="text-2xl sm:text-3xl font-[900] text-[#005F96] tracking-tight">
-                      {st.value}
-                    </div>
-                    <div className="text-[11px] sm:text-xs font-semibold text-slate-700 leading-tight">
-                      {st.label}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            )}
-
-            <div className="pt-1">
+            <div className="pt-2">
               <a
                 href={ctaLink}
-                className="inline-flex items-center justify-center px-7 py-3 rounded-lg bg-[#005F96] hover:bg-[#004A75] text-white font-extrabold text-sm sm:text-base transition-all shadow-md hover:shadow-xl hover:-translate-y-0.5 group"
+                className="inline-flex items-center justify-center px-7 py-3.5 rounded-[8px] bg-[#006B8F] hover:bg-[#005573] text-white font-[700] text-sm sm:text-base transition-all shadow-md hover:shadow-lg group font-sans"
               >
                 <span>{ctaText}</span>
-                <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
               </a>
             </div>
           </div>
 
           {/* Right Visual Graphic */}
           <div className="lg:col-span-6 flex justify-center relative py-4">
-            {isZomato ? (
-              /* Zomato Food Delivery Dual Phone Mockup Layout with Orange/Red Blobs matching Sapphire Reference 1:1 */
-              <div className="relative w-full max-w-[540px] flex items-center justify-center min-h-[440px] py-4">
-                {/* Orange Circle Blob Top-Left */}
-                <div className="absolute top-2 left-4 sm:left-8 w-36 h-36 sm:w-44 sm:h-44 rounded-full bg-[#FF5722] pointer-events-none opacity-90" />
+            {isUber ? (
+              <div className="relative w-full max-w-[580px] h-[360px] sm:h-[420px] flex items-center justify-center">
+                {/* 1. Background City Skyline Vector */}
+                <div className="absolute inset-0 flex items-end justify-center pointer-events-none opacity-90">
+                  <svg className="w-full h-full text-[#D4E7F6]" viewBox="0 0 500 300" fill="none">
+                    {/* Soft Sky Glow & Clouds */}
+                    <circle cx="250" cy="150" r="140" fill="#E8F3FC" opacity="0.7" />
+                    <path d="M 70 90 Q 85 70 110 80 Q 130 65 155 80 Q 175 75 180 90 Z" fill="#F4FAFF" opacity="0.9" />
+                    <path d="M 310 60 Q 325 45 345 55 Q 360 40 380 55 Q 395 50 400 60 Z" fill="#F4FAFF" opacity="0.8" />
 
-                {/* Bright Red/Coral Circle Blob Bottom-Right */}
-                <div className="absolute bottom-2 right-4 sm:right-8 w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-[#FF3B30] pointer-events-none opacity-85" />
+                    {/* City Buildings Skyline (Subtle Soft Blue Vectors) */}
+                    <rect x="20" y="140" width="45" height="160" fill="#D2E5F5" rx="3" />
+                    <rect x="32" y="155" width="8" height="12" fill="#EBF4FB" />
+                    <rect x="48" y="155" width="8" height="12" fill="#EBF4FB" />
+                    <rect x="32" y="180" width="8" height="12" fill="#EBF4FB" />
+                    <rect x="48" y="180" width="8" height="12" fill="#EBF4FB" />
+                    <rect x="32" y="205" width="8" height="12" fill="#EBF4FB" />
+                    <rect x="48" y="205" width="8" height="12" fill="#EBF4FB" />
 
-                {/* Dual Overlapping Mobile Phones */}
-                <div className="relative flex items-center justify-center z-10">
+                    <rect x="75" y="100" width="55" height="200" fill="#C5DFF2" rx="4" />
+                    <polygon points="102,65 95,100 110,100" fill="#B3D5EE" />
+                    <rect x="87" y="120" width="10" height="14" fill="#FFFFFF" opacity="0.8" />
+                    <rect x="105" y="120" width="10" height="14" fill="#FFFFFF" opacity="0.8" />
+                    <rect x="87" y="145" width="10" height="14" fill="#FFFFFF" opacity="0.8" />
+                    <rect x="105" y="145" width="10" height="14" fill="#FFFFFF" opacity="0.8" />
+                    <rect x="87" y="170" width="10" height="14" fill="#FFFFFF" opacity="0.8" />
+                    <rect x="105" y="170" width="10" height="14" fill="#FFFFFF" opacity="0.8" />
 
-                  {/* LEFT PHONE (Main Food App Screen) */}
-                  <div className="w-[200px] sm:w-[225px] h-[400px] sm:h-[440px] rounded-[36px] bg-slate-950 border-4 border-slate-800 p-2 shadow-2xl overflow-hidden flex flex-col justify-between text-slate-900 font-sans relative z-20 bg-white">
-                    <div>
-                      {/* Status Bar */}
-                      <div className="flex items-center justify-between text-[7px] text-slate-500 px-2 pt-1 font-semibold border-b border-slate-100 pb-1">
-                        <span>9:41</span>
-                        <div className="flex items-center space-x-1">
-                          <div className="w-1.5 h-1.5 rounded-full bg-slate-500" />
-                          <div className="w-2 h-1.5 border border-slate-500 rounded-sm" />
-                        </div>
-                      </div>
+                    <rect x="140" y="160" width="40" height="140" fill="#DAEBF7" rx="3" />
+                    <rect x="190" y="110" width="60" height="190" fill="#CCE3F5" rx="4" />
+                    <rect x="202" y="130" width="14" height="15" fill="#FFFFFF" opacity="0.7" />
+                    <rect x="224" y="130" width="14" height="15" fill="#FFFFFF" opacity="0.7" />
+                    <rect x="202" y="160" width="14" height="15" fill="#FFFFFF" opacity="0.7" />
+                    <rect x="224" y="160" width="14" height="15" fill="#FFFFFF" opacity="0.7" />
 
-                      {/* Orange Header Card */}
-                      <div className="bg-gradient-to-r from-[#FF5722] to-[#FF7043] -mx-2 -mt-1 p-2.5 text-white space-y-1.5 shadow-sm">
-                        <div className="flex items-center justify-between text-[8px] font-bold">
-                          <div className="flex items-center space-x-1 truncate">
-                            <span className="text-[10px]">📍</span>
-                            <span className="truncate">120 E Taylor St, USA</span>
-                          </div>
-                          <span>⚙️</span>
-                        </div>
-                        {/* Search Bar */}
-                        <div className="bg-white text-slate-400 rounded-md px-2 py-1 flex items-center text-[7.5px]">
-                          <span className="mr-1">🔍</span>
-                          <span>Search your product...</span>
-                        </div>
-                      </div>
+                    <rect x="260" y="130" width="50" height="170" fill="#C0DCF0" rx="3" />
+                    <polygon points="285,95 278,130 292,130" fill="#A8CEE9" />
 
-                      {/* Food Categories */}
-                      <div className="px-1 mt-2 space-y-1">
-                        <div className="flex justify-between items-center text-[8px]">
-                          <span className="font-extrabold text-slate-900">Categories</span>
-                          <span className="text-[7px] text-[#FF5722] font-bold">See All</span>
-                        </div>
-                        <div className="grid grid-cols-4 gap-1 text-center">
-                          <div className="bg-orange-50 border border-orange-100 rounded p-1">
-                            <span className="text-[11px] block">🥣</span>
-                            <span className="text-[6.5px] font-extrabold text-slate-700 block mt-0.5">Breakfast</span>
-                          </div>
-                          <div className="bg-amber-50 border border-amber-100 rounded p-1">
-                            <span className="text-[11px] block">🍔</span>
-                            <span className="text-[6.5px] font-extrabold text-slate-700 block mt-0.5">Lunch</span>
-                          </div>
-                          <div className="bg-red-50 border border-red-100 rounded p-1">
-                            <span className="text-[11px] block">🍟</span>
-                            <span className="text-[6.5px] font-extrabold text-slate-700 block mt-0.5">Snacks</span>
-                          </div>
-                          <div className="bg-yellow-50 border border-yellow-100 rounded p-1">
-                            <span className="text-[11px] block">🍕</span>
-                            <span className="text-[6.5px] font-extrabold text-slate-700 block mt-0.5">Dinner</span>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Popular Products */}
-                      <div className="px-1 mt-2 space-y-1">
-                        <div className="flex justify-between items-center text-[8px]">
-                          <span className="font-extrabold text-slate-900">Popular Products</span>
-                          <span className="text-[7px] text-[#FF5722] font-bold">See All</span>
-                        </div>
-                        <div className="grid grid-cols-3 gap-1">
-                          <div className="bg-slate-50 border border-slate-200 rounded-md p-1 space-y-0.5">
-                            <div className="h-8 rounded bg-gradient-to-tr from-amber-400 to-orange-500 flex items-center justify-center text-sm">🍔</div>
-                            <div className="text-[7px] font-bold truncate text-slate-800">Hamburger</div>
-                            <div className="text-[6.5px] text-[#FF5722] font-extrabold">$12 ⭐ 4.8</div>
-                          </div>
-                          <div className="bg-slate-50 border border-slate-200 rounded-md p-1 space-y-0.5">
-                            <div className="h-8 rounded bg-gradient-to-tr from-red-400 to-rose-500 flex items-center justify-center text-sm">🍕</div>
-                            <div className="text-[7px] font-bold truncate text-slate-800">Garlic Pizza</div>
-                            <div className="text-[6.5px] text-[#FF5722] font-extrabold">$15 ⭐ 4.9</div>
-                          </div>
-                          <div className="bg-slate-50 border border-slate-200 rounded-md p-1 space-y-0.5">
-                            <div className="h-8 rounded bg-gradient-to-tr from-yellow-400 to-amber-500 flex items-center justify-center text-sm">🍜</div>
-                            <div className="text-[7px] font-bold truncate text-slate-800">Wok Noodle</div>
-                            <div className="text-[6.5px] text-[#FF5722] font-extrabold">$10 ⭐ 4.7</div>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Recommended Dishes */}
-                      <div className="px-1 mt-2 space-y-1">
-                        <div className="flex justify-between items-center text-[8px]">
-                          <span className="font-extrabold text-slate-900">Recommended Dishes</span>
-                        </div>
-                        <div className="flex space-x-1 overflow-hidden">
-                          <div className="w-1/2 bg-slate-50 border border-slate-200 rounded p-1 flex items-center space-x-1">
-                            <span className="text-[12px]">🍣</span>
-                            <div>
-                              <div className="text-[6.5px] font-bold truncate">Sushi Roll</div>
-                              <div className="text-[6px] text-[#FF5722] font-bold">$18.00</div>
-                            </div>
-                          </div>
-                          <div className="w-1/2 bg-slate-50 border border-slate-200 rounded p-1 flex items-center space-x-1">
-                            <span className="text-[12px]">🌮</span>
-                            <div>
-                              <div className="text-[6.5px] font-bold truncate">Mex Taco</div>
-                              <div className="text-[6px] text-[#FF5722] font-bold">$9.50</div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Bottom Nav Bar */}
-                    <div className="bg-slate-900 text-white -mx-2 -mb-2 p-1.5 flex items-center justify-around text-[7.5px] font-extrabold">
-                      <div className="flex flex-col items-center text-[#FF5722]">
-                        <span className="text-[10px] leading-none">🏠</span>
-                        <span className="mt-0.5">Home</span>
-                      </div>
-                      <div className="flex flex-col items-center opacity-70">
-                        <span className="text-[10px] leading-none">📂</span>
-                        <span className="mt-0.5">Category</span>
-                      </div>
-                      <div className="flex flex-col items-center opacity-70">
-                        <span className="text-[10px] leading-none">🛒</span>
-                        <span className="mt-0.5">Cart</span>
-                      </div>
-                      <div className="flex flex-col items-center opacity-70">
-                        <span className="text-[10px] leading-none">👤</span>
-                        <span className="mt-0.5">Profile</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* RIGHT PHONE (EasyEat Secondary Screen) */}
-                  <div className="w-[190px] sm:w-[215px] h-[390px] sm:h-[430px] rounded-[36px] bg-slate-950 border-4 border-slate-800 p-2 shadow-2xl overflow-hidden flex flex-col justify-between text-slate-900 font-sans relative z-10 -ml-8 sm:-ml-10 transform rotate-3 hover:rotate-0 transition-transform duration-300 bg-white">
-                    <div>
-                      {/* Status Bar */}
-                      <div className="flex items-center justify-between text-[7px] text-slate-500 px-2 pt-1 font-semibold border-b border-slate-100 pb-1">
-                        <span>9:41</span>
-                        <div className="flex items-center space-x-1">
-                          <div className="w-1.5 h-1.5 rounded-full bg-slate-500" />
-                          <div className="w-2 h-1.5 border border-slate-500 rounded-sm" />
-                        </div>
-                      </div>
-
-                      {/* EasyEat Brand Header */}
-                      <div className="p-2 text-center border-b border-slate-100 space-y-0.5">
-                        <div className="w-7 h-7 mx-auto rounded-lg bg-[#FF5722] flex items-center justify-center text-white text-xs font-black">
-                          🍕
-                        </div>
-                        <h4 className="text-[10px] font-black text-slate-900 tracking-tight">EasyEat</h4>
-                        <p className="text-[6.5px] text-slate-400 font-semibold uppercase tracking-wider">Food Tech Engine</p>
-                      </div>
-
-                      {/* Today's Special Dish */}
-                      <div className="p-2 space-y-1">
-                        <span className="text-[7.5px] font-extrabold text-[#FF5722] block uppercase tracking-wider">Today's Special Dish</span>
-                        <div className="bg-orange-50/70 border border-orange-200 rounded-lg p-2 space-y-1">
-                          <div className="flex justify-between items-center text-[7.5px] font-bold">
-                            <span>Item Name</span>
-                            <span className="text-slate-800">Garlic Pizza</span>
-                          </div>
-                          <div className="flex justify-between items-center text-[7.5px]">
-                            <span className="text-slate-500">Regular Price</span>
-                            <span className="text-slate-400 line-through">$18.00</span>
-                          </div>
-                          <div className="flex justify-between items-center text-[7.5px] font-extrabold text-[#FF5722]">
-                            <span>Discount Price</span>
-                            <span>$12.00</span>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Main Product List */}
-                      <div className="p-2 space-y-1">
-                        <span className="text-[7.5px] font-extrabold text-slate-800 block uppercase tracking-wider">Main Product List</span>
-                        <div className="space-y-1">
-                          <div className="bg-slate-50 border border-slate-200 rounded p-1 flex justify-between items-center text-[7px]">
-                            <span className="font-bold">Item Name</span>
-                            <span className="text-slate-600">BBQ Burger ($10.50)</span>
-                          </div>
-                          <div className="bg-slate-50 border border-slate-200 rounded p-1 flex justify-between items-center text-[7px]">
-                            <span className="font-bold">Category</span>
-                            <span className="text-slate-600">Fast Food / Meal</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Orange Continue CTA Button */}
-                    <div className="p-2">
-                      <button className="w-full py-2 rounded-lg bg-[#FF5722] hover:bg-[#E64A19] text-white font-extrabold text-[9px] text-center shadow-md transition-colors">
-                        Continue →
-                      </button>
-                    </div>
-                  </div>
-
+                    <rect x="320" y="150" width="45" height="150" fill="#D2E5F5" rx="3" />
+                    <rect x="375" y="170" width="40" height="130" fill="#E1EFF9" rx="3" />
+                  </svg>
                 </div>
-              </div>
-            ) : isSpotify ? (
-              /* Spotify 1:1 Reference Dual Phone Mockup Layout with Pink/Purple Blobs */
-              <div className="relative w-full max-w-[540px] flex items-center justify-center min-h-[420px] py-4">
-                {/* Magenta/Pink Accent Circle Blob Top-Left */}
-                <div className="absolute top-2 left-6 sm:left-10 w-28 h-28 sm:w-36 sm:h-36 rounded-full bg-[#D946EF] pointer-events-none opacity-90" />
 
-                {/* Dark Accent Circle Blob Bottom-Right */}
-                <div className="absolute bottom-4 right-8 sm:right-12 w-28 h-28 sm:w-36 sm:h-36 rounded-full bg-[#18181B] pointer-events-none" />
+                {/* 2. Dotted Orange Connection Line from Taxi Roof Sign to Location Pin */}
+                <svg className="absolute inset-0 w-full h-full pointer-events-none z-20" viewBox="0 0 580 420" fill="none">
+                  <path
+                    d="M 225 210 C 245 160, 265 160, 305 175"
+                    stroke="#F59E0B"
+                    strokeWidth="2.5"
+                    strokeDasharray="5 5"
+                    strokeLinecap="round"
+                  />
+                </svg>
 
-                {/* Dual Overlapping Mobile Phones */}
-                <div className="relative flex items-center justify-center z-10">
-
-                  {/* LEFT PHONE: Spotify Music Main Screen */}
-                  <div className="w-[195px] sm:w-[220px] h-[390px] sm:h-[430px] rounded-[36px] bg-[#09090B] border-4 border-slate-800 p-2 shadow-2xl overflow-hidden flex flex-col justify-between text-white font-sans relative z-20 transform -rotate-1 hover:rotate-0 transition-transform duration-300">
-
-                    {/* Status Bar & Header */}
-                    <div>
-                      <div className="flex items-center justify-between text-[7px] text-slate-400 px-2 pt-1 font-semibold">
-                        <span>11:03</span>
-                        <div className="flex items-center space-x-1">
-                          <div className="w-1.5 h-1.5 rounded-full bg-slate-400" />
-                          <div className="w-2 h-1.5 border border-slate-400 rounded-sm" />
-                        </div>
-                      </div>
-
-                      <div className="flex items-center justify-between px-2 pt-2 pb-1">
-                        <span className="text-[11px] font-black text-white tracking-tight">Welcome back!</span>
-                        <div className="flex items-center space-x-1.5 text-slate-300 text-[10px]">
-                          <span>🔔</span>
-                          <span>⚙️</span>
-                        </div>
-                      </div>
-
-                      {/* Continue Listening Grid */}
-                      <div className="px-2 mt-1 space-y-1">
-                        <span className="text-[8px] font-extrabold text-slate-300 uppercase tracking-wider block">Continue Listening</span>
-                        <div className="grid grid-cols-2 gap-1.5">
-                          <div className="bg-[#1E1E22] p-1 rounded-md flex items-center space-x-1.5 border border-white/5">
-                            <div className="w-5 h-5 rounded bg-gradient-to-br from-pink-500 to-purple-600 shrink-0 flex items-center justify-center text-[7px] font-bold">🎵</div>
-                            <span className="text-[7.5px] font-bold text-slate-200 truncate">Saffron & Solo</span>
-                          </div>
-                          <div className="bg-[#1E1E22] p-1 rounded-md flex items-center space-x-1.5 border border-white/5">
-                            <div className="w-5 h-5 rounded bg-gradient-to-br from-amber-500 to-emerald-500 shrink-0 flex items-center justify-center text-[7px] font-bold">🎧</div>
-                            <span className="text-[7.5px] font-bold text-slate-200 truncate">Chill Vibes</span>
-                          </div>
-                          <div className="bg-[#1E1E22] p-1 rounded-md flex items-center space-x-1.5 border border-white/5">
-                            <div className="w-5 h-5 rounded bg-gradient-to-br from-cyan-500 to-blue-600 shrink-0 flex items-center justify-center text-[7px] font-bold">🎸</div>
-                            <span className="text-[7.5px] font-bold text-slate-200 truncate">Acoustic Hits</span>
-                          </div>
-                          <div className="bg-[#1E1E22] p-1 rounded-md flex items-center space-x-1.5 border border-white/5">
-                            <div className="w-5 h-5 rounded bg-gradient-to-br from-[#D946EF] to-indigo-600 shrink-0 flex items-center justify-center text-[7px] font-bold">🎹</div>
-                            <span className="text-[7.5px] font-bold text-slate-200 truncate">Lo-Fi Beats</span>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Your Top Mixes */}
-                      <div className="px-2 mt-2 space-y-1">
-                        <span className="text-[8px] font-extrabold text-slate-300 uppercase tracking-wider block">Your Top Mixes</span>
-                        <div className="flex space-x-1.5">
-                          <div className="bg-[#18181C] p-1.5 rounded-lg w-1/2 border border-white/5 space-y-1">
-                            <div className="h-12 rounded-md bg-gradient-to-tr from-pink-600 via-rose-500 to-purple-600 p-1 flex items-end">
-                              <span className="text-[7px] font-black text-white">POP MIX</span>
-                            </div>
-                            <span className="text-[7px] text-slate-400 block truncate">Dua Lipa, The Weeknd</span>
-                          </div>
-                          <div className="bg-[#18181C] p-1.5 rounded-lg w-1/2 border border-white/5 space-y-1">
-                            <div className="h-12 rounded-md bg-gradient-to-tr from-emerald-600 via-teal-500 to-cyan-600 p-1 flex items-end">
-                              <span className="text-[7px] font-black text-white">CHILL MIX</span>
-                            </div>
-                            <span className="text-[7px] text-slate-400 block truncate">Coldplay, Ed Sheeran</span>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Based on recent listening */}
-                      <div className="px-2 mt-2 space-y-1">
-                        <span className="text-[8px] font-extrabold text-slate-300 uppercase tracking-wider block">Based on your recent listening</span>
-                        <div className="flex space-x-1.5">
-                          <div className="w-10 h-10 rounded-md bg-gradient-to-br from-indigo-500 to-purple-800 shrink-0 border border-white/10" />
-                          <div className="w-10 h-10 rounded-md bg-gradient-to-br from-pink-500 to-rose-700 shrink-0 border border-white/10" />
-                          <div className="w-10 h-10 rounded-md bg-gradient-to-br from-amber-500 to-orange-600 shrink-0 border border-white/10" />
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Bottom Nav Bar */}
-                    <div className="bg-[#121215] -mx-2 -mb-2 p-2 border-t border-white/10 flex items-center justify-around text-[7.5px] font-extrabold text-slate-400">
-                      <div className="flex flex-col items-center text-white">
-                        <span className="text-sm leading-none">🏠</span>
-                        <span className="mt-0.5">Home</span>
-                      </div>
-                      <div className="flex flex-col items-center hover:text-white">
-                        <span className="text-sm leading-none">🔍</span>
-                        <span className="mt-0.5">Explore</span>
-                      </div>
-                      <div className="flex flex-col items-center hover:text-white">
-                        <span className="text-sm leading-none">📚</span>
-                        <span className="mt-0.5">Library</span>
-                      </div>
-                    </div>
-
+                {/* Orange Pin Icon above phone */}
+                <div className="absolute top-[158px] left-[300px] z-30 transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center">
+                  <div className="w-7 h-7 rounded-full bg-amber-500 text-white flex items-center justify-center shadow-md border-2 border-white">
+                    <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                      <path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.85 7h10.29l1.04 3H5.81l1.04-3zM19 17H5v-4h14v4z" />
+                      <circle cx="7.5" cy="14.5" r="1.5" />
+                      <circle cx="16.5" cy="14.5" r="1.5" />
+                    </svg>
                   </div>
+                  <div className="w-1.5 h-1.5 bg-amber-500 rounded-full mt-0.5 shadow-sm" />
+                </div>
 
-                  {/* RIGHT PHONE: Spotify Music Player Screen */}
-                  <div className="w-[190px] sm:w-[215px] h-[385px] sm:h-[425px] rounded-[36px] bg-[#09090B] border-4 border-slate-800 p-2 shadow-2xl overflow-hidden flex flex-col justify-between text-white font-sans relative z-10 -ml-8 sm:-ml-10 transform rotate-2 hover:rotate-0 transition-transform duration-300">
+                {/* 3. Shiny Bright Yellow Taxi Car Graphic (1:1 Reference Match) */}
+                <div className="absolute bottom-6 left-0 sm:left-2 z-20 w-[240px] sm:w-[290px]">
+                  <svg viewBox="0 0 320 200" className="w-full h-auto drop-shadow-xl" fill="none">
+                    {/* Car shadow */}
+                    <ellipse cx="160" cy="178" rx="140" ry="14" fill="#0F172A" opacity="0.25" />
 
-                    <div>
-                      {/* Status Bar */}
-                      <div className="flex items-center justify-between text-[7px] text-slate-400 px-2 pt-1 font-semibold">
-                        <span>11:03</span>
-                        <div className="flex items-center space-x-1">
-                          <div className="w-1.5 h-1.5 rounded-full bg-slate-400" />
-                          <div className="w-2 h-1.5 border border-slate-400 rounded-sm" />
-                        </div>
+                    {/* TAXI Roof Sign */}
+                    <g transform="translate(130, 48)">
+                      <rect x="0" y="0" width="50" height="16" rx="3" fill="#1E293B" stroke="#0F172A" strokeWidth="1" />
+                      <rect x="2" y="2" width="46" height="12" rx="2" fill="#F59E0B" />
+                      <text x="25" y="11" fill="#0F172A" fontSize="9" fontWeight="900" textAnchor="middle" fontFamily="sans-serif">TAXI</text>
+                    </g>
+
+                    {/* Main Car Body - Front 3/4 Perspective */}
+                    {/* Roof & Cabin */}
+                    <path
+                      d="M 85 105 C 100 68, 125 60, 160 60 C 195 60, 220 75, 235 105 Z"
+                      fill="#EAB308"
+                    />
+                    {/* Windshield */}
+                    <path
+                      d="M 100 100 C 112 73, 130 66, 160 66 C 185 66, 205 76, 215 100 Z"
+                      fill="#1E293B"
+                      opacity="0.85"
+                    />
+                    {/* Windshield Reflection */}
+                    <path d="M 110 95 L 140 70 L 155 70 L 120 95 Z" fill="#FFFFFF" opacity="0.3" />
+
+                    {/* Lower Body */}
+                    <path
+                      d="M 35 135 C 35 110, 60 102, 100 102 L 230 102 C 265 102, 285 112, 285 135 C 285 155, 275 162, 255 162 L 65 162 C 45 162, 35 152, 35 135 Z"
+                      fill="#FACC15"
+                    />
+                    {/* Body Accent Highlight */}
+                    <path
+                      d="M 40 120 C 60 112, 100 110, 160 110 C 220 110, 260 112, 280 120 C 265 115, 220 113, 160 113 C 100 113, 55 115, 40 120 Z"
+                      fill="#FFFFFF"
+                      opacity="0.5"
+                    />
+
+                    {/* Front Grille & Bumper */}
+                    <path d="M 45 138 C 45 132, 60 130, 85 130 C 110 130, 125 132, 125 138 C 125 146, 110 148, 85 148 C 60 148, 45 146, 45 138 Z" fill="#1E293B" />
+                    {/* Grille Bars */}
+                    <line x1="55" y1="135" x2="115" y2="135" stroke="#94A3B8" strokeWidth="1.5" />
+                    <line x1="55" y1="139" x2="115" y2="139" stroke="#94A3B8" strokeWidth="1.5" />
+                    <line x1="55" y1="143" x2="115" y2="143" stroke="#94A3B8" strokeWidth="1.5" />
+
+                    {/* Headlights */}
+                    <ellipse cx="46" cy="132" rx="9" ry="6" fill="#FEF08A" stroke="#E2E8F0" strokeWidth="1.5" />
+                    <ellipse cx="46" cy="132" rx="5" ry="3" fill="#FFFFFF" />
+                    <ellipse cx="124" cy="132" rx="9" ry="6" fill="#FEF08A" stroke="#E2E8F0" strokeWidth="1.5" />
+                    <ellipse cx="124" cy="132" rx="5" ry="3" fill="#FFFFFF" />
+
+                    {/* License Plate */}
+                    <rect x="73" y="146" width="24" height="10" rx="1.5" fill="#FFFFFF" stroke="#64748B" strokeWidth="0.8" />
+                    <text x="85" y="153" fill="#0F172A" fontSize="5.5" fontWeight="900" textAnchor="middle" fontFamily="sans-serif">TAXI 01</text>
+
+                    {/* Side Mirrors */}
+                    <ellipse cx="88" cy="100" rx="6" ry="4" fill="#EAB308" stroke="#1E293B" strokeWidth="1" />
+                    <ellipse cx="232" cy="100" rx="6" ry="4" fill="#EAB308" stroke="#1E293B" strokeWidth="1" />
+
+                    {/* Wheels */}
+                    <g transform="translate(75, 142)">
+                      <circle cx="18" cy="18" r="20" fill="#0F172A" />
+                      <circle cx="18" cy="18" r="12" fill="#94A3B8" />
+                      <circle cx="18" cy="18" r="6" fill="#475569" />
+                      <circle cx="18" cy="18" r="3" fill="#F8FAFC" />
+                    </g>
+                    <g transform="translate(205, 142)">
+                      <circle cx="18" cy="18" r="20" fill="#0F172A" />
+                      <circle cx="18" cy="18" r="12" fill="#94A3B8" />
+                      <circle cx="18" cy="18" r="6" fill="#475569" />
+                      <circle cx="18" cy="18" r="3" fill="#F8FAFC" />
+                    </g>
+                  </svg>
+                </div>
+
+                {/* 4. Smartphone Mockup showing Taxi Booking App UI (1:1 Reference Match) */}
+                <div className="absolute top-2 right-2 sm:right-4 z-20 w-[210px] sm:w-[235px] h-[370px] sm:h-[400px] rounded-[38px] bg-slate-900 border-[5px] border-slate-900 p-1.5 shadow-2xl overflow-hidden font-sans">
+                  <div className="bg-white text-slate-900 w-full h-full rounded-[30px] flex flex-col justify-between overflow-hidden relative text-left">
+                    
+                    {/* Top Phone Status & Header */}
+                    <div className="px-3 pt-2 pb-1 space-y-1 bg-white border-b border-slate-100 z-10">
+                      <div className="flex items-center justify-between text-[8px] font-bold text-slate-400 px-1">
+                        <span>9:41</span>
+                        <div className="w-10 h-2 bg-slate-900 rounded-full mx-auto" />
+                        <span>5G 100%</span>
                       </div>
-
-                      {/* Header */}
-                      <div className="flex items-center justify-between px-1 py-1 text-[8px] text-slate-400">
-                        <span>‹</span>
-                        <span className="font-extrabold text-slate-200 text-[7.5px] tracking-wider uppercase">Playing from playlist</span>
-                        <span>⋮</span>
-                      </div>
-
-                      {/* Album Artwork */}
-                      <div className="my-1.5 px-1 flex justify-center">
-                        <div className="w-full h-32 sm:h-36 rounded-xl bg-gradient-to-tr from-purple-900 via-indigo-800 to-pink-600 p-2 relative overflow-hidden shadow-lg border border-white/10 flex flex-col justify-end">
-                          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-pink-400/30 via-purple-600/20 to-transparent" />
-                          <div className="relative z-10">
-                            <span className="text-[6.5px] font-black uppercase text-pink-300 tracking-widest block">NEW RELEASE</span>
-                            <span className="text-[10px] font-extrabold text-white leading-tight block">Grainy Days EP</span>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Track Title & Artist */}
-                      <div className="px-2 flex items-center justify-between">
+                      <div className="flex items-center justify-between pt-0.5">
                         <div>
-                          <h4 className="text-[12px] font-extrabold text-white leading-tight">grainy days</h4>
-                          <p className="text-[8px] text-slate-400 font-medium">reedy.</p>
+                          <div className="text-[10px] font-bold text-slate-800 leading-none">Good morning, Mark</div>
+                          <div className="text-[9px] text-slate-400 font-medium">Where are you going?</div>
                         </div>
-                        <span className="text-pink-500 text-sm">♥</span>
-                      </div>
-
-                      {/* Progress Bar */}
-                      <div className="px-2 mt-2 space-y-0.5">
-                        <div className="w-full h-1 rounded-full bg-slate-800 overflow-hidden">
-                          <div className="w-2/5 h-full bg-gradient-to-r from-pink-500 to-purple-500 rounded-full" />
+                        <div className="w-6 h-6 rounded-full bg-slate-200 border border-slate-300 flex items-center justify-center text-[9px] font-black text-slate-700">
+                          M
                         </div>
-                        <div className="flex justify-between text-[6.5px] text-slate-500 font-semibold">
-                          <span>1:24</span>
-                          <span>3:45</span>
-                        </div>
-                      </div>
-
-                      {/* Controls */}
-                      <div className="flex items-center justify-around px-1 mt-1 text-slate-300">
-                        <span className="text-[9px]">🔀</span>
-                        <span className="text-[11px]">⏮</span>
-                        <div className="w-7 h-7 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 flex items-center justify-center text-white font-bold text-[10px] shadow-md">
-                          ▶
-                        </div>
-                        <span className="text-[11px]">⏭</span>
-                        <span className="text-[9px]">🔁</span>
                       </div>
                     </div>
 
-                    {/* Pink Lyric Box at Bottom (1:1 Reference Match) */}
-                    <div className="bg-gradient-to-r from-[#EC4899] to-[#D946EF] rounded-xl p-2 text-white shadow-lg space-y-0.5 border border-pink-300/30">
-                      <p className="text-[7.5px] font-bold leading-tight">You never look at the sky</p>
-                      <p className="text-[7.5px] font-bold leading-tight text-white/90">Cause you think it's too high</p>
-                      <p className="text-[6.5px] font-medium opacity-80">You never look at the stars...</p>
+                    {/* Map View Area */}
+                    <div className="relative flex-1 bg-[#EEF4F8] overflow-hidden p-2">
+                      <svg className="absolute inset-0 w-full h-full text-slate-200" viewBox="0 0 200 180" fill="none">
+                        <path d="M -10 40 L 210 60" stroke="#FFFFFF" strokeWidth="12" />
+                        <path d="M 40 -10 L 60 190" stroke="#FFFFFF" strokeWidth="10" />
+                        <path d="M 140 -10 L 130 190" stroke="#FFFFFF" strokeWidth="8" />
+                        <path d="M -10 130 C 60 120, 120 150, 210 140" stroke="#FFFFFF" strokeWidth="10" />
+
+                        <path
+                          d="M 50 130 L 55 70 Q 60 50 90 55 L 135 60 L 130 130"
+                          stroke="#334155"
+                          strokeWidth="2.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+
+                        <circle cx="70" cy="53" r="3" fill="#0F172A" />
+                        <circle cx="132" cy="95" r="3" fill="#0F172A" />
+                      </svg>
+
+                      <div className="relative z-10 space-y-1.5 pt-1">
+                        <div className="bg-white/95 backdrop-blur-xs rounded-lg p-1.5 shadow-sm border border-slate-200/80 flex items-center justify-between">
+                          <span className="text-[9px] font-bold text-slate-700">Swastik society &gt;</span>
+                        </div>
+                        <div className="bg-white/95 backdrop-blur-xs rounded-lg p-1.5 shadow-sm border border-slate-200/80 flex items-center justify-between w-3/4 ml-auto">
+                          <span className="text-[8.5px] font-semibold text-slate-600">My Location &gt;</span>
+                        </div>
+                      </div>
                     </div>
 
-                  </div>
+                    {/* Bottom Sheet Drawer "Choose your car" */}
+                    <div className="bg-white p-2.5 border-t border-slate-200/80 space-y-2 z-10">
+                      <div className="text-[10px] font-black text-slate-900 leading-none">Choose your car</div>
 
-                </div>
-              </div>
-            ) : isAmazon ? (
-              /* Amazon E-Commerce 1:1 Reference Dual Phone Mockup Layout */
-              <div className="relative w-full max-w-[540px] flex items-center justify-center min-h-[420px] py-4">
-                {/* Dark Blue Circle Blob Top-Left */}
-                <div className="absolute top-1 left-4 sm:left-8 w-36 h-36 sm:w-44 sm:h-44 rounded-full bg-[#1A237E] pointer-events-none opacity-90" />
+                      <div className="grid grid-cols-2 gap-1.5">
+                        <div className="bg-[#FF9F1C] text-white p-1.5 rounded-lg shadow-sm space-y-0.5">
+                          <div className="flex items-center justify-between">
+                            <span className="text-[9px] font-black">Standard</span>
+                          </div>
+                          <div className="flex items-center justify-between text-[7.5px] font-bold opacity-95">
+                            <span>7 CB</span>
+                            <span>3 MIN</span>
+                          </div>
+                        </div>
 
-                {/* Soft Purple/Indigo Circle Blob Bottom-Right */}
-                <div className="absolute bottom-1 right-4 sm:right-8 w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-[#7C4DFF] pointer-events-none opacity-70" />
+                        <div className="bg-slate-100 text-slate-700 p-1.5 rounded-lg border border-slate-200/60 space-y-0.5">
+                          <div className="flex items-center justify-between">
+                            <span className="text-[9px] font-bold text-slate-800">Comfort</span>
+                          </div>
+                          <div className="flex items-center justify-between text-[7.5px] font-semibold text-slate-500">
+                            <span>400</span>
+                            <span>10 MIN</span>
+                          </div>
+                        </div>
+                      </div>
 
-                {/* Dual Overlapping Mobile Phones */}
-                <div className="relative flex items-center justify-center z-10">
-
-                  {/* LEFT PHONE: Amazon E-Commerce Shopping Catalog App Screen */}
-                  <div className="w-[200px] sm:w-[225px] h-[400px] sm:h-[440px] rounded-[36px] bg-slate-950 border-4 border-slate-800 p-2 shadow-2xl overflow-hidden flex flex-col justify-between text-slate-900 font-sans relative z-20 bg-white">
-                    <div>
-                      {/* Status Bar */}
-                      <div className="flex items-center justify-between text-[7px] text-slate-500 px-2 pt-1 font-semibold border-b border-slate-100 pb-1">
-                        <span>9:41</span>
+                      <div className="flex items-center justify-between py-0.5 text-[8.5px] text-slate-700 font-semibold border-t border-slate-100 pt-1">
                         <div className="flex items-center space-x-1">
-                          <div className="w-1.5 h-1.5 rounded-full bg-slate-500" />
-                          <div className="w-2 h-1.5 border border-slate-500 rounded-sm" />
+                          <span className="w-3.5 h-3.5 rounded bg-emerald-100 text-emerald-600 flex items-center justify-center text-[7px] font-bold">💵</span>
+                          <span>Cash</span>
                         </div>
+                        <span>&gt;</span>
                       </div>
 
-                      {/* User Greeting & Search */}
-                      <div className="px-2 pt-2 space-y-1.5">
-                        <div className="flex justify-between items-center">
-                          <div>
-                            <p className="text-[7.5px] text-slate-400 font-bold leading-none">Welcome,</p>
-                            <h4 className="text-[11px] font-black text-slate-900 leading-tight">Martin Smith</h4>
-                          </div>
-                          <div className="w-6 h-6 rounded-full bg-amber-100 border border-amber-300 flex items-center justify-center text-[10px]">
-                            👤
-                          </div>
-                        </div>
-
-                        <div className="bg-slate-100 text-slate-400 rounded-lg px-2 py-1 flex items-center justify-between text-[8px]">
-                          <div className="flex items-center space-x-1">
-                            <span>🔍</span>
-                            <span>Search...</span>
-                          </div>
-                          <span>🎙️</span>
-                        </div>
-                      </div>
-
-                      {/* Promo Banners Horizontal Carousel */}
-                      <div className="px-2 mt-2 space-y-1">
-                        <div className="flex space-x-1.5 overflow-hidden">
-                          {/* Banner 1 */}
-                          <div className="w-[130px] shrink-0 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-xl p-2 text-white space-y-1 shadow-sm">
-                            <span className="text-[7px] font-black bg-white/20 px-1 py-0.5 rounded text-white uppercase">50% Off</span>
-                            <div className="text-[8.5px] font-extrabold leading-tight">On everything today</div>
-                            <div className="text-[6.5px] opacity-80">With code: ECOMMERCE</div>
-                            <button className="px-2 py-0.5 rounded bg-white text-indigo-700 font-extrabold text-[7px] shadow-sm">Get now</button>
-                          </div>
-                          {/* Banner 2 */}
-                          <div className="w-[120px] shrink-0 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl p-2 text-white space-y-1 opacity-90">
-                            <span className="text-[7px] font-black bg-white/20 px-1 py-0.5 rounded text-white uppercase">70% Off</span>
-                            <div className="text-[8.5px] font-extrabold leading-tight">On every order</div>
-                            <button className="px-2 py-0.5 rounded bg-white text-purple-700 font-extrabold text-[7px]">Explore</button>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* New Arrivals Grid */}
-                      <div className="px-2 mt-2 space-y-1">
-                        <div className="flex justify-between items-center text-[8px]">
-                          <span className="font-extrabold text-slate-900">New Arrivals</span>
-                          <span className="text-[7px] text-[#005F96] font-bold">See all</span>
-                        </div>
-                        <div className="grid grid-cols-2 gap-1.5">
-                          {/* Product Card 1 */}
-                          <div className="bg-slate-50 border border-slate-200/80 rounded-lg p-1.5 space-y-1">
-                            <div className="h-14 rounded-md bg-slate-200 flex items-center justify-center text-xl relative overflow-hidden">
-                              👜
-                              <span className="absolute top-1 right-1 text-[8px]">🤍</span>
-                            </div>
-                            <div className="text-[7.5px] font-extrabold text-slate-900 truncate">The Marc Jacobs</div>
-                            <div className="text-[6.5px] text-slate-500 font-semibold truncate">Traveler Tote</div>
-                            <div className="text-[7.5px] font-black text-slate-900">$185.00</div>
-                          </div>
-
-                          {/* Product Card 2 */}
-                          <div className="bg-slate-50 border border-slate-200/80 rounded-lg p-1.5 space-y-1">
-                            <div className="h-14 rounded-md bg-slate-200 flex items-center justify-center text-xl relative overflow-hidden">
-                              👟
-                              <span className="absolute top-1 right-1 text-[8px]">🤍</span>
-                            </div>
-                            <div className="text-[7.5px] font-extrabold text-slate-900 truncate">Axel Arigato</div>
-                            <div className="text-[6.5px] text-slate-500 font-semibold truncate">Clean 90 Sneakers</div>
-                            <div className="text-[7.5px] font-black text-slate-900">$245.00</div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Bottom Nav Bar */}
-                    <div className="bg-white border-t border-slate-100 -mx-2 -mb-2 p-1.5 flex items-center justify-around text-[7.5px] font-extrabold text-slate-400">
-                      <div className="flex flex-col items-center text-[#005F96]">
-                        <span className="text-[10px] leading-none">🏠</span>
-                        <span className="mt-0.5">Home</span>
-                      </div>
-                      <div className="flex flex-col items-center">
-                        <span className="text-[10px] leading-none">🔍</span>
-                        <span className="mt-0.5">Search</span>
-                      </div>
-                      <div className="flex flex-col items-center">
-                        <span className="text-[10px] leading-none">🛍️</span>
-                        <span className="mt-0.5">Cart</span>
-                      </div>
-                      <div className="flex flex-col items-center">
-                        <span className="text-[10px] leading-none">👤</span>
-                        <span className="mt-0.5">Profile</span>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* RIGHT PHONE: Product Details Page */}
-                  <div className="w-[190px] sm:w-[215px] h-[390px] sm:h-[430px] rounded-[36px] bg-slate-950 border-4 border-slate-800 p-2 shadow-2xl overflow-hidden flex flex-col justify-between text-slate-900 font-sans relative z-10 -ml-8 sm:-ml-10 transform translate-y-3 hover:translate-y-0 transition-transform duration-300 bg-white">
-                    <div>
-                      {/* Status Bar */}
-                      <div className="flex items-center justify-between text-[7px] text-slate-500 px-2 pt-1 font-semibold border-b border-slate-100 pb-1">
-                        <span>9:41</span>
-                        <div className="flex items-center space-x-1">
-                          <div className="w-1.5 h-1.5 rounded-full bg-slate-500" />
-                          <div className="w-2 h-1.5 border border-slate-500 rounded-sm" />
-                        </div>
-                      </div>
-
-                      {/* Product Photo Header */}
-                      <div className="relative my-1 px-1">
-                        <div className="w-full h-32 rounded-xl bg-gradient-to-tr from-indigo-100 via-slate-100 to-purple-100 p-2 flex items-center justify-center relative overflow-hidden border border-slate-200">
-                          <span className="text-4xl">🧥</span>
-                          <div className="absolute top-1.5 left-1.5 w-5 h-5 rounded-full bg-white/80 flex items-center justify-center text-[10px] font-bold text-slate-700 shadow-sm">
-                            ‹
-                          </div>
-                          <div className="absolute top-1.5 right-1.5 w-5 h-5 rounded-full bg-white/80 flex items-center justify-center text-[10px] text-rose-500 shadow-sm">
-                            ♥
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Title & Price */}
-                      <div className="px-2 space-y-1">
-                        <div className="flex justify-between items-start">
-                          <div>
-                            <h4 className="text-[11px] font-black text-slate-900 leading-tight">Oiler Jacket</h4>
-                            <div className="flex items-center space-x-1 text-[7px] text-amber-500 font-bold mt-0.5">
-                              <span>⭐⭐⭐⭐⭐</span>
-                              <span className="text-slate-400">(120 reviews)</span>
-                            </div>
-                          </div>
-                          <div className="text-right">
-                            <span className="text-[7px] font-bold text-emerald-600 bg-emerald-50 px-1 py-0.5 rounded block">Available in stock</span>
-                            <span className="text-[11px] font-black text-slate-900 block mt-0.5">$250.00</span>
-                          </div>
-                        </div>
-
-                        {/* Size Pills */}
-                        <div className="pt-1 space-y-1">
-                          <span className="text-[7.5px] font-extrabold text-slate-700 block">Select Size</span>
-                          <div className="flex space-x-1">
-                            <span className="w-5 h-5 rounded border border-slate-300 text-slate-600 font-bold text-[7px] flex items-center justify-center">S</span>
-                            <span className="w-5 h-5 rounded border border-indigo-600 bg-indigo-600 text-white font-black text-[7px] flex items-center justify-center shadow-sm">M</span>
-                            <span className="w-5 h-5 rounded border border-slate-300 text-slate-600 font-bold text-[7px] flex items-center justify-center">L</span>
-                            <span className="w-5 h-5 rounded border border-slate-300 text-slate-600 font-bold text-[7px] flex items-center justify-center">XL</span>
-                            <span className="w-5 h-5 rounded border border-slate-300 text-slate-600 font-bold text-[7px] flex items-center justify-center">XXL</span>
-                          </div>
-                        </div>
-
-                        {/* Description */}
-                        <div className="pt-1 space-y-0.5">
-                          <span className="text-[7.5px] font-extrabold text-slate-700 block">Description</span>
-                          <p className="text-[6.5px] text-slate-500 leading-tight font-normal line-clamp-2">
-                            A trendy fit soft suede jacket features a spread collar, button front, side pockets & long sleeves.
-                          </p>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Add To Cart CTA Button */}
-                    <div className="p-2">
-                      <button className="w-full py-2 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-extrabold text-[9px] text-center shadow-md flex items-center justify-center space-x-1">
-                        <span>🛍️</span>
-                        <span>Add to cart</span>
+                      <button className="w-full py-1.5 rounded-lg bg-[#FF9F1C] hover:bg-[#F39C12] text-white font-black text-[10px] text-center shadow-md transition-colors">
+                        Confirm
                       </button>
                     </div>
+
                   </div>
-
-                </div>
-              </div>
-            ) : isClover ? (
-              /* Clover App Development 1:1 Reference Vector Graphic matching Sapphire Screenshot 1 */
-              <div className="relative w-full max-w-[540px] flex items-center justify-center min-h-[400px] py-4 select-none">
-                {/* Light Blue Wavy Background Cloud Shape */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#D9EBFA] via-[#E6F3FC] to-[#CFE6F8] rounded-[50px] transform -rotate-1 shadow-inner border border-blue-100/80 overflow-hidden">
-                  <svg className="absolute inset-0 w-full h-full opacity-25 text-[#005F96]" viewBox="0 0 500 400" fill="none">
-                    <path d="M 0 100 Q 150 50 300 120 T 500 80 V 400 H 0 Z" fill="currentColor" />
-                  </svg>
                 </div>
 
-                {/* Floating Elements: Gear wheels, Clock, Code Badges */}
-                <div className="absolute top-10 left-10 opacity-30 text-[#005F96]">
-                  <svg className="w-16 h-16" viewBox="0 0 40 40" fill="none" stroke="currentColor" strokeWidth="2">
-                    <circle cx="20" cy="20" r="8" />
-                    <path d="M 20 4 V 10 M 20 30 V 36 M 4 20 H 10 M 30 20 H 36" />
-                  </svg>
-                </div>
-
-                <div className="absolute top-8 right-16 opacity-40 text-[#005F96]">
-                  <svg className="w-12 h-12" viewBox="0 0 40 40" fill="none" stroke="currentColor" strokeWidth="2.5">
-                    <circle cx="20" cy="20" r="14" />
-                    <path d="M 20 10 V 20 L 26 24" />
-                  </svg>
-                </div>
-
-                <div className="absolute top-28 left-8 bg-[#38BDF8] text-white px-3 py-1.5 rounded-xl text-sm font-mono font-black shadow-md z-20">
-                  &#123; &#125;
-                </div>
-
-                <div className="absolute bottom-28 right-8 bg-[#38BDF8] text-white px-3 py-1.5 rounded-xl text-sm font-mono font-black shadow-md z-20">
-                  &#123; &#125;
-                </div>
-                <div className="absolute bottom-12 right-12 bg-[#38BDF8] text-white px-3 py-1.5 rounded-xl text-sm font-mono font-black shadow-md z-20">
-                  &#123; &#125;
-                </div>
-
-                <div className="absolute bottom-12 left-10 bg-[#38BDF8] text-white w-9 h-9 rounded-xl flex items-center justify-center shadow-md z-20">
-                  <span className="text-sm font-black">▶</span>
-                </div>
-
-                {/* Vector SVG Scene: Smartphone Frame, Kneeling Worker with Clover Logo, Sitting Worker with Laptop */}
-                <div className="relative z-10 w-full px-4 flex justify-center items-end h-[340px]">
-                  <svg className="w-full h-full max-h-[320px]" viewBox="0 0 520 320" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    {/* Smartphone Outer Frame */}
-                    <rect x="220" y="20" width="140" height="260" rx="20" fill="#0284C7" />
-                    <rect x="225" y="25" width="130" height="250" rx="16" fill="white" />
-                    <rect x="260" y="30" width="60" height="6" rx="3" fill="#E2E8F0" />
-
-                    {/* Screen Top Banner with </ > Badge */}
-                    <rect x="235" y="45" width="110" height="40" rx="6" fill="#0284C7" />
-                    <rect x="245" y="55" width="30" height="20" rx="4" fill="#38BDF8" />
-                    <text x="252" y="69" fill="white" fontSize="11" fontFamily="monospace" fontWeight="bold">&lt;/&gt;</text>
-
-                    {/* Phone Screen App Graphic with Clover Icon */}
-                    <rect x="235" y="95" width="110" height="75" rx="6" fill="#E0F2FE" />
-                    <g transform="translate(275, 115)">
-                      <circle cx="0" cy="-7" r="7" fill="#005F96" />
-                      <circle cx="7" cy="0" r="7" fill="#005F96" />
-                      <circle cx="0" cy="7" r="7" fill="#005F96" />
-                      <circle cx="-7" cy="0" r="7" fill="#005F96" />
-                      <circle cx="0" cy="0" r="3" fill="white" />
-                    </g>
-                    <line x1="245" y1="145" x2="335" y2="145" stroke="#0284C7" strokeWidth="3" strokeLinecap="round" />
-                    <line x1="245" y1="155" x2="315" y2="155" stroke="#38BDF8" strokeWidth="3" strokeLinecap="round" />
-
-                    {/* Screen Bottom Menu Placeholders */}
-                    <rect x="235" y="180" width="110" height="45" rx="4" fill="#F1F5F9" />
-                    <line x1="245" y1="195" x2="325" y2="195" stroke="#CBD5E1" strokeWidth="2.5" />
-                    <line x1="245" y1="208" x2="295" y2="208" stroke="#CBD5E1" strokeWidth="2.5" />
-
-                    {/* Left Kneeling Developer holding Clover Leaf Badge */}
-                    <circle cx="170" cy="170" r="12" fill="#FDBA74" />
-                    <path d="M 158 165 C 158 153 182 153 182 165 Z" fill="#0F172A" />
-                    <path d="M 155 190 C 155 182 162 180 170 180 C 178 180 185 182 185 190 V 225 H 155 Z" fill="#0284C7" />
-                    <path d="M 155 225 L 140 250 L 160 250 H 185 L 180 225 Z" fill="#0F172A" />
-                    <rect x="180" y="185" width="28" height="28" rx="6" fill="white" stroke="#38BDF8" strokeWidth="2" />
-                    <g transform="translate(194, 199)">
-                      <circle cx="0" cy="-4" r="4" fill="#005F96" />
-                      <circle cx="4" cy="0" r="4" fill="#005F96" />
-                      <circle cx="0" cy="4" r="4" fill="#005F96" />
-                      <circle cx="-4" cy="0" r="4" fill="#005F96" />
-                    </g>
-
-                    {/* Right Developer Sitting on Box with Laptop */}
-                    <rect x="365" y="210" width="45" height="55" rx="6" fill="#0284C7" />
-                    <circle cx="380" cy="140" r="12" fill="#FDBA74" />
-                    <path d="M 368 135 C 368 123 392 123 392 135 Z" fill="#0F172A" />
-                    <path d="M 365 160 C 365 152 372 150 380 150 C 388 150 395 152 395 160 V 210 H 365 Z" fill="#EAB308" />
-                    <path d="M 365 210 H 395 V 265 H 380 V 230 H 365 Z" fill="#0F172A" />
-                    <rect x="345" y="185" width="30" height="20" rx="2" fill="#94A3B8" />
-                    <rect x="348" y="188" width="24" height="14" rx="1" fill="#38BDF8" />
-                    <rect x="340" y="205" width="40" height="3" rx="1" fill="#64748B" />
-                  </svg>
-                </div>
-              </div>
-            ) : isWarehouse ? (
-              /* Warehouse Management 1:1 Reference Vector Graphic matching Sapphire Screenshot */
-              <div className="relative w-full max-w-[540px] flex items-center justify-center min-h-[400px] py-4 select-none">
-                {/* Light Blue Wavy Background Cloud Shape */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#D9EBFA] via-[#E6F3FC] to-[#CFE6F8] rounded-[50px] transform -rotate-1 shadow-inner border border-blue-100/80 overflow-hidden">
-                  <svg className="absolute inset-0 w-full h-full opacity-25 text-[#005F96]" viewBox="0 0 500 400" fill="none">
-                    <path d="M 0 100 Q 150 50 300 120 T 500 80 V 400 H 0 Z" fill="currentColor" />
-                  </svg>
-                </div>
-
-                {/* Vector SVG Scene: Warehouse Racks, Worker in Blue Overalls, Trolley, Laptop Person */}
-                <div className="relative z-10 w-full px-4 flex justify-center items-end h-[340px]">
-                  <svg className="w-full h-full max-h-[320px]" viewBox="0 0 520 320" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    {/* Background Shelves / Racks */}
-                    <rect x="240" y="40" width="120" height="210" fill="#E2E8F0" rx="4" />
-                    <rect x="245" y="45" width="110" height="200" fill="none" stroke="#94A3B8" strokeWidth="3" />
-                    <line x1="245" y1="95" x2="355" y2="95" stroke="#94A3B8" strokeWidth="3" />
-                    <line x1="245" y1="145" x2="355" y2="145" stroke="#94A3B8" strokeWidth="3" />
-                    <line x1="245" y1="195" x2="355" y2="195" stroke="#94A3B8" strokeWidth="3" />
-
-                    {/* Inventory Boxes on Shelves */}
-                    <rect x="255" y="55" width="38" height="35" fill="#38BDF8" rx="3" />
-                    <rect x="302" y="60" width="38" height="30" fill="#60A5FA" rx="3" />
-                    <rect x="255" y="105" width="48" height="35" fill="#0284C7" rx="3" />
-                    <rect x="260" y="155" width="42" height="35" fill="#38BDF8" rx="3" />
-                    <rect x="308" y="160" width="35" height="30" fill="#93C5FD" rx="3" />
-
-                    {/* Stack of Boxes on Floor */}
-                    <rect x="190" y="200" width="45" height="45" fill="#0284C7" rx="4" />
-                    <rect x="150" y="215" width="40" height="30" fill="#38BDF8" rx="3" />
-
-                    {/* Left Person Sitting on Chair with Laptop */}
-                    <ellipse cx="110" cy="245" rx="35" ry="12" fill="#CBD5E1" />
-                    {/* Chair Legs */}
-                    <path d="M 90 200 L 95 255 M 125 200 L 120 255" stroke="#475569" strokeWidth="4" />
-                    <circle cx="108" cy="145" r="14" fill="#FDBA74" />
-                    <path d="M 96 140 Q 108 130 120 140 Z" fill="#1E293B" />
-                    <path d="M 92 168 C 92 160 100 158 108 158 C 116 158 124 160 124 168 V 215 L 118 260 H 108 L 100 215 Z" fill="#EAB308" />
-                    <path d="M 98 215 V 260 H 108 V 215 Z" fill="#1E293B" />
-                    <path d="M 110 215 V 260 H 120 V 215 Z" fill="#1E293B" />
-                    {/* Laptop */}
-                    <rect x="105" y="180" width="32" height="22" rx="2" fill="#0284C7" />
-                    <rect x="100" y="200" width="42" height="4" rx="1" fill="#94A3B8" />
-
-                    {/* Pallet Trolley Hand Jack */}
-                    <path d="M 210 255 H 270 V 190 H 275" stroke="#0284C7" strokeWidth="5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-                    <circle cx="218" cy="257" r="7" fill="#1E293B" />
-                    <circle cx="262" cy="257" r="7" fill="#1E293B" />
-
-                    {/* Right Warehouse Worker Standing in Blue Uniform */}
-                    <circle cx="410" cy="115" r="14" fill="#FDBA74" />
-                    {/* Blue Helmet */}
-                    <path d="M 394 110 C 394 98 426 98 426 110 Z" fill="#0284C7" />
-                    <rect x="390" y="109" width="40" height="4" rx="2" fill="#0284C7" />
-                    {/* Blue Overalls / Uniform */}
-                    <path d="M 393 135 C 393 126 401 124 410 124 C 419 124 427 126 427 135 V 200 L 421 270 H 411 L 405 200 Z" fill="#1E3A8A" />
-                    <path d="M 401 200 V 270 H 411 V 200 Z" fill="#1E293B" />
-                    <path d="M 413 200 V 270 H 423 V 200 Z" fill="#1E293B" />
-                    <rect x="399" y="267" width="15" height="6" rx="2" fill="#EF4444" />
-                    <rect x="411" y="267" width="15" height="6" rx="2" fill="#EF4444" />
-                  </svg>
-                </div>
-              </div>
-            ) : isVisitor ? (
-              /* Visitor Management 1:1 Reference Vector Graphic matching Sapphire Screenshot 1 */
-              <div className="relative w-full max-w-[540px] flex items-center justify-center min-h-[400px] py-4 select-none">
-                {/* Light Blue Wavy Background Cloud Shape */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#D9EBFA] via-[#E6F3FC] to-[#CFE6F8] rounded-[50px] transform -rotate-1 shadow-inner border border-blue-100/80 overflow-hidden">
-                  <svg className="absolute inset-0 w-full h-full opacity-25 text-[#005F96]" viewBox="0 0 500 400" fill="none">
-                    <path d="M 0 100 Q 150 50 300 120 T 500 80 V 400 H 0 Z" fill="currentColor" />
-                  </svg>
-                </div>
-
-                {/* Floating Step Badges Top */}
-                <div className="absolute top-8 left-1/3 -translate-x-12 z-20 flex items-center space-x-1 bg-[#005F96] text-white px-3.5 py-1 rounded-md text-[12px] font-black shadow-md">
-                  <span>1</span>
-                  <span className="text-[10px] opacity-75">≡</span>
-                </div>
-
-                <div className="absolute top-10 right-1/3 translate-x-8 z-20 flex items-center space-x-1 bg-[#005F96] text-white px-3.5 py-1 rounded-md text-[12px] font-black shadow-md">
-                  <span>3</span>
-                  <span className="text-[10px] opacity-75">≡</span>
-                </div>
-
-                {/* Vector SVG Scene: Reception Counter with 3 Staff & 1 Visitor */}
-                <div className="relative z-10 w-full px-4 flex justify-center items-end h-[340px]">
-                  <svg className="w-full h-full max-h-[320px]" viewBox="0 0 520 320" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    {/* Reception Counter Desk */}
-                    <rect x="60" y="180" width="340" height="90" rx="14" fill="#005F96" />
-                    <rect x="65" y="185" width="330" height="80" rx="10" fill="#006C9A" />
-                    <rect x="70" y="170" width="320" height="15" rx="4" fill="#004A75" />
-
-                    {/* Laptop 1 (Left Receptionist) */}
-                    <rect x="110" y="145" width="35" height="22" rx="2" fill="#1E293B" />
-                    <rect x="113" y="148" width="29" height="16" rx="1" fill="#38BDF8" />
-                    <path d="M 102 167 H 153 L 157 170 H 98 Z" fill="#64748B" />
-
-                    {/* Laptop 2 (Center Receptionist) */}
-                    <rect x="230" y="145" width="35" height="22" rx="2" fill="#1E293B" />
-                    <rect x="233" y="148" width="29" height="16" rx="1" fill="#38BDF8" />
-                    <path d="M 222 167 H 273 L 277 170 H 218 Z" fill="#64748B" />
-
-                    {/* Laptop 3 (Right Receptionist) */}
-                    <rect x="330" y="145" width="35" height="22" rx="2" fill="#1E293B" />
-                    <rect x="333" y="148" width="29" height="16" rx="1" fill="#38BDF8" />
-                    <path d="M 322 167 H 373 L 377 170 H 318 Z" fill="#64748B" />
-
-                    {/* Staff 1 (Left - Woman sitting) */}
-                    <circle cx="127" cy="105" r="14" fill="#FCA5A5" />
-                    <path d="M 113 102 C 113 90 141 90 141 102 C 141 85 113 85 113 102 Z" fill="#1E1B4B" />
-                    <path d="M 110 125 C 110 120 117 118 127 118 C 137 118 144 120 144 125 V 170 H 110 Z" fill="#004A75" />
-
-                    {/* Staff 2 (Center - Woman standing/sitting, blue top) */}
-                    <circle cx="247" cy="108" r="14" fill="#FDBA74" />
-                    <path d="M 233 105 C 233 92 261 92 261 105 Z" fill="#0F172A" />
-                    <path d="M 230 128 C 230 122 237 120 247 120 C 257 120 264 122 264 128 V 170 H 230 Z" fill="#004A75" />
-
-                    {/* Staff 3 (Right - Woman receptionist) */}
-                    <circle cx="347" cy="105" r="14" fill="#FED7AA" />
-                    <path d="M 333 100 C 333 88 361 88 361 100 Z" fill="#451A03" />
-                    <path d="M 330 125 C 330 120 337 118 347 118 C 357 118 364 120 364 125 V 170 H 330 Z" fill="#004A75" />
-
-                    {/* Visitor Standing on Right (Man in Mustard Yellow/Brown Jacket checking in) */}
-                    <circle cx="435" cy="100" r="15" fill="#FDBA74" />
-                    <path d="M 420 95 C 420 85 450 85 450 95 Z" fill="#1E293B" />
-                    <path d="M 425 105 Q 435 118 445 105 Z" fill="#1E293B" />
-                    <path d="M 415 122 C 415 115 425 112 435 112 C 445 112 455 115 455 122 V 210 L 442 270 H 428 L 415 210 Z" fill="#D97706" />
-                    <path d="M 422 210 V 285 H 433 V 210 Z" fill="#1E293B" />
-                    <path d="M 437 210 V 285 H 448 V 210 Z" fill="#1E293B" />
-                    <line x1="452" y1="130" x2="458" y2="285" stroke="#475569" strokeWidth="4" strokeLinecap="round" />
-                  </svg>
-                </div>
-              </div>
-            ) : isCrossPlatform ? (
-              /* Cross-Platform App Development 1:1 Reference Vector Devices Graphic */
-              <div className="relative w-full max-w-[560px] flex items-center justify-center min-h-[380px] py-4 select-none">
-                <div className="relative w-full max-w-[500px] flex items-center justify-center">
-
-                  {/* LAPTOP (Center-Back) */}
-                  <div className="relative z-10 w-[310px] sm:w-[350px] h-[200px] sm:h-[225px] bg-[#1E293B] rounded-t-2xl border-4 border-[#334155] p-2 pb-0 shadow-2xl flex flex-col justify-between">
-                    {/* Screen Camera */}
-                    <div className="w-2 h-2 rounded-full bg-[#475569] mx-auto mb-1" />
-
-                    {/* Laptop Screen Content */}
-                    <div className="w-full h-full bg-white rounded-t-lg p-2.5 flex flex-col justify-between border-t border-x border-slate-200 overflow-hidden">
-                      {/* Top Header Placeholder */}
-                      <div className="flex items-center justify-between pb-1 border-b border-slate-100">
-                        <div className="flex items-center space-x-1.5">
-                          <div className="w-2 h-2 rounded-full bg-slate-300" />
-                          <div className="w-12 h-1.5 rounded bg-slate-200" />
-                        </div>
-                        <div className="w-14 h-1.5 rounded bg-slate-100" />
-                      </div>
-
-                      {/* Screen UI Cards */}
-                      <div className="grid grid-cols-2 gap-2 my-auto">
-                        <div className="h-12 rounded-lg bg-[#BAE6FD]/60 border border-[#7DD3FC]/40 p-1.5 space-y-1">
-                          <div className="w-8 h-1.5 rounded bg-[#38BDF8]" />
-                          <div className="w-12 h-1 rounded bg-[#7DD3FC]" />
-                        </div>
-                        <div className="h-12 rounded-lg bg-[#F1F5F9] border border-slate-200 p-1.5 space-y-1">
-                          <div className="w-10 h-1.5 rounded bg-slate-300" />
-                          <div className="w-12 h-1 rounded bg-slate-200" />
-                        </div>
-                      </div>
-
-                      {/* Bottom Coral/Red & Blue Card */}
-                      <div className="grid grid-cols-2 gap-2 mt-auto">
-                        <div className="h-9 rounded-lg bg-[#FDA4AF]/50 border border-[#F43F5E]/30 p-1" />
-                        <div className="h-9 rounded-lg bg-[#BAE6FD]/60 border border-[#7DD3FC]/40 p-1" />
-                      </div>
-                    </div>
-
-                    {/* Laptop Base Stand */}
-                    <div className="absolute -bottom-2.5 left-1/2 -translate-x-1/2 w-[350px] sm:w-[400px] h-2.5 bg-[#64748B] rounded-b-xl shadow-md flex items-center justify-center">
-                      <div className="w-16 h-1 bg-[#475569] rounded-full" />
-                    </div>
-                  </div>
-
-                  {/* LEFT PHONE (iPhone Style) */}
-                  <div className="absolute -bottom-2 -left-2 sm:left-2 z-20 w-[115px] sm:w-[135px] h-[210px] sm:h-[240px] bg-[#0F172A] rounded-[26px] border-4 border-[#334155] p-1.5 shadow-2xl flex flex-col justify-between overflow-hidden">
-                    {/* Screen */}
-                    <div className="w-full h-full bg-white rounded-[20px] p-2 flex flex-col justify-between border border-slate-100">
-                      {/* Notch / Speaker */}
-                      <div className="flex items-center justify-center space-x-1 mb-1">
-                        <div className="w-6 h-1 bg-slate-300 rounded-full" />
-                        <div className="w-1.5 h-1.5 rounded-full bg-slate-400" />
-                      </div>
-
-                      {/* Phone UI Cards */}
-                      <div className="space-y-1.5 my-auto">
-                        {/* Avatar & Header */}
-                        <div className="flex items-center space-x-1.5 pb-1 border-b border-slate-100">
-                          <div className="w-3.5 h-3.5 rounded-full bg-[#BAE6FD]" />
-                          <div className="w-10 h-1 rounded bg-slate-200" />
-                        </div>
-                        {/* Blue Main Card */}
-                        <div className="h-12 rounded-lg bg-[#BAE6FD]/70 border border-[#7DD3FC]/50 p-1" />
-                        {/* Coral Red Card */}
-                        <div className="h-10 rounded-lg bg-[#FDA4AF]/60 border border-[#F43F5E]/40 p-1" />
-                        {/* Small Pill Card */}
-                        <div className="h-6 rounded-lg bg-[#F1F5F9] border border-slate-200 p-1" />
-                      </div>
-
-                      {/* Home Indicator */}
-                      <div className="w-8 h-1 bg-slate-300 rounded-full mx-auto mt-1" />
-                    </div>
-                  </div>
-
-                  {/* RIGHT PHONE / TABLET (Android Style) */}
-                  <div className="absolute -bottom-2 -right-2 sm:right-2 z-20 w-[120px] sm:w-[140px] h-[220px] sm:h-[250px] bg-[#0F172A] rounded-[26px] border-4 border-[#334155] p-1.5 shadow-2xl flex flex-col justify-between overflow-hidden">
-                    {/* Screen */}
-                    <div className="w-full h-full bg-white rounded-[20px] p-2 flex flex-col justify-between border border-slate-100">
-                      {/* Top Camera Dot */}
-                      <div className="w-1.5 h-1.5 rounded-full bg-slate-400 mx-auto mb-1" />
-
-                      {/* UI Cards */}
-                      <div className="space-y-1.5 my-auto">
-                        {/* Search Bar */}
-                        <div className="h-2.5 rounded-full bg-slate-100 border border-slate-200" />
-                        {/* Large Blue Card */}
-                        <div className="h-16 rounded-lg bg-[#BAE6FD]/70 border border-[#7DD3FC]/50 p-1" />
-                        {/* Bottom Row Cards */}
-                        <div className="grid grid-cols-2 gap-1">
-                          <div className="h-8 rounded-md bg-[#FDA4AF]/60 border border-[#F43F5E]/40" />
-                          <div className="h-8 rounded-md bg-[#BAE6FD]/60 border border-[#7DD3FC]/40" />
-                        </div>
-                      </div>
-
-                      {/* Android Navigation Dots */}
-                      <div className="flex items-center justify-center space-x-1.5 mt-1">
-                        <div className="w-1 h-1 rounded-full bg-slate-300" />
-                        <div className="w-1 h-1 rounded-full bg-slate-300" />
-                        <div className="w-1 h-1 rounded-full bg-slate-300" />
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* FLOATING BADGE 1: Windows Logo (Top-Center of Laptop) */}
-                  <div className="absolute -top-3 right-20 sm:right-28 z-30 w-9 h-9 rounded-xl bg-white shadow-xl border border-slate-100 flex items-center justify-center transform hover:scale-110 transition-transform">
-                    <svg className="w-4 h-4" viewBox="0 0 88 88" fill="none">
-                      <path d="M0 12.4L35.6 7.5V41.7H0V12.4ZM0 46.3H35.6V80.5L0 75.6V46.3ZM40.1 6.9L87.5 0V41.7H40.1V6.9ZM40.1 46.3H87.5V88L40.1 81.1V46.3Z" fill="#00A4EF" />
-                    </svg>
-                  </div>
-
-                  {/* FLOATING BADGE 2: Apple Logo (Above Left iPhone) */}
-                  <div className="absolute top-14 left-20 sm:left-24 z-30 w-9 h-9 rounded-xl bg-white shadow-xl border border-slate-100 flex items-center justify-center transform hover:scale-110 transition-transform">
-                    <svg className="w-4 h-4 fill-slate-900" viewBox="0 0 170 170">
-                      <path d="M150.37 130.25c-2.45 5.66-5.35 10.87-8.71 15.66-4.58 6.53-8.33 11.05-11.22 13.56-4.48 4.12-9.28 6.23-14.42 6.35-3.69 0-8.14-1.05-13.32-3.18-5.19-2.12-9.97-3.17-14.34-3.17-4.58 0-9.49 1.05-14.74 3.17-5.26 2.13-9.5 3.24-12.74 3.35-4.35.13-9.16-1.9-14.42-6.08-3.7-3.04-7.6-7.73-11.71-14.07-5.99-9.24-10.63-19.78-13.91-31.62-3.28-11.83-4.92-22.9-4.92-33.2 0-14.2 3.65-26.05 10.95-35.53 7.3-9.48 16.32-14.33 27.06-14.56 4.91 0 10.25 1.25 16.03 3.76 5.78 2.51 9.4 3.82 10.87 3.94 1.83-.24 5.64-1.63 11.44-4.17 5.8-2.54 11.14-3.71 16.03-3.52 8.78.47 16.53 3.52 23.24 9.17 6.72 5.64 11.05 12.63 12.99 20.95-7.85 4.74-11.72 11.38-11.62 19.92.1 7.42 2.87 13.79 8.3 19.12 5.43 5.33 11.96 8.33 19.59 9.01-1.7 5.48-3.87 11.27-6.51 17.38zM119.22 33.15c0-5.36 1.93-10.42 5.8-15.17 3.87-4.75 8.7-8.15 14.5-10.19-.3 2.68-.9 5.31-1.8 7.89-.9 2.58-2.22 5.09-3.96 7.53-3.69 5.16-8.28 8.7-13.77 10.62-.26-.23-.52-.45-.77-.68z" />
-                    </svg>
-                  </div>
-
-                  {/* FLOATING BADGE 3: Android Logo (Beside Right Android Tablet) */}
-                  <div className="absolute top-24 right-20 sm:right-24 z-30 w-9 h-9 rounded-xl bg-white shadow-xl border border-slate-100 flex items-center justify-center transform hover:scale-110 transition-transform">
-                    <svg className="w-4 h-4 fill-[#78C257]" viewBox="0 0 24 24">
-                      <path d="M17.523 15.3414c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.551 0 .9993.4482.9993.9993.0001.5511-.4483.9997-.9993.9997m-11.046 0c-.5511 0-.9993-.4486-.9993-.9997s.4482-.9993.9993-.9993c.5511 0 .9993.4482.9993.9993 0 .5511-.4482.9997-.9993.9997m11.4045-6.02l1.9973-3.4592a.416.416 0 00-.1521-.5676.416.416 0 00-.5676.1521l-2.0223 3.503C15.5902 8.4126 13.8533 8.082 12 8.082s-3.5902.3306-5.1367.8677L4.841 5.4467a.4161.4161 0 00-.5677-.1521.4157.4157 0 00-.1521.5676l1.9973 3.4592C2.6889 11.1867.3432 14.6589 0 18.761h24c-.3432-4.1021-2.6889-7.5743-6.1185-9.4396" />
-                    </svg>
-                  </div>
-
-                </div>
-              </div>
-            ) : isIWatch ? (
-              /* iWatch App Development 1:1 Reference Image */
-              <div className="relative w-full max-w-[560px] flex items-center justify-center min-h-[380px] py-2 select-none">
-                <img
-                  src="/images/iwatch_hero_illustration.png"
-                  alt="Best iWatch App Development company in USA"
-                  className="w-full h-auto max-w-[500px] object-contain drop-shadow-sm"
-                />
-              </div>
-            ) : isIPad ? (
-              /* iPad App Development Exact 1:1 Reference Illustration */
-              <div className="relative w-full max-w-[560px] flex items-center justify-center min-h-[380px] py-2 select-none">
-                <img
-                  src="/images/ipad_hero_illustration.png"
-                  alt="iPad App Development Services in USA"
-                  className="w-full h-auto max-w-[520px] object-contain mix-blend-multiply"
-                />
-              </div>
-            ) : isKotlin ? (
-              /* Kotlin App Development Exact 1:1 Reference Illustration */
-              <div className="relative w-full max-w-[560px] flex items-center justify-center min-h-[380px] py-2 select-none">
-                <img
-                  src="/images/kotlin_hero_illustration.jpg"
-                  alt="Kotlin App Development Company in USA"
-                  className="w-full h-auto max-w-[520px] object-contain"
-                  style={{ mixBlendMode: 'multiply' }}
-                />
-              </div>
-            ) : isHybrid ? (
-              /* Hybrid App Development Exact 1:1 Reference Illustration */
-              <div className="relative w-full max-w-[560px] flex items-center justify-center min-h-[380px] py-2 select-none">
-                <img
-                  src="/images/hybrid_hero_illustration.jpg"
-                  alt="Hybrid App Development Company in USA"
-                  className="w-full h-auto max-w-[520px] object-contain"
-                  style={{ mixBlendMode: 'multiply' }}
-                />
-              </div>
-            ) : isPwa ? (
-              /* PWA Exact 1:1 Reference Illustration matching Screenshot 2 */
-              <div className="relative w-full max-w-[560px] flex items-center justify-center min-h-[380px] py-2 select-none">
-                <img
-                  src="/images/pwa_hero_laptop_illustration.jpg"
-                  alt="Progressive Web App Development Company in USA"
-                  className="w-full h-auto max-w-[520px] object-contain"
-                  style={{ mixBlendMode: 'multiply' }}
-                />
-              </div>
-            ) : isFitness ? (
-              /* Personal Fitness Coach App Development Vector Illustration matching Reference */
-              <div className="relative w-full max-w-[560px] flex items-center justify-center min-h-[380px] py-2 select-none">
-                <img
-                  src="/images/fitness_hero_coach_illustration.jpg"
-                  alt="Personal Fitness Coach App Development Company"
-                  className="w-full h-auto max-w-[540px] object-contain"
-                  style={{ mixBlendMode: 'multiply' }}
-                />
               </div>
             ) : (
               <div className="relative w-full max-w-[560px]">
@@ -1299,21 +489,18 @@ export const SapphireLightHeroBanner = ({
                   </div>
                 </div>
 
-                {/* 4 Large Floating Icon Badges */}
+                {/* 4 Large Floating Icon Badges matching Reference Screenshot 100% */}
                 {isEducation ? (
                   <>
                     <div className="absolute -top-5 left-4 w-14 h-14 rounded-2xl bg-[#F5B000] shadow-xl hover:scale-110 transition-transform z-30 flex items-center justify-center border-2 border-amber-300">
                       <TeacherBoardIcon />
                     </div>
-
                     <div className="absolute top-4 -right-5 w-14 h-14 rounded-2xl bg-[#00D06C] shadow-xl hover:scale-110 transition-transform z-30 flex items-center justify-center border-2 border-emerald-300">
                       <VideoClassIcon />
                     </div>
-
                     <div className="absolute bottom-10 -left-6 w-14 h-14 rounded-2xl bg-[#FF6B4A] shadow-xl hover:scale-110 transition-transform z-30 flex items-center justify-center border-2 border-orange-300">
                       <StudentLaptopIcon />
                     </div>
-
                     <div className="absolute -bottom-5 right-32 w-14 h-14 rounded-2xl bg-[#2D1F5B] shadow-xl hover:scale-110 transition-transform z-30 flex items-center justify-center border-2 border-purple-400">
                       <TestScoreIcon />
                     </div>
@@ -1339,6 +526,30 @@ export const SapphireLightHeroBanner = ({
           </div>
         </div>
       </Container>
+
+      {/* Floating Action Icons on Right Edge (Phone Call & WhatsApp 1:1 Match) */}
+      <div className="fixed right-0 top-1/3 z-50 flex flex-col space-y-2 pointer-events-auto">
+        <a
+          href="tel:+919429709662"
+          aria-label="Call Us"
+          className="w-10 h-10 bg-[#006B8F] hover:bg-[#00526E] text-white flex items-center justify-center rounded-l-md shadow-lg transition-all"
+        >
+          <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+          </svg>
+        </a>
+        <a
+          href="https://wa.me/919429709662"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="WhatsApp Us"
+          className="w-10 h-10 bg-[#006B8F] hover:bg-[#00526E] text-white flex items-center justify-center rounded-l-md shadow-lg transition-all"
+        >
+          <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+            <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.81 9.81 0 0 0 12.04 2zm5.82 14.16c-.25.7-.99 1.28-1.74 1.45-.51.11-1.17.2-3.41-.72-2.86-1.18-4.71-4.08-4.85-4.27-.14-.19-1.17-1.56-1.17-2.97 0-1.41.74-2.11 1.01-2.39.27-.28.59-.35.79-.35.2 0 .4 0 .57.01.18.01.43-.07.67.5.25.59.85 2.07.92 2.22.07.15.12.33.02.53-.1.2-.15.32-.3.5-.15.18-.32.4-.46.54-.15.15-.3.31-.13.61.17.3.76 1.25 1.63 2.03 1.12.99 2.07 1.3 2.37 1.45.3.15.47.13.65-.08.18-.21.76-.88.96-1.18.2-.3.4-.25.67-.15.27.1.1.72 2.07 2.07.95 2.22.1.25.1.41.05.71z" />
+          </svg>
+        </a>
+      </div>
     </section>
   );
 };
