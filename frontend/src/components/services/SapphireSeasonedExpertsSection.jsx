@@ -24,35 +24,35 @@ export const SapphireSeasonedExpertsSection = () => {
       {
         id: 'trend-1',
         title: 'Mobile Application Team',
-        image: '/assets/team/mobile_app_team.jpg',
+        image: '/images/team_card_mobile.jpg',
         techs: ['Android', 'iOS', 'Flutter', 'React Native', 'Swift'],
         team: ['Tech Lead (1)', 'Sr. Android Dev (2)', 'Sr. iOS Dev (2)', 'Flutter Dev (2)', 'QA Engineer (1)']
       },
       {
         id: 'trend-2',
         title: 'Saas Product Dev. Team',
-        image: '/assets/team/saas_dev_team.jpg',
+        image: '/images/team_card_saas.jpg',
         techs: ['Vue.JS', 'React JS', 'DevOps', 'CRM', 'UI/UX', 'Mongo DB', 'Cloud'],
         team: ['Solution Architect (1)', 'Full Stack Lead (2)', 'Cloud DevOps (1)', 'Frontend Specialist (2)', 'Product QA (1)']
       },
       {
         id: 'trend-3',
         title: 'Microsoft Dev. Team',
-        image: '/assets/team/microsoft_dev_team.jpg',
+        image: '/images/team_card_microsoft.jpg',
         techs: ['.Net Core', 'Share Point', 'Power Apps', 'Power Automate', 'Power BI', 'Azure'],
         team: ['.NET Architect (1)', 'SharePoint Lead (2)', 'Power Platform Eng (2)', 'Azure Cloud Eng (1)', 'BI Analyst (1)']
       },
       {
         id: 'trend-4',
         title: 'Node.js & Cloud Squad',
-        image: '/assets/team/saas_dev_team.jpg',
+        image: '/images/team_card_saas.jpg',
         techs: ['Node.js', 'Express.js', 'NestJS', 'TypeScript', 'GraphQL', 'AWS', 'Redis'],
         team: ['Principal Node.js Architect (1)', 'Sr. Backend Engineers (3)', 'Cloud DevOps (1)', 'QA Specialist (1)']
       },
       {
         id: 'trend-5',
         title: 'AI & Data Engineering Team',
-        image: '/assets/team/microsoft_dev_team.jpg',
+        image: '/images/team_card_microsoft.jpg',
         techs: ['Python', 'TensorFlow', 'PyTorch', 'FastAPI', 'LangChain', 'Snowflake'],
         team: ['AI Research Lead (1)', 'ML Engineers (2)', 'Data Engineer (1)', 'MLOps Eng (1)']
       }
@@ -61,21 +61,21 @@ export const SapphireSeasonedExpertsSection = () => {
       {
         id: 'prod-1',
         title: 'Mobile Application Team',
-        image: '/assets/team/mobile_app_team.jpg',
+        image: '/images/team_card_mobile.jpg',
         techs: ['Android', 'iOS', 'Flutter', 'React Native', 'Swift'],
         team: ['Tech Lead (1)', 'Sr. Android Dev (2)', 'Sr. iOS Dev (2)', 'Flutter Dev (2)', 'QA Engineer (1)']
       },
       {
         id: 'prod-2',
         title: 'Saas Product Dev. Team',
-        image: '/assets/team/saas_dev_team.jpg',
+        image: '/images/team_card_saas.jpg',
         techs: ['Vue.JS', 'React JS', 'DevOps', 'CRM', 'UI/UX', 'Mongo DB', 'Cloud'],
         team: ['Solution Architect (1)', 'Full Stack Lead (2)', 'Cloud DevOps (1)', 'Frontend Specialist (2)', 'Product QA (1)']
       },
       {
         id: 'prod-3',
         title: 'Microsoft Dev. Team',
-        image: '/assets/team/microsoft_dev_team.jpg',
+        image: '/images/team_card_microsoft.jpg',
         techs: ['.Net Core', 'Share Point', 'Power Apps', 'Power Automate', 'Power BI', 'Azure'],
         team: ['.NET Architect (1)', 'SharePoint Lead (2)', 'Power Platform Eng (2)', 'Azure Cloud Eng (1)', 'BI Analyst (1)']
       }
@@ -84,21 +84,21 @@ export const SapphireSeasonedExpertsSection = () => {
       {
         id: 'saas-1',
         title: 'Saas Product Dev. Team',
-        image: '/assets/team/saas_dev_team.jpg',
+        image: '/images/team_card_saas.jpg',
         techs: ['Vue.JS', 'React JS', 'DevOps', 'CRM', 'UI/UX', 'Mongo DB', 'Cloud'],
         team: ['Solution Architect (1)', 'Full Stack Lead (2)', 'Cloud DevOps (1)', 'Frontend Specialist (2)', 'Product QA (1)']
       },
       {
         id: 'saas-2',
         title: 'Mobile Application Team',
-        image: '/assets/team/mobile_app_team.jpg',
+        image: '/images/team_card_mobile.jpg',
         techs: ['Android', 'iOS', 'Flutter', 'React Native', 'Swift'],
         team: ['Tech Lead (1)', 'Sr. Android Dev (2)', 'Sr. iOS Dev (2)', 'Flutter Dev (2)', 'QA Engineer (1)']
       },
       {
         id: 'saas-3',
         title: 'Microsoft Dev. Team',
-        image: '/assets/team/microsoft_dev_team.jpg',
+        image: '/images/team_card_microsoft.jpg',
         techs: ['.Net Core', 'Share Point', 'Power Apps', 'Power Automate', 'Power BI', 'Azure'],
         team: ['.NET Architect (1)', 'SharePoint Lead (2)', 'Power Platform Eng (2)', 'Azure Cloud Eng (1)', 'BI Analyst (1)']
       }
@@ -107,21 +107,21 @@ export const SapphireSeasonedExpertsSection = () => {
       {
         id: 'aiml-1',
         title: 'AI & NLP Engineering Team',
-        image: '/assets/team/microsoft_dev_team.jpg',
+        image: '/images/team_card_microsoft.jpg',
         techs: ['PyTorch', 'TensorFlow', 'HuggingFace', 'OpenAI', 'Python', 'FastAPI', 'LangChain'],
         team: ['AI Lead (1)', 'NLP Engineer (2)', 'MLOps Specialist (1)', 'Data Annotator (1)']
       },
       {
         id: 'aiml-2',
         title: 'Computer Vision Team',
-        image: '/assets/team/mobile_app_team.jpg',
+        image: '/images/team_card_mobile.jpg',
         techs: ['OpenCV', 'YOLOv8', 'CUDA', 'Python', 'TensorRT', 'AWS Bedrock'],
         team: ['CV Architect (1)', 'Deep Learning Dev (2)', 'Edge AI Eng (1)', 'QA (1)']
       },
       {
         id: 'aiml-3',
         title: 'GenAI & LLM Solutions Team',
-        image: '/assets/team/saas_dev_team.jpg',
+        image: '/images/team_card_saas.jpg',
         techs: ['LLaMA 3', 'Claude API', 'LangGraph', 'Pinecone', 'Vector DB', 'Next.js'],
         team: ['GenAI Lead (1)', 'Prompt Engineer (2)', 'Fullstack AI Dev (2)', 'QA (1)']
       }
@@ -130,21 +130,21 @@ export const SapphireSeasonedExpertsSection = () => {
       {
         id: 'data-1',
         title: 'Data Analytics Services Team',
-        image: '/assets/team/saas_dev_team.jpg',
+        image: '/images/team_card_saas.jpg',
         techs: ['Big Data Analytics', 'Predictive Analytics', 'Data Management', 'Visualization And Reporting'],
         team: ['Lead Data Analyst (1)', 'BI Engineer (2)', 'Data Pipeline Dev (2)', 'Analytics QA (1)']
       },
       {
         id: 'data-2',
         title: 'Data Migration Services Team',
-        image: '/assets/team/microsoft_dev_team.jpg',
+        image: '/images/team_card_microsoft.jpg',
         techs: ['Data Science', 'Data Warehousing', 'Data Analytics', 'Big Data Implementation'],
         team: ['Migration Architect (1)', 'ETL Pipeline Lead (2)', 'Database Migration Eng (2)', 'Data QA (1)']
       },
       {
         id: 'data-3',
         title: 'Data Science Team',
-        image: '/assets/team/mobile_app_team.jpg',
+        image: '/images/team_card_mobile.jpg',
         techs: ['Data Science Team', 'Data Visualization', 'Machine Learning', 'Data Analysis', 'AWS', 'Data Mining'],
         team: ['Principal Data Scientist (1)', 'ML Engineer (3)', 'AI Researcher (1)', 'Data Ops Lead (1)']
       }
@@ -153,21 +153,21 @@ export const SapphireSeasonedExpertsSection = () => {
       {
         id: 'design-1',
         title: 'UI/UX Design Team',
-        image: '/assets/team/saas_dev_team.jpg',
+        image: '/images/team_card_saas.jpg',
         techs: ['Figma', 'Adobe XD', 'Sketch', 'Protopie', 'Wireframing', 'User Research'],
         team: ['Design Lead (1)', 'Sr UI Designer (2)', 'UX Researcher (1)', 'Motion Designer (1)']
       },
       {
         id: 'design-2',
         title: 'Brand & Product Identity Team',
-        image: '/assets/team/mobile_app_team.jpg',
+        image: '/images/team_card_mobile.jpg',
         techs: ['Illustrator', 'Photoshop', 'Brand Guidelines', 'Typography', '3D Blender'],
         team: ['Creative Director (1)', 'Brand Strategist (1)', 'Visual Designer (2)']
       },
       {
         id: 'design-3',
         title: 'Design System & Prototyping Team',
-        image: '/assets/team/microsoft_dev_team.jpg',
+        image: '/images/team_card_microsoft.jpg',
         techs: ['Design Tokens', 'Storybook', 'Figma Variants', 'Accessibility (a11y)', 'CSS'],
         team: ['Design System Lead (1)', 'UI Engineer (2)', 'Accessibility QA (1)']
       }
@@ -176,21 +176,21 @@ export const SapphireSeasonedExpertsSection = () => {
       {
         id: 'mkt-1',
         title: 'Growth & Digital Marketing Team',
-        image: '/assets/team/saas_dev_team.jpg',
+        image: '/images/team_card_saas.jpg',
         techs: ['Google Analytics 4', 'HubSpot', 'SEMrush', 'Meta Ads', 'A/B Testing'],
         team: ['Growth Lead (1)', 'Performance Marketer (2)', 'Content Strategist (1)']
       },
       {
         id: 'mkt-2',
         title: 'SEO & Performance Analytics Team',
-        image: '/assets/team/microsoft_dev_team.jpg',
+        image: '/images/team_card_microsoft.jpg',
         techs: ['Technical SEO', 'Ahrefs', 'Search Console', 'Schema Markup', 'Core Web Vitals'],
         team: ['SEO Architect (1)', 'Analytics Specialist (1)', 'Technical Writer (2)']
       },
       {
         id: 'mkt-3',
         title: 'Content & Campaign Strategy Team',
-        image: '/assets/team/mobile_app_team.jpg',
+        image: '/images/team_card_mobile.jpg',
         techs: ['Copywriting', 'Email Automation', 'Klaviyo', 'LinkedIn Ads', 'Video Marketing'],
         team: ['Campaign Lead (1)', 'Copywriter (2)', 'Social Media Manager (1)']
       }
@@ -199,21 +199,21 @@ export const SapphireSeasonedExpertsSection = () => {
       {
         id: 'iot-1',
         title: 'Smart Hardware & IoT Team',
-        image: '/assets/team/microsoft_dev_team.jpg',
+        image: '/images/team_card_microsoft.jpg',
         techs: ['MQTT', 'BLE / Bluetooth', 'ESP32', 'Raspberry Pi', 'AWS IoT Core', 'C++'],
         team: ['IoT Architect (1)', 'Embedded Firmware Dev (2)', 'Hardware QA (1)']
       },
       {
         id: 'iot-2',
         title: 'Connected Devices & Sensors Team',
-        image: '/assets/team/mobile_app_team.jpg',
+        image: '/images/team_card_mobile.jpg',
         techs: ['Zigbee', 'LoRaWAN', 'Modbus', 'Telemetry Pipelines', 'Grafana', 'InfluxDB'],
         team: ['Sensor Network Lead (1)', 'Firmware Eng (2)', 'Cloud Integrator (1)']
       },
       {
         id: 'iot-3',
         title: 'Industrial IoT & Edge Computing Team',
-        image: '/assets/team/saas_dev_team.jpg',
+        image: '/images/team_card_saas.jpg',
         techs: ['Edge AI', 'OPC-UA', 'SCADA', 'Time-Series DB', 'Docker Edge', 'Linux Embedded'],
         team: ['IIoT Lead (1)', 'Edge Computing Dev (2)', 'Industrial QA (1)']
       }
@@ -222,21 +222,21 @@ export const SapphireSeasonedExpertsSection = () => {
       {
         id: 'bc-1',
         title: 'Smart Contract & dApp Team',
-        image: '/assets/team/mobile_app_team.jpg',
+        image: '/images/team_card_mobile.jpg',
         techs: ['Solidity', 'Rust', 'Hardhat', 'Ethers.js', 'Web3.js', 'Ethereum', 'Polygon'],
         team: ['Blockchain Architect (1)', 'Smart Contract Dev (2)', 'Security Auditor (1)']
       },
       {
         id: 'bc-2',
         title: 'Web3 & DeFi Architecture Team',
-        image: '/assets/team/saas_dev_team.jpg',
+        image: '/images/team_card_saas.jpg',
         techs: ['Solana', 'Anchor', 'IPFS', 'The Graph', 'MetaMask', 'Subgraphs'],
         team: ['DeFi Lead (1)', 'Rust Blockchain Eng (2)', 'Cryptographer (1)']
       },
       {
         id: 'bc-3',
         title: 'Crypto & Tokenomics Team',
-        image: '/assets/team/microsoft_dev_team.jpg',
+        image: '/images/team_card_microsoft.jpg',
         techs: ['ERC-20 / ERC-721', 'Staking Protocols', 'Zero Knowledge Proofs', 'Chainlink Oracles'],
         team: ['Tokenomics Strategist (1)', 'Protocol Engineer (2)', 'Audit QA (1)']
       }

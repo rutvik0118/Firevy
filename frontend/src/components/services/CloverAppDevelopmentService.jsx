@@ -179,7 +179,7 @@ export const CloverAppDevelopmentService = () => {
       <section className="py-12 sm:py-16 bg-white text-slate-900 font-sans">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            
+
             {/* Left Side: Custom Vector Illustration */}
             <div className="lg:col-span-5 flex justify-center items-center">
               <div className="relative w-full max-w-[480px]">
@@ -270,7 +270,7 @@ export const CloverAppDevelopmentService = () => {
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-5 font-sans">
                 Get Clover App Development Services At Best Price
               </h2>
-              
+
               <div className="space-y-4 text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
                 <p>
                   Our team has direct knowledge of creating clover apps using a proprietary approach. The{' '}
@@ -295,13 +295,13 @@ export const CloverAppDevelopmentService = () => {
       <section className="py-12 sm:py-16 bg-slate-50/70 border-t border-slate-100 text-slate-900 font-sans">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            
+
             {/* Left Side: Title & Paragraphs */}
             <div className="lg:col-span-6 text-left">
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight mb-5 font-sans">
                 Brief About Clover App Development Services
               </h2>
-              
+
               <div className="space-y-4 text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
                 <p>
                   Hire developers for Clover POS integrations to stay one step ahead of the curve by providing individualized, tailored solutions for the challenges faced by modern businesses. Dedicated teams are knowledgeable in cutting-edge technologies and have significant experience in creating Clover and POS systems.
@@ -443,7 +443,7 @@ export const CloverAppDevelopmentService = () => {
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-            
+
             {/* Left Side Box: Quote Card */}
             <div className="lg:col-span-5 flex">
               <div className="w-full bg-[#EBF7FC] rounded-2xl p-8 sm:p-10 flex flex-col justify-center text-left relative overflow-hidden border border-[#D0ECF7]">
@@ -566,11 +566,10 @@ export const CloverAppDevelopmentService = () => {
                 <button
                   key={category}
                   onClick={() => setExpertActiveCategory(category)}
-                  className={`px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${
-                    expertActiveCategory === category
+                  className={`px-4 py-2 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${expertActiveCategory === category
                       ? 'bg-[#005F96] text-white shadow-xs'
                       : 'text-slate-700 hover:text-[#005F96] hover:bg-white/50'
-                  }`}
+                    }`}
                 >
                   {category}
                 </button>
@@ -651,21 +650,19 @@ export const CloverAppDevelopmentService = () => {
                   <div className="flex bg-white rounded-lg p-1 mb-4 border border-[#CCE8F8]">
                     <button
                       onClick={() => setActiveTeamTab('tech')}
-                      className={`flex-1 py-1.5 text-xs font-bold rounded-md transition-all cursor-pointer ${
-                        activeTeamTab === 'tech'
+                      className={`flex-1 py-1.5 text-xs font-bold rounded-md transition-all cursor-pointer ${activeTeamTab === 'tech'
                           ? 'bg-[#005F96] text-white shadow-xs'
                           : 'text-slate-600 hover:text-slate-900'
-                      }`}
+                        }`}
                     >
                       Technologies
                     </button>
                     <button
                       onClick={() => setActiveTeamTab('team')}
-                      className={`flex-1 py-1.5 text-xs font-bold rounded-md transition-all cursor-pointer ${
-                        activeTeamTab === 'team'
+                      className={`flex-1 py-1.5 text-xs font-bold rounded-md transition-all cursor-pointer ${activeTeamTab === 'team'
                           ? 'bg-[#005F96] text-white shadow-xs'
                           : 'text-slate-600 hover:text-slate-900'
-                      }`}
+                        }`}
                     >
                       Team Composition
                     </button>
@@ -795,11 +792,10 @@ export const CloverAppDevelopmentService = () => {
                   <button
                     key={idx}
                     onClick={() => setIndustryTab(idx)}
-                    className={`px-4 py-2 rounded-lg text-xs sm:text-sm font-bold transition-all cursor-pointer whitespace-nowrap ${
-                      industryTab === idx
+                    className={`px-4 py-2 rounded-lg text-xs sm:text-sm font-bold transition-all cursor-pointer whitespace-nowrap ${industryTab === idx
                         ? 'bg-[#005F96] text-white shadow-xs'
                         : 'bg-white text-slate-700 hover:text-[#005F96] hover:bg-slate-50 border border-slate-200/50'
-                    }`}
+                      }`}
                   >
                     {name}
                   </button>
@@ -819,11 +815,10 @@ export const CloverAppDevelopmentService = () => {
                     <button
                       key={actualIdx}
                       onClick={() => setIndustryTab(actualIdx)}
-                      className={`px-4 py-2 rounded-lg text-xs sm:text-sm font-bold transition-all cursor-pointer whitespace-nowrap ${
-                        industryTab === actualIdx
+                      className={`px-4 py-2 rounded-lg text-xs sm:text-sm font-bold transition-all cursor-pointer whitespace-nowrap ${industryTab === actualIdx
                           ? 'bg-[#005F96] text-white shadow-xs'
                           : 'bg-white text-slate-700 hover:text-[#005F96] hover:bg-slate-50 border border-slate-200/50'
-                      }`}
+                        }`}
                     >
                       {name}
                     </button>

@@ -62,6 +62,10 @@ import SharePointDevelopmentService from '../components/services/SharePointDevel
 import PowerAppsDevelopmentService from '../components/services/PowerAppsDevelopmentService';
 import KotlinAppDevelopmentService from '../components/services/KotlinAppDevelopmentService';
 import HybridAppDevelopmentService from '../components/services/HybridAppDevelopmentService';
+import PersonalFitnessAppService from '../components/services/PersonalFitnessAppService';
+import UsedCarAppDevelopmentService from '../components/services/UsedCarAppDevelopmentService';
+import EnneagramTestAppService from '../components/services/EnneagramTestAppService';
+import CreditCardAppDevelopmentService from '../components/services/CreditCardAppDevelopmentService';
 import ItConsultingServices from '../components/services/ItConsultingServices';
 import AppDevelopmentConsultingService from '../components/services/AppDevelopmentConsultingService';
 import StartupConsultingServices from '../components/services/StartupConsultingServices';
@@ -89,7 +93,7 @@ export const ServiceDetails = () => {
   const [openFaq, setOpenFaq] = useState(0);
 
   const isHireAndroid = currentSlug.includes('hire-android');
-  const isHireIonic = currentSlug.includes('hire-ionic') || currentSlug === 'ionic' || currentSlug === 'services/ionic';
+  const isHireIonic = currentSlug.includes('ionic') || currentSlug.includes('hire-ionic');
   const isHireFlutter = currentSlug.includes('hire-flutter');
   const isHireIOS = currentSlug.includes('hire-ios');
   const isHireSwift = currentSlug.includes('hire-swift') || currentSlug === 'swift' || currentSlug === 'services/swift';
@@ -98,8 +102,15 @@ export const ServiceDetails = () => {
   const isHireFreelance = currentSlug.includes('hire-freelance');
   const isHireAiApp = currentSlug.includes('hire-ai-application') || currentSlug.includes('hire-ai-app');
   const isHireIphone = currentSlug.includes('hire-iphone');
+<<<<<<< HEAD
+  const isHireWooCommerce = currentSlug.includes('woocommerce') || currentSlug.includes('woo-commerce');
+  const isHirePrestashop = currentSlug.includes('prestashop') || currentSlug.includes('presta-shop');
+  const isHireWordpress = currentSlug.includes('hire-wordpress') || currentSlug.includes('wordpress-developers') || currentSlug.includes('hire-wp');
+  const isAnyDedicatedHire = isHireAndroid || isHireIonic || isHireFlutter || isHireIOS || isHireSwift || isHireMobile || isHireBlackberry || isHireFreelance || isHireAiApp || isHireIphone || isHireWooCommerce || isHirePrestashop || isHireWordpress;
+=======
   const isHireKotlin = currentSlug.includes('hire-kotlin');
   const isAnyDedicatedHire = isHireAndroid || isHireIonic || isHireFlutter || isHireIOS || isHireSwift || isHireMobile || isHireBlackberry || isHireFreelance || isHireAiApp || isHireIphone || isHireKotlin;
+>>>>>>> a5ebb59c7b5a87a0671a835585365d686ca124ee
 
   const isXamarin = currentSlug.includes('xamarin');
   const isReactNative = currentSlug.includes('react-native') || currentSlug.includes('reactnative');
@@ -176,6 +187,27 @@ export const ServiceDetails = () => {
 
   const isHybrid = currentSlug.includes('hybrid');
 
+  const isPersonalFitness = currentSlug === 'personal-fitness-app' ||
+    currentSlug.includes('personal-fitness') ||
+    currentSlug.includes('fitness-app') ||
+    currentSlug === 'services/personal-fitness-app';
+
+  const isUsedCar = currentSlug === 'used-car-app-development' ||
+    currentSlug === 'used-car-app' ||
+    currentSlug.includes('used-car') ||
+    currentSlug.includes('used-cars') ||
+    currentSlug === 'services/used-car-app-development';
+
+  const isEnneagram = currentSlug === 'enneagram-test-app' ||
+    currentSlug === 'enneagram-test' ||
+    currentSlug.includes('enneagram') ||
+    currentSlug === 'services/enneagram-test-app';
+
+  const isCreditCard = currentSlug === 'credit-card-app-development' ||
+    currentSlug === 'credit-card-app' ||
+    currentSlug.includes('credit-card') ||
+    currentSlug === 'services/credit-card-app-development';
+
   const isCrossPlatform = currentSlug.includes('cross-platform') ||
     currentSlug.includes('crossplatform') ||
     currentSlug.includes('multi-platform');
@@ -187,7 +219,7 @@ export const ServiceDetails = () => {
     currentSlug === 'mobile-app' ||
     currentSlug === 'mobile-application' ||
     currentSlug === 'mobile-application-development' ||
-    (currentSlug.includes('mobile-app') && !isReactNative && !isFlutter && !isIOS && !isAndroid && !isXamarin && !isIWatch && !isCrossPlatform && !isKotlin && !isHybrid && !isIPad)
+    (currentSlug.includes('mobile-app') && !isReactNative && !isFlutter && !isIOS && !isAndroid && !isXamarin && !isIWatch && !isCrossPlatform && !isKotlin && !isHybrid && !isIPad && !isPersonalFitness && !isUsedCar && !isEnneagram && !isCreditCard)
   );
 
   const isNet = currentSlug === 'net' ||
@@ -470,7 +502,7 @@ export const ServiceDetails = () => {
   };
 
   useEffect(() => {
-    if (!isAnyDedicatedHire && !isKotlin && !isHybrid && !isIPad && !isCrossPlatform && !isItConsulting && !isNext && !isExpress && !isMobileApp && !isBootstrap && !isCodeIgniter && !isEmber && !isLaravel && !isPowerAutomate && !isPowerApps && !isSharePoint && !isVue && !isReact && !isAngular && !isIot && !isPwa && !isRpa && !isVR && !isFullStack && !isBlockchain && !isArtificialIntelligence && !isGenerativeAi && !isNodeJs && !isJava && !isPhp && !isNet && !isXamarin && !isAndroid && !isReactNative && !isFlutter && !isIOS && !isHealthcare && !isEducation && !isUber && !isSpotify && !isZomato && !isAmazon && !isVisitor && !isWarehouse && !isClover && !isCSharp && !isIWatch && !isWordpress && !isDrupal && !isUmbraco && !isSitecore && !isSitefinity && !isMagento && !isShopify) {
+    if (!isAnyDedicatedHire && !isKotlin && !isHybrid && !isPersonalFitness && !isUsedCar && !isEnneagram && !isCreditCard && !isIPad && !isCrossPlatform && !isItConsulting && !isNext && !isExpress && !isMobileApp && !isBootstrap && !isCodeIgniter && !isEmber && !isLaravel && !isPowerAutomate && !isPowerApps && !isSharePoint && !isVue && !isReact && !isAngular && !isIot && !isPwa && !isRpa && !isVR && !isFullStack && !isBlockchain && !isArtificialIntelligence && !isGenerativeAi && !isNodeJs && !isJava && !isPhp && !isNet && !isXamarin && !isAndroid && !isReactNative && !isFlutter && !isIOS && !isHealthcare && !isEducation && !isUber && !isSpotify && !isZomato && !isAmazon && !isVisitor && !isWarehouse && !isClover && !isCSharp && !isIWatch && !isWordpress && !isDrupal && !isUmbraco && !isSitecore && !isSitefinity && !isMagento && !isShopify) {
       fetchServiceDetails();
     } else {
       setLoading(false);
@@ -522,7 +554,23 @@ export const ServiceDetails = () => {
     return <HireTechDevelopersService techKey="hire-iphone-app-developers" />;
   }
 
+<<<<<<< HEAD
+  if (isHireWooCommerce) {
+    return <HireTechDevelopersService techKey="hire-woocommerce-developers" />;
+  }
+
+  if (isHirePrestashop) {
+    return <HireTechDevelopersService techKey="hire-prestashop-developers" />;
+  }
+
+  if (isHireWordpress) {
+    return <HireTechDevelopersService techKey="hire-wordpress-developers" />;
+  }
+
+  if (isKotlin) {
+=======
   if (isHireKotlin) {
+>>>>>>> a5ebb59c7b5a87a0671a835585365d686ca124ee
     return <HireKotlinDevelopersService />;
   }
 
@@ -536,6 +584,22 @@ export const ServiceDetails = () => {
 
   if (isHybrid) {
     return <HybridAppDevelopmentService />;
+  }
+
+  if (isPersonalFitness) {
+    return <PersonalFitnessAppService />;
+  }
+
+  if (isUsedCar) {
+    return <UsedCarAppDevelopmentService />;
+  }
+
+  if (isEnneagram) {
+    return <EnneagramTestAppService />;
+  }
+
+  if (isCreditCard) {
+    return <CreditCardAppDevelopmentService />;
   }
 
   if (isCrossPlatform) {
