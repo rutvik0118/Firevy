@@ -7,6 +7,7 @@ import ClutchTopRatedBanner from '../common/ClutchTopRatedBanner';
 import PremiumServicesGrid from '../common/PremiumServicesGrid';
 import DataCleansingCuttingEdgeTechSection from './DataCleansingCuttingEdgeTechSection';
 import ProudAwardsBanner from './ProudAwardsBanner';
+import DataCleansingExpertiseServices from './DataCleansingExpertiseServices';
 import AndroidHiringModels from './AndroidHiringModels';
 import ProcessWeFollow from '../common/ProcessWeFollow';
 import TrustedBrandsGrid from '../common/TrustedBrandsGrid';
@@ -419,7 +420,12 @@ export const DataCleansingService = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* 11. HIRING MODELS                                                         */}
+      {/* 12. OUR EXPERTISE IN DEDICATED DATA CLEANING SERVICES (EXACT MATCH)       */}
+      {/* ========================================================================= */}
+      <DataCleansingExpertiseServices />
+
+      {/* ========================================================================= */}
+      {/* 13. HIRING MODELS                                                         */}
       {/* ========================================================================= */}
       <AndroidHiringModels />
 
