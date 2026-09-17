@@ -49,6 +49,7 @@ import {
 export const NintexDevelopmentService = () => {
   // Services We Offer Active Card (defaults to 1 = 'Support For Nintex' matching reference image 1)
   const [activeServiceCard, setActiveServiceCard] = useState(1);
+  const [isVideoModalOpen, setIsVideoModalOpen] = useState(false);
 
   // Services We Offer Cards (Matching Image 1: colorful icon boxes & exact styling)
   const servicesWeOffer = [
@@ -127,45 +128,6 @@ export const NintexDevelopmentService = () => {
           <path d="M9 13a3 3 0 1 1 5.5 1.5M15 11v3.5h-3.5" />
         </svg>
       )
-    }
-  ];
-
-  // Benefits of Nintex Development Services
-  const nintexBenefits = [
-    {
-      title: 'User-Driven',
-      desc: 'Everyone, from beginners to seasoned veterans, can profit from the workflow automation capabilities of the system as it does tasks for its users, unlike other systems to learn routine activities.',
-      icon: <MousePointerClick className="w-7 h-7 text-[#005D95]" />
-    },
-    {
-      title: 'Drag And Drop',
-      desc: 'The drag and drop approach prioritizes streamlining the procedure rather than limiting the available options. It implies that Nintex software services are simple to use and run.',
-      icon: <Sliders className="w-7 h-7 text-[#005D95]" />
-    },
-    {
-      title: 'Powerful Automation',
-      desc: 'Compared to other automation systems on the market, Nintex enables quicker startup, operation, robust enough to handle large corporate projects, and creation of numerous processes.',
-      icon: <Zap className="w-7 h-7 text-[#005D95]" />
-    },
-    {
-      title: 'Price Variability',
-      desc: "Nintex's pricing is available on a quotation basis, allowing companies to customize their feature suite depending on their business requirements while keeping their budget in mind.",
-      icon: <DollarSign className="w-7 h-7 text-[#005D95]" />
-    },
-    {
-      title: 'Simple Workflows',
-      desc: 'Whether it’s a request or approval, anyone can make workflow simpler with Nintex’s workflow automation functionality in the simplest possible way.',
-      icon: <Workflow className="w-7 h-7 text-[#005D95]" />
-    },
-    {
-      title: 'Easy Integration',
-      desc: 'Whether you need to integrate your social media handles or your CRM, you can easily integrate Nintex workflow with your favorite tools without any coding knowledge.',
-      icon: <Share2 className="w-7 h-7 text-[#005D95]" />
-    },
-    {
-      title: 'Dynamic Forms',
-      desc: 'Nintex Forms empower IT ops professionals across business departments to automate work by creating simple, no-code forms and customizing them as per their needs.',
-      icon: <FileCheck2 className="w-7 h-7 text-[#005D95]" />
     }
   ];
 
@@ -548,48 +510,111 @@ export const NintexDevelopmentService = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* 9. BENEFITS OF NINTEX DEVELOPMENT SERVICES */}
+      {/* 9. NINTEX PROJECT VIDEO SHOWCASE (1:1 MATCH WITH REFERENCE IMAGE 1) */}
       {/* ========================================================================= */}
-      <section className="py-16 lg:py-24 bg-white border-t border-slate-100">
+      <section className="relative py-16 sm:py-20 lg:py-24 bg-white overflow-hidden text-center border-t border-slate-100">
+        {/* Soft decorative background circles matching image 1 */}
+        <div className="absolute top-12 left-4 sm:left-20 w-72 h-72 rounded-full bg-[#E0F2FE]/70 blur-3xl pointer-events-none -z-10" />
+        <div className="absolute bottom-6 right-4 sm:right-20 w-72 h-72 rounded-full bg-[#FFE4E6]/60 blur-3xl pointer-events-none -z-10" />
+
         <Container>
-          <div className="text-center max-w-3xl mx-auto mb-14">
-            <h2 className="text-2xl sm:text-3xl lg:text-[38px] font-[800] text-[#0B0F19] tracking-tight leading-snug mb-3">
-              Benefits of Nintex Development Services
+          <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-14">
+            <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-[#0B0F19] tracking-tight font-sans">
+              Nintex Project
             </h2>
-            <p className="text-sm sm:text-base text-slate-600 font-normal">
-              Nintex's primary advantages include a user-friendly solution, an easy-to-use system, a strong automation platform, and flexible pricing. Here are some of the Nintex benefits.
-            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-            {nintexBenefits.map((item, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-2xl p-7 shadow-sm hover:shadow-xl border border-slate-200/80 hover:border-[#005D95]/40 transition-all duration-300 flex flex-col text-left group"
-              >
-                <div className="w-12 h-12 rounded-xl bg-[#EBF6FB] flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300">
-                  {item.icon}
-                </div>
-                <h3 className="text-lg font-[800] text-[#0B0F19] mb-2.5 group-hover:text-[#005D95] transition-colors">
-                  {item.title}
-                </h3>
-                <p className="text-slate-600 text-sm leading-relaxed font-normal">
-                  {item.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center">
-            <Link
-              to="/contact-us"
-              className="inline-flex items-center space-x-2 bg-[#005D95] hover:bg-[#004874] text-white px-8 py-3.5 rounded-[6px] font-bold text-sm sm:text-base transition-all duration-300 shadow-md hover:shadow-lg"
+          <div className="max-w-4xl mx-auto relative flex justify-center">
+            {/* The Nintex Project Dark Blue Video Card */}
+            <div
+              onClick={() => setIsVideoModalOpen(true)}
+              className="relative w-full rounded-[24px] sm:rounded-[32px] overflow-hidden bg-[#032541] shadow-[0_20px_50px_rgba(3,37,65,0.22)] p-6 sm:p-10 lg:p-14 min-h-[360px] sm:min-h-[440px] flex flex-col justify-between items-center group cursor-pointer border border-slate-700/40 hover:shadow-[0_25px_60px_rgba(3,37,65,0.32)] transition-all duration-300"
             >
-              <span>Connect Now</span>
-              <ArrowRight className="w-4 h-4" />
-            </Link>
+              {/* Top Right: Firevy.co Branding (Replacing Sapphire name) */}
+              <div className="w-full flex justify-end items-center z-10">
+                <div className="flex items-center space-x-2 bg-white/10 backdrop-blur-md px-3 sm:px-4 py-1.5 rounded-full border border-white/20">
+                  <span className="text-white font-black text-sm sm:text-base tracking-tight font-sans">
+                    firevy<span className="text-sky-400">.co</span>
+                  </span>
+                </div>
+              </div>
+
+              {/* Center: Nintex X Logo with Circular Blue Play Button */}
+              <div className="my-auto flex flex-col items-center justify-center relative z-10 py-6">
+                <div className="relative w-32 h-32 sm:w-40 sm:h-40 flex items-center justify-center">
+                  {/* Nintex Cross Vector Graphic: Orange Left Chevron & White Right Chevron */}
+                  <svg viewBox="0 0 160 160" className="w-full h-full drop-shadow-2xl">
+                    {/* Left Chevron (Orange) */}
+                    <path
+                      d="M 32 24 L 80 72 L 32 120 L 48 136 L 112 72 L 48 8 Z"
+                      fill="#FF6600"
+                    />
+                    {/* Right Chevron (White) */}
+                    <path
+                      d="M 128 24 L 80 72 L 128 120 L 112 136 L 48 72 L 112 8 Z"
+                      fill="#FFFFFF"
+                    />
+                  </svg>
+
+                  {/* Circular Blue Play Button overlaid in center */}
+                  <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                    <div className="w-14 h-14 sm:w-18 sm:h-18 rounded-full bg-[#1D4ED8] group-hover:bg-[#2563EB] text-white flex items-center justify-center shadow-2xl pl-1 border-2 border-white/30 backdrop-blur-xs transition-transform duration-300 group-hover:scale-110">
+                      <svg className="w-6 h-6 sm:w-8 sm:h-8 fill-current text-white" viewBox="0 0 24 24">
+                        <polygon points="7 4 20 12 7 20 7 4" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+
+                {/* nintex brand text */}
+                <div className="text-white font-black text-3xl sm:text-4xl lg:text-5xl tracking-tight lowercase font-sans mt-2">
+                  nintex
+                </div>
+              </div>
+
+              {/* Bottom Text: Top Nintex Development Company */}
+              <div className="w-full text-center z-10 pt-2">
+                <h3 className="text-[#FF6600] font-[900] text-xl sm:text-2xl lg:text-[32px] tracking-tight font-sans">
+                  Top Nintex Development Company
+                </h3>
+              </div>
+            </div>
           </div>
         </Container>
+
+        {/* Video Modal Popup */}
+        {isVideoModalOpen && (
+          <div
+            className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4"
+            onClick={() => setIsVideoModalOpen(false)}
+          >
+            <div
+              className="relative w-full max-w-4xl bg-slate-900 rounded-2xl overflow-hidden shadow-2xl border border-white/20"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="flex items-center justify-between px-6 py-4 bg-slate-800 text-white border-b border-slate-700">
+                <h3 className="font-bold text-base sm:text-lg">Top Nintex Development Company | Firevy.co</h3>
+                <button
+                  onClick={() => setIsVideoModalOpen(false)}
+                  className="w-8 h-8 rounded-full bg-slate-700 hover:bg-slate-600 text-white flex items-center justify-center font-bold text-sm cursor-pointer"
+                  aria-label="Close modal"
+                >
+                  ✕
+                </button>
+              </div>
+
+              <div className="relative pt-[56.25%] bg-black">
+                <iframe
+                  className="absolute inset-0 w-full h-full"
+                  src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1"
+                  title="Top Nintex Development Company"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+            </div>
+          </div>
+        )}
       </section>
 
       {/* ========================================================================= */}
