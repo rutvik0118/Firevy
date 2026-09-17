@@ -29,6 +29,7 @@ import HireCodeIgniterDevelopersService from '../components/services/HireCodeIgn
 import IWatchAppDevelopmentService from '../components/services/IWatchAppDevelopmentService';
 import CovidTrackerAppDevelopmentService from '../components/services/CovidTrackerAppDevelopmentService';
 import EcommerceMobileAppDevelopmentService from '../components/services/EcommerceMobileAppDevelopmentService';
+import ProductFinderAppDevelopmentService from '../components/services/ProductFinderAppDevelopmentService';
 import IPadAppDevelopmentService from '../components/services/IPadAppDevelopmentService';
 import CrossPlatformAppDevelopmentService from '../components/services/CrossPlatformAppDevelopmentService';
 import IOSAppDevelopmentService from '../components/services/IOSAppDevelopmentService';
@@ -376,6 +377,11 @@ export const ServiceDetails = () => {
     currentSlug.includes('clown-polska')
   );
 
+  const isProductFinderApp = (slug || currentSlug) && (
+    currentSlug.includes('product-finder') ||
+    currentSlug.includes('product-search')
+  );
+
   const isStartupConsulting = currentSlug === 'startup-consulting-services' ||
     currentSlug === 'startup-consulting' ||
     currentSlug.includes('startup-consulting') ||
@@ -534,7 +540,7 @@ export const ServiceDetails = () => {
   const isChatGpt = currentSlug.includes('chatgpt') || currentSlug.includes('chat-gpt') || currentSlug.includes('hire-chatgpt');
 
   useEffect(() => {
-    if (!isChatGpt && !isSoftwareDevelopers && !isDedicatedDevelopers && !isMetaverse && !isEmbeddedSoftware && !isAlexaSkills && !isDataScientist && !isAnyDedicatedHire && !isKotlin && !isHybrid && !isPersonalFitness && !isUsedCar && !isEnneagram && !isCreditCard && !isIPad && !isCrossPlatform && !isItConsulting && !isNext && !isExpress && !isMobileApp && !isBootstrap && !isCodeIgniter && !isEmber && !isLaravel && !isPowerAutomate && !isPowerApps && !isSharePoint && !isVue && !isReact && !isAngular && !isIot && !isPwa && !isRpa && !isVR && !isFullStack && !isBlockchain && !isArtificialIntelligence && !isGenerativeAi && !isNodeJs && !isJava && !isPhp && !isNet && !isXamarin && !isAndroid && !isReactNative && !isFlutter && !isIOS && !isHealthcare && !isEducation && !isUber && !isSpotify && !isZomato && !isAmazon && !isVisitor && !isWarehouse && !isClover && !isCSharp && !isIWatch && !isWordpress && !isDrupal && !isUmbraco && !isSitecore && !isSitefinity && !isMagento && !isShopify && !isCovid && !isEcommerceApp) {
+    if (!isChatGpt && !isSoftwareDevelopers && !isDedicatedDevelopers && !isMetaverse && !isEmbeddedSoftware && !isAlexaSkills && !isDataScientist && !isAnyDedicatedHire && !isKotlin && !isHybrid && !isPersonalFitness && !isUsedCar && !isEnneagram && !isCreditCard && !isIPad && !isCrossPlatform && !isItConsulting && !isNext && !isExpress && !isMobileApp && !isBootstrap && !isCodeIgniter && !isEmber && !isLaravel && !isPowerAutomate && !isPowerApps && !isSharePoint && !isVue && !isReact && !isAngular && !isIot && !isPwa && !isRpa && !isVR && !isFullStack && !isBlockchain && !isArtificialIntelligence && !isGenerativeAi && !isNodeJs && !isJava && !isPhp && !isNet && !isXamarin && !isAndroid && !isReactNative && !isFlutter && !isIOS && !isHealthcare && !isEducation && !isUber && !isSpotify && !isZomato && !isAmazon && !isVisitor && !isWarehouse && !isClover && !isCSharp && !isIWatch && !isWordpress && !isDrupal && !isUmbraco && !isSitecore && !isSitefinity && !isMagento && !isShopify && !isCovid && !isEcommerceApp && !isProductFinderApp) {
       fetchServiceDetails();
     } else {
       setLoading(false);
@@ -918,6 +924,10 @@ export const ServiceDetails = () => {
 
   if (isCovid) {
     return <CovidTrackerAppDevelopmentService />;
+  }
+
+  if (isProductFinderApp) {
+    return <ProductFinderAppDevelopmentService />;
   }
 
   if (loading) return <LoadingSpinner fullPage message="Loading service details..." />;

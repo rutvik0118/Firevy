@@ -411,6 +411,10 @@ export function App() {
                 <Route path="/iwatch-app-development" element={<ServiceDetails />} />
                 <Route path="/covid-tracker-app-development" element={<ServiceDetails />} />
                 <Route path="/covid-tracking-app" element={<ServiceDetails />} />
+                <Route path="/services/product-finder-app-development" element={<ServiceDetails />} />
+                <Route path="/services/product-finder-app" element={<ServiceDetails />} />
+                <Route path="/product-finder-app-development" element={<ServiceDetails />} />
+                <Route path="/product-finder-app" element={<ServiceDetails />} />
                 <Route path="/technologies" element={<Technologies />} />
                 <Route path="/portfolio" element={<Portfolio />} />
                 <Route path="/portfolio/:slug" element={<PortfolioDetails />} />
