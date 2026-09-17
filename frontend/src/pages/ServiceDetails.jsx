@@ -87,6 +87,7 @@ import MobileAppPortingService from '../components/services/MobileAppPortingServ
 import DataCleansingService from '../components/services/DataCleansingService';
 import DataAnnotationService from '../components/services/DataAnnotationService';
 import PatientManagementService from '../components/services/PatientManagementService';
+import DigitalTwinSolutionsService from '../components/services/DigitalTwinSolutionsService';
 import HireKotlinDevelopersService from '../components/services/HireKotlinDevelopersService';
 import HireTechDevelopersService from '../components/services/HireTechDevelopersService';
 import HireMetaverseDevelopersService from '../components/services/HireMetaverseDevelopersService';
@@ -259,6 +260,16 @@ export const ServiceDetails = () => {
     currentSlug === 'patient-management' ||
     currentSlug === 'services/patient-management-system' ||
     currentSlug.includes('patient-management');
+
+  const isDigitalTwin = currentSlug === 'digital-twin-solutions-company' ||
+    currentSlug === 'digital-twin-solutions' ||
+    currentSlug === 'digital-twin' ||
+    currentSlug === 'digital-twin-services' ||
+    currentSlug === 'digital-twin-company' ||
+    currentSlug === 'digital-twin-development' ||
+    currentSlug === 'services/digital-twin-solutions-company' ||
+    currentSlug === 'services/digital-twin-solutions' ||
+    currentSlug.includes('digital-twin');
 
   const isMobileApp = !isHireMobile && !isMobileAppPorting && (
     currentSlug === 'mobile-app-development' ||
@@ -824,6 +835,10 @@ export const ServiceDetails = () => {
 
   if (isPatientManagement) {
     return <PatientManagementService />;
+  }
+
+  if (isDigitalTwin) {
+    return <DigitalTwinSolutionsService />;
   }
 
   if (isPowerAutomate) {

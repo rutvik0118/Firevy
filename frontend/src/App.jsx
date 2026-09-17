@@ -209,6 +209,10 @@ export function App() {
                 <Route path="/patient-management-system-development-company" element={<ServiceDetails />} />
                 <Route path="/services/patient-management-software" element={<ServiceDetails />} />
                 <Route path="/patient-management-software" element={<ServiceDetails />} />
+                <Route path="/services/digital-twin-solutions-company" element={<ServiceDetails />} />
+                <Route path="/digital-twin-solutions-company" element={<ServiceDetails />} />
+                <Route path="/services/digital-twin-solutions" element={<ServiceDetails />} />
+                <Route path="/digital-twin-solutions" element={<ServiceDetails />} />
                 <Route path="/services/tech-consulting-services" element={<ServiceDetails />} />
                 <Route path="/services/hire-bootstrap-developers" element={<ServiceDetails />} />
                 <Route path="/services/hire-bootstrap-developer" element={<ServiceDetails />} />
