@@ -1,116 +1,11 @@
-import React, { useState, useCallback } from 'react';
-import { ArrowLeft, ArrowRight, ChevronsRight } from 'lucide-react';
+import React, { useState, useCallback, useEffect } from 'react';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-
-const caseStudiesList = [
-  {
-    id: 'mg',
-    company: 'Morris Garages',
-    bgColor: '#FFF0F0',
-    logo: '/images/mg.png',
-    desc: "MG Motor is a well-known firm that have large number of employee. It is their major responsibility to keep track of employees' health and records. The system from their end was to have one secure locker for the protection of all the papers in order to keep track of employee Examination and OPD records for audit purpose.",
-    bullets: [
-      'Real-time health data analytics',
-      'HIPAA-compliant data security',
-      '24/7 access to health resources and support',
-      'Personalized health recommendations',
-      '98% improvement in employee health monitoring'
-    ],
-    caseStudyLink: '/portfolio',
-    portfolioLink: '/portfolio',
-    mainImg: '/images/mg.webp'
-  },
-  {
-    id: 'loreal',
-    company: "L'Oréal",
-    bgColor: '#F5F3EF',
-    logo: '/images/loreal.png',
-    desc: "This safety improvement application collects the observations from organizational Staff and non-staff, and the respective department head will take care of the closure observation, and some observation categories will be verified by top management.",
-    bullets: [
-      '97% reduction in safety incidents',
-      'Scalable solution for large enterprises',
-      'Recognized for excellence in safety innovation',
-      'Automated safety reminders and alerts',
-      'Real-time hazard identification and reporting'
-    ],
-    caseStudyLink: '/portfolio',
-    portfolioLink: '/portfolio',
-    mainImg: '/images/loreal.webp'
-  },
-  {
-    id: 'adani',
-    company: 'Adani Group',
-    bgColor: '#EDEDF6',
-    logo: '/images/adani.png',
-    desc: "Adani EmCare is a Web + Mobile App used by Adani Group’s medical officer to capture, analyze and manage the health data of the employees and workers. And this data is used by medical officer to provide preventive healthcare to the employees.",
-    bullets: [
-      '98% Employee satisfaction ratio',
-      '91% reduction in appointment scheduling time',
-      '24/7 real-time health monitoring',
-      'Serving over 60,000 healthcare professionals',
-      'Generating over USD 30 billion in revenue'
-    ],
-    caseStudyLink: '/portfolio',
-    portfolioLink: '/portfolio',
-    mainImg: '/images/adani.webp'
-  },
-  {
-    id: 'waymark',
-    company: 'Waymark Maps',
-    bgColor: '#F5EDFC',
-    logo: '/images/waymarkmaps.png',
-    desc: "A city map and free business listings are available on Waymark. Our city information is consistently accurate and current. With advertisements, points of interest, restaurants, hotels, malls, parking, featured locations, metro routes, tourist attractions, and much more, Waymark offers an interactive map of the Ivory Coast...",
-    bullets: [
-      'Turn by turn voice navigation',
-      'Points of interest (POI) recommendations',
-      'Real-time traffic updates and route optimization',
-      'Offline map access for remote areas',
-      'Augmented reality (AR) navigation features'
-    ],
-    caseStudyLink: '/portfolio',
-    portfolioLink: '/portfolio',
-    mainImg: '/images/waymark_map_app.webp'
-  },
-  {
-    id: 'beecar',
-    company: 'Bee Car CARE',
-    bgColor: '#FFFBEB',
-    logo: '/images/beecar.png',
-    desc: "If you provide car washing services and need to reach a wide range of customers, the car wash app is your best bet. Sapphire Software Solutions has built a car wash application that allows people to book car wash services in few clicks",
-    bullets: [
-      '56% customer retention rate',
-      '112 % increase in service bookings',
-      'Over 1,10,000 satisfied users',
-      'Operating in 20+ locations',
-      'User-friendly & Efficient interface for easy booking'
-    ],
-    caseStudyLink: '/portfolio',
-    portfolioLink: '/portfolio',
-    mainImg: '/images/beecar.webp'
-  },
-  {
-    id: 'lt',
-    company: 'LARSEN & TOUBRO',
-    bgColor: '#EBF5FB',
-    logo: '/images/lt.png',
-    desc: "Larsen & Toubro Limited is one of India's largest and most well-known corporations. L&T offers unrivaled capabilities across Technology, Engineering, Construction, and Manufacturing, and retains leadership in all of its prime businesses, almost 80 years of a strong, customer-focused strategy and...",
-    bullets: [
-      'Automated safety audits and inspections',
-      '24/7 access to safety training resources',
-      'Customizable dashboards and reporting tools',
-      'Real-time incident reporting and tracking',
-      '99% compliance with health and safety regulations'
-    ],
-    caseStudyLink: '/portfolio',
-    portfolioLink: '/portfolio',
-    mainImg: '/images/l&t.webp'
-  }
-];
 
 export const DigitalTransformationCaseStudies = ({ data }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // 6 Enterprise Case Studies (1:1 with user screenshots 1 to 5)
+  // 6 Enterprise Case Studies
   const caseStudies = [
     {
       id: 0,
@@ -138,7 +33,6 @@ export const DigitalTransformationCaseStudies = ({ data }) => {
         'Real-time incident reporting and tracking',
         '99% compliance with health and safety regulations'
       ],
-      // Right-side inner white mockup card
       rightMockup: (
         <div className="w-full h-full rounded-[24px] bg-white p-5 sm:p-6 flex flex-col justify-between border border-slate-200/80 shadow-sm relative overflow-hidden">
           <div>
@@ -244,7 +138,6 @@ export const DigitalTransformationCaseStudies = ({ data }) => {
             <div className="font-black text-slate-900 text-sm">MG Employee Health Locker</div>
           </div>
 
-          {/* Dashboard Visual */}
           <div className="space-y-3 my-auto">
             <div className="grid grid-cols-2 gap-2 text-xs">
               <div className="bg-red-50 p-2.5 rounded-xl border border-red-100">
@@ -304,7 +197,6 @@ export const DigitalTransformationCaseStudies = ({ data }) => {
           </div>
 
           <div className="flex items-center justify-center my-auto space-x-4">
-            {/* Professional Woman Vector Graphic */}
             <div className="w-24 sm:w-28 h-44 sm:h-52 bg-amber-50 rounded-2xl border border-amber-200 p-2 flex flex-col items-center justify-center relative shadow-xs">
               <div className="w-10 h-10 rounded-full bg-amber-700 mb-2 flex items-center justify-center text-white font-black text-xs">
                 👩
@@ -316,7 +208,6 @@ export const DigitalTransformationCaseStudies = ({ data }) => {
               </div>
             </div>
 
-            {/* Smartphone Display Mockup */}
             <div className="w-36 sm:w-44 h-56 sm:h-64 rounded-[28px] bg-slate-900 p-1.5 shadow-2xl border-4 border-slate-800">
               <div className="w-full h-full bg-white rounded-[22px] p-2 flex flex-col justify-between items-center text-center">
                 <div className="w-10 h-1.5 bg-slate-800 rounded-full mx-auto mb-1" />
@@ -374,7 +265,6 @@ export const DigitalTransformationCaseStudies = ({ data }) => {
           </div>
 
           <div className="relative mt-auto flex items-end justify-center">
-            {/* Phone Mockup */}
             <div className="w-20 sm:w-24 h-36 sm:h-44 rounded-2xl bg-slate-900 p-1 shadow-2xl z-20 -mr-4 border-2 border-white">
               <div className="w-full h-full bg-[#1565C0] text-white rounded-xl p-1.5 flex flex-col justify-between text-[7px]">
                 <div className="font-black">adani EmCare</div>
@@ -384,7 +274,6 @@ export const DigitalTransformationCaseStudies = ({ data }) => {
                 <div className="w-full h-2 bg-blue-800 rounded-full" />
               </div>
             </div>
-            {/* Web Dashboard */}
             <div className="w-56 sm:w-64 h-36 sm:h-44 rounded-xl bg-slate-50 border border-slate-200 p-2.5 shadow-xl z-10 flex flex-col justify-between">
               <div className="flex justify-between items-center border-b pb-1">
                 <span className="font-black text-slate-900 text-xs">adani EmCare Portal</span>
@@ -408,7 +297,7 @@ export const DigitalTransformationCaseStudies = ({ data }) => {
     {
       id: 4,
       company: 'Waymark Maps',
-      bgColor: '#F4E4F7', // Exact Soft Lilac from 2nd Screenshot!
+      bgColor: '#F4E4F7', // Soft Lilac
       logo: (
         <div className="mb-4">
           <div className="text-2xl sm:text-3xl font-[950] text-[#6B21A8] font-sans tracking-tight leading-none">
@@ -424,10 +313,8 @@ export const DigitalTransformationCaseStudies = ({ data }) => {
         'Offline map access for remote areas',
         'Augmented reality (AR) navigation features'
       ],
-      // Exact 1:1 match to 2nd Screenshot!
       rightMockup: (
         <div className="w-full h-full rounded-[24px] bg-white p-5 sm:p-6 flex flex-col justify-between border border-slate-200/80 shadow-sm relative overflow-hidden text-left">
-          {/* Top Header */}
           <div className="flex items-center space-x-2 mb-2">
             <div className="w-7 h-7 rounded-lg bg-[#6B21A8] text-white flex items-center justify-center font-black text-xs">
               📍
@@ -435,11 +322,8 @@ export const DigitalTransformationCaseStudies = ({ data }) => {
             <div className="text-sm font-black text-[#6B21A8]">Waymark Maps Application</div>
           </div>
 
-          {/* Main Visual: Segway Rider + Phone Map Screen (1:1 Screenshot 2 Match) */}
           <div className="flex items-center justify-between my-auto pt-2">
-            {/* Segway Rider Vector Graphic */}
             <div className="w-28 sm:w-32 h-48 sm:h-56 flex flex-col items-center justify-end relative">
-              {/* Guy with purple blazer & briefcase */}
               <div className="w-9 h-9 rounded-full bg-[#E5D7F0] border-2 border-[#6B21A8] flex items-center justify-center text-xs mb-1">
                 👨‍💼
               </div>
@@ -447,17 +331,14 @@ export const DigitalTransformationCaseStudies = ({ data }) => {
                 <div className="w-6 h-8 bg-slate-800 rounded-sm absolute -left-3 top-6" />
               </div>
               <div className="w-12 h-20 bg-slate-800 rounded-b-md" />
-              {/* Segway base & wheels */}
               <div className="w-24 h-5 bg-slate-900 rounded-full flex justify-between items-center px-1 border border-slate-700 shadow-md">
                 <div className="w-4 h-4 rounded-full bg-purple-400 border border-slate-900" />
                 <div className="w-4 h-4 rounded-full bg-purple-400 border border-slate-900" />
               </div>
             </div>
 
-            {/* Smartphone Navigation Map Mockup */}
             <div className="w-40 sm:w-48 h-60 sm:h-68 rounded-[30px] bg-slate-900 p-1.5 shadow-2xl border-4 border-slate-800">
               <div className="w-full h-full bg-[#EAF7EE] rounded-[24px] p-2 flex flex-col justify-between text-[8px] relative overflow-hidden">
-                {/* Search Inputs */}
                 <div className="bg-white p-1.5 rounded-lg shadow-xs space-y-1 text-[7px] text-slate-700 font-bold">
                   <div className="flex items-center justify-between border-b pb-0.5">
                     <span>📍 Kotobrino, Cote d'Ivoire</span>
@@ -466,7 +347,6 @@ export const DigitalTransformationCaseStudies = ({ data }) => {
                   <div>📍 Frtessou, Cote d'Ivoire</div>
                 </div>
 
-                {/* Map Viewport with Pink Route Line */}
                 <div className="my-auto h-24 relative">
                   <svg className="w-full h-full" viewBox="0 0 100 80">
                     <path d="M 15 70 Q 35 25 55 45 T 85 15" fill="none" stroke="#D946EF" strokeWidth="4.5" strokeLinecap="round" />
@@ -481,7 +361,6 @@ export const DigitalTransformationCaseStudies = ({ data }) => {
                   </div>
                 </div>
 
-                {/* Bottom Navigation CTA */}
                 <div className="bg-white p-1.5 rounded-xl shadow-md space-y-1">
                   <div className="flex justify-between items-center text-[7px] font-bold text-slate-800">
                     <span>1 hr 12 min • 31.7 km</span>
@@ -559,7 +438,11 @@ export const DigitalTransformationCaseStudies = ({ data }) => {
 
   const total = caseStudies.length;
 
-  const handlePrev = useCallback(() => {
+  const goNext = useCallback(() => {
+    setCurrentIndex((prev) => (prev === total - 1 ? 0 : prev + 1));
+  }, [total]);
+
+  const goPrev = useCallback(() => {
     setCurrentIndex((prev) => (prev === 0 ? total - 1 : prev - 1));
   }, [total]);
 
@@ -581,7 +464,7 @@ export const DigitalTransformationCaseStudies = ({ data }) => {
         </p>
       </div>
 
-      {/* Slider Container with Peek Layout (1 Full Card + Next Card Peeking on Right) */}
+      {/* Slider Container */}
       <div className="w-full px-4 sm:px-8 max-w-[1440px] mx-auto mb-8">
         <div className="relative overflow-hidden w-full">
           <div
@@ -597,10 +480,8 @@ export const DigitalTransformationCaseStudies = ({ data }) => {
                   minHeight: '440px'
                 }}
               >
-                {/* Single Combined Card Content (Left Text 50% + Right Inner White Panel 50%) */}
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 h-full items-stretch">
-                  
-                  {/* LEFT HALF: Case Study Description & Points */}
+                  {/* LEFT HALF: Description & Points */}
                   <div className="lg:col-span-6 flex flex-col justify-between text-left">
                     <div>
                       {cs.logo}
@@ -633,29 +514,29 @@ export const DigitalTransformationCaseStudies = ({ data }) => {
                     </div>
                   </div>
 
-                  {/* RIGHT HALF: Inner White Panel Mockup Graphic */}
+                  {/* RIGHT HALF: Mockup Graphic */}
                   <div className="lg:col-span-6 min-h-[360px]">
                     {cs.rightMockup}
                   </div>
-
                 </div>
               </div>
             ))}
           </div>
         </div>
+      </div>
 
       {/* Bottom Navigation Arrows */}
       <div className="flex items-center justify-center gap-6">
         <button
           onClick={goPrev}
-          className="p-2.5 rounded-full border border-slate-300 hover:bg-slate-100 text-slate-700 transition-colors shadow-xs"
+          className="p-2.5 rounded-full border border-slate-300 hover:bg-slate-100 text-slate-700 transition-colors shadow-xs cursor-pointer"
           aria-label="Previous Slide"
         >
           <ArrowLeft className="w-5 h-5" />
         </button>
         <button
           onClick={goNext}
-          className="p-2.5 rounded-full border border-slate-300 hover:bg-slate-100 text-slate-700 transition-colors shadow-xs"
+          className="p-2.5 rounded-full border border-slate-300 hover:bg-slate-100 text-slate-700 transition-colors shadow-xs cursor-pointer"
           aria-label="Next Slide"
         >
           <ArrowRight className="w-5 h-5" />
