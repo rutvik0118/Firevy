@@ -12,7 +12,6 @@ import AndroidHiringModels from './AndroidHiringModels';
 import ProcessWeFollow from '../common/ProcessWeFollow';
 import TrustedBrandsGrid from '../common/TrustedBrandsGrid';
 import SuccessMatrix from '../common/SuccessMatrix';
-import WhatOurClientsSaySection from './WhatOurClientsSaySection';
 import FeaturedInBrandsSection from './FeaturedInBrandsSection';
 import DigitalTransformationSlider from '../common/DigitalTransformationSlider';
 import SapphireFaqSection from '../common/SapphireFaqSection';
@@ -524,12 +523,7 @@ export const DataCleansingService = () => {
       <SuccessMatrix />
 
       {/* ========================================================================= */}
-      {/* 17. WHAT OUR CLIENTS SAY (CLUTCH REVIEWS CAROUSEL)                        */}
-      {/* ========================================================================= */}
-      <WhatOurClientsSaySection />
-
-      {/* ========================================================================= */}
-      {/* 18. WE HAVE BEEN FEATURED IN                                              */}
+      {/* 17. WE HAVE BEEN FEATURED IN                                              */}
       {/* ========================================================================= */}
       <FeaturedInBrandsSection />
 
