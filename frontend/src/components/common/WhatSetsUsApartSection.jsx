@@ -104,7 +104,7 @@ export const WhatSetsUsApartSection = ({
   };
 
   return (
-    <section className="py-14 sm:py-16 bg-[#F4F8FA] text-slate-900 text-left font-sans border-b border-slate-200">
+    <section id="consultation-form" className="py-14 sm:py-16 bg-[#F4F8FA] text-slate-900 text-left font-sans border-b border-slate-200 scroll-mt-10">
       {/* Full Width Edge-to-Edge Centered Header */}
       <div className="text-center w-full max-w-full px-4 sm:px-8 lg:px-12 mx-auto mb-10 sm:mb-12 space-y-3">
         <h2

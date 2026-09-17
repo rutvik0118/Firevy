@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="bgGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090D16" />
+      <stop offset="50%" stop-color="#0F172A" />
+      <stop offset="100%" stop-color="#1E1B4B" />
+    </linearGradient>
+    <linearGradient id="neonCyanPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06B6D4" />
+      <stop offset="100%" stop-color="#8B5CF6" />
+    </linearGradient>
+    <linearGradient id="techCardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E293B" />
+      <stop offset="100%" stop-color="#0F172A" />
+    </linearGradient>
+    <filter id="glow2" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#bgGrad2)" />
+
+  <!-- Ambient Lights -->
+  <circle cx="200" cy="180" r="150" fill="#06B6D4" opacity="0.16" filter="url(#glow2)" />
+  <circle cx="600" cy="220" r="160" fill="#8B5CF6" opacity="0.18" filter="url(#glow2)" />
+
+  <!-- Background Tech Wireframe Dots & Grid -->
+  <g opacity="0.08" stroke="#38BDF8" stroke-width="1">
+    <line x1="0" y1="90" x2="800" y2="90" />
+    <line x1="0" y1="180" x2="800" y2="180" />
+    <line x1="0" y1="270" x2="800" y2="270" />
+    <line x1="0" y1="360" x2="800" y2="360" />
+    <line x1="160" y1="0" x2="160" y2="450" />
+    <line x1="320" y1="0" x2="320" y2="450" />
+    <line x1="480" y1="0" x2="480" y2="450" />
+    <line x1="640" y1="0" x2="640" y2="450" />
+  </g>
+
+  <!-- Left Card: AI Posture & Form Check Analysis -->
+  <g transform="translate(60, 50)">
+    <rect width="200" height="340" rx="18" fill="url(#techCardGrad)" stroke="#0284C7" stroke-width="1.8" filter="url(#glow2)" />
+    <!-- Header -->
+    <rect x="12" y="14" width="176" height="30" rx="8" fill="#0284C7" opacity="0.2" />
+    <text x="100" y="34" fill="#38BDF8" font-family="sans-serif" font-size="11" font-weight="900" text-anchor="middle">AI SQUAT FORM CHECK</text>
+
+    <!-- Skeletal Posture Wireframe Silhouette -->
+    <!-- Head -->
+    <circle cx="100" cy="85" r="12" fill="none" stroke="#38BDF8" stroke-width="3" />
+    <!-- Spine -->
+    <line x1="100" y1="97" x2="90" y2="150" stroke="#38BDF8" stroke-width="4" stroke-linecap="round" />
+    <!-- Arms with Barbell -->
+    <line x1="65" y1="115" x2="135" y2="115" stroke="#F43F5E" stroke-width="5" stroke-linecap="round" />
+    <circle cx="65" cy="115" r="8" fill="#F43F5E" />
+    <circle cx="135" cy="115" r="8" fill="#F43F5E" />
+    <!-- Thighs / Knees (Squat Angle) -->
+    <line x1="90" y1="150" x2="60" y2="175" stroke="#22C55E" stroke-width="4" stroke-linecap="round" />
+    <line x1="60" y1="175" x2="70" y2="225" stroke="#22C55E" stroke-width="4" stroke-linecap="round" />
+    <!-- Joint Angle Target Ring -->
+    <circle cx="60" cy="175" r="14" fill="none" stroke="#22C55E" stroke-width="2" stroke-dasharray="4" />
+    <text x="85" y="175" fill="#86EFAC" font-family="sans-serif" font-size="10" font-weight="bold">92° OPTIMAL</text>
+
+    <!-- Form Score Meter -->
+    <g transform="translate(18, 245)">
+      <rect width="164" height="65" rx="10" fill="#0F172A" stroke="#334155" stroke-width="1" />
+      <text x="14" y="24" fill="#94A3B8" font-family="sans-serif" font-size="9" font-weight="bold">POSTURE ACCURACY</text>
+      <text x="14" y="52" fill="#22C55E" font-family="sans-serif" font-size="24" font-weight="900">98%</text>
+      <circle cx="135" cy="36" r="14" fill="#22C55E" opacity="0.2" />
+      <text x="135" y="41" fill="#22C55E" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">✓</text>
+    </g>
+  </g>
+
+  <!-- Center Card: AI Smart Coach Brain & Neural Core -->
+  <g transform="translate(290, 40)">
+    <rect width="240" height="360" rx="22" fill="#090E17" stroke="#8B5CF6" stroke-width="2" filter="url(#glow2)" />
+    
+    <!-- AI Coach Robot Avatar Face -->
+    <g transform="translate(120, 75)">
+      <!-- Outer Hexagon / Shield -->
+      <polygon points="0,-45 40,-20 40,25 0,48 -40,25 -40,-20" fill="#1E1B4B" stroke="#A78BFA" stroke-width="2.5" />
+      <!-- Bot Face Screen -->
+      <rect x="-26" y="-18" width="52" height="36" rx="10" fill="#0F172A" stroke="#38BDF8" stroke-width="2" />
+      <!-- Glowing Eyes -->
+      <circle cx="-12" cy="0" r="5" fill="#38BDF8" filter="url(#glow2)" />
+      <circle cx="12" cy="0" r="5" fill="#38BDF8" filter="url(#glow2)" />
+      <!-- Smile Curve -->
+      <path d="M -8 10 Q 0 16 8 10" stroke="#38BDF8" stroke-width="2" stroke-linecap="round" fill="none" />
+    </g>
+
+    <text x="120" y="150" fill="#FFFFFF" font-family="sans-serif" font-size="14" font-weight="900" text-anchor="middle">AI PERSONAL COACH</text>
+    <text x="120" y="168" fill="#A78BFA" font-family="sans-serif" font-size="10" font-weight="bold" text-anchor="middle">Dynamic Adaptation Engine</text>
+
+    <!-- Workout Intensity Adjuster -->
+    <g transform="translate(20, 185)">
+      <rect width="200" height="60" rx="12" fill="#1E293B" stroke="#334155" stroke-width="1" />
+      <text x="14" y="22" fill="#94A3B8" font-family="sans-serif" font-size="9" font-weight="bold">NEXT SET RECOMMENDATION</text>
+      <text x="14" y="44" fill="#38BDF8" font-family="sans-serif" font-size="14" font-weight="bold">+2.5 kg • 10 Reps</text>
+      <rect x="145" y="18" width="44" height="24" rx="6" fill="#0284C7" />
+      <text x="167" y="34" fill="#FFFFFF" font-family="sans-serif" font-size="9" font-weight="bold" text-anchor="middle">AUTO</text>
+    </g>
+
+    <!-- Live Synaptic Pulse Network Waves -->
+    <g transform="translate(20, 260)">
+      <rect width="200" height="75" rx="12" fill="#0F172A" stroke="#334155" stroke-width="1" />
+      <text x="14" y="20" fill="#94A3B8" font-family="sans-serif" font-size="8.5" font-weight="bold">BIOMETRIC RECOVERY SCORE</text>
+      <text x="14" y="48" fill="#8B5CF6" font-family="sans-serif" font-size="22" font-weight="900">94 / 100</text>
+      <!-- Micro Progress Bar -->
+      <rect x="14" y="58" width="172" height="6" rx="3" fill="#1E293B" />
+      <rect x="14" y="58" width="160" height="6" rx="3" fill="url(#neonCyanPurple)" />
+    </g>
+  </g>
+
+  <!-- Right: Machine Learning Training Charts -->
+  <g transform="translate(560, 50)">
+    <rect width="180" height="340" rx="18" fill="url(#techCardGrad)" stroke="#8B5CF6" stroke-width="1.8" filter="url(#glow2)" />
+    <text x="90" y="34" fill="#C084FC" font-family="sans-serif" font-size="11" font-weight="900" text-anchor="middle">TRAINING PREDICTION</text>
+
+    <!-- Bar Chart -->
+    <g transform="translate(20, 50)">
+      <rect width="140" height="130" rx="10" fill="#0F172A" stroke="#334155" stroke-width="1" />
+      <!-- Bars -->
+      <rect x="15" y="80" width="16" height="40" rx="4" fill="#38BDF8" />
+      <rect x="40" y="50" width="16" height="70" rx="4" fill="#6366F1" />
+      <rect x="65" y="35" width="16" height="85" rx="4" fill="#8B5CF6" />
+      <rect x="90" y="20" width="16" height="100" rx="4" fill="#EC4899" />
+      <rect x="115" y="10" width="16" height="110" rx="4" fill="#22C55E" />
+    </g>
+
+    <!-- AI Calorie Burn Predictor -->
+    <g transform="translate(20, 200)">
+      <rect width="140" height="115" rx="10" fill="#0F172A" stroke="#334155" stroke-width="1" />
+      <text x="12" y="24" fill="#94A3B8" font-family="sans-serif" font-size="8.5" font-weight="bold">TARGET CALORIES</text>
+      <text x="12" y="52" fill="#F43F5E" font-family="sans-serif" font-size="20" font-weight="900">2,450</text>
+      <text x="75" y="52" fill="#94A3B8" font-family="sans-serif" font-size="10" font-weight="normal">kcal/day</text>
+      
+      <rect x="12" y="70" width="116" height="30" rx="6" fill="#1E293B" />
+      <text x="70" y="88" fill="#38BDF8" font-family="sans-serif" font-size="8.5" font-weight="bold" text-anchor="middle">⚡ AI Adjusted</text>
+    </g>
+  </g>
+</svg>

@@ -55,17 +55,37 @@ import HireAngularDevelopersService from '../components/services/HireAngularDeve
 import HireReactDevelopersService from '../components/services/HireReactDevelopersService';
 import HireVueDevelopersService from '../components/services/HireVueDevelopersService';
 import HireEmberDevelopersService from '../components/services/HireEmberDevelopersService';
+import HireAlexaSkillsDevelopersService from '../components/services/HireAlexaSkillsDevelopersService';
+import HireEmbeddedSoftwareDevelopersService from '../components/services/HireEmbeddedSoftwareDevelopersService';
 import HireLaravelDevelopersService from '../components/services/HireLaravelDevelopersService';
 import HireExpressJsDevelopersService from '../components/services/HireExpressJsDevelopersService';
 import HireNextJsDevelopersService from '../components/services/HireNextJsDevelopersService';
+import HireDataScientistDevelopersService from '../components/services/HireDataScientistDevelopersService';
 import SharePointDevelopmentService from '../components/services/SharePointDevelopmentService';
 import PowerAppsDevelopmentService from '../components/services/PowerAppsDevelopmentService';
 import KotlinAppDevelopmentService from '../components/services/KotlinAppDevelopmentService';
 import HybridAppDevelopmentService from '../components/services/HybridAppDevelopmentService';
+import PersonalFitnessAppService from '../components/services/PersonalFitnessAppService';
+import UsedCarAppDevelopmentService from '../components/services/UsedCarAppDevelopmentService';
+import EnneagramTestAppService from '../components/services/EnneagramTestAppService';
+import CreditCardAppDevelopmentService from '../components/services/CreditCardAppDevelopmentService';
 import ItConsultingServices from '../components/services/ItConsultingServices';
 import AppDevelopmentConsultingService from '../components/services/AppDevelopmentConsultingService';
+import StartupConsultingServices from '../components/services/StartupConsultingServices';
+import EpicorErpConsultingServices from '../components/services/EpicorErpConsultingServices';
+import DevOpsConsultingServices from '../components/services/DevOpsConsultingServices';
+import GenerativeAiConsultingCompany from '../components/services/GenerativeAiConsultingCompany';
+import MicroservicesConsultingServices from '../components/services/MicroservicesConsultingServices';
+import AiConsultingServices from '../components/services/AiConsultingServices';
+import UiUxDesignService from '../components/services/UiUxDesignService';
+import DigitalMarketingService from '../components/services/DigitalMarketingService';
 import HireKotlinDevelopersService from '../components/services/HireKotlinDevelopersService';
 import HireTechDevelopersService from '../components/services/HireTechDevelopersService';
+import HireMetaverseDevelopersService from '../components/services/HireMetaverseDevelopersService';
+import HireDedicatedDevelopersService from '../components/services/HireDedicatedDevelopersService';
+import HireBlackberryDevelopersService from '../components/services/HireBlackberryDevelopersService';
+import HireSoftwareDevelopersService from '../components/services/HireSoftwareDevelopersService';
+import HireChatGptDevelopersService from '../components/services/HireChatGptDevelopersService';
 
 export const ServiceDetails = () => {
   const { slug } = useParams();
@@ -171,6 +191,27 @@ export const ServiceDetails = () => {
 
   const isHybrid = currentSlug.includes('hybrid');
 
+  const isPersonalFitness = currentSlug === 'personal-fitness-app' ||
+    currentSlug.includes('personal-fitness') ||
+    currentSlug.includes('fitness-app') ||
+    currentSlug === 'services/personal-fitness-app';
+
+  const isUsedCar = currentSlug === 'used-car-app-development' ||
+    currentSlug === 'used-car-app' ||
+    currentSlug.includes('used-car') ||
+    currentSlug.includes('used-cars') ||
+    currentSlug === 'services/used-car-app-development';
+
+  const isEnneagram = currentSlug === 'enneagram-test-app' ||
+    currentSlug === 'enneagram-test' ||
+    currentSlug.includes('enneagram') ||
+    currentSlug === 'services/enneagram-test-app';
+
+  const isCreditCard = currentSlug === 'credit-card-app-development' ||
+    currentSlug === 'credit-card-app' ||
+    currentSlug.includes('credit-card') ||
+    currentSlug === 'services/credit-card-app-development';
+
   const isCrossPlatform = currentSlug.includes('cross-platform') ||
     currentSlug.includes('crossplatform') ||
     currentSlug.includes('multi-platform');
@@ -182,7 +223,7 @@ export const ServiceDetails = () => {
     currentSlug === 'mobile-app' ||
     currentSlug === 'mobile-application' ||
     currentSlug === 'mobile-application-development' ||
-    (currentSlug.includes('mobile-app') && !isReactNative && !isFlutter && !isIOS && !isAndroid && !isXamarin && !isIWatch && !isCrossPlatform && !isKotlin && !isHybrid && !isIPad)
+    (currentSlug.includes('mobile-app') && !isReactNative && !isFlutter && !isIOS && !isAndroid && !isXamarin && !isIWatch && !isCrossPlatform && !isKotlin && !isHybrid && !isIPad && !isPersonalFitness && !isUsedCar && !isEnneagram && !isCreditCard)
   );
 
   const isNet = currentSlug === 'net' ||
@@ -278,6 +319,14 @@ export const ServiceDetails = () => {
     currentSlug.includes('ember-js') ||
     currentSlug.includes('hire-ember');
 
+  const isAlexaSkills = currentSlug.includes('alexa') ||
+    currentSlug.includes('alexa-skills') ||
+    currentSlug.includes('hire-alexa');
+
+  const isEmbeddedSoftware = currentSlug.includes('embedded') ||
+    currentSlug.includes('embedded-software') ||
+    currentSlug.includes('hire-embedded');
+
   const isLaravel = currentSlug.includes('laravel') ||
     currentSlug.includes('hire-laravel');
 
@@ -312,6 +361,63 @@ export const ServiceDetails = () => {
     currentSlug === 'app-development-consulting-services' ||
     currentSlug.includes('app-development-consulting') ||
     currentSlug === 'services/app-development-consulting';
+
+  const isStartupConsulting = currentSlug === 'startup-consulting-services' ||
+    currentSlug === 'startup-consulting' ||
+    currentSlug.includes('startup-consulting') ||
+    currentSlug === 'services/startup-consulting-services';
+
+  const isEpicorErpConsulting = currentSlug === 'epicor-erp-consulting-services' ||
+    currentSlug === 'epicor-erp-consulting' ||
+    currentSlug.includes('epicor-erp') ||
+    currentSlug.includes('epicor') ||
+    currentSlug === 'services/epicor-erp-consulting-services';
+
+  const isDevOpsConsulting = currentSlug === 'devops-consulting-service' ||
+    currentSlug === 'devops-consulting-services' ||
+    currentSlug === 'devops-consulting' ||
+    currentSlug.includes('devops-consulting') ||
+    currentSlug === 'services/devops-consulting-service' ||
+    currentSlug === 'services/devops-consulting-services' ||
+    currentSlug === 'services/devops-consulting';
+
+  const isGenerativeAiConsulting = currentSlug === 'generative-ai-consulting-company' ||
+    currentSlug === 'generative-ai-consulting' ||
+    currentSlug === 'generative-ai-consulting-services' ||
+    currentSlug === 'generative-ai-consulting-service' ||
+    currentSlug.includes('generative-ai-consulting') ||
+    currentSlug === 'services/generative-ai-consulting-company' ||
+    currentSlug === 'services/generative-ai-consulting';
+
+  const isMicroservicesConsulting = currentSlug === 'microservices-consulting-services' ||
+    currentSlug === 'microservices-consulting-service' ||
+    currentSlug === 'microservices-consulting' ||
+    currentSlug.includes('microservices-consulting') ||
+    currentSlug === 'services/microservices-consulting-services' ||
+    currentSlug === 'services/microservices-consulting';
+
+  const isAiConsulting = (currentSlug === 'ai-consulting-services' ||
+    currentSlug === 'ai-consulting-service' ||
+    currentSlug === 'ai-consulting' ||
+    currentSlug.includes('ai-consulting') ||
+    currentSlug === 'services/ai-consulting-services' ||
+    currentSlug === 'services/ai-consulting') && !currentSlug.includes('generative');
+
+  const isUiUxDesign = currentSlug === 'ui-ux-design' ||
+    currentSlug === 'ui-ux-design-services' ||
+    currentSlug === 'ui-ux-design-service' ||
+    currentSlug === 'ui-ux' ||
+    currentSlug === 'ui-ux-services' ||
+    currentSlug.includes('ui-ux-design') ||
+    currentSlug === 'services/ui-ux-design' ||
+    currentSlug === 'services/ui-ux-design-services';
+
+  const isDigitalMarketing = currentSlug === 'digital-marketing' ||
+    currentSlug === 'digital-marketing-services' ||
+    currentSlug === 'digital-marketing-service' ||
+    currentSlug.includes('digital-marketing') ||
+    currentSlug === 'services/digital-marketing' ||
+    currentSlug === 'services/digital-marketing-services';
 
   const unslugify = (str) => {
     if (!str) return 'Enterprise Tech Solution';
@@ -407,14 +513,48 @@ export const ServiceDetails = () => {
     }
   };
 
+  const isDataScientist = currentSlug.includes('data-scientist') || currentSlug.includes('data-science');
+  const isMetaverse = currentSlug.includes('metaverse') || currentSlug.includes('hire-metaverse');
+  const isDedicatedDevelopers = currentSlug.includes('hire-dedicated-developer') || currentSlug.includes('hire-dedicated-developers') || currentSlug === 'hire-dedicated' || currentSlug === 'services/hire-dedicated-developers';
+  const isSoftwareDevelopers = currentSlug.includes('hire-software-developer') || currentSlug.includes('hire-software-developers') || currentSlug.includes('hire-software') || currentSlug === 'software-developers' || currentSlug === 'services/hire-software-developers';
+  const isChatGpt = currentSlug.includes('chatgpt') || currentSlug.includes('chat-gpt') || currentSlug.includes('hire-chatgpt');
+
   useEffect(() => {
-    if (!isAnyDedicatedHire && !isKotlin && !isHybrid && !isIPad && !isCrossPlatform && !isItConsulting && !isNext && !isExpress && !isMobileApp && !isBootstrap && !isCodeIgniter && !isEmber && !isLaravel && !isPowerAutomate && !isPowerApps && !isSharePoint && !isVue && !isReact && !isAngular && !isIot && !isPwa && !isRpa && !isVR && !isFullStack && !isBlockchain && !isArtificialIntelligence && !isGenerativeAi && !isNodeJs && !isJava && !isPhp && !isNet && !isXamarin && !isAndroid && !isReactNative && !isFlutter && !isIOS && !isHealthcare && !isEducation && !isUber && !isSpotify && !isZomato && !isAmazon && !isVisitor && !isWarehouse && !isClover && !isCSharp && !isIWatch && !isWordpress && !isDrupal && !isUmbraco && !isSitecore && !isSitefinity && !isMagento && !isShopify) {
+    if (!isChatGpt && !isSoftwareDevelopers && !isDedicatedDevelopers && !isMetaverse && !isEmbeddedSoftware && !isAlexaSkills && !isDataScientist && !isAnyDedicatedHire && !isKotlin && !isHybrid && !isPersonalFitness && !isUsedCar && !isEnneagram && !isCreditCard && !isIPad && !isCrossPlatform && !isItConsulting && !isNext && !isExpress && !isMobileApp && !isBootstrap && !isCodeIgniter && !isEmber && !isLaravel && !isPowerAutomate && !isPowerApps && !isSharePoint && !isVue && !isReact && !isAngular && !isIot && !isPwa && !isRpa && !isVR && !isFullStack && !isBlockchain && !isArtificialIntelligence && !isGenerativeAi && !isNodeJs && !isJava && !isPhp && !isNet && !isXamarin && !isAndroid && !isReactNative && !isFlutter && !isIOS && !isHealthcare && !isEducation && !isUber && !isSpotify && !isZomato && !isAmazon && !isVisitor && !isWarehouse && !isClover && !isCSharp && !isIWatch && !isWordpress && !isDrupal && !isUmbraco && !isSitecore && !isSitefinity && !isMagento && !isShopify) {
       fetchServiceDetails();
     } else {
       setLoading(false);
     }
     window.scrollTo(0, 0);
   }, [currentSlug]);
+
+  if (isChatGpt) {
+    return <HireChatGptDevelopersService />;
+  }
+
+  if (isSoftwareDevelopers) {
+    return <HireSoftwareDevelopersService />;
+  }
+
+  if (isDedicatedDevelopers) {
+    return <HireDedicatedDevelopersService />;
+  }
+
+  if (isMetaverse) {
+    return <HireMetaverseDevelopersService />;
+  }
+
+  if (isEmbeddedSoftware) {
+    return <HireEmbeddedSoftwareDevelopersService />;
+  }
+
+  if (isAlexaSkills) {
+    return <HireAlexaSkillsDevelopersService />;
+  }
+
+  if (isDataScientist) {
+    return <HireDataScientistDevelopersService />;
+  }
 
   if (isExpress) {
     return <HireExpressJsDevelopersService />;
@@ -445,7 +585,7 @@ export const ServiceDetails = () => {
   }
 
   if (isHireBlackberry) {
-    return <HireTechDevelopersService techKey="hire-blackberry-app-developers" />;
+    return <HireBlackberryDevelopersService />;
   }
 
   if (isHireFreelance) {
@@ -486,6 +626,22 @@ export const ServiceDetails = () => {
 
   if (isHybrid) {
     return <HybridAppDevelopmentService />;
+  }
+
+  if (isPersonalFitness) {
+    return <PersonalFitnessAppService />;
+  }
+
+  if (isUsedCar) {
+    return <UsedCarAppDevelopmentService />;
+  }
+
+  if (isEnneagram) {
+    return <EnneagramTestAppService />;
+  }
+
+  if (isCreditCard) {
+    return <CreditCardAppDevelopmentService />;
   }
 
   if (isCrossPlatform) {
@@ -538,6 +694,38 @@ export const ServiceDetails = () => {
 
   if (isAppConsulting) {
     return <AppDevelopmentConsultingService />;
+  }
+
+  if (isStartupConsulting) {
+    return <StartupConsultingServices />;
+  }
+
+  if (isEpicorErpConsulting) {
+    return <EpicorErpConsultingServices />;
+  }
+
+  if (isDevOpsConsulting) {
+    return <DevOpsConsultingServices />;
+  }
+
+  if (isGenerativeAiConsulting) {
+    return <GenerativeAiConsultingCompany />;
+  }
+
+  if (isMicroservicesConsulting) {
+    return <MicroservicesConsultingServices />;
+  }
+
+  if (isAiConsulting) {
+    return <AiConsultingServices />;
+  }
+
+  if (isUiUxDesign) {
+    return <UiUxDesignService />;
+  }
+
+  if (isDigitalMarketing) {
+    return <DigitalMarketingService />;
   }
 
   if (isPowerAutomate) {

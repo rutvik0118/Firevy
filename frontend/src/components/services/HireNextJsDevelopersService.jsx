@@ -329,168 +329,74 @@ export const HireNextJsDevelopersService = () => {
       </section>
 
       {/* ============================================================
-          SECTION 3: FLEXIBLE HIRING MODELS
+          SECTION 3: BRIEF ABOUT OUR NEXT JS DEVELOPMENT SERVICES
           ============================================================ */}
-      <section className="py-16 sm:py-20 bg-[#F4F8FC] font-sans text-slate-900 border-b border-slate-100">
+      <section className="py-16 md:py-24 bg-white text-slate-900 font-sans border-b border-slate-100">
         <Container>
-          <div className="text-center max-w-4xl mx-auto mb-12 space-y-2">
-            <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-[900] text-slate-900 tracking-tight leading-tight">
-              Our Flexible Hiring Models: Find the Perfect Fit For Your Project
-            </h2>
-            <p className="text-sm sm:text-base text-slate-600 font-medium max-w-3xl mx-auto">
-              Hire Next Js Developers from Firevy.co Starts from
-            </p>
-          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            {/* Left Content Column */}
+            <div className="lg:col-span-6 space-y-6 text-left">
+              <h2 className="text-2xl sm:text-3xl lg:text-[38px] font-[900] text-slate-900 tracking-tight leading-tight">
+                Brief About Our Next JS Development Services
+              </h2>
+              <div className="space-y-4 text-xs sm:text-sm text-slate-600 font-normal leading-relaxed">
+                <p>
+                  Our Next JS developers are pretty efficient and hold years of expertise. Other perks of hiring our developers include: We enable you to communicate with your development team in real-time and directly using Skype, Slack, or Teams. You are free to receive demonstrations whenever it is convenient for you. Stop wishing things are going according to plan and start realizing they are. From the initial conception to the final invoicing of your projects, you will have the ability to see the whole process personally. Hire Dedicated Next.js Developers who have received instruction in efficient communication and are always accessible to speak with you in real-time. Without mutual trust, there can be no successful collaboration. Trust is the foundation upon which Firevy.co was formed, and we are aware that it is something that must be gained, appreciated, and maintained.
+                </p>
+              </div>
+            </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto items-stretch">
-            {hiringModelCards.map((card) => {
-              const Icon = card.IconComp;
-              return (
-                <div
-                  key={card.id}
-                  className={`relative bg-white rounded-3xl p-8 flex flex-col justify-between transition-all duration-300 ${
-                    card.isFeatured
-                      ? 'border-[3px] border-[#006095] shadow-xl'
-                      : 'border border-slate-200/70 shadow-xs hover:shadow-md'
-                  }`}
-                >
-                  {card.saveText ? (
-                    <div className="text-center mb-2">
-                      <span className="text-xs font-bold text-[#006095] tracking-wide">
-                        {card.saveText}
-                      </span>
-                    </div>
-                  ) : (
-                    <div className="h-6 mb-2"></div>
-                  )}
+            {/* Right Column: Clean Vector SVG Illustration matching Sapphire Reference */}
+            <div className="lg:col-span-6 flex justify-center items-center">
+              <div className="relative w-full max-w-[500px]">
+                <svg viewBox="0 0 550 400" className="w-full h-auto drop-shadow-sm" fill="none">
+                  {/* Background Wall Shelves */}
+                  <line x1="280" y1="120" x2="480" y2="120" stroke="#CBD5E1" strokeWidth="4" strokeLinecap="round" />
+                  <rect x="300" y="80" width="30" height="40" fill="#93C5FD" rx="2" />
+                  <rect x="335" y="85" width="25" height="35" fill="#3B82F6" rx="2" />
+                  <rect x="365" y="90" width="20" height="30" fill="#60A5FA" rx="2" />
 
-                  <div>
-                    <div className="w-14 h-14 rounded-full bg-cyan-50 text-[#006095] flex items-center justify-center mx-auto mb-4 border border-cyan-100/80">
-                      <Icon className="w-7 h-7 stroke-[2]" />
-                    </div>
+                  {/* Right Wall Shelf */}
+                  <line x1="420" y1="180" x2="520" y2="180" stroke="#CBD5E1" strokeWidth="4" strokeLinecap="round" />
+                  <rect x="435" y="150" width="25" height="30" fill="#93C5FD" rx="2" />
+                  <rect x="465" y="155" width="20" height="25" fill="#3B82F6" rx="2" />
 
-                    <div className="text-center space-y-1 mb-4">
-                      <div className="flex items-center justify-center space-x-2">
-                        <h3 className="text-xl font-bold text-slate-900">{card.title}</h3>
-                        {card.badgeText && (
-                          <span className="bg-[#E3F2FD] text-[#006095] font-bold text-[11px] px-2.5 py-0.5 rounded-full">
-                            {card.badgeText}
-                          </span>
-                        )}
-                      </div>
-                      <p className="text-xs text-slate-500 font-medium">{card.subtitle}</p>
-                      <div className="pt-2">
-                        <span className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
-                          {card.price}
-                        </span>
-                      </div>
-                    </div>
+                  {/* Desk Surface */}
+                  <rect x="260" y="270" width="270" height="12" rx="4" fill="#0F172A" />
+                  <rect x="380" y="282" width="16" height="70" fill="#475569" />
+                  <rect x="420" y="282" width="16" height="70" fill="#475569" />
 
-                    <ul className="space-y-3.5 my-6 text-left border-t border-slate-100 pt-6">
-                      {card.features.map((feat, fIdx) => (
-                        <li key={fIdx} className="flex items-start space-x-2.5 text-xs sm:text-sm font-normal text-slate-600 leading-snug">
-                          <Check className="w-4 h-4 text-[#006095] shrink-0 mt-0.5" />
-                          <span>{feat}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+                  {/* Computer Monitor on Desk */}
+                  <rect x="330" y="200" width="90" height="65" rx="6" fill="#0F172A" />
+                  <rect x="335" y="205" width="80" height="55" rx="4" fill="#006095" />
+                  <text x="375" y="238" textAnchor="middle" fill="#FFFFFF" fontSize="16" fontWeight="bold">&lt;/&gt;</text>
+                  <rect x="367" y="265" width="16" height="8" fill="#475569" />
+                  <ellipse cx="375" cy="273" rx="20" ry="4" fill="#334155" />
 
-                  <div className="space-y-4 pt-2 text-center">
-                    <a
-                      href="#quote-form"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        document.getElementById('quote-form')?.scrollIntoView({ behavior: 'smooth' });
-                      }}
-                      className="block w-full bg-[#006095] hover:bg-[#004d77] text-white font-bold py-3.5 px-6 rounded-xl transition-all shadow-xs text-sm cursor-pointer"
-                    >
-                      Hire Now
-                    </a>
-                    <div className="bg-[#EAF4FB] text-[#006095] text-[11px] font-semibold py-1.5 px-4 rounded-full inline-block text-center max-w-full">
-                      We sign NDA for all our projects.
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </Container>
-      </section>
+                  {/* Floating Chat Bubble */}
+                  <path d="M 320 160 C 320 148, 335 140, 350 140 C 365 140, 380 148, 380 160 C 380 168, 370 174, 360 176 L 362 185 L 350 177 C 330 177, 320 170, 320 160 Z" fill="#0284C7" />
+                  <line x1="335" y1="155" x2="365" y2="155" stroke="#FFFFFF" strokeWidth="2.5" strokeLinecap="round" />
+                  <line x1="335" y1="162" x2="355" y2="162" stroke="#FFFFFF" strokeWidth="2.5" strokeLinecap="round" />
 
-      {/* ============================================================
-          SECTION 4: COMPARISON TABLE
-          ============================================================ */}
-      <section className="py-16 md:py-20 bg-white font-sans text-slate-900 border-b border-slate-100">
-        <Container>
-          <div className="flex items-center justify-center space-x-4 mb-6">
-            <button className="text-slate-400 hover:text-slate-700 transition-colors text-2xl font-light px-2 cursor-pointer" aria-label="Previous">
-              ←
-            </button>
-            <button className="text-[#006095] hover:text-slate-900 transition-colors text-2xl font-light px-2 cursor-pointer" aria-label="Next">
-              →
-            </button>
-          </div>
+                  {/* Left Developer Sitting on Stool */}
+                  <circle cx="310" cy="215" r="14" fill="#FDBA74" />
+                  <path d="M 300 215 C 300 195, 320 195, 320 215 Z" fill="#0F172A" />
+                  <path d="M 295 235 L 325 235 L 320 300 L 305 300 Z" fill="#0284C7" />
+                  <rect x="303" y="300" width="6" height="40" fill="#1E293B" />
+                  <rect x="311" y="300" width="6" height="40" fill="#1E293B" />
+                  <ellipse cx="310" cy="310" rx="16" ry="4" fill="#64748B" />
+                  <rect x="308" y="314" width="4" height="26" fill="#475569" />
 
-          <div className="text-center max-w-4xl mx-auto space-y-2 mb-10">
-            <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-[900] text-slate-900 tracking-tight leading-tight">
-              Hire Dedicated Developers To Empower Your Business with our Development Proficiency
-            </h2>
-            <p className="text-xs sm:text-sm text-slate-600 font-medium">
-              Hire Next Js Developers to meet your business perks by leveraging our technical elegance.
-            </p>
-          </div>
-
-          <div className="max-w-5xl mx-auto overflow-hidden rounded-2xl border border-slate-200 shadow-md">
-            <div className="overflow-x-auto">
-              <table className="w-full text-left border-collapse">
-                <thead>
-                  <tr className="bg-[#005C8A] text-white font-bold text-xs sm:text-sm">
-                    <th className="py-3.5 px-6 border-r border-cyan-800/40 w-1/4">Range of Developers</th>
-                    <th className="py-3.5 px-6 border-r border-cyan-800/40 w-1/4">Junior Developers</th>
-                    <th className="py-3.5 px-6 border-r border-cyan-800/40 w-1/4">Mid-Level Developers</th>
-                    <th className="py-3.5 px-6 w-1/4">Senior Developers</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-slate-200 text-xs sm:text-sm text-slate-700 font-medium">
-                  <tr className="hover:bg-slate-50/50 transition-colors">
-                    <td className="py-3.5 px-6 font-bold text-white bg-[#005C8A] border-r border-cyan-800/40">Approx Cost</td>
-                    <td className="py-3.5 px-6 font-bold text-slate-900 border-r border-slate-200">$17</td>
-                    <td className="py-3.5 px-6 font-bold text-slate-900 border-r border-slate-200">$22</td>
-                    <td className="py-3.5 px-6 font-bold text-slate-900">$29</td>
-                  </tr>
-                  <tr className="hover:bg-slate-50/50 transition-colors">
-                    <td className="py-3.5 px-6 font-bold text-white bg-[#005C8A] border-r border-cyan-800/40">Years of Experience</td>
-                    <td className="py-3.5 px-6 border-r border-slate-200">1-3 Years</td>
-                    <td className="py-3.5 px-6 border-r border-slate-200">3-5 Years</td>
-                    <td className="py-3.5 px-6">5+ Years</td>
-                  </tr>
-                  <tr className="hover:bg-slate-50/50 transition-colors">
-                    <td className="py-3.5 px-6 font-bold text-white bg-[#005C8A] border-r border-cyan-800/40">Project Manager</td>
-                    <td className="py-3.5 px-6 border-r border-slate-200">Yes</td>
-                    <td className="py-3.5 px-6 border-r border-slate-200">Yes</td>
-                    <td className="py-3.5 px-6">Yes</td>
-                  </tr>
-                  <tr className="hover:bg-slate-50/50 transition-colors">
-                    <td className="py-3.5 px-6 font-bold text-white bg-[#005C8A] border-r border-cyan-800/40">Time Zone Flexibility</td>
-                    <td className="py-3.5 px-6 border-r border-slate-200">Yes</td>
-                    <td className="py-3.5 px-6 border-r border-slate-200">Yes</td>
-                    <td className="py-3.5 px-6">Yes</td>
-                  </tr>
-                  <tr className="hover:bg-slate-50/50 transition-colors">
-                    <td className="py-3.5 px-6 font-bold text-white bg-[#005C8A] border-r border-cyan-800/40">Quality Guarantee</td>
-                    <td className="py-3.5 px-6 border-r border-slate-200">Yes</td>
-                    <td className="py-3.5 px-6 border-r border-slate-200">Yes</td>
-                    <td className="py-3.5 px-6">Yes</td>
-                  </tr>
-                  <tr className="hover:bg-slate-50/50 transition-colors">
-                    <td className="py-3.5 px-6 font-bold text-white bg-[#005C8A] border-r border-cyan-800/40">Working Hours</td>
-                    <td className="py-3.5 px-6 border-r border-slate-200">40 hours/ Week</td>
-                    <td className="py-3.5 px-6 border-r border-slate-200">40 hours/ Week</td>
-                    <td className="py-3.5 px-6">40 hours/ Week</td>
-                  </tr>
-                </tbody>
-              </table>
+                  {/* Right Developer Sitting on Office Chair */}
+                  <circle cx="430" cy="210" r="14" fill="#FDBA74" />
+                  <path d="M 420 210 C 420 190, 440 190, 440 210 Z" fill="#0F172A" />
+                  <path d="M 415 230 L 445 230 L 440 300 L 420 300 Z" fill="#0F172A" />
+                  {/* Office Chair Backrest */}
+                  <rect x="435" y="230" width="30" height="50" rx="8" fill="#006095" />
+                  <rect x="440" y="280" width="10" height="30" fill="#334155" />
+                  <ellipse cx="445" cy="310" rx="20" ry="5" fill="#1E293B" />
+                </svg>
+              </div>
             </div>
           </div>
         </Container>
