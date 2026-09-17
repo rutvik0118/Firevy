@@ -60,6 +60,8 @@ import HireEmberDevelopersService from '../components/services/HireEmberDevelope
 import HireAlexaSkillsDevelopersService from '../components/services/HireAlexaSkillsDevelopersService';
 import HireEmbeddedSoftwareDevelopersService from '../components/services/HireEmbeddedSoftwareDevelopersService';
 import HireLaravelDevelopersService from '../components/services/HireLaravelDevelopersService';
+import HireFlutterDevelopersService from '../components/services/HireFlutterDevelopersService';
+import HireGolangDevelopersService from '../components/services/HireGolangDevelopersService';
 import HireExpressJsDevelopersService from '../components/services/HireExpressJsDevelopersService';
 import HireNextJsDevelopersService from '../components/services/HireNextJsDevelopersService';
 import HireDataScientistDevelopersService from '../components/services/HireDataScientistDevelopersService';
@@ -82,6 +84,7 @@ import AiConsultingServices from '../components/services/AiConsultingServices';
 import UiUxDesignService from '../components/services/UiUxDesignService';
 import DigitalMarketingService from '../components/services/DigitalMarketingService';
 import HireKotlinDevelopersService from '../components/services/HireKotlinDevelopersService';
+import HireDedicatedTechDevelopersService from '../components/services/HireDedicatedTechDevelopersService';
 import HireTechDevelopersService from '../components/services/HireTechDevelopersService';
 import HireMetaverseDevelopersService from '../components/services/HireMetaverseDevelopersService';
 import HireDedicatedDevelopersService from '../components/services/HireDedicatedDevelopersService';
@@ -104,7 +107,15 @@ export const ServiceDetails = () => {
 
   const isHireAndroid = currentSlug.includes('hire-android');
   const isHireIonic = currentSlug.includes('ionic') || currentSlug.includes('hire-ionic');
-  const isHireFlutter = currentSlug.includes('hire-flutter');
+  const isHireFlutter = currentSlug.includes('hire-flutter') ||
+    currentSlug.includes('flutter-developer') ||
+    currentSlug.includes('flutter-developers') ||
+    currentSlug === 'services/hire-flutter-developers' ||
+    currentSlug === 'services/hire-flutter-developer' ||
+    currentSlug === 'hire-flutter-developers' ||
+    currentSlug === 'hire-flutter-developer' ||
+    currentSlug === 'flutter-developer' ||
+    currentSlug === 'flutter-developers';
   const isHireIOS = currentSlug.includes('hire-ios');
   const isHireSwift = currentSlug.includes('hire-swift') || currentSlug === 'swift' || currentSlug === 'services/swift';
   const isHireMobile = currentSlug.includes('hire-mobile');
@@ -116,7 +127,33 @@ export const ServiceDetails = () => {
   const isHirePrestashop = currentSlug.includes('prestashop') || currentSlug.includes('presta-shop');
   const isHireWordpress = currentSlug.includes('hire-wordpress') || currentSlug.includes('wordpress-developers') || currentSlug.includes('hire-wp');
   const isHireKotlin = currentSlug.includes('hire-kotlin');
-  const isAnyDedicatedHire = isHireAndroid || isHireIonic || isHireFlutter || isHireIOS || isHireSwift || isHireMobile || isHireBlackberry || isHireFreelance || isHireAiApp || isHireIphone || isHireWooCommerce || isHirePrestashop || isHireWordpress || isHireKotlin;
+  const isHireGolang = currentSlug.includes('golang') ||
+    currentSlug.includes('hire-golang') ||
+    currentSlug.includes('go-developers') ||
+    currentSlug.includes('go-developer') ||
+    currentSlug === 'services/hire-golang-developers' ||
+    currentSlug === 'services/hire-golang-developer' ||
+    currentSlug === 'hire-golang-developers' ||
+    currentSlug === 'hire-golang-developer' ||
+    currentSlug === 'golang-developers';
+  const isHireBackend = currentSlug.includes('hire-backend') ||
+    currentSlug.includes('backend-developer') ||
+    currentSlug.includes('backend-developers') ||
+    currentSlug === 'backend' ||
+    currentSlug === 'services/backend' ||
+    currentSlug === 'services/hire-backend-developers' ||
+    currentSlug === 'services/hire-backend-developer';
+  const isHirePython = currentSlug.includes('python') || currentSlug.includes('hire-python');
+  const isHireJava = currentSlug.includes('hire-java') || currentSlug === 'java-developers' || currentSlug === 'services/hire-java-developers';
+  const isHireSpringBoot = currentSlug.includes('spring-boot') || currentSlug.includes('springboot') || currentSlug.includes('spring');
+  const isHireDjango = currentSlug.includes('django') || currentSlug.includes('hire-django');
+  const isHireNet = currentSlug.includes('hire-net') || currentSlug.includes('hire-dotnet') || currentSlug === 'net-developers' || currentSlug === 'dotnet-developers';
+  const isHireNodeJs = currentSlug.includes('hire-node') || currentSlug.includes('node-js-developers') || currentSlug.includes('nodejs-developers');
+  const isHirePhp = currentSlug.includes('hire-php') || currentSlug === 'php-developers' || currentSlug === 'services/hire-php-developers';
+  const isHireExpress = currentSlug.includes('express') || currentSlug.includes('hire-express');
+  const isHireFintech = currentSlug.includes('fintech') || currentSlug.includes('hire-fintech') || currentSlug.includes('fin-tech');
+
+  const isAnyDedicatedHire = isHireAndroid || isHireIonic || isHireFlutter || isHireGolang || isHireIOS || isHireSwift || isHireMobile || isHireBlackberry || isHireFreelance || isHireAiApp || isHireIphone || isHireWooCommerce || isHirePrestashop || isHireWordpress || isHireKotlin || isHireBackend || isHirePython || isHireJava || isHireSpringBoot || isHireDjango || isHireNet || isHireNodeJs || isHirePhp || isHireExpress || isHireFintech;
 
   const isXamarin = currentSlug.includes('xamarin');
   const isReactNative = currentSlug.includes('react-native') || currentSlug.includes('reactnative');
@@ -583,7 +620,51 @@ export const ServiceDetails = () => {
   }
 
   if (isHireFlutter) {
-    return <HireTechDevelopersService techKey="hire-flutter-developers" />;
+    return <HireFlutterDevelopersService />;
+  }
+
+  if (isHireGolang) {
+    return <HireGolangDevelopersService />;
+  }
+
+  if (isHireBackend) {
+    return <HireDedicatedTechDevelopersService techKey="hire-backend-developers" />;
+  }
+
+  if (isHirePython) {
+    return <HireDedicatedTechDevelopersService techKey="hire-python-developers" />;
+  }
+
+  if (isHireJava) {
+    return <HireDedicatedTechDevelopersService techKey="hire-java-developers" />;
+  }
+
+  if (isHireSpringBoot) {
+    return <HireDedicatedTechDevelopersService techKey="hire-spring-boot-developers" />;
+  }
+
+  if (isHireDjango) {
+    return <HireDedicatedTechDevelopersService techKey="hire-django-developers" />;
+  }
+
+  if (isHireNet) {
+    return <HireDedicatedTechDevelopersService techKey="hire-net-developers" />;
+  }
+
+  if (isHireNodeJs) {
+    return <HireDedicatedTechDevelopersService techKey="hire-node-js-developers" />;
+  }
+
+  if (isHirePhp) {
+    return <HireDedicatedTechDevelopersService techKey="hire-php-developers" />;
+  }
+
+  if (isHireExpress) {
+    return <HireDedicatedTechDevelopersService techKey="hire-express-js-developers" />;
+  }
+
+  if (isHireFintech) {
+    return <HireDedicatedTechDevelopersService techKey="hire-fintech-developers" />;
   }
 
   if (isHireIOS) {

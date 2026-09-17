@@ -464,20 +464,20 @@ export const DigitalTransformationCaseStudies = ({ data }) => {
         </p>
       </div>
 
-      {/* Slider Container */}
-      <div className="w-full px-4 sm:px-8 max-w-[1440px] mx-auto mb-8">
-        <div className="relative overflow-hidden w-full">
+      {/* Slider Container (Full Width per Slide) */}
+      <div className="w-full px-4 sm:px-6 lg:px-8 max-w-[1440px] mx-auto mb-8">
+        <div className="relative overflow-hidden w-full rounded-[28px]">
           <div
-            className="flex gap-4 sm:gap-6 transition-transform duration-700 ease-in-out w-full"
-            style={{ transform: `translateX(-${currentIndex * 82}%)` }}
+            className="flex transition-transform duration-700 ease-in-out w-full"
+            style={{ transform: `translateX(-${currentIndex * 100}%)` }}
           >
             {caseStudies.map((cs) => (
               <div
                 key={cs.id}
-                className="shrink-0 w-[86%] sm:w-[82%] lg:w-[80%] rounded-[28px] p-5 sm:p-8 border border-slate-200/80 shadow-md transition-all duration-500"
+                className="w-full shrink-0 rounded-[28px] p-6 sm:p-10 lg:p-12 border border-slate-200/80 shadow-md transition-all duration-500"
                 style={{
                   backgroundColor: cs.bgColor,
-                  minHeight: '440px'
+                  minHeight: '460px'
                 }}
               >
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 h-full items-stretch">
