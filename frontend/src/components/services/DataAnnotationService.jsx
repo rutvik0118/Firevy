@@ -323,51 +323,6 @@ export const DataAnnotationService = () => {
         </Container>
       </section>
 
-      {/* ========================================================================= */}
-      {/* 4. BRIEF ABOUT DATA ANNOTATION SERVICES (Content Left + Image Right)      */}
-      {/* ========================================================================= */}
-      <section className="py-14 sm:py-20 bg-[#F8FAFC] text-slate-900 font-sans text-left overflow-hidden border-y border-slate-100">
-        <Container className="max-w-6xl">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-            {/* Left Column: Content */}
-            <div className="lg:col-span-6 space-y-4 text-left">
-              <h2 className="text-[26px] sm:text-[32px] lg:text-[36px] font-[800] text-[#0B0F19] tracking-tight leading-[1.2]">
-                Brief About Data Annotation Services
-              </h2>
-
-              <p className="text-[13.5px] sm:text-[14.5px] text-[#475569] font-normal leading-[1.8]">
-                By means of an orchestrated human-in-the-loop annotation pipeline, companies can train intelligent autonomous systems, enhance computer vision capabilities, and ensure LLM safety. Professional Data Annotation Services guarantee rapid model iteration and reliable real-world inference.
-              </p>
-
-              <p className="text-[13.5px] sm:text-[14.5px] text-[#475569] font-normal leading-[1.8]">
-                Acquire comprehensive ground-truth datasets across vision, text, speech, and sensor fusion. We employ multi-tier consensus scoring, automated validation scripts, and specialized domain annotators to help you train accurate models and scale production AI deployments.
-              </p>
-
-              <div className="pt-2">
-                <a
-                  href="#contact"
-                  className="inline-flex items-center space-x-2 px-6 py-2.5 rounded-[4px] bg-[#005F96] hover:bg-[#004B77] text-white font-[700] text-[13.5px] shadow-sm hover:shadow transition-all duration-200 cursor-pointer"
-                >
-                  <span>Connect With An Expert</span>
-                  <ArrowRight className="w-4 h-4" />
-                </a>
-              </div>
-            </div>
-
-            {/* Right Column: AI Annotation Illustration */}
-            <div className="lg:col-span-6 flex justify-center items-center">
-              <div className="relative w-full max-w-[480px] rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300">
-                <img
-                  src="/images/data_annotation_ai.jpg"
-                  alt="LLM RLHF & Multimodal Data Annotation"
-                  className="w-full h-auto object-contain rounded-2xl hover:scale-105 transition-transform duration-500 cursor-pointer"
-                  loading="lazy"
-                />
-              </div>
-            </div>
-          </div>
-        </Container>
-      </section>
 
       {/* ========================================================================= */}
       {/* 5. AWARDS & TRUST RECOGNITION CLUTCH BANNER                               */}
