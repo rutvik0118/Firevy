@@ -18,12 +18,12 @@ export const WorkTogetherNewsletterSection = ({
     title ||
     data?.bannerTitle ||
     data?.title ||
-    "Let's Work Together On Your Next Digital Project";
+    "Hope You Will Provide Us A Chance To Prove Our Mettle.";
   const bannerDescription =
     subtitle ||
     data?.bannerDescription ||
     data?.description ||
-    "Book a meeting with our specialists today to learn more about how firevy.co can help you unlock technology visions and drive your product strategy.";
+    "Contact us by booking an appointment with our proficient techs today to learn more about how Sapphire can help you unlock technology visions and drive your product strategy.";
   const bannerButtonText = buttonText || data?.bannerButtonText || data?.buttonText || "Request A Free Quote";
   const bannerButtonLink = buttonLink || data?.bannerButtonLink || data?.buttonLink || "/contact";
   const newsletterTitle =
@@ -31,6 +31,7 @@ export const WorkTogetherNewsletterSection = ({
   const newsletterButtonText =
     data?.newsletterButtonText || "Subscribe";
 
+  const shouldShowBanner = !hideBanner && showBanner && !data?.hideBanner;
   const shouldShowNewsletter = !hideNewsletter && showNewsletter && !data?.hideNewsletter;
 
   const [name, setName] = useState('');
@@ -48,8 +49,8 @@ export const WorkTogetherNewsletterSection = ({
 
   return (
     <>
-      {/* 1. Sapphire Blue Work Together CTA Banner with Translucent Tile Shapes */}
-      {!hideBanner && showBanner && (
+      {/* 1. Sapphire Blue Work Together / Prove Our Mettle CTA Banner */}
+      {shouldShowBanner && (
         <section className="py-14 sm:py-16 bg-[#006085] text-white text-center relative overflow-hidden font-sans border-b border-cyan-900">
           {/* Background Decorative Translucent Tile Shapes */}
           <div className="absolute inset-0 pointer-events-none opacity-20">

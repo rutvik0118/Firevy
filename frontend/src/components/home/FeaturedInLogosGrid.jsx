@@ -41,7 +41,7 @@ export const FeaturedInLogosGrid = ({ data, title }) => {
           </h2>
         </div>
 
-        {/* 6x3 Grid of 18 Exact Square White Cards (Matching Reference Screenshot 1) */}
+        {/* 6x3 Grid of 18 Exact Square White Cards */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-5 lg:gap-5 max-w-[1240px] mx-auto">
           {logos.map((logo, idx) => {
             const rawSrc = logo.image || defaultLogos[idx % defaultLogos.length]?.image || `/images/${(idx % 18) + 1}.svg`;

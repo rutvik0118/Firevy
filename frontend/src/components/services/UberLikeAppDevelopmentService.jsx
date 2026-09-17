@@ -8,6 +8,10 @@ import TrustedBrandsGrid from '../common/TrustedBrandsGrid';
 import SapphireTechStackGrid from '../common/SapphireTechStackGrid';
 import BrandLogoMarquee from '../common/BrandLogoMarquee';
 import SapphireLightHeroBanner from '../common/SapphireLightHeroBanner';
+import PremiumServicesGrid from '../common/PremiumServicesGrid';
+import SuccessStoriesSection from '../common/SuccessStoriesSection';
+import ProcessWeFollow from '../common/ProcessWeFollow';
+import SuccessMatrix from '../common/SuccessMatrix';
 import DigitalTransformationCaseStudies from '../home/DigitalTransformationCaseStudies';
 import UnveilingInnovativeSolutionsVideoSlider from '../home/UnveilingInnovativeSolutionsVideoSlider';
 import WhatOurClientsSayClutchSlider from '../home/WhatOurClientsSayClutchSlider';
@@ -50,6 +54,24 @@ import {
   FileText,
   Play
 } from 'lucide-react';
+
+/* Missing Icon Component Mappings */
+const UserRegisterIcon = User;
+const CarBookingIcon = Car;
+const FareCalculationIcon = DollarSign;
+const DriverTrackingIcon = Navigation;
+const PaymentIcon = CreditCard;
+const PushAlertsIcon = Bell;
+const UberDeliveryBusinessIcon = Truck;
+const UberTransportationIcon = Car;
+const UberFemaleSafetyIcon = ShieldCheck;
+const UberCloudKitchenIcon = Utensils;
+const UberChildSafetyIcon = Baby;
+const UberCaregiversIcon = HeartHandshake;
+const FixedPriceIcon = DollarSign;
+const TimeMaterialIcon = Clock;
+const DedicatedTeamIcon = Users;
+const BucketsApproachIcon = Sliders;
 
 /* Super Ride Taxi – Cab Booking App Video Showcase Component (1:1 Screenshot Match) */
 const SuperRideTaxiVideoShowcase = () => {
