@@ -6,6 +6,7 @@ import SEO from '../common/SEO';
 // Reusable Components matching Data Annotation & Data Cleansing
 import BrandLogoMarquee from '../common/BrandLogoMarquee';
 import ClutchTopRatedBanner from '../common/ClutchTopRatedBanner';
+import PremiumServicesGrid from '../common/PremiumServicesGrid';
 import ProudAwardsBanner from './ProudAwardsBanner';
 import AndroidHiringModels from './AndroidHiringModels';
 import InnovativeSolutionsVideoSection from './InnovativeSolutionsVideoSection';
@@ -450,51 +451,9 @@ export const PatientManagementService = () => {
       <PatientManagementCuttingEdgeTechSection companyName="Firevy.co" />
 
       {/* ========================================================================= */}
-      {/* 7. CUSTOM PATIENT MANAGEMENT SOLUTIONS GRID (6 Cards)                     */}
+      {/* 7. OUR PREMIUM SERVICES (MATCHING REFERENCE SCREENSHOT)                   */}
       {/* ========================================================================= */}
-      <section className="py-14 sm:py-20 bg-white text-slate-900 font-sans text-left overflow-hidden border-t border-slate-100">
-        <Container className="max-w-6xl">
-          <div className="text-center max-w-4xl mx-auto mb-12 sm:mb-16">
-            <h2 className="text-[26px] sm:text-[32px] lg:text-[36px] font-[800] text-[#0B0F19] tracking-tight leading-tight mb-3">
-              Custom Patient Management Solutions for Healthcare Enterprises
-            </h2>
-            <p className="text-[13.5px] sm:text-[14.5px] text-[#475569] font-normal leading-relaxed max-w-3xl mx-auto">
-              From standalone private clinics to nationwide multi-specialty hospital networks, our engineering team crafts tailored patient management software modules built for clinical efficacy, regulatory compliance, and rapid adoption.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {patientSolutions.map((solution) => (
-              <div
-                key={solution.id}
-                className="rounded-[16px] bg-[#F8FAFC] p-6 sm:p-7 border border-slate-100 shadow-2xs hover:shadow-lg hover:border-[#CCE8FA] hover:bg-[#F0F7FC] transition-all duration-300 flex flex-col justify-between group cursor-pointer text-left"
-              >
-                <div>
-                  <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center mb-4 shadow-2xs border border-slate-100 group-hover:scale-110 transition-transform duration-300">
-                    {solution.icon}
-                  </div>
-                  <h3 className="font-[800] text-[17px] sm:text-[18px] text-[#0B0F19] mb-2 leading-snug tracking-tight">
-                    {solution.title}
-                  </h3>
-                  <p className="text-[#475569] text-[12.5px] sm:text-[13px] leading-[1.65] font-normal">
-                    {solution.desc}
-                  </p>
-                </div>
-
-                <div className="pt-4 text-left">
-                  <a
-                    href="#contact"
-                    className="inline-flex items-center space-x-1.5 text-xs font-bold text-[#005F96] hover:text-[#004B77] transition-colors"
-                  >
-                    <span>Learn More</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
-        </Container>
-      </section>
+      <PremiumServicesGrid companyName="Firevy.co" />
 
       {/* ========================================================================= */}
       {/* 8. SUCCESS STORIES (3 Portfolio Cards)                                    */}
