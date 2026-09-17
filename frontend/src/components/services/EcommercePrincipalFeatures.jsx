@@ -190,7 +190,7 @@ export const EcommercePrincipalFeatures = () => {
         </div>
 
         {/* 3-Column Layout: Left Features, Center Mockup with Page Scroll Effect, Right Features */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start max-w-7xl mx-auto">
           
           {/* Left Column (5 Features) */}
           <div className="lg:col-span-4 space-y-4">
@@ -242,7 +242,7 @@ export const EcommercePrincipalFeatures = () => {
           </div>
 
           {/* Center Column: Interactive Smartphone / Laptop Display with Scroll Sync */}
-          <div className="lg:col-span-4 flex justify-center items-center py-4 relative">
+          <div className="lg:col-span-4 lg:sticky lg:top-28 self-start flex justify-center items-center py-4 relative">
             
             {activeTab === 'android' ? (
               /* ANDROID APP TAB: Dual Smartphone Mockup with Vertical Page Scroll Sync */

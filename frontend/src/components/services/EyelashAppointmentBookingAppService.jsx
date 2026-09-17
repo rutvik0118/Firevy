@@ -17,70 +17,91 @@ import WeHaveBeenFeaturedInGrid from '../home/WeHaveBeenFeaturedInGrid';
 import WorkTogetherNewsletterSection from '../home/WorkTogetherNewsletterSection';
 import {
   ArrowRight,
-  ChevronRight,
   ShieldCheck,
-  Search,
   Zap,
-  ShoppingBag,
   Sliders,
-  Filter,
-  Layers,
-  Database,
   Smartphone,
-  BarChart3,
   Sparkles,
-  Lock,
   Globe,
-  Tag,
-  CheckCircle2,
-  Phone,
-  MessageCircle,
   ClipboardCheck,
   CheckSquare
 } from 'lucide-react';
 
-export const ProductFinderAppDevelopmentService = () => {
+export const EyelashAppointmentBookingAppService = () => {
   const [activeCard, setActiveCard] = React.useState(null);
   const principalSectionRef = React.useRef(null);
   const { scrollYProgress } = useScroll({
     target: principalSectionRef,
-    offset: ['start end', 'end start']
+    offset: ['start center', 'end center']
   });
 
-  const phoneY = useTransform(scrollYProgress, [0.2, 0.85], [0, 110]);
+  const phoneY = useTransform(scrollYProgress, [0, 1], [-25, 85]);
 
   const faqs = [
     {
-      q: "1. How does this product finder app work?",
-      a: "Anyone can use the app to look for products simply by entering an address or zip code. It's simple to search product information such as photos, features, reviews, contact information, and services with the product finder application."
+      q: "1. Do you have a separate team of developers for creating apps for estheticians?",
+      a: "Yes, we have a dedicated team of mobile application developers experienced in developing feature-rich appointment scheduling apps. We also have a rich portfolio and examples of previous mobile app development projects."
     },
     {
-      q: "2. How much does it cost to develop a product finder application?",
-      a: "The cost to develop a product finder application depends on various factors such as key features, complexity, platforms (iOS/Android), API integrations, and design requirements. Contact our experts for a detailed timeline and cost estimate tailored to your project."
+      q: "2. Which kind of organizations may benefit from an online appointment booking application?",
+      a: "Any service-based organization may use online appointment booking/scheduling applications. These include providers of medical treatment such as doctors and dentists, suppliers of beauty care such as spas and salons, and professional services such as business consultants."
     },
     {
-      q: "3. How much time will you take to develop a product finder app?",
-      a: "Typically, a standard product finder mobile app takes around 4 to 8 weeks for an MVP build, while an enterprise-level app with custom AI recommendations and catalog integrations may take 10 to 14 weeks."
+      q: "3. What is the cost of developing an esthetician booking application?",
+      a: "Various variables determine the cost of designing an esthetician booking application. Costs are heavily influenced by design complexity, development time, and the kind of features. We provide impeccably designed appointment booking applications at a competitive pricing range without sacrificing quality."
+    },
+    {
+      q: "4. How long does it take to establish a booking appointment?",
+      a: "We provide quick application development services to satisfy your immediate needs. The duration of development varies according to the app's features and design. The most accurate technique to get an anticipated time frame is to talk with app development specialists."
+    },
+    {
+      q: "5. I run a salon business and provide all the salon services. I want to create a booking app for clients. How can you assist?",
+      a: "You may establish a single app platform to help customers booking estheticians, follow up with them and make payments within the app. Our method is also applicable to aggregator and marketplace setups. Contact us to discuss developing an appointment scheduling application."
     }
   ];
 
   const leftFeatures = [
     {
-      title: 'Login',
-      desc: 'The user will open the app and signup with the application with email and password and then use it',
+      title: 'Sign Up Or Log In',
+      desc: 'Clients and estheticians can login to the app and book or view appointments in a few clicks with this beauty salon and spa app',
       icon: ClipboardCheck
     },
     {
-      title: 'Add Request',
-      desc: 'Users can select categories, subcategories, markets, and additional product requests within the app',
+      title: 'Available Services',
+      desc: 'After signing in, the user may see all available services and choose the desired ones',
+      icon: Sparkles
+    },
+    {
+      title: 'City-Based Search',
+      desc: 'Customers may conduct searches for experts depending on the city they are located in',
       icon: Globe
+    },
+    {
+      title: 'Simple Payment',
+      desc: 'Consumers may pay for appointments scheduled directly via the fee gateway.',
+      icon: ShieldCheck
     }
   ];
 
   const rightFeatures = [
     {
-      title: 'Check Request',
-      desc: "App owners can also check the customers' requests for a particular market",
+      title: 'Manage Availability',
+      desc: 'Experts may easily manage their availability using a calendar on the website',
+      icon: Sliders
+    },
+    {
+      title: 'Notifications',
+      desc: 'Receive notifications whenever an appointment is added, deleted, or cancelled',
+      icon: Zap
+    },
+    {
+      title: 'Client Management',
+      desc: "View all of a customer's upcoming appointments and history of all their previous reservations",
+      icon: Smartphone
+    },
+    {
+      title: 'Check Available Slots',
+      desc: 'After selecting the needed eyelash services, the user is presented with a list of available slots for the specified service',
       icon: CheckSquare
     }
   ];
@@ -88,14 +109,14 @@ export const ProductFinderAppDevelopmentService = () => {
   return (
     <div className="bg-white text-slate-900 font-sans min-h-screen">
       <SEO
-        title="Product Finder App Development Services | Firevy.co"
-        description="Build custom Product Finder Apps & WooCommerce Product Search solutions. Enhance eCommerce customer buying experience with AI-powered search, guided quizzes & live inventory matching."
-        keywords="Product Finder App Development, Product Search App, eCommerce Product Finder, WooCommerce Product Finder, Custom Product Recommender App, Smart Product Discovery"
-        url="https://firevy.co/services/product-finder-app-development"
+        title="Eyelash Appointment Booking App Development Services | Firevy.co"
+        description="Build on-demand eyelash appointment booking mobile apps for salons & estheticians. Accept reservations, manage schedules, and provide seamless customer booking experiences."
+        keywords="Eyelash Appointment Booking App, Salon Booking App Development, Esthetician App Development, Beauty Parlour Booking App, Lash Booking App"
+        url="https://firevy.co/services/eyelash-appointment-booking-app"
       />
 
       {/* =========================================================================
-          1ST COMPONENT: HERO BANNER (EXACT 1:1 MATCH TO 2ND IMAGE)
+          1ST COMPONENT: HERO BANNER (1:1 SAPPHIRE REFERENCE)
           ========================================================================= */}
       <section className="bg-[#EFF6FA] py-10 sm:py-12 lg:py-14 border-b border-sky-100 relative overflow-hidden font-sans">
         <Container>
@@ -104,12 +125,12 @@ export const ProductFinderAppDevelopmentService = () => {
             {/* Left Column: Heading, Description & Let's Talk CTA */}
             <div className="lg:col-span-6 space-y-4 sm:space-y-5 text-left">
               <h1 className="text-2xl sm:text-3xl lg:text-[38px] font-bold text-slate-900 tracking-tight leading-[1.2] font-sans">
-                Product Finder App <br className="hidden sm:inline" />
-                Development
+                Eyelash Booking App <br className="hidden sm:inline" />
+                Development Services
               </h1>
 
               <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed max-w-xl font-sans">
-                Product finder apps enable eCommerce enterprises to provide clients with a hassle-free and interactive online buying experience. By linking companies to consumers in the market in real-time, our product finder app and product search woocommerce helps address the challenge of discovering a product or service.
+                We allow artificial eyelash application businesses to quickly and easily establish their own Custom Eyelash Appointment Booking App and begin accepting reservations from consumers and clients. Our appointment booking app development has altered how clients communicate with firms. Previously, clients had to wait hours for their turn to return to satisfy the consultant. Still, with appointment booking applications, lash book app users may now arrange an appointment before visiting the service provider. This spa app saves both the consumer and the service provider considerable time. Our team of expert Eyelash Extension Booking App Developers ensures a seamless booking experience.
               </p>
 
               <div className="pt-1">
@@ -123,12 +144,12 @@ export const ProductFinderAppDevelopmentService = () => {
               </div>
             </div>
 
-            {/* Right Column: High-Resolution Vector Illustration Artwork (1:1 Sapphire Reference) */}
+            {/* Right Column: High-Resolution Vector Illustration Artwork */}
             <div className="lg:col-span-6 flex items-center justify-center relative">
               <div className="relative w-full max-w-xl flex items-center justify-center py-1">
                 <img
-                  src="/images/product_finder_hero_illustration.png"
-                  alt="Product Finder App Development Illustration"
+                  src="/images/eyelash_hero_banner.png"
+                  alt="Eyelash Booking App Development Services Illustration"
                   className="w-full h-auto max-h-[380px] lg:max-h-[420px] object-contain hover:scale-[1.01] transition-transform duration-300"
                 />
               </div>
@@ -144,18 +165,18 @@ export const ProductFinderAppDevelopmentService = () => {
       <BrandLogoMarquee />
 
       {/* =========================================================================
-          3RD COMPONENT: ABOUT PRODUCT FINDER APP SECTION (EXACT 1:1 MATCH TO 4TH IMAGE)
+          3RD COMPONENT: ABOUT EYELASH APPOINTMENT BOOKING APP SECTION
           ========================================================================= */}
       <section className="py-10 sm:py-12 lg:py-14 bg-white border-b border-slate-200 text-left font-sans">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
-            {/* Left Column: High-Resolution Vector Illustration Artwork (1:1 Sapphire Reference) */}
+            {/* Left Column: High-Resolution Vector Illustration Artwork */}
             <div className="lg:col-span-6 flex items-center justify-center relative">
               <div className="relative w-full max-w-xl flex items-center justify-center py-1">
                 <img
-                  src="/images/product_finder_about_illustration.png"
-                  alt="About Product Finder App Illustration"
+                  src="/images/eyelash_about_banner.png"
+                  alt="About Eyelash Appointment Booking App"
                   className="w-full h-auto max-h-[380px] lg:max-h-[420px] object-contain hover:scale-[1.01] transition-transform duration-300"
                 />
               </div>
@@ -164,11 +185,11 @@ export const ProductFinderAppDevelopmentService = () => {
             {/* Right Column: Title, Content & Button */}
             <div className="lg:col-span-6 space-y-4 sm:space-y-5 text-left">
               <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-bold text-slate-900 tracking-tight font-sans">
-                About Product Finder App
+                About Eyelash Appointment Booking App
               </h2>
 
               <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed font-sans max-w-xl">
-                Online shoppers face choice fatigue when browsing through tens of thousands of catalog SKUs. Our custom product finder application combines real-time parametric filtering, intelligent recommendation quizzes, and seamless WooCommerce / Shopify catalog synchronization. We help brands convert hesitant visitors into satisfied buyers by serving exact product matches in under 3 clicks.
+                This online booking app is always required since there is a disorganized system for scheduling an appointment after you arrive at the esthetician clinic. This mobile app development services for estheticians enables to schedule appointments using the app, eliminating the need to spend their whole time at the Salon meeting the esthetician. Additionally, as an On Demand Eyelash Booking App Development and Eyelash Salon Booking App Development Company an appointment with the beautician may be made in advance using the salon app, and the parlor can be visited at a predetermined time frame.
               </p>
 
               <div className="pt-1">
@@ -188,18 +209,18 @@ export const ProductFinderAppDevelopmentService = () => {
       {/* 4TH COMPONENT: CLUTCH TOP RATED COMPANY BANNER */}
       <ClutchTopRatedCompanyBanner />
 
-      {/* 5TH COMPONENT: PRINCIPAL FEATURES WITH DUAL MOBILE MOCKUPS (1:1 MATCH TO 2ND IMAGE) */}
+      {/* 5TH COMPONENT: PRINCIPAL FEATURES WITH SCROLL ANIMATED MOBILE GRAPHIC */}
       <section ref={principalSectionRef} className="py-14 sm:py-16 lg:py-20 bg-white text-slate-900 border-b border-slate-200 font-sans">
         <Container className="max-w-7xl">
           <div className="text-center mb-12 sm:mb-16 max-w-4xl mx-auto">
             <h2 className="text-2xl sm:text-3xl lg:text-[38px] font-bold text-slate-900 tracking-tight font-sans leading-tight">
-              Principal Features of Product Finder App Development
+              Principal Features of Eyelash Booking App Development Services
             </h2>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-start relative">
             
-            {/* Left Features (Login & Add Request) */}
+            {/* Left Features */}
             <div className="lg:col-span-4 space-y-4 sm:space-y-6 text-left">
               {leftFeatures.map((feat, idx) => {
                 const IconComp = feat.icon;
@@ -248,81 +269,21 @@ export const ProductFinderAppDevelopmentService = () => {
               })}
             </div>
 
-            {/* Center Dual Mobile Mockup (1:1 Reference to Maloom Dual Phone Mockup) */}
-            <div className="lg:col-span-4 self-center py-2 flex items-center justify-center z-20">
-              <div className="relative w-full max-w-[320px] sm:max-w-[340px] h-[450px] sm:h-[480px] flex items-center justify-center">
-                
-                {/* Back Phone (Right Shifted Dashboard Mockup) */}
-                <div className="absolute right-0 sm:right-2 top-8 w-[165px] sm:w-[185px] h-[370px] sm:h-[405px] bg-slate-950 p-[7px] rounded-[34px] shadow-xl border-2 border-slate-700 transform translate-x-3 sm:translate-x-5">
-                  <div className="w-full h-full bg-slate-100 rounded-[27px] overflow-hidden flex flex-col border border-slate-300 relative text-slate-800">
-                    {/* Notch */}
-                    <div className="w-20 h-3.5 bg-slate-950 mx-auto rounded-b-xl mb-0.5 z-10 shrink-0"></div>
-                    {/* Top Bar */}
-                    <div className="px-3 py-1.5 flex items-center justify-end border-b border-slate-200 bg-white">
-                      <div className="text-[12px] font-bold text-slate-700">☰</div>
-                    </div>
-                    {/* Grid items */}
-                    <div className="p-2.5 grid grid-cols-2 gap-2 flex-1 bg-slate-50">
-                      {/* Market */}
-                      <div className="bg-white p-2 rounded-lg border border-slate-200 flex flex-col items-center justify-center text-center shadow-2xs">
-                        <div className="w-7 h-7 bg-amber-100 text-amber-600 rounded-md flex items-center justify-center text-xs mb-1">🏪</div>
-                        <span className="text-[9px] font-bold text-slate-700">Market</span>
-                      </div>
-                      {/* Inbox */}
-                      <div className="bg-white p-2 rounded-lg border border-slate-200 flex flex-col items-center justify-center text-center shadow-2xs relative">
-                        <div className="absolute top-1 right-1 bg-slate-800 text-white text-[7px] w-3.5 h-3.5 rounded-full flex items-center justify-center font-bold">0</div>
-                        <div className="w-7 h-7 bg-amber-100 text-amber-600 rounded-md flex items-center justify-center text-xs mb-1">✉️</div>
-                        <span className="text-[9px] font-bold text-slate-700">Inbox</span>
-                      </div>
-                      {/* Mode */}
-                      <div className="bg-white p-2 rounded-lg border border-slate-200 flex flex-col items-center justify-center text-center shadow-2xs">
-                        <div className="w-7 h-7 bg-amber-100 text-amber-600 rounded-md flex items-center justify-center text-xs mb-1">🛍️</div>
-                        <span className="text-[9px] font-bold text-slate-700">Mode</span>
-                      </div>
-                      {/* Wallet */}
-                      <div className="bg-white p-2 rounded-lg border border-slate-200 flex flex-col items-center justify-center text-center shadow-2xs relative">
-                        <div className="absolute top-1 right-1 bg-slate-800 text-white text-[7px] px-1 h-3.5 rounded-full flex items-center justify-center font-bold">656</div>
-                        <div className="w-7 h-7 bg-amber-400 text-slate-900 rounded-md flex items-center justify-center text-[9px] mb-1 font-black">Cr</div>
-                        <span className="text-[9px] font-bold text-slate-700">Wallet</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Front Phone (Maloom Yellow Splash Screen) */}
-                <div className="absolute left-0 sm:left-2 top-0 w-[175px] sm:w-[195px] h-[390px] sm:h-[430px] bg-slate-950 p-[8px] rounded-[36px] shadow-2xl border-2 border-slate-800 z-10">
-                  <div className="w-full h-full bg-[#FFCB05] rounded-[28px] overflow-hidden flex flex-col justify-between relative p-4 text-center">
-                    {/* Notch */}
-                    <div className="w-20 h-4 bg-slate-950 mx-auto rounded-b-xl z-20 absolute top-0 left-1/2 -translate-x-1/2"></div>
-                    
-                    {/* Yellow Background & Curved Accents */}
-                    <div className="absolute inset-0 bg-gradient-to-b from-[#FFCB05] via-[#F59E0B] to-[#EAB308]"></div>
-                    <div className="absolute bottom-12 left-0 right-0 h-44 bg-[#F59E0B] rounded-t-[100%] transform scale-x-150 opacity-90"></div>
-                    <div className="absolute bottom-0 left-0 right-0 h-28 bg-[#EAB308] rounded-t-[100%] transform scale-x-125"></div>
-
-                    {/* Logo & Brand Content */}
-                    <div className="relative z-10 flex-1 flex flex-col items-center justify-center pt-8">
-                      <div className="flex items-baseline space-x-0.5">
-                        <span className="text-3xl sm:text-4xl font-extrabold text-[#FFFFFF] tracking-tight drop-shadow-sm font-sans">
-                          maloom
-                        </span>
-                        <div className="w-2 h-2 rounded-full bg-white mb-2 ml-0.5"></div>
-                      </div>
-                    </div>
-
-                    {/* Footer Version */}
-                    <div className="relative z-10 pb-1">
-                      <span className="text-[9px] font-medium text-amber-950/70 tracking-wider">
-                        Version 2.2
-                      </span>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
+            {/* Center Mobile Graphic with Sticky Parallax Scroll Translation */}
+            <div className="lg:col-span-4 self-start lg:sticky lg:top-28 py-2 flex items-center justify-center z-20 overflow-visible">
+              <motion.div
+                style={{ y: phoneY }}
+                className="relative w-full max-w-[300px] sm:max-w-[340px] flex items-center justify-center overflow-visible"
+              >
+                <img
+                  src="/images/eyelash_features_center.png"
+                  alt="Principal Features of Eyelash Booking App Development Services"
+                  className="w-full h-auto max-h-[420px] object-contain hover:scale-[1.02] transition-transform duration-300 drop-shadow-lg"
+                />
+              </motion.div>
             </div>
 
-            {/* Right Features (Check Request) */}
+            {/* Right Features */}
             <div className="lg:col-span-4 space-y-4 sm:space-y-6 text-left">
               {rightFeatures.map((feat, idx) => {
                 const IconComp = feat.icon;
@@ -381,16 +342,16 @@ export const ProductFinderAppDevelopmentService = () => {
       {/* 7TH COMPONENT: CASE STUDIES SLIDER */}
       <DigitalTransformationCaseStudies />
 
-      {/* 8TH COMPONENT: INNOVATIVE SOLUTION VIDEO (SAME AS HOME PAGE) */}
+      {/* 8TH COMPONENT: INNOVATIVE SOLUTION VIDEO */}
       <InnovativeSolutionVideo />
 
-      {/* 9TH COMPONENT: WORK PROCESS GRID (SAME AS HOME PAGE) */}
+      {/* 9TH COMPONENT: WORK PROCESS GRID */}
       <WorkProcessGrid />
 
-      {/* 10TH COMPONENT: CLIENT REVIEWS DARK SECTION (SAME AS HOME PAGE) */}
+      {/* 10TH COMPONENT: CLIENT REVIEWS DARK SECTION */}
       <ClientReviewsDarkSection />
 
-      {/* 11TH COMPONENT: SUCCESS MATRIX GRID (SAME AS HOME PAGE) */}
+      {/* 11TH COMPONENT: SUCCESS MATRIX GRID */}
       <SuccessMatrixGrid />
 
       {/* 12TH COMPONENT: OUR STORY THEIR WORDS */}
@@ -412,4 +373,4 @@ export const ProductFinderAppDevelopmentService = () => {
   );
 };
 
-export default ProductFinderAppDevelopmentService;
+export default EyelashAppointmentBookingAppService;

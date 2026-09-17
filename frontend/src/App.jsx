@@ -66,6 +66,8 @@ const Contact = lazy(() => import('./pages/Contact'));
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
 const Terms = lazy(() => import('./pages/Terms'));
 const NotFound = lazy(() => import('./pages/NotFound'));
+const BarberAppDevelopmentService = lazy(() => import('./components/services/BarberAppDevelopmentService').then(m => ({ default: m.BarberAppDevelopmentService })));
+const OnDemandAppDevelopmentService = lazy(() => import('./components/services/OnDemandAppDevelopmentService').then(m => ({ default: m.OnDemandAppDevelopmentService })));
 
 // Public Layout Wrapper Component
 const PublicLayoutWrapper = () => (
@@ -134,6 +136,10 @@ export function App() {
                 <Route path="/awards-recognition" element={<CompanySubDetails />} />
                 <Route path="/insightful-videos" element={<CompanySubDetails />} />
                 <Route path="/blog" element={<CompanySubDetails />} />
+                <Route path="/services/barber-app-development" element={<BarberAppDevelopmentService />} />
+                <Route path="/barber-app-development" element={<BarberAppDevelopmentService />} />
+                <Route path="/services/on-demand-app-development" element={<OnDemandAppDevelopmentService />} />
+                <Route path="/on-demand-app-development" element={<OnDemandAppDevelopmentService />} />
                 <Route path="/services" element={<Services />} />
                 <Route path="/services/:slug" element={<ServiceDetails />} />
                 <Route path="/services/it-consulting-services" element={<ServiceDetails />} />
@@ -419,6 +425,20 @@ export function App() {
                 <Route path="/services/product-finder-app" element={<ServiceDetails />} />
                 <Route path="/product-finder-app-development" element={<ServiceDetails />} />
                 <Route path="/product-finder-app" element={<ServiceDetails />} />
+                <Route path="/services/eyelash-appointment-booking-app" element={<ServiceDetails />} />
+                <Route path="/services/eyelash-appointment-booking" element={<ServiceDetails />} />
+                <Route path="/services/eyelash-booking-app" element={<ServiceDetails />} />
+                <Route path="/eyelash-appointment-booking-app" element={<ServiceDetails />} />
+                <Route path="/eyelash-appointment-booking" element={<ServiceDetails />} />
+                <Route path="/eyelash-booking-app" element={<ServiceDetails />} />
+                <Route path="/services/language-learning-app" element={<ServiceDetails />} />
+                <Route path="/services/language-learning-app-development" element={<ServiceDetails />} />
+                <Route path="/language-learning-app" element={<ServiceDetails />} />
+                <Route path="/language-learning-app-development" element={<ServiceDetails />} />
+                <Route path="/services/barber-app-development" element={<ServiceDetails />} />
+                <Route path="/services/barber-booking-app" element={<ServiceDetails />} />
+                <Route path="/barber-app-development" element={<ServiceDetails />} />
+                <Route path="/barber-booking-app" element={<ServiceDetails />} />
                 <Route path="/technologies" element={<Technologies />} />
                 <Route path="/portfolio" element={<Portfolio />} />
                 <Route path="/portfolio/:slug" element={<PortfolioDetails />} />
