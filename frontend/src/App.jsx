@@ -213,6 +213,10 @@ export function App() {
                 <Route path="/digital-twin-solutions-company" element={<ServiceDetails />} />
                 <Route path="/services/digital-twin-solutions" element={<ServiceDetails />} />
                 <Route path="/digital-twin-solutions" element={<ServiceDetails />} />
+                <Route path="/services/artist-collaboration-platform-development" element={<ServiceDetails />} />
+                <Route path="/artist-collaboration-platform-development" element={<ServiceDetails />} />
+                <Route path="/services/artist-collaboration-platform" element={<ServiceDetails />} />
+                <Route path="/artist-collaboration-platform" element={<ServiceDetails />} />
                 <Route path="/services/tech-consulting-services" element={<ServiceDetails />} />
                 <Route path="/services/hire-bootstrap-developers" element={<ServiceDetails />} />
                 <Route path="/services/hire-bootstrap-developer" element={<ServiceDetails />} />

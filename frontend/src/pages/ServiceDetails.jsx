@@ -88,6 +88,7 @@ import DataCleansingService from '../components/services/DataCleansingService';
 import DataAnnotationService from '../components/services/DataAnnotationService';
 import PatientManagementService from '../components/services/PatientManagementService';
 import DigitalTwinSolutionsService from '../components/services/DigitalTwinSolutionsService';
+import ArtistCollaborationPlatformService from '../components/services/ArtistCollaborationPlatformService';
 import HireKotlinDevelopersService from '../components/services/HireKotlinDevelopersService';
 import HireTechDevelopersService from '../components/services/HireTechDevelopersService';
 import HireMetaverseDevelopersService from '../components/services/HireMetaverseDevelopersService';
@@ -270,6 +271,13 @@ export const ServiceDetails = () => {
     currentSlug === 'services/digital-twin-solutions-company' ||
     currentSlug === 'services/digital-twin-solutions' ||
     currentSlug.includes('digital-twin');
+
+  const isArtistCollaboration = currentSlug === 'artist-collaboration-platform-development' ||
+    currentSlug === 'artist-collaboration-platform' ||
+    currentSlug === 'artist-collaboration' ||
+    currentSlug === 'services/artist-collaboration-platform-development' ||
+    currentSlug === 'services/artist-collaboration-platform' ||
+    currentSlug.includes('artist-collaboration');
 
   const isMobileApp = !isHireMobile && !isMobileAppPorting && (
     currentSlug === 'mobile-app-development' ||
@@ -839,6 +847,10 @@ export const ServiceDetails = () => {
 
   if (isDigitalTwin) {
     return <DigitalTwinSolutionsService />;
+  }
+
+  if (isArtistCollaboration) {
+    return <ArtistCollaborationPlatformService />;
   }
 
   if (isPowerAutomate) {
