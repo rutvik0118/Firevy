@@ -389,32 +389,57 @@ export const PatientManagementService = () => {
       <ClutchTopRatedBanner title="World Wide Top Rated IT Company on Clutch" />
 
       {/* ========================================================================= */}
-      {/* 5. GET 100% CUSTOMIZABLE PATIENT MANAGEMENT SOFTWARE (Banner Card)        */}
+      {/* 5. LEADING PATIENT MANAGEMENT SYSTEM SOFTWARE (Quote Card + Narrative)    */}
       {/* ========================================================================= */}
-      <section className="py-10 bg-white text-slate-900 font-sans text-left">
+      <section className="py-14 sm:py-20 bg-white text-slate-900 font-sans text-left overflow-hidden">
         <Container className="max-w-6xl">
-          <div className="rounded-[16px] bg-gradient-to-r from-[#005F96] to-[#0084D1] p-8 sm:p-10 text-white flex flex-col md:flex-row items-center justify-between gap-6 shadow-md hover:shadow-xl transition-all duration-300">
-            <div className="space-y-2 max-w-2xl text-left">
-              <span className="text-xs font-bold uppercase tracking-wider bg-white/20 px-3 py-1 rounded-full text-white inline-block mb-1">
-                Custom Healthcare Software Architecture
-              </span>
-              <h3 className="text-2xl sm:text-3xl font-[800] tracking-tight text-white leading-tight">
-                Get 100% Customizable Patient Management Software
+          {/* Centered Main Section Heading Matching Reference Screenshot */}
+          <h2 className="text-center text-[26px] sm:text-[32px] lg:text-[36px] font-[800] text-[#0B0F19] tracking-tight leading-tight mb-10 sm:mb-14">
+            Leading Patient Management System Software
+          </h2>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+
+            {/* Left Column: Soft Blue Quote Card with Topographic Lines & Speech Pointer */}
+            <div className="lg:col-span-5 bg-[#EFF7FE] border border-[#BAE6FD]/90 rounded-[16px] p-8 sm:p-10 flex flex-col justify-center relative shadow-xs min-h-[320px] group transition-all duration-300 hover:shadow-md">
+              {/* Subtle Topographical Background Waves */}
+              <svg
+                className="absolute inset-0 w-full h-full pointer-events-none opacity-20 transition-transform duration-700 group-hover:scale-105"
+                viewBox="0 0 340 340"
+                fill="none"
+              >
+                <path d="M-20 60 C80 20, 160 100, 240 50 C290 10, 320 80, 360 40" stroke="#005F96" strokeWidth="2" />
+                <path d="M-20 180 C80 140, 160 220, 240 170 C290 140, 320 210, 360 180" stroke="#005F96" strokeWidth="2" />
+                <path d="M-20 300 C80 260, 160 340, 240 290 C290 260, 320 330, 360 300" stroke="#005F96" strokeWidth="2" />
+              </svg>
+
+              {/* Speech bubble pointer arrow pointing right towards narrative */}
+              <div className="hidden lg:block absolute -right-3 top-1/2 -translate-y-1/2 w-0 h-0 border-y-[10px] border-y-transparent border-l-[12px] border-l-[#EFF7FE] z-20" />
+              <div className="hidden lg:block absolute -right-[14px] top-1/2 -translate-y-1/2 w-0 h-0 border-y-[11px] border-y-transparent border-l-[14px] border-l-[#BAE6FD] z-10" />
+
+              {/* Solid Blue Quote Glyph */}
+              <div className="mb-3 relative z-10">
+                <svg viewBox="0 0 40 32" className="w-10 h-8 text-[#005F96] fill-current">
+                  <path d="M0 18.667C0 8.36 6.222 0 17.778 0v7.111C11.556 7.111 8.889 11.556 8 16h9.778v16H0V18.667zm22.222 0C22.222 8.36 28.444 0 40 0v7.111C33.778 7.111 31.111 11.556 30.222 16H40v16H22.222V18.667z" />
+                </svg>
+              </div>
+
+              {/* Card Title */}
+              <h3 className="text-[26px] sm:text-[30px] lg:text-[32px] font-[800] text-[#005F96] leading-[1.22] tracking-tight relative z-10 font-sans">
+                Smart Software<br />Development for<br />Secure Applications
               </h3>
-              <p className="text-sm sm:text-[15px] text-white/90 leading-relaxed font-normal">
-                Looking for tailored hospital management, clinic scheduling, or EHR integration software? Request a detailed architecture blueprint and custom quote within 24 hours.
+            </div>
+
+            {/* Right Column: Detailed Narrative (Exact 1:1 Match to Reference Screenshot) */}
+            <div className="lg:col-span-7 flex flex-col justify-center space-y-4 text-[13.5px] sm:text-[14.5px] text-[#475569] leading-[1.78] font-normal text-left">
+              <p>
+                Our Patient Management Information Systems are meant to heighten operational effectiveness and patient satisfaction. Committed to strong compliance, security, and user friendliness, we create intelligent, interactive, and high-performance solutions that are specifically crafted to address the unique demands of healthcare facilities. From handling hundreds to thousands of patients on a daily basis, our solutions grow seamlessly to accommodate your expansion.
+              </p>
+              <p>
+                We've delivered successful global Patient Management System Software projects to hospitals, research institutions, and private practices. Supported by a talented development team, we integrate with third-party APIs, EHRs, and legacy systems seamlessly. Our agile development process guarantees each module — from patient intake through to care delivery — is built to your objectives in mind.
               </p>
             </div>
 
-            <div className="shrink-0">
-              <a
-                href="#contact"
-                className="inline-flex items-center space-x-2 px-7 py-3 rounded-[6px] bg-white hover:bg-slate-50 text-[#005F96] font-[700] text-[14px] shadow-sm hover:shadow transition-all duration-200 cursor-pointer"
-              >
-                <span>Get Custom Estimate</span>
-                <ArrowRight className="w-4 h-4 text-[#005F96]" />
-              </a>
-            </div>
           </div>
         </Container>
       </section>
