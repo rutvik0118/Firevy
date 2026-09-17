@@ -29,6 +29,11 @@ import HireCodeIgniterDevelopersService from '../components/services/HireCodeIgn
 import IWatchAppDevelopmentService from '../components/services/IWatchAppDevelopmentService';
 import CovidTrackerAppDevelopmentService from '../components/services/CovidTrackerAppDevelopmentService';
 import EcommerceMobileAppDevelopmentService from '../components/services/EcommerceMobileAppDevelopmentService';
+import ProductFinderAppDevelopmentService from '../components/services/ProductFinderAppDevelopmentService';
+import EyelashAppointmentBookingAppService from '../components/services/EyelashAppointmentBookingAppService';
+import LanguageLearningAppService from '../components/services/LanguageLearningAppService';
+import BarberAppDevelopmentService from '../components/services/BarberAppDevelopmentService';
+import OnDemandAppDevelopmentService from '../components/services/OnDemandAppDevelopmentService';
 import IPadAppDevelopmentService from '../components/services/IPadAppDevelopmentService';
 import CrossPlatformAppDevelopmentService from '../components/services/CrossPlatformAppDevelopmentService';
 import IOSAppDevelopmentService from '../components/services/IOSAppDevelopmentService';
@@ -83,6 +88,14 @@ import MicroservicesConsultingServices from '../components/services/Microservice
 import AiConsultingServices from '../components/services/AiConsultingServices';
 import UiUxDesignService from '../components/services/UiUxDesignService';
 import DigitalMarketingService from '../components/services/DigitalMarketingService';
+import TestingQaService from '../components/services/TestingQaService';
+import NintexDevelopmentService from '../components/services/NintexDevelopmentService';
+import MobileAppPortingService from '../components/services/MobileAppPortingService';
+import DataCleansingService from '../components/services/DataCleansingService';
+import DataAnnotationService from '../components/services/DataAnnotationService';
+import PatientManagementService from '../components/services/PatientManagementService';
+import DigitalTwinSolutionsService from '../components/services/DigitalTwinSolutionsService';
+import ArtistCollaborationPlatformService from '../components/services/ArtistCollaborationPlatformService';
 import HireKotlinDevelopersService from '../components/services/HireKotlinDevelopersService';
 import HireDedicatedTechDevelopersService from '../components/services/HireDedicatedTechDevelopersService';
 import HireTechDevelopersService from '../components/services/HireTechDevelopersService';
@@ -257,7 +270,64 @@ export const ServiceDetails = () => {
 
   const isIOS = !isHireIOS && !isHireIphone && !isHireSwift && (currentSlug.includes('ios') || currentSlug.includes('iphone')) && !isIPad;
 
-  const isMobileApp = !isHireMobile && (
+  const isEcommerceApp = (slug || currentSlug) && (
+    (slug && slug.toLowerCase().includes('ecommerce')) ||
+    currentSlug.includes('e-commerce') ||
+    currentSlug.includes('clown-polska')
+  );
+
+  const isMobileAppPorting = currentSlug === 'mobile-app-porting' ||
+    currentSlug === 'mobile-app-porting-services' ||
+    currentSlug === 'mobile-app-porting-service' ||
+    currentSlug === 'app-porting' ||
+    currentSlug.includes('porting');
+
+  const isDataCleansing = currentSlug === 'data-cleansing-services' ||
+    currentSlug === 'data-cleansing-service' ||
+    currentSlug === 'data-cleansing' ||
+    currentSlug === 'database-cleansing' ||
+    currentSlug === 'database-cleansing-services' ||
+    currentSlug === 'services/data-cleansing-services' ||
+    currentSlug.includes('data-cleansing') ||
+    currentSlug.includes('database-cleansing');
+
+  const isDataAnnotation = currentSlug === 'data-annotation-company' ||
+    currentSlug === 'data-annotation-services' ||
+    currentSlug === 'data-annotation' ||
+    currentSlug === 'data-annotation-service' ||
+    currentSlug === 'data-labeling-services' ||
+    currentSlug === 'data-labeling-company' ||
+    currentSlug === 'services/data-annotation-company' ||
+    currentSlug === 'services/data-annotation-services' ||
+    currentSlug.includes('data-annotation') ||
+    currentSlug.includes('data-labeling');
+
+  const isPatientManagement = currentSlug === 'patient-management-system' ||
+    currentSlug === 'patient-management-system-development-company' ||
+    currentSlug === 'patient-management-systems' ||
+    currentSlug === 'patient-management-software' ||
+    currentSlug === 'patient-management' ||
+    currentSlug === 'services/patient-management-system' ||
+    currentSlug.includes('patient-management');
+
+  const isDigitalTwin = currentSlug === 'digital-twin-solutions-company' ||
+    currentSlug === 'digital-twin-solutions' ||
+    currentSlug === 'digital-twin' ||
+    currentSlug === 'digital-twin-services' ||
+    currentSlug === 'digital-twin-company' ||
+    currentSlug === 'digital-twin-development' ||
+    currentSlug === 'services/digital-twin-solutions-company' ||
+    currentSlug === 'services/digital-twin-solutions' ||
+    currentSlug.includes('digital-twin');
+
+  const isArtistCollaboration = currentSlug === 'artist-collaboration-platform-development' ||
+    currentSlug === 'artist-collaboration-platform' ||
+    currentSlug === 'artist-collaboration' ||
+    currentSlug === 'services/artist-collaboration-platform-development' ||
+    currentSlug === 'services/artist-collaboration-platform' ||
+    currentSlug.includes('artist-collaboration');
+
+  const isMobileApp = !isHireMobile && !isEcommerceApp && !isMobileAppPorting && (
     currentSlug === 'mobile-app-development' ||
     currentSlug === 'mobile-app' ||
     currentSlug === 'mobile-application' ||
@@ -407,10 +477,33 @@ export const ServiceDetails = () => {
     currentSlug.includes('covid-tracking')
   );
 
-  const isEcommerceApp = (slug || currentSlug) && (
-    (slug && slug.toLowerCase().includes('ecommerce')) ||
-    currentSlug.includes('e-commerce') ||
-    currentSlug.includes('clown-polska')
+  const isProductFinderApp = (slug || currentSlug) && (
+    currentSlug.includes('product-finder') ||
+    currentSlug.includes('product-search')
+  );
+
+  const isEyelashBookingApp = (slug || currentSlug) && (
+    currentSlug.includes('eyelash') ||
+    currentSlug.includes('eyelash-appointment') ||
+    currentSlug.includes('eyelash-booking')
+  );
+
+  const isLanguageLearningApp = (slug || currentSlug) && (
+    currentSlug.includes('language-learning') ||
+    currentSlug.includes('language-app')
+  );
+
+  const isBarberApp = (slug || currentSlug) && (
+    currentSlug.includes('barber') ||
+    currentSlug.includes('barber-app') ||
+    currentSlug.includes('barber-booking')
+  );
+
+  const isOnDemandApp = (slug || currentSlug) && (
+    currentSlug.includes('on-demand-app') ||
+    currentSlug.includes('on-demand-application') ||
+    currentSlug === 'on-demand-app-development' ||
+    currentSlug === 'services/on-demand-app-development'
   );
 
   const isStartupConsulting = currentSlug === 'startup-consulting-services' ||
@@ -469,6 +562,26 @@ export const ServiceDetails = () => {
     currentSlug.includes('digital-marketing') ||
     currentSlug === 'services/digital-marketing' ||
     currentSlug === 'services/digital-marketing-services';
+
+  const isTestingQa = currentSlug === 'testing-qa' ||
+    currentSlug === 'testing-and-qa' ||
+    currentSlug === 'software-testing-qa' ||
+    currentSlug === 'qa-testing' ||
+    currentSlug === 'software-qa-testing' ||
+    currentSlug === 'software-testing' ||
+    currentSlug.includes('testing-qa') ||
+    currentSlug.includes('qa-testing') ||
+    currentSlug === 'services/testing-qa' ||
+    currentSlug === 'services/software-testing-qa' ||
+    (currentSlug.includes('testing') && !currentSlug.includes('podcast') && !currentSlug.includes('methodolog'));
+
+  const isNintex = currentSlug === 'nintex-development-services' ||
+    currentSlug === 'nintex-development-service' ||
+    currentSlug === 'nintex-development' ||
+    currentSlug === 'nintex' ||
+    currentSlug.includes('nintex') ||
+    currentSlug === 'services/nintex-development-services' ||
+    currentSlug === 'services/nintex-development';
 
   const unslugify = (str) => {
     if (!str) return 'Enterprise Tech Solution';
@@ -571,13 +684,29 @@ export const ServiceDetails = () => {
   const isChatGpt = currentSlug.includes('chatgpt') || currentSlug.includes('chat-gpt') || currentSlug.includes('hire-chatgpt');
 
   useEffect(() => {
-    if (!isChatGpt && !isSoftwareDevelopers && !isDedicatedDevelopers && !isMetaverse && !isEmbeddedSoftware && !isAlexaSkills && !isDataScientist && !isAnyDedicatedHire && !isKotlin && !isHybrid && !isPersonalFitness && !isUsedCar && !isEnneagram && !isCreditCard && !isIPad && !isCrossPlatform && !isItConsulting && !isNext && !isExpress && !isMobileApp && !isBootstrap && !isCodeIgniter && !isEmber && !isLaravel && !isPowerAutomate && !isPowerApps && !isSharePoint && !isVue && !isReact && !isAngular && !isIot && !isPwa && !isRpa && !isVR && !isFullStack && !isBlockchain && !isArtificialIntelligence && !isGenerativeAi && !isNodeJs && !isJava && !isPhp && !isNet && !isXamarin && !isAndroid && !isReactNative && !isFlutter && !isIOS && !isHealthcare && !isEducation && !isUber && !isSpotify && !isZomato && !isAmazon && !isVisitor && !isWarehouse && !isClover && !isCSharp && !isIWatch && !isWordpress && !isDrupal && !isUmbraco && !isSitecore && !isSitefinity && !isMagento && !isShopify && !isCovid && !isEcommerceApp) {
+    if (!isOnDemandApp && !isBarberApp && !isLanguageLearningApp && !isNintex && !isTestingQa && !isDigitalMarketing && !isUiUxDesign && !isChatGpt && !isSoftwareDevelopers && !isDedicatedDevelopers && !isMetaverse && !isEmbeddedSoftware && !isAlexaSkills && !isDataScientist && !isAnyDedicatedHire && !isKotlin && !isHybrid && !isPersonalFitness && !isUsedCar && !isEnneagram && !isCreditCard && !isIPad && !isCrossPlatform && !isItConsulting && !isNext && !isExpress && !isMobileApp && !isBootstrap && !isCodeIgniter && !isEmber && !isLaravel && !isPowerAutomate && !isPowerApps && !isSharePoint && !isVue && !isReact && !isAngular && !isIot && !isPwa && !isRpa && !isVR && !isFullStack && !isBlockchain && !isArtificialIntelligence && !isGenerativeAi && !isNodeJs && !isJava && !isPhp && !isNet && !isXamarin && !isAndroid && !isReactNative && !isFlutter && !isIOS && !isHealthcare && !isEducation && !isUber && !isSpotify && !isZomato && !isAmazon && !isVisitor && !isWarehouse && !isClover && !isCSharp && !isIWatch && !isWordpress && !isDrupal && !isUmbraco && !isSitecore && !isSitefinity && !isMagento && !isShopify && !isCovid && !isEcommerceApp && !isProductFinderApp && !isEyelashBookingApp && !isDataCleansing && !isDataAnnotation && !isPatientManagement && !isDigitalTwin && !isArtistCollaboration && !isMobileAppPorting) {
       fetchServiceDetails();
     } else {
       setLoading(false);
     }
     window.scrollTo(0, 0);
   }, [currentSlug]);
+
+  if (isBarberApp) {
+    return <BarberAppDevelopmentService />;
+  }
+
+  if (isOnDemandApp) {
+    return <OnDemandAppDevelopmentService />;
+  }
+
+  if (isEyelashBookingApp) {
+    return <EyelashAppointmentBookingAppService />;
+  }
+
+  if (isLanguageLearningApp) {
+    return <LanguageLearningAppService />;
+  }
 
   if (isChatGpt) {
     return <HireChatGptDevelopersService />;
@@ -747,6 +876,10 @@ export const ServiceDetails = () => {
     return <IWatchAppDevelopmentService />;
   }
 
+  if (isEcommerceApp) {
+    return <EcommerceMobileAppDevelopmentService />;
+  }
+
   if (isMobileApp) {
     return <MobileAppDevelopmentService />;
   }
@@ -821,6 +954,38 @@ export const ServiceDetails = () => {
 
   if (isDigitalMarketing) {
     return <DigitalMarketingService />;
+  }
+
+  if (isTestingQa) {
+    return <TestingQaService />;
+  }
+
+  if (isNintex) {
+    return <NintexDevelopmentService />;
+  }
+
+  if (isMobileAppPorting) {
+    return <MobileAppPortingService />;
+  }
+
+  if (isDataCleansing) {
+    return <DataCleansingService />;
+  }
+
+  if (isDataAnnotation) {
+    return <DataAnnotationService />;
+  }
+
+  if (isPatientManagement) {
+    return <PatientManagementService />;
+  }
+
+  if (isDigitalTwin) {
+    return <DigitalTwinSolutionsService />;
+  }
+
+  if (isArtistCollaboration) {
+    return <ArtistCollaborationPlatformService />;
   }
 
   if (isPowerAutomate) {
@@ -987,7 +1152,13 @@ export const ServiceDetails = () => {
     return <HireCSharpDevelopersService />;
   }
 
+  if (isCovid) {
+    return <CovidTrackerAppDevelopmentService />;
+  }
 
+  if (isProductFinderApp) {
+    return <ProductFinderAppDevelopmentService />;
+  }
 
   if (loading) {
     return (
@@ -995,10 +1166,6 @@ export const ServiceDetails = () => {
         <LoadingSpinner size="lg" />
       </div>
     );
-  }
-
-  if (isCovid) {
-    return <CovidTrackerAppDevelopmentService />;
   }
 
   if (loading) return <LoadingSpinner fullPage message="Loading service details..." />;

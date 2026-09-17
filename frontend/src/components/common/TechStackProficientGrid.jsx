@@ -106,7 +106,7 @@ export const TechStackProficientGrid = ({
 
               {/* Right Pills Area */}
               <div className="flex-1 p-3.5 sm:p-4 flex flex-wrap items-center gap-2 sm:gap-2.5">
-                {row.pills.map((pill, pIdx) => (
+                {(row.pills || (Array.isArray(row.technologies) ? row.technologies.map(t => (typeof t === 'string' ? t : t?.name || '')) : [])).map((pill, pIdx) => (
                   <span
                     key={pIdx}
                     className="bg-white text-slate-800 font-semibold text-xs sm:text-[13px] px-3.5 sm:px-4 py-1.5 rounded-md shadow-2xs border border-slate-200/60 hover:text-[#006095] hover:border-[#006095]/40 transition-colors"

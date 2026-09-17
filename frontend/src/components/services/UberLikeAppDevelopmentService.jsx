@@ -2,15 +2,17 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import SEO from '../common/SEO';
 import Container from '../common/Container';
-import WorkProcessGrid from '../home/WorkProcessGrid';
-import SuccessMatrixGrid from '../home/SuccessMatrixGrid';
+import SuccessStoriesSection from '../common/SuccessStoriesSection';
 import TrustedBrandsGrid from '../common/TrustedBrandsGrid';
 import SapphireTechStackGrid from '../common/SapphireTechStackGrid';
 import BrandLogoMarquee from '../common/BrandLogoMarquee';
 import SapphireLightHeroBanner from '../common/SapphireLightHeroBanner';
+import PremiumServicesGrid from '../common/PremiumServicesGrid';
+import WorkProcessGrid from '../home/WorkProcessGrid';
+import SuccessMatrixGrid from '../home/SuccessMatrixGrid';
 import DigitalTransformationCaseStudies from '../home/DigitalTransformationCaseStudies';
-import UnveilingInnovativeSolutionsVideoSlider from '../home/UnveilingInnovativeSolutionsVideoSlider';
-import WhatOurClientsSayClutchSlider from '../home/WhatOurClientsSayClutchSlider';
+import InnovativeSolutionVideo from '../home/InnovativeSolutionVideo';
+import ClientReviewsDarkSection from '../home/ClientReviewsDarkSection';
 import OurStoryTheirWordsVideoTestimonialsSlider from '../home/OurStoryTheirWordsVideoTestimonialsSlider';
 import SapphireFaqWithStatBadges from '../home/SapphireFaqWithStatBadges';
 import WeHaveBeenFeaturedInGrid from '../home/WeHaveBeenFeaturedInGrid';
@@ -50,6 +52,24 @@ import {
   FileText,
   Play
 } from 'lucide-react';
+
+/* Missing Icon Component Mappings */
+const UserRegisterIcon = User;
+const CarBookingIcon = Car;
+const FareCalculationIcon = DollarSign;
+const DriverTrackingIcon = Navigation;
+const PaymentIcon = CreditCard;
+const PushAlertsIcon = Bell;
+const UberDeliveryBusinessIcon = Truck;
+const UberTransportationIcon = Car;
+const UberFemaleSafetyIcon = ShieldCheck;
+const UberCloudKitchenIcon = Utensils;
+const UberChildSafetyIcon = Baby;
+const UberCaregiversIcon = HeartHandshake;
+const FixedPriceIcon = DollarSign;
+const TimeMaterialIcon = Clock;
+const DedicatedTeamIcon = Users;
+const BucketsApproachIcon = Sliders;
 
 /* Super Ride Taxi – Cab Booking App Video Showcase Component (1:1 Screenshot Match) */
 const SuperRideTaxiVideoShowcase = () => {
@@ -1347,20 +1367,17 @@ export const UberLikeAppDevelopmentService = () => {
       {/* Digital Transformation Case Studies Carousel (1:1 Match to 1st image with peek & 2.5s auto-scroll) */}
       <DigitalTransformationCaseStudies />
 
-      {/* Unveiling Our Innovative Solution Video Slider (17 Videos, Interactive Modal, 3s Auto Scroll) */}
-      <UnveilingInnovativeSolutionsVideoSlider />
+      {/* Unveiling Our Innovative Solution Video Slider */}
+      <InnovativeSolutionVideo />
 
-      {/* Process We Follow - Sapphire 8-Step Timeline (Moved directly below Video Slider) */}
-      <ProcessWeFollow
-        title="Process We Follow"
-        subtitle="Process-oriented execution from initial blueprinting to UAT, deployment, and ongoing SLA maintenance."
-      />
+      {/* Process We Follow - Work Process Grid */}
+      <WorkProcessGrid />
 
-      {/* What Our Clients Say - Clutch Client Reviews Slider (9 Reviews, 2.5s Auto Scroll, 1:1 Match) */}
-      <WhatOurClientsSayClutchSlider />
+      {/* What Our Clients Say - Client Reviews Dark Section */}
+      <ClientReviewsDarkSection />
 
-      {/* Sapphire Success Matrix (Moved directly below What Our Clients Say) */}
-      <SuccessMatrix />
+      {/* Sapphire Success Matrix Grid */}
+      <SuccessMatrixGrid />
 
       {/* Our Story, Their Words Video Testimonials Slider (11 Video Reviews, Interactive Modal, 2.5s Auto Scroll) */}
       <OurStoryTheirWordsVideoTestimonialsSlider />
