@@ -124,51 +124,27 @@ export const NintexDevelopmentService = () => {
   const nintexTechStack = [
     {
       category: 'Frameworks',
-      technologies: [
-        { name: 'React', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
-        { name: 'Node', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
-        { name: 'jQuery', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jquery/jquery-original.svg' },
-        { name: 'C#', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg' },
-        { name: 'TypeScript', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg' }
-      ]
+      pills: ['React', 'Node', 'jQuery', 'C#', 'TypeScript']
     },
     {
       category: 'SharePoint',
-      technologies: [
-        { name: 'SharePoint Server', logo: 'https://cdn.worldvectorlogo.com/logos/microsoft-sharepoint-2013.svg' },
-        { name: 'Office 365', logo: 'https://cdn.worldvectorlogo.com/logos/office-1.svg' }
-      ]
+      pills: ['SharePoint Server', 'Office 365']
     },
     {
       category: 'Database',
-      technologies: [
-        { name: 'SQL Server', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg' }
-      ]
+      pills: ['SQL Server']
     },
     {
       category: 'Microsoft Azure',
-      technologies: [
-        { name: 'Active Directory', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg' },
-        { name: 'Azure Storage', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg' },
-        { name: 'Azure Functions', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg' },
-        { name: 'App Service', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg' }
-      ]
+      pills: ['Active Directory', 'Azure Storage', 'Function', 'App Service']
     },
     {
       category: 'Testing',
-      technologies: [
-        { name: 'Selenium', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/selenium/selenium-original.svg' },
-        { name: 'Postman', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg' },
-        { name: 'Apache JMeter', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apache/apache-original.svg' },
-        { name: 'BrowserStack', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/chrome/chrome-original.svg' }
-      ]
+      pills: ['Selenium', 'Test Rail', 'Postman', 'Apache JMeter', 'BrowserStack', 'OWASP ZAP']
     },
     {
       category: 'Project Management Tool',
-      technologies: [
-        { name: 'Jira', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg' },
-        { name: 'Microservices', logo: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg' }
-      ]
+      pills: ['Jira', 'MVP', 'MVVM', 'Microservices']
     }
   ];
 
