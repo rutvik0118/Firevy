@@ -23,62 +23,8 @@ const defaultLogos = [
   { name: 'The Telegraph', image: '/images/18.svg' }
 ];
 
-    // Row 2
-    {
-      id: 'yourstory',
-      content: (
-        <span className="text-[18px] sm:text-[20px] font-[900] text-slate-800 font-sans tracking-widest uppercase">
-          YOURSTORY
-        </span>
-      )
-    },
-    {
-      id: 'wikipedia',
-      content: (
-        <div className="flex items-center justify-center">
-          <img
-            src="/images/wikipedia_globe.svg"
-            alt="Wikipedia"
-            className="w-16 h-16 sm:w-20 sm:h-20 object-contain"
-          />
-        </div>
-      )
-    },
-    {
-      id: 'entrepreneur',
-      content: (
-        <span className="text-[18px] sm:text-[20px] font-[800] text-slate-900 font-serif tracking-tight">
-          Entrepreneur
-        </span>
-      )
-    },
-    {
-      id: 'mashable',
-      content: (
-        <span className="text-[20px] sm:text-[22px] font-[900] text-slate-600 font-sans tracking-tight">
-          Mashable
-        </span>
-      )
-    },
-    {
-      id: 'capterra',
-      content: (
-        <div className="flex items-center space-x-1.5">
-          <svg viewBox="0 0 24 24" className="w-6 h-6 fill-slate-700">
-            <path d="M2 12L22 2L13 22L11 13L2 12Z" />
-          </svg>
-          <span className="text-[16px] font-[800] text-slate-800 font-sans">Capterra</span>
-        </div>
-      )
-    },
-    {
-      id: 'cnet',
-      content: (
-        <span className="text-[28px] sm:text-[32px] font-[900] text-slate-900 font-sans tracking-tighter">
-          c|net
-        </span>
-      )
-    },
+export const FeaturedInLogosGrid = ({ data, title }) => {
+  const displayTitle = title || data?.title || "Featured In";
 
   // Always display the 18 reference logos in 6x3 grid
   const logos = (data?.logos && Array.isArray(data.logos) && data.logos.length >= 18)
@@ -95,7 +41,7 @@ const defaultLogos = [
           </h2>
         </div>
 
-        {/* 6x3 Grid of 18 Exact Square White Cards (Matching Reference Screenshot 1) */}
+        {/* 6x3 Grid of 18 Exact Square White Cards */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-5 lg:gap-5 max-w-[1240px] mx-auto">
           {logos.map((logo, idx) => {
             const rawSrc = logo.image || defaultLogos[idx % defaultLogos.length]?.image || `/images/${(idx % 18) + 1}.svg`;
