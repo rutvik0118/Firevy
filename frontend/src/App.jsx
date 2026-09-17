@@ -194,6 +194,35 @@ export function App() {
                 <Route path="/ember-js-development" element={<ServiceDetails />} />
                 <Route path="/emberjs" element={<ServiceDetails />} />
                 <Route path="/ember" element={<ServiceDetails />} />
+                <Route path="/services/hire-alexa-skills-developers" element={<ServiceDetails />} />
+                <Route path="/services/hire-alexa-skills-developer" element={<ServiceDetails />} />
+                <Route path="/services/hire-alexa-developer" element={<ServiceDetails />} />
+                <Route path="/hire-alexa-skills-developers" element={<ServiceDetails />} />
+                <Route path="/hire-alexa-skills-developer" element={<ServiceDetails />} />
+                <Route path="/hire-alexa-developer" element={<ServiceDetails />} />
+                <Route path="/hire-alexa-skills" element={<ServiceDetails />} />
+                <Route path="/hire-alexa" element={<ServiceDetails />} />
+                <Route path="/services/hire-dedicated-developers" element={<ServiceDetails />} />
+                <Route path="/services/hire-dedicated-developer" element={<ServiceDetails />} />
+                <Route path="/hire-dedicated-developers" element={<ServiceDetails />} />
+                <Route path="/hire-dedicated-developer" element={<ServiceDetails />} />
+                <Route path="/hire-dedicated" element={<ServiceDetails />} />
+                <Route path="/services/hire-metaverse-developers" element={<ServiceDetails />} />
+                <Route path="/services/hire-metaverse-developer" element={<ServiceDetails />} />
+                <Route path="/hire-metaverse-developers" element={<ServiceDetails />} />
+                <Route path="/hire-metaverse-developer" element={<ServiceDetails />} />
+                <Route path="/hire-metaverse" element={<ServiceDetails />} />
+                <Route path="/metaverse-development" element={<ServiceDetails />} />
+                <Route path="/services/hire-embedded-software-developers" element={<ServiceDetails />} />
+                <Route path="/services/hire-embedded-software-developer" element={<ServiceDetails />} />
+                <Route path="/services/hire-embedded-developers" element={<ServiceDetails />} />
+                <Route path="/services/hire-embedded-developer" element={<ServiceDetails />} />
+                <Route path="/hire-embedded-software-developers" element={<ServiceDetails />} />
+                <Route path="/hire-embedded-software-developer" element={<ServiceDetails />} />
+                <Route path="/hire-embedded-developers" element={<ServiceDetails />} />
+                <Route path="/hire-embedded-developer" element={<ServiceDetails />} />
+                <Route path="/hire-embedded" element={<ServiceDetails />} />
+                <Route path="/embedded-software-development" element={<ServiceDetails />} />
                 <Route path="/services/hire-laravel-developers" element={<ServiceDetails />} />
                 <Route path="/services/hire-laravel-developer" element={<ServiceDetails />} />
                 <Route path="/hire-laravel-developers" element={<ServiceDetails />} />
@@ -250,6 +279,12 @@ export function App() {
                 <Route path="/kotlin-app-development" element={<ServiceDetails />} />
                 <Route path="/services/kotlin" element={<ServiceDetails />} />
                 <Route path="/kotlin" element={<ServiceDetails />} />
+                <Route path="/services/hire-data-scientist-developers" element={<ServiceDetails />} />
+                <Route path="/services/hire-data-scientist-developer" element={<ServiceDetails />} />
+                <Route path="/services/hire-data-scientist" element={<ServiceDetails />} />
+                <Route path="/hire-data-scientist-developers" element={<ServiceDetails />} />
+                <Route path="/hire-data-scientist-developer" element={<ServiceDetails />} />
+                <Route path="/hire-data-scientist" element={<ServiceDetails />} />
                 <Route path="/services/warehouse-management-system" element={<ServiceDetails />} />
                 <Route path="/warehouse-management-system" element={<ServiceDetails />} />
                 <Route path="/services/visitor-management-system" element={<ServiceDetails />} />

@@ -64,10 +64,12 @@ import {
   Sprout,
   GraduationCap,
   ShoppingBag,
-  Scale
+  Scale,
+  Box,
+  Glasses
 } from 'lucide-react';
 
-export const HireNextJsDevelopersService = () => {
+export const HireMetaverseDevelopersService = () => {
   const [openFaq, setOpenFaq] = useState(0);
   const [formSubmitted, setFormSubmitted] = useState(false);
 
@@ -132,38 +134,38 @@ export const HireNextJsDevelopersService = () => {
     }
   ];
 
-  // Next.js FAQs matching Sapphire reference page
+  // Metaverse FAQs matching Sapphire reference page style
   const faqs = [
     {
-      q: 'How much does it cost to hire a Next.js developer?',
-      a: 'Our pricing is straightforward to understand. You may hire a dedicated Next.js developer from us starting at $21/hour or on flexible monthly dedicated contracts based on experience level.'
+      q: 'How much does it cost to hire a Metaverse developer?',
+      a: 'Our pricing is straightforward to understand. You may hire a dedicated Metaverse developer from us starting at $21/hour or on flexible monthly dedicated contracts based on experience level.'
     },
     {
-      q: 'Which is better: Next.js or React.js?',
-      a: 'Next.js is built on top of React.js, adding built-in server-side rendering (SSR), static site generation (SSG), file-based routing (App Router), automatic code splitting, and built-in SEO capabilities out of the box.'
+      q: 'Which technologies are used for Metaverse development?',
+      a: 'Metaverse platforms rely on Unity 3D, Unreal Engine 5, WebGL, Three.js, Babylon.js, WebXR, spatial audio engines, and Web3/blockchain infrastructure for 3D digital assets & avatars.'
     },
     {
-      q: 'Which company is best for Next.js development?',
-      a: 'Firevy.co is a top-rated React & Next.js development company with 20+ years of industry leadership and a team of senior frontend and fullstack engineers delivering high-performance web applications globally.'
+      q: 'Which company is best for Metaverse development?',
+      a: 'Firevy.co is a top-rated Metaverse & 3D Spatial development company with 20+ years of industry leadership and a team of senior 3D graphics engineers and Web3 developers delivering virtual solutions globally.'
     },
     {
-      q: 'Do you give support and maintenance services after Development?',
-      a: 'Yes, we offer comprehensive post-launch support and SLA maintenance packages including security patch rollouts, server scaling, performance tuning, and 24/7 incident monitoring.'
+      q: 'Do you offer post-launch maintenance for 3D virtual worlds?',
+      a: 'Yes, we offer comprehensive post-launch support including 3D server optimization, multi-user concurrency tuning, security patches, avatar asset updates, and 24/7 server SLA monitoring.'
     },
     {
-      q: 'Is Next.js in high demand?',
-      a: 'Yes, Next.js is the most widely used React framework globally, powering lightning-fast websites and web applications for startups and Fortune 500 enterprises alike.'
+      q: 'Is Metaverse technology in high demand?',
+      a: 'Yes, Metaverse and spatial computing platforms are growing rapidly across gaming, corporate virtual offices, e-commerce try-ons, real estate walkthroughs, and interactive educational training environments.'
     },
     {
-      q: 'Why is Next.js the best for web development?',
-      a: 'Next.js offers automatic SSR/SSG rendering, hybrid static & dynamic pages, Vercel cloud deployment, built-in image optimization, and superior SEO performance.'
+      q: 'Why should I hire Metaverse developers from Firevy.co?',
+      a: 'Our dedicated Metaverse developers bring deep 3D spatial domain expertise, bi-weekly agile velocity, 100% IP & code ownership, direct communication, and 15-day risk-free trials to guarantee project success.'
     },
     {
-      q: 'Why should I hire Next.js developers from Firevy.co?',
-      a: 'Our dedicated Next.js developers bring deep domain expertise, bi-weekly agile velocity, 100% IP & code ownership, direct communication, and 15-day risk-free trials to guarantee project success.'
+      q: 'Can Metaverse applications run on web browsers and VR headsets?',
+      a: 'Absolutely. We specialize in cross-platform WebXR development, allowing users to experience 3D virtual worlds on web browsers (desktops/mobiles) as well as dedicated VR/AR devices like Meta Quest and Apple Vision Pro.'
     },
     {
-      q: 'Do you offer Next.js development services for global clients like the USA, UK, Canada, and Australia?',
+      q: 'Do you offer Metaverse development services for global clients like the USA, UK, Canada, and Australia?',
       a: 'Yes, we serve clients globally across the USA, UK, Canada, Australia, UAE, and Europe, adapting seamlessly to your time zone and workflow requirements.'
     }
   ];
@@ -171,9 +173,9 @@ export const HireNextJsDevelopersService = () => {
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-[#006095] selection:text-white">
       <SEO
-        title="Hire Next JS Developers | Dedicated Next.js Frontend & Fullstack Engineers"
-        description="Hire dedicated Next.js developers from Firevy.co. Top 1% vetted React & Next.js experts for high-performance SSR web apps, App Router, and scalable frontend architectures."
-        keywords="Hire Next JS Developers, Hire Next.js Developer, Next JS Development Company, Dedicated React Engineers"
+        title="Hire Metaverse Developers | Dedicated 3D, VR/AR & Web3 Engineers"
+        description="Hire dedicated Metaverse developers from Firevy.co. Top 1% vetted 3D Spatial, Unity, Unreal Engine, WebGL & VR/AR experts for high-performance virtual worlds and Web3 environments."
+        keywords="Hire Metaverse Developers, Hire Metaverse Developer, Metaverse Development Company, Dedicated VR AR Engineers, Web3 3D Developers"
       />
 
       {/* ============================================================
@@ -186,10 +188,10 @@ export const HireNextJsDevelopersService = () => {
             <div className="lg:col-span-7 space-y-6 text-left">
               <div className="space-y-4">
                 <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-[900] text-slate-900 tracking-tight leading-[1.15]">
-                  Hire Next js Developers
+                  Hire Metaverse Developers
                 </h1>
                 <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed max-w-2xl">
-                  Hire Firevy.co's dedicated Next.js development experts to create reliable React applications, high-performing server-side rendered (SSR) systems, or full-stack web applications that scale with your needs. Firevy.co development has an array of skilled Next.js frontend and fullstack developers for hire that specialize in developing reliable server-side rendering, App Router architecture, static site generation (SSG), and cloud-ready architectures based on React and Next.js. Whether you're developing a SaaS platform, real-time application, or web system for enterprise use, we provide secure, efficient, and production-grade solutions for your unique use case. Collaborating with our developers allows you to cut down on development time and speed up your time-to-market using modern Next.js engineering methodology.
+                  Hire Firevy.co's dedicated Metaverse development experts to create immersive 3D virtual worlds, augmented and virtual reality (AR/VR) platforms, spatial computing solutions, or full-stack Web3 metaverse platforms that scale with your vision. Firevy.co development has an array of skilled Metaverse 3D developers, Unity/Unreal engineers, WebGL developers, and Web3 spatial computing specialists for hire. Whether you're developing a virtual real estate platform, 3D avatar ecosystem, VR gaming arena, or enterprise virtual collaboration environment, we provide secure, high-performance, and production-grade solutions for your unique use case. Collaborating with our developers allows you to cut down on development time and speed up your time-to-market using modern 3D spatial engineering methodology.
                 </p>
               </div>
 
@@ -235,7 +237,7 @@ export const HireNextJsDevelopersService = () => {
               </div>
             </div>
 
-            {/* Right Hero Graphic Banner (Clean Illustration directly on white background) */}
+            {/* Right Hero Graphic Banner */}
             <div className="lg:col-span-5 relative flex justify-center items-center">
               <div className="relative w-full max-w-[480px] flex justify-center items-center">
                 <svg viewBox="0 0 500 400" className="w-full h-auto drop-shadow-md" fill="none">
@@ -246,7 +248,7 @@ export const HireNextJsDevelopersService = () => {
                   <rect x="220" y="310" width="60" height="25" rx="4" fill="#94A3B8" />
                   <ellipse cx="250" cy="335" rx="55" ry="10" fill="#64748B" />
 
-                  {/* Main Blue Window / Monitor */}
+                  {/* Main Dark Window / Monitor */}
                   <rect x="95" y="115" width="310" height="200" rx="16" fill="#0F172A" />
                   <rect x="105" y="125" width="290" height="180" rx="10" fill="#1E293B" />
 
@@ -255,7 +257,7 @@ export const HireNextJsDevelopersService = () => {
                   <circle cx="132" cy="138" r="4" fill="#F59E0B" />
                   <circle cx="144" cy="138" r="4" fill="#10B981" />
 
-                  {/* Inner Screen Windows */}
+                  {/* Inner Screen Metaverse Windows */}
                   <rect x="120" y="152" width="80" height="60" rx="6" fill="#006095" />
                   <rect x="210" y="152" width="80" height="60" rx="6" fill="#38BDF8" />
                   <rect x="300" y="152" width="85" height="60" rx="6" fill="#0284C7" />
@@ -263,17 +265,17 @@ export const HireNextJsDevelopersService = () => {
                   <rect x="120" y="242" width="120" height="10" rx="4" fill="#006095" />
                   <rect x="120" y="260" width="245" height="12" rx="4" fill="#0284C7" />
 
-                  {/* Floating Next.js "N" Circle Logo */}
-                  <circle cx="100" cy="225" r="22" fill="#000000" stroke="#FFFFFF" strokeWidth="3" />
-                  <text x="100" y="232" textAnchor="middle" fill="#FFFFFF" fontSize="16" fontWeight="bold" fontFamily="sans-serif">N</text>
+                  {/* Floating Metaverse Badge "3D" Circle Logo */}
+                  <circle cx="100" cy="225" r="22" fill="#006095" stroke="#FFFFFF" strokeWidth="3" />
+                  <text x="100" y="231" textAnchor="middle" fill="#FFFFFF" fontSize="14" fontWeight="bold" fontFamily="sans-serif">3D</text>
 
-                  {/* Floating Code Badge Left: </> */}
+                  {/* Floating Code Badge Left: VR */}
                   <rect x="100" y="70" width="48" height="34" rx="8" fill="#38BDF8" />
-                  <text x="124" y="93" textAnchor="middle" fill="#FFFFFF" fontSize="16" fontWeight="extrabold">&lt;/&gt;</text>
+                  <text x="124" y="93" textAnchor="middle" fill="#FFFFFF" fontSize="15" fontWeight="extrabold">VR</text>
 
-                  {/* Floating Code Badge Right: {} */}
-                  <rect x="340" y="55" width="48" height="34" rx="8" fill="#10B981" />
-                  <text x="364" y="78" textAnchor="middle" fill="#FFFFFF" fontSize="18" fontWeight="extrabold">&#123;&#125;</text>
+                  {/* Floating Code Badge Right: Web3 */}
+                  <rect x="340" y="55" width="56" height="34" rx="8" fill="#10B981" />
+                  <text x="368" y="78" textAnchor="middle" fill="#FFFFFF" fontSize="15" fontWeight="extrabold">Web3</text>
 
                   {/* Left Female Developer Figure */}
                   <circle cx="75" cy="245" r="10" fill="#F43F5E" />
@@ -299,7 +301,7 @@ export const HireNextJsDevelopersService = () => {
       <BrandLogoMarquee />
 
       {/* ============================================================
-          SECTION: HIRE DEDICATED NEXT.JS DEVELOPERS
+          SECTION: HIRE DEDICATED METAVERSE DEVELOPERS
           ============================================================ */}
       <section className="py-16 md:py-20 bg-white border-b border-slate-100 font-sans">
         <Container>
@@ -309,7 +311,7 @@ export const HireNextJsDevelopersService = () => {
               <div className="relative w-full max-w-[480px]">
                 <img
                   src="/images/react_section2_illustration.jpg"
-                  alt="Hire Dedicated Next.JS Developers"
+                  alt="Hire Dedicated Metaverse Developers"
                   className="w-full h-auto object-contain rounded-2xl shadow-xl border border-slate-200/80 hover:shadow-blue-500/10 transition-shadow duration-300"
                 />
               </div>
@@ -318,10 +320,10 @@ export const HireNextJsDevelopersService = () => {
             {/* Right Text Column */}
             <div className="lg:col-span-6 space-y-5 text-left">
               <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-[900] text-slate-900 tracking-tight leading-[1.2]">
-                Hire Dedicated Next.Js Developers For Server-Side Rendering & App Router
+                Hire Dedicated Metaverse Developers For 3D Web3 Worlds & Spatial Computing
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed">
-                By hiring Next.js development professionals, you can gain access to developers who are experienced in developing best-in-practice Next.js web applications, App Router, server actions, authentication systems, caching layers, and integrations. Hire Nextjs Developers that deliver ultra-fast, SEO-optimized, decoupled, and maintainable frontend solutions while ensuring performance and security is prioritized. From developing custom RESTful & GraphQL APIs to managing third-party service integrations, our Next.js development team enhances communication between front-end interfaces and back-end systems seamlessly.
+                By hiring Metaverse development professionals, you can gain access to developers who are experienced in developing best-in-practice 3D virtual environments, WebGL applications, Unity and Unreal Engine integrations, spatial audio, and decentralized Web3 ecosystems. Hire Metaverse Developers that deliver ultra-immersive, high-FPS, cross-device 3D experiences while ensuring performance and rendering optimization is prioritized. From developing custom 3D asset pipelines to managing blockchain smart contract & NFT avatar integrations, our Metaverse development team enhances user engagement seamlessly.
               </p>
             </div>
           </div>
@@ -329,7 +331,7 @@ export const HireNextJsDevelopersService = () => {
       </section>
 
       {/* ============================================================
-          SECTION 3: BRIEF ABOUT OUR NEXT JS DEVELOPMENT SERVICES
+          SECTION 3: BRIEF ABOUT OUR METAVERSE DEVELOPERS SERVICES
           ============================================================ */}
       <section className="py-16 md:py-24 bg-white text-slate-900 font-sans border-b border-slate-100">
         <Container>
@@ -337,11 +339,11 @@ export const HireNextJsDevelopersService = () => {
             {/* Left Content Column */}
             <div className="lg:col-span-6 space-y-6 text-left">
               <h2 className="text-2xl sm:text-3xl lg:text-[38px] font-[900] text-slate-900 tracking-tight leading-tight">
-                Brief About Our Next JS Development Services
+                Brief About Our Metaverse Developers Services
               </h2>
               <div className="space-y-4 text-xs sm:text-sm text-slate-600 font-normal leading-relaxed">
                 <p>
-                  Our Next JS developers are pretty efficient and hold years of expertise. Other perks of hiring our developers include: We enable you to communicate with your development team in real-time and directly using Skype, Slack, or Teams. You are free to receive demonstrations whenever it is convenient for you. Stop wishing things are going according to plan and start realizing they are. From the initial conception to the final invoicing of your projects, you will have the ability to see the whole process personally. Hire Dedicated Next.js Developers who have received instruction in efficient communication and are always accessible to speak with you in real-time. Without mutual trust, there can be no successful collaboration. Trust is the foundation upon which Firevy.co was formed, and we are aware that it is something that must be gained, appreciated, and maintained.
+                  Our metaverse developers are pretty efficient and hold years of expertise. Other perks of hiring our developers include: We enable you to communicate with your development team in real-time and directly using Skype, Slack, or Teams. You are free to receive demonstrations whenever it is convenient for you. Stop wishing things are going according to plan and start realizing they are. From the initial conception to the final invoicing of your projects, you will have the ability to see the whole process personally. Hire Dedicated Metaverse Developers who have received instruction in efficient communication and are always accessible to speak with you in real-time. Without mutual trust, there can be no successful collaboration. Trust is the foundation upon which Firevy.co was formed, and we are aware that it is something that must be gained, appreciated, and maintained.
                 </p>
               </div>
             </div>
@@ -402,95 +404,19 @@ export const HireNextJsDevelopersService = () => {
         </Container>
       </section>
 
-      {/* ============================================================
-          SECTION 5: HIRE EXPERT NEXT.JS DEVELOPERS FOR GLOBAL NEEDS (Exact Sapphire Match)
-          ============================================================ */}
-      <section className="py-16 md:py-24 bg-white text-slate-900 font-sans border-b border-slate-100">
-        <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Left Content Column */}
-            <div className="lg:col-span-7 space-y-6">
-              <h2 className="text-2xl sm:text-3xl lg:text-[38px] font-[900] text-slate-900 tracking-tight leading-tight">
-                Hire Expert Next.Js Developers For Global Needs
-              </h2>
-
-              <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
-                We provide flexible employment models that are in line with the complexity, timeline, and budget of your project. If you're building a new team or need to supplement an existing one, our Next.js engineers fit right into your process. Firevy.co provides services to clients in the USA, UK, Canada, Australia, India, and the UAE with developers accustomed to working across different time zones and operating effectively remotely. Our emphasis on quick iterations, open processes, and consistent execution differentiates us in the competitive environment of frontend development services.
-              </p>
-            </div>
-
-            {/* Right Column: Exact Vector SVG Illustration matching Sapphire Reference Image 1 */}
-            <div className="lg:col-span-5 relative flex justify-center items-center">
-              <div className="relative w-full max-w-[480px]">
-                <svg viewBox="0 0 500 400" className="w-full h-auto drop-shadow-sm" fill="none">
-                  {/* Soft Background Cloud Blob */}
-                  <path d="M 60 170 C 60 90, 130 50, 210 70 C 280 30, 390 50, 430 110 C 480 160, 470 260, 410 310 C 350 360, 130 360, 80 310 C 40 260, 60 210, 60 170 Z" fill="#D4ECF9" />
-
-                  {/* Monitor Stand & Base */}
-                  <rect x="220" y="310" width="60" height="25" rx="4" fill="#94A3B8" />
-                  <ellipse cx="250" cy="335" rx="55" ry="10" fill="#64748B" />
-
-                  {/* Main Blue Window / Monitor */}
-                  <rect x="95" y="115" width="310" height="200" rx="16" fill="#006095" />
-                  <rect x="105" y="125" width="290" height="180" rx="10" fill="#38BDF8" />
-
-                  {/* Browser Header dots */}
-                  <circle cx="120" cy="138" r="4" fill="#EF4444" />
-                  <circle cx="132" cy="138" r="4" fill="#F59E0B" />
-                  <circle cx="144" cy="138" r="4" fill="#10B981" />
-
-                  {/* Inner Screen Windows */}
-                  <rect x="120" y="152" width="80" height="60" rx="6" fill="#FFFFFF" opacity="0.9" />
-                  <rect x="210" y="152" width="80" height="60" rx="6" fill="#006095" />
-                  <rect x="300" y="152" width="85" height="60" rx="6" fill="#FFFFFF" opacity="0.9" />
-                  <rect x="120" y="222" width="170" height="12" rx="4" fill="#FFFFFF" opacity="0.8" />
-                  <rect x="120" y="242" width="120" height="10" rx="4" fill="#006095" />
-                  <rect x="120" y="260" width="245" height="12" rx="4" fill="#FFFFFF" opacity="0.9" />
-
-                  {/* Floating Next.js "N" Circle Logo */}
-                  <circle cx="250" cy="285" r="18" fill="#000000" stroke="#FFFFFF" strokeWidth="2.5" />
-                  <text x="250" y="291" textAnchor="middle" fill="#FFFFFF" fontSize="14" fontWeight="bold" fontFamily="sans-serif">N</text>
-
-                  {/* Floating Heart Badge */}
-                  <circle cx="365" cy="140" r="22" fill="#38BDF8" />
-                  <path d="M 365 147 C 362 144, 355 137, 355 133 C 355 129, 358 126, 362 126 C 364 126, 365 127, 365 128 C 365 127, 366 126, 368 126 C 372 126, 375 129, 375 133 C 375 137, 368 144, 365 147 Z" fill="#FFFFFF" />
-
-                  {/* Floating Image Icon Badge */}
-                  <rect x="305" y="80" width="40" height="30" rx="6" fill="#38BDF8" />
-                  <path d="M 315 98 L 325 88 L 335 98 Z" fill="#FFFFFF" />
-
-                  {/* Left Male Developer Standing Figure */}
-                  <circle cx="140" cy="165" r="14" fill="#FDBA74" />
-                  <path d="M 128 165 C 128 150, 152 150, 152 165 Z" fill="#0F172A" />
-                  <path d="M 125 185 L 155 185 L 150 290 L 130 290 Z" fill="#006095" />
-                  <rect x="132" y="290" width="8" height="35" fill="#1E293B" />
-                  <rect x="142" y="290" width="8" height="35" fill="#1E293B" />
-
-                  {/* Right Female Developer Standing Figure */}
-                  <circle cx="390" cy="165" r="14" fill="#FDBA74" />
-                  <path d="M 378 165 C 378 145, 402 145, 402 165 Z" fill="#0F172A" />
-                  <path d="M 375 185 L 405 185 L 400 290 L 380 290 Z" fill="#006095" />
-                  <rect x="382" y="290" width="8" height="35" fill="#1E293B" />
-                  <rect x="392" y="290" width="8" height="35" fill="#1E293B" />
-                </svg>
-              </div>
-            </div>
-          </div>
-        </Container>
-      </section>
 
       {/* ============================================================
           SECTION 6: CLUTCH TOP RATED BANNER
           ============================================================ */}
-      <ClutchTopRatedBanner title="World Wide Top Rated Next JS Development Company on Clutch" />
+      <ClutchTopRatedBanner title="World Wide Top Rated Metaverse Development Company on Clutch" />
 
       {/* ============================================================
-          SECTION 7: NEXT.JS DEVELOPMENT TEAM FOR ENTERPRISE PROJECTS
+          SECTION 7: METAVERSE DEVELOPMENT TEAM FOR ENTERPRISE PROJECTS
           ============================================================ */}
       <section className="py-16 md:py-24 bg-white font-sans text-slate-900 border-b border-slate-100">
         <Container>
           <h2 className="text-2xl sm:text-3xl lg:text-[40px] font-[900] text-slate-900 tracking-tight leading-tight text-center mb-12 sm:mb-16">
-            Next.js Development Team for Enterprise Projects
+            Metaverse Development Team for Enterprise Projects
           </h2>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
@@ -513,7 +439,7 @@ export const HireNextJsDevelopersService = () => {
             <div className="lg:col-span-7 flex flex-col justify-between space-y-6">
               <div className="space-y-5 text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
                 <p>
-                  When you're building an MVP or onboarding a global product, our Next.js engineering team will assist you in designing secure, modular, high-performance architectures. We like to say our full-cycle development services include planning, coding, testing, deploying, and maintaining your project and ensuring your web platform is future-proof. If you're looking to hire Next js developers that are familiar with modern React SSR engineering, Vercel cloud infrastructure, and web security, we have the skills and consistency you'll need from a technology vendor.
+                  When you're building a metaverse MVP or onboarding a virtual world product, our Metaverse engineering team will assist you in designing secure, high-throughput 3D spatial architectures. We like to say our full-cycle development services include planning, coding, testing, deploying, and maintaining your project and ensuring your virtual environment is future-proof. If you're looking to hire Metaverse developers that are familiar with modern 3D graphics rendering, WebGL, Unity/Unreal Engine, Web3 smart contracts, and cloud infrastructure, we have the skills and consistency you'll need from a technology vendor.
                 </p>
               </div>
 
@@ -587,29 +513,29 @@ export const HireNextJsDevelopersService = () => {
                 {
                   id: 1,
                   category: 'Trending',
-                  title: 'Next.js Frontend Team',
-                  image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&auto=format&fit=crop&q=80',
-                  techs: ['Next.js', 'React', 'TypeScript', 'Tailwind', 'GraphQL'],
-                  composition: ['1 Tech Lead', '3 Senior Frontend Devs', '1 UI/UX Specialist', '1 QA Engineer'],
-                  summary: 'High-performing Next.js frontend squad building SSR & SSG enterprise web applications.'
+                  title: 'Metaverse 3D Squad',
+                  image: 'https://images.unsplash.com/photo-1593508512255-86ab42a8e620?w=800&auto=format&fit=crop&q=80',
+                  techs: ['Unity 3D', 'Three.js', 'WebGL', 'WebXR', 'Blender'],
+                  composition: ['1 Spatial Architect', '3 Senior 3D Developers', '1 3D Artist', '1 QA Engineer'],
+                  summary: 'High-performing 3D Metaverse squad building interactive virtual worlds and WebGL engines.'
                 },
                 {
                   id: 2,
                   category: 'Product Development',
-                  title: 'Saas Product Dev. Team',
-                  image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&auto=format&fit=crop&q=80',
-                  techs: ['Next.js', 'Node.js', 'DevOps', 'Prisma', 'PostgreSQL'],
-                  composition: ['1 Product Manager', '4 Full-Stack Engineers', '1 DevOps Specialist', '1 UI/UX Lead'],
-                  summary: 'Specialized SaaS product squad engineering cloud-native microservices with Next.js.'
+                  title: 'VR/AR Spatial Dev Team',
+                  image: 'https://images.unsplash.com/photo-1622979135225-d2ba269bc1bd?w=800&auto=format&fit=crop&q=80',
+                  techs: ['Unreal Engine 5', 'Meta Quest SDK', 'ARKit', 'WebXR'],
+                  composition: ['1 VR Product Lead', '4 Immersive Engineers', '1 Spatial Audio Lead', '1 3D Animator'],
+                  summary: 'Specialized VR/AR team engineering cross-device immersive spatial applications.'
                 },
                 {
                   id: 3,
                   category: 'Trending',
-                  title: 'React & Next.js Squad',
-                  image: 'https://images.unsplash.com/photo-1616469829941-c7200edec809?w=800&auto=format&fit=crop&q=80',
-                  techs: ['Next.js App Router', 'Vercel', 'TRPC', 'Tailwind CSS'],
-                  composition: ['1 Solution Architect', '3 Senior Next.js Engineers', '1 Frontend Lead'],
-                  summary: 'Dedicated React & Next.js engineers delivering high-performance web applications.'
+                  title: 'Web3 & Virtual World Team',
+                  image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=800&auto=format&fit=crop&q=80',
+                  techs: ['Solidity', 'Web3.js', 'Decentraland SDK', '3D Asset Pipeline'],
+                  composition: ['1 Blockchain Lead', '3 Metaverse Engineers', '1 Smart Contract Auditor'],
+                  summary: 'Dedicated Web3 Metaverse developers integrating decentralized avatars & NFT land.'
                 }
               ].map((team) => {
                 const currentTab = expertTabs[team.id] || 'tech';
@@ -738,8 +664,8 @@ export const HireNextJsDevelopersService = () => {
                   desc: 'Use the FastAPI framework to your advantage by hiring our skilled full-stack engineers who are proficient in FastAPI development. Utilizing technologies such as Pydantic and Starlette, their knowledge allows them to develop dynamic web apps that are optimized for smooth integration and an outstanding user experience.'
                 },
                 {
-                  title: 'Next JS Developers',
-                  desc: 'Employ our passionate Next.js developers to build websites; they possess a thorough grasp of the Next.js technology. Has proficiency in developing sophisticated online solutions that provide unified user experience and contemporary design using technologies like Styled Components and React Query. Collaborate with our Next.js programmers to improve your websites.'
+                  title: 'Metaverse Developers',
+                  desc: 'Employ our passionate Metaverse developers to build 3D virtual worlds; they possess a thorough grasp of Unity 3D, Unreal Engine 5, WebGL, and spatial computing. Has proficiency in developing sophisticated virtual environments that provide unified user experience and contemporary 3D rendering. Collaborate with our Metaverse programmers to improve your virtual platforms.'
                 },
                 {
                   title: 'Machine Learning Developers',
@@ -1094,55 +1020,55 @@ export const HireNextJsDevelopersService = () => {
       <TechStackProficientGrid />
 
       {/* =========================================================================
-          SECTION 10B: THE EXPERTISE OF OUR NEXT JS DEVELOPERS SERVICES
+          SECTION 10B: THE EXPERTISE OF OUR METAVERSE DEVELOPERS SERVICES
           ========================================================================= */}
       <section className="py-16 md:py-24 bg-[#F0F7FC] text-slate-900 font-sans border-b border-slate-100">
         <Container>
           <div className="space-y-12 max-w-6xl mx-auto">
             <div className="text-center space-y-3 max-w-4xl mx-auto">
               <h2 className="text-2xl sm:text-3xl lg:text-[38px] font-[900] text-slate-900 tracking-tight leading-tight">
-                The Expertise Of Our Next JS Developers Services
+                The Expertise Of Our Metaverse Developers Services
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 font-medium max-w-3xl mx-auto">
-                We have a pool of dedicated Next JS developers available for hire. Take a look at the expertise of our developers:
+                We have a pool of dedicated Metaverse developers available for hire. Take a look at the expertise of our developers:
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[
                 {
-                  title: 'Custom Next JS Development',
-                  desc: 'Your concept may be brought to life by the power of Next.js, which can be unlocked by our devoted frontend and fullstack developers who engineer scalable SSR web applications.',
+                  title: 'Custom Metaverse Development',
+                  desc: 'Your virtual concept may be brought to life by the power of 3D spatial computing, which can be unlocked by our devoted 3D developers who engineer scalable virtual environments.',
                   iconBg: 'bg-purple-100 text-purple-600',
-                  IconComp: Code2
+                  IconComp: Box
                 },
                 {
-                  title: 'Next JS App Router & SSR',
-                  desc: 'Hire our Next JS developers to construct modern App Router architectures, server-side rendered pages, and design bespoke APIs for companies of any size.',
+                  title: 'VR/AR Spatial Computing',
+                  desc: 'Hire our Metaverse developers to construct immersive VR/AR applications, WebXR experiences, and spatial audio architectures for companies of any size.',
                   iconBg: 'bg-emerald-100 text-emerald-600',
-                  IconComp: Server
+                  IconComp: Glasses
                 },
                 {
-                  title: 'Enterprise Next Solutions',
-                  desc: 'You can now hire Next JS developers in UAE or anywhere else in the world to create scalable web platforms for large-scale enterprise businesses.',
+                  title: 'Enterprise Virtual Worlds',
+                  desc: 'You can now hire Metaverse developers in UAE or anywhere else in the world to create scalable 3D virtual platforms for large-scale enterprise businesses.',
                   iconBg: 'bg-orange-100 text-orange-600',
                   IconComp: Building2
                 },
                 {
-                  title: 'Next Component & Module Dev',
-                  desc: 'Are you looking for efficient solutions for the creation of reusable UI components and modules? Hire Next.js developer to construct it for you.',
+                  title: '3D Avatar & Asset Pipeline',
+                  desc: 'Are you looking for efficient solutions for the creation of 3D avatars, virtual real estate, and digital twin assets? Hire Metaverse developer to construct it for you.',
                   iconBg: 'bg-amber-100 text-amber-600',
                   IconComp: Layers
                 },
                 {
-                  title: 'Next Management & Maintenance',
-                  desc: 'Employing our remote Next JS developers will ensure that your web applications are handled and maintained according to industry standards.',
+                  title: 'Metaverse Maintenance & Scaling',
+                  desc: 'Employing our remote Metaverse developers will ensure that your 3D virtual platforms and servers are handled and maintained according to industry standards.',
                   iconBg: 'bg-pink-100 text-pink-600',
                   IconComp: Sliders
                 },
                 {
-                  title: 'Next Integration & Upgradation',
-                  desc: 'Are you interested in updating your existing React application to Next.js? We combine the most recent technologies, originating from various platforms.',
+                  title: 'Web3 & Blockchain Integration',
+                  desc: 'Are you interested in integrating Web3 smart contracts, NFT digital assets, and decentralized avatars into your 3D virtual world? We combine the most recent blockchain technologies.',
                   iconBg: 'bg-cyan-100 text-cyan-600',
                   IconComp: Cpu
                 }
@@ -1247,8 +1173,8 @@ export const HireNextJsDevelopersService = () => {
           SECTION 12: HIRE DEVELOPER 4 STEPS
           ============================================================ */}
       <HireDeveloper4Steps
-        title="Hire Next JS Developer In 4 Easy Steps"
-        subtitle="Next JS Developer offers a number of advantages over another platform. Some of them are:"
+        title="Hire Metaverse Developer In 4 Easy Steps"
+        subtitle="Metaverse Developer offers a number of advantages over another platform. Some of them are:"
       />
 
       {/* ============================================================
@@ -1282,4 +1208,4 @@ export const HireNextJsDevelopersService = () => {
   );
 };
 
-export default HireNextJsDevelopersService;
+export default HireMetaverseDevelopersService;

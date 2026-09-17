@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
 import SEO from '../common/SEO';
 import Container from '../common/Container';
 import VideoTestimonialsStory from '../home/VideoTestimonialsStory';
@@ -24,32 +23,19 @@ import SubscribeNewsletterSection from '../home/SubscribeNewsletterSection';
 import {
   Clock,
   Calendar,
-  ArrowLeft,
-  PieChart,
-  Briefcase,
   Code2,
   Cpu,
   Layers,
   ShieldCheck,
   Zap,
-  Star,
   CheckCircle2,
-  ChevronDown,
-  ArrowRight,
   Check,
   Server,
-  Cloud,
-  Database,
   Users,
-  LayoutGrid,
-  ChevronLeft,
-  ChevronRight,
-  Laptop,
   LineChart,
   Globe,
   Coins,
   Award,
-  RotateCw,
   Sliders,
   Lightbulb,
   Headphones,
@@ -61,15 +47,14 @@ import {
   Milestone,
   RefreshCw,
   Building2,
-  Sprout,
-  GraduationCap,
-  ShoppingBag,
-  Scale
+  Database,
+  PieChart,
+  Smartphone,
+  ShieldAlert
 } from 'lucide-react';
 
-export const HireNextJsDevelopersService = () => {
+export const HireBlackberryDevelopersService = () => {
   const [openFaq, setOpenFaq] = useState(0);
-  const [formSubmitted, setFormSubmitted] = useState(false);
 
   // States for Team of Seasoned Experts, Leverage Expertise, Industry Insights, & Responsibility Tabs
   const [expertActiveCategory, setExpertActiveCategory] = useState('Trending');
@@ -132,38 +117,38 @@ export const HireNextJsDevelopersService = () => {
     }
   ];
 
-  // Next.js FAQs matching Sapphire reference page
+  // BlackBerry FAQs matching Sapphire reference page style
   const faqs = [
     {
-      q: 'How much does it cost to hire a Next.js developer?',
-      a: 'Our pricing is straightforward to understand. You may hire a dedicated Next.js developer from us starting at $21/hour or on flexible monthly dedicated contracts based on experience level.'
+      q: 'How much does it cost to hire a BlackBerry app developer from Firevy.co?',
+      a: 'Our pricing is straightforward to understand. You may hire a dedicated BlackBerry app developer from us starting at $21/hour or on flexible monthly dedicated contracts based on experience level.'
     },
     {
-      q: 'Which is better: Next.js or React.js?',
-      a: 'Next.js is built on top of React.js, adding built-in server-side rendering (SSR), static site generation (SSG), file-based routing (App Router), automatic code splitting, and built-in SEO capabilities out of the box.'
+      q: 'What technologies are used in BlackBerry app development?',
+      a: 'We build enterprise BlackBerry solutions using BlackBerry Dynamics SDK, BlackBerry WebWorks, C/C++ NDK, Qt, Java/Android Enterprise APIs, and secure containerization protocols.'
     },
     {
-      q: 'Which company is best for Next.js development?',
-      a: 'Firevy.co is a top-rated React & Next.js development company with 20+ years of industry leadership and a team of senior frontend and fullstack engineers delivering high-performance web applications globally.'
+      q: 'Which company is best for enterprise mobile & BlackBerry app development?',
+      a: 'Firevy.co is a top-rated mobile & security engineering company with 20+ years of industry leadership and a team of senior engineers delivering containerized enterprise mobile applications globally.'
     },
     {
-      q: 'Do you give support and maintenance services after Development?',
-      a: 'Yes, we offer comprehensive post-launch support and SLA maintenance packages including security patch rollouts, server scaling, performance tuning, and 24/7 incident monitoring.'
+      q: 'Do you offer support and SLA maintenance for BlackBerry enterprise solutions?',
+      a: 'Yes, we offer comprehensive post-launch support and SLA maintenance packages including security patch rollouts, OS compatibility upgrades, container management, and 24/7 incident monitoring.'
     },
     {
-      q: 'Is Next.js in high demand?',
-      a: 'Yes, Next.js is the most widely used React framework globally, powering lightning-fast websites and web applications for startups and Fortune 500 enterprises alike.'
+      q: 'Can your BlackBerry developers integrate with existing enterprise MDM/MAM systems?',
+      a: 'Yes, our BlackBerry developers specialize in integrating mobile apps with BlackBerry UEM (Unified Endpoint Management), Microsoft Intune, AirWatch, and custom enterprise container solutions.'
     },
     {
-      q: 'Why is Next.js the best for web development?',
-      a: 'Next.js offers automatic SSR/SSG rendering, hybrid static & dynamic pages, Vercel cloud deployment, built-in image optimization, and superior SEO performance.'
+      q: 'Why should I hire BlackBerry app developers from Firevy.co?',
+      a: 'Our dedicated BlackBerry app developers bring deep mobile security expertise, bi-weekly agile velocity, 100% IP & code ownership, direct communication, and 15-day risk-free trials to guarantee project success.'
     },
     {
-      q: 'Why should I hire Next.js developers from Firevy.co?',
-      a: 'Our dedicated Next.js developers bring deep domain expertise, bi-weekly agile velocity, 100% IP & code ownership, direct communication, and 15-day risk-free trials to guarantee project success.'
+      q: 'Can you migrate legacy BlackBerry applications to modern enterprise platforms?',
+      a: 'Absolutely. We provide full-cycle legacy BlackBerry app migration to modern Android Enterprise, iOS Enterprise, and cross-platform frameworks while preserving military-grade security compliance.'
     },
     {
-      q: 'Do you offer Next.js development services for global clients like the USA, UK, Canada, and Australia?',
+      q: 'Do you offer BlackBerry app development services for global clients like the USA, UK, Canada, and Australia?',
       a: 'Yes, we serve clients globally across the USA, UK, Canada, Australia, UAE, and Europe, adapting seamlessly to your time zone and workflow requirements.'
     }
   ];
@@ -171,9 +156,9 @@ export const HireNextJsDevelopersService = () => {
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-[#006095] selection:text-white">
       <SEO
-        title="Hire Next JS Developers | Dedicated Next.js Frontend & Fullstack Engineers"
-        description="Hire dedicated Next.js developers from Firevy.co. Top 1% vetted React & Next.js experts for high-performance SSR web apps, App Router, and scalable frontend architectures."
-        keywords="Hire Next JS Developers, Hire Next.js Developer, Next JS Development Company, Dedicated React Engineers"
+        title="Hire BlackBerry App Developers | Enterprise Mobile Security Engineers"
+        description="Hire dedicated BlackBerry app developers from Firevy.co. Top 1% vetted enterprise mobile security, BlackBerry Dynamics SDK, containerized apps, and C++/Java developers."
+        keywords="Hire BlackBerry App Developers, Hire Blackberry Developer, BlackBerry Mobile Development Company, Enterprise MDM Developers, Secure Mobile Application Development"
       />
 
       {/* ============================================================
@@ -183,13 +168,13 @@ export const HireNextJsDevelopersService = () => {
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             {/* Left Content Column */}
-            <div className="lg:col-span-7 space-y-6 text-left">
+            <div className="lg:col-span-6 space-y-6 text-left">
               <div className="space-y-4">
-                <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-[900] text-slate-900 tracking-tight leading-[1.15]">
-                  Hire Next js Developers
+                <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-[900] text-slate-900 tracking-tight leading-[1.15]">
+                  Hire BlackBerry App Developer
                 </h1>
-                <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed max-w-2xl">
-                  Hire Firevy.co's dedicated Next.js development experts to create reliable React applications, high-performing server-side rendered (SSR) systems, or full-stack web applications that scale with your needs. Firevy.co development has an array of skilled Next.js frontend and fullstack developers for hire that specialize in developing reliable server-side rendering, App Router architecture, static site generation (SSG), and cloud-ready architectures based on React and Next.js. Whether you're developing a SaaS platform, real-time application, or web system for enterprise use, we provide secure, efficient, and production-grade solutions for your unique use case. Collaborating with our developers allows you to cut down on development time and speed up your time-to-market using modern Next.js engineering methodology.
+                <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed max-w-xl">
+                  We are renowned for our innovative blackberry app development company, with qualified and experienced BlackBerry app developers that offer superior blackberry app development services
                 </p>
               </div>
 
@@ -213,81 +198,29 @@ export const HireNextJsDevelopersService = () => {
                 </div>
               </div>
 
-              {/* CTA Section with Capsule Pill Bar */}
-              <div className="space-y-2 pt-1">
-                <p className="text-xs font-bold text-[#006095]">Get Top Talent Work for you At</p>
-                <div className="bg-[#0083B0] p-1.5 rounded-2xl inline-flex items-center space-x-2 shadow-xs">
-                  <span className="bg-[#0083B0] text-white font-black px-5 py-2.5 rounded-xl text-sm sm:text-base flex items-center space-x-2">
-                    <span className="text-xs">💡</span>
-                    <span>$21/Hourly*</span>
-                  </span>
-                  <a
-                    href="#quote-form"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      document.getElementById('quote-form')?.scrollIntoView({ behavior: 'smooth' });
-                    }}
-                    className="bg-white text-[#006095] hover:bg-slate-50 font-bold px-7 py-2.5 rounded-xl text-sm transition-all shadow-xs cursor-pointer"
-                  >
-                    Hire Team
-                  </a>
-                </div>
+              {/* CTA Button: Hire Team → */}
+              <div className="pt-2">
+                <a
+                  href="#quote-form"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById('quote-form')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="inline-flex items-center space-x-2 bg-[#006095] hover:bg-[#0083B0] text-white font-bold px-7 py-3 rounded-lg text-sm sm:text-base transition-all shadow-md hover:shadow-lg cursor-pointer"
+                >
+                  <span>Hire Team</span>
+                  <span className="text-lg">→</span>
+                </a>
               </div>
             </div>
 
-            {/* Right Hero Graphic Banner (Clean Illustration directly on white background) */}
-            <div className="lg:col-span-5 relative flex justify-center items-center">
-              <div className="relative w-full max-w-[480px] flex justify-center items-center">
-                <svg viewBox="0 0 500 400" className="w-full h-auto drop-shadow-md" fill="none">
-                  {/* Soft Background Cloud Blob */}
-                  <path d="M 60 170 C 60 90, 130 50, 210 70 C 280 30, 390 50, 430 110 C 480 160, 470 260, 410 310 C 350 360, 130 360, 80 310 C 40 260, 60 210, 60 170 Z" fill="#D4ECF9" />
-                  
-                  {/* Monitor Stand & Base */}
-                  <rect x="220" y="310" width="60" height="25" rx="4" fill="#94A3B8" />
-                  <ellipse cx="250" cy="335" rx="55" ry="10" fill="#64748B" />
-
-                  {/* Main Blue Window / Monitor */}
-                  <rect x="95" y="115" width="310" height="200" rx="16" fill="#0F172A" />
-                  <rect x="105" y="125" width="290" height="180" rx="10" fill="#1E293B" />
-
-                  {/* Browser Header dots */}
-                  <circle cx="120" cy="138" r="4" fill="#EF4444" />
-                  <circle cx="132" cy="138" r="4" fill="#F59E0B" />
-                  <circle cx="144" cy="138" r="4" fill="#10B981" />
-
-                  {/* Inner Screen Windows */}
-                  <rect x="120" y="152" width="80" height="60" rx="6" fill="#006095" />
-                  <rect x="210" y="152" width="80" height="60" rx="6" fill="#38BDF8" />
-                  <rect x="300" y="152" width="85" height="60" rx="6" fill="#0284C7" />
-                  <rect x="120" y="222" width="170" height="12" rx="4" fill="#38BDF8" />
-                  <rect x="120" y="242" width="120" height="10" rx="4" fill="#006095" />
-                  <rect x="120" y="260" width="245" height="12" rx="4" fill="#0284C7" />
-
-                  {/* Floating Next.js "N" Circle Logo */}
-                  <circle cx="100" cy="225" r="22" fill="#000000" stroke="#FFFFFF" strokeWidth="3" />
-                  <text x="100" y="232" textAnchor="middle" fill="#FFFFFF" fontSize="16" fontWeight="bold" fontFamily="sans-serif">N</text>
-
-                  {/* Floating Code Badge Left: </> */}
-                  <rect x="100" y="70" width="48" height="34" rx="8" fill="#38BDF8" />
-                  <text x="124" y="93" textAnchor="middle" fill="#FFFFFF" fontSize="16" fontWeight="extrabold">&lt;/&gt;</text>
-
-                  {/* Floating Code Badge Right: {} */}
-                  <rect x="340" y="55" width="48" height="34" rx="8" fill="#10B981" />
-                  <text x="364" y="78" textAnchor="middle" fill="#FFFFFF" fontSize="18" fontWeight="extrabold">&#123;&#125;</text>
-
-                  {/* Left Female Developer Figure */}
-                  <circle cx="75" cy="245" r="10" fill="#F43F5E" />
-                  <path d="M 65 260 L 85 260 L 80 320 L 70 320 Z" fill="#E11D48" />
-                  <rect x="68" y="320" width="6" height="30" fill="#1E293B" />
-                  <rect x="76" y="320" width="6" height="30" fill="#1E293B" />
-
-                  {/* Top Male Developer Figure */}
-                  <circle cx="360" cy="95" r="10" fill="#F59E0B" />
-                  <path d="M 350 110 L 370 110 L 368 150 L 352 150 Z" fill="#2563EB" />
-                  <rect x="353" y="150" width="6" height="25" fill="#1E293B" />
-                  <rect x="361" y="150" width="6" height="25" fill="#1E293B" />
-                </svg>
-              </div>
+            {/* Right Hero Graphic Banner (Image Form) */}
+            <div className="lg:col-span-6 relative flex justify-center items-center">
+              <img
+                src="/images/blackberry_hero_illustration.svg"
+                alt="Hire BlackBerry App Developer"
+                className="w-full max-w-[520px] h-auto object-contain mx-auto drop-shadow-xl"
+              />
             </div>
           </div>
         </Container>
@@ -299,7 +232,7 @@ export const HireNextJsDevelopersService = () => {
       <BrandLogoMarquee />
 
       {/* ============================================================
-          SECTION: HIRE DEDICATED NEXT.JS DEVELOPERS
+          SECTION: HIRE DEDICATED BLACKBERRY DEVELOPERS
           ============================================================ */}
       <section className="py-16 md:py-20 bg-white border-b border-slate-100 font-sans">
         <Container>
@@ -309,7 +242,7 @@ export const HireNextJsDevelopersService = () => {
               <div className="relative w-full max-w-[480px]">
                 <img
                   src="/images/react_section2_illustration.jpg"
-                  alt="Hire Dedicated Next.JS Developers"
+                  alt="Hire Dedicated BlackBerry App Developers"
                   className="w-full h-auto object-contain rounded-2xl shadow-xl border border-slate-200/80 hover:shadow-blue-500/10 transition-shadow duration-300"
                 />
               </div>
@@ -318,10 +251,10 @@ export const HireNextJsDevelopersService = () => {
             {/* Right Text Column */}
             <div className="lg:col-span-6 space-y-5 text-left">
               <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-[900] text-slate-900 tracking-tight leading-[1.2]">
-                Hire Dedicated Next.Js Developers For Server-Side Rendering & App Router
+                Hire Dedicated BlackBerry App Developers For Enterprise Security & MDM Solutions
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed">
-                By hiring Next.js development professionals, you can gain access to developers who are experienced in developing best-in-practice Next.js web applications, App Router, server actions, authentication systems, caching layers, and integrations. Hire Nextjs Developers that deliver ultra-fast, SEO-optimized, decoupled, and maintainable frontend solutions while ensuring performance and security is prioritized. From developing custom RESTful & GraphQL APIs to managing third-party service integrations, our Next.js development team enhances communication between front-end interfaces and back-end systems seamlessly.
+                By hiring BlackBerry app development professionals from Firevy.co, you gain immediate access to top 1% vetted developers who excel in enterprise mobile security, BlackBerry Dynamics SDK, containerized apps, encryption protocols, and BlackBerry UEM integrations. Hire BlackBerry Developers that deliver secure, compliant, high-availability mobile solutions while ensuring enterprise data protection is prioritized. From building secure corporate communication tools to managing legacy mobile app modernizations, our BlackBerry development team enhances mobile security seamlessly.
               </p>
             </div>
           </div>
@@ -329,7 +262,7 @@ export const HireNextJsDevelopersService = () => {
       </section>
 
       {/* ============================================================
-          SECTION 3: BRIEF ABOUT OUR NEXT JS DEVELOPMENT SERVICES
+          SECTION 3: BRIEF ABOUT OUR BLACKBERRY APP DEVELOPMENT SERVICES
           ============================================================ */}
       <section className="py-16 md:py-24 bg-white text-slate-900 font-sans border-b border-slate-100">
         <Container>
@@ -337,11 +270,11 @@ export const HireNextJsDevelopersService = () => {
             {/* Left Content Column */}
             <div className="lg:col-span-6 space-y-6 text-left">
               <h2 className="text-2xl sm:text-3xl lg:text-[38px] font-[900] text-slate-900 tracking-tight leading-tight">
-                Brief About Our Next JS Development Services
+                Brief About Our BlackBerry App Development Services
               </h2>
               <div className="space-y-4 text-xs sm:text-sm text-slate-600 font-normal leading-relaxed">
                 <p>
-                  Our Next JS developers are pretty efficient and hold years of expertise. Other perks of hiring our developers include: We enable you to communicate with your development team in real-time and directly using Skype, Slack, or Teams. You are free to receive demonstrations whenever it is convenient for you. Stop wishing things are going according to plan and start realizing they are. From the initial conception to the final invoicing of your projects, you will have the ability to see the whole process personally. Hire Dedicated Next.js Developers who have received instruction in efficient communication and are always accessible to speak with you in real-time. Without mutual trust, there can be no successful collaboration. Trust is the foundation upon which Firevy.co was formed, and we are aware that it is something that must be gained, appreciated, and maintained.
+                  Our blackberry developers are pretty efficient and hold years of expertise. Other perks of hiring our developers include: We enable you to communicate with your development team in real-time and directly using Skype, Slack, or Teams. You are free to receive demonstrations whenever it is convenient for you. Stop wishing things are going according to plan and start realizing they are. From the initial conception to the final invoicing of your projects, you will have the ability to see the whole process personally. Hire Dedicated Blackberry Mobile App Developers who have received instruction in efficient communication and are always accessible to speak with you in real-time. Without mutual trust, there can be no successful collaboration. Trust is the foundation upon which Firevy.co was formed, and we are aware that it is something that must be gained, appreciated, and maintained.
                 </p>
               </div>
             </div>
@@ -403,109 +336,32 @@ export const HireNextJsDevelopersService = () => {
       </section>
 
       {/* ============================================================
-          SECTION 5: HIRE EXPERT NEXT.JS DEVELOPERS FOR GLOBAL NEEDS (Exact Sapphire Match)
-          ============================================================ */}
-      <section className="py-16 md:py-24 bg-white text-slate-900 font-sans border-b border-slate-100">
-        <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Left Content Column */}
-            <div className="lg:col-span-7 space-y-6">
-              <h2 className="text-2xl sm:text-3xl lg:text-[38px] font-[900] text-slate-900 tracking-tight leading-tight">
-                Hire Expert Next.Js Developers For Global Needs
-              </h2>
-
-              <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
-                We provide flexible employment models that are in line with the complexity, timeline, and budget of your project. If you're building a new team or need to supplement an existing one, our Next.js engineers fit right into your process. Firevy.co provides services to clients in the USA, UK, Canada, Australia, India, and the UAE with developers accustomed to working across different time zones and operating effectively remotely. Our emphasis on quick iterations, open processes, and consistent execution differentiates us in the competitive environment of frontend development services.
-              </p>
-            </div>
-
-            {/* Right Column: Exact Vector SVG Illustration matching Sapphire Reference Image 1 */}
-            <div className="lg:col-span-5 relative flex justify-center items-center">
-              <div className="relative w-full max-w-[480px]">
-                <svg viewBox="0 0 500 400" className="w-full h-auto drop-shadow-sm" fill="none">
-                  {/* Soft Background Cloud Blob */}
-                  <path d="M 60 170 C 60 90, 130 50, 210 70 C 280 30, 390 50, 430 110 C 480 160, 470 260, 410 310 C 350 360, 130 360, 80 310 C 40 260, 60 210, 60 170 Z" fill="#D4ECF9" />
-
-                  {/* Monitor Stand & Base */}
-                  <rect x="220" y="310" width="60" height="25" rx="4" fill="#94A3B8" />
-                  <ellipse cx="250" cy="335" rx="55" ry="10" fill="#64748B" />
-
-                  {/* Main Blue Window / Monitor */}
-                  <rect x="95" y="115" width="310" height="200" rx="16" fill="#006095" />
-                  <rect x="105" y="125" width="290" height="180" rx="10" fill="#38BDF8" />
-
-                  {/* Browser Header dots */}
-                  <circle cx="120" cy="138" r="4" fill="#EF4444" />
-                  <circle cx="132" cy="138" r="4" fill="#F59E0B" />
-                  <circle cx="144" cy="138" r="4" fill="#10B981" />
-
-                  {/* Inner Screen Windows */}
-                  <rect x="120" y="152" width="80" height="60" rx="6" fill="#FFFFFF" opacity="0.9" />
-                  <rect x="210" y="152" width="80" height="60" rx="6" fill="#006095" />
-                  <rect x="300" y="152" width="85" height="60" rx="6" fill="#FFFFFF" opacity="0.9" />
-                  <rect x="120" y="222" width="170" height="12" rx="4" fill="#FFFFFF" opacity="0.8" />
-                  <rect x="120" y="242" width="120" height="10" rx="4" fill="#006095" />
-                  <rect x="120" y="260" width="245" height="12" rx="4" fill="#FFFFFF" opacity="0.9" />
-
-                  {/* Floating Next.js "N" Circle Logo */}
-                  <circle cx="250" cy="285" r="18" fill="#000000" stroke="#FFFFFF" strokeWidth="2.5" />
-                  <text x="250" y="291" textAnchor="middle" fill="#FFFFFF" fontSize="14" fontWeight="bold" fontFamily="sans-serif">N</text>
-
-                  {/* Floating Heart Badge */}
-                  <circle cx="365" cy="140" r="22" fill="#38BDF8" />
-                  <path d="M 365 147 C 362 144, 355 137, 355 133 C 355 129, 358 126, 362 126 C 364 126, 365 127, 365 128 C 365 127, 366 126, 368 126 C 372 126, 375 129, 375 133 C 375 137, 368 144, 365 147 Z" fill="#FFFFFF" />
-
-                  {/* Floating Image Icon Badge */}
-                  <rect x="305" y="80" width="40" height="30" rx="6" fill="#38BDF8" />
-                  <path d="M 315 98 L 325 88 L 335 98 Z" fill="#FFFFFF" />
-
-                  {/* Left Male Developer Standing Figure */}
-                  <circle cx="140" cy="165" r="14" fill="#FDBA74" />
-                  <path d="M 128 165 C 128 150, 152 150, 152 165 Z" fill="#0F172A" />
-                  <path d="M 125 185 L 155 185 L 150 290 L 130 290 Z" fill="#006095" />
-                  <rect x="132" y="290" width="8" height="35" fill="#1E293B" />
-                  <rect x="142" y="290" width="8" height="35" fill="#1E293B" />
-
-                  {/* Right Female Developer Standing Figure */}
-                  <circle cx="390" cy="165" r="14" fill="#FDBA74" />
-                  <path d="M 378 165 C 378 145, 402 145, 402 165 Z" fill="#0F172A" />
-                  <path d="M 375 185 L 405 185 L 400 290 L 380 290 Z" fill="#006095" />
-                  <rect x="382" y="290" width="8" height="35" fill="#1E293B" />
-                  <rect x="392" y="290" width="8" height="35" fill="#1E293B" />
-                </svg>
-              </div>
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      {/* ============================================================
           SECTION 6: CLUTCH TOP RATED BANNER
           ============================================================ */}
-      <ClutchTopRatedBanner title="World Wide Top Rated Next JS Development Company on Clutch" />
+      <ClutchTopRatedBanner title="World Wide Top Rated BlackBerry App Development Company on Clutch" />
 
       {/* ============================================================
-          SECTION 7: NEXT.JS DEVELOPMENT TEAM FOR ENTERPRISE PROJECTS
+          SECTION 7: WHO EXACTLY IS A BLACKBERRY APP DEVELOPER?
           ============================================================ */}
       <section className="py-16 md:py-24 bg-white font-sans text-slate-900 border-b border-slate-100">
         <Container>
           <h2 className="text-2xl sm:text-3xl lg:text-[40px] font-[900] text-slate-900 tracking-tight leading-tight text-center mb-12 sm:mb-16">
-            Next.js Development Team for Enterprise Projects
+            Who Exactly Is A BlackBerry App Developer?
           </h2>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
             <div className="lg:col-span-5 bg-[#F0F7FC] rounded-2xl p-8 sm:p-12 flex flex-col justify-center relative overflow-hidden border border-cyan-100/60 shadow-xs">
               <div className="relative z-10 space-y-6">
-                <div className="text-[#0083B0]">
+                <div className="text-[#006095]">
                   <svg viewBox="0 0 48 48" className="w-14 h-14 fill-current">
                     <path d="M12 28 C 12 18, 20 12, 28 10 L 26 14 C 21 16, 17 20, 17 25 L 23 25 L 23 38 L 12 38 Z M 28 28 C 28 18, 36 12, 44 10 L 42 14 C 37 16, 33 20, 33 25 L 39 25 L 39 38 L 28 38 Z" />
                   </svg>
                 </div>
 
-                <h3 className="text-3xl sm:text-4xl lg:text-[40px] font-[900] text-[#006095] leading-[1.2] tracking-tight">
-                  Instant Access To<br />
-                  Top Talent With<br />
-                  Hard-To-Find Skills
+                <h3 className="text-3xl sm:text-4xl lg:text-[36px] font-[900] text-[#006095] leading-[1.25] tracking-tight">
+                  Feature-Rich And<br />
+                  User-Friendly<br />
+                  Applications
                 </h3>
               </div>
             </div>
@@ -513,7 +369,10 @@ export const HireNextJsDevelopersService = () => {
             <div className="lg:col-span-7 flex flex-col justify-between space-y-6">
               <div className="space-y-5 text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
                 <p>
-                  When you're building an MVP or onboarding a global product, our Next.js engineering team will assist you in designing secure, modular, high-performance architectures. We like to say our full-cycle development services include planning, coding, testing, deploying, and maintaining your project and ensuring your web platform is future-proof. If you're looking to hire Next js developers that are familiar with modern React SSR engineering, Vercel cloud infrastructure, and web security, we have the skills and consistency you'll need from a technology vendor.
+                  We are well-versed in BlackBerry Mobile App Development. Our developers provide our worldwide customers with unique, adaptable, feature-rich, and cost-effective BlackBerry app development services. Hire BlackBerry Apps Developers who can streamline your company's operations and a design that will match some of the top apps on the market. We will optimize the creation of the Blackberry application based on your specifications so that the user experience is individualized and the learning curve is short.
+                </p>
+                <p>
+                  Hire Dedicated Blackberry Mobile App Developers who leave no stone unturned and ensure regular contact with the customer right from the start of the Blackberry applications development project until it is finished. If you want to get the most out of your Blackberry applications and build them by industry leaders, you have come to the right BlackBerry Application Development Company.
                 </p>
               </div>
 
@@ -587,29 +446,29 @@ export const HireNextJsDevelopersService = () => {
                 {
                   id: 1,
                   category: 'Trending',
-                  title: 'Next.js Frontend Team',
+                  title: 'BlackBerry Enterprise Squad',
                   image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&auto=format&fit=crop&q=80',
-                  techs: ['Next.js', 'React', 'TypeScript', 'Tailwind', 'GraphQL'],
-                  composition: ['1 Tech Lead', '3 Senior Frontend Devs', '1 UI/UX Specialist', '1 QA Engineer'],
-                  summary: 'High-performing Next.js frontend squad building SSR & SSG enterprise web applications.'
+                  techs: ['BlackBerry SDK', 'Dynamics API', 'C++', 'Java Enterprise', 'MDM'],
+                  composition: ['1 Security Architect', '3 Senior BlackBerry Devs', '1 Mobile QA Specialist'],
+                  summary: 'High-performing dedicated squad building secure BlackBerry enterprise applications.'
                 },
                 {
                   id: 2,
                   category: 'Product Development',
-                  title: 'Saas Product Dev. Team',
+                  title: 'Mobile Security Dev Team',
                   image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&auto=format&fit=crop&q=80',
-                  techs: ['Next.js', 'Node.js', 'DevOps', 'Prisma', 'PostgreSQL'],
-                  composition: ['1 Product Manager', '4 Full-Stack Engineers', '1 DevOps Specialist', '1 UI/UX Lead'],
-                  summary: 'Specialized SaaS product squad engineering cloud-native microservices with Next.js.'
+                  techs: ['AES Encryption', 'BlackBerry UEM', 'Android Enterprise', 'Intune'],
+                  composition: ['1 Security Lead', '4 Mobile Engineers', '1 QA Specialist', '1 Compliance Lead'],
+                  summary: 'Specialized enterprise mobile security team engineering containerized applications.'
                 },
                 {
                   id: 3,
                   category: 'Trending',
-                  title: 'React & Next.js Squad',
+                  title: 'Cross-Platform Mobile Squad',
                   image: 'https://images.unsplash.com/photo-1616469829941-c7200edec809?w=800&auto=format&fit=crop&q=80',
-                  techs: ['Next.js App Router', 'Vercel', 'TRPC', 'Tailwind CSS'],
-                  composition: ['1 Solution Architect', '3 Senior Next.js Engineers', '1 Frontend Lead'],
-                  summary: 'Dedicated React & Next.js engineers delivering high-performance web applications.'
+                  techs: ['Qt / C++', 'Android Enterprise', 'iOS Enterprise', 'REST APIs'],
+                  composition: ['1 Solution Architect', '3 Senior Mobile Developers', '1 Security Lead'],
+                  summary: 'Dedicated mobile engineers delivering secure, high-availability corporate applications.'
                 }
               ].map((team) => {
                 const currentTab = expertTabs[team.id] || 'tech';
@@ -735,11 +594,11 @@ export const HireNextJsDevelopersService = () => {
                 },
                 {
                   title: 'API Developers',
-                  desc: 'Use the FastAPI framework to your advantage by hiring our skilled full-stack engineers who are proficient in FastAPI development. Utilizing technologies such as Pydantic and Starlette, their knowledge allows them to develop dynamic web apps that are optimized for smooth integration and an outstanding user experience.'
+                  desc: 'Use modern frameworks to your advantage by hiring our skilled full-stack engineers who are proficient in API development. Utilizing technologies such as RESTful, GraphQL, and gRPC, their knowledge allows them to develop dynamic web apps optimized for smooth integration.'
                 },
                 {
-                  title: 'Next JS Developers',
-                  desc: 'Employ our passionate Next.js developers to build websites; they possess a thorough grasp of the Next.js technology. Has proficiency in developing sophisticated online solutions that provide unified user experience and contemporary design using technologies like Styled Components and React Query. Collaborate with our Next.js programmers to improve your websites.'
+                  title: 'BlackBerry App Developers',
+                  desc: 'Employ our passionate BlackBerry app developers to build secure mobile solutions; they possess a thorough grasp of BlackBerry Dynamics, enterprise containerization, and mobile encryption. Has proficiency in developing sophisticated mobile solutions that provide unified user experience and secure mobile architecture. Collaborate with our engineers to improve your corporate mobile platforms.'
                 },
                 {
                   title: 'Machine Learning Developers',
@@ -1094,55 +953,55 @@ export const HireNextJsDevelopersService = () => {
       <TechStackProficientGrid />
 
       {/* =========================================================================
-          SECTION 10B: THE EXPERTISE OF OUR NEXT JS DEVELOPERS SERVICES
+          SECTION 10B: THE EXPERTISE OF OUR BLACKBERRY APP DEVELOPERS SERVICES
           ========================================================================= */}
       <section className="py-16 md:py-24 bg-[#F0F7FC] text-slate-900 font-sans border-b border-slate-100">
         <Container>
           <div className="space-y-12 max-w-6xl mx-auto">
             <div className="text-center space-y-3 max-w-4xl mx-auto">
               <h2 className="text-2xl sm:text-3xl lg:text-[38px] font-[900] text-slate-900 tracking-tight leading-tight">
-                The Expertise Of Our Next JS Developers Services
+                The Expertise Of Our BlackBerry App Developers Services
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 font-medium max-w-3xl mx-auto">
-                We have a pool of dedicated Next JS developers available for hire. Take a look at the expertise of our developers:
+                We have a pool of dedicated BlackBerry app developers available for hire. Take a look at the expertise of our developers:
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {[
                 {
-                  title: 'Custom Next JS Development',
-                  desc: 'Your concept may be brought to life by the power of Next.js, which can be unlocked by our devoted frontend and fullstack developers who engineer scalable SSR web applications.',
+                  title: 'Custom BlackBerry App Dev',
+                  desc: 'Your mobile product vision can be brought to life by hiring our devoted mobile engineers who build secure enterprise BlackBerry applications.',
                   iconBg: 'bg-purple-100 text-purple-600',
-                  IconComp: Code2
+                  IconComp: Smartphone
                 },
                 {
-                  title: 'Next JS App Router & SSR',
-                  desc: 'Hire our Next JS developers to construct modern App Router architectures, server-side rendered pages, and design bespoke APIs for companies of any size.',
+                  title: 'BlackBerry Dynamics & SDK',
+                  desc: 'Hire our dedicated developers to construct modern containerized mobile apps, secure file sync, and custom enterprise APIs for companies of any size.',
                   iconBg: 'bg-emerald-100 text-emerald-600',
                   IconComp: Server
                 },
                 {
-                  title: 'Enterprise Next Solutions',
-                  desc: 'You can now hire Next JS developers in UAE or anywhere else in the world to create scalable web platforms for large-scale enterprise businesses.',
+                  title: 'Enterprise Security & MDM',
+                  desc: 'You can now hire BlackBerry app developers in UAE or anywhere else in the world to create military-grade encrypted mobile platforms for corporate businesses.',
                   iconBg: 'bg-orange-100 text-orange-600',
-                  IconComp: Building2
+                  IconComp: ShieldAlert
                 },
                 {
-                  title: 'Next Component & Module Dev',
-                  desc: 'Are you looking for efficient solutions for the creation of reusable UI components and modules? Hire Next.js developer to construct it for you.',
+                  title: 'Native & Cross-Platform Dev',
+                  desc: 'Are you looking for efficient solutions for C++, Qt, Android Enterprise, or iOS containerized apps? Hire BlackBerry app developers to construct them for you.',
                   iconBg: 'bg-amber-100 text-amber-600',
                   IconComp: Layers
                 },
                 {
-                  title: 'Next Management & Maintenance',
-                  desc: 'Employing our remote Next JS developers will ensure that your web applications are handled and maintained according to industry standards.',
+                  title: 'Mobile App Maintenance & QA',
+                  desc: 'Employing our remote dedicated BlackBerry developers will ensure that your mobile applications are handled and maintained according to security standards.',
                   iconBg: 'bg-pink-100 text-pink-600',
                   IconComp: Sliders
                 },
                 {
-                  title: 'Next Integration & Upgradation',
-                  desc: 'Are you interested in updating your existing React application to Next.js? We combine the most recent technologies, originating from various platforms.',
+                  title: 'Legacy BlackBerry Migration',
+                  desc: 'Are you interested in updating your legacy BlackBerry apps to modern enterprise platforms? We combine the latest mobile security frameworks seamlessly.',
                   iconBg: 'bg-cyan-100 text-cyan-600',
                   IconComp: Cpu
                 }
@@ -1247,8 +1106,8 @@ export const HireNextJsDevelopersService = () => {
           SECTION 12: HIRE DEVELOPER 4 STEPS
           ============================================================ */}
       <HireDeveloper4Steps
-        title="Hire Next JS Developer In 4 Easy Steps"
-        subtitle="Next JS Developer offers a number of advantages over another platform. Some of them are:"
+        title="Hire BlackBerry App Developer In 4 Easy Steps"
+        subtitle="BlackBerry App Developer offers a number of advantages over another platform. Some of them are:"
       />
 
       {/* ============================================================
@@ -1282,4 +1141,4 @@ export const HireNextJsDevelopersService = () => {
   );
 };
 
-export default HireNextJsDevelopersService;
+export default HireBlackberryDevelopersService;

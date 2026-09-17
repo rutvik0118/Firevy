@@ -55,9 +55,12 @@ import HireAngularDevelopersService from '../components/services/HireAngularDeve
 import HireReactDevelopersService from '../components/services/HireReactDevelopersService';
 import HireVueDevelopersService from '../components/services/HireVueDevelopersService';
 import HireEmberDevelopersService from '../components/services/HireEmberDevelopersService';
+import HireAlexaSkillsDevelopersService from '../components/services/HireAlexaSkillsDevelopersService';
+import HireEmbeddedSoftwareDevelopersService from '../components/services/HireEmbeddedSoftwareDevelopersService';
 import HireLaravelDevelopersService from '../components/services/HireLaravelDevelopersService';
 import HireExpressJsDevelopersService from '../components/services/HireExpressJsDevelopersService';
 import HireNextJsDevelopersService from '../components/services/HireNextJsDevelopersService';
+import HireDataScientistDevelopersService from '../components/services/HireDataScientistDevelopersService';
 import SharePointDevelopmentService from '../components/services/SharePointDevelopmentService';
 import PowerAppsDevelopmentService from '../components/services/PowerAppsDevelopmentService';
 import KotlinAppDevelopmentService from '../components/services/KotlinAppDevelopmentService';
@@ -66,6 +69,11 @@ import ItConsultingServices from '../components/services/ItConsultingServices';
 import AppDevelopmentConsultingService from '../components/services/AppDevelopmentConsultingService';
 import HireKotlinDevelopersService from '../components/services/HireKotlinDevelopersService';
 import HireTechDevelopersService from '../components/services/HireTechDevelopersService';
+import HireMetaverseDevelopersService from '../components/services/HireMetaverseDevelopersService';
+import HireDedicatedDevelopersService from '../components/services/HireDedicatedDevelopersService';
+import HireBlackberryDevelopersService from '../components/services/HireBlackberryDevelopersService';
+import HireSoftwareDevelopersService from '../components/services/HireSoftwareDevelopersService';
+import HireChatGptDevelopersService from '../components/services/HireChatGptDevelopersService';
 
 export const ServiceDetails = () => {
   const { slug } = useParams();
@@ -275,6 +283,14 @@ export const ServiceDetails = () => {
     currentSlug.includes('ember-js') ||
     currentSlug.includes('hire-ember');
 
+  const isAlexaSkills = currentSlug.includes('alexa') ||
+    currentSlug.includes('alexa-skills') ||
+    currentSlug.includes('hire-alexa');
+
+  const isEmbeddedSoftware = currentSlug.includes('embedded') ||
+    currentSlug.includes('embedded-software') ||
+    currentSlug.includes('hire-embedded');
+
   const isLaravel = currentSlug.includes('laravel') ||
     currentSlug.includes('hire-laravel');
 
@@ -404,14 +420,48 @@ export const ServiceDetails = () => {
     }
   };
 
+  const isDataScientist = currentSlug.includes('data-scientist') || currentSlug.includes('data-science');
+  const isMetaverse = currentSlug.includes('metaverse') || currentSlug.includes('hire-metaverse');
+  const isDedicatedDevelopers = currentSlug.includes('hire-dedicated-developer') || currentSlug.includes('hire-dedicated-developers') || currentSlug === 'hire-dedicated' || currentSlug === 'services/hire-dedicated-developers';
+  const isSoftwareDevelopers = currentSlug.includes('hire-software-developer') || currentSlug.includes('hire-software-developers') || currentSlug.includes('hire-software') || currentSlug === 'software-developers' || currentSlug === 'services/hire-software-developers';
+  const isChatGpt = currentSlug.includes('chatgpt') || currentSlug.includes('chat-gpt') || currentSlug.includes('hire-chatgpt');
+
   useEffect(() => {
-    if (!isAnyDedicatedHire && !isKotlin && !isHybrid && !isIPad && !isCrossPlatform && !isItConsulting && !isNext && !isExpress && !isMobileApp && !isBootstrap && !isCodeIgniter && !isEmber && !isLaravel && !isPowerAutomate && !isPowerApps && !isSharePoint && !isVue && !isReact && !isAngular && !isIot && !isPwa && !isRpa && !isVR && !isFullStack && !isBlockchain && !isArtificialIntelligence && !isGenerativeAi && !isNodeJs && !isJava && !isPhp && !isNet && !isXamarin && !isAndroid && !isReactNative && !isFlutter && !isIOS && !isHealthcare && !isEducation && !isUber && !isSpotify && !isZomato && !isAmazon && !isVisitor && !isWarehouse && !isClover && !isCSharp && !isIWatch && !isWordpress && !isDrupal && !isUmbraco && !isSitecore && !isSitefinity && !isMagento && !isShopify) {
+    if (!isChatGpt && !isSoftwareDevelopers && !isDedicatedDevelopers && !isMetaverse && !isEmbeddedSoftware && !isAlexaSkills && !isDataScientist && !isAnyDedicatedHire && !isKotlin && !isHybrid && !isIPad && !isCrossPlatform && !isItConsulting && !isNext && !isExpress && !isMobileApp && !isBootstrap && !isCodeIgniter && !isEmber && !isLaravel && !isPowerAutomate && !isPowerApps && !isSharePoint && !isVue && !isReact && !isAngular && !isIot && !isPwa && !isRpa && !isVR && !isFullStack && !isBlockchain && !isArtificialIntelligence && !isGenerativeAi && !isNodeJs && !isJava && !isPhp && !isNet && !isXamarin && !isAndroid && !isReactNative && !isFlutter && !isIOS && !isHealthcare && !isEducation && !isUber && !isSpotify && !isZomato && !isAmazon && !isVisitor && !isWarehouse && !isClover && !isCSharp && !isIWatch && !isWordpress && !isDrupal && !isUmbraco && !isSitecore && !isSitefinity && !isMagento && !isShopify) {
       fetchServiceDetails();
     } else {
       setLoading(false);
     }
     window.scrollTo(0, 0);
   }, [currentSlug]);
+
+  if (isChatGpt) {
+    return <HireChatGptDevelopersService />;
+  }
+
+  if (isSoftwareDevelopers) {
+    return <HireSoftwareDevelopersService />;
+  }
+
+  if (isDedicatedDevelopers) {
+    return <HireDedicatedDevelopersService />;
+  }
+
+  if (isMetaverse) {
+    return <HireMetaverseDevelopersService />;
+  }
+
+  if (isEmbeddedSoftware) {
+    return <HireEmbeddedSoftwareDevelopersService />;
+  }
+
+  if (isAlexaSkills) {
+    return <HireAlexaSkillsDevelopersService />;
+  }
+
+  if (isDataScientist) {
+    return <HireDataScientistDevelopersService />;
+  }
 
   if (isExpress) {
     return <HireExpressJsDevelopersService />;
@@ -442,7 +492,7 @@ export const ServiceDetails = () => {
   }
 
   if (isHireBlackberry) {
-    return <HireTechDevelopersService techKey="hire-blackberry-app-developers" />;
+    return <HireBlackberryDevelopersService />;
   }
 
   if (isHireFreelance) {
