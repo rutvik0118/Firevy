@@ -83,6 +83,7 @@ import UiUxDesignService from '../components/services/UiUxDesignService';
 import DigitalMarketingService from '../components/services/DigitalMarketingService';
 import TestingQaService from '../components/services/TestingQaService';
 import NintexDevelopmentService from '../components/services/NintexDevelopmentService';
+import MobileAppPortingService from '../components/services/MobileAppPortingService';
 import HireKotlinDevelopersService from '../components/services/HireKotlinDevelopersService';
 import HireTechDevelopersService from '../components/services/HireTechDevelopersService';
 import HireMetaverseDevelopersService from '../components/services/HireMetaverseDevelopersService';
@@ -222,7 +223,13 @@ export const ServiceDetails = () => {
 
   const isIOS = !isHireIOS && !isHireIphone && !isHireSwift && (currentSlug.includes('ios') || currentSlug.includes('iphone')) && !isIPad;
 
-  const isMobileApp = !isHireMobile && (
+  const isMobileAppPorting = currentSlug === 'mobile-app-porting' ||
+    currentSlug === 'mobile-app-porting-services' ||
+    currentSlug === 'mobile-app-porting-service' ||
+    currentSlug === 'app-porting' ||
+    currentSlug.includes('porting');
+
+  const isMobileApp = !isHireMobile && !isMobileAppPorting && (
     currentSlug === 'mobile-app-development' ||
     currentSlug === 'mobile-app' ||
     currentSlug === 'mobile-application' ||
@@ -770,6 +777,10 @@ export const ServiceDetails = () => {
 
   if (isNintex) {
     return <NintexDevelopmentService />;
+  }
+
+  if (isMobileAppPorting) {
+    return <MobileAppPortingService />;
   }
 
   if (isPowerAutomate) {

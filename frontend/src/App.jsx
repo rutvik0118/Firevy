@@ -187,6 +187,10 @@ export function App() {
                 <Route path="/services/nintex-development" element={<ServiceDetails />} />
                 <Route path="/nintex-development" element={<ServiceDetails />} />
                 <Route path="/services/nintex" element={<ServiceDetails />} />
+                <Route path="/services/mobile-app-porting" element={<ServiceDetails />} />
+                <Route path="/mobile-app-porting" element={<ServiceDetails />} />
+                <Route path="/services/mobile-app-porting-services" element={<ServiceDetails />} />
+                <Route path="/mobile-app-porting-services" element={<ServiceDetails />} />
                 <Route path="/services/tech-consulting-services" element={<ServiceDetails />} />
                 <Route path="/services/hire-bootstrap-developers" element={<ServiceDetails />} />
                 <Route path="/services/hire-bootstrap-developer" element={<ServiceDetails />} />
