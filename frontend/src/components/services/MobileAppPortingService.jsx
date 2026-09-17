@@ -9,8 +9,23 @@ import MobileAppAwardsMarqueeBanner from './MobileAppAwardsMarqueeBanner';
 import CreatingExcellentMobileAppsSection from './CreatingExcellentMobileAppsSection';
 import MobileAppCuttingEdgeTechnologiesSection from './MobileAppCuttingEdgeTechnologiesSection';
 import PremiumServicesGrid from '../common/PremiumServicesGrid';
+import SapphireSeasonedExpertsSection from './SapphireSeasonedExpertsSection';
+import IndustryFocusedInsightsSection from './IndustryFocusedInsightsSection';
+import TransformativeImpactSection from './TransformativeImpactSection';
+import AboutUsStats from './AboutUsStats';
+import SectorsThrivingSection from './SectorsThrivingSection';
+import SuccessStoriesSection from '../common/SuccessStoriesSection';
+import MobileAppExpertiseServices from './MobileAppExpertiseServices';
+import BestMobileAppCompanyShowcase from './BestMobileAppCompanyShowcase';
+import MobileAppProficientTechStackSection from './MobileAppProficientTechStackSection';
+import OurMobileAppExpertiseServices from './OurMobileAppExpertiseServices';
+import ProudAwardsBanner from './ProudAwardsBanner';
+import MobileAppCompanyBenefits from './MobileAppCompanyBenefits';
 import AndroidHiringModels from './AndroidHiringModels';
+import MobileAppComparativeAnalysis from './MobileAppComparativeAnalysis';
+import InnovativeSolutionsVideoSection from './InnovativeSolutionsVideoSection';
 import ProcessWeFollow from '../common/ProcessWeFollow';
+import OurStoryTheirWordsSection from './OurStoryTheirWordsSection';
 import TrustedBrandsGrid from '../common/TrustedBrandsGrid';
 import SuccessMatrix from '../common/SuccessMatrix';
 import WhatOurClientsSaySection from './WhatOurClientsSaySection';
@@ -18,6 +33,7 @@ import FeaturedInBrandsSection from './FeaturedInBrandsSection';
 import DigitalTransformationSlider from '../common/DigitalTransformationSlider';
 import SapphireFaqSection from '../common/SapphireFaqSection';
 import MobileAppRecentBlogsSection from './MobileAppRecentBlogsSection';
+import MobileAppWhatSetsUsApartSection from './MobileAppWhatSetsUsApartSection';
 import IWatchChallengeCtaBanner from './IWatchChallengeCtaBanner';
 import {
   Smartphone,
@@ -65,26 +81,6 @@ export const MobileAppPortingService = () => {
       title: 'QA, Security & Performance Tuning',
       desc: 'Comprehensive regression testing, platform parity validation, device fragmentation coverage, and benchmark battery/memory optimization.',
       icon: <ShieldCheck className="w-8 h-8 text-[#005F96]" />
-    }
-  ];
-
-  // Specific Porting FAQs
-  const portingFaqs = [
-    {
-      question: 'What is mobile app porting, and why should my business consider it?',
-      answer: 'Mobile app porting involves taking an existing application built for one platform (such as iOS or Android) and translating its codebase, architecture, and user experience to run natively on another platform. This expands your addressable market share, lowers acquisition costs, and increases revenue potential without having to build a completely new concept from scratch.'
-    },
-    {
-      question: 'Can you port an iOS app to Android while preserving the same user experience?',
-      answer: 'Yes. Our senior mobile engineers carefully map iOS UI patterns into Google Material Design equivalents, ensuring platform consistency and native feel while keeping your core brand identity and workflows completely intact.'
-    },
-    {
-      question: 'How do you prevent data loss and ensure feature parity during app migration?',
-      answer: 'We conduct a comprehensive architecture audit, map all local SQLite/Realm databases and cloud APIs, and implement automated end-to-end regression testing suites to ensure 100% data consistency and complete feature parity across platforms.'
-    },
-    {
-      question: 'How long does mobile app porting typically take?',
-      answer: 'Depending on complexity, third-party integrations, and whether you are moving to a native or cross-platform framework, porting projects generally take between 4 to 12 weeks with agile bi-weekly sprint deliverables.'
     }
   ];
 
@@ -231,69 +227,149 @@ export const MobileAppPortingService = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* 8. BUSINESS FRIENDLY HIRING MODELS                                        */}
-      {/* ========================================================================= */}
-      <AndroidHiringModels />
-
-      {/* ========================================================================= */}
-      {/* 9. PROCESS WE FOLLOW                                                      */}
-      {/* ========================================================================= */}
-      <ProcessWeFollow
-        title="Mobile App Porting Process We Follow"
-        subtitle="Our proven step-by-step methodology ensures zero data loss, feature parity, and peak performance across target operating systems."
-      />
-
-      {/* ========================================================================= */}
-      {/* 10. OUR PREMIUM SERVICES GRID                                             */}
+      {/* 9. OUR PREMIUM SERVICES GRID                                              */}
       {/* ========================================================================= */}
       <PremiumServicesGrid companyName="Firevy.co" />
 
       {/* ========================================================================= */}
-      {/* 11. TRUSTED BY GLOBAL BRANDS                                              */}
+      {/* 10. MEET FIREVY'S EXCEPTIONAL TEAM OF SEASONED EXPERTS                    */}
+      {/* ========================================================================= */}
+      <SapphireSeasonedExpertsSection />
+
+      {/* ========================================================================= */}
+      {/* 11. INDUSTRY-FOCUSED INSIGHTS TO ELEVATE YOUR BUSINESS                    */}
+      {/* ========================================================================= */}
+      <IndustryFocusedInsightsSection subtitle="Trending Industries that Use Mobile App Porting & Development" />
+
+      {/* ========================================================================= */}
+      {/* 12. EXPLORE THE TRANSFORMATIVE IMPACT OF MOBILE APP                       */}
+      {/* ========================================================================= */}
+      <TransformativeImpactSection title="Explore The Transformative Impact Of Mobile App On Your Business Success" />
+
+      {/* ========================================================================= */}
+      {/* 13. ABOUT US STATS (8-CARD GRID)                                          */}
+      {/* ========================================================================= */}
+      <AboutUsStats companyName="Firevy.co" />
+
+      {/* ========================================================================= */}
+      {/* 14. SECTORS THRIVING THROUGH FIREVY BESPOKE MOBILE SERVICES               */}
+      {/* ========================================================================= */}
+      <SectorsThrivingSection title="Sectors Thriving Through Firevy.co’s Bespoke Mobile App Porting Services" />
+
+      {/* ========================================================================= */}
+      {/* 15. SUCCESS STORIES PORTFOLIO & METRICS                                   */}
+      {/* ========================================================================= */}
+      <SuccessStoriesSection />
+
+      {/* ========================================================================= */}
+      {/* 16. THE EXPERTISE OF OUR MOBILE APP SERVICES                              */}
+      {/* ========================================================================= */}
+      <MobileAppExpertiseServices />
+
+      {/* ========================================================================= */}
+      {/* 17. BEST MOBILE APP COMPANY SHOWCASE (MOCKUPS & VIDEO)                    */}
+      {/* ========================================================================= */}
+      <BestMobileAppCompanyShowcase />
+
+      {/* ========================================================================= */}
+      {/* 18. TECHNOLOGY STACK PROFICIENTLY USED                                    */}
+      {/* ========================================================================= */}
+      <MobileAppProficientTechStackSection />
+
+      {/* ========================================================================= */}
+      {/* 19. OUR EXPERTISE IN MOBILE APP SERVICES                                  */}
+      {/* ========================================================================= */}
+      <OurMobileAppExpertiseServices />
+
+      {/* ========================================================================= */}
+      {/* 20. PROUD AWARDS & RECOGNITION BANNER                                     */}
+      {/* ========================================================================= */}
+      <ProudAwardsBanner />
+
+      {/* ========================================================================= */}
+      {/* 21. BENEFITS OF THE BEST MOBILE APP DEVELOPMENT COMPANY                   */}
+      {/* ========================================================================= */}
+      <MobileAppCompanyBenefits />
+
+      {/* ========================================================================= */}
+      {/* 22. BUSINESS FRIENDLY HIRING MODELS                                       */}
+      {/* ========================================================================= */}
+      <AndroidHiringModels />
+
+      {/* ========================================================================= */}
+      {/* 23. COMPARATIVE ANALYSIS                                                  */}
+      {/* ========================================================================= */}
+      <MobileAppComparativeAnalysis />
+
+      {/* ========================================================================= */}
+      {/* 24. INNOVATIVE SOLUTIONS VIDEO SECTION                                    */}
+      {/* ========================================================================= */}
+      <InnovativeSolutionsVideoSection />
+
+      {/* ========================================================================= */}
+      {/* 25. PROCESS WE FOLLOW                                                     */}
+      {/* ========================================================================= */}
+      <ProcessWeFollow
+        title="Process We Follow"
+        subtitle="Our agile mobile app porting life cycle from initial concept wireframes to App Store and Google Play deployment."
+      />
+
+      {/* ========================================================================= */}
+      {/* 26. OUR STORY, THEIR WORDS (VIDEO TESTIMONIALS)                           */}
+      {/* ========================================================================= */}
+      <OurStoryTheirWordsSection />
+
+      {/* ========================================================================= */}
+      {/* 27. TRUSTED BRANDS GRID                                                   */}
       {/* ========================================================================= */}
       <TrustedBrandsGrid />
 
       {/* ========================================================================= */}
-      {/* 12. SUCCESS MATRIX                                                        */}
+      {/* 28. SUCCESS MATRIX                                                        */}
       {/* ========================================================================= */}
       <SuccessMatrix />
 
       {/* ========================================================================= */}
-      {/* 13. CLIENT REVIEWS & TESTIMONIALS                                         */}
+      {/* 29. WHAT OUR CLIENTS SAY (CLUTCH REVIEWS CAROUSEL)                        */}
       {/* ========================================================================= */}
       <WhatOurClientsSaySection />
 
       {/* ========================================================================= */}
-      {/* 14. FEATURED IN BRANDS                                                    */}
+      {/* 30. WE HAVE BEEN FEATURED IN                                              */}
       {/* ========================================================================= */}
       <FeaturedInBrandsSection />
 
       {/* ========================================================================= */}
-      {/* 15. DIGITAL TRANSFORMATION SLIDER                                         */}
+      {/* 31. DIGITAL TRANSFORMATION SLIDER                                         */}
       {/* ========================================================================= */}
       <DigitalTransformationSlider />
 
       {/* ========================================================================= */}
-      {/* 16. FREQUENTLY ASKED QUESTIONS                                            */}
+      {/* 32. FREQUENTLY ASKED QUESTIONS                                            */}
       {/* ========================================================================= */}
       <SapphireFaqSection
-        title="Mobile App Porting FAQs"
-        subtitle="We answer your questions and provide solutions that captivate users. Feel free to contact us for any inquiries."
-        faqs={portingFaqs}
+        title="Frequently Asked Questions"
+        subtitle="We listen to queries and provide solutions that captivate users. Feel free to contact us in case of any question."
+        companyName="Firevy.co"
       />
 
       {/* ========================================================================= */}
-      {/* 17. RECENT BLOGS                                                          */}
+      {/* 33. OUR RECENT BLOGS                                                      */}
       {/* ========================================================================= */}
       <MobileAppRecentBlogsSection />
 
       {/* ========================================================================= */}
-      {/* 18. CHALLENGE CTA BANNER                                                  */}
+      {/* 34. WHAT SETS US APART                                                    */}
+      {/* ========================================================================= */}
+      <MobileAppWhatSetsUsApartSection />
+
+      {/* ========================================================================= */}
+      {/* 35. CHALLENGE CTA BANNER                                                  */}
       {/* ========================================================================= */}
       <div id="contact">
         <IWatchChallengeCtaBanner
-          title="Have A Mobile App Porting Challenge To Address?"
-          subtitle="Get access to top Mobile App Porting & Migration Developers at Firevy.co to expand your applications to millions of new users."
+          title="Have Mobile App Development Challenge To Address ?"
+          subtitle="Get access to top Mobile App Developers to transform your ideas into a robust application."
           buttonText="Hire Now"
         />
       </div>
