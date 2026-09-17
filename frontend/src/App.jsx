@@ -172,6 +172,16 @@ export function App() {
                 <Route path="/digital-marketing" element={<ServiceDetails />} />
                 <Route path="/services/digital-marketing-services" element={<ServiceDetails />} />
                 <Route path="/digital-marketing-services" element={<ServiceDetails />} />
+                <Route path="/services/testing-qa" element={<ServiceDetails />} />
+                <Route path="/testing-qa" element={<ServiceDetails />} />
+                <Route path="/services/testing-and-qa" element={<ServiceDetails />} />
+                <Route path="/testing-and-qa" element={<ServiceDetails />} />
+                <Route path="/services/software-testing-qa" element={<ServiceDetails />} />
+                <Route path="/software-testing-qa" element={<ServiceDetails />} />
+                <Route path="/services/qa-testing" element={<ServiceDetails />} />
+                <Route path="/qa-testing" element={<ServiceDetails />} />
+                <Route path="/services/software-qa-testing" element={<ServiceDetails />} />
+                <Route path="/software-qa-testing" element={<ServiceDetails />} />
                 <Route path="/services/tech-consulting-services" element={<ServiceDetails />} />
                 <Route path="/services/hire-bootstrap-developers" element={<ServiceDetails />} />
                 <Route path="/services/hire-bootstrap-developer" element={<ServiceDetails />} />

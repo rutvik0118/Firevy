@@ -79,6 +79,7 @@ import MicroservicesConsultingServices from '../components/services/Microservice
 import AiConsultingServices from '../components/services/AiConsultingServices';
 import UiUxDesignService from '../components/services/UiUxDesignService';
 import DigitalMarketingService from '../components/services/DigitalMarketingService';
+import TestingQaService from '../components/services/TestingQaService';
 import HireKotlinDevelopersService from '../components/services/HireKotlinDevelopersService';
 import HireTechDevelopersService from '../components/services/HireTechDevelopersService';
 import HireMetaverseDevelopersService from '../components/services/HireMetaverseDevelopersService';
@@ -419,6 +420,18 @@ export const ServiceDetails = () => {
     currentSlug === 'services/digital-marketing' ||
     currentSlug === 'services/digital-marketing-services';
 
+  const isTestingQa = currentSlug === 'testing-qa' ||
+    currentSlug === 'testing-and-qa' ||
+    currentSlug === 'software-testing-qa' ||
+    currentSlug === 'qa-testing' ||
+    currentSlug === 'software-qa-testing' ||
+    currentSlug === 'software-testing' ||
+    currentSlug.includes('testing-qa') ||
+    currentSlug.includes('qa-testing') ||
+    currentSlug === 'services/testing-qa' ||
+    currentSlug === 'services/software-testing-qa' ||
+    (currentSlug.includes('testing') && !currentSlug.includes('podcast') && !currentSlug.includes('methodolog'));
+
   const unslugify = (str) => {
     if (!str) return 'Enterprise Tech Solution';
     return str
@@ -520,7 +533,7 @@ export const ServiceDetails = () => {
   const isChatGpt = currentSlug.includes('chatgpt') || currentSlug.includes('chat-gpt') || currentSlug.includes('hire-chatgpt');
 
   useEffect(() => {
-    if (!isChatGpt && !isSoftwareDevelopers && !isDedicatedDevelopers && !isMetaverse && !isEmbeddedSoftware && !isAlexaSkills && !isDataScientist && !isAnyDedicatedHire && !isKotlin && !isHybrid && !isPersonalFitness && !isUsedCar && !isEnneagram && !isCreditCard && !isIPad && !isCrossPlatform && !isItConsulting && !isNext && !isExpress && !isMobileApp && !isBootstrap && !isCodeIgniter && !isEmber && !isLaravel && !isPowerAutomate && !isPowerApps && !isSharePoint && !isVue && !isReact && !isAngular && !isIot && !isPwa && !isRpa && !isVR && !isFullStack && !isBlockchain && !isArtificialIntelligence && !isGenerativeAi && !isNodeJs && !isJava && !isPhp && !isNet && !isXamarin && !isAndroid && !isReactNative && !isFlutter && !isIOS && !isHealthcare && !isEducation && !isUber && !isSpotify && !isZomato && !isAmazon && !isVisitor && !isWarehouse && !isClover && !isCSharp && !isIWatch && !isWordpress && !isDrupal && !isUmbraco && !isSitecore && !isSitefinity && !isMagento && !isShopify) {
+    if (!isTestingQa && !isDigitalMarketing && !isUiUxDesign && !isChatGpt && !isSoftwareDevelopers && !isDedicatedDevelopers && !isMetaverse && !isEmbeddedSoftware && !isAlexaSkills && !isDataScientist && !isAnyDedicatedHire && !isKotlin && !isHybrid && !isPersonalFitness && !isUsedCar && !isEnneagram && !isCreditCard && !isIPad && !isCrossPlatform && !isItConsulting && !isNext && !isExpress && !isMobileApp && !isBootstrap && !isCodeIgniter && !isEmber && !isLaravel && !isPowerAutomate && !isPowerApps && !isSharePoint && !isVue && !isReact && !isAngular && !isIot && !isPwa && !isRpa && !isVR && !isFullStack && !isBlockchain && !isArtificialIntelligence && !isGenerativeAi && !isNodeJs && !isJava && !isPhp && !isNet && !isXamarin && !isAndroid && !isReactNative && !isFlutter && !isIOS && !isHealthcare && !isEducation && !isUber && !isSpotify && !isZomato && !isAmazon && !isVisitor && !isWarehouse && !isClover && !isCSharp && !isIWatch && !isWordpress && !isDrupal && !isUmbraco && !isSitecore && !isSitefinity && !isMagento && !isShopify) {
       fetchServiceDetails();
     } else {
       setLoading(false);
@@ -726,6 +739,10 @@ export const ServiceDetails = () => {
 
   if (isDigitalMarketing) {
     return <DigitalMarketingService />;
+  }
+
+  if (isTestingQa) {
+    return <TestingQaService />;
   }
 
   if (isPowerAutomate) {
