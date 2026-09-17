@@ -325,146 +325,78 @@ export const NintexDevelopmentService = () => {
       <PremiumServicesGrid />
 
       {/* ========================================================================= */}
-      {/* 7. SUCCESS STORIES & STATS (IMAGE 4 & 5) */}
+      {/* 7. SUCCESS STORIES & STATS (MATCHING IMAGE 2) */}
       {/* ========================================================================= */}
-      <section className="py-16 lg:py-24 bg-white border-t border-slate-100">
+      <section className="py-20 bg-[#DDF1FB] text-center font-sans border-t border-cyan-100">
         <Container>
-          <div className="text-center max-w-3xl mx-auto mb-14">
-            <h2 className="text-2xl sm:text-3xl lg:text-[38px] font-[800] text-[#0B0F19] tracking-tight leading-snug mb-3">
+          <div className="max-w-3xl mx-auto mb-12">
+            <h2 className="text-[34px] sm:text-[40px] font-[800] text-slate-900 tracking-tight leading-tight font-sans mb-3">
               Success Stories
             </h2>
-            <p className="text-sm sm:text-base text-slate-600 font-normal">
-              Know Firevy journey from concept to success. Explore how we've brought ideas to life and achieved remarkable results for our clients.
+            <p className="text-[15px] sm:text-[16px] font-[400] text-slate-700 leading-relaxed font-sans">
+              Know Sapphire journey from concept to success. Explore how we've brought ideas to life and achieved remarkable results for our clients.
             </p>
           </div>
 
-          {/* 3 Portfolio Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            {/* Card 1: Appointment Schedule App */}
-            <div className="flex flex-col group cursor-pointer">
-              <div className="w-full h-[250px] sm:h-[270px] rounded-2xl overflow-hidden shadow-xs border border-rose-100 bg-gradient-to-br from-[#FFE4E6] via-[#FFD1DC] to-[#FDA4AF] p-4 relative flex flex-col justify-between group-hover:shadow-lg transition-all duration-300">
-                <div className="flex justify-between items-start z-10">
-                  <div className="text-left">
-                    <span className="text-[11px] font-bold text-rose-800 uppercase tracking-wider block">Booking Solution</span>
-                    <span className="text-sm font-extrabold text-slate-900">Eyelash Booking App</span>
-                  </div>
-                  <span className="bg-[#005D95] text-white text-[11px] font-bold px-3 py-1 rounded-full shadow-xs">
-                    Case Study
-                  </span>
+          {/* 3 Case Study Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+            {/* Card 1: Healthcare Mobile App Development Company */}
+            <div className="text-center group">
+              <div className="relative rounded-[20px] overflow-hidden bg-white shadow-sm border border-slate-200/80 p-2 group-hover:shadow-md transition-all">
+                <div className="absolute top-4 right-4 z-10 bg-[#005F96] text-white text-[11px] font-[700] px-3 py-1 rounded-md shadow-2xs">
+                  Case Study
                 </div>
-
-                <div className="flex justify-center items-center my-auto">
-                  <div className="w-[140px] h-[170px] bg-white rounded-xl shadow-lg border-2 border-slate-800 p-2 overflow-hidden transform rotate-2 group-hover:rotate-0 transition-transform duration-300">
-                    <div className="h-3 bg-rose-500 rounded-t-md mb-2" />
-                    <div className="space-y-1.5">
-                      <div className="h-2 bg-slate-200 rounded w-3/4" />
-                      <div className="h-2 bg-slate-100 rounded w-1/2" />
-                      <div className="h-10 bg-rose-50 rounded-lg p-1.5 text-[8px] text-rose-700 font-bold">
-                        10:00 AM - Slot Reserved
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-white/90 backdrop-blur-xs rounded-lg p-2 text-center text-xs font-bold text-slate-800 z-10 shadow-xs">
-                  91% Reduction in Booking Time
-                </div>
+                <img
+                  src="/images/adani.webp"
+                  alt="Healthcare Mobile App Development Company"
+                  className="w-full h-[220px] object-cover rounded-[14px]"
+                />
               </div>
-
-              <h3 className="font-[800] text-[17px] text-[#0B0F19] mt-3 group-hover:text-[#005D95] transition-colors text-left">
-                Appointment Schedule App
+              <h3 className="text-[16px] font-[800] text-slate-900 mt-4 font-sans text-left">
+                Healthcare Mobile App Development Company
               </h3>
             </div>
 
-            {/* Card 2: Safety Application Development */}
-            <div className="flex flex-col group cursor-pointer">
-              <div className="w-full h-[250px] sm:h-[270px] rounded-2xl overflow-hidden shadow-xs border border-amber-100 bg-gradient-to-br from-[#FEF3C7] via-[#FDE68A] to-[#F59E0B]/30 p-4 relative flex flex-col justify-between group-hover:shadow-lg transition-all duration-300">
-                <div className="flex justify-between items-start z-10">
-                  <div className="text-left">
-                    <span className="text-[11px] font-bold text-amber-900 uppercase tracking-wider block">Healthcare & Safety</span>
-                    <span className="text-sm font-extrabold text-slate-900">L'Oréal SafeWork</span>
-                  </div>
-                  <span className="bg-[#005D95] text-white text-[11px] font-bold px-3 py-1 rounded-full shadow-xs">
-                    Enterprise
-                  </span>
-                </div>
-
-                <div className="flex justify-center items-center my-auto">
-                  <div className="w-[180px] bg-white rounded-xl shadow-lg border border-amber-200 p-3 text-center">
-                    <div className="w-10 h-10 rounded-full bg-amber-100 text-amber-700 mx-auto flex items-center justify-center font-black mb-2">
-                      ✓
-                    </div>
-                    <div className="text-xs font-black text-slate-900 leading-tight">SafeWork Incident Tracker</div>
-                    <div className="text-[9px] text-slate-500 mt-1">99% Safety Compliance</div>
-                  </div>
-                </div>
-
-                <div className="bg-white/90 backdrop-blur-xs rounded-lg p-2 text-center text-xs font-bold text-slate-800 z-10 shadow-xs">
-                  97% Reduction in Safety Incidents
-                </div>
+            {/* Card 2: Federal Forecasting App */}
+            <div className="text-center group">
+              <div className="rounded-[20px] overflow-hidden bg-white shadow-sm border border-slate-200/80 p-2 group-hover:shadow-md transition-all">
+                <img
+                  src="/images/federal_forecasting_app.jpg"
+                  alt="Federal Forecasting App"
+                  className="w-full h-[220px] object-cover rounded-[14px]"
+                />
               </div>
-
-              <h3 className="font-[800] text-[17px] text-[#0B0F19] mt-3 group-hover:text-[#005D95] transition-colors text-left">
-                Safety Application Development
+              <h3 className="text-[16px] font-[800] text-slate-900 mt-4 font-sans text-left">
+                Federal Forecasting App
               </h3>
             </div>
 
-            {/* Card 3: Powerapps Development Company */}
-            <div className="flex flex-col group cursor-pointer">
-              <div className="w-full h-[250px] sm:h-[270px] rounded-2xl overflow-hidden shadow-xs border border-sky-100 bg-gradient-to-br from-[#032541] via-[#004B78] to-[#005D95] p-4 relative flex flex-col justify-between group-hover:shadow-lg transition-all duration-300 text-white">
-                <div className="flex justify-between items-start z-10">
-                  <div className="text-left">
-                    <span className="text-[11px] font-bold text-sky-200 uppercase tracking-wider block">Power Platform</span>
-                    <span className="text-sm font-extrabold text-white">PowerApps Enterprise</span>
-                  </div>
-                  <span className="bg-white text-[#005D95] text-[11px] font-bold px-3 py-1 rounded-full shadow-xs">
-                    Solutions
-                  </span>
-                </div>
-
-                <div className="flex justify-center items-center my-auto">
-                  <div className="w-[190px] bg-slate-900/90 rounded-lg p-2.5 border border-sky-400/40 shadow-xl">
-                    <div className="flex space-x-1.5 mb-2">
-                      <div className="w-2 h-2 rounded-full bg-red-400" />
-                      <div className="w-2 h-2 rounded-full bg-amber-400" />
-                      <div className="w-2 h-2 rounded-full bg-green-400" />
-                    </div>
-                    <div className="space-y-1 text-[8px] text-sky-200">
-                      <div className="flex justify-between border-b border-sky-800/60 pb-0.5">
-                        <span>Workflow Matrix</span>
-                        <span className="text-green-400">Active</span>
-                      </div>
-                      <div className="flex justify-between">
-                        <span>Process Intel</span>
-                        <span className="text-sky-300">Synchronized</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="bg-white/10 backdrop-blur-xs rounded-lg p-2 text-center text-xs font-bold text-white z-10 border border-white/20">
-                  Automated Enterprise Workflows
-                </div>
+            {/* Card 3: Stress Management App */}
+            <div className="text-center group">
+              <div className="rounded-[20px] overflow-hidden bg-white shadow-sm border border-slate-200/80 p-2 group-hover:shadow-md transition-all">
+                <img
+                  src="/images/stress_management_app.jpg"
+                  alt="Stress Management App"
+                  className="w-full h-[220px] object-cover rounded-[14px]"
+                />
               </div>
-
-              <h3 className="font-[800] text-[17px] text-[#0B0F19] mt-3 group-hover:text-[#005D95] transition-colors text-left">
-                Powerapps Development Company
+              <h3 className="text-[16px] font-[800] text-slate-900 mt-4 font-sans text-left">
+                Stress Management App
               </h3>
             </div>
           </div>
 
-          {/* View All Portfolio Button */}
-          <div className="text-center mb-16">
+          {/* Centered "View All Portfolio" Button */}
+          <div className="mb-14">
             <Link
               to="/portfolio"
-              className="inline-flex items-center space-x-2 bg-[#005D95] hover:bg-[#004874] text-white px-8 py-3 rounded-[6px] font-bold text-[14px] transition-all duration-300 shadow-md hover:shadow-lg"
+              className="inline-flex items-center justify-center px-9 py-3 rounded-[6px] bg-[#006B8F] hover:bg-[#005478] text-white font-[700] text-[14.5px] transition-all shadow-md font-sans"
             >
-              <span>View All Portfolio</span>
-              <ArrowRight className="w-4 h-4" />
+              View All Portfolio
             </Link>
           </div>
 
-          {/* 4 Pastel Highlight Metric Boxes */}
+          {/* 4 Colorful Highlight Boxes */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {/* Box 1: Purple (23+ Years Experience) */}
             <div className="bg-[#D8C7FF] rounded-[18px] p-6 text-center flex flex-col justify-center items-center shadow-xs">
@@ -476,10 +408,10 @@ export const NintexDevelopmentService = () => {
               </div>
             </div>
 
-            {/* Box 2: Mint Green (320+ 5-Star Clutch Reviews) */}
+            {/* Box 2: Mint Green (250+ 5-Star Clutch Reviews) */}
             <div className="bg-[#A3E8D2] rounded-[18px] p-6 text-center flex flex-col justify-center items-center shadow-xs">
               <div className="text-[36px] sm:text-[40px] font-[900] text-slate-900 tracking-tight leading-none mb-1 font-sans">
-                320+
+                250+
               </div>
               <div className="text-[14px] font-[700] text-slate-800 font-sans">
                 5-Star Clutch Reviews
