@@ -84,6 +84,7 @@ import DigitalMarketingService from '../components/services/DigitalMarketingServ
 import TestingQaService from '../components/services/TestingQaService';
 import NintexDevelopmentService from '../components/services/NintexDevelopmentService';
 import MobileAppPortingService from '../components/services/MobileAppPortingService';
+import DataCleansingService from '../components/services/DataCleansingService';
 import HireKotlinDevelopersService from '../components/services/HireKotlinDevelopersService';
 import HireTechDevelopersService from '../components/services/HireTechDevelopersService';
 import HireMetaverseDevelopersService from '../components/services/HireMetaverseDevelopersService';
@@ -228,6 +229,15 @@ export const ServiceDetails = () => {
     currentSlug === 'mobile-app-porting-service' ||
     currentSlug === 'app-porting' ||
     currentSlug.includes('porting');
+
+  const isDataCleansing = currentSlug === 'data-cleansing-services' ||
+    currentSlug === 'data-cleansing-service' ||
+    currentSlug === 'data-cleansing' ||
+    currentSlug === 'database-cleansing' ||
+    currentSlug === 'database-cleansing-services' ||
+    currentSlug === 'services/data-cleansing-services' ||
+    currentSlug.includes('data-cleansing') ||
+    currentSlug.includes('database-cleansing');
 
   const isMobileApp = !isHireMobile && !isMobileAppPorting && (
     currentSlug === 'mobile-app-development' ||
@@ -781,6 +791,10 @@ export const ServiceDetails = () => {
 
   if (isMobileAppPorting) {
     return <MobileAppPortingService />;
+  }
+
+  if (isDataCleansing) {
+    return <DataCleansingService />;
   }
 
   if (isPowerAutomate) {

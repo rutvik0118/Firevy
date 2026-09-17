@@ -191,6 +191,12 @@ export function App() {
                 <Route path="/mobile-app-porting" element={<ServiceDetails />} />
                 <Route path="/services/mobile-app-porting-services" element={<ServiceDetails />} />
                 <Route path="/mobile-app-porting-services" element={<ServiceDetails />} />
+                <Route path="/services/data-cleansing-services" element={<ServiceDetails />} />
+                <Route path="/data-cleansing-services" element={<ServiceDetails />} />
+                <Route path="/services/data-cleansing" element={<ServiceDetails />} />
+                <Route path="/data-cleansing" element={<ServiceDetails />} />
+                <Route path="/services/database-cleansing-services" element={<ServiceDetails />} />
+                <Route path="/database-cleansing-services" element={<ServiceDetails />} />
                 <Route path="/services/tech-consulting-services" element={<ServiceDetails />} />
                 <Route path="/services/hire-bootstrap-developers" element={<ServiceDetails />} />
                 <Route path="/services/hire-bootstrap-developer" element={<ServiceDetails />} />
