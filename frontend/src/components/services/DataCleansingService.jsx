@@ -69,13 +69,6 @@ export const DataCleansingService = () => {
     }
   ];
 
-  // Tech Stack Pills
-  const dataTechStack = [
-    'Python', 'Pandas & NumPy', 'SQL Server', 'PostgreSQL', 'MongoDB',
-    'OpenRefine', 'Apache Spark', 'Snowflake', 'Databricks', 'Power BI',
-    'Tableau', 'AWS Glue', 'Azure Data Factory', 'Google BigQuery'
-  ];
-
   // Success Stories (Exact 1:1 Match to Reference Screenshot)
   const dataCleansingSuccessCards = [
     {
@@ -381,28 +374,7 @@ export const DataCleansingService = () => {
       <ProudAwardsBanner />
 
       {/* ========================================================================= */}
-      {/* 11. DATA ENGINEERING TOOLS & TECH STACK STRIP                             */}
-      {/* ========================================================================= */}
-      <section className="py-12 bg-[#004A75] text-white">
-        <Container className="max-w-6xl text-center">
-          <h3 className="text-xl sm:text-2xl font-bold mb-6 font-sans">
-            Technologies & Tools That Power Our Data Cleansing
-          </h3>
-          <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
-            {dataTechStack.map((tech, i) => (
-              <span
-                key={i}
-                className="px-4 py-2 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-sm font-semibold text-white tracking-wide transition-colors select-none"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      {/* ========================================================================= */}
-      {/* 10. BENEFITS OF OUR DATA CLEANSING SERVICES (6 Cards Grid)                */}
+      {/* 11. BENEFITS OF OUR DATA CLEANSING SERVICES (6 Cards Grid)                */}
       {/* ========================================================================= */}
       <section className="py-16 sm:py-20 bg-white text-left">
         <Container className="max-w-6xl">
