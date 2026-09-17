@@ -131,6 +131,93 @@ export const NintexDevelopmentService = () => {
     }
   ];
 
+  // Benefits of Nintex Development Cards (Matching Reference Images 2 & 3)
+  const nintexBenefits = [
+    {
+      title: 'User-Driven',
+      desc: 'Everyone, from beginners to seasoned veterans, can profit from the workflow automation capabilities of the system as it does tasks for its users, unlike other systems to learn routine activities.',
+      icon: (
+        <svg viewBox="0 0 48 48" className="w-11 h-11 text-[#0068A8]" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="6" y="8" width="26" height="20" rx="3" />
+          <path d="M12 15h14M12 21h8" />
+          <path d="M14 36h10M19 28v8" />
+          <circle cx="34" cy="30" r="6" />
+          <path d="M34 22v3M34 35v3M26 30h3M39 30h3M28.3 24.3l2.2 2.2M37.5 33.5l2.2 2.2M28.3 35.7l2.2-2.2M37.5 26.5l2.2-2.2" />
+        </svg>
+      )
+    },
+    {
+      title: 'Drag And Drop',
+      desc: 'The drag and drop approach prioritizes streamlining the procedure rather than limiting the available options. It implies that Nintex software services are simple to use and run.',
+      icon: (
+        <svg viewBox="0 0 48 48" className="w-11 h-11 text-[#0068A8]" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="10" cy="12" r="3" />
+          <circle cx="38" cy="12" r="3" />
+          <circle cx="38" cy="36" r="3" />
+          <path d="M13 12h22M38 15v18" strokeDasharray="3 3" />
+          <path d="M24 8v16a3 3 0 0 1-6 0V14a2.5 2.5 0 0 0-5 0v16c0 7 5 12 12 12s12-5 12-12v-8a2.5 2.5 0 0 0-5 0v4" />
+        </svg>
+      )
+    },
+    {
+      title: 'Powerful Automation',
+      desc: 'Compared to other automation systems on the market, Nintex enables quicker startup, operation, robust enough to handle large corporate projects, and creation of numerous processes.',
+      icon: (
+        <svg viewBox="0 0 48 48" className="w-11 h-11 text-[#0068A8]" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="8" y="10" width="30" height="20" rx="2" />
+          <path d="M4 36h38a2 2 0 0 0 2-2v-1a3 3 0 0 0-3-3H7a3 3 0 0 0-3 3v1a2 2 0 0 0 2 2z" />
+          <circle cx="31" cy="17" r="4.5" />
+          <path d="M31 11v2M31 21v2M25 17h2M35 17h2" />
+          <path d="M14 16h6M14 20h4" />
+        </svg>
+      )
+    },
+    {
+      title: 'Price Variability',
+      desc: "Nintex's pricing is available on a quotation basis, allowing companies to customize their feature suite depending on their business requirements while keeping their budget in mind.",
+      icon: (
+        <svg viewBox="0 0 48 48" className="w-11 h-11 text-[#0068A8]" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="28" cy="15" r="8" />
+          <path d="M28 11v8M25.5 13.2h5a1.8 1.8 0 0 1 0 3.6h-5a1.8 1.8 0 0 0 0 3.6h5" />
+          <path d="M6 31h10l8-4h12a3 3 0 0 1 3 3c0 2-1.5 3-4 3H27l-5 4H6" />
+        </svg>
+      )
+    },
+    {
+      title: 'Simple Workflows',
+      desc: 'Whether it’s a request or approval, anyone can make workflow simpler with Nintex’s workflow automation functionality in the simplest possible way.',
+      icon: (
+        <svg viewBox="0 0 48 48" className="w-11 h-11 text-[#0068A8]" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="18" cy="20" r="7" />
+          <path d="M18 10v3M18 27v3M8 20h3M25 20h3M11 13l2.1 2.1M22.9 24.9l2.1 2.1M11 27l2.1-2.1M22.9 15.1l2.1-2.1" />
+          <circle cx="32" cy="30" r="6" />
+          <path d="M32 21v3M32 36v3M23 30h3M38 30h3" />
+        </svg>
+      )
+    },
+    {
+      title: 'Easy Integration',
+      desc: 'Whether you need to integrate your social media handles or your CRM, you can easily integrate Nintex workflow with your favorite tools without any coding knowledge.',
+      icon: (
+        <svg viewBox="0 0 48 48" className="w-11 h-11 text-[#0068A8]" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 18a4 4 0 0 1 8 0h6a2 2 0 0 1 2 2v6a4 4 0 1 1 0 8v6a2 2 0 0 1-2 2h-6a4 4 0 0 1-8 0h-4a2 2 0 0 1-2-2v-6a4 4 0 0 0 0-8v-6a2 2 0 0 1 2-2h4z" />
+        </svg>
+      )
+    },
+    {
+      title: 'Dynamic Forms',
+      desc: 'Nintex Forms empower IT ops professionals across business departments to automate work by creating simple, no-code forms and customizing them as per their needs.',
+      icon: (
+        <svg viewBox="0 0 48 48" className="w-11 h-11 text-[#0068A8]" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="10" y="8" width="28" height="32" rx="5" />
+          <rect x="16" y="15" width="16" height="5" rx="1.5" />
+          <rect x="16" y="24" width="5" height="5" rx="1" />
+          <line x1="25" y1="26.5" x2="32" y2="26.5" strokeWidth="2.8" />
+        </svg>
+      )
+    }
+  ];
+
   // Nintex Tech Stack
   const nintexTechStack = [
     {
@@ -618,7 +705,49 @@ export const NintexDevelopmentService = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* 10. HIRING MODELS */}
+      {/* 10. PROUD TO HAVE PICKED THESE UP ALONG THE WAY (AWARDS & TRUST BANNER) */}
+      {/* ========================================================================= */}
+      <TrustRecognitionBanner />
+
+      {/* ========================================================================= */}
+      {/* 11. BENEFITS OF NINTEX DEVELOPMENT */}
+      {/* ========================================================================= */}
+      <section className="py-16 lg:py-24 bg-white border-t border-slate-100">
+        <Container>
+          {/* Section Header */}
+          <div className="text-center max-w-4xl mx-auto mb-14 sm:mb-16">
+            <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-[#0B0F19] tracking-tight leading-tight mb-3 font-sans">
+              Benefits Of Nintex Development
+            </h2>
+            <p className="text-sm sm:text-[15.5px] text-slate-600 font-normal leading-relaxed font-sans max-w-3xl mx-auto">
+              Nintex's primary advantages include a user-friendly solution, an easy-to-use system, a strong automation platform, and flexible pricing. Here are some of the Nintex benefits.
+            </p>
+          </div>
+
+          {/* 7 Benefits Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {nintexBenefits.map((item, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-2xl p-7 sm:p-8 shadow-[0_4px_25px_rgba(0,0,0,0.04)] border border-slate-100 hover:border-slate-200 hover:shadow-xl transition-all duration-300 flex flex-col text-left group"
+              >
+                <div className="mb-5 flex items-center justify-start group-hover:scale-105 transition-transform duration-300">
+                  {item.icon}
+                </div>
+                <h3 className="text-lg sm:text-[19px] font-bold text-[#0B0F19] mb-2.5 group-hover:text-[#0068A8] transition-colors font-sans">
+                  {item.title}
+                </h3>
+                <p className="text-slate-600 text-sm sm:text-[14px] leading-[1.65] font-normal font-sans">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* ========================================================================= */}
+      {/* 12. HIRING MODELS */}
       {/* ========================================================================= */}
       <AndroidHiringModels />
 
