@@ -7,6 +7,7 @@ import SEO from '../common/SEO';
 import BrandLogoMarquee from '../common/BrandLogoMarquee';
 import ClutchTopRatedBanner from '../common/ClutchTopRatedBanner';
 import PremiumServicesGrid from '../common/PremiumServicesGrid';
+import SuccessStoriesSection from '../common/SuccessStoriesSection';
 import ProudAwardsBanner from './ProudAwardsBanner';
 import AndroidHiringModels from './AndroidHiringModels';
 import InnovativeSolutionsVideoSection from './InnovativeSolutionsVideoSection';
@@ -186,22 +187,22 @@ export const PatientManagementService = () => {
     }
   ];
 
-  // Success Stories (3 Case Studies)
+  // Success Stories (Exact 1:1 Match to Reference Screenshot)
   const patientSuccessCards = [
     {
       id: 1,
-      title: 'Multi-Specialty Hospital Enterprise Patient Flow & EHR Platform',
+      title: 'Document Quality Analyzer Website Development',
       image: '/images/success_stories/redetect.svg',
       badge: 'Case Study'
     },
     {
       id: 2,
-      title: 'Cloud-Based Dental & Outpatient Practice Management Software',
+      title: 'File Sharing App Development',
       image: '/images/success_stories/file_sharing_application.svg'
     },
     {
       id: 3,
-      title: 'Telehealth & Remote Vitals Monitoring Mobile Application',
+      title: 'Data Analytics Website Development',
       image: '/images/success_stories/data_analytics.svg'
     }
   ];
@@ -456,67 +457,12 @@ export const PatientManagementService = () => {
       <PremiumServicesGrid companyName="Firevy.co" />
 
       {/* ========================================================================= */}
-      {/* 8. SUCCESS STORIES (3 Portfolio Cards)                                    */}
+      {/* 8. SUCCESS STORIES (MATCHING REFERENCE SCREENSHOT)                        */}
       {/* ========================================================================= */}
-      <section className="py-14 sm:py-20 bg-white font-sans text-left overflow-hidden border-t border-slate-100">
-        <Container className="max-w-6xl">
-          <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-12">
-            <h2 className="text-[26px] sm:text-[32px] lg:text-[36px] font-[800] text-[#0B0F19] tracking-tight leading-tight mb-3">
-              Success Stories
-            </h2>
-            <p className="text-[13.5px] sm:text-[14.5px] text-[#475569] font-normal leading-relaxed max-w-3xl mx-auto">
-              Discover how our specialized Patient Management System software helps hospitals and clinics automate care, accelerate billing, and enhance patient satisfaction.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-7">
-            {patientSuccessCards.map((card) => (
-              <div
-                key={card.id}
-                className="rounded-[16px] overflow-hidden bg-white border border-slate-100 shadow-2xs hover:shadow-lg transition-all duration-300 flex flex-col group cursor-pointer text-left"
-              >
-                <div className="relative w-full h-[210px] sm:h-[220px] bg-[#EAF5FC] flex items-center justify-center overflow-hidden">
-                  <img
-                    src={card.image}
-                    alt={card.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
-                  />
-                  {card.badge && (
-                    <span className="absolute top-3 right-3 bg-[#005F96] text-white text-[11px] font-bold px-2.5 py-1 rounded-full shadow-xs">
-                      {card.badge}
-                    </span>
-                  )}
-                </div>
-
-                <div className="p-5 flex-1 flex flex-col justify-between">
-                  <h3 className="font-[800] text-[15.5px] sm:text-[16.5px] text-[#0B0F19] leading-snug tracking-tight mb-3">
-                    {card.title}
-                  </h3>
-
-                  <a
-                    href="#contact"
-                    className="inline-flex items-center space-x-1 text-xs font-bold text-[#005F96] hover:text-[#004B77] transition-colors"
-                  >
-                    <span>View Case Study</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center mt-10">
-            <a
-              href="#contact"
-              className="inline-flex items-center space-x-2 px-7 py-3 rounded-[4px] bg-[#005F96] hover:bg-[#004B77] text-white font-[700] text-[14px] shadow-sm hover:shadow transition-all duration-200 cursor-pointer"
-            >
-              <span>View All Success Stories</span>
-              <ArrowRight className="w-4 h-4" />
-            </a>
-          </div>
-        </Container>
-      </section>
+      <SuccessStoriesSection
+        cards={patientSuccessCards}
+        subtitle="Know Firevy.co journey from concept to success. Explore how we've brought ideas to life and achieved remarkable results for our clients."
+      />
 
       {/* ========================================================================= */}
       {/* 9. PROUD AWARDS MARQUEE BANNER                                            */}
