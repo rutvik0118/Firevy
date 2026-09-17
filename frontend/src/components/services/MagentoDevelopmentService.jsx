@@ -22,7 +22,8 @@ import {
   Users,
   Layers,
   ArrowRight,
-  Code2
+  Code2,
+  Clock
 } from 'lucide-react';
 
 export const MagentoDevelopmentService = () => {
@@ -141,167 +142,222 @@ export const MagentoDevelopmentService = () => {
       />
 
 
-      {/* Hero Section */}
-      <section className="relative bg-[#F0F7FB] pt-16 pb-20 md:pt-20 md:pb-28 border-b border-slate-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* 1. HERO SECTION: Hire Magento Developers */}
+      <section className="pt-32 pb-20 bg-[#F0F6FB] text-slate-900 relative overflow-hidden font-sans border-b border-slate-200/60">
+        <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Left Content */}
-            <div className="lg:col-span-7 space-y-6">
-              <h1 className="font-['Poppins',sans-serif] font-[800] text-[34px] leading-[41px] text-black tracking-tight">
-                Magento Development Services in USA
+            {/* Left Column Text & Action */}
+            <div className="lg:col-span-7 space-y-6 text-left">
+              <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-[900] text-slate-900 tracking-tight leading-tight">
+                Hire Magento Developers
               </h1>
-              <p className="text-base sm:text-lg text-[#475569] leading-relaxed max-w-2xl">
-                Firevy.co provides enterprise-grade Magento 2 and Adobe Commerce development services. We build scalable, high-converting B2B and B2C online stores powered by blazing-fast Hyvä themes, headless PWAs, and seamless ERP integrations.
+              <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal max-w-2xl">
+                Magento 1 and Magento 2 are included in the Magento development services we provide. If you need to hire Magento developers, you can depend on our knowledgeable Magento 2 developers.
               </p>
-              <div className="pt-2">
-                <a
-                  href="#discuss-project"
-                  className="inline-flex items-center justify-center gap-2.5 px-8 py-3.5 bg-[#005F96] hover:bg-[#082d49] text-white font-medium text-base rounded-md shadow-sm transition-all duration-200 transform hover:translate-y-[-1px]"
-                >
-                  <span>Let's Talk</span>
-                  <ArrowRight className="w-4 h-4" />
-                </a>
-              </div>
-            </div>
 
-            {/* Right Realistic Laptop Mockup */}
-            <div className="lg:col-span-5 relative flex justify-center">
-              <div className="w-full max-w-[480px] drop-shadow-2xl">
-                {/* Laptop Body Outer */}
-                <div className="bg-[#1E293B] rounded-t-2xl p-3 pb-2 border-t border-x border-slate-700 shadow-2xl relative">
-                  {/* Camera Dot */}
-                  <div className="w-2 h-2 bg-slate-500 rounded-full mx-auto mb-2 opacity-80" />
-                  {/* Screen Content */}
-                  <div className="bg-white rounded-lg overflow-hidden border border-slate-200 relative aspect-[16/10] flex flex-col shadow-inner">
-                    {/* Fake Browser Nav */}
-                    <div className="bg-slate-100 border-b border-slate-200 px-3 py-1.5 flex items-center justify-between text-[10px] text-slate-500">
-                      <div className="flex items-center gap-1.5">
-                        <div className="w-2 h-2 rounded-full bg-slate-300" />
-                        <div className="w-2 h-2 rounded-full bg-slate-300" />
-                        <div className="w-2 h-2 rounded-full bg-slate-300" />
-                      </div>
-                      <div className="bg-white px-3 py-0.5 rounded text-[9px] border border-slate-200 text-slate-600 font-mono">
-                        store.magento.com
-                      </div>
-                      <div className="w-4" />
-                    </div>
-
-                    {/* Webpage Canvas */}
-                    <div className="p-4 flex-1 flex flex-col justify-between bg-gradient-to-br from-white via-slate-50 to-blue-50/30">
-                      <div className="space-y-2">
-                        <div className="inline-block px-2 py-0.5 bg-blue-50 text-[#005F96] text-[9px] font-semibold rounded">
-                          Adobe Commerce & Hyvä
-                        </div>
-                        <h4 className="text-sm font-bold text-slate-900 leading-tight">
-                          High-Growth E-Commerce <br /> Engineered for Scale
-                        </h4>
-                        <p className="text-[10px] text-slate-600 line-clamp-2">
-                          Deliver sub-second checkout speeds and multi-store global commerce with custom Magento 2 architecture.
-                        </p>
-                      </div>
-
-                      <div className="grid grid-cols-3 gap-2 pt-2 border-t border-slate-200/60">
-                        <div className="bg-white p-1.5 rounded border border-slate-200 text-center">
-                          <div className="text-[11px] font-bold text-[#005F96]">95+</div>
-                          <div className="text-[8px] text-slate-500">Core Web Vitals</div>
-                        </div>
-                        <div className="bg-white p-1.5 rounded border border-slate-200 text-center">
-                          <div className="text-[11px] font-bold text-[#005F96]">4.1x</div>
-                          <div className="text-[8px] text-slate-500">Order Throughput</div>
-                        </div>
-                        <div className="bg-white p-1.5 rounded border border-slate-200 text-center">
-                          <div className="text-[11px] font-bold text-[#005F96]">&lt; 0.8s</div>
-                          <div className="text-[8px] text-slate-500">Page Load</div>
-                        </div>
-                      </div>
-                    </div>
+              {/* 4 Metrics / Stats Row */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-2 pb-2">
+                <div>
+                  <div className="text-3xl sm:text-[38px] font-[800] text-[#006095] tracking-tight leading-none mb-1">200+</div>
+                  <div className="text-xs sm:text-[14px] font-[600] text-slate-800 leading-[1.3]">
+                    Dedicated<br />Developers
                   </div>
                 </div>
-
-                {/* Laptop Keyboard Base */}
-                <div className="h-4 bg-[#0F172A] rounded-b-xl relative shadow-lg">
-                  <div className="w-16 h-1 bg-slate-600 mx-auto rounded-b" />
+                <div>
+                  <div className="text-3xl sm:text-[38px] font-[800] text-[#006095] tracking-tight leading-none mb-1">20+</div>
+                  <div className="text-xs sm:text-[14px] font-[600] text-slate-800 leading-[1.3]">
+                    Fortunes 500<br />Companies
+                  </div>
                 </div>
-                {/* Desk Reflection */}
-                <div className="w-4/5 h-2 bg-slate-400/20 blur-md mx-auto mt-1 rounded-full" />
+                <div>
+                  <div className="text-3xl sm:text-[38px] font-[800] text-[#006095] tracking-tight leading-none mb-1">2800+</div>
+                  <div className="text-xs sm:text-[14px] font-[600] text-slate-800 leading-[1.3]">
+                    Project Completed
+                  </div>
+                </div>
+                <div>
+                  <div className="text-3xl sm:text-[38px] font-[800] text-[#006095] tracking-tight leading-none mb-1">320+</div>
+                  <div className="text-xs sm:text-[14px] font-[600] text-slate-800 leading-[1.3]">
+                    5-Star Clutch Reviews
+                  </div>
+                </div>
+              </div>
+
+              {/* Call-to-action Pill */}
+              <div className="space-y-3 pt-3">
+                <div className="text-sm sm:text-[15px] font-[700] text-[#006095]">
+                  Get Top Talent Work for you At
+                </div>
+                <div className="inline-flex items-center justify-between bg-[#0089a8] rounded-[16px] p-2 pl-3.5 pr-2 w-full max-w-[410px] shadow-lg shadow-[#0089a8]/25">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center shrink-0 shadow-sm">
+                      <Clock className="w-4 h-4 text-[#0089a8] stroke-[2.5]" />
+                    </div>
+                    <span className="text-xl sm:text-[22px] font-[800] text-white tracking-tight">$21/Hourly*</span>
+                  </div>
+                  <Link
+                    to="/contact"
+                    className="bg-white text-[#006095] hover:bg-slate-50 font-[700] px-6 py-2.5 rounded-[10px] text-[15px] transition-all shadow-sm flex items-center justify-center cursor-pointer"
+                  >
+                    Hire Team
+                  </Link>
+                </div>
               </div>
             </div>
+
+            {/* Right Column Graphic */}
+            <div className="lg:col-span-5 relative flex items-center justify-center">
+              <img
+                src="/images/magento_hero_monitor.svg"
+                alt="Hire Magento Developers"
+                className="w-full max-w-[520px] h-auto object-contain mx-auto drop-shadow-xl"
+              />
+            </div>
           </div>
-        </div>
+        </Container>
       </section>
 
-      {/* Brand Logo Marquee */}
+      {/* 2. BRAND LOGO MARQUEE */}
       <BrandLogoMarquee />
 
-      {/* Wireframe Showcase Section */}
-      <section className="py-20 bg-white border-b border-slate-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* 3. SECTION 2: Hire Dedicated Magento Programmers At Affordable Prices */}
+      <section className="py-16 md:py-24 bg-white font-sans text-slate-900 border-b border-slate-100">
+        <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Left Wireframe Graphic */}
-            <div className="lg:col-span-5 flex justify-center">
-              <div className="relative w-full max-w-md bg-gradient-to-tr from-blue-50 to-sky-50/40 p-8 rounded-3xl border border-blue-100 shadow-sm">
-                <div className="bg-white rounded-2xl p-5 border border-blue-200 shadow-lg relative">
-                  {/* Wireframe Tablet Screen */}
-                  <div className="space-y-3">
-                    <div className="flex items-center justify-between pb-2 border-b border-slate-100">
-                      <div className="w-16 h-4 bg-[#005F96] rounded" />
-                      <div className="flex gap-1.5">
-                        <div className="w-8 h-2 bg-slate-200 rounded" />
-                        <div className="w-8 h-2 bg-slate-200 rounded" />
-                      </div>
-                    </div>
-                    <div className="w-full h-24 bg-gradient-to-br from-[#005F96] to-[#005F96] rounded-lg flex items-center justify-center text-white font-bold text-xs p-3 text-center shadow-inner">
-                      Adobe Commerce Multi-Store & Headless PWA
-                    </div>
-                    <div className="grid grid-cols-2 gap-2">
-                      <div className="h-12 bg-slate-50 border border-slate-200 rounded p-2">
-                        <div className="w-8 h-2 bg-blue-500 rounded mb-1" />
-                        <div className="w-12 h-1.5 bg-slate-200 rounded" />
-                      </div>
-                      <div className="h-12 bg-slate-50 border border-slate-200 rounded p-2">
-                        <div className="w-8 h-2 bg-[#006699] rounded mb-1" />
-                        <div className="w-12 h-1.5 bg-slate-200 rounded" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Floating Elements */}
-                <div className="absolute -top-3 -right-3 bg-white px-3 py-1.5 rounded-lg shadow-md border border-slate-200 text-xs font-semibold text-[#005F96] flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-[#006699]" />
-                  Adobe Certified
-                </div>
-              </div>
+            {/* Left Graphic Illustration */}
+            <div className="lg:col-span-6 relative flex justify-center items-center">
+              <img
+                src="/images/magento_dedicated_illustration.svg"
+                alt="Hire Dedicated Magento Programmers"
+                className="w-full max-w-[540px] h-auto object-contain mx-auto drop-shadow-md"
+              />
             </div>
 
-            {/* Right Detailed Description */}
-            <div className="lg:col-span-7 space-y-6">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 tracking-tight">
-                Acquire Magento Ecommerce Development Services
+            {/* Right Text Content */}
+            <div className="lg:col-span-6 space-y-6 text-left">
+              <h2 className="text-3xl sm:text-4xl font-[900] text-slate-900 tracking-tight leading-tight">
+                Hire Dedicated Magento Programmers At Affordable Prices
               </h2>
-              <p className="text-slate-600 leading-relaxed text-base">
-                Firevy.co delivers full-lifecycle Adobe Commerce and Magento 2 development services. Whether you need a custom store from scratch, a migration to Magento 2.4, blazing fast Hyvä theme implementation, or complex ERP integrations, our certified Magento developers build solutions that scale with your revenue.
+
+              <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
+                They can assist you with the Magento Community version and the Magento Enterprise edition. Hire a Magento programmer with expertise in delivering various Magento development services, from creating themes to integrating third-party components. We are your one-stop option if you are looking to Hire Dedicated Magento Developers. You may Hire Magento Certified Developer to help you with your online business. We have a team of qualified Magento developers in India that work hard to provide Adobe Commerce development services that our competitors unmatch.
               </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-                {[
-                  'Certified Adobe Commerce & Magento 2 Architects',
-                  'High-Speed Hyvä Themes & Headless PWA Studio',
-                  'Multi-Store, Multi-Currency & Global Catalogs',
-                  'Custom ERP, CRM & Payment Gateway Integrations',
-                  'Advanced B2B Portals & Wholesale Workflows',
-                  '24/7 Emergency Support & Security Patching'
-                ].map((item, idx) => (
-                  <div key={idx} className="flex items-start gap-2.5">
-                    <div className="w-5 h-5 rounded-full bg-blue-100 text-[#005F96] flex items-center justify-center shrink-0 mt-0.5">
-                      <Check className="w-3.5 h-3.5 stroke-[3]" />
-                    </div>
-                    <span className="text-sm font-medium text-slate-700">{item}</span>
-                  </div>
-                ))}
+
+              <div className="pt-2">
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center space-x-2 px-7 py-3.5 rounded-xl bg-[#006095] hover:bg-[#004f7a] text-white font-[700] text-sm sm:text-base transition-all shadow-md hover:shadow-lg cursor-pointer"
+                >
+                  <span>Connect With Magento Experts</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
               </div>
             </div>
           </div>
-        </div>
+        </Container>
+      </section>
+
+      {/* 4. COMPARISON MATRIX TABLE */}
+      <section className="py-16 md:py-20 bg-white font-sans text-slate-900 border-b border-slate-100 text-center">
+        <Container>
+          <div className="max-w-4xl mx-auto mb-10">
+            <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-[900] text-slate-900 tracking-tight">
+              Hire Dedicated Developers To Empower Your Business with our Development Proficiency
+            </h2>
+            <p className="text-sm sm:text-base text-slate-600 mt-2 font-normal">
+              Hire Magento Developers to meet your business perks by leveraging our technical elegance.
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto overflow-x-auto rounded-2xl border border-slate-200 shadow-sm">
+            <table className="w-full text-left border-collapse min-w-[620px]">
+              <thead>
+                <tr className="bg-[#006095] text-white">
+                  <th className="p-4 sm:p-4.5 font-[800] text-sm sm:text-[15px] w-1/4">Range of Developers</th>
+                  <th className="p-4 sm:p-4.5 font-[800] text-sm sm:text-[15px] w-1/4 border-l border-white/20">Junior Developers</th>
+                  <th className="p-4 sm:p-4.5 font-[800] text-sm sm:text-[15px] w-1/4 border-l border-white/20">Mid-Level Developers</th>
+                  <th className="p-4 sm:p-4.5 font-[800] text-sm sm:text-[15px] w-1/4 border-l border-white/20">Senior Developers</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-200">
+                <tr>
+                  <td className="p-4 font-[700] text-sm bg-[#006095] text-white">Approx Cost</td>
+                  <td className="p-4 font-[600] text-sm text-slate-800 bg-white border-l border-slate-200">$17</td>
+                  <td className="p-4 font-[600] text-sm text-slate-800 bg-white border-l border-slate-200">$22</td>
+                  <td className="p-4 font-[600] text-sm text-slate-800 bg-white border-l border-slate-200">$29</td>
+                </tr>
+                <tr>
+                  <td className="p-4 font-[700] text-sm bg-[#006095] text-white">Years of Experience</td>
+                  <td className="p-4 font-[600] text-sm text-slate-800 bg-white border-l border-slate-200">1-3 Years</td>
+                  <td className="p-4 font-[600] text-sm text-slate-800 bg-white border-l border-slate-200">3-5 Years</td>
+                  <td className="p-4 font-[600] text-sm text-slate-800 bg-white border-l border-slate-200">5+ Years</td>
+                </tr>
+                <tr>
+                  <td className="p-4 font-[700] text-sm bg-[#006095] text-white">Project Manager</td>
+                  <td className="p-4 font-[600] text-sm text-slate-800 bg-white border-l border-slate-200">Yes</td>
+                  <td className="p-4 font-[600] text-sm text-slate-800 bg-white border-l border-slate-200">Yes</td>
+                  <td className="p-4 font-[600] text-sm text-slate-800 bg-white border-l border-slate-200">Yes</td>
+                </tr>
+                <tr>
+                  <td className="p-4 font-[700] text-sm bg-[#006095] text-white">Time Zone Flexibility</td>
+                  <td className="p-4 font-[600] text-sm text-slate-800 bg-white border-l border-slate-200">Yes</td>
+                  <td className="p-4 font-[600] text-sm text-slate-800 bg-white border-l border-slate-200">Yes</td>
+                  <td className="p-4 font-[600] text-sm text-slate-800 bg-white border-l border-slate-200">Yes</td>
+                </tr>
+                <tr>
+                  <td className="p-4 font-[700] text-sm bg-[#006095] text-white">Quality Guarantee</td>
+                  <td className="p-4 font-[600] text-sm text-slate-800 bg-white border-l border-slate-200">Yes</td>
+                  <td className="p-4 font-[600] text-sm text-slate-800 bg-white border-l border-slate-200">Yes</td>
+                  <td className="p-4 font-[600] text-sm text-slate-800 bg-white border-l border-slate-200">Yes</td>
+                </tr>
+                <tr>
+                  <td className="p-4 font-[700] text-sm bg-[#006095] text-white">Working Hours</td>
+                  <td className="p-4 font-[600] text-sm text-slate-800 bg-white border-l border-slate-200">40 hours/ Week</td>
+                  <td className="p-4 font-[600] text-sm text-slate-800 bg-white border-l border-slate-200">40 hours/ Week</td>
+                  <td className="p-4 font-[600] text-sm text-slate-800 bg-white border-l border-slate-200">40 hours/ Week</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </Container>
+      </section>
+
+      {/* 5. BRIEF ABOUT OUR MAGENTO DEVELOPERS */}
+      <section className="py-16 md:py-24 bg-[#F9FBFC] font-sans text-slate-900 border-b border-slate-100 text-left">
+        <Container>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            {/* Left Content */}
+            <div className="lg:col-span-6 space-y-6">
+              <h2 className="text-3xl sm:text-4xl font-[900] text-slate-900 tracking-tight leading-tight">
+                Brief About Our Magento Developers
+              </h2>
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
+                Our developers are not obliged to have any training in any kind of sector or technology. All that is needed of you is to provide them with an explanation of your project, and they will carry out the necessary tasks.
+              </p>
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
+                To guarantee that the procedure runs well, we allocate a senior developer. If you hire Magento developers in UAE, you can rest confident that they will be reliable and responsible since the administration of the project will fall on our shoulders.
+              </p>
+              <div className="pt-2">
+                <Link
+                  to="/contact"
+                  className="inline-flex items-center space-x-2 px-7 py-3.5 rounded-xl bg-[#006095] hover:bg-[#004f7a] text-white font-[700] text-sm sm:text-base transition-all shadow-md hover:shadow-lg cursor-pointer"
+                >
+                  <span>Connect With Magento Experts</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
+            </div>
+
+            {/* Right Graphic Illustration */}
+            <div className="lg:col-span-6 relative flex justify-center items-center">
+              <img
+                src="/images/magento_brief_developers_illustration.svg"
+                alt="Brief About Our Magento Developers"
+                className="w-full max-w-[540px] h-auto object-contain mx-auto drop-shadow-md"
+              />
+            </div>
+          </div>
+        </Container>
       </section>
 
       {/* Top Rated Banner */}

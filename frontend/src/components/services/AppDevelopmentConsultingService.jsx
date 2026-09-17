@@ -1,20 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import SEO from '../common/SEO';
 import Container from '../common/Container';
 import BrandLogoMarquee from '../common/BrandLogoMarquee';
 import ClutchTopRatedBanner from '../common/ClutchTopRatedBanner';
 import PremiumServicesGrid from '../common/PremiumServicesGrid';
-import SapphireSeasonedExpertsSection from './SapphireSeasonedExpertsSection';
-import CustomItServicesSection from './CustomItServicesSection';
-import SectorsThrivingSection from './SectorsThrivingSection';
-import IndustryFocusedInsightsSection from './IndustryFocusedInsightsSection';
-import ExpertiseItConsultingSection from './ExpertiseItConsultingSection';
 import AndroidHiringModels from './AndroidHiringModels';
-import WhatOurClientsSaySection from './WhatOurClientsSaySection';
 import ProcessWeFollow from '../common/ProcessWeFollow';
 import TrustRecognitionBanner from '../home/TrustRecognitionBanner';
-import TechStackProficientGrid from '../common/TechStackProficientGrid';
+import SapphireTechStackGrid from '../common/SapphireTechStackGrid';
 import DigitalTransformationSlider from '../common/DigitalTransformationSlider';
 import TrustedBrandsGrid from '../common/TrustedBrandsGrid';
 import TransformativeImpactSection from './TransformativeImpactSection';
@@ -22,11 +16,10 @@ import AboutUsStats from './AboutUsStats';
 import FeaturedInBrandsSection from './FeaturedInBrandsSection';
 import SuccessMatrix from '../common/SuccessMatrix';
 import InnovativeVideoSlider from '../common/InnovativeVideoSlider';
-import FeaturedStoryVideoSection from './FeaturedStoryVideoSection';
+import VideoTestimonialsStory from '../home/VideoTestimonialsStory';
 import SapphireFaqSection from '../common/SapphireFaqSection';
 import WhatSetsUsApartSection from '../common/WhatSetsUsApartSection';
 import AppDevelopmentRecentBlogsSection from './AppDevelopmentRecentBlogsSection';
-import HealthcareChallengeCtaBanner from '../common/HealthcareChallengeCtaBanner';
 import NewsletterSubscribeBanner from '../common/NewsletterSubscribeBanner';
 import {
   ShieldCheck,
@@ -54,187 +47,151 @@ import {
 } from 'lucide-react';
 
 export const AppDevelopmentConsultingService = () => {
-  const [cuttingEdgeIndex, setCuttingEdgeIndex] = useState(0);
-  const [formSubmitted, setFormSubmitted] = useState(false);
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    company: '',
-    serviceType: 'Mobile App Strategy & Discovery',
-    budget: '$25,000 - $50,000',
-    message: ''
-  });
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setFormSubmitted(true);
-    setTimeout(() => {
-      setFormSubmitted(false);
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        company: '',
-        serviceType: 'Mobile App Strategy & Discovery',
-        budget: '$25,000 - $50,000',
-        message: ''
-      });
-    }, 4000);
-  };
-
-  // 1. Cutting-Edge Technologies for Mobile App Consulting
-  const cuttingEdgeMobileTech = [
+  // 1. Expertise In Our App Development Consulting (6 cards matching Image 1)
+  const appExpertiseCards = [
     {
-      title: 'React Native Cross-Platform Engineering',
+      title: 'MVP',
+      desc: 'Consult with our industry professionals on the viability of your Mobile App Development Services in light of the most recent market and technological developments so that you may create a feature-rich minimum viable product version.',
+      bg: 'bg-[#F3E8FF]',
       icon: (
-        <svg className="w-8 h-8 text-[#005F96]" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-          <circle cx="24" cy="24" r="6" />
-          <ellipse cx="24" cy="24" rx="18" ry="7" transform="rotate(30 24 24)" />
-          <ellipse cx="24" cy="24" rx="18" ry="7" transform="rotate(-30 24 24)" />
+        <svg className="w-6 h-6 text-[#9333EA]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2" />
+          <rect x="8" y="2" width="8" height="4" rx="1" ry="1" />
+          <path d="M9 12h.01" />
+          <path d="M13 12h2" />
+          <path d="M9 16h.01" />
+          <path d="M13 16h2" />
         </svg>
-      ),
-      desc: 'Build high-performance cross-platform apps with near-native responsiveness. Leverage modular architectures, dynamic live reloading, and smooth native bridges across iOS and Android.'
+      )
     },
     {
-      title: 'Flutter High-Performance Framework',
+      title: 'Competitor Analysis',
+      desc: 'To establish a product design and development strategy that is pertinent and realistic, we do a parameterized investigation of all of the essential traits shared by your primary rivals.',
+      bg: 'bg-[#DCFCE7]',
       icon: (
-        <svg className="w-8 h-8 text-[#005F96]" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M12 28 L26 14 L38 14 L18 34 Z" fill="currentColor" opacity="0.2" />
-          <path d="M18 34 L28 44 L40 44 L24 28 Z" fill="currentColor" />
-          <path d="M10 24 L24 10 L36 10 L16 30 Z" />
+        <svg className="w-6 h-6 text-[#16A34A]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+          <polyline points="14 2 14 8 20 8" />
+          <circle cx="11.5" cy="14.5" r="2.5" />
+          <path d="m13.5 16.5 2.5 2.5" />
         </svg>
-      ),
-      desc: "Harness Google's UI toolkit to deliver natively compiled, visually stunning mobile apps with 60/120fps Skia and Impeller graphics rendering from a unified codebase."
+      )
     },
     {
-      title: 'Native iOS & Swift Architecture',
+      title: 'Technology Stack',
+      desc: 'After we have gathered all of the criteria for the project, our app development specialists will assist you in selecting the technological stack that is both the most suitable and resourceful, ensuring the highest possible level of product effectiveness.',
+      bg: 'bg-[#FFEDD5]',
       icon: (
-        <svg className="w-8 h-8 text-[#005F96]" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M14 26 C16 18 24 12 32 10 C28 16 26 24 30 30 C32 32 36 34 38 34 C34 38 28 40 22 38 C16 36 12 32 14 26 Z" fill="currentColor" opacity="0.15" />
-          <path d="M30 10 C30 10 26 16 30 22 C34 28 40 30 40 30 C36 34 30 36 24 34 C16 32 12 24 14 18 C16 12 24 8 30 10 Z" />
+        <svg className="w-6 h-6 text-[#EA580C]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="m12 2 10 5-10 5-10-5Z" />
+          <path d="m2 12 10 5 10-5" />
+          <path d="m2 17 10 5 10-5" />
         </svg>
-      ),
-      desc: 'Engineered for uncompromising speed, memory safety, and seamless Apple ecosystem integration (Apple Pay, WidgetKit, ARKit, HealthKit) using modern Swift and SwiftUI.'
+      )
     },
     {
-      title: 'Native Android & Kotlin Solutions',
+      title: 'Ecosystem Integration',
+      desc: 'We assist companies in the incorporation of safe and reliable third-party APIs, legacy enterprise software, payment gateways, and device peripherals into their mobile architectures.',
+      bg: 'bg-[#FEF9C3]',
       icon: (
-        <svg className="w-8 h-8 text-[#005F96]" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-          <rect x="10" y="14" width="28" height="26" rx="6" />
-          <circle cx="18" cy="22" r="2" fill="currentColor" />
-          <circle cx="30" cy="22" r="2" fill="currentColor" />
-          <line x1="16" y1="8" x2="20" y2="14" />
-          <line x1="32" y1="8" x2="28" y2="14" />
+        <svg className="w-6 h-6 text-[#CA8A04]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M19.439 7.85c-.049-.322.059-.648.289-.878l1.568-1.568a1.5 1.5 0 0 0-2.121-2.121l-1.568 1.568a1.002 1.002 0 0 1-.878.29c-.792-.12-1.637-.12-2.428 0a1.002 1.002 0 0 1-.878-.29L11.854 3.28a1.5 1.5 0 0 0-2.121 2.121l1.568 1.568c.23.23.338.556.29.878-.12.791-.12 1.636 0 2.428a1.002 1.002 0 0 1-.29.878l-1.568 1.568a1.5 1.5 0 0 0 2.121 2.121l1.568-1.568c.23-.23.556-.338.878-.29.791.12 1.636.12 2.428 0 .322-.049.648.059.878.289l1.568 1.568a1.5 1.5 0 0 0 2.121-2.121l-1.568-1.568a1.002 1.002 0 0 1-.289-.878c.12-.792.12-1.637 0-2.428z" />
         </svg>
-      ),
-      desc: 'Unlock optimal Android performance with Kotlin, Jetpack Compose, and coroutines. Modular MVVM/MVI architectures designed to seamlessly support thousands of distinct screen sizes.'
+      )
     },
     {
-      title: 'Node.js & GraphQL Mobile Backends',
+      title: 'Post-Delivery Support',
+      desc: 'Your post-delivery project needs will be visualized by an innovative team of mobile maintenance professionals ensuring high availability, continuous OS upgrades, and security patching.',
+      bg: 'bg-[#FCE7F3]',
       icon: (
-        <svg className="w-8 h-8 text-[#005F96]" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-          <polygon points="24,6 40,15 40,33 24,42 8,33 8,15" />
-          <path d="M 24 6 V 42 M 8 15 L 24 24 L 40 15" />
+        <svg className="w-6 h-6 text-[#DB2777]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
         </svg>
-      ),
-      desc: 'High-throughput, event-driven REST and GraphQL backends optimized for low-latency mobile device requests, battery efficiency, and offline-first cache synchronization.'
+      )
     },
     {
-      title: 'Firebase & Cloud Push Infrastructure',
+      title: 'Testing',
+      desc: 'Using a testing strategy that is more focused on experience, our app testing specialists execute comprehensive functional, regression, UI/UX, security, and automated performance testing.',
+      bg: 'bg-[#E0F2FE]',
       icon: (
-        <svg className="w-8 h-8 text-[#005F96]" viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M12 36 L18 12 L24 22 L20 30 Z" fill="currentColor" opacity="0.2" />
-          <path d="M36 36 L24 10 L20 18 L26 28 Z" />
-          <path d="M12 36 L24 42 L36 36 Z" fill="currentColor" />
+        <svg className="w-6 h-6 text-[#0284C7]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M9 11l3 3L22 4" />
+          <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
         </svg>
-      ),
-      desc: 'Scalable cloud backends providing instant real-time data sync, secure OAuth social logins, analytics telemetry, crash reporting, and targeted push notification workflows.'
+      )
     }
   ];
 
-  // 2. Custom Mobile App Services Cards (6 cards matching reference)
-  const customAppServicesData = [
+  // 4. Benefits of App Development Consulting Services (6 cards matching Image 3)
+  const appBenefitsData = [
     {
-      title: 'iOS App Development Consulting',
-      desc: 'Our iOS specialists evaluate your product idea, determine the optimal architectural paradigm (SwiftUI vs. UIKit), maximize Apple ecosystem integrations (Apple Pay, HealthKit, Siri Shortcuts), and guide you past stringent App Store compliance hurdles.'
+      title: 'Strategy and Roadmap',
+      desc: 'We collaborate with you to create an app development strategy that meets your company goals. Our consultants utilize industry trends, customer demands, and competitor offers to design a roadmap for development from idea to launch and beyond.',
+      icon: (
+        <svg className="w-8 h-8 text-[#0284C7]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M3 3v18h18" />
+          <path d="m19 9-5 5-4-4-3 3" />
+        </svg>
+      )
     },
     {
-      title: 'Android App Development Consulting',
-      desc: 'Formulate high-performance Android mobile strategies utilizing modern Kotlin and Jetpack Compose architectures, ensuring seamless responsiveness and zero battery drain across thousands of distinct Android devices and OS versions.'
+      title: 'Tech Choice and Architecture Design',
+      desc: 'Choosing the correct technology stack and architecture is critical for app success. Our App Development Consulting Services help you choose the best technologies and create a scalable and efficient architecture for your app’s needs and growth.',
+      icon: (
+        <svg className="w-8 h-8 text-[#0284C7]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <rect width="18" height="18" x="3" y="3" rx="2" />
+          <path d="M3 9h18" />
+          <path d="M9 21V9" />
+        </svg>
+      )
     },
     {
-      title: 'Cross-Platform App Consulting',
-      desc: 'Maximize code reusability and accelerate your time-to-market with Flutter or React Native. Our consultants evaluate when a unified cross-platform codebase makes technical, performance, and budgetary sense over separate native apps.'
+      title: 'Designing User Experience and Interface',
+      desc: 'App success depends on UX and interface design. Our experts design intuitive, engaging, and usable interfaces that please users. We study users, produce wireframes and prototypes, and refine designs to make your app great.',
+      icon: (
+        <svg className="w-8 h-8 text-[#0284C7]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+          <circle cx="9" cy="7" r="4" />
+          <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+          <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+        </svg>
+      )
     },
     {
-      title: 'Enterprise Mobility & MDM Advisory',
-      desc: 'Empower enterprise workforces with secure mobile workflows, Mobile Device Management (MDM), enterprise Single Sign-On (SSO), granular role-based access, and banking-grade end-to-end data encryption protocols.'
+      title: 'Agile Development Methodologies',
+      desc: 'Our Agile consulting methodologies foster rapid, iterative development sprints, transparent stakeholder feedback loops, and continuous delivery, minimizing risks and accelerating time-to-market.',
+      icon: (
+        <svg className="w-8 h-8 text-[#0284C7]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5" />
+          <path d="M9 18h6" />
+          <path d="M10 22h4" />
+        </svg>
+      )
     },
     {
-      title: 'Mobile UI/UX Strategy & Prototyping',
-      desc: 'Transform complex user requirements into elegant, intuitive mobile user interfaces. We conduct interactive wireframing, clickable design prototypes, user journey mapping, and usability testing before code implementation begins.'
+      title: 'Testing and QA',
+      desc: 'Our dedicated quality assurance engineers perform end-to-end automated and manual testing across real Android and iOS devices, identifying critical vulnerabilities, memory leaks, and performance bottlenecks before release.',
+      icon: (
+        <svg className="w-8 h-8 text-[#0284C7]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <rect width="20" height="14" x="2" y="3" rx="2" />
+          <line x1="8" x2="16" y1="21" y2="21" />
+          <line x1="12" x2="12" y1="17" y2="21" />
+          <path d="m9 10 2 2 4-4" />
+        </svg>
+      )
     },
     {
-      title: 'App Modernization & Legacy Migration',
-      desc: 'Refactor brittle legacy mobile codebases, eliminate technical debt, migrate from deprecated architectures (such as Objective-C to modern Swift or Java to Kotlin), and drastically enhance app startup time, stability, and retention.'
-    }
-  ];
-
-  // 3. 4 Light Blue Expertise Cards (matching reference layout)
-  const appConsultingExpertiseCards = [
-    {
-      title: 'Mobile Discovery & Product Roadmapping',
-      desc: 'Deep-dive discovery workshops to validate market viability, define feature hierarchies (MVP vs. Phase 2), user personas, and a realistic development timetable.',
-      link: '/services/mobile-app-discovery'
-    },
-    {
-      title: 'Tech Stack & Architecture Advisory',
-      desc: 'Unbiased strategic recommendations on whether Native (Swift/Kotlin) or Cross-Platform (Flutter/React Native) best satisfies your performance and scalability needs.',
-      link: '/services/mobile-architecture-consulting'
-    },
-    {
-      title: 'Mobile Security & Regulatory Compliance',
-      desc: 'Exhaustive security audits guarding against OWASP Mobile Top 10 vulnerabilities, API tampering, data leakage, and compliance with HIPAA, GDPR, and PCI-DSS.',
-      link: '/services/mobile-security-audits'
-    },
-    {
-      title: 'App Store Launch & ASO Strategy',
-      desc: 'End-to-end guidance for App Store and Google Play submissions, keyword indexing, conversion rate optimization, and automated crash telemetry.',
-      link: '/services/aso-launch-strategy'
-    }
-  ];
-
-  // 4. Technology Stack Rows
-  const appServiceTechStack = [
-    {
-      category: 'iOS Ecosystem',
-      pills: ['Swift', 'SwiftUI', 'Objective-C', 'Xcode', 'CocoaPods', 'Combine', 'CoreData', 'TestFlight', 'ARKit']
-    },
-    {
-      category: 'Android Ecosystem',
-      pills: ['Kotlin', 'Java', 'Jetpack Compose', 'Android SDK', 'Room DB', 'Coroutines', 'Gradle', 'Retrofit', 'Dagger Hilt']
-    },
-    {
-      category: 'Cross-Platform Frameworks',
-      pills: ['Flutter', 'React Native', 'Dart', 'Ionic', 'Capacitor', 'Expo', 'Xamarin']
-    },
-    {
-      category: 'Mobile Cloud & Backend',
-      pills: ['Firebase', 'AWS Amplify', 'Node.js', 'GraphQL', 'Supabase', 'Express.js', 'Google Cloud', 'RESTful APIs']
-    },
-    {
-      category: 'Mobile DevOps & Automation',
-      pills: ['Fastlane', 'Bitrise', 'GitHub Actions', 'App Center', 'Jenkins', 'SonarQube', 'Docker']
-    },
-    {
-      category: 'Testing & Quality Assurance',
-      pills: ['Appium', 'XCTest', 'Espresso', 'BrowserStack', 'Postman', 'Katalon Studio']
+      title: 'Optimization and Launch Strategy for App Store',
+      desc: 'We assist you with comprehensive App Store Optimization (ASO), metadata refinement, compliance guidelines auditing, and coordinated launch roadmaps to maximize organic visibility and downloads across Google Play and Apple App Store.',
+      icon: (
+        <svg className="w-8 h-8 text-[#0284C7]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="m4.5 16.5-1.5 1.5 3 3 1.5-1.5" />
+          <path d="m15 4.5 4.5 4.5" />
+          <path d="M9 12l2.5 2.5" />
+          <path d="M14.5 3a5.5 5.5 0 0 1 6.5 6.5l-9.5 9.5a2.5 2.5 0 0 1-3.5 0l-3-3a2.5 2.5 0 0 1 0-3.5Z" />
+        </svg>
+      )
     }
   ];
 
@@ -282,24 +239,27 @@ export const AppDevelopmentConsultingService = () => {
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             {/* Left Content */}
-            <div className="lg:col-span-6 space-y-5 text-left font-['Poppins',sans-serif]">
-              <h1 className="text-[#000000] font-[800] text-3xl sm:text-4xl lg:text-[45px] xl:text-[48px] leading-[1.18] tracking-tight">
-                App Development Consulting <br />
-                Services in USA
+            <div className="lg:col-span-6 space-y-5 text-left">
+              <h1
+                className="text-slate-900 tracking-tight font-extrabold text-3xl sm:text-4xl lg:text-[42px] leading-[1.2]"
+              >
+                App Development Consulting Services in USA
               </h1>
 
-              <p className="text-[#4A5568] max-w-[540px] text-[15px] sm:text-[16px] leading-[1.7] font-[400]">
+              <p
+                className="text-slate-600 max-w-xl text-sm sm:text-base leading-relaxed font-normal"
+              >
                 Our app development consulting is geared toward the business needs of startups, small and medium-sized businesses, and large, well-established Best app consultants for startups companies.
               </p>
 
-              {/* CTA Button matching reference */}
+              {/* CTA Button */}
               <div className="pt-2">
                 <a
                   href="#consultation-form"
-                  className="inline-flex items-center justify-center px-6 py-3 rounded-[6px] bg-[#005F96] text-white font-[600] text-[14.5px] sm:text-[15px] hover:bg-[#004A75] transition-all shadow-xs hover:shadow-sm active:scale-98 group"
+                  className="inline-flex items-center justify-center px-7 py-3.5 rounded-lg bg-[#005F96] text-white font-bold text-sm sm:text-base hover:bg-[#004A75] transition-all shadow-md hover:shadow-lg transform active:scale-95 group"
                 >
                   <span>Discuss Your Project</span>
-                  <span className="ml-2.5 text-base font-normal transition-transform group-hover:translate-x-1">→</span>
+                  <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                 </a>
               </div>
             </div>
@@ -328,168 +288,68 @@ export const AppDevelopmentConsultingService = () => {
       </div>
 
       {/* ========================================================================= */}
-      {/* 2. TOP-NOTCH MOBILE APP SERVICES AND CONSULTING COMPANY (1:1 REFERENCE) */}
+      {/* 2. LEADING MOBILE APP DEVELOPMENT CONSULTING COMPANY (EXACT 1:1 REFERENCE) */}
       {/* ========================================================================= */}
       <section className="py-16 lg:py-24 bg-white">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-            {/* Left Graphic */}
-            <div className="lg:col-span-6 order-2 lg:order-1 flex justify-center">
-              <div className="relative w-full max-w-[580px] rounded-2xl overflow-hidden p-2">
+            {/* Left Graphic: Mobile wireframe with developers */}
+            <div className="lg:col-span-6 flex justify-center items-center">
+              <div className="w-full max-w-[560px] flex justify-center">
                 <img
-                  src="/images/app_consulting_office.jpg"
-                  alt="Mobile App Development Strategy Meeting"
-                  className="w-full h-auto object-contain rounded-xl shadow-lg border border-slate-200/60 bg-white"
-                  onError={(e) => {
-                    e.target.onerror = null;
-                    e.target.src = "/images/c_sharp_expertise_illustration.png";
-                  }}
+                  src="/images/leading_mobile_app_consulting.jpg"
+                  alt="Leading Mobile App Development Consulting Team"
+                  className="w-full h-auto object-contain"
                 />
               </div>
             </div>
 
-            {/* Right Copy */}
-            <div className="lg:col-span-6 order-1 lg:order-2 space-y-6">
-              <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-blue-50 text-[#005F96] text-xs font-bold uppercase tracking-wider border border-blue-200/60">
-                <Smartphone className="w-3.5 h-3.5" />
-                <span>Mobile Strategy & Engineering</span>
-              </div>
-
-              <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-extrabold text-slate-900 tracking-tight leading-tight">
-                Top-Notch Mobile App Development Consulting Company
+            {/* Right Copy matching reference Image 1 */}
+            <div className="lg:col-span-6 space-y-6 text-left">
+              <h2 className="text-3xl sm:text-4xl lg:text-[40px] xl:text-[44px] font-extrabold text-slate-900 tracking-tight leading-[1.2]">
+                Leading Mobile App <br />
+                Development Consulting <br />
+                Company
               </h2>
 
-              <p className="text-slate-600 text-sm sm:text-[15px] leading-relaxed font-normal">
-                In today's fast-moving mobile landscape, having an intuitive, lightning-fast mobile application is the definitive cornerstone of consumer engagement and business agility. As a premier app development consulting firm, Firevy partners with ambitious startups and Fortune 500 enterprises to conceptualize, design, and architect custom mobile solutions that drive market growth.
+              <p className="text-slate-600 text-[14.5px] sm:text-[15.5px] leading-[1.75] font-normal">
+                Our App strategy and consulting firm use their knowledge of the latest industry trends and technology to provide recommendations for app solutions that are likely to result in the most favorable outcomes for <strong className="text-[#005F96] font-semibold">best android app development company</strong> in the context of competitive growth. All industry practices are included in the finished items that we create. To provide Enterprise App Development Consulting Services with a primary emphasis on conversion and success, we go the additional mile while analyzing your target market, company competitors, user personas, and a great deal more should you choose to use our consulting services.
               </p>
-
-              <p className="text-slate-600 text-sm sm:text-[15px] leading-relaxed font-normal">
-                Our seasoned mobile strategists bridge the divide between innovative business visions and robust technical realities. From selecting the ideal tech stack to optimizing App Store performance and cloud backend architecture, we safeguard your product investments against costly dead-ends.
-              </p>
-
-              {/* Checklist */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
-                {[
-                  'Product Discovery & Market Feasibility',
-                  'Native (Swift/Kotlin) vs. Cross-Platform Evaluation',
-                  'UI/UX User Journey Mapping & Audits',
-                  'Enterprise Security, OWASP & Compliance',
-                  'High-Concurrency Microservices Backends',
-                  'App Store Optimization (ASO) & Telemetry'
-                ].map((item, idx) => (
-                  <div key={idx} className="flex items-center space-x-2.5">
-                    <div className="w-5 h-5 rounded-full bg-emerald-100 flex items-center justify-center shrink-0">
-                      <Check className="w-3.5 h-3.5 text-emerald-600 stroke-[3]" />
-                    </div>
-                    <span className="text-xs sm:text-sm font-semibold text-slate-800">{item}</span>
-                  </div>
-                ))}
-              </div>
             </div>
           </div>
         </Container>
       </section>
 
       {/* ========================================================================= */}
-      {/* 3. CUSTOM MOBILE APP STRATEGY ENGINEERED FOR ROI (1:1 REFERENCE) */}
+      {/* 3. BRIEF ABOUT BEST APP CONSULTANTS FOR STARTUPS (IMAGE 1) */}
       {/* ========================================================================= */}
-      <section className="py-16 lg:py-24 bg-[#F8FAFC] border-y border-slate-200/80">
+      <section className="py-16 lg:py-24 bg-white">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-            {/* Left Copy */}
-            <div className="lg:col-span-6 space-y-6">
-              <div className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-blue-50 text-[#005F96] text-xs font-bold uppercase tracking-wider border border-blue-200/60">
-                <Sparkles className="w-3.5 h-3.5" />
-                <span>Bespoke Mobile Architecture</span>
-              </div>
-
-              <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-extrabold text-slate-900 tracking-tight leading-tight">
-                Custom Mobile App Development Consulting for Modern Businesses
+            {/* Left Copy matching Image 1 */}
+            <div className="lg:col-span-6 space-y-6 text-left">
+              <h2 className="text-3xl sm:text-4xl lg:text-[40px] xl:text-[44px] font-extrabold text-slate-900 tracking-tight leading-[1.2]">
+                Brief About Best App <br />
+                Consultants For Startups
               </h2>
 
-              <p className="text-slate-600 text-sm sm:text-[15px] leading-relaxed font-normal">
-                Building a truly viral, revenue-generating mobile application requires much more than just code. It demands comprehensive market analysis, rigorous user persona mapping, and high-resilience architecture that scales effortlessly during high-volume spikes.
+              <p className="text-slate-600 text-[14.5px] sm:text-[15.5px] leading-[1.75] font-normal">
+                Our mobile app development consultants use the appropriate technologies to analyze the audience in-depth, taking into account their routines, geographic location, preferences, age, employment, and other factors.
               </p>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-                <div className="bg-white p-5 rounded-xl border border-slate-200/80 shadow-xs space-y-2">
-                  <div className="w-9 h-9 rounded-lg bg-blue-50 flex items-center justify-center text-[#005F96]">
-                    <Smartphone className="w-5 h-5" />
-                  </div>
-                  <h3 className="font-bold text-slate-900 text-sm">Native & Hybrid Guidance</h3>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    Unbiased advice on Swift, Kotlin, Flutter, and React Native to balance performance with speed-to-market.
-                  </p>
-                </div>
-
-                <div className="bg-white p-5 rounded-xl border border-slate-200/80 shadow-xs space-y-2">
-                  <div className="w-9 h-9 rounded-lg bg-blue-50 flex items-center justify-center text-[#005F96]">
-                    <Cloud className="w-5 h-5" />
-                  </div>
-                  <h3 className="font-bold text-slate-900 text-sm">Cloud & API Synchronization</h3>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    Event-driven GraphQL and REST pipelines engineered for battery efficiency and offline data sync.
-                  </p>
-                </div>
-
-                <div className="bg-white p-5 rounded-xl border border-slate-200/80 shadow-xs space-y-2">
-                  <div className="w-9 h-9 rounded-lg bg-blue-50 flex items-center justify-center text-[#005F96]">
-                    <Lock className="w-5 h-5" />
-                  </div>
-                  <h3 className="font-bold text-slate-900 text-sm">OWASP Mobile Security</h3>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    Zero-Trust token security, biometric encryption, and HIPAA/GDPR regulatory compliance auditing.
-                  </p>
-                </div>
-
-                <div className="bg-white p-5 rounded-xl border border-slate-200/80 shadow-xs space-y-2">
-                  <div className="w-9 h-9 rounded-lg bg-blue-50 flex items-center justify-center text-[#005F96]">
-                    <TrendingUp className="w-5 h-5" />
-                  </div>
-                  <h3 className="font-bold text-slate-900 text-sm">ASO & User Retention</h3>
-                  <p className="text-xs text-slate-600 leading-relaxed">
-                    Conversion-optimized App Store positioning, user onboarding funnels, and real-time crash monitoring.
-                  </p>
-                </div>
-              </div>
+              <p className="text-slate-600 text-[14.5px] sm:text-[15.5px] leading-[1.75] font-normal">
+                As an Affordable App Development and Consulting Agency, we plan a user-first interface and user experience (UI and UX) for your solution optimized for increased user engagement.
+              </p>
             </div>
 
-            {/* Right Card: Interactive Mobile Feature Highlight */}
-            <div className="lg:col-span-6 flex justify-center">
-              <div className="w-full max-w-[480px] bg-gradient-to-br from-[#005F96] to-[#003859] rounded-2xl p-8 text-white shadow-xl relative overflow-hidden space-y-6">
-                <div className="absolute top-0 right-0 -mt-10 -mr-10 w-48 h-48 rounded-full bg-white/10 blur-2xl pointer-events-none" />
-
-                <div className="space-y-2">
-                  <span className="text-xs uppercase tracking-widest text-blue-200 font-bold">Firevy Mobile Blueprint</span>
-                  <h3 className="text-2xl font-black">99.9% Crash-Free Rate & Sub-1s Launch Time</h3>
-                  <p className="text-xs text-blue-100/90 leading-relaxed">
-                    Our consulting methodology guarantees production apps built to enterprise benchmarks with seamless UX.
-                  </p>
-                </div>
-
-                <div className="space-y-3 pt-2">
-                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3.5 flex items-center justify-between border border-white/10">
-                    <span className="text-xs font-semibold">Discovery & Architecture Blueprint</span>
-                    <span className="text-xs font-bold text-emerald-300">Phase 1</span>
-                  </div>
-                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3.5 flex items-center justify-between border border-white/10">
-                    <span className="text-xs font-semibold">Interactive UI/UX Clickable Prototypes</span>
-                    <span className="text-xs font-bold text-emerald-300">Phase 2</span>
-                  </div>
-                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3.5 flex items-center justify-between border border-white/10">
-                    <span className="text-xs font-semibold">CI/CD Pipeline & Automated Test Harness</span>
-                    <span className="text-xs font-bold text-emerald-300">Phase 3</span>
-                  </div>
-                  <div className="bg-white/10 backdrop-blur-sm rounded-xl p-3.5 flex items-center justify-between border border-white/10">
-                    <span className="text-xs font-semibold">App Store & Play Store Global Launch</span>
-                    <span className="text-xs font-bold text-emerald-300">Phase 4</span>
-                  </div>
-                </div>
-
-                <div className="pt-2 flex items-center justify-between border-t border-white/15 text-xs text-blue-100">
-                  <span>Average Time-to-Market Reduction</span>
-                  <span className="font-extrabold text-white text-base">Up to 45%</span>
-                </div>
+            {/* Right Graphic: Woman looking at floating mobile wireframes */}
+            <div className="lg:col-span-6 flex justify-center items-center">
+              <div className="w-full max-w-[560px] flex justify-center">
+                <img
+                  src="/images/brief_app_consultants.jpg"
+                  alt="Brief About Best App Consultants For Startups"
+                  className="w-full h-auto object-contain"
+                />
               </div>
             </div>
           </div>
@@ -497,405 +357,377 @@ export const AppDevelopmentConsultingService = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* 4. CLUTCH TOP-RATED BANNER (AWARDS RIBBON) */}
+      {/* 4. CLUTCH TOP-RATED BANNER (IMAGE 2 TOP) */}
       {/* ========================================================================= */}
       <ClutchTopRatedBanner />
 
       {/* ========================================================================= */}
-      {/* 5. BRIEF INTRODUCTION (1:1 SAPPHIRE REFERENCE) */}
+      {/* 5. GET 100% CUSTOMIZABLE APP DEVELOPMENT CONSULTING EXPERTS (IMAGE 2) */}
       {/* ========================================================================= */}
-      <section className="py-16 lg:py-20 bg-white">
+      <section className="py-16 lg:py-20 bg-white text-slate-900 font-sans text-left border-b border-slate-100">
         <Container>
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-extrabold text-slate-900 tracking-tight leading-snug">
-              Brief Introduction
+          {/* Centered H2 Title */}
+          <div className="text-center w-full max-w-5xl mx-auto mb-10 sm:mb-14">
+            <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-[900] text-[#0F172A] tracking-tight leading-tight">
+              Get 100% Customizable App Development Consulting Experts
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            {/* Left Card: 100% Tailored Advisory */}
-            <div className="lg:col-span-5">
-              <div className="bg-[#EDF6FC] rounded-2xl p-8 border border-blue-100/90 shadow-sm relative overflow-hidden flex flex-col justify-between min-h-[300px]">
-                <div className="relative z-10 space-y-4">
-                  <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center text-[#005F96] shadow-xs border border-blue-200/50">
-                    <Smartphone className="w-6 h-6" />
-                  </div>
-                  <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight leading-snug">
-                    Custom App Development Strategy
-                  </h3>
-                </div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+            {/* Left Quote Card with Topographic Lines & Speech Pointer */}
+            <div className="lg:col-span-4 bg-[#F0F8FC] rounded-[12px] p-8 sm:p-9 flex flex-col justify-start relative shadow-xs border border-sky-100/80 min-h-[300px]">
+              {/* Subtle Topographic Background Lines */}
+              <svg className="absolute inset-0 w-full h-full opacity-20 pointer-events-none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M-20 60 Q 60 120, 140 40 T 300 80 T 450 30" fill="none" stroke="#005F96" strokeWidth="1" />
+                <path d="M-20 120 Q 80 180, 160 100 T 320 140 T 450 90" fill="none" stroke="#005F96" strokeWidth="1" />
+                <path d="M-20 180 Q 100 240, 180 160 T 340 200 T 450 150" fill="none" stroke="#005F96" strokeWidth="1" />
+                <path d="M-20 240 Q 120 300, 200 220 T 360 260 T 450 210" fill="none" stroke="#005F96" strokeWidth="1" />
+              </svg>
 
-                <div className="relative z-10 pt-6 border-t border-blue-200/50 flex items-center justify-between text-xs font-bold text-slate-600">
-                  <span>Firevy Mobile Framework</span>
-                  <span className="text-[#005F96]">100% Tailored</span>
+              {/* Speech Bubble Arrow on Right (Desktop Only) */}
+              <div className="hidden lg:block absolute -right-3 top-1/2 -translate-y-1/2 w-0 h-0 border-y-[12px] border-y-transparent border-l-[14px] border-l-[#F0F8FC] z-10" />
+
+              {/* Quote Icon */}
+              <div className="text-[#005F96] mb-4 relative z-10">
+                <svg viewBox="0 0 44 34" className="w-10 h-8 fill-current">
+                  <path d="M0 19.428C0 8.7 6.857 0 17.143 0v6.857c-5.714 0-8.571 4-8.571 9.143h8.571V34H0V19.428zm25.714 0C25.714 8.7 32.571 0 42.857 0v6.857c-5.714 0-8.571 4-8.571 9.143h8.571V34H25.714V19.428z" />
+                </svg>
+              </div>
+
+              {/* Heading Inside Card */}
+              <h3 className="text-[24px] sm:text-[27px] lg:text-[29px] font-[900] text-[#005F96] tracking-tight leading-[1.3] relative z-10">
+                Research, Suggest, And Implement Improvements
+              </h3>
+            </div>
+
+            {/* Right Column: Paragraph Content (Exact 1:1 Match from screenshot) */}
+            <div className="lg:col-span-8 space-y-4 text-left flex flex-col justify-center">
+              <p className="text-[14px] sm:text-[15px] text-[#475569] leading-[1.8] font-normal">
+                Even if you have an excellent concept for an app, it alone will not guarantee that the app will be successful unless you also have a solid digital strategy and a roadmap. When assessing <strong className="text-[#005F96] font-semibold">ios iphone app development</strong> concepts and deciding on revenue models, you need the direction and assistance of an expert Best App Development Consulting Company to avoid potential traps. Our Mobile App Consulting Services assist customers in determining whether or not their proposal is viable, developing a plan, and outlining the likely compliances, in addition to selecting the appropriate technology stacks, processes, and trends to achieve the desired outcomes.
+              </p>
+
+              <p className="text-[14px] sm:text-[15px] text-[#475569] leading-[1.8] font-normal">
+                Utilize the software development and consulting services we provide for the web, Android, or iOS to identify potential problems, discover solutions to those problems, and formulate a mobile strategy to ensure the success of your app. If you want the most benefits from your concept, you should hire app development consultant for business through our Mobile Application Development Consulting Services, regardless of whether you run a startup or an enterprise firm. Our Mobile App Development Consulting Company will assist you in determining your target audience, budget, and various strategies for developing your mobile app.
+              </p>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* ========================================================================= */}
+      {/* 6. OUR PREMIUM SERVICES (IMAGE 3) */}
+      {/* ========================================================================= */}
+      <PremiumServicesGrid companyName="Sapphire" />
+
+      {/* ========================================================================= */}
+      {/* 7. SUCCESS STORIES + 4 STAT BOXES (IMAGES 4 & 5) */}
+      {/* ========================================================================= */}
+      <section className="py-20 bg-[#DDF1FB] text-center font-sans border-t border-cyan-100">
+        <Container>
+          <div className="max-w-3xl mx-auto mb-12">
+            <h2 className="text-[34px] sm:text-[40px] font-[800] text-slate-900 tracking-tight leading-tight font-sans mb-3">
+              Success Stories
+            </h2>
+            <p className="text-[15px] sm:text-[16px] font-[400] text-slate-700 leading-relaxed font-sans">
+              Know Sapphire journey from concept to success. Explore how we've brought ideas to life and achieved remarkable results for our clients.
+            </p>
+          </div>
+
+          {/* 3 Case Study Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+            {/* Card 1: Healthcare Mobile App Development Company */}
+            <div className="text-center group">
+              <div className="relative rounded-[20px] overflow-hidden bg-white shadow-sm border border-slate-200/80 p-2 group-hover:shadow-md transition-all">
+                <div className="absolute top-4 right-4 z-10 bg-[#005F96] text-white text-[11px] font-[700] px-3 py-1 rounded-md shadow-2xs">
+                  Case Study
                 </div>
+                <img
+                  src="/images/adani.webp"
+                  alt="Healthcare Mobile App Development Company"
+                  className="w-full h-[220px] object-cover rounded-[14px]"
+                />
+              </div>
+              <h3 className="text-[16px] font-[800] text-slate-900 mt-4 font-sans text-left">
+                Healthcare Mobile App Development Company
+              </h3>
+            </div>
+
+            {/* Card 2: Federal Forecasting App */}
+            <div className="text-center group">
+              <div className="rounded-[20px] overflow-hidden bg-white shadow-sm border border-slate-200/80 p-2 group-hover:shadow-md transition-all">
+                <img
+                  src="/images/federal_forecasting_app.jpg"
+                  alt="Federal Forecasting App"
+                  className="w-full h-[220px] object-cover rounded-[14px]"
+                />
+              </div>
+              <h3 className="text-[16px] font-[800] text-slate-900 mt-4 font-sans text-left">
+                Federal Forecasting App
+              </h3>
+            </div>
+
+            {/* Card 3: Stress Management App */}
+            <div className="text-center group">
+              <div className="rounded-[20px] overflow-hidden bg-white shadow-sm border border-slate-200/80 p-2 group-hover:shadow-md transition-all">
+                <img
+                  src="/images/stress_management_app.jpg"
+                  alt="Stress Management App"
+                  className="w-full h-[220px] object-cover rounded-[14px]"
+                />
+              </div>
+              <h3 className="text-[16px] font-[800] text-slate-900 mt-4 font-sans text-left">
+                Stress Management App
+              </h3>
+            </div>
+          </div>
+
+          {/* Centered "View All Portfolio" Button */}
+          <div className="mb-14">
+            <Link
+              to="/portfolio"
+              className="inline-flex items-center justify-center px-9 py-3 rounded-[6px] bg-[#006B8F] hover:bg-[#005478] text-white font-[700] text-[14.5px] transition-all shadow-md font-sans"
+            >
+              View All Portfolio
+            </Link>
+          </div>
+
+          {/* 4 Colorful Highlight Boxes (Purple, Mint Green, Peach, Deep Blue CTA) */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {/* Box 1: Purple (23+ Years Experience) */}
+            <div className="bg-[#D8C7FF] rounded-[18px] p-6 text-center flex flex-col justify-center items-center shadow-xs">
+              <div className="text-[36px] sm:text-[40px] font-[900] text-slate-900 tracking-tight leading-none mb-1 font-sans">
+                23+
+              </div>
+              <div className="text-[14px] font-[700] text-slate-800 font-sans">
+                Years Experience
               </div>
             </div>
 
-            {/* Right Detailed Copy */}
-            <div className="lg:col-span-7 space-y-5">
-              <p className="text-slate-600 text-sm sm:text-[15px] leading-relaxed font-normal">
-                As a leading App Development Consulting Firm, our endeavor assists customers in selecting both cost- and time-efficient mobile solutions while avoiding the pitfalls associated with fleeting technological hypes. Because we base every architectural recommendation on our deep understanding of the global app marketplace, you can launch with absolute confidence knowing our Mobile Business Consultants have vetted every line of your roadmap.
-              </p>
+            {/* Box 2: Mint Green (250+ 5-Star Clutch Reviews) */}
+            <div className="bg-[#A3E8D2] rounded-[18px] p-6 text-center flex flex-col justify-center items-center shadow-xs">
+              <div className="text-[36px] sm:text-[40px] font-[900] text-slate-900 tracking-tight leading-none mb-1 font-sans">
+                250+
+              </div>
+              <div className="text-[14px] font-[700] text-slate-800 font-sans">
+                5-Star Clutch Reviews
+              </div>
+            </div>
 
-              <p className="text-slate-600 text-sm sm:text-[15px] leading-relaxed font-normal">
-                Our Mobile Consulting team continually monitors emerging SDKs, security benchmarks, and platform guidelines across Apple iOS, Google Android, and cross-platform ecosystems. Because our Mobile Engineers hold certifications across all major mobile frameworks, you can be assured the caliber of our App Consulting delivers measurable business outcomes and high user retention.
-              </p>
+            {/* Box 3: Peach/Coral (2800+ Satisfied Clients) */}
+            <div className="bg-[#FFBCB0] rounded-[18px] p-6 text-center flex flex-col justify-center items-center shadow-xs">
+              <div className="text-[36px] sm:text-[40px] font-[900] text-slate-900 tracking-tight leading-none mb-1 font-sans">
+                2800+
+              </div>
+              <div className="text-[14px] font-[700] text-slate-800 font-sans">
+                Satisfied Clients
+              </div>
+            </div>
+
+            {/* Box 4: Deep Blue (Want to start Projects -> Get Estimation) */}
+            <div className="bg-[#005E82] rounded-[18px] p-6 text-center flex flex-col justify-center items-center shadow-md">
+              <div className="text-[18px] sm:text-[19px] font-[800] text-white tracking-tight leading-tight mb-3 font-sans">
+                Want to start Projects
+              </div>
+              <a
+                href="#consultation-form"
+                className="bg-white text-[#005E82] hover:bg-slate-100 px-6 py-2 rounded-[6px] font-[800] text-[13.5px] transition-all shadow-sm font-sans"
+              >
+                Get Estimation
+              </a>
             </div>
           </div>
         </Container>
       </section>
 
       {/* ========================================================================= */}
-      {/* 6. CUTTING-EDGE TECHNOLOGIES WE USE (1:1 SAPPHIRE REFERENCE) */}
+      {/* 8. EXPERTISE IN OUR APP DEVELOPMENT CONSULTING (IMAGE 1) */}
       {/* ========================================================================= */}
-      <section className="py-20 bg-slate-50 border-y border-slate-200/80">
+      <section className="py-16 lg:py-20 bg-[#F4F9FD] text-slate-900 font-sans text-left relative overflow-hidden border-b border-slate-100">
         <Container>
-          <div className="text-center max-w-3xl mx-auto mb-14">
-            <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-extrabold text-slate-900 tracking-tight leading-snug">
-              Cutting-Edge Technologies Firevy Use for Mobile App Development
+          {/* Section Heading & Subtitle */}
+          <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-12 space-y-2 px-4">
+            <h2 className="text-2xl sm:text-3xl md:text-[34px] lg:text-[38px] font-[800] text-[#0B0F19] tracking-tight leading-tight">
+              Expertise In Our App Development Consulting
             </h2>
+            <p className="text-xs sm:text-sm md:text-[15px] text-[#475569] font-normal max-w-2xl mx-auto">
+              As a Leading Mobile App Consulting Company, we have years of experience in this field. Our expertise include:
+            </p>
           </div>
 
-          {/* Slider Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {cuttingEdgeMobileTech
-              .slice(cuttingEdgeIndex, cuttingEdgeIndex + 3)
-              .concat(
-                cuttingEdgeIndex + 3 > cuttingEdgeMobileTech.length
-                  ? cuttingEdgeMobileTech.slice(0, (cuttingEdgeIndex + 3) % cuttingEdgeMobileTech.length)
-                  : []
-              )
-              .slice(0, 3)
-              .map((item, idx) => (
-                <div
-                  key={idx}
-                  className="bg-[#EBF5FB] p-7 sm:p-8 rounded-2xl border border-blue-100/90 shadow-sm hover:shadow-md transition-all flex flex-col justify-between"
-                >
-                  <div className="space-y-4">
-                    <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center shadow-sm border border-blue-200/60">
-                      {item.icon}
-                    </div>
-
-                    <h3 className="text-lg font-bold text-slate-900 leading-snug">
-                      {item.title}
-                    </h3>
-
-                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                      {item.desc}
-                    </p>
+          {/* 6 White Cards in 3x2 Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-[1240px] mx-auto mb-10">
+            {appExpertiseCards.map((card, idx) => (
+              <div
+                key={idx}
+                className="bg-white rounded-[16px] p-7 text-slate-900 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col justify-between text-left border border-slate-100"
+              >
+                <div>
+                  <div className={`w-12 h-12 rounded-xl ${card.bg} flex items-center justify-center mb-5 shadow-xs`}>
+                    {card.icon}
                   </div>
+                  <h3 className="font-[800] text-[#0B0F19] text-[18px] sm:text-[19px] leading-[1.3] mb-3">
+                    {card.title}
+                  </h3>
+                  <p className="text-[#475569] text-[13.5px] sm:text-[14px] leading-[1.7] font-[400]">
+                    {card.desc}
+                  </p>
                 </div>
-              ))}
+              </div>
+            ))}
           </div>
 
-          {/* Navigation Arrows (← →) */}
-          <div className="flex items-center justify-center space-x-4 mt-10">
-            <button
-              onClick={() =>
-                setCuttingEdgeIndex((prev) =>
-                  prev === 0 ? cuttingEdgeMobileTech.length - 1 : prev - 1
-                )
-              }
-              className="w-11 h-11 rounded-full border border-slate-300 bg-white hover:border-[#005F96] hover:bg-[#005F96] hover:text-white flex items-center justify-center transition-all text-slate-700 shadow-sm active:scale-95"
-              aria-label="Previous Technology"
+          {/* Centered Button (Get A Free Quote For Your Project) */}
+          <div className="text-center">
+            <a
+              href="#consultation-form"
+              className="inline-flex items-center justify-center px-8 py-3.5 rounded-[6px] bg-[#005F96] hover:bg-[#004A75] text-white font-[700] text-[14.5px] transition-all shadow-md hover:shadow-lg"
             >
-              <ArrowLeft className="w-5 h-5" />
-            </button>
-            <button
-              onClick={() =>
-                setCuttingEdgeIndex((prev) =>
-                  prev >= cuttingEdgeMobileTech.length - 1 ? 0 : prev + 1
-                )
-              }
-              className="w-11 h-11 rounded-full border border-slate-300 bg-white hover:border-[#005F96] hover:bg-[#005F96] hover:text-white flex items-center justify-center transition-all text-slate-700 shadow-sm active:scale-95"
-              aria-label="Next Technology"
-            >
-              <ArrowRight className="w-5 h-5" />
-            </button>
+              Get A Free Quote For Your Project
+            </a>
           </div>
         </Container>
       </section>
 
       {/* ========================================================================= */}
-      {/* 7. OUR PREMIUM SERVICES */}
-      {/* ========================================================================= */}
-      <PremiumServicesGrid companyName="Firevy" />
-
-      {/* ========================================================================= */}
-      {/* 8. MEET SAPPHIRE'S EXCEPTIONAL TEAM OF SEASONED EXPERTS */}
-      {/* ========================================================================= */}
-      <SapphireSeasonedExpertsSection />
-
-      {/* ========================================================================= */}
-      {/* 9. CUSTOM MOBILE APP SERVICE (IMAGE 2) */}
-      {/* ========================================================================= */}
-      <CustomItServicesSection
-        companyName="Firevy"
-        title="Firevy Custom Mobile App Consulting Services"
-        subtitle="Firevy developers thrive at engineering compelling mobile applications by utilizing our knowledge of the latest app development frameworks. Firevy provides complete customized Mobile App Services to meet your business requirements."
-        services={customAppServicesData}
-      />
-
-      {/* ========================================================================= */}
-      {/* 10. SECTORS THRIVING THROUGH BESPOKE MOBILE APP DEVELOPMENT (IMAGE 3) */}
-      {/* ========================================================================= */}
-      <SectorsThrivingSection title="Sectors Thriving Through Firevy’s Bespoke Mobile App Development" />
-
-      {/* ========================================================================= */}
-      {/* 11. INDUSTRY-FOCUSED INSIGHTS TO ELEVATE YOUR BUSINESS (IMAGE 4) */}
-      {/* ========================================================================= */}
-      <IndustryFocusedInsightsSection subtitle="Trending Industries that Leverage Mobile App Development" />
-
-      {/* ========================================================================= */}
-      {/* 12. EXPERTISE IN OUR APP CONSULTING SERVICES (IMAGE 5) */}
-      {/* ========================================================================= */}
-      <ExpertiseItConsultingSection
-        title="Expertise In Our Mobile App Consulting Services"
-        subtitle="Our Mobile App Development Consulting Services are top-notch in quality. Some of our key practice domains include:"
-        cards={appConsultingExpertiseCards}
-      />
-
-      {/* ========================================================================= */}
-      {/* 13. BUSINESS FRIENDLY HIRING MODELS */}
-      {/* ========================================================================= */}
-      <AndroidHiringModels />
-
-      {/* ========================================================================= */}
-      {/* 14. WHAT OUR CLIENTS SAY */}
-      {/* ========================================================================= */}
-      <WhatOurClientsSaySection />
-
-      {/* ========================================================================= */}
-      {/* 15. PROCESS WE FOLLOW */}
-      {/* ========================================================================= */}
-      <ProcessWeFollow />
-
-      {/* ========================================================================= */}
-      {/* 16. PROUD TO HAVE PICKED THESE UP ALONG THE WAY */}
+      {/* 13. PROUD TO HAVE PICKED THESE UP ALONG THE WAY (IMAGE 2) */}
       {/* ========================================================================= */}
       <TrustRecognitionBanner />
 
       {/* ========================================================================= */}
-      {/* 17. TECHNOLOGY STACK THAT MOBILE APP DEVELOPERS USE PROFICIENTLY */}
+      {/* 14. BENEFITS OF APP DEVELOPMENT CONSULTING SERVICES (IMAGE 3) */}
       {/* ========================================================================= */}
-      <TechStackProficientGrid
-        title="Technology Stack That Firevy Mobile App Consultants Use Proficiently"
-        rows={appServiceTechStack}
-      />
-
-      {/* ========================================================================= */}
-      {/* 18. DIGITAL TRANSFORMATION THROUGH INNOVATION */}
-      {/* ========================================================================= */}
-      <DigitalTransformationSlider />
-
-      {/* ========================================================================= */}
-      {/* 19. TRUSTED BY THE WORLD'S LEADING BRANDS */}
-      {/* ========================================================================= */}
-      <TrustedBrandsGrid />
-
-      {/* ========================================================================= */}
-      {/* 20. EXPLORE THE TRANSFORMATIVE IMPACT OF MOBILE APP DEVELOPMENT */}
-      {/* ========================================================================= */}
-      <TransformativeImpactSection
-        title="Explore The Transformative Impact Of Mobile App Development On Your Business Success"
-      />
-
-      {/* ========================================================================= */}
-      {/* 21. ABOUT US */}
-      {/* ========================================================================= */}
-      <AboutUsStats companyName="Firevy" />
-
-      {/* ========================================================================= */}
-      {/* 22. WE HAVE BEEN FEATURED IN */}
-      {/* ========================================================================= */}
-      <FeaturedInBrandsSection />
-
-      {/* ========================================================================= */}
-      {/* 23. SUCCESS MATRIX */}
-      {/* ========================================================================= */}
-      <SuccessMatrix />
-
-      {/* ========================================================================= */}
-      {/* 24. UNVEILING OUR INNOVATIVE SOLUTION */}
-      {/* ========================================================================= */}
-      <InnovativeVideoSlider />
-
-      {/* ========================================================================= */}
-      {/* 25. OUR STORY, THEIR WORDS */}
-      {/* ========================================================================= */}
-      <FeaturedStoryVideoSection companyName="Firevy" />
-
-      {/* ========================================================================= */}
-      {/* 26. FREQUENTLY ASKED QUESTIONS */}
-      {/* ========================================================================= */}
-      <SapphireFaqSection
-        faqList={appConsultingFaqList}
-        title="Frequently Asked Questions"
-        subtitle="We Listen To Your App Queries And Provide Solutions That Captivate Users. Feel Free To Contact Us In Case Of Any Query Which Is Not Mentioned Below"
-      />
-
-      {/* ========================================================================= */}
-      {/* 27. WHAT SETS US APART AS APP DEVELOPMENT CONSULTING? */}
-      {/* ========================================================================= */}
-      <WhatSetsUsApartSection
-        title="What Sets Us Apart As App Development Consulting Company?"
-        subtitle="Being unique is our quality! Firevy Solutions believe in the things that give us an edge over our competitors. We are renowned software and mobile application development organization serving customers with end-to-end support. Our Idealization, feasibility assessment of the entire software development process stands us one level up the competitors."
-      />
-
-      {/* ========================================================================= */}
-      {/* 28. OUR RECENT BLOGS (TAILORED MOBILE APP INSIGHTS) */}
-      {/* ========================================================================= */}
-      <AppDevelopmentRecentBlogsSection />
-
-      {/* ========================================================================= */}
-      {/* 29. CONSULTATION BOOKING & DISCOVERY FORM SECTION */}
-      {/* ========================================================================= */}
-      <section id="consultation-form" className="py-20 bg-slate-900 text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_60%_at_50%_-20%,rgba(0,95,150,0.4),rgba(0,0,0,0))] pointer-events-none" />
-        <Container className="relative z-10">
-          <div className="max-w-4xl mx-auto text-center mb-12 space-y-3">
-            <h2 className="text-3xl sm:text-4xl font-black tracking-tight text-white">
-              Schedule Your Free 30-Minute Mobile App Consultation
+      <section className="py-16 lg:py-20 bg-[#F4F9FD] text-slate-900 font-sans text-left relative overflow-hidden border-b border-slate-100">
+        <Container>
+          {/* Section Heading & Subtitle */}
+          <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-12 space-y-2 px-4">
+            <h2 className="text-2xl sm:text-3xl md:text-[34px] lg:text-[38px] font-[800] text-[#0B0F19] tracking-tight leading-tight">
+              Benefits of App Development Consulting Services
             </h2>
-            <p className="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto">
-              Discuss your product vision with our Principal Mobile Strategists. We'll evaluate your feasibility, outline architectural options, and provide actionable next steps under a mutual NDA.
+            <p className="text-xs sm:text-sm md:text-[15px] text-[#475569] font-normal max-w-3xl mx-auto">
+              Our App Development Consulting Services help companies develop their app concepts and succeed in the digital age. Benefits of app development consulting:
             </p>
           </div>
 
-          <div className="max-w-2xl mx-auto bg-slate-800/90 backdrop-blur-md rounded-2xl p-6 sm:p-10 border border-slate-700/80 shadow-2xl">
-            {formSubmitted ? (
-              <div className="text-center py-10 space-y-4">
-                <div className="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto">
-                  <CheckCircle2 className="w-10 h-10" />
+          {/* 6 White Cards in 3x2 Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-[1240px] mx-auto">
+            {appBenefitsData.map((card, idx) => (
+              <div
+                key={idx}
+                className="bg-white rounded-[16px] p-7 text-slate-900 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col justify-start text-left border border-slate-100"
+              >
+                <div className="mb-4">
+                  {card.icon}
                 </div>
-                <h3 className="text-2xl font-bold text-white">Thank You!</h3>
-                <p className="text-slate-300 text-sm max-w-md mx-auto">
-                  Your request has been received. One of our Senior Mobile Solution Architects will review your inquiry and reach out within 24 business hours.
+                <h3 className="font-[800] text-[#0B0F19] text-[18px] sm:text-[19px] leading-[1.3] mb-3">
+                  {card.title}
+                </h3>
+                <p className="text-[#475569] text-[13.5px] sm:text-[14px] leading-[1.7] font-[400]">
+                  {card.desc}
                 </p>
               </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-5 text-left">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  <div className="space-y-1.5">
-                    <label className="text-xs font-semibold text-slate-300">Full Name *</label>
-                    <input
-                      type="text"
-                      name="name"
-                      required
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      placeholder="Jane Doe"
-                      className="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-[#005F96]"
-                    />
-                  </div>
-                  <div className="space-y-1.5">
-                    <label className="text-xs font-semibold text-slate-300">Corporate Email *</label>
-                    <input
-                      type="email"
-                      name="email"
-                      required
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      placeholder="jane@company.com"
-                      className="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-[#005F96]"
-                    />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  <div className="space-y-1.5">
-                    <label className="text-xs font-semibold text-slate-300">Phone Number</label>
-                    <input
-                      type="tel"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                      placeholder="+1 (555) 000-0000"
-                      className="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-[#005F96]"
-                    />
-                  </div>
-                  <div className="space-y-1.5">
-                    <label className="text-xs font-semibold text-slate-300">Company Name</label>
-                    <input
-                      type="text"
-                      name="company"
-                      value={formData.company}
-                      onChange={handleInputChange}
-                      placeholder="Acme Corp"
-                      className="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-[#005F96]"
-                    />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  <div className="space-y-1.5">
-                    <label className="text-xs font-semibold text-slate-300">Consulting Focus</label>
-                    <select
-                      name="serviceType"
-                      value={formData.serviceType}
-                      onChange={handleInputChange}
-                      className="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-[#005F96]"
-                    >
-                      <option>Mobile App Strategy & Discovery</option>
-                      <option>Native vs Cross-Platform Evaluation</option>
-                      <option>iOS & Android Codebase Audit</option>
-                      <option>UI/UX Design & Prototyping</option>
-                      <option>Enterprise Mobility & Security</option>
-                    </select>
-                  </div>
-                  <div className="space-y-1.5">
-                    <label className="text-xs font-semibold text-slate-300">Estimated Project Budget</label>
-                    <select
-                      name="budget"
-                      value={formData.budget}
-                      onChange={handleInputChange}
-                      className="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-[#005F96]"
-                    >
-                      <option>&lt; $25,000</option>
-                      <option>$25,000 - $50,000</option>
-                      <option>$50,000 - $100,000</option>
-                      <option>$100,000+</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div className="space-y-1.5">
-                  <label className="text-xs font-semibold text-slate-300">Project Overview & Objectives *</label>
-                  <textarea
-                    rows={4}
-                    name="message"
-                    required
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    placeholder="Briefly describe your app concept, target platforms, timeline, and current architectural bottlenecks..."
-                    className="w-full bg-slate-900 border border-slate-700 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-[#005F96]"
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full py-4 rounded-lg bg-[#005F96] hover:bg-[#004A75] text-white font-bold text-sm tracking-wide shadow-lg hover:shadow-xl transition-all"
-                >
-                  Book 30-Minute Strategy Session
-                </button>
-              </form>
-            )}
+            ))}
           </div>
         </Container>
       </section>
 
       {/* ========================================================================= */}
-      {/* 30. HAVE MOBILE APP CONSULTING CHALLENGE TO ADDRESS (CTA BANNER) */}
+      {/* 15. BUSINESS FRIENDLY HIRING MODELS (IMAGE 4) */}
       {/* ========================================================================= */}
-      <HealthcareChallengeCtaBanner
-        title="Have Mobile App Development Consulting Challenge To Address ?"
-        subtitle="Get access to top Mobile App Development consultants to transform your ideas into a high-performing application."
-        buttonText="Hire Now"
+      <AndroidHiringModels />
+
+      {/* ========================================================================= */}
+      {/* 16. UNVEILING OUR INNOVATIVE SOLUTION (IMAGE 5) */}
+      {/* ========================================================================= */}
+      <InnovativeVideoSlider />
+
+      {/* ========================================================================= */}
+      {/* 17. PROCESS WE FOLLOW (SCREENSHOT 1) */}
+      {/* ========================================================================= */}
+      <ProcessWeFollow />
+
+      {/* ========================================================================= */}
+      {/* 18. OUR STORY, THEIR WORDS (SCREENSHOT 2) */}
+      {/* ========================================================================= */}
+      <VideoTestimonialsStory />
+
+      {/* ========================================================================= */}
+      {/* 19. TRUSTED BY THE WORLD'S LEADING BRANDS (SCREENSHOT 3) */}
+      {/* ========================================================================= */}
+      <TrustedBrandsGrid />
+
+      {/* ========================================================================= */}
+      {/* 20. SUCCESS MATRIX (SCREENSHOT 4) */}
+      {/* ========================================================================= */}
+      <SuccessMatrix />
+
+      {/* ========================================================================= */}
+      {/* 21. TECHNOLOGY STACK (SCREENSHOT 5) */}
+      {/* ========================================================================= */}
+      <SapphireTechStackGrid domainName="App development consulting" />
+
+      {/* ========================================================================= */}
+      {/* 22. WE HAVE BEEN FEATURED IN (SCREENSHOT 1) */}
+      {/* ========================================================================= */}
+      <FeaturedInBrandsSection />
+
+      {/* ========================================================================= */}
+      {/* 23. DIGITAL TRANSFORMATION THROUGH INNOVATION (SCREENSHOT 2) */}
+      {/* ========================================================================= */}
+      <DigitalTransformationSlider />
+
+      {/* ========================================================================= */}
+      {/* 24. FREQUENTLY ASKED QUESTIONS (SCREENSHOT 3) */}
+      {/* ========================================================================= */}
+      <SapphireFaqSection
+        faqList={appConsultingFaqList}
+        title="Frequently Asked Questions"
+        subtitle="We listen to query and provide solutions that captivate users. Feel free to contact us in case of any query which is not mention below."
       />
 
       {/* ========================================================================= */}
-      {/* 31. SUBSCRIBE US AND GET THE LATEST UPDATES AND NEWS */}
+      {/* 25. OUR RECENT BLOGS (SCREENSHOT 4) */}
+      {/* ========================================================================= */}
+      <AppDevelopmentRecentBlogsSection />
+
+      {/* ========================================================================= */}
+      {/* 26. WHAT SETS US APART AS APP DEVELOPMENT CONSULTING? (SCREENSHOT 5) */}
+      {/* ========================================================================= */}
+      <WhatSetsUsApartSection
+        title="What Sets Us Apart As App Development Consulting?"
+        subtitle="Being unique is our quality! Sapphire Solutions believe in the things that give us an edge over our competitors. We are renowned software and mobile application development organization serving customers with end-to-end support. Our Idealization, feasibility assessment of the entire software development process stands us one level up the competitors."
+      />
+
+
+
+      {/* ========================================================================= */}
+      {/* 27. GET ACCESS TO TOP APP DEVELOPMENT CONSULTING (CTA BANNER) */}
+      {/* ========================================================================= */}
+      <section className="relative w-full max-w-full py-9 sm:py-11 bg-[#005D95] text-white text-center font-sans overflow-hidden border-b border-slate-200">
+        {/* Background Floating Geometric Circle & Square Overlay Graphics */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="absolute -top-12 -left-12 w-48 h-48 rounded-full border-[16px] border-white/10 opacity-70" />
+          <div className="absolute top-8 left-16 w-12 h-12 rounded-full bg-white/10 opacity-40" />
+          <div className="absolute -top-10 -right-10 w-64 h-64 rounded-3xl border-[20px] border-white/10 opacity-50 transform rotate-12" />
+          <div className="absolute bottom-6 right-20 w-16 h-16 rounded-2xl bg-white/10 opacity-30" />
+        </div>
+
+        <div className="relative z-10 w-full max-w-5xl px-4 mx-auto text-center space-y-4">
+          <p className="text-base sm:text-lg lg:text-[20px] font-[600] text-white leading-relaxed">
+            Get access to top App development consulting to transform your ideas into a robust application.
+          </p>
+          <div>
+            <a
+              href="#consultation-form"
+              className="inline-block bg-white hover:bg-slate-100 text-[#005D95] font-extrabold text-sm sm:text-base px-9 py-2.5 sm:py-3 rounded-lg shadow-md hover:shadow-lg transition-all duration-200"
+            >
+              Hire Now
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ========================================================================= */}
+      {/* 28. SUBSCRIBE US AND GET THE LATEST UPDATES AND NEWS */}
       {/* ========================================================================= */}
       <NewsletterSubscribeBanner />
     </div>

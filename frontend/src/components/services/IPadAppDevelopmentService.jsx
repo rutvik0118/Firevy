@@ -449,45 +449,38 @@ export const IPadAppDevelopmentService = () => {
                     </svg>
                   </div>
 
-                  {/* Badge 2: GoodFirms Top Mobile App */}
-                  <img
-                    src="/images/awards/top_mobile_app_goodfirm.svg"
-                    alt="Top Mobile App Goodfirms"
-                    className="h-16 sm:h-20 w-auto object-contain shrink-0 drop-shadow-md hover:scale-105 transition-transform"
-                  />
-
-                  {/* Badge 3: The Manifest - Most Reviewed Dedicated Software Development Company */}
+                  {/* Badge 2: The Manifest - Most Reviewed Dedicated Software Development Companies */}
                   <img
                     src="/images/awards/most_review_softwarecompany_manifest.svg"
                     alt="Most Reviewed Software Development Company"
                     className="h-16 sm:h-20 w-auto object-contain shrink-0 drop-shadow-md hover:scale-105 transition-transform"
                   />
 
-                  {/* Badge 4: Clutch Top Dedicated Software Company Hexagon */}
-                  <img
-                    src="/images/awards/top_mobile_clutchn.svg"
-                    alt="Top Clutch Dedicated Software Company"
-                    className="h-16 sm:h-20 w-auto object-contain shrink-0 drop-shadow-md hover:scale-105 transition-transform"
-                  />
-
-                  {/* Badge 5: The Manifest - Most Reviewed Dedicated Software Development Company */}
-                  <img
-                    src="/images/awards/most_mobile_review_manifest.svg"
-                    alt="The Manifest Most Reviewed"
-                    className="h-16 sm:h-20 w-auto object-contain shrink-0 drop-shadow-md hover:scale-105 transition-transform"
-                  />
-
-                  {/* Badge 6: The Manifest - Most Reviewed Software Developers */}
+                  {/* Badge 3: The Manifest - Most Reviewed Software Developers */}
                   <img
                     src="/images/awards/most_web_review_manifest.svg"
                     alt="Most Reviewed Software Developers"
                     className="h-16 sm:h-20 w-auto object-contain shrink-0 drop-shadow-md hover:scale-105 transition-transform"
                   />
 
-                  {/* Badge 7: GoodFirms Top Web Dedicated */}
+                  {/* Badge 4: GoodFirms Top Dedicated Software Development Company */}
                   <img
-                    src="/images/awards/top_web_dev_goodfirm.svg"
-                    alt="Top Web Dev GoodFirms"
+                    src="/images/awards/top_mobile_app_goodfirm.svg"
+                    alt="Top Dedicated Software Development Company GoodFirms"
+                    className="h-16 sm:h-20 w-auto object-contain shrink-0 drop-shadow-md hover:scale-105 transition-transform"
+                  />
+
+                  {/* Badge 5: The Manifest - Most Reviewed Dedicated Software Development Companies */}
+                  <img
+                    src="/images/awards/most_review_softwarecompany_manifest.svg"
+                    alt="Most Reviewed Software Development Company"
+                    className="h-16 sm:h-20 w-auto object-contain shrink-0 drop-shadow-md hover:scale-105 transition-transform"
+                  />
+
+                  {/* Badge 6: Clutch Top Dedicated Software Company Hexagon */}
+                  <img
+                    src="/images/awards/top_mobile_clutchn.svg"
+                    alt="Top Clutch Dedicated Software Company"
                     className="h-16 sm:h-20 w-auto object-contain shrink-0 drop-shadow-md hover:scale-105 transition-transform"
                   />
                 </div>
@@ -516,45 +509,38 @@ export const IPadAppDevelopmentService = () => {
                     </svg>
                   </div>
 
-                  {/* Badge 2: GoodFirms Top Mobile App */}
-                  <img
-                    src="/images/awards/top_mobile_app_goodfirm.svg"
-                    alt="Top Mobile App Goodfirms"
-                    className="h-16 sm:h-20 w-auto object-contain shrink-0 drop-shadow-md hover:scale-105 transition-transform"
-                  />
-
-                  {/* Badge 3: The Manifest - Most Reviewed Dedicated Software Development Company */}
+                  {/* Badge 2: The Manifest - Most Reviewed Dedicated Software Development Companies */}
                   <img
                     src="/images/awards/most_review_softwarecompany_manifest.svg"
                     alt="Most Reviewed Software Development Company"
                     className="h-16 sm:h-20 w-auto object-contain shrink-0 drop-shadow-md hover:scale-105 transition-transform"
                   />
 
-                  {/* Badge 4: Clutch Top Dedicated Software Company Hexagon */}
-                  <img
-                    src="/images/awards/top_mobile_clutchn.svg"
-                    alt="Top Clutch Dedicated Software Company"
-                    className="h-16 sm:h-20 w-auto object-contain shrink-0 drop-shadow-md hover:scale-105 transition-transform"
-                  />
-
-                  {/* Badge 5: The Manifest - Most Reviewed Dedicated Software Development Company */}
-                  <img
-                    src="/images/awards/most_mobile_review_manifest.svg"
-                    alt="The Manifest Most Reviewed"
-                    className="h-16 sm:h-20 w-auto object-contain shrink-0 drop-shadow-md hover:scale-105 transition-transform"
-                  />
-
-                  {/* Badge 6: The Manifest - Most Reviewed Software Developers */}
+                  {/* Badge 3: The Manifest - Most Reviewed Software Developers */}
                   <img
                     src="/images/awards/most_web_review_manifest.svg"
                     alt="Most Reviewed Software Developers"
                     className="h-16 sm:h-20 w-auto object-contain shrink-0 drop-shadow-md hover:scale-105 transition-transform"
                   />
 
-                  {/* Badge 7: GoodFirms Top Web Dedicated */}
+                  {/* Badge 4: GoodFirms Top Dedicated Software Development Company */}
                   <img
-                    src="/images/awards/top_web_dev_goodfirm.svg"
-                    alt="Top Web Dev GoodFirms"
+                    src="/images/awards/top_mobile_app_goodfirm.svg"
+                    alt="Top Dedicated Software Development Company GoodFirms"
+                    className="h-16 sm:h-20 w-auto object-contain shrink-0 drop-shadow-md hover:scale-105 transition-transform"
+                  />
+
+                  {/* Badge 5: The Manifest - Most Reviewed Dedicated Software Development Companies */}
+                  <img
+                    src="/images/awards/most_review_softwarecompany_manifest.svg"
+                    alt="Most Reviewed Software Development Company"
+                    className="h-16 sm:h-20 w-auto object-contain shrink-0 drop-shadow-md hover:scale-105 transition-transform"
+                  />
+
+                  {/* Badge 6: Clutch Top Dedicated Software Company Hexagon */}
+                  <img
+                    src="/images/awards/top_mobile_clutchn.svg"
+                    alt="Top Clutch Dedicated Software Company"
                     className="h-16 sm:h-20 w-auto object-contain shrink-0 drop-shadow-md hover:scale-105 transition-transform"
                   />
                 </div>

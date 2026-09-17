@@ -1,0 +1,184 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 460" width="100%" height="100%" fill="none">
+  <!-- Soft Ambient Background Glow & Gradients -->
+  <defs>
+    <linearGradient id="phoneBodyGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1E3A5F" />
+      <stop offset="100%" stop-color="#0F172A" />
+    </linearGradient>
+    <linearGradient id="screenGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F8FAFC" />
+      <stop offset="100%" stop-color="#EFF6FF" />
+    </linearGradient>
+    <linearGradient id="blueAccentGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0284C7" />
+      <stop offset="100%" stop-color="#0369A1" />
+    </linearGradient>
+    <linearGradient id="lightCardGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#F1F5F9" />
+    </linearGradient>
+    <filter id="cardShadow" x="-10%" y="-10%" width="125%" height="125%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#0F172A" flood-opacity="0.12" />
+    </filter>
+    <filter id="softShadow" x="-15%" y="-15%" width="130%" height="130%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#0284C7" flood-opacity="0.15" />
+    </filter>
+  </defs>
+
+  <!-- Background Ambient Gears & Subtle Shapes -->
+  <g opacity="0.45" stroke="#93C5FD" stroke-width="2.5" fill="none">
+    <!-- Big Gear top left -->
+    <path d="M 120 70 L 124 64 A 32 32 0 0 1 136 64 L 140 70 A 38 38 0 0 1 152 77 L 159 74 A 32 32 0 0 1 168 83 L 165 90 A 38 38 0 0 1 172 102 L 178 106 A 32 32 0 0 1 178 118 L 172 122 A 38 38 0 0 1 165 134 L 168 141 A 32 32 0 0 1 159 150 L 152 147 A 38 38 0 0 1 140 154 L 136 160 A 32 32 0 0 1 124 160 L 120 154 A 38 38 0 0 1 108 147 L 101 150 A 32 32 0 0 1 92 141 L 95 134 A 38 38 0 0 1 88 122 L 82 118 A 32 32 0 0 1 82 106 L 88 102 A 38 38 0 0 1 95 90 L 92 83 A 32 32 0 0 1 101 74 L 108 77 A 38 38 0 0 1 120 70 Z" fill="#EFF6FF" fill-opacity="0.7"/>
+    <circle cx="130" cy="112" r="16" fill="#FFFFFF" stroke="#93C5FD" stroke-width="2" />
+    
+    <!-- Small Gear bottom left -->
+    <circle cx="100" cy="330" r="18" stroke="#BAE6FD" stroke-dasharray="4 3" stroke-width="2.5" />
+    <circle cx="100" cy="330" r="8" fill="#E0F2FE" />
+    
+    <!-- Medium Gear right side -->
+    <circle cx="530" cy="180" r="28" stroke="#BAE6FD" stroke-dasharray="6 4" stroke-width="2.5" />
+    <circle cx="530" cy="180" r="12" fill="#E0F2FE" />
+  </g>
+
+  <!-- Floating Connection Lines -->
+  <g stroke="#CBD5E1" stroke-width="1.8" stroke-dasharray="3 3">
+    <path d="M 170 120 L 220 160" />
+    <path d="M 160 215 L 210 230" />
+    <path d="M 440 135 L 480 115" />
+    <path d="M 440 280 L 490 320" />
+    <path d="M 440 210 L 510 210" />
+  </g>
+
+  <!-- Central Base Stand / Ellipse Shadow -->
+  <ellipse cx="320" cy="425" rx="200" ry="14" fill="#E2E8F0" opacity="0.7" />
+  <ellipse cx="320" cy="422" rx="140" ry="8" fill="#CBD5E1" opacity="0.6" />
+
+  <!-- ================= CENTRAL IPHONE DEVICE ================= -->
+  <g filter="url(#softShadow)">
+    <!-- Phone Bezel / Outer Body -->
+    <rect x="210" y="40" width="220" height="380" rx="34" fill="url(#phoneBodyGrad)" stroke="#38BDF8" stroke-width="3" />
+    
+    <!-- Phone Inner Screen Border -->
+    <rect x="218" y="48" width="204" height="364" rx="28" fill="url(#screenGrad)" />
+    
+    <!-- Notch / Dynamic Island / Speaker -->
+    <rect x="275" y="56" width="90" height="12" rx="6" fill="#0F172A" />
+    <circle cx="290" cy="62" r="2.5" fill="#1E293B" />
+    <circle cx="345" cy="62" r="2" fill="#0284C7" />
+
+    <!-- SCREEN CONTENT -->
+    <!-- Top Image / Media Showcase Banner -->
+    <rect x="232" y="78" width="176" height="110" rx="12" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" />
+    <rect x="238" y="84" width="164" height="98" rx="8" fill="#F0F9FF" />
+    <!-- Landscape Mountain / Sun Icon Mockup in Media -->
+    <circle cx="370" cy="110" r="10" fill="#BAE6FD" />
+    <path d="M 248 165 L 285 115 L 325 155 L 350 130 L 392 165 Z" fill="#38BDF8" opacity="0.65" />
+    <path d="M 285 165 L 330 120 L 375 165 Z" fill="#0284C7" opacity="0.8" />
+
+    <!-- Middle App Content Cards in Screen -->
+    <rect x="232" y="200" width="176" height="42" rx="8" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1" />
+    <rect x="240" y="208" width="26" height="26" rx="6" fill="#0284C7" />
+    <rect x="274" y="212" width="70" height="8" rx="4" fill="#94A3B8" />
+    <rect x="274" y="225" width="45" height="6" rx="3" fill="#CBD5E1" />
+    <circle cx="392" cy="221" r="5" fill="#38BDF8" />
+
+    <!-- Second Card in Screen -->
+    <rect x="232" y="250" width="176" height="42" rx="8" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1" />
+    <rect x="240" y="258" width="26" height="26" rx="6" fill="#0D9488" />
+    <rect x="274" y="262" width="85" height="8" rx="4" fill="#94A3B8" />
+    <rect x="274" y="275" width="55" height="6" rx="3" fill="#CBD5E1" />
+    <circle cx="392" cy="271" r="5" fill="#14B8A6" />
+
+    <!-- Third Small Card / Grid inside screen -->
+    <rect x="232" y="300" width="84" height="60" rx="8" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1" />
+    <rect x="240" y="308" width="68" height="12" rx="4" fill="#E2E8F0" />
+    <rect x="240" y="326" width="48" height="8" rx="4" fill="#0284C7" opacity="0.7" />
+    <rect x="240" y="340" width="30" height="6" rx="3" fill="#94A3B8" />
+
+    <rect x="324" y="300" width="84" height="60" rx="8" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1" />
+    <rect x="332" y="308" width="68" height="12" rx="4" fill="#E2E8F0" />
+    <rect x="332" y="326" width="52" height="8" rx="4" fill="#0D9488" opacity="0.7" />
+    <rect x="332" y="340" width="36" height="6" rx="3" fill="#94A3B8" />
+
+    <!-- Home Indicator Bar -->
+    <rect x="280" y="396" width="80" height="4" rx="2" fill="#94A3B8" />
+  </g>
+
+  <!-- ================= FLOATING SATELLITE CARDS ================= -->
+
+  <!-- 1. Top-Left: Analytics / Bar Chart Card -->
+  <g filter="url(#cardShadow)">
+    <rect x="80" y="90" width="115" height="80" rx="10" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" />
+    <!-- Card header lines -->
+    <rect x="90" y="100" width="50" height="6" rx="3" fill="#0284C7" />
+    <rect x="90" y="110" width="30" height="4" rx="2" fill="#CBD5E1" />
+    <!-- Bar chart columns -->
+    <rect x="96" y="138" width="8" height="22" rx="2" fill="#BAE6FD" />
+    <rect x="110" y="126" width="8" height="34" rx="2" fill="#38BDF8" />
+    <rect x="124" y="142" width="8" height="18" rx="2" fill="#BAE6FD" />
+    <rect x="138" y="120" width="8" height="40" rx="2" fill="#0284C7" />
+    <rect x="152" y="130" width="8" height="30" rx="2" fill="#0369A1" />
+    <rect x="166" y="115" width="8" height="45" rx="2" fill="#005F96" />
+    <!-- Axis line -->
+    <line x1="92" y1="162" x2="180" y2="162" stroke="#94A3B8" stroke-width="1.5" />
+  </g>
+
+  <!-- 2. Mid-Left: Code / Terminal Tag Badge </> -->
+  <g filter="url(#cardShadow)">
+    <rect x="125" y="195" width="54" height="42" rx="8" fill="#BAE6FD" stroke="#38BDF8" stroke-width="1.5" />
+    <text x="152" y="222" font-family="monospace" font-size="16" font-weight="900" fill="#0369A1" text-anchor="middle">&lt;/&gt;</text>
+  </g>
+
+  <!-- 3. Bottom-Left: User Profile Badge Card -->
+  <g filter="url(#cardShadow)">
+    <rect x="110" y="260" width="54" height="54" rx="10" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" />
+    <rect x="110" y="260" width="54" height="18" rx="10" fill="#0284C7" />
+    <!-- Profile Avatar Icon -->
+    <circle cx="137" cy="285" r="9" fill="#0369A1" />
+    <path d="M 124 306 C 124 297 130 295 137 295 C 144 295 150 297 150 306 Z" fill="#0369A1" />
+  </g>
+
+  <!-- 4. Top-Right: Donut / Circular Chart Card -->
+  <g filter="url(#cardShadow)">
+    <rect x="470" y="80" width="95" height="75" rx="10" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" />
+    <rect x="480" y="90" width="40" height="6" rx="3" fill="#94A3B8" />
+    <!-- Donut Chart -->
+    <circle cx="517" cy="124" r="22" stroke="#E2E8F0" stroke-width="6" fill="none" />
+    <circle cx="517" cy="124" r="22" stroke="#0284C7" stroke-width="6" stroke-dasharray="80 140" stroke-dashoffset="20" fill="none" />
+    <circle cx="517" cy="124" r="22" stroke="#38BDF8" stroke-width="6" stroke-dasharray="35 140" stroke-dashoffset="-60" fill="none" />
+  </g>
+
+  <!-- 5. Center-Right: Video / Media Player Card -->
+  <g filter="url(#cardShadow)">
+    <rect x="420" y="225" width="130" height="70" rx="10" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" />
+    <!-- Video Player Preview Inside -->
+    <rect x="428" y="233" width="114" height="54" rx="6" fill="#F0F9FF" />
+    <!-- Blue Play Button in Center -->
+    <circle cx="485" cy="260" r="14" fill="#0284C7" />
+    <polygon points="481,253 493,260 481,267" fill="#FFFFFF" />
+    <!-- Timeline bar below -->
+    <rect x="434" y="278" width="102" height="3" rx="1.5" fill="#E2E8F0" />
+    <rect x="434" y="278" width="45" height="3" rx="1.5" fill="#0284C7" />
+  </g>
+
+  <!-- 6. Mid-Right: User Account Card -->
+  <g filter="url(#cardShadow)">
+    <rect x="495" y="170" width="50" height="50" rx="10" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" />
+    <circle cx="520" cy="190" r="8" fill="#0284C7" />
+    <path d="M 508 210 C 508 202 513 200 520 200 C 527 200 532 202 532 210 Z" fill="#0284C7" />
+  </g>
+
+  <!-- 7. Bottom-Right: Metric Growth Chart Card -->
+  <g filter="url(#cardShadow)">
+    <rect x="480" y="305" width="90" height="65" rx="10" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.5" />
+    <rect x="490" y="315" width="45" height="5" rx="2.5" fill="#0284C7" />
+    <!-- Rising Chart Bars -->
+    <rect x="494" y="344" width="6" height="16" rx="1.5" fill="#BAE6FD" />
+    <rect x="506" y="336" width="6" height="24" rx="1.5" fill="#7DD3FC" />
+    <rect x="518" y="330" width="6" height="30" rx="1.5" fill="#38BDF8" />
+    <rect x="530" y="324" width="6" height="36" rx="1.5" fill="#0284C7" />
+    <rect x="542" y="318" width="6" height="42" rx="1.5" fill="#0369A1" />
+    <!-- Trend upward line -->
+    <polyline points="494,342 506,334 518,328 530,322 542,315" fill="none" stroke="#005F96" stroke-width="2" stroke-linecap="round" />
+  </g>
+</svg>

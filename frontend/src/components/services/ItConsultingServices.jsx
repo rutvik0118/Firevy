@@ -22,7 +22,7 @@ import AboutUsStats from './AboutUsStats';
 import FeaturedInBrandsSection from './FeaturedInBrandsSection';
 import SuccessMatrix from '../common/SuccessMatrix';
 import InnovativeVideoSlider from '../common/InnovativeVideoSlider';
-import FeaturedStoryVideoSection from './FeaturedStoryVideoSection';
+import VideoTestimonialsStory from '../home/VideoTestimonialsStory';
 import SapphireFaqSection from '../common/SapphireFaqSection';
 import WhatSetsUsApartSection from '../common/WhatSetsUsApartSection';
 import ItConsultingRecentBlogsSection from './ItConsultingRecentBlogsSection';
@@ -1140,7 +1140,7 @@ export const ItConsultingServices = () => {
       {/* ========================================================================= */}
       {/* 23. OUR STORY, THEIR WORDS (IMAGE 3) */}
       {/* ========================================================================= */}
-      <FeaturedStoryVideoSection companyName="Sapphire" />
+      <VideoTestimonialsStory />
 
       {/* ========================================================================= */}
       {/* 24. FREQUENTLY ASKED QUESTIONS (IMAGE 4) */}

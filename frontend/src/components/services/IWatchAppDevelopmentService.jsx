@@ -457,124 +457,132 @@ export const IWatchAppDevelopmentService = () => {
         </Container>
       </section>
 
-      {/* SECTION 3: World Wide Top Rated IT Company on Clutch (Award Badges Marquee Banner) */}
-      <section className="py-8 bg-[#005F96] text-white border-y border-blue-900/30 overflow-hidden text-left font-sans">
+      {/* SECTION 3: World Wide Top Rated IT Company on Clutch (Award Badges Marquee Banner - 1:1 Screenshot Match) */}
+      <section className="py-6 sm:py-8 bg-[#005F96] text-white border-y border-blue-900/30 overflow-hidden text-left font-sans select-none">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
             {/* Left Column: Title */}
-            <div className="lg:col-span-4 shrink-0 pr-4 border-r-0 lg:border-r border-blue-400/30">
-              <h2 className="text-2xl sm:text-3xl font-[900] text-white tracking-tight leading-tight">
+            <div className="lg:col-span-4 shrink-0 pr-4 border-r-0 lg:border-r border-white/20">
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-[900] text-white tracking-tight leading-tight">
                 World Wide Top Rated IT Company on Clutch
               </h2>
             </div>
 
             {/* Right Column: Animated Scrolling Award Badges Marquee */}
-            <div className="lg:col-span-8 overflow-hidden select-none">
+            <div className="lg:col-span-8 overflow-hidden">
               <div className="flex w-max animate-marquee hover:[animation-play-state:paused] items-center">
                 {/* Track 1 Badges */}
-                <div className="flex items-center space-x-8 pr-8 shrink-0">
-                  {/* Badge 1: Gold Trophy Emblem */}
-                  <div className="w-24 h-24 shrink-0 flex items-center justify-center">
-                    <svg viewBox="0 0 100 100" className="w-full h-full">
-                      <path d="M20 50 Q10 20 50 10 Q90 20 80 50 Q90 80 50 90 Q10 80 20 50 Z" fill="none" stroke="#F59E0B" strokeWidth="3" />
-                      <circle cx="50" cy="50" r="35" fill="#FEF3C7" opacity="0.2" />
-                      <path d="M35 30 L65 30 L60 55 C60 65 40 65 40 55 Z" fill="#F59E0B" />
-                      <path d="M47 62 L53 62 L53 72 L47 72 Z" fill="#D97706" />
-                      <rect x="40" y="72" width="20" height="8" rx="2" fill="#B45309" />
-                      <path d="M22 45 Q28 35 25 25 Q35 30 32 40 Z" fill="#F59E0B" />
-                      <path d="M78 45 Q72 35 75 25 Q65 30 68 40 Z" fill="#F59E0B" />
+                <div className="flex items-center space-x-8 sm:space-x-10 pr-8 sm:pr-10 shrink-0">
+                  {/* Badge 1: Golden Trophy with Laurel Wreath */}
+                  <div className="w-18 h-18 sm:w-20 sm:h-20 shrink-0 flex items-center justify-center">
+                    <svg viewBox="0 0 100 100" className="w-full h-full drop-shadow-md">
+                      <g fill="#F59E0B">
+                        <path d="M 18 72 C 10 50 14 26 30 14 C 24 24 24 42 31 56 C 28 48 24 30 33 20 C 34 34 38 46 44 58" fill="none" stroke="#F59E0B" strokeWidth="2.5" />
+                        <path d="M 82 72 C 90 50 86 26 70 14 C 76 24 76 42 69 56 C 72 48 76 30 67 20 C 66 34 62 46 56 58" fill="none" stroke="#F59E0B" strokeWidth="2.5" />
+                        <path d="M 18 64 Q 10 54 22 48 Q 26 58 18 64 Z" />
+                        <path d="M 22 48 Q 13 38 26 32 Q 30 42 22 48 Z" />
+                        <path d="M 28 32 Q 20 22 34 18 Q 36 28 28 32 Z" />
+                        <path d="M 82 64 Q 90 54 78 48 Q 74 58 82 64 Z" />
+                        <path d="M 78 48 Q 87 38 74 32 Q 70 42 78 48 Z" />
+                        <path d="M 72 32 Q 80 22 66 18 Q 64 28 72 32 Z" />
+                      </g>
+                      <path d="M 36 28 L 64 28 L 60 52 C 58 60 42 60 40 52 Z" fill="#FBBF24" stroke="#D97706" strokeWidth="1.5" />
+                      <path d="M 36 32 C 26 32 26 44 37 44" fill="none" stroke="#FBBF24" strokeWidth="2.5" strokeLinecap="round" />
+                      <path d="M 64 32 C 74 32 74 44 63 44" fill="none" stroke="#FBBF24" strokeWidth="2.5" strokeLinecap="round" />
+                      <rect x="47" y="58" width="6" height="12" fill="#F59E0B" />
+                      <rect x="38" y="70" width="24" height="6" rx="1" fill="#D97706" />
+                      <polygon points="50,22 53,27 58,28 54,32 55,37 50,34 45,37 46,32 42,28 47,27" fill="#FDE047" />
                     </svg>
                   </div>
 
-                  {/* Badge 2: Reviewed Dedicated Software Companies Ribbon */}
-                  <div className="w-20 h-24 bg-white rounded-b-lg border-t-4 border-[#991B1B] shadow-md p-2 flex flex-col items-center justify-between shrink-0 text-slate-900 text-[8px] font-bold text-center">
-                    <span className="bg-[#991B1B] text-white px-1.5 py-0.5 rounded-[2px] text-[7px]">REVIEWED</span>
-                    <span className="text-[7px] text-slate-700 leading-tight uppercase font-extrabold my-0.5">DEDICATED SOFTWARE DEVELOPMENT</span>
-                    <div className="w-full bg-[#991B1B] text-white py-0.5 rounded-[2px] text-[7px]">TOP RATED</div>
-                  </div>
+                  {/* Badge 2: The Manifest - Most Reviewed Dedicated Software Development Companies */}
+                  <img
+                    src="/images/awards/most_review_softwarecompany_manifest.svg"
+                    alt="Most Reviewed Software Development Company"
+                    className="h-16 sm:h-20 w-auto object-contain shrink-0 drop-shadow-md hover:scale-105 transition-transform"
+                  />
 
-                  {/* Badge 3: Most Reviewed Software Developers Ribbon */}
-                  <div className="w-20 h-24 bg-white rounded-b-lg border-t-4 border-[#881337] shadow-md p-2 flex flex-col items-center justify-between shrink-0 text-slate-900 text-[8px] font-bold text-center">
-                    <span className="bg-[#881337] text-white px-1.5 py-0.5 rounded-[2px] text-[7px]">MOST REVIEWED</span>
-                    <span className="text-[8px] text-rose-900 font-extrabold tracking-tighter uppercase my-0.5">SOFTWARE DEVELOPERS</span>
-                    <div className="w-full bg-[#881337] text-white py-0.5 rounded-[2px] text-[7px]">VERIFIED</div>
-                  </div>
+                  {/* Badge 3: The Manifest - Most Reviewed Software Developers */}
+                  <img
+                    src="/images/awards/most_web_review_manifest.svg"
+                    alt="Most Reviewed Software Developers"
+                    className="h-16 sm:h-20 w-auto object-contain shrink-0 drop-shadow-md hover:scale-105 transition-transform"
+                  />
 
-                  {/* Badge 4: GoodFirms Top Dedicated Software Badge */}
-                  <div className="w-24 h-24 bg-white rounded-full border-4 border-cyan-400 shadow-md p-2 flex flex-col items-center justify-center shrink-0 text-slate-900 text-[8px] font-bold text-center relative overflow-hidden">
-                    <div className="w-6 h-6 rounded-full bg-amber-400 text-slate-900 flex items-center justify-center font-black text-[10px] mb-1">G</div>
-                    <span className="text-[7px] text-[#005F96] font-extrabold uppercase leading-none">TOP DEDICATED</span>
-                    <span className="text-[6px] text-slate-500 font-semibold uppercase">SOFTWARE COMPANY</span>
-                    <div className="absolute bottom-0 inset-x-0 bg-[#005F96] text-white text-[6px] py-0.5 font-bold">goodfirms.co</div>
-                  </div>
+                  {/* Badge 4: GoodFirms Top Dedicated Software Development Company */}
+                  <img
+                    src="/images/awards/top_mobile_app_goodfirm.svg"
+                    alt="Top Dedicated Software Development Company GoodFirms"
+                    className="h-16 sm:h-20 w-auto object-contain shrink-0 drop-shadow-md hover:scale-105 transition-transform"
+                  />
 
-                  {/* Badge 5: Most Reviewed Dedicated Company Ribbon */}
-                  <div className="w-20 h-24 bg-white rounded-b-lg border-t-4 border-[#991B1B] shadow-md p-2 flex flex-col items-center justify-between shrink-0 text-slate-900 text-[8px] font-bold text-center">
-                    <span className="bg-[#991B1B] text-white px-1.5 py-0.5 rounded-[2px] text-[7px]">MOST REVIEWED</span>
-                    <span className="text-[7px] text-slate-700 leading-tight uppercase font-extrabold my-0.5">DEDICATED SOFTWARE COMPANY</span>
-                    <div className="w-full bg-[#991B1B] text-white py-0.5 rounded-[2px] text-[7px]">VISIT</div>
-                  </div>
+                  {/* Badge 5: The Manifest - Most Reviewed Dedicated Software Development Companies */}
+                  <img
+                    src="/images/awards/most_review_softwarecompany_manifest.svg"
+                    alt="Most Reviewed Software Development Company"
+                    className="h-16 sm:h-20 w-auto object-contain shrink-0 drop-shadow-md hover:scale-105 transition-transform"
+                  />
 
-                  {/* Badge 6: Clutch Hexagonal Top Dedicated Company 2022 */}
-                  <div className="w-24 h-24 bg-slate-900 text-white rounded-lg border-2 border-slate-700 shadow-md p-2 flex flex-col items-center justify-center shrink-0 text-center relative">
-                    <span className="text-[6px] text-cyan-400 font-bold uppercase tracking-wider">TOP DEDICATED</span>
-                    <span className="text-[6px] text-slate-300 uppercase">SOFTWARE COMPANY</span>
-                    <span className="text-sm font-black tracking-tight text-white my-1 font-serif">Clutch</span>
-                    <span className="text-[7px] text-slate-400 font-semibold">DEVELOPERS 2022</span>
-                  </div>
+                  {/* Badge 6: Clutch Top Dedicated Software Company Hexagon */}
+                  <img
+                    src="/images/awards/top_mobile_clutchn.svg"
+                    alt="Top Clutch Dedicated Software Company"
+                    className="h-16 sm:h-20 w-auto object-contain shrink-0 drop-shadow-md hover:scale-105 transition-transform"
+                  />
                 </div>
 
                 {/* Track 2 Badges (Duplicate for Seamless Loop) */}
-                <div className="flex items-center space-x-8 pr-8 shrink-0" aria-hidden="true">
-                  {/* Badge 1: Gold Trophy Emblem */}
-                  <div className="w-24 h-24 shrink-0 flex items-center justify-center">
-                    <svg viewBox="0 0 100 100" className="w-full h-full">
-                      <path d="M20 50 Q10 20 50 10 Q90 20 80 50 Q90 80 50 90 Q10 80 20 50 Z" fill="none" stroke="#F59E0B" strokeWidth="3" />
-                      <circle cx="50" cy="50" r="35" fill="#FEF3C7" opacity="0.2" />
-                      <path d="M35 30 L65 30 L60 55 C60 65 40 65 40 55 Z" fill="#F59E0B" />
-                      <path d="M47 62 L53 62 L53 72 L47 72 Z" fill="#D97706" />
-                      <rect x="40" y="72" width="20" height="8" rx="2" fill="#B45309" />
-                      <path d="M22 45 Q28 35 25 25 Q35 30 32 40 Z" fill="#F59E0B" />
-                      <path d="M78 45 Q72 35 75 25 Q65 30 68 40 Z" fill="#F59E0B" />
+                <div className="flex items-center space-x-8 sm:space-x-10 pr-8 sm:pr-10 shrink-0" aria-hidden="true">
+                  <div className="w-18 h-18 sm:w-20 sm:h-20 shrink-0 flex items-center justify-center">
+                    <svg viewBox="0 0 100 100" className="w-full h-full drop-shadow-md">
+                      <g fill="#F59E0B">
+                        <path d="M 18 72 C 10 50 14 26 30 14 C 24 24 24 42 31 56 C 28 48 24 30 33 20 C 34 34 38 46 44 58" fill="none" stroke="#F59E0B" strokeWidth="2.5" />
+                        <path d="M 82 72 C 90 50 86 26 70 14 C 76 24 76 42 69 56 C 72 48 76 30 67 20 C 66 34 62 46 56 58" fill="none" stroke="#F59E0B" strokeWidth="2.5" />
+                        <path d="M 18 64 Q 10 54 22 48 Q 26 58 18 64 Z" />
+                        <path d="M 22 48 Q 13 38 26 32 Q 30 42 22 48 Z" />
+                        <path d="M 28 32 Q 20 22 34 18 Q 36 28 28 32 Z" />
+                        <path d="M 82 64 Q 90 54 78 48 Q 74 58 82 64 Z" />
+                        <path d="M 78 48 Q 87 38 74 32 Q 70 42 78 48 Z" />
+                        <path d="M 72 32 Q 80 22 66 18 Q 64 28 72 32 Z" />
+                      </g>
+                      <path d="M 36 28 L 64 28 L 60 52 C 58 60 42 60 40 52 Z" fill="#FBBF24" stroke="#D97706" strokeWidth="1.5" />
+                      <path d="M 36 32 C 26 32 26 44 37 44" fill="none" stroke="#FBBF24" strokeWidth="2.5" strokeLinecap="round" />
+                      <path d="M 64 32 C 74 32 74 44 63 44" fill="none" stroke="#FBBF24" strokeWidth="2.5" strokeLinecap="round" />
+                      <rect x="47" y="58" width="6" height="12" fill="#F59E0B" />
+                      <rect x="38" y="70" width="24" height="6" rx="1" fill="#D97706" />
+                      <polygon points="50,22 53,27 58,28 54,32 55,37 50,34 45,37 46,32 42,28 47,27" fill="#FDE047" />
                     </svg>
                   </div>
 
-                  {/* Badge 2: Reviewed Dedicated Software Companies Ribbon */}
-                  <div className="w-20 h-24 bg-white rounded-b-lg border-t-4 border-[#991B1B] shadow-md p-2 flex flex-col items-center justify-between shrink-0 text-slate-900 text-[8px] font-bold text-center">
-                    <span className="bg-[#991B1B] text-white px-1.5 py-0.5 rounded-[2px] text-[7px]">REVIEWED</span>
-                    <span className="text-[7px] text-slate-700 leading-tight uppercase font-extrabold my-0.5">DEDICATED SOFTWARE DEVELOPMENT</span>
-                    <div className="w-full bg-[#991B1B] text-white py-0.5 rounded-[2px] text-[7px]">TOP RATED</div>
-                  </div>
+                  <img
+                    src="/images/awards/most_review_softwarecompany_manifest.svg"
+                    alt="Most Reviewed Software Development Company"
+                    className="h-16 sm:h-20 w-auto object-contain shrink-0 drop-shadow-md hover:scale-105 transition-transform"
+                  />
 
-                  {/* Badge 3: Most Reviewed Software Developers Ribbon */}
-                  <div className="w-20 h-24 bg-white rounded-b-lg border-t-4 border-[#881337] shadow-md p-2 flex flex-col items-center justify-between shrink-0 text-slate-900 text-[8px] font-bold text-center">
-                    <span className="bg-[#881337] text-white px-1.5 py-0.5 rounded-[2px] text-[7px]">MOST REVIEWED</span>
-                    <span className="text-[8px] text-rose-900 font-extrabold tracking-tighter uppercase my-0.5">SOFTWARE DEVELOPERS</span>
-                    <div className="w-full bg-[#881337] text-white py-0.5 rounded-[2px] text-[7px]">VERIFIED</div>
-                  </div>
+                  <img
+                    src="/images/awards/most_web_review_manifest.svg"
+                    alt="Most Reviewed Software Developers"
+                    className="h-16 sm:h-20 w-auto object-contain shrink-0 drop-shadow-md hover:scale-105 transition-transform"
+                  />
 
-                  {/* Badge 4: GoodFirms Top Dedicated Software Badge */}
-                  <div className="w-24 h-24 bg-white rounded-full border-4 border-cyan-400 shadow-md p-2 flex flex-col items-center justify-center shrink-0 text-slate-900 text-[8px] font-bold text-center relative overflow-hidden">
-                    <div className="w-6 h-6 rounded-full bg-amber-400 text-slate-900 flex items-center justify-center font-black text-[10px] mb-1">G</div>
-                    <span className="text-[7px] text-[#005F96] font-extrabold uppercase leading-none">TOP DEDICATED</span>
-                    <span className="text-[6px] text-slate-500 font-semibold uppercase">SOFTWARE COMPANY</span>
-                    <div className="absolute bottom-0 inset-x-0 bg-[#005F96] text-white text-[6px] py-0.5 font-bold">goodfirms.co</div>
-                  </div>
+                  <img
+                    src="/images/awards/top_mobile_app_goodfirm.svg"
+                    alt="Top Dedicated Software Development Company GoodFirms"
+                    className="h-16 sm:h-20 w-auto object-contain shrink-0 drop-shadow-md hover:scale-105 transition-transform"
+                  />
 
-                  {/* Badge 5: Most Reviewed Dedicated Company Ribbon */}
-                  <div className="w-20 h-24 bg-white rounded-b-lg border-t-4 border-[#991B1B] shadow-md p-2 flex flex-col items-center justify-between shrink-0 text-slate-900 text-[8px] font-bold text-center">
-                    <span className="bg-[#991B1B] text-white px-1.5 py-0.5 rounded-[2px] text-[7px]">MOST REVIEWED</span>
-                    <span className="text-[7px] text-slate-700 leading-tight uppercase font-extrabold my-0.5">DEDICATED SOFTWARE COMPANY</span>
-                    <div className="w-full bg-[#991B1B] text-white py-0.5 rounded-[2px] text-[7px]">VISIT</div>
-                  </div>
+                  <img
+                    src="/images/awards/most_review_softwarecompany_manifest.svg"
+                    alt="Most Reviewed Software Development Company"
+                    className="h-16 sm:h-20 w-auto object-contain shrink-0 drop-shadow-md hover:scale-105 transition-transform"
+                  />
 
-                  {/* Badge 6: Clutch Hexagonal Top Dedicated Company 2022 */}
-                  <div className="w-24 h-24 bg-slate-900 text-white rounded-lg border-2 border-slate-700 shadow-md p-2 flex flex-col items-center justify-center shrink-0 text-center relative">
-                    <span className="text-[6px] text-cyan-400 font-bold uppercase tracking-wider">TOP DEDICATED</span>
-                    <span className="text-[6px] text-slate-300 uppercase">SOFTWARE COMPANY</span>
-                    <span className="text-sm font-black tracking-tight text-white my-1 font-serif">Clutch</span>
-                    <span className="text-[7px] text-slate-400 font-semibold">DEVELOPERS 2022</span>
-                  </div>
+                  <img
+                    src="/images/awards/top_mobile_clutchn.svg"
+                    alt="Top Clutch Dedicated Software Company"
+                    className="h-16 sm:h-20 w-auto object-contain shrink-0 drop-shadow-md hover:scale-105 transition-transform"
+                  />
                 </div>
               </div>
             </div>

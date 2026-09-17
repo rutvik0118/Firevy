@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
-import Container from '../common/Container';
+import React, { useState, useEffect, useRef } from 'react';
 
-export const HybridAppCuttingEdgeTechnologiesSection = () => {
-  const [carouselIndex, setCarouselIndex] = useState(0);
+export const HybridAppCuttingEdgeTechnologiesSection = ({
+  title = "Cutting Edge Technologies Firevy Use For\nHybrid App Development"
+}) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+  const scrollContainerRef = useRef(null);
 
   const technologies = [
     {
@@ -67,7 +70,6 @@ export const HybridAppCuttingEdgeTechnologiesSection = () => {
           <path d="M13 27l3.5-3.5" />
           <circle cx="28.5" cy="28.5" r="1.5" fill="#0084D1" />
           <path d="M27 27l-3.5-3.5" />
-          {/* Waves inside center */}
           <path d="M17 19a3 3 0 0 1 6 0" strokeWidth="1.5" />
           <path d="M18.5 21a1.5 1.5 0 0 1 3 0" strokeWidth="1.5" />
         </svg>
@@ -98,7 +100,6 @@ export const HybridAppCuttingEdgeTechnologiesSection = () => {
           <circle cx="12" cy="12.5" r="1" fill="#0084D1" />
           <circle cx="16" cy="12.5" r="1" fill="#0084D1" />
           <circle cx="20" cy="12.5" r="1" fill="#0084D1" />
-          {/* Head & Gear */}
           <path d="M14 27c0-3.5 2.5-6 6-6s6 2.5 6 6" />
           <circle cx="20" cy="22" r="2.5" />
         </svg>
@@ -129,37 +130,71 @@ export const HybridAppCuttingEdgeTechnologiesSection = () => {
     }
   ];
 
-  const maxIndex = Math.max(0, technologies.length - 3);
+  // Auto-scroll every 2.5 seconds (pauses on hover)
+  useEffect(() => {
+    if (isHovered) return;
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => {
+        if (scrollContainerRef.current) {
+          const container = scrollContainerRef.current;
+          const maxScroll = container.scrollWidth - container.clientWidth;
+          if (container.scrollLeft >= maxScroll - 20) {
+            return 0;
+          }
+        }
+        return (prev + 1) % technologies.length;
+      });
+    }, 2500);
 
-  const handlePrev = () => {
-    setCarouselIndex((prev) => Math.max(0, prev - 1));
-  };
+    return () => clearInterval(interval);
+  }, [isHovered, technologies.length]);
 
-  const handleNext = () => {
-    setCarouselIndex((prev) => Math.min(maxIndex, prev + 1));
-  };
+  // Smooth scroll sync when currentIndex changes
+  useEffect(() => {
+    if (scrollContainerRef.current) {
+      const firstCard = scrollContainerRef.current.querySelector('.cutting-edge-card');
+      const gap = 24;
+      const cardStep = firstCard ? firstCard.offsetWidth + gap : 450;
+      scrollContainerRef.current.scrollTo({
+        left: currentIndex * cardStep,
+        behavior: 'smooth'
+      });
+    }
+  }, [currentIndex]);
 
   return (
-    <section className="py-14 sm:py-20 bg-white text-slate-900 font-sans text-left overflow-hidden w-full">
-      {/* Centered Heading matching reference screenshot */}
-      <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-14 px-4">
+    <section
+      className="py-14 sm:py-20 bg-white text-slate-900 font-sans text-left overflow-hidden w-full"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      {/* Centered Heading */}
+      <div className="text-center max-w-4xl lg:max-w-5xl mx-auto mb-10 sm:mb-14 px-4">
         <h2 className="text-[26px] sm:text-[32px] lg:text-[36px] font-[800] text-[#0B0F19] tracking-tight leading-[1.25]">
-          Cutting Edge Technologies Sapphire Use For Hybrid App<br className="hidden sm:inline" /> Development
+          {typeof title === 'string' ? (
+            title.split('\n').map((line, idx) => (
+              <React.Fragment key={idx}>
+                {line}
+                {idx < title.split('\n').length - 1 && <br className="hidden sm:inline" />}
+              </React.Fragment>
+            ))
+          ) : (
+            title
+          )}
         </h2>
       </div>
 
-      {/* Full-Width Slider / Carousel Track */}
-      <div className="relative overflow-hidden w-full select-none py-2">
+      {/* Auto-scrolling Carousel Container (2.5s step interval with hover pause) */}
+      <div className="w-full relative select-none">
         <div
-          className="flex space-x-6 sm:space-x-8 px-4 sm:px-8 lg:px-12 transition-transform duration-500 ease-out"
-          style={{
-            transform: `translateX(-${carouselIndex * 540}px)`
-          }}
+          ref={scrollContainerRef}
+          className="flex gap-6 sm:gap-8 overflow-x-auto scrollbar-none py-2 px-4 sm:px-8 md:px-12 lg:px-16 scroll-smooth"
+          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {technologies.map((tech) => (
             <div
               key={tech.id}
-              className="w-[420px] sm:w-[480px] lg:w-[530px] shrink-0 rounded-[14px] bg-[#E1F3FD] p-5 sm:p-6 min-h-[165px] sm:min-h-[175px] flex flex-col justify-start text-left select-none transition-all duration-300 hover:shadow-lg hover:bg-[#D7EFFC] border border-[#CCE8FA] group cursor-pointer"
+              className="cutting-edge-card w-[380px] sm:w-[440px] lg:w-[480px] shrink-0 rounded-[14px] bg-[#E1F3FD] p-5 sm:p-6 min-h-[165px] sm:min-h-[175px] flex flex-col justify-start text-left select-none transition-all duration-300 hover:shadow-lg hover:bg-[#D7EFFC] border border-[#CCE8FA] group cursor-pointer"
             >
               {/* Top Icon */}
               <div className="mb-2.5 transition-transform duration-300 group-hover:scale-110">
@@ -178,27 +213,6 @@ export const HybridAppCuttingEdgeTechnologiesSection = () => {
             </div>
           ))}
         </div>
-      </div>
-
-      {/* Bottom Center Navigation Controls */}
-      <div className="flex items-center justify-center space-x-5 mt-8 sm:mt-10">
-        <button
-          onClick={handlePrev}
-          disabled={carouselIndex === 0}
-          aria-label="Previous technologies"
-          className="w-10 h-10 rounded-full flex items-center justify-center text-slate-700 hover:text-slate-950 hover:bg-slate-100 disabled:opacity-30 disabled:cursor-not-allowed transition-all cursor-pointer select-none text-xl font-bold"
-        >
-          ←
-        </button>
-
-        <button
-          onClick={handleNext}
-          disabled={carouselIndex >= maxIndex}
-          aria-label="Next technologies"
-          className="w-10 h-10 rounded-full flex items-center justify-center text-slate-700 hover:text-slate-950 hover:bg-slate-100 disabled:opacity-30 disabled:cursor-not-allowed transition-all cursor-pointer select-none text-xl font-bold"
-        >
-          →
-        </button>
       </div>
     </section>
   );

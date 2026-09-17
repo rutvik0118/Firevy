@@ -1,0 +1,183 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 450" width="100%" height="100%" fill="none">
+  <defs>
+    <linearGradient id="briefMonitorGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1E3A8A" />
+      <stop offset="100%" stop-color="#0F172A" />
+    </linearGradient>
+    <linearGradient id="briefScreenGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#F8FAFC" />
+    </linearGradient>
+    <filter id="mageBriefShadow" x="-10%" y="-10%" width="125%" height="125%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#0284C7" flood-opacity="0.14" />
+    </filter>
+    <filter id="iconShadow" x="-15%" y="-15%" width="130%" height="130%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#0284C7" flood-opacity="0.18" />
+    </filter>
+  </defs>
+
+  <!-- Ground Line & Base -->
+  <ellipse cx="320" cy="420" rx="230" ry="10" fill="#E2E8F0" opacity="0.8" />
+  <line x1="80" y1="420" x2="560" y2="420" stroke="#CBD5E1" stroke-width="2" />
+
+  <!-- Monitor Stand -->
+  <ellipse cx="320" cy="405" rx="55" ry="12" fill="#1E293B" />
+  <path d="M 304 360 L 336 360 L 338 402 L 302 402 Z" fill="#1E293B" />
+
+  <!-- ================= CENTRAL DESKTOP COMPUTER ================= -->
+  <g filter="url(#mageBriefShadow)">
+    <!-- Monitor Outer Body -->
+    <rect x="180" y="95" width="280" height="200" rx="10" fill="#1E3A8A" stroke="#38BDF8" stroke-width="2" />
+
+    <!-- Screen Inner Display -->
+    <rect x="188" y="103" width="264" height="184" rx="6" fill="url(#briefScreenGrad)" />
+
+    <!-- Top Window Title Bar -->
+    <rect x="188" y="103" width="264" height="18" fill="#38BDF8" />
+    <circle cx="198" cy="112" r="3" fill="#FFFFFF" />
+    <circle cx="206" cy="112" r="3" fill="#FFFFFF" />
+    <circle cx="214" cy="112" r="3" fill="#FFFFFF" />
+
+    <!-- Left Code Editor Panel in Screen -->
+    <rect x="198" y="130" width="80" height="135" rx="6" fill="#0284C7" />
+    <!-- Floating Tag Badge on Left Code Window -->
+    <rect x="225" y="122" width="26" height="16" rx="4" fill="#60A5FA" />
+    <text x="238" y="134" font-family="monospace" font-size="10" font-weight="900" fill="#FFFFFF" text-anchor="middle">&lt; &gt;</text>
+    
+    <!-- Code Lines inside Blue Panel -->
+    <g stroke="#BAE6FD" stroke-width="2" stroke-linecap="round">
+      <line x1="206" y1="148" x2="260" y2="148" />
+      <line x1="206" y1="156" x2="245" y2="156" />
+      <line x1="212" y1="164" x2="268" y2="164" />
+      <line x1="212" y1="172" x2="250" y2="172" />
+      <line x1="206" y1="180" x2="235" y2="180" />
+      <line x1="206" y1="188" x2="265" y2="188" />
+      <line x1="212" y1="196" x2="255" y2="196" />
+      <line x1="206" y1="204" x2="240" y2="204" />
+      <line x1="206" y1="212" x2="260" y2="212" />
+      <line x1="212" y1="220" x2="248" y2="220" />
+      <line x1="206" y1="228" x2="252" y2="228" />
+      <line x1="206" y1="236" x2="230" y2="236" />
+      <line x1="206" y1="244" x2="260" y2="244" />
+    </g>
+
+    <!-- Right Content Area in Screen -->
+    <!-- Donut / Pie Chart -->
+    <circle cx="330" cy="165" r="22" stroke="#BAE6FD" stroke-width="8" fill="none" />
+    <circle cx="330" cy="165" r="22" stroke="#0284C7" stroke-width="8" stroke-dasharray="60 140" stroke-dashoffset="15" fill="none" />
+
+    <!-- Bottom Wireframe Card -->
+    <rect x="290" y="205" width="130" height="30" rx="4" fill="#F0F9FF" stroke="#BAE6FD" stroke-width="1" />
+    <line x1="298" y1="215" x2="385" y2="215" stroke="#93C5FD" stroke-width="2" />
+    <line x1="298" y1="223" x2="360" y2="223" stroke="#93C5FD" stroke-width="2" />
+
+    <!-- Right Side Dashboard Card -->
+    <rect x="375" y="135" width="60" height="60" rx="4" fill="#60A5FA" />
+    <line x1="383" y1="150" x2="425" y2="150" stroke="#FFFFFF" stroke-width="2" />
+    <line x1="383" y1="160" x2="415" y2="160" stroke="#FFFFFF" stroke-width="2" />
+    <line x1="383" y1="170" x2="420" y2="170" stroke="#FFFFFF" stroke-width="2" />
+
+    <!-- Bottom Indicator -->
+    <rect x="280" y="272" width="80" height="6" rx="3" fill="#E2E8F0" />
+  </g>
+
+  <!-- ================= FLOATING BADGES AROUND MONITOR ================= -->
+
+  <!-- 1. Top Center: Big Magento Logo Badge -->
+  <g filter="url(#iconShadow)" transform="translate(295, 45)">
+    <rect x="0" y="0" width="50" height="50" rx="10" fill="#38BDF8" stroke="#FFFFFF" stroke-width="2" />
+    <!-- Magento Hexagon M Icon inside -->
+    <g transform="translate(10, 10) scale(0.85)">
+      <polygon points="12,0 0,7 0,26 6,22 6,10 12,7" fill="#FFFFFF" />
+      <polygon points="18,0 12,3 12,28 18,32 24,28 24,3" fill="#FFFFFF" />
+      <polygon points="24,7 30,10 30,22 36,26 36,7 24,0" fill="#FFFFFF" />
+    </g>
+  </g>
+
+  <!-- 2. Top Right: Question Mark Bubble Badge (?) -->
+  <g filter="url(#iconShadow)" transform="translate(475, 75)">
+    <circle cx="18" cy="18" r="18" fill="#60A5FA" stroke="#FFFFFF" stroke-width="2" />
+    <text x="18" y="25" font-family="'Poppins', sans-serif" font-size="20" font-weight="900" fill="#FFFFFF" text-anchor="middle">?</text>
+  </g>
+
+  <!-- 3. Bottom Right: Floating < > Tag Badge -->
+  <g filter="url(#iconShadow)" transform="translate(445, 305)">
+    <rect x="0" y="0" width="36" height="28" rx="8" fill="#60A5FA" stroke="#FFFFFF" stroke-width="1.5" />
+    <text x="18" y="19" font-family="monospace" font-size="12" font-weight="900" fill="#FFFFFF" text-anchor="middle">&lt; &gt;</text>
+  </g>
+
+  <!-- Subtle Gears Behind Right Developer -->
+  <g opacity="0.5">
+    <circle cx="485" cy="245" r="18" stroke="#BAE6FD" stroke-width="2" stroke-dasharray="4 3" fill="none" />
+    <circle cx="485" cy="245" r="7" fill="#E0F2FE" />
+  </g>
+
+  <!-- ================= FEMALE DEVELOPER (LEFT) ================= -->
+  <g>
+    <!-- Foot Shadows -->
+    <ellipse cx="145" cy="420" rx="14" ry="4" fill="#CBD5E1" />
+    <ellipse cx="185" cy="420" rx="14" ry="4" fill="#CBD5E1" />
+
+    <!-- Heels -->
+    <polygon points="138,416 148,416 146,420 137,420" fill="#0F172A" />
+    <polygon points="178,416 188,416 186,420 177,420" fill="#0F172A" />
+
+    <!-- Legs in Black Pants/Tights -->
+    <path d="M 142 335 L 152 335 L 148 416 L 140 416 Z" fill="#0F172A" />
+    <path d="M 160 335 L 170 335 L 186 416 L 178 416 Z" fill="#0F172A" />
+
+    <!-- Black Pencil Skirt -->
+    <polygon points="135,270 178,270 172,340 140,340" fill="#0F172A" />
+
+    <!-- Bright Cyan/Blue Top -->
+    <polygon points="140,210 175,210 178,272 135,272" fill="#0284C7" />
+
+    <!-- Arms holding Code Panel -->
+    <path d="M 142 215 L 165 240 L 195 240" stroke="#0284C7" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+    <circle cx="195" cy="240" r="4.5" fill="#FED7AA" />
+
+    <!-- Neck & Face -->
+    <rect x="154" y="198" width="7" height="14" fill="#FED7AA" />
+    <circle cx="157" cy="188" r="13" fill="#FED7AA" />
+
+    <!-- Dark Hair -->
+    <path d="M 145 186 C 145 172 155 170 168 172 C 174 176 175 190 172 205 C 166 195 154 193 148 202 Z" fill="#0F172A" />
+    <path d="M 145 186 C 145 200 142 210 139 220 C 144 220 148 210 150 196 Z" fill="#0F172A" />
+  </g>
+
+  <!-- ================= FEMALE DEVELOPER (RIGHT) ================= -->
+  <g>
+    <!-- Foot Shadows -->
+    <ellipse cx="492" cy="420" rx="14" ry="4" fill="#CBD5E1" />
+    <ellipse cx="530" cy="420" rx="14" ry="4" fill="#CBD5E1" />
+
+    <!-- Shoes -->
+    <polygon points="486,416 496,416 494,420 485,420" fill="#0F172A" />
+    <polygon points="524,416 534,416 532,420 523,420" fill="#0F172A" />
+
+    <!-- Black Trousers -->
+    <path d="M 490 310 L 502 310 L 498 416 L 488 416 Z" fill="#0F172A" />
+    <path d="M 508 310 L 520 310 L 532 416 L 522 416 Z" fill="#0F172A" />
+
+    <!-- Yellow / Gold Top -->
+    <polygon points="488,230 525,230 520,312 490,312" fill="#FBBF24" />
+
+    <!-- Left Arm Pointing to Screen -->
+    <path d="M 490 235 L 452 225" stroke="#FBBF24" stroke-width="8" stroke-linecap="round" fill="none" />
+    <circle cx="450" cy="224" r="4.5" fill="#FED7AA" />
+    <path d="M 450 224 L 440 222" stroke="#FED7AA" stroke-width="2.5" stroke-linecap="round" />
+
+    <!-- Right Arm holding Blue Tablet/Notebook -->
+    <path d="M 522 235 L 535 270 L 520 285" stroke="#FBBF24" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+    <circle cx="520" cy="285" r="4.5" fill="#FED7AA" />
+    <!-- Blue Folder / Tablet -->
+    <rect x="510" y="270" width="22" height="28" rx="4" fill="#38BDF8" stroke="#0284C7" stroke-width="1.2" />
+
+    <!-- Neck & Head -->
+    <rect x="502" y="218" width="6" height="14" fill="#FED7AA" />
+    <circle cx="505" cy="206" r="13" fill="#FED7AA" />
+
+    <!-- Dark Hair Style -->
+    <path d="M 495 204 C 495 190 505 188 518 190 C 524 194 524 208 522 220 C 516 212 505 210 498 218 Z" fill="#0F172A" />
+  </g>
+</svg>

@@ -6,49 +6,49 @@ export const AboutUsStats = ({ companyName = "Sapphire" }) => {
     {
       number: '23+',
       label: 'Years of Experience',
-      image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=300&auto=format&fit=crop&q=80',
+      image: '/images/first.webp',
       alt: 'Years of Experience'
     },
     {
       number: '320+',
       label: '5-Star Clutch Reviews',
-      image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=300&auto=format&fit=crop&q=80',
+      image: '/images/first.webp',
       alt: '5-Star Clutch Reviews'
     },
     {
       number: '20+',
       label: 'Fortunes 500 Companies',
-      image: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=300&auto=format&fit=crop&q=80',
+      image: '/images/third.webp',
       alt: 'Fortunes 500 Companies'
     },
     {
       number: '200+',
       label: 'IT Professional',
-      image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=300&auto=format&fit=crop&q=80',
+      image: '/images/client_seven.webp',
       alt: 'IT Professionals Team'
     },
     {
       number: '95%',
       label: 'Client Retention',
-      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&auto=format&fit=crop&q=80',
+      image: '/images/sixth.webp',
       alt: 'Client Retention Handshake'
     },
     {
       number: '18+',
       label: 'Industry Served',
-      image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=300&auto=format&fit=crop&q=80',
+      image: '/images/fourth.webp',
       alt: 'Industry Facilities Served'
     },
     {
       number: '2800+',
       label: 'Satisfied Clients',
-      image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=300&auto=format&fit=crop&q=80',
+      image: '/images/fifth.webp',
       alt: 'Satisfied Corporate Clients'
     },
     {
       number: '1500+',
       label: 'Completed Projects',
-      image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=300&auto=format&fit=crop&q=80',
+      image: '/images/clienttestimonial3.webp',
       alt: 'Completed Projects Software Development'
     }
   ];

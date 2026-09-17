@@ -855,8 +855,8 @@ export const PhpDevelopmentService = () => {
                       setExpertCarouselIndex(0);
                     }}
                     className={`px-3.5 sm:px-4 md:px-5 py-2 rounded-full text-xs sm:text-[13px] font-semibold whitespace-nowrap transition-all duration-200 cursor-pointer ${isActive
-                        ? 'bg-[#005F96] text-white shadow-xs font-bold'
-                        : 'text-[#334155] hover:text-[#005F96] hover:bg-white/50'
+                      ? 'bg-[#005F96] text-white shadow-xs font-bold'
+                      : 'text-[#334155] hover:text-[#005F96] hover:bg-white/50'
                       }`}
                   >
                     {cat}
@@ -977,8 +977,8 @@ export const PhpDevelopmentService = () => {
                               setExpertTabs((prev) => ({ ...prev, [team.id]: 'tech' }))
                             }
                             className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${currentTab === 'tech'
-                                ? 'bg-[#005F96] text-white shadow-xs'
-                                : 'bg-white text-[#475569] hover:bg-slate-50 border border-slate-200/60'
+                              ? 'bg-[#005F96] text-white shadow-xs'
+                              : 'bg-white text-[#475569] hover:bg-slate-50 border border-slate-200/60'
                               }`}
                           >
                             Technologies
@@ -988,8 +988,8 @@ export const PhpDevelopmentService = () => {
                               setExpertTabs((prev) => ({ ...prev, [team.id]: 'composition' }))
                             }
                             className={`px-3.5 py-1.5 rounded-full text-xs font-bold transition-all cursor-pointer ${currentTab === 'composition'
-                                ? 'bg-[#005F96] text-white shadow-xs'
-                                : 'bg-white text-[#475569] hover:bg-slate-50 border border-slate-200/60'
+                              ? 'bg-[#005F96] text-white shadow-xs'
+                              : 'bg-white text-[#475569] hover:bg-slate-50 border border-slate-200/60'
                               }`}
                           >
                             Team Composition
@@ -1241,11 +1241,10 @@ export const PhpDevelopmentService = () => {
                     <button
                       key={ind}
                       onClick={() => setActiveInsightIndustry(ind)}
-                      className={`px-3.5 sm:px-4.5 py-2 rounded-lg text-xs sm:text-[13px] font-semibold transition-all duration-200 cursor-pointer ${
-                        isActive
+                      className={`px-3.5 sm:px-4.5 py-2 rounded-lg text-xs sm:text-[13px] font-semibold transition-all duration-200 cursor-pointer ${isActive
                           ? 'bg-[#005F96] text-white font-bold shadow-xs'
                           : 'bg-white text-[#475569] hover:text-[#005F96] hover:bg-slate-50 border border-slate-200/60 shadow-2xs'
-                      }`}
+                        }`}
                     >
                       {ind}
                     </button>
@@ -1266,11 +1265,10 @@ export const PhpDevelopmentService = () => {
                     <button
                       key={ind}
                       onClick={() => setActiveInsightIndustry(ind)}
-                      className={`px-3.5 sm:px-4.5 py-2 rounded-lg text-xs sm:text-[13px] font-semibold transition-all duration-200 cursor-pointer ${
-                        isActive
+                      className={`px-3.5 sm:px-4.5 py-2 rounded-lg text-xs sm:text-[13px] font-semibold transition-all duration-200 cursor-pointer ${isActive
                           ? 'bg-[#005F96] text-white font-bold shadow-xs'
                           : 'bg-white text-[#475569] hover:text-[#005F96] hover:bg-slate-50 border border-slate-200/60 shadow-2xs'
-                      }`}
+                        }`}
                     >
                       {ind}
                     </button>
