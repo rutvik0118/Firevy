@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import SEO from '../common/SEO';
 import Container from '../common/Container';
 import BrandLogoMarquee from '../common/BrandLogoMarquee';
 import ClutchTopRatedBanner from '../common/ClutchTopRatedBanner';
 import PremiumServicesGrid from '../common/PremiumServicesGrid';
+import SapphireSeasonedExpertsSection from './SapphireSeasonedExpertsSection';
+import IndustryFocusedInsightsSection from './IndustryFocusedInsightsSection';
+import AboutUsStats from './AboutUsStats';
+import TransformativeImpactSection from './TransformativeImpactSection';
+import SectorsThrivingSection from './SectorsThrivingSection';
+import MobileAppProficientTechStackSection from './MobileAppProficientTechStackSection';
 import AndroidHiringModels from './AndroidHiringModels';
 import ProcessWeFollow from '../common/ProcessWeFollow';
 import TrustRecognitionBanner from '../home/TrustRecognitionBanner';
@@ -21,6 +27,7 @@ import AppDevelopmentRecentBlogsSection from './AppDevelopmentRecentBlogsSection
 import NewsletterSubscribeBanner from '../common/NewsletterSubscribeBanner';
 import {
   ArrowRight,
+  ArrowLeft,
   Cloud,
   Server,
   Layers,
@@ -39,91 +46,222 @@ import {
 } from 'lucide-react';
 
 export const CloudDevelopmentService = () => {
+  const cuttingEdgeSliderRef = useRef(null);
+  const cloudServicesSliderRef = useRef(null);
 
-  // 1. The Expertise Of Our Cloud Computing & Application Services (6 cards)
-  const cloudExpertiseCards = [
+  // Cutting Edge Technologies Sapphire Use For Cloud App Development
+  const cuttingEdgeTechCards = [
     {
-      title: 'Cloud App Development',
-      desc: 'Our cloud team builds solutions that are extremely scalable, highly secure, and efficiently designed to optimize the user experience and maximize your ROI.',
-      bg: 'bg-[#F3E8FF]',
+      title: 'Low-Code No-Code Development Service',
+      desc: 'Accelerate app development with Low-Code No-Code Development Services a platform that empowers businesses to create scalable, robust applications quickly without extensive coding.',
+      link: '/services/low-code-no-code-development-services',
       icon: (
-        <svg className="w-6 h-6 text-[#9333EA]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" />
+        <svg className="w-10 h-10 text-[#005F96]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+          <path d="m18 16 4-4-4-4" />
+          <path d="m6 8-4 4 4 4" />
+          <path d="m14.5 4-5 16" />
+          <rect width="6" height="6" x="9" y="9" rx="1" />
         </svg>
       )
     },
     {
-      title: 'Cloud-Native Development',
-      desc: 'Maximize your productivity with our Cloud-Native services that include, Design, Develop and deploy cloud-native applications to get a competitive advantage and drive your business growth.',
-      bg: 'bg-[#DCFCE7]',
+      title: 'Super Apps Development Service',
+      desc: 'Redefine digital experiences with Super Apps Development Services, Design for seamless user experience, these super apps increase engagement, enhance convenience, and drive revenue growth.',
+      link: '/services/super-app-development-company',
       icon: (
-        <svg className="w-6 h-6 text-[#16A34A]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <rect x="2" y="2" width="20" height="8" rx="2" ry="2" />
-          <rect x="2" y="14" width="20" height="8" rx="2" ry="2" />
-          <line x1="6" y1="6" x2="6.01" y2="6" />
-          <line x1="6" y1="18" x2="6.01" y2="18" />
+        <svg className="w-10 h-10 text-[#005F96]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+          <rect width="18" height="18" x="3" y="3" rx="2" />
+          <path d="M3 9h18" />
+          <path d="m9 16-2-2 2-2" />
+          <path d="m15 12 2 2-2 2" />
         </svg>
       )
     },
     {
-      title: 'Cloud Consulting Services',
-      desc: 'Assist businesses for strategic cloud consultation related to planning, architecture, infrastructure, deployment, integration, optimization, delivery and support.',
-      bg: 'bg-[#FFEDD5]',
+      title: 'Progressive Web App Development Service',
+      desc: 'Using HTML, CSS, and JavaScript code that runs in web browser engines and is hosted on web servers, we create Progressive Web Apps (PWAs).',
+      link: '/services/progressive-web-app-development',
       icon: (
-        <svg className="w-6 h-6 text-[#EA580C]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <circle cx="12" cy="12" r="10" />
-          <path d="m4.93 4.93 4.24 4.24" />
-          <path d="m14.83 9.17 4.24-4.24" />
-          <path d="m14.83 14.83 4.24 4.24" />
-          <path d="m9.17 14.83-4.24 4.24" />
+        <svg className="w-10 h-10 text-[#005F96]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+          <rect width="14" height="20" x="5" y="2" rx="2" />
+          <path d="M12 18h.01" />
+          <circle cx="9" cy="8" r="2" />
+          <path d="m10.5 9.5 2 2" />
+          <circle cx="14" cy="12" r="1.5" />
+        </svg>
+      )
+    },
+    {
+      title: 'Blockchain Development Service',
+      desc: "We provide blockchain development services that will improve your company's security and transparency while giving you access to a variety of decentralized alternatives.",
+      link: '/services/blockchain-development-company',
+      icon: (
+        <svg className="w-10 h-10 text-[#005F96]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 2L2 7l10 5 10-5-10-5z" />
+          <path d="M2 17l10 5 10-5" />
+          <path d="M2 12l10 5 10-5" />
+          <circle cx="12" cy="12" r="1.5" />
+        </svg>
+      )
+    },
+    {
+      title: 'IoT Integration Development Service',
+      desc: 'Discover personalized IoT development services that enable intelligent data analytics and remote device administration, tailored to your business needs.',
+      link: '/services/iot-app-development-company',
+      icon: (
+        <svg className="w-10 h-10 text-[#005F96]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+          <rect width="14" height="14" x="5" y="5" rx="2" />
+          <path d="M9 9h6v6H9z" />
+          <path d="M5 10H2" />
+          <path d="M5 14H2" />
+          <path d="M19 10h3" />
+          <path d="M19 14h3" />
+          <path d="M10 5V2" />
+          <path d="M14 5V2" />
+          <path d="M10 19v3" />
+          <path d="M14 19v3" />
+        </svg>
+      )
+    },
+    {
+      title: 'AI Development Service',
+      desc: 'Unlock the power of artificial intelligence with AI Development Services that helps businesses integrate AI into applications to automate processes, enhance decision-making, and deliver personalized user experiences.',
+      link: '/services/artificial-intelligence-development-company',
+      icon: (
+        <svg className="w-10 h-10 text-[#005F96]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 2v4" />
+          <path d="M12 18v4" />
+          <path d="M4.93 4.93l2.83 2.83" />
+          <path d="M16.24 16.24l2.83 2.83" />
+          <path d="M2 12h4" />
+          <path d="M18 12h4" />
           <circle cx="12" cy="12" r="4" />
         </svg>
       )
     },
     {
-      title: 'Cloud Migration',
-      desc: 'To support transformative journey for migrating legacy applications to the cloud, moving cloud application among cloud vendors or configuring a multi-provider infrastructure.',
-      bg: 'bg-[#FEF9C3]',
+      title: 'Extended Reality Development Service',
+      desc: 'Step into the future with Extended Reality Development Services and create immersive experiences that combine augmented reality (AR), virtual reality (VR), and mixed reality (MR) to engage users like never before.',
+      link: '/services/virtual-reality-development-services',
       icon: (
-        <svg className="w-6 h-6 text-[#CA8A04]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M12 3v12" />
-          <path d="m8 11 4 4 4-4" />
-          <path d="M8 5H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-4" />
+        <svg className="w-10 h-10 text-[#005F96]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M3 7h18a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2z" />
+          <path d="M7 11.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" />
+          <path d="M17 11.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4z" />
+          <path d="M10 14h4" />
         </svg>
       )
     },
     {
-      title: 'Cloud Integration',
-      desc: 'Accelerate your business productivity by Integrating processes, databases, and network resources to enable data flow and transactions across different systems while going cloud.',
-      bg: 'bg-[#FCE7F3]',
+      title: 'Cross Platform Development Service',
+      desc: 'With a few simple changes in code, the cross-platform frameworks enable us to create an app with one time coding and execute it on all platforms, including Windows, iOS, and Android.',
+      link: '/services/cross-platform-app-development-services',
       icon: (
-        <svg className="w-6 h-6 text-[#DB2777]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="m18 16 4-4-4-4" />
-          <path d="m6 8-4 4 4 4" />
-          <path d="m14.5 4-5 16" />
+        <svg className="w-10 h-10 text-[#005F96]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+          <rect width="18" height="12" x="3" y="3" rx="2" />
+          <path d="M7 21h10" />
+          <path d="M12 15v6" />
+          <rect width="6" height="9" x="15" y="12" rx="1" fill="#E8F4FA" stroke="currentColor" strokeWidth="1.75" />
         </svg>
       )
     },
     {
-      title: 'Cloud Monitoring And Support',
-      desc: 'We offer effective cloud performance monitoring and optimization services. Our cloud monitoring and support service gives you complete visibility into the health and availability of the entire cloud infrastructure.',
-      bg: 'bg-[#E0F2FE]',
+      title: 'Machine Learning Development Service',
+      desc: 'From custom AI applications to enterprise-scale automation, our developers leverage the latest machine learning Development Service and deep learning technologies to solve complex business challenges.',
+      link: '/services/machine-learning-development-company',
       icon: (
-        <svg className="w-6 h-6 text-[#0284C7]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+        <svg className="w-10 h-10 text-[#005F96]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="18" cy="5" r="3" />
+          <circle cx="6" cy="12" r="3" />
+          <circle cx="18" cy="19" r="3" />
+          <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
+          <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
+        </svg>
+      )
+    },
+    {
+      title: 'Augmented Reality Development Service',
+      desc: 'Engage your audience with Augmented Reality Development Services overlay digital content into real world, creating interactive experiences that boost engagement and learning enhancing customer engagement.',
+      link: '/services/it-staff-augmentation-services-company',
+      icon: (
+        <svg className="w-10 h-10 text-[#005F96]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M21 8V5a2 2 0 0 0-2-2h-3" />
+          <path d="M3 8V5a2 2 0 0 1 2-2h3" />
+          <path d="M21 16v3a2 2 0 0 1-2 2h-3" />
+          <path d="M3 16v3a2 2 0 0 0 2 2h3" />
+          <path d="m10 10 4 4" />
+          <path d="m14 10-4 4" />
+        </svg>
+      )
+    },
+    {
+      title: 'Cloud Application Development Service',
+      desc: 'We use the newest developments in cloud computing, such as creating hybrid multi-cloud solutions, transferring enterprise data to the cloud, and developing next-generation apps.',
+      link: '/services/cloud-application-development',
+      icon: (
+        <svg className="w-10 h-10 text-[#005F96]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" />
+          <path d="m12 11 2 2-2 2" />
+        </svg>
+      )
+    },
+    {
+      title: 'Cloud-Native App Development Service',
+      desc: 'We use latest strategies to build cloud native app, such as creating hybrid multi-cloud solutions, transferring enterprise data to the cloud, and developing next-generation apps.',
+      link: '/services/cloud-native-application-development-services',
+      icon: (
+        <svg className="w-10 h-10 text-[#005F96]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+          <rect width="20" height="8" x="2" y="3" rx="2" />
+          <rect width="20" height="8" x="2" y="13" rx="2" />
+          <line x1="6" y1="7" x2="6.01" y2="7" />
+          <line x1="6" y1="17" x2="6.01" y2="17" />
+          <path d="M17 7h1" />
+          <path d="M17 17h1" />
+        </svg>
+      )
+    },
+    {
+      title: 'Voice Search and Voice Assistant',
+      desc: 'We use Voice search technology that enables users to search the Internet, a website, or an application using voice commands.',
+      link: '/services/ai-voice-assistant-development',
+      icon: (
+        <svg className="w-10 h-10 text-[#005F96]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" />
+          <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+          <line x1="12" y1="19" x2="12" y2="22" />
+        </svg>
+      )
+    },
+    {
+      title: 'Wearable App Integration Service',
+      desc: 'Our skilled developers are masters in integrating wearable apps, guaranteeing compatibility across many devices, and providing outstanding user experiences.',
+      link: '/services/wearable-app-development-services',
+      icon: (
+        <svg className="w-10 h-10 text-[#005F96]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
+          <rect width="12" height="12" x="6" y="6" rx="3" />
+          <path d="M9 6V2h6v4" />
+          <path d="M9 18v4h6v-4" />
+          <circle cx="12" cy="12" r="2" />
         </svg>
       )
     }
   ];
 
-  // 2. Benefits Of Cloud-Based Solutions (6 cards)
+  // Benefits Of Cloud-Based Solutions
   const cloudBenefitsData = [
     {
       title: 'Increased Efficiency',
       desc: 'As opposed to the traditional ways, cloud services are fast deployed and are rapidly ready for use in a matter of minutes.',
       icon: (
-        <svg className="w-8 h-8 text-[#0284C7]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+        <svg className="w-11 h-11 text-[#0084B4]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 14l3.5-3.5" />
+          <circle cx="12" cy="14" r="1.5" fill="currentColor" />
+          <path d="M3.34 19a10 10 0 1 1 17.32 0" />
+          <path d="M6 12H4" />
+          <path d="M20 12h-2" />
+          <path d="M7.5 7.5L9 9" />
+          <path d="M15 9l1.5-1.5" />
+          <path d="M12 4v2" />
         </svg>
       )
     },
@@ -131,8 +269,18 @@ export const CloudDevelopmentService = () => {
       title: 'High Flexibility',
       desc: 'Ability to quickly meet business demands as and when required. It has shortened time to market and cost optimization.',
       icon: (
-        <svg className="w-8 h-8 text-[#0284C7]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67" />
+        <svg className="w-11 h-11 text-[#0084B4]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="3" y="4" width="18" height="12" rx="2" />
+          <path d="M2 20h20" />
+          <circle cx="12" cy="10" r="2" />
+          <path d="M12 7v1" />
+          <path d="M12 12v1" />
+          <path d="M9.5 8.5l.7.7" />
+          <path d="M13.8 12.8l.7.7" />
+          <path d="M9 10h1" />
+          <path d="M14 10h1" />
+          <path d="M9.5 11.5l.7-.7" />
+          <path d="M13.8 7.2l.7-.7" />
         </svg>
       )
     },
@@ -140,9 +288,12 @@ export const CloudDevelopmentService = () => {
       title: 'Cost Reduction',
       desc: 'With cloud auto-scaling feature you would be charged for what you do use when it is running or utilizing service.',
       icon: (
-        <svg className="w-8 h-8 text-[#0284C7]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <line x1="12" y1="1" x2="12" y2="23" />
-          <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+        <svg className="w-11 h-11 text-[#0084B4]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="12" cy="9" r="6" />
+          <path d="M12 6.5v5" />
+          <path d="M13.5 7.8c0-.7-.6-1.3-1.5-1.3h-.5c-.8 0-1.5.5-1.5 1.2 0 1.5 3.5 1 3.5 2.6 0 .8-.7 1.4-1.5 1.4H11c-.9 0-1.6-.6-1.6-1.3" />
+          <path d="M5 18c2-1 4.5-1.5 7-1.5s5 .5 7 1.5l-1 3.5H6z" />
+          <path d="M3 21h18" />
         </svg>
       )
     },
@@ -150,9 +301,13 @@ export const CloudDevelopmentService = () => {
       title: 'Faster Disaster Recovery',
       desc: 'Since capacity, location planning and operations are easily managed, it allows enterprises to respond quickly to unexpected business changes.',
       icon: (
-        <svg className="w-8 h-8 text-[#0284C7]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-          <path d="m9 12 2 2 4-4" />
+        <svg className="w-11 h-11 text-[#0084B4]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M3 20h18" />
+          <rect x="5" y="13" width="3" height="7" rx="0.5" />
+          <rect x="10.5" y="10" width="3" height="10" rx="0.5" />
+          <rect x="16" y="7" width="3" height="13" rx="0.5" />
+          <path d="M4 9l5-5 5 3 6-4" />
+          <path d="M17 3h3v3" />
         </svg>
       )
     },
@@ -160,11 +315,13 @@ export const CloudDevelopmentService = () => {
       title: 'Increased Collaboration',
       desc: 'Cloud-managed applications can dramatically enhance staff and client collaboration, reducing stress and the time working on it.',
       icon: (
-        <svg className="w-8 h-8 text-[#0284C7]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-          <circle cx="9" cy="7" r="4" />
-          <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-          <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+        <svg className="w-11 h-11 text-[#0084B4]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M7 11v10" />
+          <path d="M7 15l4.5-5a1.8 1.8 0 0 1 3 1.2v1.8h4.5a2 2 0 0 1 2 2.3l-1.2 6a2 2 0 0 1-2 1.7H7" />
+          <rect x="3" y="11" width="4" height="10" rx="1" />
+          <path d="M6 4l.5 1.5H8l-1.2 1 .5 1.5L6 7l-1.3 1 .5-1.5L4 6.5h1.5z" />
+          <path d="M12 2l.5 1.5H14l-1.2 1 .5 1.5L12 5l-1.3 1 .5-1.5L10 4.5h1.5z" />
+          <path d="M18 4l.5 1.5H20l-1.2 1 .5 1.5L18 7l-1.3 1 .5-1.5L16 6.5h1.5z" />
         </svg>
       )
     },
@@ -172,15 +329,65 @@ export const CloudDevelopmentService = () => {
       title: 'High Availability',
       desc: 'Most of the cloud providers are truly reliable in offering their services, with most of them maintaining an uptime of 99.9%.',
       icon: (
-        <svg className="w-8 h-8 text-[#0284C7]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <circle cx="12" cy="12" r="10" />
-          <polyline points="12 6 12 12 16 14" />
+        <svg className="w-11 h-11 text-[#0084B4]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="12" cy="9" r="5.5" />
+          <path d="M9 15h6" />
+          <path d="M10 18h4" />
+          <path d="M11 21h2" />
+          <path d="M12 1v2" />
+          <path d="M4.5 4.5l1.5 1.5" />
+          <path d="M19.5 4.5l-1.5 1.5" />
+          <path d="M1 9h2" />
+          <path d="M21 9h2" />
         </svg>
       )
     }
   ];
 
-  // 3. FAQ List tailored specifically for Cloud Application Development
+  // Cloud App Development Services (Cards Slider)
+  const cloudAppDevelopmentServicesData = [
+    {
+      title: 'Cloud Integration Services',
+      desc: 'Boost connectivity by integrating modern cloud technologies, ensuring seamless data flow and syncing across systems while maintaining peak security and enterprise resilience.',
+      link: '/contact-us'
+    },
+    {
+      title: 'Cloud Monitoring And Support',
+      desc: 'We offer effective cloud performance monitoring and optimization services. Our cloud monitoring and support service gives you complete visibility into the health and availability of the entire cloud...',
+      link: '/contact-us'
+    },
+    {
+      title: 'Cloud App Development',
+      desc: 'Our cloud team builds solutions that are extremely scalable, highly secure, and efficiently designed to optimize the user experience and maximize your ROI.',
+      link: '/contact-us'
+    },
+    {
+      title: 'Cloud-Native Development',
+      desc: 'Maximize your productivity with our Cloud-Native services that include, Design, Develop and deploy cloud-native applications to get a competitive advantage and drive your business growth.',
+      link: '/contact-us'
+    },
+    {
+      title: 'Cloud Consulting Services',
+      desc: 'Assist businesses with comprehensive cloud consultation, resilient architecture design, multi-cloud strategy, system integration, and proactive ongoing lifecycle support.',
+      link: '/contact-us'
+    },
+    {
+      title: 'Cloud Migration & Modernization',
+      desc: 'Seamlessly migrate legacy workloads, enterprise databases, and business-critical software to AWS, Azure, or GCP with zero downtime and optimized operational costs.',
+      link: '/contact-us'
+    },
+    {
+      title: 'Cloud Security & Compliance',
+      desc: 'Safeguard your enterprise digital assets with end-to-end cloud security audits, identity governance, data encryption, and regulatory compliance (GDPR, HIPAA, SOC 2).',
+      link: '/contact-us'
+    },
+    {
+      title: 'DevOps & Cloud Automation',
+      desc: 'Accelerate delivery cycles and continuous integration with automated CI/CD pipelines, infrastructure as code (IaC), containerization, and orchestration.',
+      link: '/contact-us'
+    }
+  ];
+
   const cloudFaqList = [
     {
       id: 1,
@@ -398,214 +605,148 @@ export const CloudDevelopmentService = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* 6. OUR PREMIUM SERVICES */}
+      {/* 6. CUTTING EDGE TECHNOLOGIES SAPPHIRE USE FOR CLOUD APP DEVELOPMENT */}
+      {/* ========================================================================= */}
+      <section className="py-16 lg:py-24 bg-white text-slate-900 font-sans border-b border-slate-100 overflow-hidden">
+        <Container>
+          {/* Centered H2 Title */}
+          <div className="text-center w-full max-w-4xl mx-auto mb-10 sm:mb-14">
+            <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-[900] text-[#0F172A] tracking-tight leading-tight">
+              Cutting Edge Technologies Sapphire Use For Cloud App Development
+            </h2>
+          </div>
+
+          {/* Cards Carousel Container */}
+          <div className="relative">
+            <div
+              ref={cuttingEdgeSliderRef}
+              className="flex gap-5 sm:gap-6 overflow-x-auto no-scrollbar scroll-smooth pb-4 px-1 select-none"
+              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            >
+              {cuttingEdgeTechCards.map((card, idx) => (
+                <div
+                  key={idx}
+                  className="w-[290px] sm:w-[330px] lg:w-[360px] shrink-0 bg-[#EAF5FB] rounded-[16px] p-6 sm:p-8 flex flex-col justify-start text-left border border-sky-100/60 hover:shadow-md hover:-translate-y-1 transition-all duration-300"
+                >
+                  <div className="mb-5 flex items-center">
+                    {card.icon}
+                  </div>
+                  <h3 className="text-[17px] sm:text-[18px] font-bold text-[#0F172A] mb-3 leading-snug">
+                    {card.title}
+                  </h3>
+                  <p className="text-[13.5px] sm:text-[14px] text-slate-600 leading-[1.7] font-normal">
+                    {card.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            {/* Navigation Arrows centered below */}
+            <div className="flex items-center justify-center gap-6 mt-8">
+              <button
+                onClick={() => {
+                  if (cuttingEdgeSliderRef.current) {
+                    cuttingEdgeSliderRef.current.scrollBy({ left: -360, behavior: 'smooth' });
+                  }
+                }}
+                aria-label="Previous Slide"
+                className="p-2 text-slate-700 hover:text-[#005F96] transition-colors focus:outline-hidden cursor-pointer"
+              >
+                <ArrowLeft className="w-6 h-6 stroke-[2]" />
+              </button>
+              <button
+                onClick={() => {
+                  if (cuttingEdgeSliderRef.current) {
+                    cuttingEdgeSliderRef.current.scrollBy({ left: 360, behavior: 'smooth' });
+                  }
+                }}
+                aria-label="Next Slide"
+                className="p-2 text-slate-700 hover:text-[#005F96] transition-colors focus:outline-hidden cursor-pointer"
+              >
+                <ArrowRight className="w-6 h-6 stroke-[2]" />
+              </button>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* ========================================================================= */}
+      {/* 7. OUR PREMIUM SERVICES */}
       {/* ========================================================================= */}
       <PremiumServicesGrid companyName="Sapphire" />
 
       {/* ========================================================================= */}
-      {/* 7. SUCCESS STORIES + 4 STAT BOXES */}
+      {/* 8. MEET SAPPHIRE'S EXCEPTIONAL TEAM OF SEASONED EXPERTS */}
       {/* ========================================================================= */}
-      <section className="py-20 bg-[#DDF1FB] text-center font-sans border-t border-cyan-100">
+      <SapphireSeasonedExpertsSection />
+
+      {/* ========================================================================= */}
+      {/* 9. INDUSTRY-FOCUSED INSIGHTS TO ELEVATE YOUR BUSINESS */}
+      {/* ========================================================================= */}
+      <IndustryFocusedInsightsSection />
+
+
+
+      {/* ========================================================================= */}
+      {/* 10. ABOUT US STATS GRID */}
+      {/* ========================================================================= */}
+      <AboutUsStats companyName="Sapphire" />
+
+      {/* ========================================================================= */}
+      {/* 11. EXPLORE THE TRANSFORMATIVE IMPACT OF CLOUD APP ON YOUR BUSINESS SUCCESS */}
+      {/* ========================================================================= */}
+      <TransformativeImpactSection title="Explore The Transformative Impact Of Cloud App On Your Business Success" />
+
+      {/* ========================================================================= */}
+      {/* 12. SAPPHIRE’S COMPREHENSIVE SUITE OF CLOUD APP DEVELOPMENT SERVICES */}
+      {/* ========================================================================= */}
+      <section className="py-14 sm:py-18 bg-[#005F96] text-white font-sans text-left overflow-hidden">
         <Container>
-          <div className="max-w-3xl mx-auto mb-12">
-            <h2 className="text-[34px] sm:text-[40px] font-[800] text-slate-900 tracking-tight leading-tight font-sans mb-3">
-              Success Stories
+          <div className="text-center max-w-4xl mx-auto mb-12 space-y-3">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight font-sans">
+              Sapphire’s Comprehensive Suite of Cloud App Development Services
             </h2>
-            <p className="text-[15px] sm:text-[16px] font-[400] text-slate-700 leading-relaxed font-sans">
-              Know Sapphire journey from concept to success. Explore how we've brought ideas to life and achieved remarkable results for our clients.
+            <p className="text-blue-100 text-sm sm:text-base leading-relaxed max-w-3xl mx-auto font-normal">
+              Sapphire developers thrive at developing compelling mobile applications by utilizing our knowledge of the latest app development frameworks. Sapphire provides full-service mobile app development customized to meet your requirements.
             </p>
           </div>
 
-          {/* 3 Case Study Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-            {/* Card 1 */}
-            <div className="text-center group">
-              <div className="relative rounded-[20px] overflow-hidden bg-white shadow-sm border border-slate-200/80 p-2 group-hover:shadow-md transition-all">
-                <div className="absolute top-4 right-4 z-10 bg-[#005F96] text-white text-[11px] font-[700] px-3 py-1 rounded-md shadow-2xs">
-                  Case Study
-                </div>
-                <img
-                  src="/images/adani.webp"
-                  alt="Vehicle Data Logging & Cloud Sync Platform"
-                  className="w-full h-[220px] object-cover rounded-[14px]"
-                />
-              </div>
-              <h3 className="text-[16px] font-[800] text-slate-900 mt-4 font-sans text-left">
-                Vehicle Data Logging & Cloud Sync Platform
-              </h3>
-            </div>
-
-            {/* Card 2 */}
-            <div className="text-center group">
-              <div className="rounded-[20px] overflow-hidden bg-white shadow-sm border border-slate-200/80 p-2 group-hover:shadow-md transition-all">
-                <img
-                  src="/images/federal_forecasting_app.jpg"
-                  alt="On-Demand Cloud Service Booking Architecture"
-                  className="w-full h-[220px] object-cover rounded-[14px]"
-                />
-              </div>
-              <h3 className="text-[16px] font-[800] text-slate-900 mt-4 font-sans text-left">
-                On-Demand Cloud Service Booking Architecture
-              </h3>
-            </div>
-
-            {/* Card 3 */}
-            <div className="text-center group">
-              <div className="rounded-[20px] overflow-hidden bg-white shadow-sm border border-slate-200/80 p-2 group-hover:shadow-md transition-all">
-                <img
-                  src="/images/stress_management_app.jpg"
-                  alt="Enterprise Multi-Tenant Cloud ERP Portal"
-                  className="w-full h-[220px] object-cover rounded-[14px]"
-                />
-              </div>
-              <h3 className="text-[16px] font-[800] text-slate-900 mt-4 font-sans text-left">
-                Enterprise Multi-Tenant Cloud ERP Portal
-              </h3>
-            </div>
-          </div>
-
-          {/* Centered "View All Portfolio" Button */}
-          <div className="mb-14">
-            <Link
-              to="/portfolio"
-              className="inline-flex items-center justify-center px-9 py-3 rounded-[6px] bg-[#006B8F] hover:bg-[#005478] text-white font-[700] text-[14.5px] transition-all shadow-md font-sans"
-            >
-              View All Portfolio
-            </Link>
-          </div>
-
-          {/* 4 Colorful Highlight Boxes */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {/* Box 1: Purple */}
-            <div className="bg-[#D8C7FF] rounded-[18px] p-6 text-center flex flex-col justify-center items-center shadow-xs">
-              <div className="text-[36px] sm:text-[40px] font-[900] text-slate-900 tracking-tight leading-none mb-1 font-sans">
-                23+
-              </div>
-              <div className="text-[14px] font-[700] text-slate-800 font-sans">
-                Years Experience
-              </div>
-            </div>
-
-            {/* Box 2: Mint Green */}
-            <div className="bg-[#A3E8D2] rounded-[18px] p-6 text-center flex flex-col justify-center items-center shadow-xs">
-              <div className="text-[36px] sm:text-[40px] font-[900] text-slate-900 tracking-tight leading-none mb-1 font-sans">
-                250+
-              </div>
-              <div className="text-[14px] font-[700] text-slate-800 font-sans">
-                5-Star Clutch Reviews
-              </div>
-            </div>
-
-            {/* Box 3: Peach/Coral */}
-            <div className="bg-[#FFBCB0] rounded-[18px] p-6 text-center flex flex-col justify-center items-center shadow-xs">
-              <div className="text-[36px] sm:text-[40px] font-[900] text-slate-900 tracking-tight leading-none mb-1 font-sans">
-                2800+
-              </div>
-              <div className="text-[14px] font-[700] text-slate-800 font-sans">
-                Satisfied Clients
-              </div>
-            </div>
-
-            {/* Box 4: Deep Blue */}
-            <div className="bg-[#005E82] rounded-[18px] p-6 text-center flex flex-col justify-center items-center shadow-md">
-              <div className="text-[18px] sm:text-[19px] font-[800] text-white tracking-tight leading-tight mb-3 font-sans">
-                Want to start Projects
-              </div>
-              <a
-                href="#consultation-form"
-                className="bg-white text-[#005E82] hover:bg-slate-100 px-6 py-2 rounded-[6px] font-[800] text-[13.5px] transition-all shadow-sm font-sans"
-              >
-                Get Estimation
-              </a>
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      {/* ========================================================================= */}
-      {/* 8. THE EXPERTISE OF OUR CLOUD COMPUTING & APPLICATION SERVICES */}
-      {/* ========================================================================= */}
-      <section className="py-16 lg:py-20 bg-[#F4F9FD] text-slate-900 font-sans text-left relative overflow-hidden border-b border-slate-100">
-        <Container>
-          {/* Section Heading & Subtitle */}
-          <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-12 space-y-2 px-4">
-            <h2 className="text-2xl sm:text-3xl md:text-[34px] lg:text-[38px] font-[800] text-[#0B0F19] tracking-tight leading-tight">
-              The Expertise Of Our Cloud Computing & Application Services
-            </h2>
-            <p className="text-xs sm:text-sm md:text-[15px] text-[#475569] font-normal max-w-3xl mx-auto">
-              With over a decade of experience in cloud-based app development, we deliver top cloud computing services solutions that cater for the diverse requirements of our clients. We have gained extensive expertise in providing full-cycle our cloud application development services:
-            </p>
-          </div>
-
-          {/* 6 White Cards in 3x2 Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-[1240px] mx-auto mb-10">
-            {cloudExpertiseCards.map((card, idx) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {[
+              {
+                title: 'Mobile App UI/UX Design',
+                desc: 'By considering market trends and creating best practices that provide an enhanced app user experience, we can help you create a unique, sophisticated, and user-friendly mobile app user interface.'
+              },
+              {
+                title: 'MVP Development',
+                desc: 'By creating an MVP with the necessary functionality, we increase your trust in the app idea. This enables you to swiftly release a test app onto the market and attract early users before moving on to complete app development.'
+              },
+              {
+                title: 'Custom App Development',
+                desc: "Whether you're developing a mobile app for a business or a community, we can help you realize your unique idea by incorporating cutting-edge features that will make it stand out from the crowd."
+              },
+              {
+                title: 'Startup App Development',
+                desc: 'Our world-class app development solutions will help your startup take off by helping startups get the best app solution possible with the use of leading app development frameworks.'
+              },
+              {
+                title: 'Enterprise App Development',
+                desc: 'Enhance your business operations through mobility by integrating third-party integrations and industry-leading technologies into your mobile app solutions to increase revenue and business operations.'
+              },
+              {
+                title: 'Embedded IoT App Development',
+                desc: 'To control and fully exploit your IoT-enabled environment, get a highly customized embedded software solution built with cloud and AI/ML technology.'
+              }
+            ].map((service, idx) => (
               <div
                 key={idx}
-                className="bg-white rounded-[16px] p-7 text-slate-900 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col justify-between text-left border border-slate-100"
+                className="bg-white text-slate-900 rounded-2xl p-7 flex flex-col justify-start text-left shadow-md hover:shadow-xl transition-all duration-300 border border-white/20"
               >
-                <div>
-                  <div className={`w-12 h-12 rounded-xl ${card.bg} flex items-center justify-center mb-5 shadow-xs`}>
-                    {card.icon}
-                  </div>
-                  <h3 className="font-[800] text-[#0B0F19] text-[18px] sm:text-[19px] leading-[1.3] mb-3">
-                    {card.title}
-                  </h3>
-                  <p className="text-[#475569] text-[13.5px] sm:text-[14px] leading-[1.7] font-[400]">
-                    {card.desc}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Centered Button */}
-          <div className="text-center">
-            <a
-              href="#consultation-form"
-              className="inline-flex items-center justify-center px-8 py-3.5 rounded-[6px] bg-[#005F96] hover:bg-[#004A75] text-white font-[700] text-[14.5px] transition-all shadow-md hover:shadow-lg"
-            >
-              Get A Free Quote For Your Project
-            </a>
-          </div>
-        </Container>
-      </section>
-
-      {/* ========================================================================= */}
-      {/* 9. PROUD TO HAVE PICKED THESE UP ALONG THE WAY */}
-      {/* ========================================================================= */}
-      <TrustRecognitionBanner />
-
-      {/* ========================================================================= */}
-      {/* 10. BENEFITS OF CLOUD-BASED SOLUTIONS */}
-      {/* ========================================================================= */}
-      <section className="py-16 lg:py-20 bg-[#F4F9FD] text-slate-900 font-sans text-left relative overflow-hidden border-b border-slate-100">
-        <Container>
-          {/* Section Heading & Subtitle */}
-          <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-12 space-y-2 px-4">
-            <h2 className="text-2xl sm:text-3xl md:text-[34px] lg:text-[38px] font-[800] text-[#0B0F19] tracking-tight leading-tight">
-              Benefits Of Cloud-Based Solutions
-            </h2>
-            <p className="text-xs sm:text-sm md:text-[15px] text-[#475569] font-normal max-w-3xl mx-auto">
-              Our Cloud computing solutions have enormous benefits to offer:
-            </p>
-          </div>
-
-          {/* 6 White Cards in 3x2 Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-[1240px] mx-auto">
-            {cloudBenefitsData.map((card, idx) => (
-              <div
-                key={idx}
-                className="bg-white rounded-[16px] p-7 text-slate-900 shadow-sm hover:shadow-md transition-all duration-200 flex flex-col justify-start text-left border border-slate-100"
-              >
-                <div className="mb-4">
-                  {card.icon}
-                </div>
-                <h3 className="font-[800] text-[#0B0F19] text-[18px] sm:text-[19px] leading-[1.3] mb-3">
-                  {card.title}
+                <h3 className="font-extrabold text-lg sm:text-xl text-[#0F172A] mb-3 leading-snug font-sans">
+                  {service.title}
                 </h3>
-                <p className="text-[#475569] text-[13.5px] sm:text-[14px] leading-[1.7] font-[400]">
-                  {card.desc}
+                <p className="text-slate-600 text-xs sm:text-sm leading-relaxed font-normal">
+                  {service.desc}
                 </p>
               </div>
             ))}
@@ -614,7 +755,133 @@ export const CloudDevelopmentService = () => {
       </section>
 
       {/* ========================================================================= */}
-      {/* 11. BUSINESS FRIENDLY HIRING MODELS */}
+      {/* 13. SECTORS THRIVING THROUGH SAPPHIRE’S BESPOKE CLOUD APP DEVELOPMENT SERVICES */}
+      {/* ========================================================================= */}
+      <SectorsThrivingSection title="Sectors Thriving Through Sapphire’s Bespoke Cloud App Development Services" />
+
+      {/* ========================================================================= */}
+      {/* 14. TECHNOLOGY STACK THAT SAPPHIRE MOBILE DEVELOPERS USE PROFICIENTLY */}
+      {/* ========================================================================= */}
+      <MobileAppProficientTechStackSection title="Technology Stack That Sapphire Mobile Developers Use Proficiently" />
+
+      {/* ========================================================================= */}
+      {/* 15. PROUD TO HAVE PICKED THESE UP ALONG THE WAY */}
+      {/* ========================================================================= */}
+      <TrustRecognitionBanner />
+
+      {/* ========================================================================= */}
+      {/* 16. BENEFITS OF CLOUD-BASED SOLUTIONS */}
+      {/* ========================================================================= */}
+      <section className="py-16 lg:py-24 bg-[#F4F9FD]">
+        <Container>
+          <div className="text-center max-w-4xl mx-auto mb-12 lg:mb-14">
+            <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-gray-900 tracking-tight mb-4">
+              Benefits Of Cloud-Based Solutions
+            </h2>
+            <p className="text-base sm:text-lg text-gray-600 font-normal">
+              Our Cloud computing solutions have enormous benefits to offer:
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            {cloudBenefitsData.map((benefit, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-[16px] p-7 sm:p-8 border border-[#E2EEF8] shadow-[0_4px_20px_rgba(0,132,180,0.04)] hover:shadow-[0_10px_30px_rgba(0,132,180,0.1)] transition-all duration-300 flex flex-col items-start text-left"
+              >
+                <div className="mb-6">
+                  {benefit.icon}
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                  {benefit.title}
+                </h3>
+                <p className="text-gray-600 text-[15px] leading-relaxed">
+                  {benefit.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* ========================================================================= */}
+      {/* 17. CLOUD APP DEVELOPMENT SERVICES (CAROUSEL SLIDER) */}
+      {/* ========================================================================= */}
+      <section className="py-16 lg:py-22 bg-white overflow-hidden border-b border-slate-100">
+        <Container>
+          {/* Centered Heading */}
+          <div className="text-center max-w-4xl mx-auto mb-12 lg:mb-14">
+            <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-extrabold text-gray-900 tracking-tight mb-4">
+              Cloud App Development Services
+            </h2>
+            <p className="text-base sm:text-lg text-gray-600 font-normal leading-relaxed">
+              With over a decade of experience in cloud-based app development, we deliver top cloud computing services solutions that cater for the diverse requirements of our clients. We have gained extensive expertise in providing full-cycle our cloud application development services.
+            </p>
+          </div>
+
+          {/* Cards Carousel Container */}
+          <div className="relative">
+            <div
+              ref={cloudServicesSliderRef}
+              className="flex gap-6 overflow-x-auto no-scrollbar scroll-smooth pb-4 px-1 select-none"
+              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            >
+              {cloudAppDevelopmentServicesData.map((service, index) => (
+                <div
+                  key={index}
+                  className="w-[300px] sm:w-[350px] lg:w-[380px] shrink-0 bg-[#EAF3FA] rounded-[18px] p-7 sm:p-8 flex flex-col justify-between text-left border border-sky-100/70 hover:shadow-md hover:-translate-y-1 transition-all duration-300"
+                >
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-3 leading-snug">
+                      {service.title}
+                    </h3>
+                    <p className="text-gray-600 text-[14.5px] leading-relaxed mb-8">
+                      {service.desc}
+                    </p>
+                  </div>
+                  <div>
+                    <Link
+                      to={service.link}
+                      className="inline-block px-7 py-2.5 bg-[#0084B4] hover:bg-[#006E98] text-white font-semibold rounded-[8px] text-sm transition-colors shadow-sm"
+                    >
+                      View More
+                    </Link>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Slider Navigation Buttons */}
+            <div className="flex items-center justify-center gap-4 mt-8">
+              <button
+                onClick={() => {
+                  if (cloudServicesSliderRef.current) {
+                    cloudServicesSliderRef.current.scrollBy({ left: -380, behavior: 'smooth' });
+                  }
+                }}
+                className="w-11 h-11 rounded-full border border-gray-300 flex items-center justify-center text-gray-600 hover:text-white hover:bg-[#0084B4] hover:border-[#0084B4] transition-all shadow-xs cursor-pointer"
+                aria-label="Previous Slide"
+              >
+                <ArrowLeft className="w-5 h-5" />
+              </button>
+              <button
+                onClick={() => {
+                  if (cloudServicesSliderRef.current) {
+                    cloudServicesSliderRef.current.scrollBy({ left: 380, behavior: 'smooth' });
+                  }
+                }}
+                className="w-11 h-11 rounded-full border border-gray-300 flex items-center justify-center text-gray-600 hover:text-white hover:bg-[#0084B4] hover:border-[#0084B4] transition-all shadow-xs cursor-pointer"
+                aria-label="Next Slide"
+              >
+                <ArrowRight className="w-5 h-5" />
+              </button>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* ========================================================================= */}
+      {/* 18. BUSINESS FRIENDLY HIRING MODELS */}
       {/* ========================================================================= */}
       <AndroidHiringModels />
 
@@ -643,10 +910,7 @@ export const CloudDevelopmentService = () => {
       {/* ========================================================================= */}
       <SuccessMatrix />
 
-      {/* ========================================================================= */}
-      {/* 17. TECHNOLOGY STACK */}
-      {/* ========================================================================= */}
-      <SapphireTechStackGrid domainName="Cloud application development" />
+
 
       {/* ========================================================================= */}
       {/* 18. WE HAVE BEEN FEATURED IN */}

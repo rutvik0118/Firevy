@@ -99,6 +99,12 @@ import DigitalTwinSolutionsService from '../components/services/DigitalTwinSolut
 import ArtistCollaborationPlatformService from '../components/services/ArtistCollaborationPlatformService';
 import PrototypeDevelopmentService from '../components/services/PrototypeDevelopmentService';
 import CloudDevelopmentService from '../components/services/CloudDevelopmentService';
+import CloudComputingService from '../components/services/CloudComputingService';
+import DevOpsDevelopmentService from '../components/services/DevOpsDevelopmentService';
+import AwsCloudServices from '../components/services/AwsCloudServices';
+import GoogleCloudDevelopmentService from '../components/services/GoogleCloudDevelopmentService';
+import CloudDevOpsService from '../components/services/CloudDevOpsService';
+import CloudFoundrySoftwareDevelopmentService from '../components/services/CloudFoundrySoftwareDevelopmentService';
 import HireKotlinDevelopersService from '../components/services/HireKotlinDevelopersService';
 import HireDedicatedTechDevelopersService from '../components/services/HireDedicatedTechDevelopersService';
 import HireTechDevelopersService from '../components/services/HireTechDevelopersService';
@@ -352,6 +358,69 @@ export const ServiceDetails = () => {
     currentSlug === 'services/cloud-development' ||
     currentSlug === 'services/cloud-application-development' ||
     currentSlug === 'services/cloud-app-development';
+
+  const isCloudComputing = currentSlug === 'cloud-computing-service' ||
+    currentSlug === 'cloud-computing-services' ||
+    currentSlug === 'cloud-computing' ||
+    currentSlug === 'cloud-computing-solutions' ||
+    currentSlug === 'services/cloud-computing-service' ||
+    currentSlug === 'services/cloud-computing-services' ||
+    currentSlug === 'services/cloud-computing' ||
+    currentSlug.includes('cloud-computing');
+
+  const isDevOpsDevelopment = currentSlug === 'devops-development-services' ||
+    currentSlug === 'devops-development-service' ||
+    currentSlug === 'devops-development' ||
+    currentSlug === 'services/devops-development-services' ||
+    currentSlug === 'services/devops-development-service' ||
+    currentSlug === 'services/devops-development' ||
+    (currentSlug.includes('devops') && currentSlug.includes('development'));
+
+  const isAwsCloud = currentSlug === 'aws-cloud-services' ||
+    currentSlug === 'aws-cloud-service' ||
+    currentSlug === 'aws-cloud' ||
+    currentSlug === 'services/aws-cloud-services' ||
+    currentSlug === 'services/aws-cloud-service' ||
+    currentSlug === 'services/aws-cloud' ||
+    (currentSlug.includes('aws') && currentSlug.includes('cloud'));
+
+  const isGoogleCloud = currentSlug === 'google-cloud-development' ||
+    currentSlug === 'google-cloud-development-service' ||
+    currentSlug === 'google-cloud-development-services' ||
+    currentSlug === 'google-cloud-services' ||
+    currentSlug === 'google-cloud-service' ||
+    currentSlug === 'google-cloud' ||
+    currentSlug === 'services/google-cloud-development' ||
+    currentSlug === 'services/google-cloud-development-service' ||
+    currentSlug === 'services/google-cloud-development-services' ||
+    currentSlug === 'services/google-cloud-services' ||
+    currentSlug === 'services/google-cloud-service' ||
+    currentSlug === 'services/google-cloud' ||
+    (currentSlug.includes('google') && currentSlug.includes('cloud'));
+
+  const isCloudDevOps = currentSlug === 'cloud-devops' ||
+    currentSlug === 'cloud-and-devops' ||
+    currentSlug === 'cloud-devops-services' ||
+    currentSlug === 'cloud-devops-service' ||
+    currentSlug === 'services/cloud-devops' ||
+    currentSlug === 'services/cloud-and-devops' ||
+    currentSlug === 'services/cloud-devops-services' ||
+    currentSlug === 'services/cloud-devops-service' ||
+    ((currentSlug.includes('cloud') && currentSlug.includes('devops')) &&
+     currentSlug !== 'devops-development-services' &&
+     currentSlug !== 'devops-development-service' &&
+     currentSlug !== 'devops-development' &&
+     currentSlug !== 'services/devops-development-services' &&
+     currentSlug !== 'services/devops-development-service' &&
+     currentSlug !== 'services/devops-development');
+
+  const isCloudFoundry = currentSlug === 'cloud-foundry-software-development' ||
+    currentSlug === 'cloud-foundry' ||
+    currentSlug === 'cloud-foundry-software' ||
+    currentSlug === 'cloud-foundry-development' ||
+    currentSlug === 'services/cloud-foundry-software-development' ||
+    currentSlug === 'services/cloud-foundry' ||
+    currentSlug.includes('cloud-foundry');
 
   const isMobileApp = !isHireMobile && !isEcommerceApp && !isMobileAppPorting && (
     currentSlug === 'mobile-app-development' ||
@@ -716,7 +785,7 @@ export const ServiceDetails = () => {
   const isApi = (currentSlug.includes('hire-api') || currentSlug.includes('api-developer') || currentSlug.includes('api-developers')) && !currentSlug.includes('fastapi') && !currentSlug.includes('fast-api');
 
   useEffect(() => {
-    if (!isApi && !isFastApi && !isSolidity && !isOpenAi && !isAiAgent && !isLlmEngineers && !isOnDemandApp && !isBarberApp && !isLanguageLearningApp && !isNintex && !isTestingQa && !isDigitalMarketing && !isUiUxDesign && !isChatGpt && !isSoftwareDevelopers && !isDedicatedDevelopers && !isMetaverse && !isEmbeddedSoftware && !isAlexaSkills && !isDataScientist && !isAnyDedicatedHire && !isKotlin && !isHybrid && !isPersonalFitness && !isUsedCar && !isEnneagram && !isCreditCard && !isIPad && !isCrossPlatform && !isItConsulting && !isNext && !isExpress && !isMobileApp && !isBootstrap && !isCodeIgniter && !isEmber && !isLaravel && !isPowerAutomate && !isPowerApps && !isSharePoint && !isVue && !isReact && !isAngular && !isIot && !isPwa && !isRpa && !isVR && !isFullStack && !isBlockchain && !isArtificialIntelligence && !isGenerativeAi && !isNodeJs && !isJava && !isPhp && !isNet && !isXamarin && !isAndroid && !isReactNative && !isFlutter && !isIOS && !isHealthcare && !isEducation && !isUber && !isSpotify && !isZomato && !isAmazon && !isVisitor && !isWarehouse && !isClover && !isCSharp && !isIWatch && !isWordpress && !isDrupal && !isUmbraco && !isSitecore && !isSitefinity && !isMagento && !isShopify && !isCovid && !isEcommerceApp && !isProductFinderApp && !isEyelashBookingApp && !isDataCleansing && !isDataAnnotation && !isPatientManagement && !isDigitalTwin && !isArtistCollaboration && !isMobileAppPorting && !isPrototypeDevelopment && !isCloudDevelopment) {
+    if (!isApi && !isFastApi && !isSolidity && !isOpenAi && !isAiAgent && !isLlmEngineers && !isOnDemandApp && !isBarberApp && !isLanguageLearningApp && !isNintex && !isTestingQa && !isDigitalMarketing && !isUiUxDesign && !isChatGpt && !isSoftwareDevelopers && !isDedicatedDevelopers && !isMetaverse && !isEmbeddedSoftware && !isAlexaSkills && !isDataScientist && !isAnyDedicatedHire && !isKotlin && !isHybrid && !isPersonalFitness && !isUsedCar && !isEnneagram && !isCreditCard && !isIPad && !isCrossPlatform && !isItConsulting && !isNext && !isExpress && !isMobileApp && !isBootstrap && !isCodeIgniter && !isEmber && !isLaravel && !isPowerAutomate && !isPowerApps && !isSharePoint && !isVue && !isReact && !isAngular && !isIot && !isPwa && !isRpa && !isVR && !isFullStack && !isBlockchain && !isArtificialIntelligence && !isGenerativeAi && !isNodeJs && !isJava && !isPhp && !isNet && !isXamarin && !isAndroid && !isReactNative && !isFlutter && !isIOS && !isHealthcare && !isEducation && !isUber && !isSpotify && !isZomato && !isAmazon && !isVisitor && !isWarehouse && !isClover && !isCSharp && !isIWatch && !isWordpress && !isDrupal && !isUmbraco && !isSitecore && !isSitefinity && !isMagento && !isShopify && !isCovid && !isEcommerceApp && !isProductFinderApp && !isEyelashBookingApp && !isDataCleansing && !isDataAnnotation && !isPatientManagement && !isDigitalTwin && !isArtistCollaboration && !isMobileAppPorting && !isPrototypeDevelopment && !isCloudDevelopment && !isCloudComputing && !isDevOpsDevelopment && !isAwsCloud && !isGoogleCloud && !isCloudDevOps && !isCloudFoundry) {
       fetchServiceDetails();
     } else {
       setLoading(false);
@@ -1050,6 +1119,30 @@ export const ServiceDetails = () => {
 
   if (isCloudDevelopment) {
     return <CloudDevelopmentService />;
+  }
+
+  if (isCloudComputing) {
+    return <CloudComputingService />;
+  }
+
+  if (isDevOpsDevelopment) {
+    return <DevOpsDevelopmentService />;
+  }
+
+  if (isAwsCloud) {
+    return <AwsCloudServices />;
+  }
+
+  if (isGoogleCloud) {
+    return <GoogleCloudDevelopmentService />;
+  }
+
+  if (isCloudDevOps) {
+    return <CloudDevOpsService />;
+  }
+
+  if (isCloudFoundry) {
+    return <CloudFoundrySoftwareDevelopmentService />;
   }
 
   if (isPowerAutomate) {
