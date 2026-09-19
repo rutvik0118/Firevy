@@ -176,57 +176,68 @@ export const HireDataScientistDevelopersService = () => {
       />
 
       {/* ============================================================
-          SECTION 1: HERO SECTION
+          SECTION 1: HERO SECTION (Exact Match to Sapphire Reference)
           ============================================================ */}
-      <section className="relative pt-12 pb-16 md:pt-16 md:pb-24 bg-white overflow-hidden border-b border-slate-100 font-sans">
+      <section className="pt-32 pb-20 bg-[#F0F6FB] text-slate-900 relative overflow-hidden font-sans border-b border-slate-200/60">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Left Content Column */}
+            
+            {/* Left Column Text & Action */}
             <div className="lg:col-span-7 space-y-6 text-left">
-              <div className="space-y-4">
-                <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-[900] text-slate-900 tracking-tight leading-[1.15]">
-                  Hire Data Scientist Developers
-                </h1>
-                <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed max-w-2xl">
-                  Empower your engineering organization by hiring world-class dedicated Hire Data Scientist Developers specialists from Firevy.co. Access top 1% vetted developers with deep industry expertise, agile workflows, and zero onboarding overhead. Firevy.co development has an array of skilled Data Scientists, Machine Learning engineers, and AI model specialists for hire that excel in predictive model building, actionable insight extraction, computer vision, NLP, and enterprise Big Data pipelines. Whether you're building a SaaS platform, predictive maintenance system, or LLM-powered application, we provide secure, efficient, and production-grade solutions tailored for your business goals.
-                </p>
+              <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-[900] text-slate-900 tracking-tight leading-tight">
+                Hire Data Scientist
+              </h1>
+              <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal max-w-2xl">
+                The data scientists at our company can efficiently use your data to solve various business difficulties and make processes run more smoothly.
+              </p>
+
+              {/* 4 Metrics / Stats Row */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-2 pb-2">
+                <div>
+                  <div className="text-3xl sm:text-[38px] font-[800] text-[#006095] tracking-tight leading-none mb-1">200+</div>
+                  <div className="text-xs sm:text-[14px] font-[600] text-slate-800 leading-[1.3]">
+                    Dedicated<br />Developers
+                  </div>
+                </div>
+                <div>
+                  <div className="text-3xl sm:text-[38px] font-[800] text-[#006095] tracking-tight leading-none mb-1">20+</div>
+                  <div className="text-xs sm:text-[14px] font-[600] text-slate-800 leading-[1.3]">
+                    Fortunes 500<br />Companies
+                  </div>
+                </div>
+                <div>
+                  <div className="text-3xl sm:text-[38px] font-[800] text-[#006095] tracking-tight leading-none mb-1">2800+</div>
+                  <div className="text-xs sm:text-[14px] font-[600] text-slate-800 leading-[1.3]">
+                    Project Completed
+                  </div>
+                </div>
+                <div>
+                  <div className="text-3xl sm:text-[38px] font-[800] text-[#006095] tracking-tight leading-none mb-1">320+</div>
+                  <div className="text-xs sm:text-[14px] font-[600] text-slate-800 leading-[1.3]">
+                    5-Star Clutch Reviews
+                  </div>
+                </div>
               </div>
 
-              {/* 4 Metric Stats Row */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 py-2">
-                <div>
-                  <span className="block text-2xl sm:text-3xl font-black text-slate-900">200+</span>
-                  <span className="text-xs font-semibold text-slate-600 leading-tight block mt-1">Dedicated Developers</span>
+              {/* Call-to-action pill box */}
+              <div className="space-y-3 pt-3">
+                <div className="text-sm sm:text-[15px] font-[700] text-[#006095]">
+                  Get Top Talent Work for you At
                 </div>
-                <div>
-                  <span className="block text-2xl sm:text-3xl font-black text-slate-900">20+</span>
-                  <span className="text-xs font-semibold text-slate-600 leading-tight block mt-1">Fortunes 500 Companies</span>
-                </div>
-                <div>
-                  <span className="block text-2xl sm:text-3xl font-black text-slate-900">2800+</span>
-                  <span className="text-xs font-semibold text-slate-600 leading-tight block mt-1">Project Completed</span>
-                </div>
-                <div>
-                  <span className="block text-2xl sm:text-3xl font-black text-slate-900">320+</span>
-                  <span className="text-xs font-semibold text-slate-600 leading-tight block mt-1">5-Star Clutch Reviews</span>
-                </div>
-              </div>
-
-              {/* CTA Section with Capsule Pill Bar */}
-              <div className="space-y-2 pt-1">
-                <p className="text-xs font-bold text-[#006095]">Get Top Talent Work for you At</p>
-                <div className="bg-[#0083B0] p-1.5 rounded-2xl inline-flex items-center space-x-2 shadow-xs">
-                  <span className="bg-[#0083B0] text-white font-black px-5 py-2.5 rounded-xl text-sm sm:text-base flex items-center space-x-2">
-                    <span className="text-xs">💡</span>
-                    <span>$21/Hourly*</span>
-                  </span>
+                <div className="inline-flex items-center justify-between bg-[#0089a8] rounded-[16px] p-2 pl-3.5 pr-2 w-full max-w-[410px] shadow-lg shadow-[#0089a8]/25">
+                  <div className="flex items-center space-x-3">
+                    <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center shrink-0 shadow-sm">
+                      <Clock className="w-4 h-4 text-[#0089a8] stroke-[2.5]" />
+                    </div>
+                    <span className="text-xl sm:text-[22px] font-[800] text-white tracking-tight">$21/Hourly*</span>
+                  </div>
                   <a
                     href="#quote-form"
                     onClick={(e) => {
                       e.preventDefault();
                       document.getElementById('quote-form')?.scrollIntoView({ behavior: 'smooth' });
                     }}
-                    className="bg-white text-[#006095] hover:bg-slate-50 font-bold px-7 py-2.5 rounded-xl text-sm transition-all shadow-xs cursor-pointer"
+                    className="bg-white text-[#006095] hover:bg-slate-50 font-[700] px-6 py-2.5 rounded-[10px] text-[15px] transition-all shadow-sm flex items-center justify-center"
                   >
                     Hire Team
                   </a>
@@ -234,50 +245,80 @@ export const HireDataScientistDevelopersService = () => {
               </div>
             </div>
 
-            {/* Right Hero Graphic Banner */}
-            <div className="lg:col-span-5 relative flex justify-center items-center">
-              <div className="relative w-full max-w-[480px] flex justify-center items-center">
-                <svg viewBox="0 0 500 400" className="w-full h-auto drop-shadow-md" fill="none">
-                  <path d="M 60 170 C 60 90, 130 50, 210 70 C 280 30, 390 50, 430 110 C 480 160, 470 260, 410 310 C 350 360, 130 360, 80 310 C 40 260, 60 210, 60 170 Z" fill="#D4ECF9" />
-                  
-                  <rect x="220" y="310" width="60" height="25" rx="4" fill="#94A3B8" />
-                  <ellipse cx="250" cy="335" rx="55" ry="10" fill="#64748B" />
+            {/* Right Column Illustration - Monitor Display with floating tech icons */}
+            <div className="lg:col-span-5 relative flex items-center justify-center">
+              <div className="relative w-full max-w-[480px]">
+                {/* Floating SQL Badge middle-left */}
+                <div className="absolute top-1/4 -left-6 z-20 bg-[#38BDF8] text-white p-2.5 px-3.5 rounded-xl shadow-lg font-extrabold text-xs flex items-center justify-center border-2 border-white">
+                  SQL
+                </div>
 
-                  <rect x="95" y="115" width="310" height="200" rx="16" fill="#0F172A" />
-                  <rect x="105" y="125" width="290" height="180" rx="10" fill="#1E293B" />
+                {/* Floating Python Badge top-right */}
+                <div className="absolute -top-3 -right-2 z-20 bg-[#3776AB] text-white p-2.5 px-3.5 rounded-xl shadow-lg font-extrabold text-xs flex items-center justify-center border-2 border-white">
+                  Python
+                </div>
 
-                  <circle cx="120" cy="138" r="4" fill="#EF4444" />
-                  <circle cx="132" cy="138" r="4" fill="#F59E0B" />
-                  <circle cx="144" cy="138" r="4" fill="#10B981" />
+                {/* Floating Java Badge bottom-left */}
+                <div className="absolute bottom-6 left-4 z-20 bg-[#5382A1] text-white p-2.5 px-3.5 rounded-xl shadow-lg font-extrabold text-xs flex items-center justify-center border-2 border-white">
+                  Java
+                </div>
 
-                  <rect x="120" y="152" width="80" height="60" rx="6" fill="#006095" />
-                  <rect x="210" y="152" width="80" height="60" rx="6" fill="#38BDF8" />
-                  <rect x="300" y="152" width="85" height="60" rx="6" fill="#0284C7" />
-                  <rect x="120" y="222" width="170" height="12" rx="4" fill="#38BDF8" />
-                  <rect x="120" y="242" width="120" height="10" rx="4" fill="#006095" />
-                  <rect x="120" y="260" width="245" height="12" rx="4" fill="#0284C7" />
+                {/* Floating C++ Badge bottom-right */}
+                <div className="absolute bottom-12 -right-4 z-20 bg-[#00599C] text-white p-2.5 px-3.5 rounded-xl shadow-lg font-extrabold text-xs flex items-center justify-center border-2 border-white">
+                  C++
+                </div>
 
-                  <circle cx="100" cy="225" r="22" fill="#006095" stroke="#FFFFFF" strokeWidth="3" />
-                  <text x="100" y="231" textAnchor="middle" fill="#FFFFFF" fontSize="13" fontWeight="bold" fontFamily="sans-serif">DS</text>
+                {/* Monitor Graphic */}
+                <div className="relative z-10 drop-shadow-2xl">
+                  <svg viewBox="0 0 540 360" className="w-full h-auto">
+                    <defs>
+                      <linearGradient id="dsBezel" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stopColor="#1E293B" />
+                        <stop offset="100%" stopColor="#0F172A" />
+                      </linearGradient>
+                    </defs>
 
-                  <rect x="100" y="70" width="52" height="34" rx="8" fill="#38BDF8" />
-                  <text x="126" y="92" textAnchor="middle" fill="#FFFFFF" fontSize="14" fontWeight="extrabold">AI/ML</text>
+                    {/* Gears background artwork */}
+                    <circle cx="430" cy="80" r="45" fill="none" stroke="#CBD5E1" strokeWidth="5" strokeDasharray="12 8" />
+                    <circle cx="90" cy="280" r="35" fill="none" stroke="#CBD5E1" strokeWidth="4" strokeDasharray="10 6" />
 
-                  <rect x="340" y="55" width="52" height="34" rx="8" fill="#10B981" />
-                  <text x="366" y="77" textAnchor="middle" fill="#FFFFFF" fontSize="14" fontWeight="extrabold">DATA</text>
+                    <rect x="50" y="20" width="440" height="260" rx="12" fill="url(#dsBezel)" stroke="#334155" strokeWidth="2" />
+                    <rect x="62" y="32" width="416" height="236" rx="4" fill="#FFFFFF" />
 
-                  <circle cx="75" cy="245" r="10" fill="#F43F5E" />
-                  <path d="M 65 260 L 85 260 L 80 320 L 70 320 Z" fill="#E11D48" />
-                  <rect x="68" y="320" width="6" height="30" fill="#1E293B" />
-                  <rect x="76" y="320" width="6" height="30" fill="#1E293B" />
+                    <rect x="78" y="52" width="80" height="7" rx="3" fill="#CBD5E1" />
+                    <rect x="166" y="52" width="140" height="7" rx="3" fill="#E2E8F0" />
+                    
+                    <rect x="78" y="74" width="200" height="7" rx="3" fill="#CBD5E1" />
+                    <rect x="78" y="96" width="150" height="7" rx="3" fill="#E2E8F0" />
+                    
+                    <rect x="78" y="118" width="180" height="7" rx="3" fill="#CBD5E1" />
+                    <rect x="78" y="140" width="120" height="7" rx="3" fill="#E2E8F0" />
 
-                  <circle cx="360" cy="95" r="10" fill="#F59E0B" />
-                  <path d="M 350 110 L 370 110 L 368 150 L 352 150 Z" fill="#2563EB" />
-                  <rect x="353" y="150" width="6" height="25" fill="#1E293B" />
-                  <rect x="361" y="150" width="6" height="25" fill="#1E293B" />
-                </svg>
+                    <rect x="78" y="162" width="160" height="7" rx="3" fill="#CBD5E1" />
+                    <rect x="78" y="184" width="190" height="7" rx="3" fill="#E2E8F0" />
+
+                    <rect x="78" y="206" width="220" height="7" rx="3" fill="#CBD5E1" />
+                    <rect x="78" y="228" width="110" height="7" rx="3" fill="#E2E8F0" />
+
+                    {/* Data Science Orbit / Node Graphic on Right Side of Screen */}
+                    <g transform="translate(370, 150)">
+                      <circle cx="0" cy="0" r="32" fill="none" stroke="#006095" strokeWidth="2.5" strokeDasharray="6 4" />
+                      <circle cx="0" cy="0" r="18" fill="#006095" />
+                      <circle cx="-24" cy="-20" r="7" fill="#38BDF8" />
+                      <circle cx="24" cy="20" r="7" fill="#38BDF8" />
+                      <circle cx="24" cy="-20" r="7" fill="#0284C7" />
+                      <line x1="-24" y1="-20" x2="0" y2="0" stroke="#006095" strokeWidth="2" />
+                      <line x1="24" y1="20" x2="0" y2="0" stroke="#006095" strokeWidth="2" />
+                      <line x1="24" y1="-20" x2="0" y2="0" stroke="#006095" strokeWidth="2" />
+                    </g>
+
+                    <rect x="240" y="280" width="60" height="40" fill="#94A3B8" />
+                    <ellipse cx="270" cy="320" rx="90" ry="12" fill="#CBD5E1" stroke="#94A3B8" strokeWidth="2" />
+                  </svg>
+                </div>
               </div>
             </div>
+
           </div>
         </Container>
       </section>

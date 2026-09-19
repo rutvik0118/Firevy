@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 520" fill="none" class="w-full h-auto">
+  <defs>
+    <filter id="shieldShadow" x="-10%" y="-10%" width="125%" height="125%">
+      <feDropShadow dx="0" dy="10" stdDeviation="12" flood-color="#006095" flood-opacity="0.15"/>
+    </filter>
+    <filter id="coinShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#D97706" flood-opacity="0.25"/>
+    </filter>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0083B0"/>
+      <stop offset="100%" stop-color="#006095"/>
+    </linearGradient>
+    <linearGradient id="coinGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FBBF24"/>
+      <stop offset="100%" stop-color="#F59E0B"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Monitor Base & Screen Structure -->
+  <g filter="url(#shieldShadow)">
+    <path d="M 320 400 L 380 400 L 370 440 L 330 440 Z" fill="#94A3B8"/>
+    <ellipse cx="350" cy="440" rx="55" ry="10" fill="#64748B"/>
+    <rect x="180" y="140" width="340" height="260" rx="14" fill="#006095" stroke="#004D7A" stroke-width="4"/>
+    <rect x="190" y="150" width="320" height="230" rx="8" fill="#1E293B"/>
+
+    <!-- Screen Grid & Lock Shield Centerpiece -->
+    <path d="M 190 200 H 510 M 190 250 H 510 M 190 300 H 510 M 190 350 H 510" stroke="#334155" stroke-width="1.5" stroke-dasharray="6 4"/>
+    <path d="M 250 150 V 380 M 310 150 V 380 M 370 150 V 380 M 430 150 V 380" stroke="#334155" stroke-width="1.5" stroke-dasharray="6 4"/>
+
+    <!-- Central Security Shield -->
+    <path d="M 350 190 L 410 215 V 275 C 410 315 350 345 350 345 C 350 345 290 315 290 275 V 215 Z" fill="url(#shieldGrad)" stroke="#38BDF8" stroke-width="3"/>
+    
+    <!-- Shield Padlock Icon -->
+    <rect x="334" y="260" width="32" height="26" rx="4" fill="#FFFFFF"/>
+    <path d="M 342 260 V 248 C 342 243.5 345.5 240 350 240 C 354.5 240 358 243.5 358 248 V 260" stroke="#FFFFFF" stroke-width="3.5" fill="none"/>
+    <circle cx="350" cy="273" r="3" fill="#006095"/>
+  </g>
+
+  <!-- Developer 1: Top Standing Guy on Monitor (Blue Shirt & Dark Pants) -->
+  <g transform="translate(250, 65)">
+    <circle cx="20" cy="18" r="11" fill="#3B82F6"/>
+    <!-- Head -->
+    <circle cx="20" cy="16" r="10" fill="#FCA5A5"/>
+    <path d="M 10 14 C 12 6 28 6 30 14 Z" fill="#1E293B"/>
+    <!-- Body -->
+    <path d="M 6 36 C 6 26 34 26 34 36 V 60 H 6 Z" fill="#1D4ED8"/>
+    <!-- Legs -->
+    <rect x="10" y="60" width="8" height="30" fill="#1E293B"/>
+    <rect x="22" y="60" width="8" height="30" fill="#1E293B"/>
+  </g>
+
+  <!-- Developer 2: Left Side Standing Engineer (Light Blue Shirt) -->
+  <g transform="translate(130, 240)">
+    <!-- Head -->
+    <circle cx="22" cy="18" r="11" fill="#FCA5A5"/>
+    <path d="M 12 16 C 14 8 30 8 32 16 Z" fill="#0F172A"/>
+    <!-- Body -->
+    <path d="M 8 38 C 8 28 36 28 36 38 V 90 H 8 Z" fill="#0284C7"/>
+    <!-- Arms holding shield edge -->
+    <path d="M 34 42 L 65 52 L 65 62 L 34 52 Z" fill="#0284C7"/>
+    <!-- Legs -->
+    <rect x="12" y="90" width="9" height="60" fill="#0F172A"/>
+    <rect x="23" y="90" width="9" height="60" fill="#0F172A"/>
+  </g>
+
+  <!-- Developer 3: Right Side Standing Engineer (Dark Blue Shirt) -->
+  <g transform="translate(510, 240)">
+    <!-- Head -->
+    <circle cx="22" cy="18" r="11" fill="#FCA5A5"/>
+    <path d="M 12 16 C 14 8 30 8 32 16 Z" fill="#0F172A"/>
+    <!-- Body -->
+    <path d="M 8 38 C 8 28 36 28 36 38 V 90 H 8 Z" fill="#006095"/>
+    <!-- Arms holding screen -->
+    <path d="M 10 42 L -20 52 L -20 62 L 10 52 Z" fill="#006095"/>
+    <!-- Legs -->
+    <rect x="12" y="90" width="9" height="60" fill="#0F172A"/>
+    <rect x="23" y="90" width="9" height="60" fill="#0F172A"/>
+  </g>
+
+  <!-- Floating Bitcoin Coins -->
+  <!-- Coin 1 (Top Left Big) -->
+  <g filter="url(#coinShadow)" transform="translate(230, 200)">
+    <circle cx="22" cy="22" r="22" fill="url(#coinGrad)"/>
+    <circle cx="22" cy="22" r="18" fill="none" stroke="#FFFFFF" stroke-width="2"/>
+    <text x="22" y="29" fill="#FFFFFF" font-family="sans-serif" font-size="20" font-weight="900" text-anchor="middle">₿</text>
+  </g>
+
+  <!-- Coin 2 (Top Right Big) -->
+  <g filter="url(#coinShadow)" transform="translate(420, 190)">
+    <circle cx="26" cy="26" r="26" fill="url(#coinGrad)"/>
+    <circle cx="26" cy="26" r="21" fill="none" stroke="#FFFFFF" stroke-width="2"/>
+    <text x="26" y="34" fill="#FFFFFF" font-family="sans-serif" font-size="24" font-weight="900" text-anchor="middle">₿</text>
+  </g>
+
+  <!-- Coin 3 (Right Middle Small) -->
+  <g filter="url(#coinShadow)" transform="translate(470, 260)">
+    <circle cx="16" cy="16" r="16" fill="url(#coinGrad)"/>
+    <circle cx="16" cy="16" r="13" fill="none" stroke="#FFFFFF" stroke-width="1.5"/>
+    <text x="16" y="21" fill="#FFFFFF" font-family="sans-serif" font-size="14" font-weight="900" text-anchor="middle">₿</text>
+  </g>
+
+  <!-- Coin 4 (Bottom Lock Node Badge) -->
+  <g filter="url(#coinShadow)" transform="translate(300, 385)">
+    <circle cx="24" cy="24" r="24" fill="#0083B0"/>
+    <rect x="16" y="24" width="16" height="13" rx="3" fill="#FFFFFF"/>
+    <path d="M 20 24 V 19 C 20 16.5 22 14.5 24 14.5 C 26 14.5 28 16.5 28 19 V 24" stroke="#FFFFFF" stroke-width="2.5" fill="none"/>
+  </g>
+
+  <!-- Coin 5 (Bottom Right Coin Badge) -->
+  <g filter="url(#coinShadow)" transform="translate(360, 400)">
+    <circle cx="16" cy="16" r="16" fill="url(#coinGrad)"/>
+    <circle cx="16" cy="16" r="13" fill="none" stroke="#FFFFFF" stroke-width="1.5"/>
+    <text x="16" y="21" fill="#FFFFFF" font-family="sans-serif" font-size="14" font-weight="900" text-anchor="middle">₿</text>
+  </g>
+</svg>

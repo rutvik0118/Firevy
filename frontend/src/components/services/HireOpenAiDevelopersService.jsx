@@ -24,7 +24,6 @@ import WhatSetsUsApartSection from '../common/WhatSetsUsApartSection';
 import SubscribeNewsletterSection from '../home/SubscribeNewsletterSection';
 import { IndustryFocusedInsightsSection } from './IndustryFocusedInsightsSection';
 import { AboutUsStats } from './AboutUsStats';
-import { SuccessStoriesSection } from '../common/SuccessStoriesSection';
 import {
   Clock,
   Calendar,
@@ -58,65 +57,63 @@ import {
   Timer
 } from 'lucide-react';
 
-export const HireChatGptDevelopersService = () => {
-  const [expertActiveCategory, setExpertActiveCategory] = useState('Trending');
-  const [expertTabs, setExpertTabs] = useState({ 0: 'tech', 1: 'tech', 2: 'tech' });
+export const HireOpenAiDevelopersService = () => {
   const [leverageTab, setLeverageTab] = useState('In Demand');
   const [responsibilityTab, setResponsibilityTab] = useState('sapphire');
 
-  const faqs = [
+  const openAiFaqs = [
     {
-      q: '1. What does a ChatGPT Developer do?',
-      a: 'A ChatGPT developer designs, integrates, and fine-tunes AI chatbots using ChatGPT to deliver conversational experiences for business applications.'
+      q: '1. What does an OpenAI Developer do?',
+      a: 'An OpenAI Developer specializes in building intelligent applications powered by OpenAI models including GPT-4, GPT-4o, DALL-E, Whisper, Embeddings, and the Assistants API. They design custom RAG pipelines, fine-tune models on enterprise data, integrate APIs into existing software, and create automated conversational workflows.'
     },
     {
-      q: '2. Why should I hire a ChatGPT developer for my business?',
-      a: 'Hiring a ChatGPT developer helps automate customer support, generate dynamic content, streamline internal workflows, and deliver personalized user experiences 24/7.'
+      q: '2. Why should I hire an OpenAI developer for my business?',
+      a: 'Hiring an OpenAI developer enables your business to automate complex tasks, build custom customer support assistants, extract automated insights from enterprise documents, improve user engagement, and create innovative AI-driven features that boost operational productivity.'
     },
     {
-      q: '3. Can you integrate ChatGPT into my existing website or app?',
-      a: 'Yes, our ChatGPT developers seamlessly integrate OpenAI APIs into your existing Web, Mobile, CRM, ERP, and enterprise software stack with minimal disruption.'
+      q: '3. Can you integrate OpenAI APIs into our existing website or app?',
+      a: 'Yes! Our OpenAI developers seamlessly integrate OpenAI REST APIs, WebSockets, and SDKs into Web, Mobile (iOS/Android), CRM, ERP, and cloud platforms with minimal friction.'
     },
     {
-      q: '4. Do you offer custom AI chatbot development with ChatGPT?',
-      a: 'Yes, we build tailored AI chatbots trained on your enterprise data using Retrieval-Augmented Generation (RAG) and fine-tuned GPT models.'
+      q: '4. What OpenAI models and tools do your developers specialize in?',
+      a: 'Our engineers master GPT-4o, GPT-4 Turbo, GPT-3.5 Turbo, DALL-E 3, Whisper, Text Embeddings 3, OpenAI Assistants API, Function Calling, LangChain, LlamaIndex, Vector DBs (Pinecone, Qdrant), and Python/Node.js backend architectures.'
     },
     {
-      q: '5. How secure is ChatGPT integration for my data?',
-      a: 'We adhere to strict data privacy guidelines, sign NDAs before project kickoff, implement end-to-end data encryption, and ensure your proprietary data is never used to train public AI models.'
+      q: '5. How do you protect proprietary data during OpenAI API integration?',
+      a: 'We implement zero data retention policies, private VPC endpoints, end-to-end encryption, strict NDAs, and ensure your proprietary data is never used by OpenAI to train public foundation models.'
     },
     {
-      q: '6. What industries can benefit from ChatGPT development?',
-      a: 'Industries like Healthcare, E-Commerce, Finance, Real Estate, Education, Logistics, and Customer Support can significantly benefit from ChatGPT integration.'
+      q: '6. What is Retrieval-Augmented Generation (RAG) and why is it useful?',
+      a: 'RAG allows OpenAI models to access your company\'s real-time internal databases, PDFs, and knowledge bases without full model retraining, producing highly accurate, verifiable, and hallucination-free answers.'
     },
     {
-      q: '7. Can ChatGPT automate tasks beyond chatting?',
-      a: 'Yes! ChatGPT can summarize lengthy documents, extract insights, automate email responses, generate code snippets, triaging support tickets, and perform sentiment analysis.'
+      q: '7. Can you fine-tune custom OpenAI models on our corporate data?',
+      a: 'Yes, we perform custom dataset curation, synthetic data generation, and model fine-tuning via OpenAI API to align responses perfectly with your domain jargon, brand tone, and business logic.'
     },
     {
-      q: '8. Do you provide ongoing maintenance for ChatGPT solutions?',
-      a: 'Yes, we offer continuous model monitoring, API updates, performance tuning, and post-launch maintenance to ensure your AI chatbot operates smoothly.'
+      q: '8. How much does it cost to hire an OpenAI Developer from Firevy.co?',
+      a: 'Our dedicated OpenAI Developer pricing starts at $21/hour. We also offer flexible monthly ($2,850/mo), quarterly, and dedicated team engagement models with zero recruitment overhead.'
     },
     {
-      q: '9. Can ChatGPT support multiple languages?',
-      a: 'Yes, ChatGPT inherently supports over 50+ global languages, allowing your business to cater to an international audience seamlessly.'
+      q: '9. Do you sign non-disclosure agreements (NDAs)?',
+      a: 'Yes, we sign strict NDAs prior to project discovery, guaranteeing 100% intellectual property (IP) ownership and complete confidentiality.'
     },
     {
-      q: '10. How do I Hire ChatGPT Programmers?',
-      a: 'You can hire ChatGPT programmers from Firevy.co in 4 easy steps: share your project requirements, screen candidate profiles, interview selected AI engineers, and start your risk-free trial.'
+      q: '10. How quickly can we onboard an OpenAI development team?',
+      a: 'You can review pre-screened developer profiles, interview candidates, and kick off your risk-free trial within 48 to 72 hours.'
     },
     {
-      q: '11. Which Indian company offer ChatGPT developer teams for hire?',
-      a: 'Firevy.co is a top-rated AI development company in India and USA offering dedicated ChatGPT developer teams with expertise in OpenAI APIs, RAG, and custom LLM engineering.'
+      q: '11. Which company offers top OpenAI developers for hire in USA & India?',
+      a: 'Firevy.co is a top-rated AI development company in India and USA with 23+ years of IT excellence, 320+ 5-star Clutch reviews, and certified OpenAI engineers.'
     }
   ];
 
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-[#006095] selection:text-white">
       <SEO
-        title="Hire ChatGPT Developers | Dedicated OpenAI & LLM Engineers"
-        description="Hire dedicated ChatGPT developers from Firevy.co. Expert OpenAI API, LLM, Generative AI, and conversational AI engineers."
-        keywords="Hire ChatGPT Developers, Hire OpenAI Engineers, Hire LLM Developers, ChatGPT API Integration, Conversational AI Developers"
+        title="Hire OpenAI Developer | Dedicated OpenAI API & LLM Engineers"
+        description="Hire dedicated OpenAI Developers from Firevy.co. Expert GPT-4o, GPT-4, Assistants API, RAG, Fine-tuning, and OpenAI integration developers."
+        keywords="Hire OpenAI Developer, Hire OpenAI Engineers, Hire GPT-4 Developers, OpenAI API Integration, Hire LLM Engineers"
       />
 
       {/* ============================================================
@@ -129,15 +126,15 @@ export const HireChatGptDevelopersService = () => {
             <div className="lg:col-span-7 space-y-6 text-left">
               <div className="space-y-4">
                 <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-[900] text-slate-900 tracking-tight leading-[1.15]">
-                  Hire ChatGPT Developer for Next-Gen AI Solutions
+                  Hire OpenAI Developer
                 </h1>
                 <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed max-w-2xl">
-                  Want to transform your business processes with conversational AI? Our ChatGPT developers have expertise in developing smart, human-like chatbot solutions based on your specific requirements. Whether you want to develop a customer support bot, an interactive assistant, or an automatic content generator, our developers make your AI idea a reality. With extensive knowledge in ChatGPT API integration, you can Hire Enterprise ChatGPT Developers to ensure seamless deployment on websites, applications, and enterprise platforms for maximum efficiency.
+                  Want to create smart, next-generation applications? Employ an OpenAI Developer from our skilled team to incorporate advanced AI features into your offerings. From ChatGPT integration to natural language processing (NLP) and automated decision-making, our team excels at creating scalable, AI-driven applications designed specifically for your business requirements. We offer Open AI developer services for startups, enterprises, and businesses looking to Hire Enterprise OpenAI Developers and advance past simple automation to create intelligent, conversational, and context-sensitive systems.
                 </p>
               </div>
 
               {/* 4 Metric Stats Row */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 py-2">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 py-2 border-y border-slate-100/80">
                 <div>
                   <span className="block text-2xl sm:text-3xl font-black text-slate-900">200+</span>
                   <span className="text-xs font-semibold text-slate-600 leading-tight block mt-1">Dedicated Developers</span>
@@ -178,12 +175,12 @@ export const HireChatGptDevelopersService = () => {
               </div>
             </div>
 
-            {/* Right Hero Graphic Banner (Image Form) */}
+            {/* Right Hero Graphic Banner */}
             <div className="lg:col-span-5 relative flex justify-center items-center">
               <img
-                src="/images/chatgpt_hero_illustration.svg"
-                alt="Hire ChatGPT Developer"
-                className="w-full max-w-[480px] h-auto object-contain mx-auto drop-shadow-xl"
+                src="/images/openai_hero_robot.svg"
+                alt="Hire OpenAI Developer"
+                className="w-full max-w-[580px] sm:max-w-[600px] lg:max-w-[640px] xl:max-w-[680px] h-auto object-contain mx-auto drop-shadow-xl transform lg:scale-110 xl:scale-115 transition-transform origin-center"
               />
             </div>
           </div>
@@ -196,27 +193,27 @@ export const HireChatGptDevelopersService = () => {
       <BrandLogoMarquee />
 
       {/* ============================================================
-          SECTION 3: HIRE DEDICATED CHATGPT DEVELOPERS AT COMPETITIVE RATES
+          SECTION 3: HIRE OPENAI DEVELOPER & ENGINEERS REMOTELY
           ============================================================ */}
       <section className="py-16 md:py-20 bg-white border-b border-slate-100 font-sans">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-6 flex justify-center items-center">
-              <div className="relative w-full max-w-[500px]">
+              <div className="relative w-full max-w-[540px]">
                 <img
-                  src="/images/software_dev_laptop_hero.svg"
-                  alt="Hire ChatGPT Developers At Competitive Rates"
+                  src="/images/openai_remote_engineers.svg"
+                  alt="Hire OpenAI Developer & Engineers Remotely"
                   className="w-full h-auto object-contain mx-auto drop-shadow-md"
                 />
               </div>
             </div>
 
-            <div className="lg:col-span-6 space-y-6 text-left">
+            <div className="lg:col-span-6 space-y-5 text-left">
               <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-[900] text-slate-900 tracking-tight leading-[1.15]">
-                Hire ChatGPT Developers At Competitive Rates
+                Hire OpenAI Developer & Engineers Remotely
               </h2>
               <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed">
-                Hire ChatGPT Developers at Competitive Rates to build intelligent conversational interfaces, fine-tune LLMs, and automate complex workflows. With <strong>Hire dedicated AI development team</strong> services from Firevy.co, you can deploy enterprise-grade AI assistants that are fully configurable, secure, and seamlessly integrated into your modern cloud stack.
+                Our group of OpenAI engineers is ready to work remotely and provide quick, secure, and scalable AI integrations. From fine-tuning GPT models to creating custom AI solutions, our developers have hands-on familiarity with OpenAI's API, Whisper, DALL-E, Codex, and more advanced technologies. Whether you are creating a customer service bot, code generation engine, AI copywriter, or smart analytics tool, we have the skills to provide it with precision. Businesses can Hire Generative AI OpenAI Developers who know how to responsibly and effectively utilize generative AI for smarter business outcomes.
               </p>
             </div>
           </div>
@@ -234,7 +231,7 @@ export const HireChatGptDevelopersService = () => {
                 Our Flexible Hiring Models: Find the Perfect Fit For Your Project
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 font-medium">
-                Hire ChatGPT Developers from Firevy.co Starts from,
+                Hire OpenAI Developers from Firevy.co Starts from,
               </p>
             </div>
 
@@ -366,7 +363,7 @@ export const HireChatGptDevelopersService = () => {
                 Development Proficiency
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 font-medium">
-                Hire ChatGPT Developers to meet your business perks by leveraging our technical elegance.
+                Hire OpenAI Developers to meet your business perks by leveraging our technical elegance.
               </p>
             </div>
 
@@ -425,18 +422,18 @@ export const HireChatGptDevelopersService = () => {
       </section>
 
       {/* ============================================================
-          SECTION 4: CHATGPT CONSULTANTS FOR ENTERPRISE AI PROJECTS
+          SECTION 4: BEST OPENAI DEVELOPER FOR BUSINESS APPLICATIONS
           ============================================================ */}
       <section className="py-16 md:py-24 bg-white text-slate-900 font-sans border-b border-slate-100">
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <div className="lg:col-span-6 space-y-6 text-left">
               <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-[900] text-slate-950 tracking-tight leading-[1.15]">
-                ChatGPT Consultants For Enterprise AI Projects
+                Best OpenAI Developer For Business Applications
               </h2>
-              <div className="space-y-4 text-sm sm:text-[15px] lg:text-[16px] text-slate-600 font-normal leading-[1.7]">
+              <div className="space-y-4 text-sm sm:text-base text-slate-600 font-normal leading-relaxed">
                 <p>
-                  Firevy.co is a reputable AI development organization assisting businesses in the USA, UK, Canada, UAE, Australia, and India. Our ChatGPT Prompt Engineer become part of your team—taking care of everything from model selection and training to deployment and scaling. We have flexible hiring models available so you can scale engineering capability on demand with full transparency, sprint planning, and quantifiable outcomes.
+                  We are experts in business automation with AI powered by OpenAI's ecosystem. Our developers understand how to develop secure, compliant, and ethical AI solutions that fit seamlessly into your current infrastructure. Be it CRMs, ERPs, or in-house dashboards – we make them intelligent. From conception to post-launch maintenance, our agile, open process covers it all. Businesses can Hire Affordable OpenAI Developers through our flexible engagement models, quick onboarding, and exclusive team of exceptional OpenAI developers ready to grow with your project aspirations.
                 </p>
               </div>
             </div>
@@ -444,8 +441,8 @@ export const HireChatGptDevelopersService = () => {
             <div className="lg:col-span-6 flex justify-center items-center">
               <div className="relative w-full max-w-[560px]">
                 <img
-                  src="/images/llm_consultants_robot_head.svg"
-                  alt="ChatGPT Consultants For Enterprise AI Projects"
+                  src="/images/openai_business_apps_illustration.svg"
+                  alt="Best OpenAI Developer For Business Applications"
                   className="w-full h-auto object-contain mx-auto drop-shadow-lg"
                 />
               </div>
@@ -457,16 +454,16 @@ export const HireChatGptDevelopersService = () => {
       {/* ============================================================
           SECTION 5: CLUTCH TOP RATED BANNER
           ============================================================ */}
-      <ClutchTopRatedBanner title="World Wide Top Rated ChatGPT Development Company on Clutch" />
+      <ClutchTopRatedBanner title="World Wide Top Rated OpenAI Development Company on Clutch" />
 
       {/* ============================================================
-          SECTION 5B: WHAT DOES A CHATGPT DEVELOPER DO?
+          SECTION 5B: DEDICATED OPENAI EXPERTS FOR CUSTOM AI DEVELOPMENT
           ============================================================ */}
       <section className="py-16 md:py-24 bg-white text-slate-900 font-sans border-b border-slate-100">
         <Container>
           <div className="space-y-10 max-w-6xl mx-auto">
             <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-[900] text-slate-950 tracking-tight leading-tight text-center">
-              What Does a ChatGPT Developer Do?
+              Dedicated OpenAI Experts for Custom AI Development
             </h2>
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
@@ -479,12 +476,12 @@ export const HireChatGptDevelopersService = () => {
               </div>
 
               {/* Right Content Column */}
-              <div className="lg:col-span-7 space-y-6 text-left">
-                <p className="text-sm sm:text-[15px] lg:text-[16px] text-slate-600 font-normal leading-[1.7]">
-                  A ChatGPT Developer develops, modifies, and optimizes generative AI models and GPT prompts for particular functions such as summarization, Q&A, search, and generating content. They handle model architecture, prompt creation, dataset organization, performance optimization, and secure deployment. Hire ChatGPT Developer for AI Development from Firevy.co to integrate cutting-edge AI into your product—be it through comprehensive AI development, smart automation, or bespoke in-house LLMs designed for your business
+              <div className="lg:col-span-7 space-y-5 text-left">
+                <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed">
+                  Don't accept cookie-cutter responses. With our dedicated OpenAI developers, you receive full-stack development for creating bespoke GPT-driven apps, knowledge assistants, recommendation systems, and AI tools that serve your niche. Struggling with OpenAI token limits, prompt engineering, or API cost optimization? Our developers make sure every detail of the solution is tuned for performance, speed, and price. Businesses can Hire Dedicated OpenAI Developers who know how to turn ideas into reliable, scalable, and fully functional AI systems.
                 </p>
 
-                <div>
+                <div className="pt-2">
                   <a
                     href="#quote-form"
                     onClick={(e) => {
@@ -508,12 +505,12 @@ export const HireChatGptDevelopersService = () => {
       <PremiumServicesGrid />
 
       {/* ============================================================
-          SECTION 6B: MEET FIREVY'S EXCEPTIONAL TEAM OF SEASONED EXPERTS
+          SECTION 7: MEET FIREVY'S EXCEPTIONAL TEAM OF SEASONED EXPERTS
           ============================================================ */}
       <SapphireSeasonedExpertsSection />
 
       {/* =========================================================================
-          SECTION 7: LEVERAGE THE EXPERTISE OF FIREVY.CO DEDICATED DEVELOPERS
+          SECTION 8: LEVERAGE THE EXPERTISE OF FIREVY.CO DEDICATED DEVELOPERS
           ========================================================================= */}
       <section className="py-16 md:py-24 bg-white text-slate-900 font-sans border-b border-slate-100">
         <Container>
@@ -584,7 +581,7 @@ export const HireChatGptDevelopersService = () => {
                     <span>{item.title}</span>
                     <span className="text-slate-700 text-sm font-semibold">↗</span>
                   </h4>
-                  <p className="text-xs text-slate-600 leading-relaxed font-normal">{item.desc}</p>
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">{item.desc}</p>
                 </div>
               ))}
             </div>
@@ -596,7 +593,7 @@ export const HireChatGptDevelopersService = () => {
                   e.preventDefault();
                   document.getElementById('quote-form')?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="inline-block bg-[#006095] hover:bg-[#0083B0] text-white font-bold px-8 py-3 rounded-lg text-sm transition-all shadow-md cursor-pointer"
+                className="inline-block bg-[#006095] hover:bg-[#0083B0] text-white font-bold px-8 py-3.5 rounded-lg text-sm sm:text-base transition-all shadow-md cursor-pointer"
               >
                 View All Portfolio
               </a>
@@ -606,26 +603,27 @@ export const HireChatGptDevelopersService = () => {
       </section>
 
       {/* ============================================================
-          SECTION 8: INDUSTRY-FOCUSED INSIGHTS
+          SECTION 9: INDUSTRY-FOCUSED INSIGHTS
           ============================================================ */}
       <IndustryFocusedInsightsSection title="Industry-Focused Insights To Elevate Your Business" subtitle="Trending Industries that Use Dedicated Developers" />
 
       {/* ============================================================
-          SECTION 9: ABOUT US STATS BANNER
+          SECTION 10: ABOUT US STATS BANNER
           ============================================================ */}
       <AboutUsStats companyName="Firevy.co" />
 
       {/* ============================================================
-          SECTION 10: SECTORS THRIVING SECTION
+          SECTION 11: SECTORS THRIVING SECTION
           ============================================================ */}
-      <SectorsThrivingSection title="Sectors Thriving Through Firevy.co's Bespoke ChatGPT Developers" />
+      <SectorsThrivingSection title="Sectors Thriving Through Firevy.co's Bespoke OpenAI Developers" />
 
-      {/* ============================================================
-          SECTION 10B: EMPLOY THE ADVANCED PROFICIENCY SECTION
-          ============================================================ */}
+      {/* =========================================================================
+          SECTION 11B: EMPLOY THE ADVANCED PROFICIENCY OF FIREVY DEDICATED DEV TEAM
+          ========================================================================= */}
       <section className="py-16 md:py-24 bg-[#F0F7FC] text-slate-900 font-sans border-b border-slate-100">
         <Container>
           <div className="space-y-12 max-w-6xl mx-auto">
+            {/* Header */}
             <div className="text-center space-y-3 max-w-4xl mx-auto">
               <h2 className="text-2xl sm:text-3xl lg:text-[38px] font-[900] text-slate-900 tracking-tight leading-tight">
                 Employ the Advanced Proficiency of Firevy.co's Dedicated Development Team
@@ -635,6 +633,7 @@ export const HireChatGptDevelopersService = () => {
               </p>
             </div>
 
+            {/* 10 White Cards Grid (2 rows of 5) */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
               {[
                 { title: 'On-Time Progress Monitoring', IconComp: Clock },
@@ -643,7 +642,7 @@ export const HireChatGptDevelopersService = () => {
                 { title: 'World Class Expertise', IconComp: Award },
                 { title: 'Least Turnaround Time', IconComp: Zap },
                 { title: 'Best Management Standards', IconComp: ShieldCheck },
-                { title: '500+ Seasons Experts', IconComp: Lightbulb },
+                { title: '500+ Seasoned Experts', IconComp: Lightbulb },
                 { title: '24x7 Support Team', IconComp: Headphones },
                 { title: 'Efficient Project Management', IconComp: Handshake },
                 { title: 'Dedicated Delivery Management', IconComp: UserCheck }
@@ -669,20 +668,23 @@ export const HireChatGptDevelopersService = () => {
       </section>
 
       {/* =========================================================================
-          SECTION 11: HOW WE DIVIDE YOUR PROJECT RESPONSIBILITIES ?
+          SECTION 11C: HOW WE DIVIDE YOUR PROJECT RESPONSIBILITIES ?
           ========================================================================= */}
       <section className="py-16 md:py-24 bg-white text-slate-900 font-sans border-b border-slate-100">
         <Container>
           <div className="space-y-10 max-w-6xl mx-auto">
+            {/* Header */}
             <div className="text-center space-y-3">
               <h2 className="text-2xl sm:text-3xl lg:text-[38px] font-[900] text-slate-900 tracking-tight leading-tight">
                 How We Divide Your Project Responsibilities ?
               </h2>
             </div>
 
+            {/* Sapphire / Client Filter Capsule */}
             <div className="flex justify-center">
               <div className="bg-[#DDECF5] p-1.5 rounded-full inline-flex items-center space-x-1 border border-cyan-100/60 shadow-xs">
                 <button
+                  type="button"
                   onClick={() => setResponsibilityTab('sapphire')}
                   className={`px-6 py-2 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${
                     responsibilityTab === 'sapphire'
@@ -693,6 +695,7 @@ export const HireChatGptDevelopersService = () => {
                   Firevy.co
                 </button>
                 <button
+                  type="button"
                   onClick={() => setResponsibilityTab('client')}
                   className={`px-6 py-2 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${
                     responsibilityTab === 'client'
@@ -705,6 +708,7 @@ export const HireChatGptDevelopersService = () => {
               </div>
             </div>
 
+            {/* 6 Responsibilities Cards Grid */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
               {(responsibilityTab === 'sapphire'
                 ? [
@@ -731,9 +735,9 @@ export const HireChatGptDevelopersService = () => {
                     className="bg-[#EBF4FA] rounded-2xl p-8 text-center border border-cyan-100/70 shadow-xs hover:shadow-md transition-all flex flex-col justify-center items-center space-y-4 min-h-[160px]"
                   >
                     <div className="w-12 h-12 text-[#006095] flex items-center justify-center">
-                      <CardIcon className="w-10 h-10 stroke-[1.5]" />
+                      <CardIcon className="w-8 h-8 stroke-[1.5]" />
                     </div>
-                    <h4 className="text-sm md:text-base font-bold text-slate-900 leading-snug">
+                    <h4 className="text-sm font-bold text-slate-900 leading-snug">
                       {item.title}
                     </h4>
                   </div>
@@ -750,53 +754,53 @@ export const HireChatGptDevelopersService = () => {
       <TechStackProficientGrid />
 
       {/* ============================================================
-          SECTION 13: OUR CHATGPT DEVELOPMENT EXPERTISE INCLUDES
+          SECTION 13: WHY CHOOSE US TO HIRE OPENAI DEVELOPER?
           ============================================================ */}
       <section className="py-16 md:py-24 bg-[#F8FAFC] text-slate-900 font-sans border-b border-slate-100">
         <Container>
           <div className="space-y-12 max-w-6xl mx-auto">
             <div className="text-center space-y-3">
               <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-[900] text-slate-950 tracking-tight leading-tight">
-                Our ChatGPT Development Expertise Includes
+                Why Choose Us to Hire OpenAI Developer?
               </h2>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
                 {
-                  title: 'Custom ChatGPT Model Fine-Tuning',
-                  desc: 'Tailored training using proprietary or domain-specific datasets for better accuracy and relevance.',
-                  IconComp: Code,
+                  title: 'Expert OpenAI Developers On-Demand',
+                  desc: 'Hire top-tier OpenAI developers experienced in building smart AI-driven applications.',
+                  IconComp: Bot,
                   bgClass: 'bg-purple-100/80 text-purple-600'
                 },
                 {
-                  title: 'Prompt Engineering & Optimization',
-                  desc: 'Crafting, testing, and refining prompts for precise, cost-effective AI interactions.',
-                  IconComp: Bot,
+                  title: 'Custom AI Solution Development',
+                  desc: 'We specialize in tailoring OpenAI models to meet your specific business requirements.',
+                  IconComp: Cpu,
                   bgClass: 'bg-emerald-100/80 text-emerald-600'
                 },
                 {
-                  title: 'Model Integration via APIs',
-                  desc: 'Integrate GPT-4, GPT-4o, or OpenAI Assistant APIs into your product using scalable microservices.',
-                  IconComp: Cpu,
-                  bgClass: 'bg-orange-100/80 text-orange-600'
+                  title: 'Seamless API Integration',
+                  desc: 'Get efficient integration of OpenAI APIs into your existing systems and products.',
+                  IconComp: Sparkles,
+                  bgClass: 'bg-rose-100/80 text-rose-500'
                 },
                 {
-                  title: 'Retrieval-Augmented Generation (RAG)',
-                  desc: 'Combine ChatGPT with vector search for contextual answers and private enterprise data retrieval.',
-                  IconComp: Sparkles,
+                  title: 'Affordable Hiring Models',
+                  desc: 'Flexible engagement plans to fit startups, SMBs, and enterprise budgets alike.',
+                  IconComp: Lock,
                   bgClass: 'bg-amber-100/80 text-amber-600'
                 },
                 {
-                  title: 'Cloud/On-prem Deployment with MLOps',
-                  desc: 'Deploy and monitor AI models with CI/CD, versioning, and latency optimization.',
-                  IconComp: Layers,
-                  bgClass: 'bg-rose-100/80 text-rose-600'
+                  title: 'Quick Onboarding & Project Kick-off',
+                  desc: 'Start your project in days with a streamlined hiring and onboarding process.',
+                  IconComp: Users,
+                  bgClass: 'bg-pink-100/80 text-pink-600'
                 },
                 {
-                  title: 'Enterprise AI Compliance & Security',
-                  desc: 'Implement robust data governance, privacy, and usage control for your AI workflows.',
-                  IconComp: ShieldCheck,
+                  title: 'AI Development Support',
+                  desc: 'We support projects from MVP to full-scale enterprise AI deployment.',
+                  IconComp: Handshake,
                   bgClass: 'bg-cyan-100/80 text-cyan-600'
                 }
               ].map((card, idx) => {
@@ -915,10 +919,10 @@ export const HireChatGptDevelopersService = () => {
       {/* ============================================================
           SECTION 15: 4 STEPS TO HIRE DEVELOPERS
           ============================================================ */}
-      <HireDeveloper4Steps techName="ChatGPT Developers" />
+      <HireDeveloper4Steps techName="OpenAI Developers" />
 
       {/* ============================================================
-          SECTION 16: VIDEO TESTIMONIALS & STORY (OUR STORY, THEIR WORDS)
+          SECTION 16: VIDEO TESTIMONIALS & STORY
           ============================================================ */}
       <VideoTestimonialsStory />
 
@@ -928,49 +932,44 @@ export const HireChatGptDevelopersService = () => {
       <EngagementModelsSection isLight={true} />
 
       {/* ============================================================
-          SECTION 17: SUCCESS MATRIX GRID
+          SECTION 18: SUCCESS MATRIX GRID
           ============================================================ */}
       <SuccessMatrixGrid />
 
       {/* ============================================================
-          SECTION 18: INNOVATIVE SOLUTION VIDEO
+          SECTION 19: INNOVATIVE SOLUTION VIDEO
           ============================================================ */}
       <InnovativeSolutionVideo />
 
       {/* ============================================================
-          SECTION 19: WORK PROCESS GRID
+          SECTION 20: WORK PROCESS GRID
           ============================================================ */}
       <WorkProcessGrid />
 
       {/* ============================================================
-          SECTION 20: CLIENT REVIEWS DARK SECTION
+          SECTION 21: CLIENT REVIEWS DARK SECTION
           ============================================================ */}
       <ClientReviewsDarkSection />
 
       {/* ============================================================
-          SECTION 21: DIGITAL TRANSFORMATION CASE STUDIES
+          SECTION 22: DIGITAL TRANSFORMATION CASE STUDIES
           ============================================================ */}
       <DigitalTransformationCaseStudies />
 
       {/* ============================================================
-          SECTION 22: SAPPHIRE FAQ SECTION
+          SECTION 23: SAPPHIRE FAQ SECTION
           ============================================================ */}
-      <SapphireFaqSection faqs={faqs} />
+      <SapphireFaqSection faqs={openAiFaqs} initialOpenIndex={0} />
 
       {/* ============================================================
-          SECTION 23: SOCIAL MEDIA SECTION
+          SECTION 24: SOCIAL MEDIA SECTION
           ============================================================ */}
       <SocialMediaSection />
 
       {/* ============================================================
-          SECTION 24: RECENT BLOGS SECTION
+          SECTION 25: RECENT BLOGS SECTION
           ============================================================ */}
       <RecentBlogsSection />
-
-      {/* ============================================================
-          SECTION 25: WHAT SETS US APART SECTION
-          ============================================================ */}
-      <WhatSetsUsApartSection title="What Sets Us Apart As ChatGPT Development Company?" />
 
       {/* ============================================================
           SECTION 26: SUBSCRIBE NEWSLETTER SECTION
@@ -980,4 +979,4 @@ export const HireChatGptDevelopersService = () => {
   );
 };
 
-export default HireChatGptDevelopersService;
+export default HireOpenAiDevelopersService;

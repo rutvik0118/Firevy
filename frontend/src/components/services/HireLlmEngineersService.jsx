@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import SEO from '../common/SEO';
 import Container from '../common/Container';
 import VideoTestimonialsStory from '../home/VideoTestimonialsStory';
-import EngagementModelsSection from '../home/EngagementModelsSection';
+import { EngagementModelsSection } from '../home/EngagementModelsSection';
 import SuccessMatrixGrid from '../home/SuccessMatrixGrid';
 import InnovativeSolutionVideo from '../home/InnovativeSolutionVideo';
 import WorkProcessGrid from '../home/WorkProcessGrid';
@@ -24,7 +24,6 @@ import WhatSetsUsApartSection from '../common/WhatSetsUsApartSection';
 import SubscribeNewsletterSection from '../home/SubscribeNewsletterSection';
 import { IndustryFocusedInsightsSection } from './IndustryFocusedInsightsSection';
 import { AboutUsStats } from './AboutUsStats';
-import { SuccessStoriesSection } from '../common/SuccessStoriesSection';
 import {
   Clock,
   Calendar,
@@ -58,110 +57,108 @@ import {
   Timer
 } from 'lucide-react';
 
-export const HireChatGptDevelopersService = () => {
-  const [expertActiveCategory, setExpertActiveCategory] = useState('Trending');
-  const [expertTabs, setExpertTabs] = useState({ 0: 'tech', 1: 'tech', 2: 'tech' });
+export const HireLlmEngineersService = () => {
   const [leverageTab, setLeverageTab] = useState('In Demand');
   const [responsibilityTab, setResponsibilityTab] = useState('sapphire');
 
-  const faqs = [
+  const llmFaqs = [
     {
-      q: '1. What does a ChatGPT Developer do?',
-      a: 'A ChatGPT developer designs, integrates, and fine-tunes AI chatbots using ChatGPT to deliver conversational experiences for business applications.'
+      q: '1. What does an LLM Engineer do?',
+      a: 'An LLM (Large Language Model) Engineer designs, fine-tunes, deploys, and integrates foundational AI models such as GPT-4, LLaMA 3, Claude 3, and Mistral into enterprise software using techniques like RAG (Retrieval-Augmented Generation), vector databases, and custom prompt pipelines.'
     },
     {
-      q: '2. Why should I hire a ChatGPT developer for my business?',
-      a: 'Hiring a ChatGPT developer helps automate customer support, generate dynamic content, streamline internal workflows, and deliver personalized user experiences 24/7.'
+      q: '2. Why should I hire an LLM engineer for my business?',
+      a: 'Hiring an LLM engineer allows your company to build custom proprietary AI assistants, automate document intelligence, enhance customer support, and extract actionable insights from unstructured enterprise data securely.'
     },
     {
-      q: '3. Can you integrate ChatGPT into my existing website or app?',
-      a: 'Yes, our ChatGPT developers seamlessly integrate OpenAI APIs into your existing Web, Mobile, CRM, ERP, and enterprise software stack with minimal disruption.'
+      q: '3. Can you fine-tune open-source LLMs on our internal company data?',
+      a: 'Yes, our LLM engineers specialize in fine-tuning open-source models (LLaMA 3, Mistral, Falcon) using LoRA, QLoRA, and custom datasets, ensuring total data privacy with zero data leakage to public clouds.'
     },
     {
-      q: '4. Do you offer custom AI chatbot development with ChatGPT?',
-      a: 'Yes, we build tailored AI chatbots trained on your enterprise data using Retrieval-Augmented Generation (RAG) and fine-tuned GPT models.'
+      q: '4. What is RAG (Retrieval-Augmented Generation) and why is it needed?',
+      a: 'RAG connects LLMs to your private vector database (Pinecone, Qdrant, ChromaDB) so the model answers queries using your latest real-time enterprise documents with 100% factual accuracy and zero hallucinations.'
     },
     {
-      q: '5. How secure is ChatGPT integration for my data?',
-      a: 'We adhere to strict data privacy guidelines, sign NDAs before project kickoff, implement end-to-end data encryption, and ensure your proprietary data is never used to train public AI models.'
+      q: '5. How secure is LLM integration for enterprise compliance?',
+      a: 'We implement strict OWASP for LLMs security guidelines, SOC-2 readiness, HIPAA compliance, end-to-end data encryption, and local on-premise or private VPC model deployments.'
     },
     {
-      q: '6. What industries can benefit from ChatGPT development?',
-      a: 'Industries like Healthcare, E-Commerce, Finance, Real Estate, Education, Logistics, and Customer Support can significantly benefit from ChatGPT integration.'
+      q: '6. What LLM frameworks and toolchains do your engineers use?',
+      a: 'Our engineers master LangChain, LlamaIndex, vLLM, Hugging Face, Ollama, DeepSpeed, PyTorch, Pinecone, Weaviate, and OpenAI Assistant APIs.'
     },
     {
-      q: '7. Can ChatGPT automate tasks beyond chatting?',
-      a: 'Yes! ChatGPT can summarize lengthy documents, extract insights, automate email responses, generate code snippets, triaging support tickets, and perform sentiment analysis.'
+      q: '7. Can LLM engineers integrate models into existing SaaS or mobile apps?',
+      a: 'Yes! We seamlessly integrate LLM APIs and microservices into Web, iOS, Android, Salesforce, HubSpot, and custom enterprise ERPs via REST and gRPC APIs.'
     },
     {
-      q: '8. Do you provide ongoing maintenance for ChatGPT solutions?',
-      a: 'Yes, we offer continuous model monitoring, API updates, performance tuning, and post-launch maintenance to ensure your AI chatbot operates smoothly.'
+      q: '8. What is the cost to hire a dedicated LLM engineer from Firevy.co?',
+      a: 'Our dedicated LLM engineer pricing starts at $21/hour. We also offer flexible monthly ($2,850/mo) and quarterly engagement models with zero upfront recruitment costs.'
     },
     {
-      q: '9. Can ChatGPT support multiple languages?',
-      a: 'Yes, ChatGPT inherently supports over 50+ global languages, allowing your business to cater to an international audience seamlessly.'
+      q: '9. Do you sign non-disclosure agreements (NDAs)?',
+      a: 'Yes, we sign strict NDAs before any project discussion, ensuring 100% intellectual property (IP) ownership and data confidentiality.'
     },
     {
-      q: '10. How do I Hire ChatGPT Programmers?',
-      a: 'You can hire ChatGPT programmers from Firevy.co in 4 easy steps: share your project requirements, screen candidate profiles, interview selected AI engineers, and start your risk-free trial.'
+      q: '10. How quickly can we onboard an LLM engineering team?',
+      a: 'You can screen vetted candidate profiles, interview selected LLM engineers, and start your trial within 48 to 72 hours.'
     },
     {
-      q: '11. Which Indian company offer ChatGPT developer teams for hire?',
-      a: 'Firevy.co is a top-rated AI development company in India and USA offering dedicated ChatGPT developer teams with expertise in OpenAI APIs, RAG, and custom LLM engineering.'
+      q: '11. Which company offers top LLM developers for hire in USA & India?',
+      a: 'Firevy.co is a top-rated AI development company in India and USA with 23+ years of IT experience, 320+ 5-star Clutch reviews, and certified AI/LLM engineers.'
     }
   ];
 
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-[#006095] selection:text-white">
       <SEO
-        title="Hire ChatGPT Developers | Dedicated OpenAI & LLM Engineers"
-        description="Hire dedicated ChatGPT developers from Firevy.co. Expert OpenAI API, LLM, Generative AI, and conversational AI engineers."
-        keywords="Hire ChatGPT Developers, Hire OpenAI Engineers, Hire LLM Developers, ChatGPT API Integration, Conversational AI Developers"
+        title="Hire LLM Engineers for AI Development | Large Language Model Experts"
+        description="Hire dedicated LLM engineers from Firevy.co. Expert Large Language Model, GPT-4, LLaMA, Claude, RAG, and fine-tuning AI developers."
+        keywords="Hire LLM Engineers, Hire LLM Developers, Hire Large Language Model Engineers, RAG Developers, Fine Tuning AI Engineers"
       />
 
       {/* ============================================================
           SECTION 1: HERO SECTION
           ============================================================ */}
-      <section className="relative pt-12 pb-16 md:pt-16 md:pb-24 bg-white overflow-hidden border-b border-slate-100 font-sans">
+      <section className="relative pt-14 pb-20 md:pt-20 md:pb-28 bg-white overflow-hidden border-b border-slate-100 font-sans">
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
             {/* Left Content Column */}
-            <div className="lg:col-span-7 space-y-6 text-left">
-              <div className="space-y-4">
-                <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-[900] text-slate-900 tracking-tight leading-[1.15]">
-                  Hire ChatGPT Developer for Next-Gen AI Solutions
+            <div className="lg:col-span-7 space-y-7 text-left">
+              <div className="space-y-5">
+                <h1 className="text-4xl sm:text-5xl lg:text-[48px] xl:text-[50px] font-[900] text-slate-950 tracking-tight leading-[1.12]">
+                  Hire LLM Engineers for AI Development
                 </h1>
-                <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed max-w-2xl">
-                  Want to transform your business processes with conversational AI? Our ChatGPT developers have expertise in developing smart, human-like chatbot solutions based on your specific requirements. Whether you want to develop a customer support bot, an interactive assistant, or an automatic content generator, our developers make your AI idea a reality. With extensive knowledge in ChatGPT API integration, you can Hire Enterprise ChatGPT Developers to ensure seamless deployment on websites, applications, and enterprise platforms for maximum efficiency.
+                <p className="text-sm sm:text-[15px] lg:text-[16px] text-slate-600 font-normal leading-[1.7] max-w-3xl">
+                  Engage Firevy.co's LLM Engineers to integrate Large Language Models (LLMs) into your products, processes, and services. From developing conversational AI, document processing automation, or internal GPT-like model customization, our engineers provide scalable, enterprise-level solutions. We are experts in open-source model fine-tuning and LLM deployment for real-world business use cases. Our LLM engineers are hands-on with GPT-4, LLaMA, Claude, Mistral, and other transformer-based models. From retrieval-augmented generation (RAG) to prompt engineering, we help you go to market faster, smarter AI apps.
                 </p>
               </div>
 
               {/* 4 Metric Stats Row */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 py-2">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 py-3 border-y border-slate-100/80">
                 <div>
-                  <span className="block text-2xl sm:text-3xl font-black text-slate-900">200+</span>
-                  <span className="text-xs font-semibold text-slate-600 leading-tight block mt-1">Dedicated Developers</span>
+                  <span className="block text-3xl sm:text-4xl font-[900] text-slate-950 tracking-tight">200+</span>
+                  <span className="text-xs sm:text-[13px] font-semibold text-slate-600 leading-tight block mt-1">Dedicated Developers</span>
                 </div>
                 <div>
-                  <span className="block text-2xl sm:text-3xl font-black text-slate-900">20+</span>
-                  <span className="text-xs font-semibold text-slate-600 leading-tight block mt-1">Fortunes 500 Companies</span>
+                  <span className="block text-3xl sm:text-4xl font-[900] text-slate-950 tracking-tight">20+</span>
+                  <span className="text-xs sm:text-[13px] font-semibold text-slate-600 leading-tight block mt-1">Fortunes 500 Companies</span>
                 </div>
                 <div>
-                  <span className="block text-2xl sm:text-3xl font-black text-slate-900">2800+</span>
-                  <span className="text-xs font-semibold text-slate-600 leading-tight block mt-1">Project Completed</span>
+                  <span className="block text-3xl sm:text-4xl font-[900] text-slate-950 tracking-tight">2800+</span>
+                  <span className="text-xs sm:text-[13px] font-semibold text-slate-600 leading-tight block mt-1">Project Completed</span>
                 </div>
                 <div>
-                  <span className="block text-2xl sm:text-3xl font-black text-slate-900">320+</span>
-                  <span className="text-xs font-semibold text-slate-600 leading-tight block mt-1">5-Star Clutch Reviews</span>
+                  <span className="block text-3xl sm:text-4xl font-[900] text-slate-950 tracking-tight">320+</span>
+                  <span className="text-xs sm:text-[13px] font-semibold text-slate-600 leading-tight block mt-1">5-Star Clutch Reviews</span>
                 </div>
               </div>
 
               {/* CTA Section with Capsule Pill Bar */}
-              <div className="space-y-2 pt-1">
-                <p className="text-xs font-bold text-[#006095]">Get Top Talent Work for you At</p>
+              <div className="space-y-2.5 pt-1">
+                <p className="text-xs sm:text-sm font-bold text-[#006095]">Get Top Talent Work for you At</p>
                 <div className="bg-[#0083B0] p-1.5 rounded-2xl inline-flex items-center space-x-2 shadow-xs">
-                  <span className="bg-[#0083B0] text-white font-black px-5 py-2.5 rounded-xl text-sm sm:text-base flex items-center space-x-2">
-                    <span className="text-xs">💡</span>
+                  <span className="bg-[#0083B0] text-white font-black px-6 py-3 rounded-xl text-base sm:text-lg flex items-center space-x-2">
+                    <span className="text-sm">💡</span>
                     <span>$21/Hourly*</span>
                   </span>
                   <a
@@ -170,7 +167,7 @@ export const HireChatGptDevelopersService = () => {
                       e.preventDefault();
                       document.getElementById('quote-form')?.scrollIntoView({ behavior: 'smooth' });
                     }}
-                    className="bg-white text-[#006095] hover:bg-slate-50 font-bold px-7 py-2.5 rounded-xl text-sm transition-all shadow-xs cursor-pointer"
+                    className="bg-white text-[#006095] hover:bg-slate-50 font-bold px-8 py-3 rounded-xl text-sm sm:text-base transition-all shadow-xs cursor-pointer"
                   >
                     Hire Team
                   </a>
@@ -181,9 +178,9 @@ export const HireChatGptDevelopersService = () => {
             {/* Right Hero Graphic Banner (Image Form) */}
             <div className="lg:col-span-5 relative flex justify-center items-center">
               <img
-                src="/images/chatgpt_hero_illustration.svg"
-                alt="Hire ChatGPT Developer"
-                className="w-full max-w-[480px] h-auto object-contain mx-auto drop-shadow-xl"
+                src="/images/llm_hero_illustration.svg"
+                alt="Hire LLM Engineers for AI Development"
+                className="w-full max-w-[580px] lg:max-w-[640px] h-auto object-contain mx-auto drop-shadow-xl"
               />
             </div>
           </div>
@@ -196,7 +193,7 @@ export const HireChatGptDevelopersService = () => {
       <BrandLogoMarquee />
 
       {/* ============================================================
-          SECTION 3: HIRE DEDICATED CHATGPT DEVELOPERS AT COMPETITIVE RATES
+          SECTION 3: HIRE DEDICATED LLM ENGINEERS AT COMPETITIVE RATES
           ============================================================ */}
       <section className="py-16 md:py-20 bg-white border-b border-slate-100 font-sans">
         <Container>
@@ -205,7 +202,7 @@ export const HireChatGptDevelopersService = () => {
               <div className="relative w-full max-w-[500px]">
                 <img
                   src="/images/software_dev_laptop_hero.svg"
-                  alt="Hire ChatGPT Developers At Competitive Rates"
+                  alt="Hire LLM Engineers At Competitive Rates"
                   className="w-full h-auto object-contain mx-auto drop-shadow-md"
                 />
               </div>
@@ -213,10 +210,10 @@ export const HireChatGptDevelopersService = () => {
 
             <div className="lg:col-span-6 space-y-6 text-left">
               <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-[900] text-slate-900 tracking-tight leading-[1.15]">
-                Hire ChatGPT Developers At Competitive Rates
+                Hire LLM Engineers At Competitive Rates
               </h2>
               <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed">
-                Hire ChatGPT Developers at Competitive Rates to build intelligent conversational interfaces, fine-tune LLMs, and automate complex workflows. With <strong>Hire dedicated AI development team</strong> services from Firevy.co, you can deploy enterprise-grade AI assistants that are fully configurable, secure, and seamlessly integrated into your modern cloud stack.
+                Hire LLM Engineers at Competitive Rates to build custom Large Language Models, RAG vector pipelines, and domain-specific AI agents. With <strong>Hire dedicated AI engineering team</strong> services from Firevy.co, you can deploy enterprise-grade AI assistants that are fully configurable, secure, and seamlessly integrated into your cloud environment.
               </p>
             </div>
           </div>
@@ -234,7 +231,7 @@ export const HireChatGptDevelopersService = () => {
                 Our Flexible Hiring Models: Find the Perfect Fit For Your Project
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 font-medium">
-                Hire ChatGPT Developers from Firevy.co Starts from,
+                Hire LLM Engineers from Firevy.co Starts from,
               </p>
             </div>
 
@@ -366,7 +363,7 @@ export const HireChatGptDevelopersService = () => {
                 Development Proficiency
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 font-medium">
-                Hire ChatGPT Developers to meet your business perks by leveraging our technical elegance.
+                Hire LLM Engineers to meet your business perks by leveraging our technical elegance.
               </p>
             </div>
 
@@ -425,18 +422,18 @@ export const HireChatGptDevelopersService = () => {
       </section>
 
       {/* ============================================================
-          SECTION 4: CHATGPT CONSULTANTS FOR ENTERPRISE AI PROJECTS
+          SECTION 4: LLM CONSULTANTS FOR ENTERPRISE AI PROJECTS
           ============================================================ */}
       <section className="py-16 md:py-24 bg-white text-slate-900 font-sans border-b border-slate-100">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
             <div className="lg:col-span-6 space-y-6 text-left">
               <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-[900] text-slate-950 tracking-tight leading-[1.15]">
-                ChatGPT Consultants For Enterprise AI Projects
+                LLM Consultants For Enterprise AI Projects
               </h2>
               <div className="space-y-4 text-sm sm:text-[15px] lg:text-[16px] text-slate-600 font-normal leading-[1.7]">
                 <p>
-                  Firevy.co is a reputable AI development organization assisting businesses in the USA, UK, Canada, UAE, Australia, and India. Our ChatGPT Prompt Engineer become part of your team—taking care of everything from model selection and training to deployment and scaling. We have flexible hiring models available so you can scale engineering capability on demand with full transparency, sprint planning, and quantifiable outcomes.
+                  Firevy.co is a reputable AI development organization assisting businesses in the USA, UK, Canada, UAE, Australia, and India. Our LLM Prompt Engineer become part of your team—taking care of everything from model selection and training to deployment and scaling. We have flexible hiring models available so you can scale engineering capability on demand with full transparency, sprint planning, and quantifiable outcomes.
                 </p>
               </div>
             </div>
@@ -445,7 +442,7 @@ export const HireChatGptDevelopersService = () => {
               <div className="relative w-full max-w-[560px]">
                 <img
                   src="/images/llm_consultants_robot_head.svg"
-                  alt="ChatGPT Consultants For Enterprise AI Projects"
+                  alt="LLM Consultants For Enterprise AI Projects"
                   className="w-full h-auto object-contain mx-auto drop-shadow-lg"
                 />
               </div>
@@ -457,16 +454,16 @@ export const HireChatGptDevelopersService = () => {
       {/* ============================================================
           SECTION 5: CLUTCH TOP RATED BANNER
           ============================================================ */}
-      <ClutchTopRatedBanner title="World Wide Top Rated ChatGPT Development Company on Clutch" />
+      <ClutchTopRatedBanner title="World Wide Top Rated LLM Development Company on Clutch" />
 
       {/* ============================================================
-          SECTION 5B: WHAT DOES A CHATGPT DEVELOPER DO?
+          SECTION 5B: WHAT DOES AN LLM ENGINEER DO?
           ============================================================ */}
       <section className="py-16 md:py-24 bg-white text-slate-900 font-sans border-b border-slate-100">
         <Container>
           <div className="space-y-10 max-w-6xl mx-auto">
             <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-[900] text-slate-950 tracking-tight leading-tight text-center">
-              What Does a ChatGPT Developer Do?
+              What Does an LLM Engineer Do?
             </h2>
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
@@ -481,7 +478,7 @@ export const HireChatGptDevelopersService = () => {
               {/* Right Content Column */}
               <div className="lg:col-span-7 space-y-6 text-left">
                 <p className="text-sm sm:text-[15px] lg:text-[16px] text-slate-600 font-normal leading-[1.7]">
-                  A ChatGPT Developer develops, modifies, and optimizes generative AI models and GPT prompts for particular functions such as summarization, Q&A, search, and generating content. They handle model architecture, prompt creation, dataset organization, performance optimization, and secure deployment. Hire ChatGPT Developer for AI Development from Firevy.co to integrate cutting-edge AI into your product—be it through comprehensive AI development, smart automation, or bespoke in-house LLMs designed for your business
+                  An LLM Engineer develops, modifies, and optimizes large language models for particular functions such as summarization, Q&A, search, and generating content. They handle model architecture, prompt creation, dataset organization, performance optimization, and secure deployment. Hire LLM Engineer for AI Development from Firevy.co to integrate cutting-edge AI into your product—be it through comprehensive AI development, smart automation, or bespoke in-house LLMs designed for your business
                 </p>
 
                 <div>
@@ -618,7 +615,7 @@ export const HireChatGptDevelopersService = () => {
       {/* ============================================================
           SECTION 10: SECTORS THRIVING SECTION
           ============================================================ */}
-      <SectorsThrivingSection title="Sectors Thriving Through Firevy.co's Bespoke ChatGPT Developers" />
+      <SectorsThrivingSection title="Sectors Thriving Through Firevy.co's Bespoke LLM Engineers" />
 
       {/* ============================================================
           SECTION 10B: EMPLOY THE ADVANCED PROFICIENCY SECTION
@@ -750,21 +747,21 @@ export const HireChatGptDevelopersService = () => {
       <TechStackProficientGrid />
 
       {/* ============================================================
-          SECTION 13: OUR CHATGPT DEVELOPMENT EXPERTISE INCLUDES
+          SECTION 13: OUR LLM ENGINEERING EXPERTISE INCLUDES
           ============================================================ */}
       <section className="py-16 md:py-24 bg-[#F8FAFC] text-slate-900 font-sans border-b border-slate-100">
         <Container>
           <div className="space-y-12 max-w-6xl mx-auto">
             <div className="text-center space-y-3">
               <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-[900] text-slate-950 tracking-tight leading-tight">
-                Our ChatGPT Development Expertise Includes
+                Our LLM Engineering Expertise Includes
               </h2>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
                 {
-                  title: 'Custom ChatGPT Model Fine-Tuning',
+                  title: 'LLM Fine-tuning & Customization',
                   desc: 'Tailored training using proprietary or domain-specific datasets for better accuracy and relevance.',
                   IconComp: Code,
                   bgClass: 'bg-purple-100/80 text-purple-600'
@@ -777,19 +774,19 @@ export const HireChatGptDevelopersService = () => {
                 },
                 {
                   title: 'Model Integration via APIs',
-                  desc: 'Integrate GPT-4, GPT-4o, or OpenAI Assistant APIs into your product using scalable microservices.',
+                  desc: 'Integrate GPT-4, Claude, LLaMA, or open-source models into your product using scalable APIs.',
                   IconComp: Cpu,
                   bgClass: 'bg-orange-100/80 text-orange-600'
                 },
                 {
                   title: 'Retrieval-Augmented Generation (RAG)',
-                  desc: 'Combine ChatGPT with vector search for contextual answers and private enterprise data retrieval.',
+                  desc: 'Combine LLMs with vector search for contextual answers and private data retrieval.',
                   IconComp: Sparkles,
                   bgClass: 'bg-amber-100/80 text-amber-600'
                 },
                 {
                   title: 'Cloud/On-prem Deployment with MLOps',
-                  desc: 'Deploy and monitor AI models with CI/CD, versioning, and latency optimization.',
+                  desc: 'Deploy and monitor AI models with CI/CD, versioning, and GPU optimization.',
                   IconComp: Layers,
                   bgClass: 'bg-rose-100/80 text-rose-600'
                 },
@@ -915,7 +912,7 @@ export const HireChatGptDevelopersService = () => {
       {/* ============================================================
           SECTION 15: 4 STEPS TO HIRE DEVELOPERS
           ============================================================ */}
-      <HireDeveloper4Steps techName="ChatGPT Developers" />
+      <HireDeveloper4Steps techName="LLM Engineers" />
 
       {/* ============================================================
           SECTION 16: VIDEO TESTIMONIALS & STORY (OUR STORY, THEIR WORDS)
@@ -955,7 +952,7 @@ export const HireChatGptDevelopersService = () => {
       {/* ============================================================
           SECTION 22: SAPPHIRE FAQ SECTION
           ============================================================ */}
-      <SapphireFaqSection faqs={faqs} />
+      <SapphireFaqSection faqs={llmFaqs} initialOpenIndex={0} />
 
       {/* ============================================================
           SECTION 23: SOCIAL MEDIA SECTION
@@ -970,7 +967,7 @@ export const HireChatGptDevelopersService = () => {
       {/* ============================================================
           SECTION 25: WHAT SETS US APART SECTION
           ============================================================ */}
-      <WhatSetsUsApartSection title="What Sets Us Apart As ChatGPT Development Company?" />
+      <WhatSetsUsApartSection title="What Sets Us Apart As LLM Development Company?" />
 
       {/* ============================================================
           SECTION 26: SUBSCRIBE NEWSLETTER SECTION
@@ -980,4 +977,4 @@ export const HireChatGptDevelopersService = () => {
   );
 };
 
-export default HireChatGptDevelopersService;
+export default HireLlmEngineersService;

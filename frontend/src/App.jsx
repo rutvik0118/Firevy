@@ -226,6 +226,22 @@ export function App() {
                 <Route path="/ember-js-development" element={<ServiceDetails />} />
                 <Route path="/emberjs" element={<ServiceDetails />} />
                 <Route path="/ember" element={<ServiceDetails />} />
+                <Route path="/services/hire-openai-developer" element={<ServiceDetails />} />
+                <Route path="/services/hire-openai-developers" element={<ServiceDetails />} />
+                <Route path="/services/hire-open-ai-developer" element={<ServiceDetails />} />
+                <Route path="/services/hire-open-ai-developers" element={<ServiceDetails />} />
+                <Route path="/hire-openai-developer" element={<ServiceDetails />} />
+                <Route path="/hire-openai-developers" element={<ServiceDetails />} />
+                <Route path="/hire-open-ai-developer" element={<ServiceDetails />} />
+                <Route path="/hire-open-ai-developers" element={<ServiceDetails />} />
+                <Route path="/openai-development" element={<ServiceDetails />} />
+                <Route path="/services/hire-llm-engineers" element={<ServiceDetails />} />
+                <Route path="/services/hire-llm-engineers-for-ai-development" element={<ServiceDetails />} />
+                <Route path="/services/hire-llm-developers" element={<ServiceDetails />} />
+                <Route path="/hire-llm-engineers" element={<ServiceDetails />} />
+                <Route path="/hire-llm-engineers-for-ai-development" element={<ServiceDetails />} />
+                <Route path="/hire-llm-developers" element={<ServiceDetails />} />
+                <Route path="/services/hire-[#006095]" element={<ServiceDetails />} />
                 <Route path="/services/hire-alexa-skills-developers" element={<ServiceDetails />} />
                 <Route path="/services/hire-alexa-skills-developer" element={<ServiceDetails />} />
                 <Route path="/services/hire-alexa-developer" element={<ServiceDetails />} />
@@ -311,6 +327,10 @@ export function App() {
                 <Route path="/services/hire-ai-application-developer" element={<ServiceDetails />} />
                 <Route path="/hire-ai-application-developers" element={<ServiceDetails />} />
                 <Route path="/hire-ai-application-developer" element={<ServiceDetails />} />
+                <Route path="/services/hire-ai-agent-developer" element={<ServiceDetails />} />
+                <Route path="/services/hire-ai-agent-developers" element={<ServiceDetails />} />
+                <Route path="/hire-ai-agent-developer" element={<ServiceDetails />} />
+                <Route path="/hire-ai-agent-developers" element={<ServiceDetails />} />
                 <Route path="/services/hire-iphone-app-developers" element={<ServiceDetails />} />
                 <Route path="/services/hire-iphone-app-developer" element={<ServiceDetails />} />
                 <Route path="/hire-iphone-app-developers" element={<ServiceDetails />} />

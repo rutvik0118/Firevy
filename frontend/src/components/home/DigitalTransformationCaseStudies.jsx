@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { ArrowLeft, ArrowRight, ChevronsRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -559,15 +559,22 @@ export const DigitalTransformationCaseStudies = ({ data }) => {
 
   const total = caseStudies.length;
 
+  const handleNext = useCallback(() => {
+    setCurrentIndex((prev) => (prev === total - 1 ? 0 : prev + 1));
+  }, [total]);
+
   const handlePrev = useCallback(() => {
     setCurrentIndex((prev) => (prev === 0 ? total - 1 : prev - 1));
   }, [total]);
 
+  const goNext = handleNext;
+  const goPrev = handlePrev;
+
   // 2.5-second auto-scroll interval
   useEffect(() => {
-    const timer = setInterval(goNext, 2500);
+    const timer = setInterval(handleNext, 2500);
     return () => clearInterval(timer);
-  }, [goNext]);
+  }, [handleNext]);
 
   return (
     <section className="py-16 bg-white border-b border-slate-200 text-slate-900 relative font-sans w-full overflow-hidden">
@@ -643,6 +650,7 @@ export const DigitalTransformationCaseStudies = ({ data }) => {
             ))}
           </div>
         </div>
+      </div>
 
       {/* Bottom Navigation Arrows */}
       <div className="flex items-center justify-center gap-6">

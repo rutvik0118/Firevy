@@ -241,6 +241,26 @@ export const SuccessStoriesSection = ({
             ))}
           </div>
         ) : isTaxi ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-[1320px] mx-auto mb-6 sm:mb-8">
+            {/* Card 1: Cab Booking Application Development */}
+            <div className="flex flex-col justify-between group cursor-pointer">
+              <div className="h-56 sm:h-64 rounded-2xl overflow-hidden shadow-md hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 relative border border-cyan-200/80 bg-[#EBF5FB] p-4 flex flex-col justify-between">
+                <div className="relative z-10 flex flex-col justify-between h-full">
+                  <span className="text-xs sm:text-sm font-black text-cyan-900 uppercase tracking-wider block mb-1">
+                    Super Ride Taxi App
+                  </span>
+                  <div className="flex justify-center space-x-2 my-auto">
+                    <div className="w-22 h-36 bg-slate-900 rounded-xl p-1 shadow-xl border border-cyan-400/40">
+                      <div className="bg-white rounded-lg p-1 text-slate-900 text-[6px] h-full flex flex-col justify-between">
+                        <span className="font-bold text-cyan-700 block">Book Ride</span>
+                        <div className="bg-cyan-50 p-1 rounded space-y-0.5">
+                          <span className="font-bold block">Taxi Sedan</span>
+                          <span className="text-cyan-600 font-extrabold">$12.50</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
 
               <h3 className="text-base sm:text-lg font-extrabold text-slate-900 group-hover:text-[#005D95] transition-colors leading-snug font-sans mt-3 text-left">
@@ -454,8 +474,6 @@ export const SuccessStoriesSection = ({
                 Ai Powered Language Learning App Development
               </h3>
             </div>
-          ))}
-        </div>
 
             <div className="flex flex-col justify-between group cursor-pointer">
               <div className="h-64 sm:h-72 rounded-2xl overflow-hidden shadow-md group-hover:shadow-xl transition-all duration-300 relative border border-slate-200/80 bg-white">
@@ -546,8 +564,8 @@ export const SuccessStoriesSection = ({
           {/* Card 4: Dark Sapphire Blue CTA */}
           <div className="p-4 sm:p-5 rounded-2xl bg-[#005D95] text-white flex flex-col items-center justify-center text-center shadow-lg h-28 sm:h-30 space-y-2 font-sans">
             <div className="text-xs sm:text-sm font-extrabold text-white">Want to start Projects</div>
-            <a
-              href="#quote-form"
+            <Link
+              to="/contact"
               className="px-5 py-1.5 rounded-lg bg-white text-[#005D95] font-black text-[11px] hover:bg-slate-100 transition-colors shadow-md"
             >
               Get Estimation

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import SEO from '../common/SEO';
 import Container from '../common/Container';
 import VideoTestimonialsStory from '../home/VideoTestimonialsStory';
-import EngagementModelsSection from '../home/EngagementModelsSection';
+import { EngagementModelsSection } from '../home/EngagementModelsSection';
 import SuccessMatrixGrid from '../home/SuccessMatrixGrid';
 import InnovativeSolutionVideo from '../home/InnovativeSolutionVideo';
 import WorkProcessGrid from '../home/WorkProcessGrid';
@@ -24,7 +24,6 @@ import WhatSetsUsApartSection from '../common/WhatSetsUsApartSection';
 import SubscribeNewsletterSection from '../home/SubscribeNewsletterSection';
 import { IndustryFocusedInsightsSection } from './IndustryFocusedInsightsSection';
 import { AboutUsStats } from './AboutUsStats';
-import { SuccessStoriesSection } from '../common/SuccessStoriesSection';
 import {
   Clock,
   Calendar,
@@ -58,110 +57,108 @@ import {
   Timer
 } from 'lucide-react';
 
-export const HireChatGptDevelopersService = () => {
-  const [expertActiveCategory, setExpertActiveCategory] = useState('Trending');
-  const [expertTabs, setExpertTabs] = useState({ 0: 'tech', 1: 'tech', 2: 'tech' });
+export const HireAiAgentDevelopersService = () => {
   const [leverageTab, setLeverageTab] = useState('In Demand');
   const [responsibilityTab, setResponsibilityTab] = useState('sapphire');
 
-  const faqs = [
+  const aiAgentFaqs = [
     {
-      q: '1. What does a ChatGPT Developer do?',
-      a: 'A ChatGPT developer designs, integrates, and fine-tunes AI chatbots using ChatGPT to deliver conversational experiences for business applications.'
+      q: '1. What does an AI Agent Developer do?',
+      a: 'An AI Agent Developer designs, builds, and deploys autonomous AI agents, multi-agent workflows, and conversational assistants powered by LLMs (GPT-4, LLaMA 3, Claude), AutoGPT, CrewAI, LangGraph, and custom tool-use APIs.'
     },
     {
-      q: '2. Why should I hire a ChatGPT developer for my business?',
-      a: 'Hiring a ChatGPT developer helps automate customer support, generate dynamic content, streamline internal workflows, and deliver personalized user experiences 24/7.'
+      q: '2. Why should I hire an AI Agent Developer for my business?',
+      a: 'Hiring an AI Agent Developer enables your enterprise to automate complex multi-step workflows, handle autonomous customer interactions, streamline document processing, and connect internal databases securely.'
     },
     {
-      q: '3. Can you integrate ChatGPT into my existing website or app?',
-      a: 'Yes, our ChatGPT developers seamlessly integrate OpenAI APIs into your existing Web, Mobile, CRM, ERP, and enterprise software stack with minimal disruption.'
+      q: '3. Can AI agents integrate with our existing enterprise software?',
+      a: 'Yes, our AI agent developers seamlessly connect agents to CRMs, ERPs, Slack, Salesforce, HubSpot, database systems, and custom REST/GraphQL APIs.'
     },
     {
-      q: '4. Do you offer custom AI chatbot development with ChatGPT?',
-      a: 'Yes, we build tailored AI chatbots trained on your enterprise data using Retrieval-Augmented Generation (RAG) and fine-tuned GPT models.'
+      q: '4. What frameworks do your AI Agent developers specialize in?',
+      a: 'Our developers master LangChain, LangGraph, CrewAI, AutoGen, OpenAI Assistants API, LlamaIndex, Python, PyTorch, Vector DBs (Pinecone, Qdrant), and cloud MLOps pipelines.'
     },
     {
-      q: '5. How secure is ChatGPT integration for my data?',
-      a: 'We adhere to strict data privacy guidelines, sign NDAs before project kickoff, implement end-to-end data encryption, and ensure your proprietary data is never used to train public AI models.'
+      q: '5. How secure are autonomous AI agents for corporate deployment?',
+      a: 'We implement strict guardrails, human-in-the-loop (HITL) verification, SOC-2 readiness, HIPAA compliance, end-to-end encryption, and custom VPC/on-premise deployments.'
     },
     {
-      q: '6. What industries can benefit from ChatGPT development?',
-      a: 'Industries like Healthcare, E-Commerce, Finance, Real Estate, Education, Logistics, and Customer Support can significantly benefit from ChatGPT integration.'
+      q: '6. What is the difference between a chatbot and an autonomous AI agent?',
+      a: 'While a standard chatbot only responds to single prompts, an autonomous AI agent can reason, plan, execute multi-step tool calls, call external APIs, query databases, and accomplish goals independently.'
     },
     {
-      q: '7. Can ChatGPT automate tasks beyond chatting?',
-      a: 'Yes! ChatGPT can summarize lengthy documents, extract insights, automate email responses, generate code snippets, triaging support tickets, and perform sentiment analysis.'
+      q: '7. Can you build multi-agent systems for complex operations?',
+      a: 'Yes! We specialize in multi-agent orchestration where specialized agents (e.g. Researcher, Coder, Reviewer, Analyst) collaborate autonomously to solve high-complexity business tasks.'
     },
     {
-      q: '8. Do you provide ongoing maintenance for ChatGPT solutions?',
-      a: 'Yes, we offer continuous model monitoring, API updates, performance tuning, and post-launch maintenance to ensure your AI chatbot operates smoothly.'
+      q: '8. What is the cost to hire a dedicated AI Agent Developer from Firevy.co?',
+      a: 'Our dedicated AI Agent Developer pricing starts at $21/hour. We also offer flexible monthly ($2,850/mo) and quarterly engagement models with zero upfront recruitment costs.'
     },
     {
-      q: '9. Can ChatGPT support multiple languages?',
-      a: 'Yes, ChatGPT inherently supports over 50+ global languages, allowing your business to cater to an international audience seamlessly.'
+      q: '9. Do you sign non-disclosure agreements (NDAs)?',
+      a: 'Yes, we sign strict NDAs before any project discussion, ensuring 100% intellectual property (IP) ownership and complete data confidentiality.'
     },
     {
-      q: '10. How do I Hire ChatGPT Programmers?',
-      a: 'You can hire ChatGPT programmers from Firevy.co in 4 easy steps: share your project requirements, screen candidate profiles, interview selected AI engineers, and start your risk-free trial.'
+      q: '10. How quickly can we onboard an AI Agent development team?',
+      a: 'You can screen vetted candidate profiles, interview selected AI Agent developers, and start your trial within 48 to 72 hours.'
     },
     {
-      q: '11. Which Indian company offer ChatGPT developer teams for hire?',
-      a: 'Firevy.co is a top-rated AI development company in India and USA offering dedicated ChatGPT developer teams with expertise in OpenAI APIs, RAG, and custom LLM engineering.'
+      q: '11. Which company offers top AI Agent developers for hire in USA & India?',
+      a: 'Firevy.co is a top-rated AI development company in India and USA with 23+ years of IT experience, 320+ 5-star Clutch reviews, and certified AI/LLM engineers.'
     }
   ];
 
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-[#006095] selection:text-white">
       <SEO
-        title="Hire ChatGPT Developers | Dedicated OpenAI & LLM Engineers"
-        description="Hire dedicated ChatGPT developers from Firevy.co. Expert OpenAI API, LLM, Generative AI, and conversational AI engineers."
-        keywords="Hire ChatGPT Developers, Hire OpenAI Engineers, Hire LLM Developers, ChatGPT API Integration, Conversational AI Developers"
+        title="Hire AI Agent Developer | Autonomous AI & Multi-Agent Experts"
+        description="Hire dedicated AI Agent Developers from Firevy.co. Expert Autonomous AI Agents, Multi-Agent Systems, LangChain, CrewAI, and LLM Agent developers."
+        keywords="Hire AI Agent Developer, Hire Autonomous AI Agent Developers, Multi Agent Developers, CrewAI Developers, LangGraph AI Engineers"
       />
 
       {/* ============================================================
           SECTION 1: HERO SECTION
           ============================================================ */}
-      <section className="relative pt-12 pb-16 md:pt-16 md:pb-24 bg-white overflow-hidden border-b border-slate-100 font-sans">
+      <section className="relative pt-14 pb-20 md:pt-20 md:pb-28 bg-white overflow-hidden border-b border-slate-100 font-sans">
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
             {/* Left Content Column */}
-            <div className="lg:col-span-7 space-y-6 text-left">
-              <div className="space-y-4">
-                <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-[900] text-slate-900 tracking-tight leading-[1.15]">
-                  Hire ChatGPT Developer for Next-Gen AI Solutions
+            <div className="lg:col-span-7 space-y-7 text-left">
+              <div className="space-y-5">
+                <h1 className="text-4xl sm:text-5xl lg:text-[48px] xl:text-[50px] font-[900] text-slate-950 tracking-tight leading-[1.12]">
+                  Hire AI Agent Developer
                 </h1>
-                <p className="text-xs sm:text-sm text-slate-600 font-normal leading-relaxed max-w-2xl">
-                  Want to transform your business processes with conversational AI? Our ChatGPT developers have expertise in developing smart, human-like chatbot solutions based on your specific requirements. Whether you want to develop a customer support bot, an interactive assistant, or an automatic content generator, our developers make your AI idea a reality. With extensive knowledge in ChatGPT API integration, you can Hire Enterprise ChatGPT Developers to ensure seamless deployment on websites, applications, and enterprise platforms for maximum efficiency.
+                <p className="text-sm sm:text-[15px] lg:text-[16px] text-slate-600 font-normal leading-[1.7] max-w-3xl">
+                  Are you in need of AI Agent developers that can build smart intelligent autonomous systems that improve user experience, minimize manual work and produce business efficiencies? You have come to the right place! At Firevy.co, you can Hire Affordable AI Agent Developers who create intelligent agents utilizing LLMs, machine learning models, intelligent workflows and privacy-preserving systems. Our AI-Agent developers can help your organization build AI assistants, autonomous AI bots, and multi-agent frameworks that are aligned with your objectives and desires for your business.
                 </p>
               </div>
 
               {/* 4 Metric Stats Row */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 py-2">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 py-3 border-y border-slate-100/80">
                 <div>
-                  <span className="block text-2xl sm:text-3xl font-black text-slate-900">200+</span>
-                  <span className="text-xs font-semibold text-slate-600 leading-tight block mt-1">Dedicated Developers</span>
+                  <span className="block text-3xl sm:text-4xl font-[900] text-slate-950 tracking-tight">200+</span>
+                  <span className="text-xs sm:text-[13px] font-semibold text-slate-600 leading-tight block mt-1">Dedicated Developers</span>
                 </div>
                 <div>
-                  <span className="block text-2xl sm:text-3xl font-black text-slate-900">20+</span>
-                  <span className="text-xs font-semibold text-slate-600 leading-tight block mt-1">Fortunes 500 Companies</span>
+                  <span className="block text-3xl sm:text-4xl font-[900] text-slate-950 tracking-tight">20+</span>
+                  <span className="text-xs sm:text-[13px] font-semibold text-slate-600 leading-tight block mt-1">Fortunes 500 Companies</span>
                 </div>
                 <div>
-                  <span className="block text-2xl sm:text-3xl font-black text-slate-900">2800+</span>
-                  <span className="text-xs font-semibold text-slate-600 leading-tight block mt-1">Project Completed</span>
+                  <span className="block text-3xl sm:text-4xl font-[900] text-slate-950 tracking-tight">2800+</span>
+                  <span className="text-xs sm:text-[13px] font-semibold text-slate-600 leading-tight block mt-1">Project Completed</span>
                 </div>
                 <div>
-                  <span className="block text-2xl sm:text-3xl font-black text-slate-900">320+</span>
-                  <span className="text-xs font-semibold text-slate-600 leading-tight block mt-1">5-Star Clutch Reviews</span>
+                  <span className="block text-3xl sm:text-4xl font-[900] text-slate-950 tracking-tight">320+</span>
+                  <span className="text-xs sm:text-[13px] font-semibold text-slate-600 leading-tight block mt-1">5-Star Clutch Reviews</span>
                 </div>
               </div>
 
               {/* CTA Section with Capsule Pill Bar */}
-              <div className="space-y-2 pt-1">
-                <p className="text-xs font-bold text-[#006095]">Get Top Talent Work for you At</p>
+              <div className="space-y-2.5 pt-1">
+                <p className="text-xs sm:text-sm font-bold text-[#006095]">Get Top Talent Work for you At</p>
                 <div className="bg-[#0083B0] p-1.5 rounded-2xl inline-flex items-center space-x-2 shadow-xs">
-                  <span className="bg-[#0083B0] text-white font-black px-5 py-2.5 rounded-xl text-sm sm:text-base flex items-center space-x-2">
-                    <span className="text-xs">💡</span>
+                  <span className="bg-[#0083B0] text-white font-black px-6 py-3 rounded-xl text-base sm:text-lg flex items-center space-x-2">
+                    <span className="text-sm">💡</span>
                     <span>$21/Hourly*</span>
                   </span>
                   <a
@@ -170,7 +167,7 @@ export const HireChatGptDevelopersService = () => {
                       e.preventDefault();
                       document.getElementById('quote-form')?.scrollIntoView({ behavior: 'smooth' });
                     }}
-                    className="bg-white text-[#006095] hover:bg-slate-50 font-bold px-7 py-2.5 rounded-xl text-sm transition-all shadow-xs cursor-pointer"
+                    className="bg-white text-[#006095] hover:bg-slate-50 font-bold px-8 py-3 rounded-xl text-sm sm:text-base transition-all shadow-xs cursor-pointer"
                   >
                     Hire Team
                   </a>
@@ -181,9 +178,9 @@ export const HireChatGptDevelopersService = () => {
             {/* Right Hero Graphic Banner (Image Form) */}
             <div className="lg:col-span-5 relative flex justify-center items-center">
               <img
-                src="/images/chatgpt_hero_illustration.svg"
-                alt="Hire ChatGPT Developer"
-                className="w-full max-w-[480px] h-auto object-contain mx-auto drop-shadow-xl"
+                src="/images/llm_hero_illustration.svg"
+                alt="Hire AI Agent Developer"
+                className="w-full max-w-[580px] lg:max-w-[640px] h-auto object-contain mx-auto drop-shadow-xl"
               />
             </div>
           </div>
@@ -196,27 +193,30 @@ export const HireChatGptDevelopersService = () => {
       <BrandLogoMarquee />
 
       {/* ============================================================
-          SECTION 3: HIRE DEDICATED CHATGPT DEVELOPERS AT COMPETITIVE RATES
+          SECTION 3: AI AGENT DEVELOPMENT SOLUTIONS
           ============================================================ */}
       <section className="py-16 md:py-20 bg-white border-b border-slate-100 font-sans">
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
             <div className="lg:col-span-6 flex justify-center items-center">
-              <div className="relative w-full max-w-[500px]">
+              <div className="relative w-full max-w-[540px]">
                 <img
-                  src="/images/software_dev_laptop_hero.svg"
-                  alt="Hire ChatGPT Developers At Competitive Rates"
+                  src="/images/llm_consultants_robot_head.svg"
+                  alt="AI Agent Development Solutions"
                   className="w-full h-auto object-contain mx-auto drop-shadow-md"
                 />
               </div>
             </div>
 
-            <div className="lg:col-span-6 space-y-6 text-left">
-              <h2 className="text-3xl sm:text-4xl lg:text-[40px] font-[900] text-slate-900 tracking-tight leading-[1.15]">
-                Hire ChatGPT Developers At Competitive Rates
+            <div className="lg:col-span-6 space-y-5 text-left">
+              <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-[900] text-slate-950 tracking-tight leading-[1.15]">
+                AI Agent Development Solutions
               </h2>
-              <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed">
-                Hire ChatGPT Developers at Competitive Rates to build intelligent conversational interfaces, fine-tune LLMs, and automate complex workflows. With <strong>Hire dedicated AI development team</strong> services from Firevy.co, you can deploy enterprise-grade AI assistants that are fully configurable, secure, and seamlessly integrated into your modern cloud stack.
+              <p className="text-sm sm:text-[15px] lg:text-[16px] text-slate-600 font-normal leading-[1.7]">
+                We provide quick access to talented AI Agent software developers, making it easy to Hire Dedicated AI Agent Developers who can create custom AI solutions using OpenAI, LangChain, Microsoft Copilot, Meta's Llama, or any other LLM methods. If you want to create task-specific AI agents for customer service, workflow automation, or decision support, our engineers deliver quality AI skills and reliable system architecture with professional-level expertise.
+              </p>
+              <p className="text-sm sm:text-[15px] lg:text-[16px] text-slate-600 font-normal leading-[1.7]">
+                We integrate Custom AI Agent Development as a strategic component of your modern software ecosystem, interwoven into the internet using various cloud platforms, APIs, and backend services with logic built on autonomy and smart data processing. Businesses can Hire LLM AI Agent Developers from Firevy.co to build scalable, future-ready AI agent solutions. With global flexibility in hiring talent and a track record in delivering AI projects and solutions, we can help startups, SMBs, and enterprises build solutions for the future.
               </p>
             </div>
           </div>
@@ -234,7 +234,7 @@ export const HireChatGptDevelopersService = () => {
                 Our Flexible Hiring Models: Find the Perfect Fit For Your Project
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 font-medium">
-                Hire ChatGPT Developers from Firevy.co Starts from,
+                Hire AI Agent Developers from Firevy.co Starts from,
               </p>
             </div>
 
@@ -366,7 +366,7 @@ export const HireChatGptDevelopersService = () => {
                 Development Proficiency
               </h2>
               <p className="text-xs sm:text-sm text-slate-600 font-medium">
-                Hire ChatGPT Developers to meet your business perks by leveraging our technical elegance.
+                Hire AI Agent Developers to meet your business perks by leveraging our technical elegance.
               </p>
             </div>
 
@@ -425,18 +425,18 @@ export const HireChatGptDevelopersService = () => {
       </section>
 
       {/* ============================================================
-          SECTION 4: CHATGPT CONSULTANTS FOR ENTERPRISE AI PROJECTS
+          SECTION 4: BRIEF ABOUT AI AGENT DEVELOPMENT SERVICES
           ============================================================ */}
       <section className="py-16 md:py-24 bg-white text-slate-900 font-sans border-b border-slate-100">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-14 items-center">
             <div className="lg:col-span-6 space-y-6 text-left">
               <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-[900] text-slate-950 tracking-tight leading-[1.15]">
-                ChatGPT Consultants For Enterprise AI Projects
+                Brief About AI Agent Development Services
               </h2>
               <div className="space-y-4 text-sm sm:text-[15px] lg:text-[16px] text-slate-600 font-normal leading-[1.7]">
                 <p>
-                  Firevy.co is a reputable AI development organization assisting businesses in the USA, UK, Canada, UAE, Australia, and India. Our ChatGPT Prompt Engineer become part of your team—taking care of everything from model selection and training to deployment and scaling. We have flexible hiring models available so you can scale engineering capability on demand with full transparency, sprint planning, and quantifiable outcomes.
+                  At Firevy.co, we provide flexible hiring models – hire AI Agent engineer full-time, part-time or hourly to fit your development lifecycle and budget. Our teams can deliver in regions including India, USA, UK, Canada, Australia, and UAE so you'll always enjoy quality engineering support, cultural fit, and availability 24/7. We are committed to providing scalable, secure and agile AI solutions wherever you are.
                 </p>
               </div>
             </div>
@@ -445,7 +445,7 @@ export const HireChatGptDevelopersService = () => {
               <div className="relative w-full max-w-[560px]">
                 <img
                   src="/images/llm_consultants_robot_head.svg"
-                  alt="ChatGPT Consultants For Enterprise AI Projects"
+                  alt="Brief About AI Agent Development Services"
                   className="w-full h-auto object-contain mx-auto drop-shadow-lg"
                 />
               </div>
@@ -457,16 +457,16 @@ export const HireChatGptDevelopersService = () => {
       {/* ============================================================
           SECTION 5: CLUTCH TOP RATED BANNER
           ============================================================ */}
-      <ClutchTopRatedBanner title="World Wide Top Rated ChatGPT Development Company on Clutch" />
+      <ClutchTopRatedBanner title="World Wide Top Rated AI Agent Development Company on Clutch" />
 
       {/* ============================================================
-          SECTION 5B: WHAT DOES A CHATGPT DEVELOPER DO?
+          SECTION 5B: WHO EXACTLY IS AN AI AGENT DEVELOPER?
           ============================================================ */}
       <section className="py-16 md:py-24 bg-white text-slate-900 font-sans border-b border-slate-100">
         <Container>
           <div className="space-y-10 max-w-6xl mx-auto">
             <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-[900] text-slate-950 tracking-tight leading-tight text-center">
-              What Does a ChatGPT Developer Do?
+              Who Exactly Is an AI Agent Developer?
             </h2>
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
@@ -479,12 +479,15 @@ export const HireChatGptDevelopersService = () => {
               </div>
 
               {/* Right Content Column */}
-              <div className="lg:col-span-7 space-y-6 text-left">
+              <div className="lg:col-span-7 space-y-5 text-left">
                 <p className="text-sm sm:text-[15px] lg:text-[16px] text-slate-600 font-normal leading-[1.7]">
-                  A ChatGPT Developer develops, modifies, and optimizes generative AI models and GPT prompts for particular functions such as summarization, Q&A, search, and generating content. They handle model architecture, prompt creation, dataset organization, performance optimization, and secure deployment. Hire ChatGPT Developer for AI Development from Firevy.co to integrate cutting-edge AI into your product—be it through comprehensive AI development, smart automation, or bespoke in-house LLMs designed for your business
+                  An AI Agent Developer is an engineer working at the intersection of artificial intelligence and intelligent automated agents including large language models (LLMs), natural-language processing (NLP), machine learning (ML), and/or multispectral sensors. OpenAI Developer Agent design and build agents that can process data, interact with APIs, and reason to decide what action to take, whether alone or as part of a larger multi-agent system. AI Agent Developers have mastered these frameworks and have further developed smart workflows, automation of complex tasks, and organization level AI insights with LLMs, NLP, and ML workflows.
+                </p>
+                <p className="text-sm sm:text-[15px] lg:text-[16px] text-slate-600 font-normal leading-[1.7]">
+                  Best AI Agent Developer for CRM inherently leverage agile and asynchronous teams and, most likely, distributed team members across different time zones. AI Agent Developers engage in product planning and rapidly execute sprints in short product cycles targeting intelligent automated workflows and processes. They seamlessly integrate AI agents into customer relationship management (CRM) tools, and engineer fully autonomous virtual robots to deliver both agility and reliability.
                 </p>
 
-                <div>
+                <div className="pt-2">
                   <a
                     href="#quote-form"
                     onClick={(e) => {
@@ -508,12 +511,12 @@ export const HireChatGptDevelopersService = () => {
       <PremiumServicesGrid />
 
       {/* ============================================================
-          SECTION 6B: MEET FIREVY'S EXCEPTIONAL TEAM OF SEASONED EXPERTS
+          SECTION 7: MEET FIREVY'S EXCEPTIONAL TEAM OF SEASONED EXPERTS
           ============================================================ */}
       <SapphireSeasonedExpertsSection />
 
       {/* =========================================================================
-          SECTION 7: LEVERAGE THE EXPERTISE OF FIREVY.CO DEDICATED DEVELOPERS
+          SECTION 8: LEVERAGE THE EXPERTISE OF FIREVY.CO DEDICATED DEVELOPERS
           ========================================================================= */}
       <section className="py-16 md:py-24 bg-white text-slate-900 font-sans border-b border-slate-100">
         <Container>
@@ -584,7 +587,7 @@ export const HireChatGptDevelopersService = () => {
                     <span>{item.title}</span>
                     <span className="text-slate-700 text-sm font-semibold">↗</span>
                   </h4>
-                  <p className="text-xs text-slate-600 leading-relaxed font-normal">{item.desc}</p>
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">{item.desc}</p>
                 </div>
               ))}
             </div>
@@ -596,7 +599,7 @@ export const HireChatGptDevelopersService = () => {
                   e.preventDefault();
                   document.getElementById('quote-form')?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="inline-block bg-[#006095] hover:bg-[#0083B0] text-white font-bold px-8 py-3 rounded-lg text-sm transition-all shadow-md cursor-pointer"
+                className="inline-block bg-[#006095] hover:bg-[#0083B0] text-white font-bold px-8 py-3.5 rounded-lg text-sm sm:text-base transition-all shadow-md cursor-pointer"
               >
                 View All Portfolio
               </a>
@@ -606,26 +609,27 @@ export const HireChatGptDevelopersService = () => {
       </section>
 
       {/* ============================================================
-          SECTION 8: INDUSTRY-FOCUSED INSIGHTS
+          SECTION 9: INDUSTRY-FOCUSED INSIGHTS
           ============================================================ */}
       <IndustryFocusedInsightsSection title="Industry-Focused Insights To Elevate Your Business" subtitle="Trending Industries that Use Dedicated Developers" />
 
       {/* ============================================================
-          SECTION 9: ABOUT US STATS BANNER
+          SECTION 10: ABOUT US STATS BANNER
           ============================================================ */}
       <AboutUsStats companyName="Firevy.co" />
 
       {/* ============================================================
-          SECTION 10: SECTORS THRIVING SECTION
+          SECTION 11: SECTORS THRIVING SECTION
           ============================================================ */}
-      <SectorsThrivingSection title="Sectors Thriving Through Firevy.co's Bespoke ChatGPT Developers" />
+      <SectorsThrivingSection title="Sectors Thriving Through Firevy.co's Bespoke AI Agent Developers" />
 
-      {/* ============================================================
-          SECTION 10B: EMPLOY THE ADVANCED PROFICIENCY SECTION
-          ============================================================ */}
+      {/* =========================================================================
+          SECTION 11B: EMPLOY THE ADVANCED PROFICIENCY OF FIREVY DEDICATED DEV TEAM
+          ========================================================================= */}
       <section className="py-16 md:py-24 bg-[#F0F7FC] text-slate-900 font-sans border-b border-slate-100">
         <Container>
           <div className="space-y-12 max-w-6xl mx-auto">
+            {/* Header */}
             <div className="text-center space-y-3 max-w-4xl mx-auto">
               <h2 className="text-2xl sm:text-3xl lg:text-[38px] font-[900] text-slate-900 tracking-tight leading-tight">
                 Employ the Advanced Proficiency of Firevy.co's Dedicated Development Team
@@ -635,6 +639,7 @@ export const HireChatGptDevelopersService = () => {
               </p>
             </div>
 
+            {/* 10 White Cards Grid (2 rows of 5) */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
               {[
                 { title: 'On-Time Progress Monitoring', IconComp: Clock },
@@ -643,7 +648,7 @@ export const HireChatGptDevelopersService = () => {
                 { title: 'World Class Expertise', IconComp: Award },
                 { title: 'Least Turnaround Time', IconComp: Zap },
                 { title: 'Best Management Standards', IconComp: ShieldCheck },
-                { title: '500+ Seasons Experts', IconComp: Lightbulb },
+                { title: '500+ Seasoned Experts', IconComp: Lightbulb },
                 { title: '24x7 Support Team', IconComp: Headphones },
                 { title: 'Efficient Project Management', IconComp: Handshake },
                 { title: 'Dedicated Delivery Management', IconComp: UserCheck }
@@ -669,20 +674,23 @@ export const HireChatGptDevelopersService = () => {
       </section>
 
       {/* =========================================================================
-          SECTION 11: HOW WE DIVIDE YOUR PROJECT RESPONSIBILITIES ?
+          SECTION 11C: HOW WE DIVIDE YOUR PROJECT RESPONSIBILITIES ?
           ========================================================================= */}
       <section className="py-16 md:py-24 bg-white text-slate-900 font-sans border-b border-slate-100">
         <Container>
           <div className="space-y-10 max-w-6xl mx-auto">
+            {/* Header */}
             <div className="text-center space-y-3">
               <h2 className="text-2xl sm:text-3xl lg:text-[38px] font-[900] text-slate-900 tracking-tight leading-tight">
                 How We Divide Your Project Responsibilities ?
               </h2>
             </div>
 
+            {/* Sapphire / Client Filter Capsule */}
             <div className="flex justify-center">
               <div className="bg-[#DDECF5] p-1.5 rounded-full inline-flex items-center space-x-1 border border-cyan-100/60 shadow-xs">
                 <button
+                  type="button"
                   onClick={() => setResponsibilityTab('sapphire')}
                   className={`px-6 py-2 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${
                     responsibilityTab === 'sapphire'
@@ -693,6 +701,7 @@ export const HireChatGptDevelopersService = () => {
                   Firevy.co
                 </button>
                 <button
+                  type="button"
                   onClick={() => setResponsibilityTab('client')}
                   className={`px-6 py-2 rounded-full text-xs sm:text-sm font-bold transition-all cursor-pointer ${
                     responsibilityTab === 'client'
@@ -705,6 +714,7 @@ export const HireChatGptDevelopersService = () => {
               </div>
             </div>
 
+            {/* 6 Responsibilities Cards Grid */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
               {(responsibilityTab === 'sapphire'
                 ? [
@@ -731,9 +741,9 @@ export const HireChatGptDevelopersService = () => {
                     className="bg-[#EBF4FA] rounded-2xl p-8 text-center border border-cyan-100/70 shadow-xs hover:shadow-md transition-all flex flex-col justify-center items-center space-y-4 min-h-[160px]"
                   >
                     <div className="w-12 h-12 text-[#006095] flex items-center justify-center">
-                      <CardIcon className="w-10 h-10 stroke-[1.5]" />
+                      <CardIcon className="w-8 h-8 stroke-[1.5]" />
                     </div>
-                    <h4 className="text-sm md:text-base font-bold text-slate-900 leading-snug">
+                    <h4 className="text-sm font-bold text-slate-900 leading-snug">
                       {item.title}
                     </h4>
                   </div>
@@ -750,52 +760,52 @@ export const HireChatGptDevelopersService = () => {
       <TechStackProficientGrid />
 
       {/* ============================================================
-          SECTION 13: OUR CHATGPT DEVELOPMENT EXPERTISE INCLUDES
+          SECTION 13: OUR AI AGENT DEVELOPMENT EXPERTISE INCLUDES
           ============================================================ */}
       <section className="py-16 md:py-24 bg-[#F8FAFC] text-slate-900 font-sans border-b border-slate-100">
         <Container>
           <div className="space-y-12 max-w-6xl mx-auto">
             <div className="text-center space-y-3">
               <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-[900] text-slate-950 tracking-tight leading-tight">
-                Our ChatGPT Development Expertise Includes
+                Our AI Agent Development Expertise Includes
               </h2>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {[
                 {
-                  title: 'Custom ChatGPT Model Fine-Tuning',
-                  desc: 'Tailored training using proprietary or domain-specific datasets for better accuracy and relevance.',
-                  IconComp: Code,
+                  title: 'Autonomous AI Agent Development',
+                  desc: 'Building goal-driven agents capable of multi-step reasoning, planning, and autonomous execution.',
+                  IconComp: Bot,
                   bgClass: 'bg-purple-100/80 text-purple-600'
                 },
                 {
-                  title: 'Prompt Engineering & Optimization',
-                  desc: 'Crafting, testing, and refining prompts for precise, cost-effective AI interactions.',
-                  IconComp: Bot,
+                  title: 'Multi-Agent Systems & CrewAI',
+                  desc: 'Orchestrating teams of specialized agents (LangGraph, CrewAI, AutoGen) collaborating on complex workflows.',
+                  IconComp: Users,
                   bgClass: 'bg-emerald-100/80 text-emerald-600'
                 },
                 {
-                  title: 'Model Integration via APIs',
-                  desc: 'Integrate GPT-4, GPT-4o, or OpenAI Assistant APIs into your product using scalable microservices.',
+                  title: 'Tool-Use & API Function Calling',
+                  desc: 'Equipping AI agents to execute SQL queries, send emails, query databases, and call REST APIs dynamically.',
                   IconComp: Cpu,
                   bgClass: 'bg-orange-100/80 text-orange-600'
                 },
                 {
-                  title: 'Retrieval-Augmented Generation (RAG)',
-                  desc: 'Combine ChatGPT with vector search for contextual answers and private enterprise data retrieval.',
+                  title: 'RAG & Memory Integration',
+                  desc: 'Connecting agents with vector search memory (Pinecone, Qdrant) for persistent long-term context.',
                   IconComp: Sparkles,
                   bgClass: 'bg-amber-100/80 text-amber-600'
                 },
                 {
-                  title: 'Cloud/On-prem Deployment with MLOps',
-                  desc: 'Deploy and monitor AI models with CI/CD, versioning, and latency optimization.',
+                  title: 'Cloud MLOps & Agent Evaluation',
+                  desc: 'Deploying agents with real-time logging, latency optimization, and human-in-the-loop (HITL) safety.',
                   IconComp: Layers,
                   bgClass: 'bg-rose-100/80 text-rose-600'
                 },
                 {
-                  title: 'Enterprise AI Compliance & Security',
-                  desc: 'Implement robust data governance, privacy, and usage control for your AI workflows.',
+                  title: 'Enterprise AI Guardrails & Security',
+                  desc: 'Enforcing strict prompt security, access controls, compliance, and zero data leakage.',
                   IconComp: ShieldCheck,
                   bgClass: 'bg-cyan-100/80 text-cyan-600'
                 }
@@ -842,80 +852,9 @@ export const HireChatGptDevelopersService = () => {
       <ProudAwardsBanner />
 
       {/* ============================================================
-          SECTION 14B: BENEFITS OF HIRING DEDICATED DEVELOPERS
-          ============================================================ */}
-      <section className="py-16 md:py-24 bg-white text-slate-900 font-sans border-b border-slate-100">
-        <Container>
-          <div className="space-y-12">
-            <div className="text-center max-w-4xl mx-auto space-y-3">
-              <h2 className="text-2xl sm:text-3xl lg:text-[38px] font-[900] text-slate-900 tracking-tight leading-tight">
-                Benefits of Hiring Dedicated Developers
-              </h2>
-              <p className="text-xs sm:text-sm text-slate-600 font-medium max-w-3xl mx-auto">
-                Hiring dedicated developers can help you save time and money so that you can focus more on core business activities. Benefits include:
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-              {[
-                {
-                  title: 'Cost Efficiency',
-                  desc: 'One of the most significant advantages of hiring dedicated developers is the access to a global talent pool. We provide access to global talent, frequently from low-cost locations, lowering labour costs without sacrificing quality.',
-                  IconComp: Coins
-                },
-                {
-                  title: 'Access to Specialized Skills',
-                  desc: 'Dedicated developers are experts in their fields. You can swiftly overcome talent shortages by employing dedicated developers, ensuring projects are completed on time and without errors.',
-                  IconComp: Award
-                },
-                {
-                  title: 'Scalability and Flexibility',
-                  desc: 'Dedicated developers allow team size and composition changes without full-time employment. They can swiftly adapt to project needs and market circumstances, assuring timely delivery and resource optimisation.',
-                  IconComp: Sliders
-                },
-                {
-                  title: 'Focused and Committed Effort',
-                  desc: 'Dedicated developers are more productive and committed since they only work on their tasks. This dedication generally improves code quality, turnaround times, and development process cohesion.',
-                  IconComp: ShieldCheck
-                },
-                {
-                  title: 'Reduced Time to Market',
-                  desc: 'Dedicated developers can speed up project development by using their experience and attention. Businesses can optimize operations, eliminate bottlenecks, and finish projects quickly by hiring dedicated developers.',
-                  IconComp: Zap
-                },
-                {
-                  title: 'Enhanced Innovation and Creativity',
-                  desc: 'Dedicated developers offer new ideas and insights to projects. Dedicated developers can also encourage a collaborative atmosphere where in-house and external talent merge their expertise.',
-                  IconComp: Lightbulb
-                }
-              ].map((card, idx) => {
-                const CardIcon = card.IconComp;
-                return (
-                  <div
-                    key={idx}
-                    className="bg-[#F0F7FC] rounded-2xl p-7 border border-blue-100/60 shadow-xs hover:shadow-md transition-all flex flex-col justify-between"
-                  >
-                    <div className="space-y-4">
-                      <div className="w-10 h-10 text-[#006095] flex items-center justify-center shrink-0">
-                        <CardIcon className="w-8 h-8 stroke-[1.6]" />
-                      </div>
-                      <h3 className="text-lg font-bold text-slate-900">{card.title}</h3>
-                      <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
-                        {card.desc}
-                      </p>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      {/* ============================================================
           SECTION 15: 4 STEPS TO HIRE DEVELOPERS
           ============================================================ */}
-      <HireDeveloper4Steps techName="ChatGPT Developers" />
+      <HireDeveloper4Steps techName="AI Agent Developers" />
 
       {/* ============================================================
           SECTION 16: VIDEO TESTIMONIALS & STORY (OUR STORY, THEIR WORDS)
@@ -928,49 +867,44 @@ export const HireChatGptDevelopersService = () => {
       <EngagementModelsSection isLight={true} />
 
       {/* ============================================================
-          SECTION 17: SUCCESS MATRIX GRID
+          SECTION 18: SUCCESS MATRIX GRID
           ============================================================ */}
       <SuccessMatrixGrid />
 
       {/* ============================================================
-          SECTION 18: INNOVATIVE SOLUTION VIDEO
+          SECTION 19: INNOVATIVE SOLUTION VIDEO
           ============================================================ */}
       <InnovativeSolutionVideo />
 
       {/* ============================================================
-          SECTION 19: WORK PROCESS GRID
+          SECTION 20: WORK PROCESS GRID
           ============================================================ */}
       <WorkProcessGrid />
 
       {/* ============================================================
-          SECTION 20: CLIENT REVIEWS DARK SECTION
+          SECTION 21: CLIENT REVIEWS DARK SECTION
           ============================================================ */}
       <ClientReviewsDarkSection />
 
       {/* ============================================================
-          SECTION 21: DIGITAL TRANSFORMATION CASE STUDIES
+          SECTION 22: DIGITAL TRANSFORMATION CASE STUDIES
           ============================================================ */}
       <DigitalTransformationCaseStudies />
 
       {/* ============================================================
-          SECTION 22: SAPPHIRE FAQ SECTION
+          SECTION 23: SAPPHIRE FAQ SECTION
           ============================================================ */}
-      <SapphireFaqSection faqs={faqs} />
+      <SapphireFaqSection faqs={aiAgentFaqs} initialOpenIndex={0} />
 
       {/* ============================================================
-          SECTION 23: SOCIAL MEDIA SECTION
+          SECTION 24: SOCIAL MEDIA SECTION
           ============================================================ */}
       <SocialMediaSection />
 
       {/* ============================================================
-          SECTION 24: RECENT BLOGS SECTION
+          SECTION 25: RECENT BLOGS SECTION
           ============================================================ */}
       <RecentBlogsSection />
-
-      {/* ============================================================
-          SECTION 25: WHAT SETS US APART SECTION
-          ============================================================ */}
-      <WhatSetsUsApartSection title="What Sets Us Apart As ChatGPT Development Company?" />
 
       {/* ============================================================
           SECTION 26: SUBSCRIBE NEWSLETTER SECTION
@@ -980,4 +914,4 @@ export const HireChatGptDevelopersService = () => {
   );
 };
 
-export default HireChatGptDevelopersService;
+export default HireAiAgentDevelopersService;

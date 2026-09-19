@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="65 50 390 300" width="100%" height="100%" fill="none">
+  <!-- Soft Light Blue Background Oval Halo -->
+  <ellipse cx="260" cy="200" rx="195" ry="140" fill="#EAF6FF" />
+
+  <!-- Code / Window Screen (Background Layer) -->
+  <g transform="translate(200, 90)">
+    <!-- Main Window Card -->
+    <rect x="0" y="0" width="220" height="180" rx="14" fill="#005F96" />
+    <rect x="0" y="0" width="220" height="28" rx="14" fill="#004D7A" />
+
+    <!-- Window Control Buttons -->
+    <circle cx="16" cy="14" r="4" fill="#FF5F56" />
+    <circle cx="28" cy="14" r="4" fill="#FFBD2E" />
+    <circle cx="40" cy="14" r="4" fill="#27C93F" />
+    <line x1="190" y1="10" x2="200" y2="18" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" />
+    <line x1="200" y1="10" x2="190" y2="18" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" />
+
+    <!-- Window Inner Content Lines -->
+    <rect x="14" y="42" width="120" height="8" rx="4" fill="#E2F1F8" />
+    <rect x="14" y="58" width="170" height="8" rx="4" fill="#BAE1F5" opacity="0.8" />
+    <rect x="14" y="74" width="90" height="8" rx="4" fill="#E2F1F8" />
+    
+    <rect x="14" y="98" width="150" height="6" rx="3" fill="#93CEEE" opacity="0.6" />
+    <rect x="14" y="110" width="180" height="6" rx="3" fill="#93CEEE" opacity="0.6" />
+    <rect x="14" y="122" width="110" height="6" rx="3" fill="#93CEEE" opacity="0.6" />
+    <rect x="14" y="134" width="140" height="6" rx="3" fill="#93CEEE" opacity="0.6" />
+    <rect x="14" y="146" width="80" height="6" rx="3" fill="#93CEEE" opacity="0.6" />
+  </g>
+
+  <!-- Speech Bubble (Left of Robot) -->
+  <g transform="translate(100, 110)">
+    <rect x="0" y="0" width="70" height="50" rx="14" fill="#FFFFFF" filter="drop-shadow(0px 4px 8px rgba(0,95,150,0.12))" stroke="#D3E9F7" stroke-width="1.5" />
+    <path d="M 50 50 L 62 62 L 60 50 Z" fill="#FFFFFF" stroke="#D3E9F7" stroke-width="1.5" stroke-linejoin="round" />
+    <rect x="50" y="48" width="11" height="4" fill="#FFFFFF" />
+    
+    <!-- 3 Chat Bubbles / Dots inside Speech Bubble -->
+    <circle cx="22" cy="25" r="5" fill="#005F96" />
+    <circle cx="35" cy="25" r="5" fill="#0083B0" />
+    <circle cx="48" cy="25" r="5" fill="#38BDF8" />
+  </g>
+
+  <!-- Floating Gear Icon Top Left -->
+  <g transform="translate(140, 80) scale(0.7)">
+    <circle cx="20" cy="20" r="16" fill="#005F96" opacity="0.15" />
+    <path d="M 20 10 L 20 30 M 10 20 L 30 20 M 13 13 L 27 27 M 13 27 L 27 13" stroke="#005F96" stroke-width="3" stroke-linecap="round" />
+    <circle cx="20" cy="20" r="6" fill="#EAF6FF" stroke="#005F96" stroke-width="2" />
+  </g>
+
+  <!-- Checkmark Badge Top Right -->
+  <g transform="translate(390, 130)">
+    <circle cx="18" cy="18" r="18" fill="#FFFFFF" filter="drop-shadow(0px 4px 10px rgba(0,95,150,0.15))" stroke="#005F96" stroke-width="2" />
+    <path d="M 11 18 L 16 23 L 25 13" stroke="#005F96" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  </g>
+
+  <!-- Robot Character (Foreground Right) -->
+  <g transform="translate(150, 120)">
+    <!-- Antenna -->
+    <line x1="90" y1="20" x2="90" y2="40" stroke="#005F96" stroke-width="4" stroke-linecap="round" />
+    <circle cx="90" cy="15" r="7" fill="#0083B0" stroke="#FFFFFF" stroke-width="2" />
+
+    <!-- Robot Head -->
+    <rect x="50" y="40" width="80" height="55" rx="16" fill="#005F96" stroke="#FFFFFF" stroke-width="3" />
+    
+    <!-- Face Screen -->
+    <rect x="60" y="48" width="60" height="38" rx="10" fill="#0F172A" />
+    
+    <!-- Glowing Eyes -->
+    <rect x="70" y="58" width="14" height="12" rx="4" fill="#38BDF8" />
+    <rect x="96" y="58" width="14" height="12" rx="4" fill="#38BDF8" />
+    
+    <!-- Mouth Line -->
+    <path d="M 78 78 Q 90 84 102 78" stroke="#38BDF8" stroke-width="2.5" stroke-linecap="round" fill="none" />
+
+    <!-- Neck -->
+    <rect x="80" y="95" width="20" height="10" rx="4" fill="#64748B" />
+
+    <!-- Robot Torso Body -->
+    <path d="M 55 105 L 125 105 C 135 105, 140 115, 135 160 L 130 190 C 130 200, 120 205, 110 205 L 70 205 C 60 205, 50 200, 50 190 L 45 160 C 40 115, 45 105, 55 105 Z" fill="#005F96" stroke="#FFFFFF" stroke-width="3" />
+    
+    <!-- Chest Screen & Meter -->
+    <rect x="68" y="120" width="44" height="30" rx="8" fill="#FFFFFF" opacity="0.9" />
+    <circle cx="80" cy="135" r="4" fill="#0083B0" />
+    <circle cx="90" cy="135" r="4" fill="#38BDF8" />
+    <circle cx="100" cy="135" r="4" fill="#22C55E" />
+    
+    <line x1="74" y1="144" x2="106" y2="144" stroke="#CBD5E1" stroke-width="2" stroke-linecap="round" />
+    <line x1="74" y1="144" x2="94" y2="144" stroke="#005F96" stroke-width="2" stroke-linecap="round" />
+
+    <!-- Left Arm Pointing Left -->
+    <path d="M 46 115 Q 15 140 30 170" stroke="#005F96" stroke-width="12" stroke-linecap="round" fill="none" />
+    <circle cx="28" cy="170" r="8" fill="#0083B0" stroke="#FFFFFF" stroke-width="2" />
+
+    <!-- Right Arm -->
+    <path d="M 134 115 Q 160 145 145 175" stroke="#005F96" stroke-width="12" stroke-linecap="round" fill="none" />
+    <circle cx="145" cy="175" r="8" fill="#0083B0" stroke="#FFFFFF" stroke-width="2" />
+  </g>
+</svg>

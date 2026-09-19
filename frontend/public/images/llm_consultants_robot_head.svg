@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 500" width="100%" height="100%" fill="none">
+  <defs>
+    <!-- Background Circle Gradient -->
+    <radialGradient id="bgCircle" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#E0F2FE" />
+      <stop offset="100%" stop-color="#BAE6FD" />
+    </radialGradient>
+
+    <!-- Robot Head Gradient -->
+    <linearGradient id="botGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#F1F5F9" />
+    </linearGradient>
+
+    <!-- Screen Dashboard Gradient -->
+    <linearGradient id="dashGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284C7" />
+      <stop offset="100%" stop-color="#0369A1" />
+    </linearGradient>
+
+    <filter id="cardShadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#006095" flood-opacity="0.1" />
+    </filter>
+  </defs>
+
+  <!-- Circular Light Blue Background -->
+  <circle cx="325" cy="240" r="210" fill="url(#bgCircle)" opacity="0.8" />
+  
+  <!-- Base Ground Line -->
+  <rect x="110" y="420" width="430" height="8" rx="4" fill="#006095" />
+
+  <!-- TOP RIGHT DASHBOARD WIDGET SCREEN -->
+  <g filter="url(#cardShadow)" transform="translate(390, 140)">
+    <rect x="0" y="0" width="170" height="110" rx="10" fill="url(#dashGrad)" stroke="#FFFFFF" stroke-width="2" />
+    <!-- Header bar -->
+    <rect x="0" y="0" width="170" height="24" rx="10" fill="#0369A1" />
+    <circle cx="15" cy="12" r="3.5" fill="#EF4444" />
+    <circle cx="28" cy="12" r="3.5" fill="#F59E0B" />
+    <circle cx="41" cy="12" r="3.5" fill="#10B981" />
+
+    <!-- Gear Icon in Screen -->
+    <g transform="translate(40, 65)" fill="#FFFFFF">
+      <circle cx="0" cy="0" r="14" />
+      <circle cx="0" cy="0" r="6" fill="#0284C7" />
+    </g>
+
+    <!-- Bar Chart Graphic inside Screen -->
+    <g transform="translate(85, 45)" fill="#FFFFFF">
+      <rect x="0" y="25" width="8" height="20" rx="2" opacity="0.7" />
+      <rect x="14" y="15" width="8" height="30" rx="2" opacity="0.9" />
+      <rect x="28" y="5" width="8" height="40" rx="2" fill="#38BDF8" />
+      <rect x="42" y="18" width="8" height="27" rx="2" opacity="0.8" />
+      <rect x="56" y="2" width="8" height="43" rx="2" fill="#38BDF8" />
+    </g>
+  </g>
+
+  <!-- CENTER LARGE ROBOT HEAD -->
+  <g transform="translate(230, 160)" filter="url(#cardShadow)">
+    <!-- Neck / Stand Base -->
+    <rect x="75" y="220" width="40" height="50" fill="#006095" rx="4" />
+
+    <!-- Robot Ear Antennas -->
+    <circle cx="10" cy="110" r="12" fill="#006095" />
+    <line x1="10" y1="110" x2="30" y2="110" stroke="#006095" stroke-width="6" />
+
+    <!-- Antenna Top Stick -->
+    <line x1="30" y1="50" x2="0" y2="10" stroke="#006095" stroke-width="5" stroke-linecap="round" />
+    <circle cx="0" cy="10" r="7" fill="#38BDF8" />
+
+    <!-- Main Robot Head (Large White Curved Dome) -->
+    <path d="M 30 110 C 30 40 160 40 160 110 L 160 210 C 160 235 135 245 95 245 C 55 245 30 235 30 210 Z" fill="url(#botGrad)" stroke="#006095" stroke-width="5" />
+
+    <!-- Giant Circular Visor/Eye Display -->
+    <circle cx="95" cy="130" r="42" fill="#006095" stroke="#0284C7" stroke-width="4" />
+    <circle cx="95" cy="130" r="32" fill="#0369A1" />
+    <!-- Pupil concentric ring -->
+    <circle cx="95" cy="130" r="20" fill="none" stroke="#38BDF8" stroke-width="3" stroke-dasharray="8 4" />
+    <circle cx="95" cy="130" r="8" fill="#38BDF8" />
+
+    <!-- Robot Mouth Lines -->
+    <path d="M 65 195 Q 95 210 125 195" stroke="#006095" stroke-width="4" fill="none" stroke-linecap="round" />
+  </g>
+
+  <!-- PERSON 1: SITTING ON TOP OF ROBOT HEAD WITH LAPTOP -->
+  <g transform="translate(295, 125)">
+    <!-- Legs (Crossed) -->
+    <path d="M0 45 L15 55 L35 55 L45 45" stroke="#1E293B" stroke-width="8" stroke-linecap="round" fill="none" />
+    <!-- Body (Blue Shirt) -->
+    <rect x="12" y="15" width="22" height="30" rx="6" fill="#0284C7" />
+    <!-- Head -->
+    <circle cx="23" cy="4" r="10" fill="#FDBA74" />
+    <!-- Hair -->
+    <path d="M13 2 C13 -6 33 -6 33 2 Z" fill="#1E293B" />
+    <!-- Laptop on Lap -->
+    <rect x="8" y="32" width="30" height="18" rx="2" fill="#1E293B" />
+    <polygon points="4,48 42,48 38,52 8,52" fill="#94A3B8" />
+  </g>
+
+  <!-- PERSON 2: MAN STANDING ON LEFT WITH TABLET/LAPTOP -->
+  <g transform="translate(180, 275)">
+    <!-- Legs -->
+    <rect x="12" y="70" width="10" height="75" rx="4" fill="#D97706" />
+    <rect x="28" y="70" width="10" height="75" rx="4" fill="#D97706" />
+    <!-- Torso (White Shirt) -->
+    <path d="M8 22 L42 22 L38 70 L12 70 Z" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="2" />
+    <!-- Head -->
+    <circle cx="25" cy="8" r="11" fill="#FED7AA" />
+    <!-- Hair -->
+    <path d="M14 6 C14 -2 36 -2 36 6 Z" fill="#475569" />
+    <!-- Arm holding laptop -->
+    <path d="M12 25 L-5 45 L15 45" stroke="#FED7AA" stroke-width="6" stroke-linecap="round" fill="none" />
+    <rect x="-10" y="35" width="28" height="16" rx="2" fill="#1E293B" />
+  </g>
+
+  <!-- PERSON 3: WOMAN STANDING ON RIGHT IN SUIT -->
+  <g transform="translate(435, 275)">
+    <!-- Legs -->
+    <rect x="14" y="75" width="9" height="70" rx="4" fill="#1E293B" />
+    <rect x="27" y="75" width="9" height="70" rx="4" fill="#1E293B" />
+    <!-- Teal Blazer / Suit -->
+    <path d="M8 20 L42 20 L45 75 L5 75 Z" fill="#0284C7" />
+    <!-- Inner White Top -->
+    <polygon points="20,20 30,20 25,38" fill="#FFFFFF" />
+    <!-- Head -->
+    <circle cx="25" cy="7" r="11" fill="#FDBA74" />
+    <!-- Hair (Long dark) -->
+    <path d="M12 7 C12 -4 38 -4 38 7 C38 18 36 30 36 30 L14 30 Z" fill="#0F172A" />
+  </g>
+
+  <!-- FLOATING DECORATIONS (Checkmark badge on left) -->
+  <g transform="translate(195, 230)" filter="url(#cardShadow)">
+    <circle cx="16" cy="16" r="18" fill="#0284C7" />
+    <path d="M10 16 L14 20 L22 11" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+  </g>
+
+  <g opacity="0.5">
+    <text x="220" y="100" font-family="sans-serif" font-size="28" font-weight="bold" fill="#38BDF8">+</text>
+    <text x="240" y="80" font-family="sans-serif" font-size="20" font-weight="bold" fill="#38BDF8">+</text>
+  </g>
+</svg>

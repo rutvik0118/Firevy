@@ -258,44 +258,44 @@ export const SuccessStories = ({ subtitle }) => {
           </p>
         </div>
 
-        {/* Large Rounded Category Navigation Box (2 Rows) with fully functional active state switching */}
-        <div className="bg-[#F0F8FD] rounded-[16px] p-3.5 sm:p-4 max-w-[1180px] mx-auto mb-10 sm:mb-12 border border-[#E2F1F8] flex flex-col gap-2.5 shadow-xs">
-          {/* Row 1 */}
-          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5">
-            {categoriesRow1.map((cat) => (
-              <button
-                key={cat}
-                type="button"
-                onClick={() => setActiveCategory(cat)}
-                style={{ fontSize: '16px', fontWeight: activeCategory === cat ? 700 : 400, lineHeight: '24px' }}
-                className={`px-4 sm:px-4.5 py-2 rounded-[8px] whitespace-nowrap transition-all cursor-pointer ${
-                  activeCategory === cat
-                    ? 'bg-[#005F96] text-white shadow-xs'
-                    : 'bg-white text-[#334155] hover:text-[#005F96] hover:bg-slate-50 border border-slate-100/80 shadow-2xs'
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
+        {/* Large Rounded Category Navigation Box (2 Rows) matching Sapphire reference design */}
+        <div className="flex justify-center max-w-full mx-auto mb-10 sm:mb-12 px-2">
+          <div className="bg-[#F0F8FD] rounded-[18px] sm:rounded-2xl p-3 sm:p-4 w-fit max-w-full border border-[#E2F1F8] flex flex-col gap-2.5 items-center justify-center shadow-xs">
+            {/* Row 1 */}
+            <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5">
+              {categoriesRow1.map((cat) => (
+                <button
+                  key={cat}
+                  type="button"
+                  onClick={() => setActiveCategory(cat)}
+                  className={`px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-xl text-xs sm:text-[13.5px] font-semibold whitespace-nowrap transition-all cursor-pointer ${
+                    activeCategory === cat
+                      ? 'bg-[#005F96] text-white shadow-xs'
+                      : 'bg-white text-[#334155] hover:text-[#005F96] hover:bg-slate-50 border border-slate-200/80 shadow-2xs'
+                  }`}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
 
-          {/* Row 2 */}
-          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5">
-            {categoriesRow2.map((cat) => (
-              <button
-                key={cat}
-                type="button"
-                onClick={() => setActiveCategory(cat)}
-                style={{ fontSize: '16px', fontWeight: activeCategory === cat ? 700 : 400, lineHeight: '24px' }}
-                className={`px-5 sm:px-6 py-2 rounded-[8px] whitespace-nowrap transition-all cursor-pointer ${
-                  activeCategory === cat
-                    ? 'bg-[#005F96] text-white shadow-xs'
-                    : 'bg-white text-[#334155] hover:text-[#005F96] hover:bg-slate-50 border border-slate-100/80 shadow-2xs'
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
+            {/* Row 2 */}
+            <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5">
+              {categoriesRow2.map((cat) => (
+                <button
+                  key={cat}
+                  type="button"
+                  onClick={() => setActiveCategory(cat)}
+                  className={`px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-xl text-xs sm:text-[13.5px] font-semibold whitespace-nowrap transition-all cursor-pointer ${
+                    activeCategory === cat
+                      ? 'bg-[#005F96] text-white shadow-xs'
+                      : 'bg-white text-[#334155] hover:text-[#005F96] hover:bg-slate-50 border border-slate-200/80 shadow-2xs'
+                  }`}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
 
