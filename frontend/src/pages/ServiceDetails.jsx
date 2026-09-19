@@ -90,6 +90,8 @@ import DataAnnotationService from '../components/services/DataAnnotationService'
 import PatientManagementService from '../components/services/PatientManagementService';
 import DigitalTwinSolutionsService from '../components/services/DigitalTwinSolutionsService';
 import ArtistCollaborationPlatformService from '../components/services/ArtistCollaborationPlatformService';
+import PrototypeDevelopmentService from '../components/services/PrototypeDevelopmentService';
+import CloudDevelopmentService from '../components/services/CloudDevelopmentService';
 import HireKotlinDevelopersService from '../components/services/HireKotlinDevelopersService';
 import HireTechDevelopersService from '../components/services/HireTechDevelopersService';
 import HireMetaverseDevelopersService from '../components/services/HireMetaverseDevelopersService';
@@ -279,6 +281,24 @@ export const ServiceDetails = () => {
     currentSlug === 'services/artist-collaboration-platform-development' ||
     currentSlug === 'services/artist-collaboration-platform' ||
     currentSlug.includes('artist-collaboration');
+
+  const isPrototypeDevelopment = currentSlug === 'prototype-development-services' ||
+    currentSlug === 'prototype-development-service' ||
+    currentSlug === 'prototype-development' ||
+    currentSlug.includes('prototype-development') ||
+    currentSlug === 'services/prototype-development-services' ||
+    currentSlug === 'services/prototype-development-service' ||
+    currentSlug === 'services/prototype-development';
+
+  const isCloudDevelopment = currentSlug === 'cloud-development' ||
+    currentSlug === 'cloud-application-development' ||
+    currentSlug === 'cloud-app-development' ||
+    currentSlug === 'cloud-development-services' ||
+    currentSlug === 'cloud-development-service' ||
+    currentSlug.includes('cloud-application') ||
+    currentSlug === 'services/cloud-development' ||
+    currentSlug === 'services/cloud-application-development' ||
+    currentSlug === 'services/cloud-app-development';
 
   const isMobileApp = !isHireMobile && !isMobileAppPorting && (
     currentSlug === 'mobile-app-development' ||
@@ -619,7 +639,7 @@ export const ServiceDetails = () => {
   const isChatGpt = currentSlug.includes('chatgpt') || currentSlug.includes('chat-gpt') || currentSlug.includes('hire-chatgpt');
 
   useEffect(() => {
-    if (!isNintex && !isTestingQa && !isDigitalMarketing && !isUiUxDesign && !isChatGpt && !isSoftwareDevelopers && !isDedicatedDevelopers && !isMetaverse && !isEmbeddedSoftware && !isAlexaSkills && !isDataScientist && !isAnyDedicatedHire && !isKotlin && !isHybrid && !isPersonalFitness && !isUsedCar && !isEnneagram && !isCreditCard && !isIPad && !isCrossPlatform && !isItConsulting && !isNext && !isExpress && !isMobileApp && !isBootstrap && !isCodeIgniter && !isEmber && !isLaravel && !isPowerAutomate && !isPowerApps && !isSharePoint && !isVue && !isReact && !isAngular && !isIot && !isPwa && !isRpa && !isVR && !isFullStack && !isBlockchain && !isArtificialIntelligence && !isGenerativeAi && !isNodeJs && !isJava && !isPhp && !isNet && !isXamarin && !isAndroid && !isReactNative && !isFlutter && !isIOS && !isHealthcare && !isEducation && !isUber && !isSpotify && !isZomato && !isAmazon && !isVisitor && !isWarehouse && !isClover && !isCSharp && !isIWatch && !isWordpress && !isDrupal && !isUmbraco && !isSitecore && !isSitefinity && !isMagento && !isShopify && !isCovid && !isEcommerceApp && !isProductFinderApp && !isDataCleansing && !isDataAnnotation && !isPatientManagement && !isDigitalTwin && !isArtistCollaboration) {
+    if (!isNintex && !isTestingQa && !isDigitalMarketing && !isUiUxDesign && !isChatGpt && !isSoftwareDevelopers && !isDedicatedDevelopers && !isMetaverse && !isEmbeddedSoftware && !isAlexaSkills && !isDataScientist && !isAnyDedicatedHire && !isKotlin && !isHybrid && !isPersonalFitness && !isUsedCar && !isEnneagram && !isCreditCard && !isIPad && !isCrossPlatform && !isItConsulting && !isNext && !isExpress && !isMobileApp && !isBootstrap && !isCodeIgniter && !isEmber && !isLaravel && !isPowerAutomate && !isPowerApps && !isSharePoint && !isVue && !isReact && !isAngular && !isIot && !isPwa && !isRpa && !isVR && !isFullStack && !isBlockchain && !isArtificialIntelligence && !isGenerativeAi && !isNodeJs && !isJava && !isPhp && !isNet && !isXamarin && !isAndroid && !isReactNative && !isFlutter && !isIOS && !isHealthcare && !isEducation && !isUber && !isSpotify && !isZomato && !isAmazon && !isVisitor && !isWarehouse && !isClover && !isCSharp && !isIWatch && !isWordpress && !isDrupal && !isUmbraco && !isSitecore && !isSitefinity && !isMagento && !isShopify && !isCovid && !isEcommerceApp && !isProductFinderApp && !isDataCleansing && !isDataAnnotation && !isPatientManagement && !isDigitalTwin && !isArtistCollaboration && !isPrototypeDevelopment && !isCloudDevelopment) {
       fetchServiceDetails();
     } else {
       setLoading(false);
@@ -857,6 +877,14 @@ export const ServiceDetails = () => {
 
   if (isArtistCollaboration) {
     return <ArtistCollaborationPlatformService />;
+  }
+
+  if (isPrototypeDevelopment) {
+    return <PrototypeDevelopmentService />;
+  }
+
+  if (isCloudDevelopment) {
+    return <CloudDevelopmentService />;
   }
 
   if (isPowerAutomate) {

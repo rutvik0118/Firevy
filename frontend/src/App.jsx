@@ -217,6 +217,20 @@ export function App() {
                 <Route path="/artist-collaboration-platform-development" element={<ServiceDetails />} />
                 <Route path="/services/artist-collaboration-platform" element={<ServiceDetails />} />
                 <Route path="/artist-collaboration-platform" element={<ServiceDetails />} />
+                <Route path="/services/prototype-development-services" element={<ServiceDetails />} />
+                <Route path="/prototype-development-services" element={<ServiceDetails />} />
+                <Route path="/services/prototype-development-service" element={<ServiceDetails />} />
+                <Route path="/prototype-development-service" element={<ServiceDetails />} />
+                <Route path="/services/prototype-development" element={<ServiceDetails />} />
+                <Route path="/prototype-development" element={<ServiceDetails />} />
+                <Route path="/services/cloud-development" element={<ServiceDetails />} />
+                <Route path="/cloud-development" element={<ServiceDetails />} />
+                <Route path="/services/cloud-application-development" element={<ServiceDetails />} />
+                <Route path="/cloud-application-development" element={<ServiceDetails />} />
+                <Route path="/services/cloud-app-development" element={<ServiceDetails />} />
+                <Route path="/cloud-app-development" element={<ServiceDetails />} />
+                <Route path="/services/cloud-development-services" element={<ServiceDetails />} />
+                <Route path="/cloud-development-services" element={<ServiceDetails />} />
                 <Route path="/services/tech-consulting-services" element={<ServiceDetails />} />
                 <Route path="/services/hire-bootstrap-developers" element={<ServiceDetails />} />
                 <Route path="/services/hire-bootstrap-developer" element={<ServiceDetails />} />

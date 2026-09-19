@@ -85,6 +85,48 @@ export const initialServices = [
     isActive: true
   },
   {
+    title: "Prototype Development Services",
+    slug: "prototype-development-services",
+    shortDescription: "Interactive, clickable, and rapid prototype development to validate concepts before full-scale manufacturing.",
+    description: "Transform innovative concepts into testable, market-ready prototypes using High-Velocity Agile development, clickable wireframes, and enterprise architecture.",
+    icon: "Layers",
+    image: "/images/prototype_hero_illustration.jpg",
+    technologies: ["Figma", "React", "Node.js", "Wireframing", "Clickable Mockups", "Agile Sprints"],
+    features: ["Prototype App Development", "Interactive Prototyping", "Rapid Agile Prototyping", "Extreme & Incremental Prototyping"],
+    benefits: ["Substantially reduced financial risk", "Clear stakeholder communication", "High-velocity market entry"],
+    process: [
+      { step: 1, title: "Requirement Gathering", description: "Clear documentation and stakeholder alignment." },
+      { step: 2, title: "Wireframes & Mockups", description: "Interactive and visual product UI flows." },
+      { step: 3, title: "Prototype Demo", description: "Clickable testable prototype demonstration." },
+      { step: 4, title: "Refinement & Confirmation", description: "Iterate with user feedback and freeze production scope." }
+    ],
+    faq: [
+      { question: "Can Sapphire develop clickable prototypes for mobile and web apps?", answer: "Yes, we create interactive prototypes for iOS, Android, and web platforms to demonstrate functionality and user journeys." }
+    ],
+    isActive: true
+  },
+  {
+    title: "Cloud Development",
+    slug: "cloud-development",
+    shortDescription: "Scalable, secure, and resilient cloud application development and multi-cloud migration.",
+    description: "Enterprise cloud application development, cloud-native architecture, microservices, AWS, Azure, Google Cloud, and 24/7 cloud infrastructure management.",
+    icon: "Cloud",
+    image: "/images/cloud_hero_illustration.jpg",
+    technologies: ["AWS", "Microsoft Azure", "Google Cloud", "Kubernetes", "Docker", "Microservices", "Terraform", "CI/CD"],
+    features: ["Cloud App Development", "Cloud-Native Development", "Cloud Consulting Services", "Cloud Migration & Integration", "24/7 Cloud Monitoring"],
+    benefits: ["99.99% infrastructure availability", "Substantial cloud operational cost reduction", "Rapid disaster recovery"],
+    process: [
+      { step: 1, title: "Cloud Architecture Audit", description: "Assess existing systems, security compliance, and workload suitability." },
+      { step: 2, title: "Cloud-Native Strategy", description: "Architect containerized microservices and serverless workflows." },
+      { step: 3, title: "Workload Migration", description: "Zero-downtime migration and database synchronization." },
+      { step: 4, title: "Continuous Monitoring & SLAs", description: "24/7 observability, automated scaling, and cost governance." }
+    ],
+    faq: [
+      { question: "Why choose Sapphire Solutions as your cloud application development partner?", answer: "Sapphire Software Solutions offers 23+ years' experience with 1,500+ projects across 30+ countries, of expertise in building scalable, secure, and high-performance cloud applications using AWS, Azure, and Google Cloud." }
+    ],
+    isActive: true
+  },
+  {
     title: "AI & Machine Learning",
     slug: "ai-machine-learning",
     shortDescription: "Intelligent AI integrations, custom LLM solutions, and predictive analytics engines.",

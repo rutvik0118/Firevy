@@ -1308,6 +1308,48 @@ export const PAGE_HIERARCHY_REGISTRY = {
         ]
       },
       {
+        key: 'prototype-development-services',
+        title: 'Prototype Development Services',
+        category: 'Other Services',
+        description: 'End-to-end prototype development, interactive prototyping, rapid prototyping, wireframes, and scalable proof-of-concept solutions.',
+        icon: Layers,
+        slug: 'prototype-development-services',
+        publicRoute: '/services/prototype-development-services',
+        sections: [
+          { key: 'hero', title: 'Hero Banner', category: 'Hero', description: 'Prototype development headline, market validation intro, and consultation CTA.', type: 'hero' },
+          { key: 'offeringOverview', title: 'Prototype Software Development Offering', category: 'Overview', description: 'Interactive software prototyping, pre-built components, and scalable architecture.', type: 'cards' },
+          { key: 'briefOverview', title: 'Agile Prototyping Methodology', category: 'Overview', description: 'High-velocity delivery methodology, Agile sprints, and startup prototyping squads.', type: 'cards' },
+          { key: 'customizableExperts', title: '100% Customizable Prototyping', category: 'Highlight', description: 'Reliable and user-friendly prototyping solutions tailored to unique inventor needs.', type: 'cards' },
+          { key: 'expertiseCards', title: 'Prototyping Practice Domains', category: 'Cards Grid', description: 'Prototype App Development, Interactive Prototyping, Rapid, Product, Incremental, Extreme Prototyping.', type: 'cards' },
+          { key: 'benefits', title: 'Business Prototyping Benefits', category: 'Cards Grid', description: 'Risk reduction, better communication, user feedback, fast market entry, cost-effectiveness, innovation.', type: 'cards' },
+          { key: 'hiringModels', title: 'Agile Engagement Models', category: 'Cards Grid', description: 'Fixed Price, Time & Material, Dedicated Team, Buckets Approach.', type: 'cards' },
+          { key: 'techStack', title: 'Technology Stack', category: 'Tech Grid', description: 'Backend, Frontend, Databases, DevOps, Testing, and Project Management tools.', type: 'cards' },
+          { key: 'faqs', title: 'Frequently Asked Questions', category: 'Accordion', description: '10 comprehensive FAQs on prototyping costs, validation, functional docs, and deliverables.', type: 'faq' },
+          { key: 'ctaForm', title: 'Prototyping Consultation Form', category: 'Form', description: 'Interactive product scoping and prototype consultation booking form.', type: 'form' }
+        ]
+      },
+      {
+        key: 'cloud-development',
+        title: 'Cloud Development',
+        category: 'Cloud & DevOps',
+        description: 'Enterprise cloud application development, cloud-native architecture, multi-cloud migration, AWS, Azure, GCP, and 24/7 cloud monitoring.',
+        icon: Cloud,
+        slug: 'cloud-development',
+        publicRoute: '/services/cloud-development',
+        sections: [
+          { key: 'hero', title: 'Hero Banner', category: 'Hero', description: 'Cloud application development headline, stats counter, and consultation CTA.', type: 'hero' },
+          { key: 'topServices', title: 'Top Cloud App Development Services', category: 'Overview', description: 'AWS, Azure, and GCP scalability and workload migration services.', type: 'cards' },
+          { key: 'longTermValue', title: 'Cloud Solutions for Long-Term Value', category: 'Overview', description: 'Browser-agnostic, future-proof, and highly scalable cloud applications.', type: 'cards' },
+          { key: 'customizableExperts', title: '100% Customizable Cloud Development', category: 'Highlight', description: 'Scalable, high-performance & secure cloud architecture.', type: 'cards' },
+          { key: 'expertiseCards', title: 'Cloud Computing Practice Domains', category: 'Cards Grid', description: 'Cloud App Dev, Cloud-Native, Consulting, Migration, Integration, Monitoring.', type: 'cards' },
+          { key: 'benefits', title: 'Benefits of Cloud-Based Solutions', category: 'Cards Grid', description: 'Increased efficiency, high flexibility, cost reduction, disaster recovery, high availability.', type: 'cards' },
+          { key: 'hiringModels', title: 'Agile Engagement Models', category: 'Cards Grid', description: 'Fixed Price, Time & Material, Dedicated Team, Buckets Approach.', type: 'cards' },
+          { key: 'techStack', title: 'Technology Stack', category: 'Tech Grid', description: 'AWS, Azure, GCP, Docker, Kubernetes, microservices, databases, and CI/CD tools.', type: 'cards' },
+          { key: 'faqs', title: 'Frequently Asked Questions', category: 'Accordion', description: '8 comprehensive FAQs on cloud application development, languages, security, and migration.', type: 'faq' },
+          { key: 'ctaForm', title: 'Cloud Strategy Consultation Form', category: 'Form', description: 'Interactive cloud consultation booking form.', type: 'form' }
+        ]
+      },
+      {
         key: 'it-consulting-services',
         title: 'IT Consulting Services',
         category: 'Tech Consulting Services',
