@@ -116,10 +116,10 @@ export const Footer = () => {
         { name: 'Covid Tracker App', path: '/services/covid-tracker-app-development' },
         { name: 'E-Commerce App', path: '/services/ecommerce-mobile-app-development' },
         { name: 'Product Finder App', path: '/services/product-finder-app-development' },
-        { name: 'Eyelash Booking App', path: '/portfolio' },
-        { name: 'Language Learning App', path: '/portfolio' },
-        { name: 'Barber Shop Booking App', path: '/portfolio' },
-        { name: 'On Demand App Development', path: '/portfolio' }
+        { name: 'Eyelash Booking App', path: '/services/eyelash-appointment-booking-app' },
+        { name: 'Language Learning App', path: '/services/language-learning-app' },
+        { name: 'Barber Shop Booking App', path: '/services/barber-app-development' },
+        { name: 'On Demand App Development', path: '/services/on-demand-app-development' }
       ]
     }
   };

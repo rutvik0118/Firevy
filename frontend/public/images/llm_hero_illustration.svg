@@ -1,0 +1,152 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 550" width="100%" height="100%" fill="none">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="monitorGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#F0F7FC" />
+    </linearGradient>
+    <linearGradient id="screenHeader" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#006095" />
+      <stop offset="100%" stop-color="#0083B0" />
+    </linearGradient>
+    <linearGradient id="robotBody" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#E2F1F8" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#006095" flood-opacity="0.12" />
+    </filter>
+  </defs>
+
+  <!-- Background Decorative Dots & Clouds -->
+  <g opacity="0.4">
+    <path d="M 120 180 Q 140 160 170 170 Q 200 150 230 170 Q 250 180 230 200 Z" fill="#D0E8F5" />
+    <path d="M 580 150 Q 600 130 630 140 Q 660 120 690 140 Q 710 150 690 170 Z" fill="#D0E8F5" />
+    <!-- Floating Code Tags -->
+    <text x="430" y="90" font-family="monospace" font-size="18" font-weight="bold" fill="#B0D5EC">&lt;/&gt;</text>
+    <text x="650" y="100" font-family="monospace" font-size="18" font-weight="bold" fill="#B0D5EC">&lt;/&gt;</text>
+  </g>
+
+  <!-- TOP GEARS (Left & Right) -->
+  <!-- Gear Left 1 (Blue) -->
+  <g transform="translate(450, 160)" fill="#0083B0">
+    <path d="M0 -22 L4 -22 L6 -16 L12 -14 L17 -18 L21 -15 L18 -9 L21 -4 L27 -2 L27 3 L21 5 L19 11 L23 16 L19 20 L13 17 L8 20 L6 26 L1 26 L-2 20 L-8 19 L-12 23 L-16 19 L-13 14 L-17 9 L-23 7 L-23 2 L-17 -1 L-16 -7 L-20 -11 L-16 -16 L-10 -13 L-5 -16 Z" />
+    <circle cx="0" cy="0" r="9" fill="#FFFFFF" />
+  </g>
+  <!-- Gear Left 2 (Small Teal) -->
+  <g transform="translate(490, 190)" fill="#00B4D8">
+    <circle cx="0" cy="0" r="14" />
+    <circle cx="0" cy="0" r="6" fill="#FFFFFF" />
+  </g>
+  <!-- Gear Right (Cyan) -->
+  <g transform="translate(640, 240)" fill="#0083B0">
+    <circle cx="0" cy="0" r="16" />
+    <circle cx="0" cy="0" r="7" fill="#FFFFFF" />
+  </g>
+
+  <!-- MAIN DESKTOP MONITOR BASE & STAND -->
+  <g filter="url(#shadow)">
+    <!-- Stand Neck -->
+    <rect x="375" y="370" width="50" height="50" fill="#4B6375" rx="4" />
+    <!-- Stand Base -->
+    <ellipse cx="400" cy="420" rx="90" ry="14" fill="#334E68" />
+
+    <!-- Outer Monitor Bezel (Dark Slate Navy) -->
+    <rect x="220" y="160" width="360" height="220" rx="16" fill="#1E293B" />
+
+    <!-- Monitor Display Screen -->
+    <rect x="232" y="172" width="336" height="196" rx="8" fill="url(#monitorGradient)" stroke="#E2E8F0" stroke-width="2" />
+
+    <!-- BOLD "AI" TEXT ON MONITOR SCREEN -->
+    <text x="270" y="300" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="110" fill="#006095" letter-spacing="-2">AI</text>
+
+    <!-- AI ROBOT CHARACTER ON MONITOR -->
+    <g transform="translate(410, 195)">
+      <!-- Robot Arms -->
+      <path d="M-15 45 Q-30 35 -35 20" stroke="#006095" stroke-width="6" stroke-linecap="round" fill="none" />
+      <path d="M45 45 Q60 35 65 20" stroke="#006095" stroke-width="6" stroke-linecap="round" fill="none" />
+      <circle cx="-35" cy="20" r="6" fill="#006095" />
+      <circle cx="65" cy="20" r="6" fill="#006095" />
+
+      <!-- Robot Body -->
+      <rect x="0" y="30" width="30" height="40" rx="10" fill="url(#robotBody)" stroke="#006095" stroke-width="3" />
+      <!-- Robot Screen Chest -->
+      <rect x="6" y="38" width="18" height="14" rx="4" fill="#006095" />
+      <circle cx="15" cy="45" r="3" fill="#38BDF8" />
+
+      <!-- Robot Head -->
+      <rect x="-3" y="2" width="36" height="26" rx="9" fill="url(#robotBody)" stroke="#006095" stroke-width="3" />
+      <!-- Ears/Antenna -->
+      <circle cx="15" cy="-4" r="4" fill="#0083B0" />
+      <line x1="15" y1="2" x2="15" y2="-4" stroke="#006095" stroke-width="3" />
+
+      <!-- Robot Eyes visor -->
+      <rect x="3" y="8" width="24" height="10" rx="5" fill="#006095" />
+      <circle cx="9" cy="13" r="2.5" fill="#38BDF8" />
+      <circle cx="21" cy="13" r="2.5" fill="#38BDF8" />
+
+      <!-- Robot Smile -->
+      <path d="M10 21 Q15 24 20 21" stroke="#006095" stroke-width="2" fill="none" stroke-linecap="round" />
+
+      <!-- Chair Base under Robot -->
+      <path d="M-5 75 L35 75 L25 90 L5 90 Z" fill="#006095" />
+      <line x1="15" y1="70" x2="15" y2="95" stroke="#334E68" stroke-width="4" />
+      <line x1="0" y1="95" x2="30" y2="95" stroke="#334E68" stroke-width="4" stroke-linecap="round" />
+    </g>
+  </g>
+
+  <!-- LEFT CARD: Analytics Circle Chart Widget -->
+  <g transform="translate(140, 285)" filter="url(#shadow)">
+    <rect x="0" y="0" width="110" height="75" rx="12" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2" />
+    <!-- Donut Chart -->
+    <circle cx="38" cy="38" r="22" fill="none" stroke="#E2E8F0" stroke-width="8" />
+    <circle cx="38" cy="38" r="22" fill="none" stroke="#0083B0" stroke-width="8" stroke-dasharray="100 138" stroke-dashoffset="25" />
+    <!-- Legend Lines -->
+    <line x1="70" y1="28" x2="95" y2="28" stroke="#0083B0" stroke-width="4" stroke-linecap="round" />
+    <line x1="70" y1="42" x2="90" y2="42" stroke="#94A3B8" stroke-width="3" stroke-linecap="round" />
+  </g>
+
+  <!-- RIGHT CARD: Dashboard Settings Widget -->
+  <g transform="translate(565, 255)" filter="url(#shadow)">
+    <rect x="0" y="0" width="105" height="70" rx="12" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="2" />
+    <rect x="12" y="14" width="28" height="28" rx="6" fill="#F0F7FC" />
+    <!-- Gear inside Widget -->
+    <circle cx="26" cy="28" r="7" fill="#006095" />
+    <!-- Lines -->
+    <line x1="48" y1="22" x2="90" y2="22" stroke="#006095" stroke-width="4" stroke-linecap="round" />
+    <line x1="48" y1="36" x2="80" y2="36" stroke="#94A3B8" stroke-width="3" stroke-linecap="round" />
+  </g>
+
+  <!-- PEOPLE CHARACTERS -->
+  <!-- 1. Person on Left (Developer on Laptop) -->
+  <g transform="translate(170, 320)">
+    <!-- Body -->
+    <path d="M20 70 C20 45 60 45 60 70 Z" fill="#006095" />
+    <!-- Legs/Pants (Sitting) -->
+    <rect x="15" y="70" width="50" height="25" rx="6" fill="#0284C7" />
+    <!-- Head -->
+    <circle cx="40" cy="30" r="14" fill="#FDBA74" />
+    <!-- Hair -->
+    <path d="M26 26 C26 15 54 15 54 26 Z" fill="#334E68" />
+    <!-- Orange Laptop on Lap -->
+    <polygon points="10,62 70,62 65,70 15,70" fill="#F97316" />
+    <rect x="20" y="42" width="40" height="20" rx="3" fill="#FFFFFF" stroke="#F97316" stroke-width="2" />
+  </g>
+
+  <!-- 2. Person on Right (Woman standing pointing) -->
+  <g transform="translate(540, 275)">
+    <!-- Legs -->
+    <rect x="18" y="75" width="10" height="60" fill="#F97316" rx="4" />
+    <rect x="32" y="75" width="10" height="60" fill="#F97316" rx="4" />
+    <!-- Skirt -->
+    <path d="M12 60 L48 60 L42 80 L18 80 Z" fill="#F97316" />
+    <!-- Torso (Pink/Purple) -->
+    <path d="M15 25 L45 25 L48 60 L12 60 Z" fill="#E11D48" />
+    <!-- Head -->
+    <circle cx="30" cy="12" r="13" fill="#FED7AA" />
+    <!-- Hair -->
+    <path d="M17 12 C17 -2 43 -2 43 12 C43 20 40 25 40 25 L20 25 Z" fill="#475569" />
+    <!-- Raised Arm pointing to Monitor -->
+    <path d="M16 30 L-10 10" stroke="#FED7AA" stroke-width="6" stroke-linecap="round" fill="none" />
+  </g>
+</svg>

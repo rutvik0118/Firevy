@@ -333,10 +333,12 @@ export const SapphireFaqSection = ({
   customFaqs,
   items,
   title = "Frequently Asked Questions",
-  subtitle = "We listen to query and provide solutions that captivate users. Feel free to contact us in case of any query which is not mention below."
+  subtitle = "We listen to query and provide solutions that captivate users. Feel free to contact us in case of any query which is not mention below.",
+  initialOpenIndex = 0,
+  showPlusIcon = false
 }) => {
   const activeFaqs = customFaqs || faqList || faqs || items || kotlinFaqList;
-  const [openIndex, setOpenIndex] = useState(null);
+  const [openIndex, setOpenIndex] = useState(initialOpenIndex);
 
   const toggleFaq = (index) => {
     setOpenIndex((prev) => (prev === index ? null : index));
@@ -463,13 +465,15 @@ export const SapphireFaqSection = ({
                       >
                         {questionText}
                       </h3>
-                      <span
-                        className={`shrink-0 text-[18px] sm:text-[20px] font-bold leading-none transition-transform duration-200 ${
-                          isOpen ? 'text-[#005F96] rotate-45' : 'text-slate-400 group-hover:text-[#005F96]'
-                        }`}
-                      >
-                        +
-                      </span>
+                      {showPlusIcon && (
+                        <span
+                          className={`shrink-0 text-[18px] sm:text-[20px] font-bold leading-none transition-transform duration-200 ${
+                            isOpen ? 'text-[#005F96] rotate-45' : 'text-slate-400 group-hover:text-[#005F96]'
+                          }`}
+                        >
+                          +
+                        </span>
+                      )}
                     </button>
 
                     {/* Smooth Expandable Answer */}

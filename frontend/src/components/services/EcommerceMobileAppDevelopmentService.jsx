@@ -7,11 +7,11 @@ import ClutchTopRatedCompanyBanner from '../common/ClutchTopRatedCompanyBanner';
 import EcommercePrincipalFeatures from './EcommercePrincipalFeatures';
 import PremiumServicesGrid from '../common/PremiumServicesGrid';
 import SuccessStoriesSection from '../common/SuccessStoriesSection';
-import ProcessWeFollow from '../common/ProcessWeFollow';
-import SuccessMatrix from '../common/SuccessMatrix';
-import { DigitalTransformationCaseStudies } from '../home/DigitalTransformationCaseStudies';
-import UnveilingInnovativeSolutionsVideoSlider from '../home/UnveilingInnovativeSolutionsVideoSlider';
-import WhatOurClientsSayClutchSlider from '../home/WhatOurClientsSayClutchSlider';
+import WorkProcessGrid from '../home/WorkProcessGrid';
+import SuccessMatrixGrid from '../home/SuccessMatrixGrid';
+import DigitalTransformationCaseStudies from '../home/DigitalTransformationCaseStudies';
+import InnovativeSolutionVideo from '../home/InnovativeSolutionVideo';
+import ClientReviewsDarkSection from '../home/ClientReviewsDarkSection';
 import OurStoryTheirWordsVideoTestimonialsSlider from '../home/OurStoryTheirWordsVideoTestimonialsSlider';
 import SapphireFaqWithStatBadges from '../home/SapphireFaqWithStatBadges';
 import WeHaveBeenFeaturedInGrid from '../home/WeHaveBeenFeaturedInGrid';
@@ -70,25 +70,25 @@ export const EcommerceMobileAppDevelopmentService = () => {
       {/* =========================================================================
           1ST COMPONENT: E-COMMERCE MOBILE APP HERO BANNER
           ========================================================================= */}
-      <section className="bg-[#F0F8FD] py-16 sm:py-20 lg:py-24 border-b border-sky-100 relative overflow-hidden font-sans">
+      <section className="bg-[#EBF2F7] py-10 sm:py-12 lg:py-14 border-b border-slate-200/80 relative overflow-hidden font-sans">
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
             {/* Left Column: Heading, Description & Let's Talk CTA */}
-            <div className="lg:col-span-6 space-y-6 text-left">
-              <h1 className="text-3xl sm:text-4xl lg:text-[46px] font-[900] text-slate-950 tracking-tight leading-[1.15] font-sans">
-                E-Commerce Mobile App <br />
+            <div className="lg:col-span-6 space-y-4 sm:space-y-5 text-left">
+              <h1 className="text-2xl sm:text-3xl lg:text-[38px] font-bold text-slate-900 tracking-tight leading-[1.2] font-sans">
+                E-Commerce Mobile App <br className="hidden sm:inline" />
                 Development Company
               </h1>
 
-              <p className="text-sm sm:text-base lg:text-lg text-slate-600 font-normal leading-relaxed max-w-xl font-sans">
+              <p className="text-sm sm:text-base text-slate-600 font-normal leading-relaxed max-w-xl font-sans">
                 We offer a comprehensive range of best ecommerce app development company services to businesses of all types and sizes. Contact us now for mobile eCommerce app development services under budget.
               </p>
 
-              <div className="pt-2">
+              <div className="pt-1">
                 <Link
                   to="/contact"
-                  className="inline-flex items-center justify-center space-x-2 px-8 py-3.5 rounded-lg bg-[#006587] hover:bg-[#00526E] text-white font-[700] text-sm sm:text-base transition-all duration-300 shadow-md hover:shadow-lg font-sans group"
+                  className="inline-flex items-center justify-center space-x-2 px-6 py-3 rounded-md bg-[#006587] hover:bg-[#00526E] text-white font-bold text-sm sm:text-base transition-all duration-300 shadow-sm hover:shadow-md font-sans group"
                 >
                   <span>Let's Talk</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -96,14 +96,13 @@ export const EcommerceMobileAppDevelopmentService = () => {
               </div>
             </div>
 
-            {/* Right Column: Vector Characters & E-Commerce Smartphone Mockup */}
             {/* Right Column: Exact 1:1 High Quality E-Commerce Vector Illustration Artwork */}
             <div className="lg:col-span-6 flex items-center justify-center relative">
-              <div className="relative w-full max-w-lg flex items-center justify-center py-4">
+              <div className="relative w-full max-w-lg flex items-center justify-center py-1">
                 <img
-                  src="/images/ecommerce_shopping_illustration_v3.png"
+                  src="/images/ecommerce_shopping_illustration_v3_clean.png"
                   alt="E-Commerce Mobile App Development Illustration"
-                  className="w-full h-auto max-h-[460px] object-contain drop-shadow-xl hover:scale-[1.02] transition-transform duration-300"
+                  className="w-full h-auto max-h-[380px] lg:max-h-[400px] object-contain hover:scale-[1.01] transition-transform duration-300"
                 />
               </div>
             </div>
@@ -120,26 +119,24 @@ export const EcommerceMobileAppDevelopmentService = () => {
       {/* =========================================================================
           3RD COMPONENT: ABOUT CLOWN POLSKA SECTION (EXACT 1:1 MATCH TO 2ND IMAGE)
           ========================================================================= */}
-      <section className="py-16 sm:py-20 bg-white border-b border-slate-200 text-left font-sans">
+      <section className="py-10 sm:py-12 lg:py-14 bg-white border-b border-slate-200 text-left font-sans">
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
             
             {/* Left Column: High-Resolution Vector Illustration matching 2nd Image 1:1 */}
             <div className="lg:col-span-6 flex items-center justify-center relative">
-              <div className="relative w-full max-w-xl py-2 flex items-center justify-center">
-                <div className="relative z-10 w-full overflow-hidden rounded-2xl transition-transform duration-500 hover:scale-[1.02]">
-                  <img
-                    src="/images/ecommerce_shopping_illustration_v2.png"
-                    alt="About Clown Polska E-Commerce Shopping App Illustration"
-                    className="w-full h-auto object-contain max-w-xl mx-auto drop-shadow-2xl rounded-2xl"
-                  />
-                </div>
+              <div className="relative w-full max-w-xl flex items-center justify-center py-1">
+                <img
+                  src="/images/ecommerce_shopping_illustration_clean.png"
+                  alt="About Clown Polska E-Commerce Shopping App Illustration"
+                  className="w-full h-auto max-h-[460px] lg:max-h-[500px] object-contain hover:scale-[1.02] transition-transform duration-300"
+                />
               </div>
             </div>
 
             {/* Right Column: Title, Long Description & Talk To An Expert Now Button */}
-            <div className="lg:col-span-6 space-y-5 text-left">
-              <h2 className="text-3xl sm:text-4xl font-[900] text-slate-950 tracking-tight font-sans">
+            <div className="lg:col-span-6 space-y-4 sm:space-y-5 text-left">
+              <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-bold text-slate-900 tracking-tight font-sans">
                 About Clown Polska
               </h2>
 
@@ -147,10 +144,10 @@ export const EcommerceMobileAppDevelopmentService = () => {
                 Clown Polska is a toy warehouse application that enables customers to buy affordable toys at wholesale rates. Customers can place orders, make payments, and get product details within the app with ease of a few clicks. We offer Affordable Ecommerce Mobile App Development Services to help you increase sales and provide hassle-free shopping experiences. Hire Mobile App Developers for Ecommerce that has a team of Expert Ecommerce App Developers for Android and iOS who create best-in-class e-commerce Android app development services that complement your online business and provide a world-class user experience for your consumers. Our Top Rated Ecommerce Mobile App Development Company has built an amazing track record over the years by delivering the finest Ecommerce App Development Company for startups solutions for our renowned clients. We use our full range of talents and abilities to ensure the apps' high quality and efficacy.
               </p>
 
-              <div className="pt-2">
+              <div className="pt-1">
                 <Link
                   to="/contact"
-                  className="inline-flex items-center justify-center px-7 py-3.5 rounded-md bg-[#008BB4] hover:bg-[#007498] text-white font-[700] text-sm sm:text-base transition-all duration-300 shadow-md hover:shadow-lg font-sans"
+                  className="inline-flex items-center justify-center px-6 py-3 rounded-md bg-[#006587] hover:bg-[#00526E] text-white font-bold text-sm sm:text-base transition-all duration-300 shadow-sm hover:shadow-md font-sans"
                 >
                   Talk To An Expert Now
                 </Link>
@@ -190,25 +187,22 @@ export const EcommerceMobileAppDevelopmentService = () => {
       {/* =========================================================================
           9TH COMPONENT: UNVEILING OUR INNOVATIVE SOLUTIONS VIDEO SLIDER
           ========================================================================= */}
-      <UnveilingInnovativeSolutionsVideoSlider />
+      <InnovativeSolutionVideo />
 
       {/* =========================================================================
-          10TH COMPONENT: PROCESS WE FOLLOW (8-STEP SAPPHIRE TIMELINE)
+          10TH COMPONENT: PROCESS WE FOLLOW (WORK PROCESS GRID FROM HOME)
           ========================================================================= */}
-      <ProcessWeFollow
-        title="Process We Follow"
-        subtitle="Process-oriented execution from initial blueprinting to UAT, deployment, and ongoing SLA maintenance."
-      />
+      <WorkProcessGrid />
 
       {/* =========================================================================
           11TH COMPONENT: WHAT OUR CLIENTS SAY - CLUTCH CLIENT REVIEWS SLIDER
           ========================================================================= */}
-      <WhatOurClientsSayClutchSlider />
+      <ClientReviewsDarkSection />
 
       {/* =========================================================================
-          12TH COMPONENT: SAPPHIRE SUCCESS MATRIX
+          12TH COMPONENT: SAPPHIRE SUCCESS MATRIX (HOME PAGE GRID)
           ========================================================================= */}
-      <SuccessMatrix />
+      <SuccessMatrixGrid />
 
       {/* =========================================================================
           13TH COMPONENT: OUR STORY, THEIR WORDS VIDEO TESTIMONIALS SLIDER

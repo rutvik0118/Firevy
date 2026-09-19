@@ -8,7 +8,7 @@ export const IndustryFocusedInsightsSection = ({
 } = {}) => {
   const [activeIndustry, setActiveIndustry] = useState('Automotive');
 
-  const row1Industries = [
+  const row1 = [
     'Automotive',
     'Ecommerce',
     'Education',
@@ -18,12 +18,13 @@ export const IndustryFocusedInsightsSection = ({
     'Healthcare'
   ];
 
-  const row2Industries = [
+  const row2 = [
     'Information Technology',
     'Logistics',
     'Travel & Tourism',
     'Utility Services'
   ];
+
 
   const industryData = {
     'Automotive': [
@@ -230,21 +231,22 @@ export const IndustryFocusedInsightsSection = ({
           </p>
         </div>
 
-        {/* 2-Row Filter Bar Container */}
-        <div className="max-w-5xl mx-auto mb-8 sm:mb-10">
-          <div className="bg-[#F0F8FD] p-3 sm:p-4 rounded-2xl border border-[#D9EFF9] flex flex-col gap-2 sm:gap-2.5 items-center shadow-2xs">
-            {/* Row 1 Tabs */}
-            <div className="flex items-center justify-center flex-wrap gap-1.5 sm:gap-2">
-              {row1Industries.map((industry) => {
+        {/* 2-Row Filter Bar Container matching Sapphire reference design */}
+        <div className="flex justify-center max-w-full mx-auto mb-8 sm:mb-10 px-2">
+          <div className="bg-[#F0F8FD] p-3 sm:p-4 rounded-[18px] sm:rounded-2xl border border-[#D9EFF9] flex flex-col gap-2.5 items-center justify-center w-fit max-w-full shadow-2xs">
+            {/* Row 1 */}
+            <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5">
+              {row1.map((industry) => {
                 const isActive = activeIndustry === industry;
                 return (
                   <button
                     key={industry}
+                    type="button"
                     onClick={() => setActiveIndustry(industry)}
-                    className={`px-3.5 sm:px-4.5 py-2 rounded-lg text-xs sm:text-[13px] font-semibold transition-all duration-200 cursor-pointer ${
+                    className={`px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-xl text-xs sm:text-[13px] md:text-[13.5px] font-semibold transition-all duration-200 cursor-pointer whitespace-nowrap ${
                       isActive
-                        ? 'bg-[#005F96] text-white font-bold shadow-xs'
-                        : 'bg-white text-[#475569] hover:text-[#005F96] hover:bg-slate-50 border border-slate-200/60 shadow-2xs'
+                        ? 'bg-[#005F96] text-white shadow-xs'
+                        : 'bg-white text-[#334155] hover:text-[#005F96] hover:bg-slate-50 border border-slate-200/80 shadow-2xs'
                     }`}
                   >
                     {industry}
@@ -253,18 +255,19 @@ export const IndustryFocusedInsightsSection = ({
               })}
             </div>
 
-            {/* Row 2 Tabs */}
-            <div className="flex items-center justify-center flex-wrap gap-1.5 sm:gap-2">
-              {row2Industries.map((industry) => {
+            {/* Row 2 */}
+            <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5">
+              {row2.map((industry) => {
                 const isActive = activeIndustry === industry;
                 return (
                   <button
                     key={industry}
+                    type="button"
                     onClick={() => setActiveIndustry(industry)}
-                    className={`px-3.5 sm:px-4.5 py-2 rounded-lg text-xs sm:text-[13px] font-semibold transition-all duration-200 cursor-pointer ${
+                    className={`px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-xl text-xs sm:text-[13px] md:text-[13.5px] font-semibold transition-all duration-200 cursor-pointer whitespace-nowrap ${
                       isActive
-                        ? 'bg-[#005F96] text-white font-bold shadow-xs'
-                        : 'bg-white text-[#475569] hover:text-[#005F96] hover:bg-slate-50 border border-slate-200/60 shadow-2xs'
+                        ? 'bg-[#005F96] text-white shadow-xs'
+                        : 'bg-white text-[#334155] hover:text-[#005F96] hover:bg-slate-50 border border-slate-200/80 shadow-2xs'
                     }`}
                   >
                     {industry}

@@ -24,7 +24,7 @@ const defaultLogos = [
 ];
 
 export const FeaturedInLogosGrid = ({ data, title }) => {
-  const displayTitle = title || data?.title || "We Have Been Featured In";
+  const displayTitle = title || data?.title || 'Featured In';
 
   // Always display the 18 reference logos in 6x3 grid
   const logos = (data?.logos && Array.isArray(data.logos) && data.logos.length >= 18)
