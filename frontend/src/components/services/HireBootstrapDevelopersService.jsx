@@ -285,60 +285,58 @@ export const HireBootstrapDevelopersService = () => {
       />
 
       {/* ============================================================
-          HERO SECTION (Matching Sapphire Screenshot 1 Design 100%)
+          HERO SECTION (Matching User Screenshot 100%)
           ============================================================ */}
-      <section className="pt-32 pb-20 bg-[#F0F6FB] text-slate-900 relative overflow-hidden font-sans border-b border-slate-200/60">
+      <section className="pt-28 pb-16 bg-white text-slate-900 relative overflow-hidden font-sans border-b border-slate-100">
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
             
             {/* Left Column Text & Action */}
-            <div className="lg:col-span-7 space-y-6 text-left">
-              <h1 className="text-3xl sm:text-4xl lg:text-[44px] font-[900] text-slate-900 tracking-tight leading-tight">
+            <div className="lg:col-span-6 space-y-6 text-left">
+              <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-[900] text-slate-900 tracking-tight leading-tight">
                 Hire Bootstrap Developer
               </h1>
-              <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal max-w-2xl">
+              <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
                 We are among the leading providers of bootstrap development services. As a reputable Bootstrap Web Development Company, we have tailored our services to satisfy the demands of companies seeking creative mobile applications.
               </p>
 
               {/* 4 Metrics / Stats Row */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-2 pb-2">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 pt-1 pb-1">
                 <div>
-                  <div className="text-3xl sm:text-[38px] font-[800] text-[#006095] tracking-tight leading-none mb-1">200+</div>
-                  <div className="text-xs sm:text-[14px] font-[600] text-slate-800 leading-[1.3]">
+                  <div className="text-2xl sm:text-[32px] font-[900] text-slate-900 tracking-tight leading-none mb-1.5">200+</div>
+                  <div className="text-xs sm:text-[13px] font-[500] text-slate-600 leading-tight">
                     Dedicated<br />Developers
                   </div>
                 </div>
                 <div>
-                  <div className="text-3xl sm:text-[38px] font-[800] text-[#006095] tracking-tight leading-none mb-1">20+</div>
-                  <div className="text-xs sm:text-[14px] font-[600] text-slate-800 leading-[1.3]">
+                  <div className="text-2xl sm:text-[32px] font-[900] text-slate-900 tracking-tight leading-none mb-1.5">20+</div>
+                  <div className="text-xs sm:text-[13px] font-[500] text-slate-600 leading-tight">
                     Fortunes 500<br />Companies
                   </div>
                 </div>
                 <div>
-                  <div className="text-3xl sm:text-[38px] font-[800] text-[#006095] tracking-tight leading-none mb-1">2800+</div>
-                  <div className="text-xs sm:text-[14px] font-[600] text-slate-800 leading-[1.3]">
+                  <div className="text-2xl sm:text-[32px] font-[900] text-slate-900 tracking-tight leading-none mb-1.5">2800+</div>
+                  <div className="text-xs sm:text-[13px] font-[500] text-slate-600 leading-tight">
                     Project Completed
                   </div>
                 </div>
                 <div>
-                  <div className="text-3xl sm:text-[38px] font-[800] text-[#006095] tracking-tight leading-none mb-1">320+</div>
-                  <div className="text-xs sm:text-[14px] font-[600] text-slate-800 leading-[1.3]">
+                  <div className="text-2xl sm:text-[32px] font-[900] text-slate-900 tracking-tight leading-none mb-1.5">320+</div>
+                  <div className="text-xs sm:text-[13px] font-[500] text-slate-600 leading-tight">
                     5-Star Clutch Reviews
                   </div>
                 </div>
               </div>
 
-              {/* Call-to-action pill box */}
-              <div className="space-y-3 pt-3">
+              {/* Call-to-action pill box (Matching Screenshot 1:1) */}
+              <div className="space-y-2.5 pt-2">
                 <div className="text-sm sm:text-[15px] font-[700] text-[#006095]">
                   Get Top Talent Work for you At
                 </div>
-                <div className="inline-flex items-center justify-between bg-[#0089a8] rounded-[16px] p-2 pl-3.5 pr-2 w-full max-w-[410px] shadow-lg shadow-[#0089a8]/25">
-                  <div className="flex items-center space-x-3">
-                    <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center shrink-0 shadow-sm">
-                      <Clock className="w-4 h-4 text-[#0089a8] stroke-[2.5]" />
-                    </div>
-                    <span className="text-xl sm:text-[22px] font-[800] text-white tracking-tight">$21/Hourly*</span>
+                <div className="inline-flex items-center justify-between bg-[#0089a8] rounded-[14px] p-2 pl-4 pr-2 w-full max-w-[390px] shadow-md shadow-[#0089a8]/20">
+                  <div className="flex items-center space-x-2.5">
+                    <Clock className="w-5 h-5 text-white stroke-[2.5]" />
+                    <span className="text-lg sm:text-[20px] font-[800] text-white tracking-tight">$21/Hourly*</span>
                   </div>
                   <a
                     href="#quote-form"
@@ -346,7 +344,7 @@ export const HireBootstrapDevelopersService = () => {
                       e.preventDefault();
                       document.getElementById('quote-form')?.scrollIntoView({ behavior: 'smooth' });
                     }}
-                    className="bg-white text-[#006095] hover:bg-slate-50 font-[700] px-6 py-2.5 rounded-[10px] text-[15px] transition-all shadow-sm flex items-center justify-center"
+                    className="bg-white text-slate-800 hover:bg-slate-50 font-[700] px-5 py-2.5 rounded-[10px] text-sm transition-all shadow-sm flex items-center justify-center font-sans"
                   >
                     Hire Team
                   </a>
@@ -354,14 +352,105 @@ export const HireBootstrapDevelopersService = () => {
               </div>
             </div>
 
-            {/* Right Column Image Visual */}
-            <div className="lg:col-span-5 relative flex items-center justify-center">
-              <div className="relative w-full max-w-[540px]">
-                <img
-                  src="/images/bootstrap_hero_illustration.jpg"
-                  alt="Hire Bootstrap Developer Illustration"
-                  className="w-full h-auto object-contain rounded-2xl shadow-2xl border border-slate-200/80 hover:shadow-indigo-500/10 transition-shadow duration-300"
-                />
+            {/* Right Column: High-Fidelity Bootstrap Monitor Vector Graphic */}
+            <div className="lg:col-span-6 relative flex items-center justify-center p-2">
+              <div className="relative w-full max-w-[520px] select-none">
+                <svg viewBox="0 0 600 480" className="w-full h-auto drop-shadow-sm" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  {/* Background Delicate Cyan Gears & Dashed Rings */}
+                  <g opacity="0.45">
+                    {/* Top Gear */}
+                    <circle cx="390" cy="110" r="45" stroke="#38BDF8" strokeWidth="1.5" strokeDasharray="4 4" />
+                    <path d="M390 55v12M390 153v12M335 110h12M433 110h12M351 71l9 9M420 140l9 9M351 149l9-9M420 80l9-9" stroke="#38BDF8" strokeWidth="2.5" strokeLinecap="round" />
+                    
+                    {/* Left Gear */}
+                    <circle cx="120" cy="310" r="38" stroke="#38BDF8" strokeWidth="1.5" strokeDasharray="4 4" />
+                    <path d="M120 262v10M120 348v10M72 310h10M158 310h10" stroke="#38BDF8" strokeWidth="2.5" strokeLinecap="round" />
+                    
+                    {/* Right Gear */}
+                    <circle cx="515" cy="220" r="28" stroke="#38BDF8" strokeWidth="1.5" strokeDasharray="3 3" />
+                  </g>
+
+                  {/* Connecting dashed line accents */}
+                  <path d="M150 200 L 190 200" stroke="#0284C7" strokeWidth="1.5" strokeDasharray="3 3" />
+                  <path d="M480 120 L 515 120" stroke="#0284C7" strokeWidth="1.5" strokeDasharray="3 3" />
+                  <path d="M470 310 L 510 310" stroke="#0284C7" strokeWidth="1.5" strokeDasharray="3 3" />
+                  <path d="M170 340 L 205 340" stroke="#0284C7" strokeWidth="1.5" strokeDasharray="3 3" />
+
+                  {/* Monitor Stand */}
+                  <path d="M300 340 L 300 375" stroke="#94A3B8" strokeWidth="14" strokeLinecap="round" />
+                  <path d="M250 375 L 350 375" stroke="#64748B" strokeWidth="7" strokeLinecap="round" />
+                  <ellipse cx="300" cy="377" rx="55" ry="6" fill="#94A3B8" />
+
+                  {/* Desktop Monitor Outer Bezel */}
+                  <rect x="155" y="105" width="345" height="235" rx="14" fill="#0F172A" />
+                  <rect x="160" y="110" width="335" height="220" rx="10" fill="#FFFFFF" stroke="#E2E8F0" strokeWidth="2" />
+                  <rect x="160" y="110" width="335" height="24" rx="10" fill="#38BDF8" />
+                  {/* Flatten bottom rounded corners of top bar */}
+                  <rect x="160" y="122" width="335" height="12" fill="#38BDF8" />
+
+                  {/* 3 Window Control Dots (White/Yellow/Green) */}
+                  <circle cx="174" cy="122" r="3.5" fill="#FFFFFF" />
+                  <circle cx="186" cy="122" r="3.5" fill="#FEF08A" />
+                  <circle cx="198" cy="122" r="3.5" fill="#FFFFFF" />
+
+                  {/* Code Lines inside Editor */}
+                  <g opacity="0.6">
+                    <rect x="175" y="146" width="90" height="4" rx="2" fill="#94A3B8" />
+                    <rect x="175" y="156" width="130" height="4" rx="2" fill="#CBD5E1" />
+                    <rect x="185" y="166" width="70" height="4" rx="2" fill="#94A3B8" />
+                    <rect x="175" y="176" width="110" height="4" rx="2" fill="#CBD5E1" />
+                    
+                    <rect x="175" y="196" width="120" height="4" rx="2" fill="#94A3B8" />
+                    <rect x="185" y="206" width="80" height="4" rx="2" fill="#CBD5E1" />
+                    <rect x="185" y="216" width="100" height="4" rx="2" fill="#94A3B8" />
+                    <rect x="175" y="226" width="60" height="4" rx="2" fill="#CBD5E1" />
+                    
+                    <rect x="175" y="246" width="140" height="4" rx="2" fill="#94A3B8" />
+                    <rect x="175" y="256" width="95" height="4" rx="2" fill="#CBD5E1" />
+                    <rect x="175" y="266" width="125" height="4" rx="2" fill="#94A3B8" />
+                    <rect x="185" y="276" width="75" height="4" rx="2" fill="#CBD5E1" />
+                  </g>
+
+                  {/* Bootstrap Center Screen Badge (Purple Box + Bold B + Text) */}
+                  <g transform="translate(325, 185)">
+                    <rect x="0" y="0" width="34" height="34" rx="8" fill="#7952B3" />
+                    <text x="17" y="24" fill="#FFFFFF" fontSize="20" fontWeight="900" textAnchor="middle" fontFamily="sans-serif">B</text>
+                    <text x="44" y="23" fill="#1E293B" fontSize="15" fontWeight="800" fontFamily="sans-serif">Bootstrap</text>
+                  </g>
+
+                  {/* Surrounding Tech Badges */}
+                  {/* 1. Top Right: HTML Badge */}
+                  <g transform="translate(485, 95)">
+                    <rect x="0" y="0" width="50" height="50" rx="8" fill="#38BDF8" />
+                    <text x="25" y="28" fill="#FFFFFF" fontSize="22" fontWeight="900" textAnchor="middle" fontFamily="sans-serif">5</text>
+                    <text x="25" y="42" fill="#FFFFFF" fontSize="8.5" fontWeight="700" textAnchor="middle" fontFamily="sans-serif">HTML</text>
+                  </g>
+
+                  {/* 2. Left: Javascript Badge */}
+                  <g transform="translate(100, 175)">
+                    <rect x="0" y="0" width="48" height="48" rx="8" fill="#38BDF8" />
+                    <text x="24" y="27" fill="#FFFFFF" fontSize="18" fontWeight="900" textAnchor="middle" fontFamily="sans-serif">JS</text>
+                    <text x="24" y="40" fill="#FFFFFF" fontSize="7" fontWeight="700" textAnchor="middle" fontFamily="sans-serif">Javascript</text>
+                  </g>
+
+                  {/* 3. Bottom Right: CSS Badge */}
+                  <g transform="translate(480, 270)">
+                    <rect x="0" y="0" width="48" height="48" rx="8" fill="#38BDF8" />
+                    <text x="24" y="27" fill="#FFFFFF" fontSize="20" fontWeight="900" textAnchor="middle" fontFamily="sans-serif">3</text>
+                    <text x="24" y="40" fill="#FFFFFF" fontSize="8" fontWeight="700" textAnchor="middle" fontFamily="sans-serif">CSS</text>
+                  </g>
+
+                  {/* 4. Bottom Left: Git Badge */}
+                  <g transform="translate(120, 315)">
+                    <rect x="0" y="0" width="44" height="44" rx="8" fill="#38BDF8" />
+                    {/* Git Branch Icon */}
+                    <circle cx="16" cy="18" r="3" fill="#FFFFFF" />
+                    <circle cx="28" cy="18" r="3" fill="#FFFFFF" />
+                    <circle cx="16" cy="28" r="3" fill="#FFFFFF" />
+                    <path d="M16 18v10M16 23c4 0 12 0 12-5" stroke="#FFFFFF" strokeWidth="2" fill="none" />
+                    <text x="22" y="38" fill="#FFFFFF" fontSize="6.5" fontWeight="700" textAnchor="middle" fontFamily="sans-serif">Git</text>
+                  </g>
+                </svg>
               </div>
             </div>
 
@@ -370,48 +459,154 @@ export const HireBootstrapDevelopersService = () => {
       </section>
 
       {/* ============================================================
-          BRAND LOGO MARQUEE
+          BRAND LOGO MARQUEE (Matching User Screenshot Row 2)
           ============================================================ */}
       <BrandLogoMarquee />
 
       {/* ============================================================
-          SECTION 2: Bootstrap Developers Are Available For Hire (Screenshot 2)
+          SECTION 2: Bootstrap Developers Are Available For Hire (Matching User Screenshot Row 3)
           ============================================================ */}
-      <section className="py-16 md:py-24 bg-white font-sans text-slate-900 border-b border-slate-100">
+      <section className="py-16 md:py-20 bg-white font-sans text-slate-900 border-b border-slate-100">
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             
-            {/* Left Graphic Illustration Image */}
+            {/* Left Graphic Illustration: Developer Sitting at Desk with Phone & Laptop */}
             <div className="lg:col-span-6 relative flex justify-center items-center">
-              <div className="relative w-full max-w-[550px]">
-                <img
-                  src="/images/bootstrap_section2_illustration.jpg"
-                  alt="Bootstrap Developers Available For Hire"
-                  className="w-full h-auto object-contain rounded-2xl shadow-xl border border-slate-200/80 hover:shadow-cyan-500/10 transition-shadow duration-300"
-                />
+              <div className="relative w-full max-w-[540px] select-none">
+                <svg viewBox="0 0 580 440" className="w-full h-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  {/* Floor Line */}
+                  <line x1="30" y1="395" x2="550" y2="395" stroke="#334155" strokeWidth="3" strokeLinecap="round" />
+
+                  {/* Potted Plant beside table (Bottom Right of Desk) */}
+                  <g transform="translate(435, 305)">
+                    <path d="M22 55 L38 90 L6 90 L22 55 Z" fill="#1E293B" />
+                    {/* Plant Leaves */}
+                    <path d="M22 60 C 22 25, 4 -5, -8 2 C -5 20, 10 45, 22 60 Z" fill="#0284C7" />
+                    <path d="M22 55 C 25 15, 45 -5, 60 5 C 50 25, 35 45, 22 55 Z" fill="#0284C7" />
+                    <path d="M22 50 C 22 5, 25 -15, 30 -15 C 35 10, 30 35, 22 50 Z" fill="#38BDF8" />
+                  </g>
+
+                  {/* Left Big Smartphone */}
+                  <g transform="translate(60, 140)">
+                    {/* Phone Body */}
+                    <rect x="0" y="0" width="160" height="255" rx="28" fill="#1E293B" stroke="#0F172A" strokeWidth="4" />
+                    <rect x="6" y="6" width="148" height="243" rx="22" fill="#FFFFFF" />
+                    
+                    {/* Top Speaker / Notch */}
+                    <rect x="55" y="14" width="50" height="4" rx="2" fill="#94A3B8" />
+
+                    {/* App Header Bar Icon */}
+                    <line x1="22" y1="34" x2="34" y2="34" stroke="#64748B" strokeWidth="2.5" strokeLinecap="round" />
+                    <line x1="22" y1="40" x2="30" y2="40" stroke="#64748B" strokeWidth="2.5" strokeLinecap="round" />
+
+                    {/* App Central Card with Blue Bird / Swift Icon */}
+                    <rect x="20" y="55" width="120" height="100" rx="10" fill="#E0F2FE" />
+                    {/* Blue Bird Silhouette */}
+                    <path d="M80 85 C 80 85, 95 75, 105 85 C 98 90, 88 95, 75 110 C 68 118, 55 125, 45 125 C 60 120, 72 110, 75 100 C 65 105, 52 105, 48 100 C 60 98, 70 92, 75 88 Z" fill="#0284C7" />
+
+                    {/* Bottom App Placeholders */}
+                    <circle cx="45" cy="180" r="14" fill="#F1F5F9" />
+                    <circle cx="115" cy="180" r="14" fill="#F1F5F9" />
+                    <rect x="22" y="205" width="46" height="6" rx="3" fill="#E2E8F0" />
+                    <rect x="92" y="205" width="46" height="6" rx="3" fill="#E2E8F0" />
+
+                    {/* Home Bar */}
+                    <rect x="55" y="238" width="50" height="4" rx="2" fill="#0F172A" />
+                  </g>
+
+                  {/* Floating Code Badges (Above Smartphone & Developer) */}
+                  {/* Left Badge: {} */}
+                  <rect x="180" y="125" width="28" height="26" rx="6" fill="#0284C7" />
+                  <text x="194" y="143" fill="#FFFFFF" fontSize="13" fontWeight="900" textAnchor="middle" fontFamily="monospace">{`{}`}</text>
+
+                  {/* Large Code Window Mockup behind developer */}
+                  <g transform="translate(195, 140)">
+                    <rect x="0" y="0" width="130" height="70" rx="6" fill="#BFDBFE" opacity="0.65" stroke="#93C5FD" strokeWidth="1.5" />
+                    <rect x="0" y="0" width="130" height="12" rx="6" fill="#60A5FA" />
+                    <rect x="0" y="6" width="130" height="6" fill="#60A5FA" />
+                    <circle cx="8" cy="6" r="2" fill="#FFFFFF" />
+                    <circle cx="15" cy="6" r="2" fill="#FFFFFF" />
+                    <circle cx="22" cy="6" r="2" fill="#FFFFFF" />
+                    {/* Mini code lines */}
+                    <rect x="10" y="20" width="60" height="3" rx="1.5" fill="#1E40AF" opacity="0.6" />
+                    <rect x="10" y="28" width="80" height="3" rx="1.5" fill="#1E40AF" opacity="0.6" />
+                    <rect x="10" y="36" width="45" height="3" rx="1.5" fill="#1E40AF" opacity="0.6" />
+                    <rect x="10" y="44" width="70" height="3" rx="1.5" fill="#1E40AF" opacity="0.6" />
+                  </g>
+
+                  {/* Right Badge: </> */}
+                  <rect x="335" y="135" width="34" height="26" rx="6" fill="#60A5FA" />
+                  <text x="352" y="152" fill="#FFFFFF" fontSize="12" fontWeight="900" textAnchor="middle" fontFamily="monospace">{`</>`}</text>
+
+                  {/* Office Desk */}
+                  <rect x="185" y="300" width="145" height="8" rx="2" fill="#64748B" />
+                  <rect x="190" y="308" width="6" height="87" fill="#64748B" />
+                  <rect x="315" y="308" width="6" height="87" fill="#64748B" />
+
+                  {/* Laptop on Desk */}
+                  <path d="M210 298 L 265 298 L 270 300 L 205 300 Z" fill="#0F172A" />
+                  <path d="M215 248 L 260 252 L 260 298 L 215 298 Z" fill="#1E293B" stroke="#0F172A" strokeWidth="2" />
+                  <path d="M218 252 L 257 255 L 257 295 L 218 295 Z" fill="#FFFFFF" />
+
+                  {/* Office Chair */}
+                  <g transform="translate(295, 270)">
+                    {/* Backrest */}
+                    <rect x="40" y="0" width="12" height="65" rx="6" fill="#0284C7" />
+                    {/* Seat */}
+                    <rect x="0" y="55" width="55" height="12" rx="4" fill="#0284C7" />
+                    {/* Stand & Wheels */}
+                    <rect x="22" y="67" width="8" height="45" fill="#1E293B" />
+                    <line x1="2" y1="112" x2="50" y2="112" stroke="#1E293B" strokeWidth="5" strokeLinecap="round" />
+                    <circle cx="5" cy="120" r="4" fill="#0F172A" />
+                    <circle cx="47" cy="120" r="4" fill="#0F172A" />
+                  </g>
+
+                  {/* Developer Character */}
+                  <g transform="translate(260, 160)">
+                    {/* Head & Hair */}
+                    <circle cx="35" cy="20" r="14" fill="#FBBF24" />
+                    <path d="M24 15 C 22 2, 45 -4, 48 10 C 48 10, 42 6, 32 8 C 24 10, 24 15, 24 15 Z" fill="#1E293B" />
+                    
+                    {/* Body (Blue T-shirt) */}
+                    <path d="M28 34 L 52 38 L 48 95 L 15 95 Z" fill="#0284C7" />
+
+                    {/* Arms reaching to laptop */}
+                    <path d="M30 42 L 5 80 L -25 80 L -10 65 L 18 42 Z" fill="#FBBF24" />
+                    <path d="M30 40 L 40 45 L 25 70 L 10 50 Z" fill="#0284C7" />
+
+                    {/* Legs (Dark pants) */}
+                    <path d="M15 95 L 60 95 L 60 155 L 42 155 L 42 115 L 15 115 Z" fill="#1E293B" />
+
+                    {/* Shoes (Blue Sneakers) */}
+                    <ellipse cx="65" cy="157" rx="14" ry="5" fill="#0284C7" />
+                    <rect x="52" y="157" width="26" height="3" fill="#FFFFFF" rx="1" />
+                    <ellipse cx="40" cy="157" rx="14" ry="5" fill="#0284C7" />
+                    <rect x="27" y="157" width="26" height="3" fill="#FFFFFF" rx="1" />
+                  </g>
+                </svg>
               </div>
             </div>
 
             {/* Right Text Column */}
-            <div className="lg:col-span-6 space-y-6">
-              <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-[900] text-slate-900 tracking-tight leading-snug">
+            <div className="lg:col-span-6 space-y-6 text-left">
+              <h2 className="text-2xl sm:text-3xl lg:text-[36px] font-[900] text-slate-900 tracking-tight leading-tight">
                 Bootstrap Developers Are Available For Hire
               </h2>
               <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
                 Hire Dedicated Bootstrap Developers with extensive expertise in the Bootstrap framework. We assist you in developing scalable applications that promote growth. Our team of bootstrap developers can create attractive web and mobile apps regardless of the kind of company or sector. With us, adaptation and flexibility will never be a concern since the applications developed by our bootstrap web developer are highly configurable. Using a single codebase, Bootstrap reduces development time and costs, assuring the implementation of scalable business solutions. In addition, the framework includes templates that may be used to construct site components such as forms and buttons.
               </p>
 
-              <div className="pt-2">
+              <div className="pt-1">
                 <a
                   href="#quote-form"
                   onClick={(e) => {
                     e.preventDefault();
                     document.getElementById('quote-form')?.scrollIntoView({ behavior: 'smooth' });
                   }}
-                  className="inline-flex items-center space-x-2 bg-[#0083B0] hover:bg-[#006095] text-white font-bold px-7 py-3 rounded-xl text-sm transition-all shadow-md"
+                  className="inline-flex items-center space-x-2 bg-[#0083B0] hover:bg-[#006095] text-white font-bold px-7 py-3.5 rounded-xl text-sm transition-all shadow-md font-sans"
                 >
                   <span>Hire Dedicated Bootstrap Developers</span>
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-4 h-4 ml-1" />
                 </a>
               </div>
             </div>

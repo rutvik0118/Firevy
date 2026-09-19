@@ -66,6 +66,8 @@ const Contact = lazy(() => import('./pages/Contact'));
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
 const Terms = lazy(() => import('./pages/Terms'));
 const NotFound = lazy(() => import('./pages/NotFound'));
+const BarberAppDevelopmentService = lazy(() => import('./components/services/BarberAppDevelopmentService').then(m => ({ default: m.BarberAppDevelopmentService })));
+const OnDemandAppDevelopmentService = lazy(() => import('./components/services/OnDemandAppDevelopmentService').then(m => ({ default: m.OnDemandAppDevelopmentService })));
 
 // Public Layout Wrapper Component
 const PublicLayoutWrapper = () => (
@@ -134,6 +136,10 @@ export function App() {
                 <Route path="/awards-recognition" element={<CompanySubDetails />} />
                 <Route path="/insightful-videos" element={<CompanySubDetails />} />
                 <Route path="/blog" element={<CompanySubDetails />} />
+                <Route path="/services/barber-app-development" element={<BarberAppDevelopmentService />} />
+                <Route path="/barber-app-development" element={<BarberAppDevelopmentService />} />
+                <Route path="/services/on-demand-app-development" element={<OnDemandAppDevelopmentService />} />
+                <Route path="/on-demand-app-development" element={<OnDemandAppDevelopmentService />} />
                 <Route path="/services" element={<Services />} />
                 <Route path="/services/:slug" element={<ServiceDetails />} />
                 <Route path="/services/it-consulting-services" element={<ServiceDetails />} />
@@ -172,6 +178,51 @@ export function App() {
                 <Route path="/digital-marketing" element={<ServiceDetails />} />
                 <Route path="/services/digital-marketing-services" element={<ServiceDetails />} />
                 <Route path="/digital-marketing-services" element={<ServiceDetails />} />
+                <Route path="/services/testing-qa" element={<ServiceDetails />} />
+                <Route path="/testing-qa" element={<ServiceDetails />} />
+                <Route path="/services/testing-and-qa" element={<ServiceDetails />} />
+                <Route path="/testing-and-qa" element={<ServiceDetails />} />
+                <Route path="/services/software-testing-qa" element={<ServiceDetails />} />
+                <Route path="/software-testing-qa" element={<ServiceDetails />} />
+                <Route path="/services/qa-testing" element={<ServiceDetails />} />
+                <Route path="/qa-testing" element={<ServiceDetails />} />
+                <Route path="/services/software-qa-testing" element={<ServiceDetails />} />
+                <Route path="/software-qa-testing" element={<ServiceDetails />} />
+                <Route path="/services/nintex-development-services" element={<ServiceDetails />} />
+                <Route path="/nintex-development-services" element={<ServiceDetails />} />
+                <Route path="/services/nintex-development" element={<ServiceDetails />} />
+                <Route path="/nintex-development" element={<ServiceDetails />} />
+                <Route path="/services/nintex" element={<ServiceDetails />} />
+                <Route path="/services/mobile-app-porting" element={<ServiceDetails />} />
+                <Route path="/mobile-app-porting" element={<ServiceDetails />} />
+                <Route path="/services/mobile-app-porting-services" element={<ServiceDetails />} />
+                <Route path="/mobile-app-porting-services" element={<ServiceDetails />} />
+                <Route path="/services/data-cleansing-services" element={<ServiceDetails />} />
+                <Route path="/data-cleansing-services" element={<ServiceDetails />} />
+                <Route path="/services/data-cleansing" element={<ServiceDetails />} />
+                <Route path="/data-cleansing" element={<ServiceDetails />} />
+                <Route path="/services/database-cleansing-services" element={<ServiceDetails />} />
+                <Route path="/database-cleansing-services" element={<ServiceDetails />} />
+                <Route path="/services/data-annotation-company" element={<ServiceDetails />} />
+                <Route path="/data-annotation-company" element={<ServiceDetails />} />
+                <Route path="/services/data-annotation-services" element={<ServiceDetails />} />
+                <Route path="/data-annotation-services" element={<ServiceDetails />} />
+                <Route path="/services/data-annotation" element={<ServiceDetails />} />
+                <Route path="/data-annotation" element={<ServiceDetails />} />
+                <Route path="/services/patient-management-system" element={<ServiceDetails />} />
+                <Route path="/patient-management-system" element={<ServiceDetails />} />
+                <Route path="/services/patient-management-system-development-company" element={<ServiceDetails />} />
+                <Route path="/patient-management-system-development-company" element={<ServiceDetails />} />
+                <Route path="/services/patient-management-software" element={<ServiceDetails />} />
+                <Route path="/patient-management-software" element={<ServiceDetails />} />
+                <Route path="/services/digital-twin-solutions-company" element={<ServiceDetails />} />
+                <Route path="/digital-twin-solutions-company" element={<ServiceDetails />} />
+                <Route path="/services/digital-twin-solutions" element={<ServiceDetails />} />
+                <Route path="/digital-twin-solutions" element={<ServiceDetails />} />
+                <Route path="/services/artist-collaboration-platform-development" element={<ServiceDetails />} />
+                <Route path="/artist-collaboration-platform-development" element={<ServiceDetails />} />
+                <Route path="/services/artist-collaboration-platform" element={<ServiceDetails />} />
+                <Route path="/artist-collaboration-platform" element={<ServiceDetails />} />
                 <Route path="/services/tech-consulting-services" element={<ServiceDetails />} />
                 <Route path="/services/hire-bootstrap-developers" element={<ServiceDetails />} />
                 <Route path="/services/hire-bootstrap-developer" element={<ServiceDetails />} />
@@ -295,8 +346,95 @@ export function App() {
                 <Route path="/ionic-app-development" element={<ServiceDetails />} />
                 <Route path="/services/hire-flutter-developers" element={<ServiceDetails />} />
                 <Route path="/services/hire-flutter-developer" element={<ServiceDetails />} />
+                <Route path="/services/flutter-developers" element={<ServiceDetails />} />
+                <Route path="/services/flutter-developer" element={<ServiceDetails />} />
                 <Route path="/hire-flutter-developers" element={<ServiceDetails />} />
                 <Route path="/hire-flutter-developer" element={<ServiceDetails />} />
+                <Route path="/flutter-developers" element={<ServiceDetails />} />
+                <Route path="/flutter-developer" element={<ServiceDetails />} />
+                <Route path="/services/hire-golang-developers" element={<ServiceDetails />} />
+                <Route path="/services/hire-golang-developer" element={<ServiceDetails />} />
+                <Route path="/services/golang-developers" element={<ServiceDetails />} />
+                <Route path="/services/golang-developer" element={<ServiceDetails />} />
+                <Route path="/services/golang" element={<ServiceDetails />} />
+                <Route path="/hire-golang-developers" element={<ServiceDetails />} />
+                <Route path="/hire-golang-developer" element={<ServiceDetails />} />
+                <Route path="/golang-developers" element={<ServiceDetails />} />
+                <Route path="/golang-developer" element={<ServiceDetails />} />
+                <Route path="/golang" element={<ServiceDetails />} />
+                
+                {/* Dedicated Backend & Specialized Developer Routes */}
+                <Route path="/services/hire-backend-developers" element={<ServiceDetails />} />
+                <Route path="/services/hire-backend-developer" element={<ServiceDetails />} />
+                <Route path="/hire-backend-developers" element={<ServiceDetails />} />
+                <Route path="/hire-backend-developer" element={<ServiceDetails />} />
+                <Route path="/backend-developers" element={<ServiceDetails />} />
+                <Route path="/backend-developer" element={<ServiceDetails />} />
+                <Route path="/backend" element={<ServiceDetails />} />
+                
+                <Route path="/services/hire-python-developers" element={<ServiceDetails />} />
+                <Route path="/services/hire-python-developer" element={<ServiceDetails />} />
+                <Route path="/hire-python-developers" element={<ServiceDetails />} />
+                <Route path="/hire-python-developer" element={<ServiceDetails />} />
+                <Route path="/python-developers" element={<ServiceDetails />} />
+                <Route path="/python-developer" element={<ServiceDetails />} />
+
+                <Route path="/services/hire-java-developers" element={<ServiceDetails />} />
+                <Route path="/services/hire-java-developer" element={<ServiceDetails />} />
+                <Route path="/hire-java-developers" element={<ServiceDetails />} />
+                <Route path="/hire-java-developer" element={<ServiceDetails />} />
+                <Route path="/java-developers" element={<ServiceDetails />} />
+                <Route path="/java-developer" element={<ServiceDetails />} />
+
+                <Route path="/services/hire-spring-boot-developers" element={<ServiceDetails />} />
+                <Route path="/services/hire-spring-boot-developer" element={<ServiceDetails />} />
+                <Route path="/hire-spring-boot-developers" element={<ServiceDetails />} />
+                <Route path="/hire-spring-boot-developer" element={<ServiceDetails />} />
+                <Route path="/spring-boot-developers" element={<ServiceDetails />} />
+                <Route path="/spring-boot-developer" element={<ServiceDetails />} />
+
+                <Route path="/services/hire-django-developers" element={<ServiceDetails />} />
+                <Route path="/services/hire-django-developer" element={<ServiceDetails />} />
+                <Route path="/hire-django-developers" element={<ServiceDetails />} />
+                <Route path="/hire-django-developer" element={<ServiceDetails />} />
+                <Route path="/django-developers" element={<ServiceDetails />} />
+                <Route path="/django-developer" element={<ServiceDetails />} />
+
+                <Route path="/services/hire-net-developers" element={<ServiceDetails />} />
+                <Route path="/services/hire-net-developer" element={<ServiceDetails />} />
+                <Route path="/services/hire-dotnet-developers" element={<ServiceDetails />} />
+                <Route path="/hire-net-developers" element={<ServiceDetails />} />
+                <Route path="/hire-dotnet-developers" element={<ServiceDetails />} />
+                <Route path="/net-developers" element={<ServiceDetails />} />
+                <Route path="/dotnet-developers" element={<ServiceDetails />} />
+
+                <Route path="/services/hire-node-js-developers" element={<ServiceDetails />} />
+                <Route path="/services/hire-node-js-developer" element={<ServiceDetails />} />
+                <Route path="/services/hire-nodejs-developers" element={<ServiceDetails />} />
+                <Route path="/hire-node-js-developers" element={<ServiceDetails />} />
+                <Route path="/hire-nodejs-developers" element={<ServiceDetails />} />
+                <Route path="/node-js-developers" element={<ServiceDetails />} />
+                <Route path="/nodejs-developers" element={<ServiceDetails />} />
+
+                <Route path="/services/hire-php-developers" element={<ServiceDetails />} />
+                <Route path="/services/hire-php-developer" element={<ServiceDetails />} />
+                <Route path="/hire-php-developers" element={<ServiceDetails />} />
+                <Route path="/hire-php-developer" element={<ServiceDetails />} />
+                <Route path="/php-developers" element={<ServiceDetails />} />
+                <Route path="/php-developer" element={<ServiceDetails />} />
+
+                <Route path="/services/hire-express-js-developers" element={<ServiceDetails />} />
+                <Route path="/services/hire-express-js-developer" element={<ServiceDetails />} />
+                <Route path="/services/hire-expressjs-developers" element={<ServiceDetails />} />
+                <Route path="/hire-express-js-developers" element={<ServiceDetails />} />
+                <Route path="/hire-expressjs-developers" element={<ServiceDetails />} />
+                <Route path="/express-js-developers" element={<ServiceDetails />} />
+
+                <Route path="/services/hire-fintech-developers" element={<ServiceDetails />} />
+                <Route path="/services/hire-fintech-developer" element={<ServiceDetails />} />
+                <Route path="/hire-fintech-developers" element={<ServiceDetails />} />
+                <Route path="/hire-fintech-developer" element={<ServiceDetails />} />
+                <Route path="/fintech-developers" element={<ServiceDetails />} />
                 <Route path="/services/hire-ios-developers" element={<ServiceDetails />} />
                 <Route path="/services/hire-ios-developer" element={<ServiceDetails />} />
                 <Route path="/hire-ios-developers" element={<ServiceDetails />} />
@@ -431,6 +569,28 @@ export function App() {
                 <Route path="/iwatch-app-development" element={<ServiceDetails />} />
                 <Route path="/covid-tracker-app-development" element={<ServiceDetails />} />
                 <Route path="/covid-tracking-app" element={<ServiceDetails />} />
+                <Route path="/services/taxi-booking-app-development" element={<ServiceDetails />} />
+                <Route path="/taxi-booking-app-development" element={<ServiceDetails />} />
+                <Route path="/services/uber-like-app-development" element={<ServiceDetails />} />
+                <Route path="/uber-like-app-development" element={<ServiceDetails />} />
+                <Route path="/services/product-finder-app-development" element={<ServiceDetails />} />
+                <Route path="/services/product-finder-app" element={<ServiceDetails />} />
+                <Route path="/product-finder-app-development" element={<ServiceDetails />} />
+                <Route path="/product-finder-app" element={<ServiceDetails />} />
+                <Route path="/services/eyelash-appointment-booking-app" element={<ServiceDetails />} />
+                <Route path="/services/eyelash-appointment-booking" element={<ServiceDetails />} />
+                <Route path="/services/eyelash-booking-app" element={<ServiceDetails />} />
+                <Route path="/eyelash-appointment-booking-app" element={<ServiceDetails />} />
+                <Route path="/eyelash-appointment-booking" element={<ServiceDetails />} />
+                <Route path="/eyelash-booking-app" element={<ServiceDetails />} />
+                <Route path="/services/language-learning-app" element={<ServiceDetails />} />
+                <Route path="/services/language-learning-app-development" element={<ServiceDetails />} />
+                <Route path="/language-learning-app" element={<ServiceDetails />} />
+                <Route path="/language-learning-app-development" element={<ServiceDetails />} />
+                <Route path="/services/barber-app-development" element={<ServiceDetails />} />
+                <Route path="/services/barber-booking-app" element={<ServiceDetails />} />
+                <Route path="/barber-app-development" element={<ServiceDetails />} />
+                <Route path="/barber-booking-app" element={<ServiceDetails />} />
                 <Route path="/technologies" element={<Technologies />} />
                 <Route path="/portfolio" element={<Portfolio />} />
                 <Route path="/portfolio/:slug" element={<PortfolioDetails />} />

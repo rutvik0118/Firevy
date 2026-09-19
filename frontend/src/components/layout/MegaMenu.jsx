@@ -416,7 +416,10 @@ export const MegaMenu = ({ type, onClose }) => {
                       'Amazon Like App Development',
                       'Visitor Management System',
                       'Warehouse Management System',
-                      'Clover App Development'
+                      'Clover App Development',
+                      'Product Finder App Development',
+                      'Eyelash Appointment Booking App',
+                      'Language Learning App'
                     ].map((item, idx) => (
                       <li key={idx}>
                         <Link

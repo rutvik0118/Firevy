@@ -92,24 +92,24 @@ export const SapphireFaqWithStatBadges = ({
         <div className="bg-white text-slate-900 rounded-[28px] p-6 sm:p-10 shadow-2xl border border-white/30 max-w-6xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             
-            {/* LEFT COLUMN: 8 Sapphire Stat Badges + 3 Review Badges */}
-            <div className="lg:col-span-6 space-y-4">
-              <div className="grid grid-cols-2 gap-3">
+            {/* LEFT COLUMN: 8 Sapphire Stat Badges (1:1 Match to Screenshot) */}
+            <div className="lg:col-span-6 space-y-4 lg:sticky lg:top-24 self-start">
+              <div className="grid grid-cols-2 gap-3 sm:gap-3.5">
                 {statBadges.map((badge, idx) => (
                   <div
                     key={idx}
-                    className="bg-[#F0F8FD] hover:bg-[#E4F2FA] transition-colors rounded-xl p-3 flex items-center space-x-3 border border-blue-100/70 shadow-2xs text-left"
+                    className="bg-[#F0F7FD] hover:bg-[#E2F0FB] transition-colors rounded-2xl p-3 sm:p-3.5 flex items-center space-x-3 text-left border border-[#D0E5F5]/60 shadow-2xs"
                   >
                     <img
                       src={badge.img}
                       alt={badge.label}
-                      className="w-10 h-10 sm:w-11 sm:h-11 rounded-lg object-cover shrink-0 shadow-2xs border border-white"
+                      className="w-11 h-11 sm:w-13 sm:h-13 rounded-xl object-cover shrink-0 shadow-2xs border border-white"
                     />
                     <div>
-                      <div className="text-sm sm:text-base font-[950] text-[#005F96] leading-none font-sans">
+                      <div className="text-base sm:text-lg font-[950] text-[#005F96] leading-none font-sans">
                         {badge.number}
                       </div>
-                      <div className="text-[10px] sm:text-[11px] font-extrabold text-slate-700 leading-tight font-sans mt-0.5">
+                      <div className="text-xs sm:text-[13px] font-bold text-slate-700 leading-snug font-sans mt-1">
                         {badge.label}
                       </div>
                     </div>
@@ -117,46 +117,13 @@ export const SapphireFaqWithStatBadges = ({
                 ))}
               </div>
 
-              {/* 3 Review Badges: Google, Clutch, GoodFirms (Exact 1:1 Match to Screenshot) */}
-              <div className="grid grid-cols-3 gap-2 pt-2 text-center border-t border-slate-100">
-                {/* Google Review Badge */}
-                <div className="flex flex-col items-center justify-center p-2 rounded-lg bg-slate-50 border border-slate-200/80">
-                  <div className="flex items-center space-x-1 mb-1">
-                    <span className="text-xs font-black text-slate-800">Google</span>
-                  </div>
-                  <div className="flex text-amber-400 text-[10px] space-x-0.5 mb-0.5">
-                    ★★★★★
-                  </div>
-                  <span className="text-[8px] font-extrabold text-slate-500 uppercase tracking-tighter">
-                    150+ REVIEWS
-                  </span>
-                </div>
-
-                {/* Clutch Review Badge */}
-                <div className="flex flex-col items-center justify-center p-2 rounded-lg bg-slate-50 border border-slate-200/80">
-                  <div className="flex items-center space-x-1 mb-1">
-                    <span className="text-xs font-black text-slate-900">Clutch</span>
-                  </div>
-                  <div className="flex text-amber-400 text-[10px] space-x-0.5 mb-0.5">
-                    ★★★★★
-                  </div>
-                  <span className="text-[8px] font-extrabold text-slate-500 uppercase tracking-tighter">
-                    320+ REVIEWS
-                  </span>
-                </div>
-
-                {/* GoodFirms Review Badge */}
-                <div className="flex flex-col items-center justify-center p-2 rounded-lg bg-slate-50 border border-slate-200/80">
-                  <div className="flex items-center space-x-1 mb-1">
-                    <span className="text-xs font-black text-blue-700">GoodFirms</span>
-                  </div>
-                  <div className="flex text-amber-400 text-[10px] space-x-0.5 mb-0.5">
-                    ★★★★★
-                  </div>
-                  <span className="text-[8px] font-extrabold text-slate-500 uppercase tracking-tighter">
-                    200+ REVIEWS
-                  </span>
-                </div>
+              {/* Ratings Badges Row (Google 5-Star, Clutch 5-Star, GoodFirms 5-Star 1:1 Match) */}
+              <div className="pt-4 pb-1 flex items-center justify-center">
+                <img
+                  src="/images/faq_ratings_badges_row.png"
+                  alt="Google 5-Star, Clutch 5-Star, GoodFirms 5-Star Ratings"
+                  className="w-full max-w-[420px] sm:max-w-[460px] h-auto object-contain transition-transform duration-300 hover:scale-[1.02]"
+                />
               </div>
             </div>
 

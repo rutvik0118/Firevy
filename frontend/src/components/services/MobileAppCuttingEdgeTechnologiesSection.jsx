@@ -12,7 +12,7 @@ import {
   ArrowRight
 } from 'lucide-react';
 
-export const MobileAppCuttingEdgeTechnologiesSection = () => {
+export const MobileAppCuttingEdgeTechnologiesSection = ({ companyName = 'Firevy.co' }) => {
   const [carouselIndex, setCarouselIndex] = useState(0);
 
   const technologies = [
@@ -118,7 +118,7 @@ export const MobileAppCuttingEdgeTechnologiesSection = () => {
       {/* Centered Heading */}
       <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-14 px-4">
         <h2 className="text-[26px] sm:text-[32px] lg:text-[36px] font-[800] text-[#0B0F19] tracking-tight leading-[1.25]">
-          Cutting Edge Technologies Sapphire Use For Mobile App<br className="hidden sm:inline" /> Development
+          Cutting Edge Technologies {companyName} Use For Mobile App<br className="hidden sm:inline" /> Development
         </h2>
       </div>
 
